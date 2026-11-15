@@ -1,1 +1,3333 @@
-{"id":"ipho-2014-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2014_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2014_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2014-t3-statement/document.pdf","pages":[],"sourcePages":[1,2],"initialPage":1,"shared":false,"text":"            Theoretical competition. Tuesday, 15 July 2014                      1/2 \n \nProblem3. Simplest model of gas discharge (10 points) \nAn electric current flowing through a gas is called a gas discharge. There are many types of gas \ndischarges including glow discharge in lighting lamps, arc discharge inwelding and the well known spark \ndischarge that occurs between the clouds and the earth in the form of lightning. \nPart А. Non-self-sustained gas discharge (4.8points) \nIn this part of the problem the so-called non-self-sustained gas discharge is studied. To maintain it a \npermanent operationan external ionizer is needed, which creates 𝑍ext  pairs of singly ionized ions and free \nelectrons per unit volume and per unit time uniformly in the volume. \nWhen an external ionizer is switched on, the number of electrons and ions starts to grow. Unlimited \nincrease in the number densities of electrons and ions in the gas is prevented by the recombination process in \nwhich a free electron recombineswith an ion to form a neutral atom. The number of recombining \nevents𝑍rec that occurs in the gas per unit volume and per unit time is given by \n𝑍rec = 𝑟𝑛𝑒𝑛𝑖, \nwhere 𝑟 is a constant called the recombination coefficient, and 𝑛𝑒,𝑛𝑖denotethe electron and ion number \ndensities, respectively. \nSuppose that at time 𝑡= 0the external ionizer is switched on and the initial number densities of \nelectrons and ions in the gas are both equal to zero. Then, the electron number density 𝑛𝑒(𝑡) depends on \ntime𝑡as follows: \n𝑛𝑒 𝑡 = 𝑛0 + 𝑎tanh 𝑏𝑡, \nwhere 𝑛0, 𝑎 and 𝑏are some constants, and tanh 𝑥stands for the hyperbolic tangent. \nA1 Find𝑛0, 𝑎, 𝑏and express them in terms of𝑍ext and𝑟.(1.8points) \nAssume that there are two external ionizers available. When the first one is switched on, the electron \nnumber density in the gas reaches its equilibrium value of be 𝑛𝑒1 = 12 ∙1010cm−3. When the second \nexternal ionizer is switched on, the electron number density reaches its equilibrium value of 𝑛𝑒2 = 16 ∙\n1010cm−3. \nA2 Find the electron number density𝑛𝑒at equilibriumwhen both external ionizers are switched on \nsimultaneously.(0.6 points) \nAttention!In what follows it is assumed that the external ionizer is switched on for quite long period \nof time such that all processes have become stationary and do not depend on time. Completely neglect the \nelectric field due the charge carriers. \nAssume that the gas fills in the tube between the two parallel conductive plates of area 𝑆 separated by \nthe distance 𝐿≪ 𝑆 from each other. The voltage 𝑈 is applied across the plates to create an electric field \nbetween them. Assume that the number densities of both kinds of charge carriers remain almost constant \nalong the tube. \nAssumethat both the electrons (denoted by thesubscript𝑒) and the ions (denoted by the subscript𝑖) \nacquire the same ordered speed𝑣due to the electric field strength𝐸 found as \n𝑣= 𝛽𝐸, \nwhere 𝑏isa constant called charge mobility. \nA3 Express the electric current𝐼in the tube in terms of 𝑈, 𝛽, 𝐿, 𝑆, 𝑍ext , 𝑟 and 𝑒whichis the elementary \ncharge.(1.7 points) \nA4 Find the resistivity𝜌gas of the gas at sufficiently small values of the voltage applied and express it in \nterms of𝛽, 𝐿, 𝑍ext , 𝑟 and 𝑒.(0.7 points) \n \n \n \n\n            Theoretical competition. Tuesday, 15 July 2014                      2/2 \n \nPartB. Self-sustained gas discharge (5.2 points) \nIn this part of the problemthe ignition of the self-sustained gas discharge is consideredto show how \nthe electric current in the tube becomes self-maintaining. \nAttention!In the sequel assume that the external ionizer continues to operatewith the same 𝑍ext rate, \nneglect the electric field due to the charge carriers such that the electric field is uniform along the tube, and \nthe recombination can be completely ignored. \nFor the self-sustained gas discharge there are two \nimportant processes not considered above. The first process \nisasecondary electron emission, and the second one isa \nformation of electron avalanche. The secondary electron \nemission occurs when ions hit on the negative electrode, \ncalled a cathode, and the electrons are knocked out of it to \nmove towards the positive electrode, called an anode. The \nratio of the number of the knocked electrons𝑁 𝑒per unit \ntimeto the number of ions𝑁𝑖  hitting the cathode per unit \ntime is called the coefficient of the secondary electron \nemission,𝛾= 𝑁 𝑒/𝑁𝑖 .The \nformation \nof \nthe \nelectron \navalanche isexplained as follows. The electric field accelerates free electrons which acquire enough kinetic \nenergy to ionize the atoms in the gas by hitting them. As a result the number of free electrons moving \ntowards the anodesignificantly increases. This process is described by the Townsend coefficient 𝛼, which \ncharacterizes an increase in the number of electrons𝑑𝑁𝑒due to moving 𝑁𝑒 electrons that have passed the \ndistance𝑑𝑙, i.e. \n𝑑𝑁𝑒\n𝑑𝑙= 𝛼𝑁𝑒. \nThe total current𝐼 in any cross section of the gas tube consists of the ion 𝐼𝑖(𝑥)and the electron𝐼𝑒(𝑥) \ncurrents which, in the steady state, depend on the coordinate 𝑥, shown in the figureabove. The electron \ncurrent 𝐼𝑒(𝑥) varies along the 𝑥-axis according to the formula \n𝐼𝑒 𝑥 = 𝐶1𝑒𝐴1𝑥+ 𝐴2, \nwhere 𝐴1, 𝐴2, 𝐶1 are some constants. \nB1 \nFind𝐴1, 𝐴2and express them in terms of𝑍ext , 𝛼, 𝑒, 𝐿, 𝑆.(2 points) \nThe ion current 𝐼𝑖(𝑥) varies along the 𝑥-axis according to the formula  \n𝐼𝑖 𝑥 = 𝐶2 + 𝐵1𝑒𝐵2𝑥, \nwhere 𝐵1, 𝐵2, 𝐶2 are some constants. \nB2 \nFind𝐵1, 𝐵2and express them in terms of𝑍ext , 𝛼, 𝑒, 𝐿, 𝑆, 𝐶1.(0.6 points) \nB3 \nWrite down the condition for 𝐼𝑖(𝑥)at𝑥= 𝐿.(0.3 points) \nB4 \nWrite down the condition for𝐼𝑖(𝑥)and𝐼𝑒(𝑥)at 𝑥= 0.(0.6 points) \nB5 \nFind the total current𝐼and express it in terms of𝑍ext , 𝛼, 𝛾, 𝑒, 𝐿, 𝑆.Assume that it remains finite  \n(1.2 points) \nLet the Townsend coefficient 𝛼be constant. When the length of the tube turns out greater than some \ncritical value, i.e. 𝐿> 𝐿cr, the external ionizer can be turned off and the discharge becomes self-sustained. \nB6 \nFind𝐿𝑐𝑟and express it in terms of𝑍ext , 𝛼, 𝛾, 𝑒, 𝐿, 𝑆.(0.5 points) \n \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2014-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"             Theoretical competition. Tuesday, 15 July 2014                      1/3 \n \nProblem 3. Simplest model of gas discharge \nSolution \nPart А. Non-self-sustained gas discharge \nA1.Let us derive an equation describing the change of the electron number density with time. It is \ndetermined by the two processes; the generation of ion pairs by external ionizer and the recombination of \nelectrons with ions. At ionization process electrons and ions are generated in pairs, and at recombination \nprocessthey disappear in pairs as well.Thus, their concentrations are alwaysequal at any given time, i.e. \n \n \n𝑛 𝑡 = 𝑛𝑒 𝑡 = 𝑛𝑖(𝑡) \n \n \n \n \n \n \n(A1.1). \nThen the equation describing the numberdensityevolution of electrons and ions in time can be written \nas \n \n \n𝑑𝑛(𝑡)\n𝑑𝑡\n= 𝑍𝑒𝑥𝑡−𝑟𝑛(𝑡)2 \n \n \n \n \n \n \n(A1.2). \nIt is easy to show that at𝑡→0 the function tanh 𝑏𝑡→0, therefore, by virtue of the initial condition \n𝑛 0 = 0,one finds \n \n \n𝑛0 = 0 \n \n \n \n \n \n \n \n \n(A1.3). \nSubstituting 𝑛𝑒 𝑡 = 𝑎tanh 𝑏𝑡 in (A1.2) and separating it in the independent functions (hyperbolic, \nor 1 and𝑒𝑥), one gets \n \n \n𝑎=  \n𝑍𝑒𝑥𝑡\n𝑟 \n \n \n \n \n \n \n \n \n(A1.4), \n \n \n𝑏=  𝑟𝑍𝑒𝑥𝑡 \n \n \n \n \n \n \n \n \n(A1.5). \nA2.According to equation (A1.4) the number density of electronsat steady-state is expressed in terms of the \nexternal ionizer activity as \n \n \n𝑛𝑒1 =  \n𝑍𝑒𝑥𝑡1\n𝑟  \n \n \n \n \n \n \n \n(A2.1), \n \n \n𝑛𝑒2 =  \n𝑍𝑒𝑥𝑡2\n𝑟  \n \n \n \n \n \n \n \n(A2.2), \n \n \n𝑛𝑒=  \n𝑍𝑒𝑥𝑡1+𝑍𝑒𝑥𝑡2\n𝑟\n \n \n \n \n \n \n \n \n(A2.3). \nThus,the following analogue of the Pythagorean theorem is obtained as \n \n \n𝑛𝑒=  𝑛𝑒1\n2 + 𝑛𝑒2\n2 = 20.0 ∙1010cm−3. \n \n \n \n \n(A2.4) \nA3.In the steady state, the balance equations of electrons and ions in the tube volume take the form \n \n \n \n𝑍𝑒𝑥𝑡𝑆𝐿= 𝑟𝑛𝑒𝑛𝑖𝑆𝐿+\n𝐼𝑒\n𝑒 \n \n \n \n \n \n \n(A3.1), \n \n \n \n𝑍𝑒𝑥𝑡𝑆𝐿= 𝑟𝑛𝑒𝑛𝑖𝑆𝐿+\n𝐼𝑖\n𝑒 \n \n \n \n \n \n \n(A3.2). \nIt follows from equations (A3.1) and (A3.2) that the ion and electron currents are equal, i.e. \n \n \n \n𝐼𝑒= 𝐼𝑖  \n \n \n \n \n \n \n \n \n(A3.3). \nAt the same time the total current in each tube section is the sum of the electron and ion currents \n \n \n \n𝐼= 𝐼𝑒+ 𝐼𝑖 \n \n \n \n \n \n \n \n \n(A3.4). \nBy definition ofthe current density the following relations hold \n \n \n \n𝐼𝑒=\n𝐼\n2 = 𝑒𝑛𝑒𝑣𝑆= 𝑒𝛽𝑛𝑒𝐸𝑆  \n \n \n \n \n \n(A3.5), \n \n \n \n𝐼𝑖=\n𝐼\n2 = 𝑒𝑛𝑖𝑣𝑆= 𝑒𝛽𝑛𝑖𝐸𝑆 \n \n \n \n \n \n \n(A3.6). \nSubstituting (A3.5) and (A3.6) into (A3.1) and (A3.2), the following quadratic equation for the \ncurrent is derived \n \n \n \n𝑍𝑒𝑥𝑡𝑆𝐿= 𝑟𝑆𝐿 \n𝐼\n2𝑒𝛽𝐸𝑆 \n2\n+\n𝐼\n2𝑒  \n \n \n \n \n \n(A3.7). \nThe electric field strength in the gas is equal to \n \n \n \n𝐸=\n𝑈\n𝐿  \n \n \n \n \n \n \n \n \n(A3.8). \nand solution to the quadratic equation (A3.7) takes the form \n \n \n \n𝐼=\n𝑒𝛽2𝑈2𝑆\n𝑟𝐿3\n −1 ±  1 +\n4𝑟𝑍𝑒𝑥𝑡𝐿4\n𝛽2𝑈2   \n \n \n \n \n \n(A3.9). \n\n             Theoretical competition. Tuesday, 15 July 2014                      2/3 \n \nIt is obvious that only positive root does make sense, i.e. \n \n \n \n𝐼=\n𝑒𝛽2𝑈2𝑆\n𝑟𝐿3\n  1 +\n4𝑟𝑍𝑒𝑥𝑡𝐿4\n𝛽2𝑈2\n−1  \n \n \n \n \n \n(A3.10). \nA4.At low voltages (A3.10) simplifies and gives the following expression \n \n \n \n𝐼= 2𝑈𝑒𝛽 \n𝑍𝑒𝑥𝑡\n𝑟\n𝑆\n𝐿. \n \n \n \n \n \n \n \n(A4.1) \nwhich is actually the Ohm law. \nUsing the well-known relation \n \n \n \n𝑅=\n𝑈\n𝐼  \n \n \n \n \n \n \n \n \n(A4.2) \ntogether with \n \n \n \n𝑅= 𝜌\n𝐿\n𝑆 \n \n \n \n \n \n \n \n \n(A4.3), \none gets \n \n \n \n𝜌=\n1\n2𝑒𝛽 \n𝑟\n𝑍𝑒𝑥𝑡  \n \n \n \n \n \n \n \n(A4.4). \nPart B. Self-sustained gas discharge \nB1.Consider a gas layer located between 𝑥and𝑥+ 𝑑𝑥.The rate of change in the electron number inside the \nlayer due to the electric current is givenfor a small time interval 𝑑𝑡 by \n \n \n𝑑𝑁𝑒\n𝐼=\n𝐼𝑒 𝑥+𝑑𝑥 −𝐼𝑒(𝑥)\n𝑒\n𝑑𝑡=\n1\n𝑒\n𝑑𝐼𝑒 𝑥 \n𝑑𝑥\n𝑑𝑥𝑑𝑡. \n \n \n \n \n(B1.1). \nThis change is due to the effect of the external ionization and the electron avalanche formation. \nThe external ionizer creates the following number of electrons in the volume𝑆𝑑𝑥 \n \n \n𝑑𝑁𝑒\n𝑒𝑥𝑡= 𝑍𝑒𝑥𝑡𝑆𝑑𝑥𝑑𝑡  \n \n \n \n \n \n \n(B1.2). \nwhereas the electron avalanche produces the number of electrons found as \n \n \n𝑑𝑁𝑒\n𝑎= 𝛼𝑁𝑒𝑑𝑙= 𝑛𝑒𝑆𝑑𝑥𝑣𝑑𝑡= 𝛼\n𝐼𝑒(𝑥)\n𝑒\n𝑑𝑥𝑑𝑡  \n \n \n \n(B1.3). \nThe balance equationfor the number of electrons is written as \n \n \n𝑑𝑁𝑒\n𝐼= 𝑑𝑁𝑒\n𝑒𝑥𝑡+ 𝑑𝑁𝑒\n𝑎  \n \n \n \n \n \n \n(B1.4), \nwhichresults in the following differential equation for the electron current \n \n \n𝑑𝐼𝑒(𝑥)\n𝑑𝑥\n= 𝑒𝑍𝑒𝑥𝑡𝑆+ 𝛼𝐼𝑒(𝑥) \n \n \n \n \n \n \n(B1.5). \nOn substituting𝐼𝑒 𝑥 = 𝐶1𝑒𝐴1𝑥+ 𝐴2,one derives \n \n \n𝐴1 = 𝛼 \n \n \n \n \n \n \n \n \n(B1.6), \n \n \n𝐴2 = −\n𝑒𝑍𝑒𝑥𝑡𝑆\n𝛼\n  \n \n \n \n \n \n \n \n(B1.7). \nB2.Given the fact that the ions flow in the direction opposite to the electron motion,the balance equationfor \nthe number of ionsis written as \n \n \n𝑑𝑁𝑖\n𝐼= 𝑑𝑁𝑖\n𝑒𝑥𝑡+ 𝑑𝑁𝑖\n𝑎  \n \n \n \n \n \n \n(B2.1), \nwhere \n \n \n𝑑𝑁𝑖\n𝐼=\n𝐼𝑖 𝑥 −𝐼𝑖(𝑥+𝑑𝑥)\n𝑒\n𝑑𝑡= −\n1\n𝑒\n𝑑𝐼𝑖 𝑥 \n𝑑𝑥\n𝑑𝑥𝑑𝑡 \n \n \n \n \n(B2.2). \n \n \n𝑑𝑁𝑖\n𝑒𝑥𝑡= 𝑍𝑒𝑥𝑡𝑆𝑑𝑥𝑑𝑡  \n \n \n \n \n \n \n(B2.3). \n \n \n𝑑𝑁𝑖\n𝑎= 𝛼\n𝐼𝑒(𝑥)\n𝑒\n𝑑𝑥𝑑𝑡  \n \n \n \n \n \n \n(B2.4). \nHence, the following differential equation for the ion current is obtained \n \n \n−\n𝑑𝐼𝑖(𝑥)\n𝑑𝑥\n= 𝑒𝑍𝑒𝑥𝑡𝑆+ 𝛼𝐼𝑒(𝑥).  \n \n \n \n \n \n(B2.5) \nOnsubstituting the previouslyfound electron current together with the ion current,𝐼𝑖 𝑥 = 𝐶2 +\n𝐵1𝑒𝐵2𝑥,yields \n \n \n𝐵1 = −𝐶1 \n \n \n \n \n \n \n \n \n(B2.6), \n \n \n𝐵2 = 𝛼 \n \n \n \n \n \n \n \n \n(B2.7). \nB3.Sincetheionsstartstomovefrom the anode located at𝑥= 𝐿, the following condition holds \n \n \n \n𝐼𝑖 𝐿 = 0 \n \n \n \n \n \n \n \n \n(B3.1). \nB4.By definition of secondary electron emission coefficient the following condition should be imposed  \n \n \n𝐼𝑒 0 = 𝛾𝐼𝑖 0  \n \n \n \n \n \n \n \n(B4.1). \n\n             Theoretical competition. Tuesday, 15 July 2014                      3/3 \n \nB5.Total current in each tube section is the sum of the electron and ion currents: \n𝐼= 𝐼𝑒+ 𝐼𝑖= 𝐶2 −\n𝑒𝑍𝑒𝑥𝑡𝑆\n𝛼\n \n \n \n \n \n \n \n(B5.1). \nAftersubstituting the boundary conditions (B3.1) and (B4.1): \n𝐶2 −𝐶1𝑒𝛼𝐿= 0 \n \n \n \n \n \n \n \n(B5.2) \nand \n𝐶1 −\n𝑒𝑍𝑒𝑥𝑡𝑆\n𝛼\n= 𝛾(𝐶2 −𝐶1) \n \n \n \n \n \n \n(B5.3). \nSolving (B5.2) and (B5.3) one can obtain: \n𝐶2 =\n𝑒𝑍𝑒𝑥𝑡𝑆\n𝛼\n \n1\n𝑒−𝛼𝐿(1+𝛾)−𝛾  \n \n \n \n \n \n \n(B5.4). \nSo the total current: \n𝐼=\n𝑒𝑍𝑒𝑥𝑡𝑆\n𝛼\n \n1\n𝑒−𝛼𝐿(1+𝛾)−𝛾−1   \n \n \n \n \n \n(B5.5). \nB6.When the discharge gap length is increased, the denominator in formula (B5.1) decreases. At that \nmoment, when it turns zero, the electric current in the gas becomes self-sustaining and external ionizer can \nbe turned off. Thus, \n𝐿𝑐𝑟=\n1\n𝛼ln  1 +\n1\n𝛾  \n \n \n \n \n \n \n \n(B6.1). \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2014-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2014_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2014_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2014-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Problem3. Simplest model of gas discharge (10 points)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An electric current flowing through a gas is called a gas discharge. There are many types of gas discharges including glow discharge in lighting lamps, arc discharge inwelding and the well known spark discharge that occurs between the clouds and the earth in the form of lightning."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Part A. Non-self-sustained gas discharge (4.8points)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this part of the problem the so-called non-self-sustained gas discharge is studied. To maintain it a permanent operationan external ionizer is needed, which creates "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_{\\mathrm{ext}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " pairs of singly ionized ions and free electrons per unit volume and per unit time uniformly in the volume."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When an external ionizer is switched on, the number of electrons and ions starts to grow. Unlimited increase in the number densities of electrons and ions in the gas is prevented by the recombination process in which a free electron recombineswith an ion to form a neutral atom. The number of recombining events"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_{\\mathrm{rec}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that occurs in the gas per unit volume and per unit time is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[Z_{\\mathrm{rec}} = r n_e n_i,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a constant called the recombination coefficient, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_e, n_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "denotethe electron and ion number densities, respectively."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Suppose that at time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t=0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "the external ionizer is switched on and the initial number densities of electrons and ions in the gas are both equal to zero. Then, the electron number density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_e(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " depends on time"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "as follows: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[n_e(t) = n_0 + a \\tanh bt,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "are some constants, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tanh x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "stands for the hyperbolic tangent."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Find"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "and express them in terms of"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_{\\mathrm{ext}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.8points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Assume that there are two external ionizers available. When the first one is switched on, the electron number density in the gas reaches its equilibrium value of be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_{e1} = 12 \\cdot 10^{10}\\,\\mathrm{cm}^{-3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". When the second external ionizer is switched on, the electron number density reaches its equilibrium value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_{e2} = 16 \\cdot 10^{10}\\,\\mathrm{cm}^{-3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Find the electron number density"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at equilibriumwhen both external ionizers are switched on simultaneously."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.6 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Attention!"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "In what follows it is assumed that the external ionizer is switched on for quite long period of time such that all processes have become stationary and do not depend on time. Completely neglect the electric field due the charge carriers."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Assume that the gas fills in the tube between the two parallel conductive plates of area "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " separated by the distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L \\ll \\sqrt{S}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from each other. The voltage "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is applied across the plates to create an electric field between them. Assume that the number densities of both kinds of charge carriers remain almost constant along the tube."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Assumethat both the electrons (denoted by the subscript"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and the ions (denoted by the subscript"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") acquire the same ordered speed"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "due to the electric field strength"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " found as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v = \\beta E,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "isa constant called charge mobility."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Express the electric current"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "in the tube in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_{\\mathrm{ext}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " whichis the elementary charge."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.7 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Find the resistivity"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_{\\mathrm{gas}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the gas at sufficiently small values of the voltage applied and express it in terms of"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_{\\mathrm{ext}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.7 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "PartB. Self-sustained gas discharge (5.2 points)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this part of the problemthe ignition of the self-sustained gas discharge is consideredto show how the electric current in the tube becomes self-maintaining."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Attention!"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "In the sequel assume that the external ionizer continues to operatewith the same "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(Z_{\\mathrm{ext}}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " rate, neglect the electric field due to the charge carriers such that the electric field is uniform along the tube, and the recombination can be completely ignored."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "For the self-sustained gas discharge there are two important processes not considered above. The first process isasecondary electron emission, and the second one isa formation of electron avalanche. The secondary electron emission occurs when ions hit on the negative electrode, called a cathode, and the electrons are knocked out of it to move towards the positive electrode, called an anode. The ratio of the number of the knocked electrons"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\dot{N}_e\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "per unit timeto the number of ions"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\dot{N}_i\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " hitting the cathode per unit time is called the coefficient of the secondary electron emission,"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\gamma = \\dot{N}_e/\\dot{N}_i\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ".The formation of the electron avalanche isexplained as follows. The electric field accelerates free electrons which acquire enough kinetic energy to ionize the atoms in the gas by hitting them. As a result the number of free electrons moving towards the anodesignificantly increases. This process is described by the Townsend coefficient "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\alpha\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ", which characterizes an increase in the number of electrons"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(dN_e\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "due to moving "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(N_e\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " electrons that have passed the distance"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(dl\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ", i.e."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2014-t3/c8e00641750a77fefedf.png",
+                "alt": "ipho-2014-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dN_e}{dl} = \\alpha N_e.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The total current"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in any cross section of the gas tube consists of the ion "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_i(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "and the electron"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_e(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " currents which, in the steady state, depend on the coordinate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", shown in the figureabove. The electron current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_e(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " varies along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis according to the formula "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I_e(x) = C_1 e^{A_1 x} + A_2,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are some constants."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Find"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "and express them in terms of"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_{\\mathrm{ext}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(2 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The ion current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_i(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " varies along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis according to the formula "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I_i(x) = C_2 + B_1 e^{B_2 x},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are some constants."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Find"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "and express them in terms of"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_{\\mathrm{ext}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.6 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Write down the condition for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_i(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "at"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Write down the condition for"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_i(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "and"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_e(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.6 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Find the total current"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "and express it in terms of"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_{\\mathrm{ext}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ".Assume that it remains finite "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.2 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let the Townsend coefficient "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "be constant. When the length of the tube turns out greater than some critical value, i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L > L_{\\mathrm{cr}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the external ionizer can be turned off and the discharge becomes self-sustained."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Find"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_{cr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and express it in terms of"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_{\\mathrm{ext}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "\n\nProblem3. Simplest model of gas discharge (10 points)\n\n\n\n\nAn electric current flowing through a gas is called a gas discharge. There are many types of gas discharges including glow discharge in lighting lamps, arc discharge inwelding and the well known spark discharge that occurs between the clouds and the earth in the form of lightning.\n\n\n\n\nPart A. Non-self-sustained gas discharge (4.8points)\n\n\n\n\nIn this part of the problem the so-called non-self-sustained gas discharge is studied. To maintain it a permanent operationan external ionizer is needed, which creates \n\\(Z_{\\mathrm{ext}}\\)\n pairs of singly ionized ions and free electrons per unit volume and per unit time uniformly in the volume.\n\n\nWhen an external ionizer is switched on, the number of electrons and ions starts to grow. Unlimited increase in the number densities of electrons and ions in the gas is prevented by the recombination process in which a free electron recombineswith an ion to form a neutral atom. The number of recombining events\n\\(Z_{\\mathrm{rec}}\\)\n that occurs in the gas per unit volume and per unit time is given by \n\\[Z_{\\mathrm{rec}} = r n_e n_i,\\]\n where \n\\(r\\)\n is a constant called the recombination coefficient, and \n\\(n_e, n_i\\)\ndenotethe electron and ion number densities, respectively.\n\n\nSuppose that at time \n\\(t=0\\)\nthe external ionizer is switched on and the initial number densities of electrons and ions in the gas are both equal to zero. Then, the electron number density \n\\(n_e(t)\\)\n depends on time\n\\(t\\)\nas follows: \n\\[n_e(t) = n_0 + a \\tanh bt,\\]\n where \n\\(n_0\\)\n, \n\\(a\\)\n and \n\\(b\\)\nare some constants, and \n\\(\\tanh x\\)\nstands for the hyperbolic tangent.\n\n\nA1\n Find\n\\(n_0\\)\n, \n\\(a\\)\n, \n\\(b\\)\nand express them in terms of\n\\(Z_{\\mathrm{ext}}\\)\n and\n\\(r\\)\n.\n(1.8points)\n\n\nAssume that there are two external ionizers available. When the first one is switched on, the electron number density in the gas reaches its equilibrium value of be \n\\(n_{e1} = 12 \\cdot 10^{10}\\,\\mathrm{cm}^{-3}\\)\n. When the second external ionizer is switched on, the electron number density reaches its equilibrium value of \n\\(n_{e2} = 16 \\cdot 10^{10}\\,\\mathrm{cm}^{-3}\\)\n.\n\n\nA2\n Find the electron number density\n\\(n_e\\)\n at equilibriumwhen both external ionizers are switched on simultaneously.\n(0.6 points)\n\n\nAttention!\nIn what follows it is assumed that the external ionizer is switched on for quite long period of time such that all processes have become stationary and do not depend on time. Completely neglect the electric field due the charge carriers.\n\n\nAssume that the gas fills in the tube between the two parallel conductive plates of area \n\\(S\\)\n separated by the distance \n\\(L \\ll \\sqrt{S}\\)\n from each other. The voltage \n\\(U\\)\n is applied across the plates to create an electric field between them. Assume that the number densities of both kinds of charge carriers remain almost constant along the tube.\n\n\nAssumethat both the electrons (denoted by the subscript\n\\(e\\)\n) and the ions (denoted by the subscript\n\\(i\\)\n) acquire the same ordered speed\n\\(v\\)\ndue to the electric field strength\n\\(E\\)\n found as \n\\[v = \\beta E,\\]\n where \n\\(b\\)\nisa constant called charge mobility.\n\n\nA3\n Express the electric current\n\\(I\\)\nin the tube in terms of \n\\(U\\)\n, \n\\(\\beta\\)\n, \n\\(L\\)\n, \n\\(S\\)\n, \n\\(Z_{\\mathrm{ext}}\\)\n, \n\\(r\\)\n and \n\\(e\\)\n whichis the elementary charge.\n(1.7 points)\n\n\nA4\n Find the resistivity\n\\(\\rho_{\\mathrm{gas}}\\)\n of the gas at sufficiently small values of the voltage applied and express it in terms of\n\\(\\beta\\)\n, \n\\(L\\)\n, \n\\(Z_{\\mathrm{ext}}\\)\n, \n\\(r\\)\n and \n\\(e\\)\n.\n(0.7 points)\n\n\n\n\nPartB. Self-sustained gas discharge (5.2 points)\n\n\n\n\nIn this part of the problemthe ignition of the self-sustained gas discharge is consideredto show how the electric current in the tube becomes self-maintaining.\n\n\nAttention!\nIn the sequel assume that the external ionizer continues to operatewith the same \n\\(Z_{\\mathrm{ext}}\\)\n rate, neglect the electric field due to the charge carriers such that the electric field is uniform along the tube, and the recombination can be completely ignored.\n\n\n\n\nFor the self-sustained gas discharge there are two important processes not considered above. The first process isasecondary electron emission, and the second one isa formation of electron avalanche. The secondary electron emission occurs when ions hit on the negative electrode, called a cathode, and the electrons are knocked out of it to move towards the positive electrode, called an anode. The ratio of the number of the knocked electrons\n\\(\\dot{N}_e\\)\nper unit timeto the number of ions\n\\(\\dot{N}_i\\)\n hitting the cathode per unit time is called the coefficient of the secondary electron emission,\n\\(\\gamma = \\dot{N}_e/\\dot{N}_i\\)\n.The formation of the electron avalanche isexplained as follows. The electric field accelerates free electrons which acquire enough kinetic energy to ionize the atoms in the gas by hitting them. As a result the number of free electrons moving towards the anodesignificantly increases. This process is described by the Townsend coefficient \n\\(\\alpha\\)\n, which characterizes an increase in the number of electrons\n\\(dN_e\\)\ndue to moving \n\\(N_e\\)\n electrons that have passed the distance\n\\(dl\\)\n, i.e.\n\n\n\n\n\n\n\n\n\n\n\n\\[\\frac{dN_e}{dl} = \\alpha N_e.\\]\n\n\nThe total current\n\\(I\\)\n in any cross section of the gas tube consists of the ion \n\\(I_i(x)\\)\nand the electron\n\\(I_e(x)\\)\n currents which, in the steady state, depend on the coordinate \n\\(x\\)\n, shown in the figureabove. The electron current \n\\(I_e(x)\\)\n varies along the \n\\(x\\)\n-axis according to the formula \n\\[I_e(x) = C_1 e^{A_1 x} + A_2,\\]\n where \n\\(A_1\\)\n, \n\\(A_2\\)\n, \n\\(C_1\\)\n are some constants.\n\n\nB1\n Find\n\\(A_1\\)\n, \n\\(A_2\\)\nand express them in terms of\n\\(Z_{\\mathrm{ext}}\\)\n, \n\\(\\alpha\\)\n, \n\\(e\\)\n, \n\\(L\\)\n, \n\\(S\\)\n.\n(2 points)\n\n\nThe ion current \n\\(I_i(x)\\)\n varies along the \n\\(x\\)\n-axis according to the formula \n\\[I_i(x) = C_2 + B_1 e^{B_2 x},\\]\n where \n\\(B_1\\)\n, \n\\(B_2\\)\n, \n\\(C_2\\)\n are some constants.\n\n\nB2\n Find\n\\(B_1\\)\n, \n\\(B_2\\)\nand express them in terms of\n\\(Z_{\\mathrm{ext}}\\)\n, \n\\(\\alpha\\)\n, \n\\(e\\)\n, \n\\(L\\)\n, \n\\(S\\)\n, \n\\(C_1\\)\n.\n(0.6 points)\n\n\nB3\n Write down the condition for \n\\(I_i(x)\\)\nat\n\\(x = L\\)\n.\n(0.3 points)\n\n\nB4\n Write down the condition for\n\\(I_i(x)\\)\nand\n\\(I_e(x)\\)\nat \n\\(x = 0\\)\n.\n(0.6 points)\n\n\nB5\n Find the total current\n\\(I\\)\nand express it in terms of\n\\(Z_{\\mathrm{ext}}\\)\n, \n\\(\\alpha\\)\n, \n\\(\\gamma\\)\n, \n\\(e\\)\n, \n\\(L\\)\n, \n\\(S\\)\n.Assume that it remains finite \n(1.2 points)\n\n\nLet the Townsend coefficient \n\\(\\alpha\\)\nbe constant. When the length of the tube turns out greater than some critical value, i.e. \n\\(L > L_{\\mathrm{cr}}\\)\n, the external ionizer can be turned off and the discharge becomes self-sustained.\n\n\nB6\n Find\n\\(L_{cr}\\)\n and express it in terms of\n\\(Z_{\\mathrm{ext}}\\)\n, \n\\(\\alpha\\)\n, \n\\(\\gamma\\)\n, \n\\(e\\)\n, \n\\(L\\)\n, \n\\(S\\)\n.\n(0.5 points)\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2014-t3/c8e00641750a77fefedf.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2014-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Problem 3. Simplest model of gas discharge"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Non-self-sustained gas discharge"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A1."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Let us derive an equation describing the change of the electron number density with time. It is determined by the two processes; the generation of ion pairs by external ionizer and the recombination of electrons with ions. At ionization process electrons and ions are generated in pairs, and at recombination processthey disappear in pairs as well.Thus, their concentrations are alwaysequal at any given time, i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nn(t) = n_e(t) = n_i(t).\n\\tag{A1.1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Then the equation describing the numberdensityevolution of electrons and ions in time can be written as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{dn(t)}{dt} = Z_{ext} - rn(t)^2.\n\\tag{A1.2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " It is easy to show that at"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t \\to 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the function "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tanh bt \\to 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", therefore, by virtue of the initial condition "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n(0) = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ",one finds "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nn_0 = 0.\n\\tag{A1.3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Substituting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_e(t) = a\\tanh bt\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in (A1.2) and separating it in the independent functions (hyperbolic, or 1 and"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e^{x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "), one gets "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\na = \\sqrt{\\frac{Z_{ext}}{r}},\n\\tag{A1.4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nb = \\sqrt{rZ_{ext}}.\n\\tag{A1.5}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A2."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "According to equation (A1.4) the number density of electronsat steady-state is expressed in terms of the external ionizer activity as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nn_{e1} = \\sqrt{\\frac{Z_{ext\\,1}}{r}},\n\\tag{A2.1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nn_{e2} = \\sqrt{\\frac{Z_{ext\\,2}}{r}},\n\\tag{A2.2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nn_e = \\sqrt{\\frac{Z_{ext\\,1}+Z_{ext\\,2}}{r}}.\n\\tag{A2.3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus,the following analogue of the Pythagorean theorem is obtained as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nn_e = \\sqrt{n_{e1}^2 + n_{e2}^2} = 20.0\\cdot 10^{10}\\,\\mathrm{cm^{-3}}.\n\\tag{A2.4}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A3."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "In the steady state, the balance equations of electrons and ions in the tube volume take the form "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nZ_{ext} SL = r n_e n_i SL + \\frac{I_e}{e},\n\\tag{A3.1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nZ_{ext} SL = r n_e n_i SL + \\frac{I_i}{e}.\n\\tag{A3.2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " It follows from equations (A3.1) and (A3.2) that the ion and electron currents are equal, i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI_e = I_i.\n\\tag{A3.3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " At the same time the total current in each tube section is the sum of the electron and ion currents "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI = I_e + I_i.\n\\tag{A3.4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " By definition ofthe current density the following relations hold "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI_e = \\frac{I}{2} = e n_e v S = e\\beta n_e E S,\n\\tag{A3.5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI_i = \\frac{I}{2} = e n_i v S = e\\beta n_i E S.\n\\tag{A3.6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Substituting (A3.5) and (A3.6) into (A3.1) and (A3.2), the following quadratic equation for the current is derived "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nZ_{ext} SL = rSL\\left(\\frac{I}{2e\\beta ES}\\right)^2 + \\frac{I}{2e}.\n\\tag{A3.7}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The electric field strength in the gas is equal to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE = \\frac{U}{L}.\n\\tag{A3.8}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and solution to the quadratic equation (A3.7) takes the form "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI = \\frac{e\\beta^2 U^2 S}{rL^3}\\left(-1 \\pm \\sqrt{1 + \\frac{4rZ_{ext} L^4}{\\beta^2 U^2}}\\right).\n\\tag{A3.9}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " It is obvious that only positive root does make sense, i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI = \\frac{e\\beta^2 U^2 S}{rL^3}\\left(\\sqrt{1 + \\frac{4rZ_{ext} L^4}{\\beta^2 U^2}} - 1\\right).\n\\tag{A3.10}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A4."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "At low voltages (A3.10) simplifies and gives the following expression "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI = 2Ue\\beta\\sqrt{\\frac{Z_{ext}}{r}}\\,\\frac{S}{L}.\n\\tag{A4.1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which is actually the Ohm law."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using the well-known relation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nR = \\frac{U}{I}\n\\tag{A4.2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " together with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nR = \\rho\\,\\frac{L}{S},\n\\tag{A4.3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " one gets "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\rho = \\frac{1}{2e\\beta}\\sqrt{\\frac{r}{Z_{ext}}}.\n\\tag{A4.4}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Self-sustained gas discharge"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B1."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Consider a gas layer located between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "and"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x + dx\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ".The rate of change in the electron number inside the layer due to the electric current is givenfor a small time interval "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dt\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndN_e^{I} = \\frac{I_e(x+dx)-I_e(x)}{e}\\,dt = \\frac{1}{e}\\frac{dI_e(x)}{dx}\\,dx\\,dt.\n\\tag{B1.1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This change is due to the effect of the external ionization and the electron avalanche formation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The external ionizer creates the following number of electrons in the volume"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Sdx\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndN_e^{ext} = Z_{ext} S\\,dx\\,dt.\n\\tag{B1.2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " whereas the electron avalanche produces the number of electrons found as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndN_e^{a} = \\alpha N_e\\,dl = n_e S\\,dx\\,v\\,dt = \\alpha\\frac{I_e(x)}{e}\\,dx\\,dt.\n\\tag{B1.3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The balance equationfor the number of electrons is written as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndN_e^{I} = dN_e^{ext} + dN_e^{a},\n\\tag{B1.4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " whichresults in the following differential equation for the electron current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{dI_e(x)}{dx} = eZ_{ext} S + \\alpha I_e(x).\n\\tag{B1.5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " On substituting"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_e(x) = C_1 e^{A_1 x} + A_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ",one derives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nA_1 = \\alpha,\n\\tag{B1.6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nA_2 = -\\frac{eZ_{ext} S}{\\alpha}.\n\\tag{B1.7}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B2."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Given the fact that the ions flow in the direction opposite to the electron motion,the balance equationfor the number of ionsis written as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndN_i^{I} = dN_i^{ext} + dN_i^{a},\n\\tag{B2.1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndN_i^{I} = \\frac{I_i(x)-I_i(x+dx)}{e}\\,dt = -\\frac{1}{e}\\frac{dI_i(x)}{dx}\\,dx\\,dt.\n\\tag{B2.2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndN_i^{ext} = Z_{ext} S\\,dx\\,dt.\n\\tag{B2.3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndN_i^{a} = \\alpha\\frac{I_e(x)}{e}\\,dx\\,dt.\n\\tag{B2.4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Hence, the following differential equation for the ion current is obtained "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n-\\frac{dI_i(x)}{dx} = eZ_{ext} S + \\alpha I_e(x).\n\\tag{B2.5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Onsubstituting the previouslyfound electron current together with the ion current,"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_i(x) = C_2 + B_1 e^{B_2 x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ",yields "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nB_1 = -C_1,\n\\tag{B2.6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nB_2 = \\alpha.\n\\tag{B2.7}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B3."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sincetheionsstartstomovefrom the anode located at"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the following condition holds "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI_i(L) = 0.\n\\tag{B3.1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B4."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "By definition of secondary electron emission coefficient the following condition should be imposed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI_e(0) = \\gamma I_i(0).\n\\tag{B4.1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B5."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Total current in each tube section is the sum of the electron and ion currents: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI = I_e + I_i = C_2 - \\frac{eZ_{ext} S}{\\alpha}.\n\\tag{B5.1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Aftersubstituting the boundary conditions (B3.1) and (B4.1): "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nC_2 - C_1 e^{\\alpha L} = 0\n\\tag{B5.2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nC_1 - \\frac{eZ_{ext} S}{\\alpha} = \\gamma(C_2 - C_1).\n\\tag{B5.3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Solving (B5.2) and (B5.3) one can obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nC_2 = \\frac{eZ_{ext} S}{\\alpha}\\left(\\frac{1}{e^{-\\alpha L}(1+\\gamma)-\\gamma}\\right).\n\\tag{B5.4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " So the total current: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI = \\frac{eZ_{ext} S}{\\alpha}\\left(\\frac{1}{e^{-\\alpha L}(1+\\gamma)-\\gamma} - 1\\right).\n\\tag{B5.5}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B6."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "When the discharge gap length is increased, the denominator in formula (B5.1) decreases. At that moment, when it turns zero, the electric current in the gas becomes self-sustaining and external ionizer can be turned off. Thus, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nL_{cr} = \\frac{1}{\\alpha}\\ln\\left(1 + \\frac{1}{\\gamma}\\right).\n\\tag{B6.1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Problem 3. Simplest model of gas discharge\n\n\nSolution\n\n\nPart A. Non-self-sustained gas discharge\n\n\nA1.\nLet us derive an equation describing the change of the electron number density with time. It is determined by the two processes; the generation of ion pairs by external ionizer and the recombination of electrons with ions. At ionization process electrons and ions are generated in pairs, and at recombination processthey disappear in pairs as well.Thus, their concentrations are alwaysequal at any given time, i.e. \n\\[\\begin{equation}\nn(t) = n_e(t) = n_i(t).\n\\tag{A1.1}\n\\end{equation}\\]\n Then the equation describing the numberdensityevolution of electrons and ions in time can be written as \n\\[\\begin{equation}\n\\frac{dn(t)}{dt} = Z_{ext} - rn(t)^2.\n\\tag{A1.2}\n\\end{equation}\\]\n It is easy to show that at\n\\(t \\to 0\\)\n the function \n\\(\\tanh bt \\to 0\\)\n, therefore, by virtue of the initial condition \n\\(n(0) = 0\\)\n,one finds \n\\[\\begin{equation}\nn_0 = 0.\n\\tag{A1.3}\n\\end{equation}\\]\n Substituting \n\\(n_e(t) = a\\tanh bt\\)\n in (A1.2) and separating it in the independent functions (hyperbolic, or 1 and\n\\(e^{x}\\)\n), one gets \n\\[\\begin{equation}\na = \\sqrt{\\frac{Z_{ext}}{r}},\n\\tag{A1.4}\n\\end{equation}\\]\n \n\\[\\begin{equation}\nb = \\sqrt{rZ_{ext}}.\n\\tag{A1.5}\n\\end{equation}\\]\n\n\nA2.\nAccording to equation (A1.4) the number density of electronsat steady-state is expressed in terms of the external ionizer activity as \n\\[\\begin{equation}\nn_{e1} = \\sqrt{\\frac{Z_{ext\\,1}}{r}},\n\\tag{A2.1}\n\\end{equation}\\]\n \n\\[\\begin{equation}\nn_{e2} = \\sqrt{\\frac{Z_{ext\\,2}}{r}},\n\\tag{A2.2}\n\\end{equation}\\]\n \n\\[\\begin{equation}\nn_e = \\sqrt{\\frac{Z_{ext\\,1}+Z_{ext\\,2}}{r}}.\n\\tag{A2.3}\n\\end{equation}\\]\n Thus,the following analogue of the Pythagorean theorem is obtained as \n\\[\\begin{equation}\nn_e = \\sqrt{n_{e1}^2 + n_{e2}^2} = 20.0\\cdot 10^{10}\\,\\mathrm{cm^{-3}}.\n\\tag{A2.4}\n\\end{equation}\\]\n\n\nA3.\nIn the steady state, the balance equations of electrons and ions in the tube volume take the form \n\\[\\begin{equation}\nZ_{ext} SL = r n_e n_i SL + \\frac{I_e}{e},\n\\tag{A3.1}\n\\end{equation}\\]\n \n\\[\\begin{equation}\nZ_{ext} SL = r n_e n_i SL + \\frac{I_i}{e}.\n\\tag{A3.2}\n\\end{equation}\\]\n It follows from equations (A3.1) and (A3.2) that the ion and electron currents are equal, i.e. \n\\[\\begin{equation}\nI_e = I_i.\n\\tag{A3.3}\n\\end{equation}\\]\n At the same time the total current in each tube section is the sum of the electron and ion currents \n\\[\\begin{equation}\nI = I_e + I_i.\n\\tag{A3.4}\n\\end{equation}\\]\n By definition ofthe current density the following relations hold \n\\[\\begin{equation}\nI_e = \\frac{I}{2} = e n_e v S = e\\beta n_e E S,\n\\tag{A3.5}\n\\end{equation}\\]\n \n\\[\\begin{equation}\nI_i = \\frac{I}{2} = e n_i v S = e\\beta n_i E S.\n\\tag{A3.6}\n\\end{equation}\\]\n Substituting (A3.5) and (A3.6) into (A3.1) and (A3.2), the following quadratic equation for the current is derived \n\\[\\begin{equation}\nZ_{ext} SL = rSL\\left(\\frac{I}{2e\\beta ES}\\right)^2 + \\frac{I}{2e}.\n\\tag{A3.7}\n\\end{equation}\\]\n The electric field strength in the gas is equal to \n\\[\\begin{equation}\nE = \\frac{U}{L}.\n\\tag{A3.8}\n\\end{equation}\\]\n and solution to the quadratic equation (A3.7) takes the form \n\\[\\begin{equation}\nI = \\frac{e\\beta^2 U^2 S}{rL^3}\\left(-1 \\pm \\sqrt{1 + \\frac{4rZ_{ext} L^4}{\\beta^2 U^2}}\\right).\n\\tag{A3.9}\n\\end{equation}\\]\n It is obvious that only positive root does make sense, i.e. \n\\[\\begin{equation}\nI = \\frac{e\\beta^2 U^2 S}{rL^3}\\left(\\sqrt{1 + \\frac{4rZ_{ext} L^4}{\\beta^2 U^2}} - 1\\right).\n\\tag{A3.10}\n\\end{equation}\\]\n\n\nA4.\nAt low voltages (A3.10) simplifies and gives the following expression \n\\[\\begin{equation}\nI = 2Ue\\beta\\sqrt{\\frac{Z_{ext}}{r}}\\,\\frac{S}{L}.\n\\tag{A4.1}\n\\end{equation}\\]\n which is actually the Ohm law.\n\n\nUsing the well-known relation \n\\[\\begin{equation}\nR = \\frac{U}{I}\n\\tag{A4.2}\n\\end{equation}\\]\n together with \n\\[\\begin{equation}\nR = \\rho\\,\\frac{L}{S},\n\\tag{A4.3}\n\\end{equation}\\]\n one gets \n\\[\\begin{equation}\n\\rho = \\frac{1}{2e\\beta}\\sqrt{\\frac{r}{Z_{ext}}}.\n\\tag{A4.4}\n\\end{equation}\\]\n\n\nPart B. Self-sustained gas discharge\n\n\nB1.\nConsider a gas layer located between \n\\(x\\)\nand\n\\(x + dx\\)\n.The rate of change in the electron number inside the layer due to the electric current is givenfor a small time interval \n\\(dt\\)\n by \n\\[\\begin{equation}\ndN_e^{I} = \\frac{I_e(x+dx)-I_e(x)}{e}\\,dt = \\frac{1}{e}\\frac{dI_e(x)}{dx}\\,dx\\,dt.\n\\tag{B1.1}\n\\end{equation}\\]\n This change is due to the effect of the external ionization and the electron avalanche formation.\n\n\nThe external ionizer creates the following number of electrons in the volume\n\\(Sdx\\)\n \n\\[\\begin{equation}\ndN_e^{ext} = Z_{ext} S\\,dx\\,dt.\n\\tag{B1.2}\n\\end{equation}\\]\n whereas the electron avalanche produces the number of electrons found as \n\\[\\begin{equation}\ndN_e^{a} = \\alpha N_e\\,dl = n_e S\\,dx\\,v\\,dt = \\alpha\\frac{I_e(x)}{e}\\,dx\\,dt.\n\\tag{B1.3}\n\\end{equation}\\]\n The balance equationfor the number of electrons is written as \n\\[\\begin{equation}\ndN_e^{I} = dN_e^{ext} + dN_e^{a},\n\\tag{B1.4}\n\\end{equation}\\]\n whichresults in the following differential equation for the electron current \n\\[\\begin{equation}\n\\frac{dI_e(x)}{dx} = eZ_{ext} S + \\alpha I_e(x).\n\\tag{B1.5}\n\\end{equation}\\]\n On substituting\n\\(I_e(x) = C_1 e^{A_1 x} + A_2\\)\n,one derives \n\\[\\begin{equation}\nA_1 = \\alpha,\n\\tag{B1.6}\n\\end{equation}\\]\n \n\\[\\begin{equation}\nA_2 = -\\frac{eZ_{ext} S}{\\alpha}.\n\\tag{B1.7}\n\\end{equation}\\]\n\n\nB2.\nGiven the fact that the ions flow in the direction opposite to the electron motion,the balance equationfor the number of ionsis written as \n\\[\\begin{equation}\ndN_i^{I} = dN_i^{ext} + dN_i^{a},\n\\tag{B2.1}\n\\end{equation}\\]\n where \n\\[\\begin{equation}\ndN_i^{I} = \\frac{I_i(x)-I_i(x+dx)}{e}\\,dt = -\\frac{1}{e}\\frac{dI_i(x)}{dx}\\,dx\\,dt.\n\\tag{B2.2}\n\\end{equation}\\]\n \n\\[\\begin{equation}\ndN_i^{ext} = Z_{ext} S\\,dx\\,dt.\n\\tag{B2.3}\n\\end{equation}\\]\n \n\\[\\begin{equation}\ndN_i^{a} = \\alpha\\frac{I_e(x)}{e}\\,dx\\,dt.\n\\tag{B2.4}\n\\end{equation}\\]\n Hence, the following differential equation for the ion current is obtained \n\\[\\begin{equation}\n-\\frac{dI_i(x)}{dx} = eZ_{ext} S + \\alpha I_e(x).\n\\tag{B2.5}\n\\end{equation}\\]\n Onsubstituting the previouslyfound electron current together with the ion current,\n\\(I_i(x) = C_2 + B_1 e^{B_2 x}\\)\n,yields \n\\[\\begin{equation}\nB_1 = -C_1,\n\\tag{B2.6}\n\\end{equation}\\]\n \n\\[\\begin{equation}\nB_2 = \\alpha.\n\\tag{B2.7}\n\\end{equation}\\]\n\n\nB3.\nSincetheionsstartstomovefrom the anode located at\n\\(x = L\\)\n, the following condition holds \n\\[\\begin{equation}\nI_i(L) = 0.\n\\tag{B3.1}\n\\end{equation}\\]\n\n\nB4.\nBy definition of secondary electron emission coefficient the following condition should be imposed \n\\[\\begin{equation}\nI_e(0) = \\gamma I_i(0).\n\\tag{B4.1}\n\\end{equation}\\]\n\n\nB5.\nTotal current in each tube section is the sum of the electron and ion currents: \n\\[\\begin{equation}\nI = I_e + I_i = C_2 - \\frac{eZ_{ext} S}{\\alpha}.\n\\tag{B5.1}\n\\end{equation}\\]\n Aftersubstituting the boundary conditions (B3.1) and (B4.1): \n\\[\\begin{equation}\nC_2 - C_1 e^{\\alpha L} = 0\n\\tag{B5.2}\n\\end{equation}\\]\n and \n\\[\\begin{equation}\nC_1 - \\frac{eZ_{ext} S}{\\alpha} = \\gamma(C_2 - C_1).\n\\tag{B5.3}\n\\end{equation}\\]\n Solving (B5.2) and (B5.3) one can obtain: \n\\[\\begin{equation}\nC_2 = \\frac{eZ_{ext} S}{\\alpha}\\left(\\frac{1}{e^{-\\alpha L}(1+\\gamma)-\\gamma}\\right).\n\\tag{B5.4}\n\\end{equation}\\]\n So the total current: \n\\[\\begin{equation}\nI = \\frac{eZ_{ext} S}{\\alpha}\\left(\\frac{1}{e^{-\\alpha L}(1+\\gamma)-\\gamma} - 1\\right).\n\\tag{B5.5}\n\\end{equation}\\]\n\n\nB6.\nWhen the discharge gap length is increased, the denominator in formula (B5.1) decreases. At that moment, when it turns zero, the electric current in the gas becomes self-sustaining and external ionizer can be turned off. Thus, \n\\[\\begin{equation}\nL_{cr} = \\frac{1}{\\alpha}\\ln\\left(1 + \\frac{1}{\\gamma}\\right).\n\\tag{B6.1}\n\\end{equation}\\]\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

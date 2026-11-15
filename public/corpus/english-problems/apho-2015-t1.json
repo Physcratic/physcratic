@@ -1,1 +1,4742 @@
-{"id":"apho-2015-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2015_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2015_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2015-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":" \n 1 / 4 \n \nQuestion 1  \n \nThe fractional quantum Hall effect (FQHE) was discovered by D. C. Tsui and H. \nStormer at Bell Labs in 1981.  In the experiment electrons were confined in two \ndimensions on the GaAs side by the interface potential of a GaAs/AlGaAs \nheterojunction fabricated by A. C. Gossard (here we neglect the thickness of the \ntwo-dimensional electron layer).  A strong uniform magnetic field 𝐵𝐵 was applied \nperpendicular to the two-dimensional electron system. As illustrated in Figure 1, when \na current 𝐼𝐼 was passing through the sample, the voltage 𝑉𝑉H across the current path \nexhibited an unexpected quantized plateau (corresponding to a Hall resistance 𝑅𝑅H =\n3ℎ/𝑒𝑒2) at sufficiently low temperatures. The appearance of the plateau would imply \nthe presence of fractionally charged quasiparticles in the system, which we analyze \nbelow. For simplicity, we neglect the scattering of the electrons by random potential, \nas well as the electron spin. \n \n(a) In a classical model, two-dimensional electrons behave like charged billiard balls \non a table. In the GaAs/AlGaAs sample, however, the mass of the electrons is \nreduced to an effective mass 𝑚𝑚∗ due to their interaction with ions. \n(i) (2 point) Write down the equation of motion of an electron in perpendicular \nelectric field 𝐸𝐸ሬ⃗= −𝐸𝐸𝑦𝑦𝑦𝑦ො and magnetic field 𝐵𝐵ሬ⃗= 𝐵𝐵𝑧𝑧̂. \n(ii) (1 point) Determine the velocity 𝑣𝑣s of the electrons in the stationary case. \n(iii) (1 point) Which direction is the velocity pointing at? \n \n(b) (2 points) The Hall resistance is defined as 𝑅𝑅H = 𝑉𝑉H/𝐼𝐼. In the classical model, \nfind 𝑅𝑅H as a function of the number of the electrons 𝑁𝑁 and the magnetic flux \n𝜙𝜙= 𝐵𝐵𝐵𝐵= 𝐵𝐵𝐵𝐵𝐵𝐵, where 𝐴𝐴 is the area of the sample, and 𝑊𝑊 and 𝐿𝐿 the \neffective width and length of the sample, respectively. \n \n(c) (2 points) We know that electrons move in circular orbits in the magnetic field. In \nthe quantum mechanical picture, the impinging magnetic field 𝐵𝐵 could be \nviewed as creating tiny whirlpools, so-called vortices, in the sea of \nelectrons—one whirlpool for each flux quantum ℎ/𝑒𝑒 of the magnetic field, \nwhere ℎ is the Planck's constant and 𝑒𝑒 the elementary charge of an electron. \nFor the case of 𝑅𝑅H = 3ℎ/𝑒𝑒2, which was discovered by Tsui and Stormer, derive \nthe ratio of the number of the electrons 𝑁𝑁 to the number of the flux quanta 𝑁𝑁𝜙𝜙, \n\n \n 2 / 4 \n \nknown as the filling factor ν. \n \n \n \nFigure 1: (a) Sketch of the experimental setup for the observation of the FQHE. As indicated, a \ncurrent 𝐼𝐼 is passing through a two-dimensional electron system in the longitudinal direction with \nan effective length 𝐿𝐿. The Hall voltage 𝑉𝑉H is measured in the transverse direction with an effective \nwidth 𝑊𝑊. In addition, a uniform magnetic field 𝐵𝐵 is applied perpendicular to the plane. The \ndirection of the current is given for illustrative purpose only, which may not be correct. (b) Hall \nresistance 𝑅𝑅H versus 𝐵𝐵 at four different temperatures (curves shifted for clarity) in the original \npublication on the FQHE. The features at 𝑅𝑅H = 3ℎ/𝑒𝑒2 are due to the FQHE. \n \n \n(d) (2 points) It turns out that binding an integer number of vortices (𝑛𝑛> 1) with \neach electron generates a bigger surrounding whirlpool, hence pushes away all \nother electrons. Therefore, the system can considerably reduce its electrostatic \n\n \n 3 / 4 \n \nCoulomb energy at the corresponding filling factor. Determine the scaling \nexponent 𝛼𝛼 of the amount of energy gain for each electron Δ𝑈𝑈(𝐵𝐵) ∝𝐵𝐵α. \n \n(e) (2 points) As the magnetic field deviates from the exact filling ν = 1/𝑛𝑛 to a \nhigher field, more vortices (whirlpools in the electron sea) are being created. \nThey are not bound to electrons and behave like particles carrying effectively \npositive charges, hence known as quasiholes, compared to the negatively charged \nelectrons. The amount of charge deficit in any of these quasiholes amounts to \nexactly 1/𝑛𝑛 of an electronic charge. An analogous argument can be made for \nmagnetic fields slightly below ν and the creation of quasielectrons of negative \ncharge 𝑒𝑒∗= −𝑒𝑒/𝑛𝑛. At the quantized Hall plateau of 𝑅𝑅H = 3ℎ/𝑒𝑒2, calculate the \namount of change in 𝐵𝐵 that corresponds to the introduction of exactly one \nfractionally charged quasihole. (When their density is low, the quasiparticles are \nconfined by the random potential generated by impurities and imperfections, \nhence the Hall resistance remains quantized for a finite range of 𝐵𝐵.) \n \n(f) In Tsui et al. experiment, \nthe magnetic field corresponding to the center of the quantized Hall plateau \n𝑅𝑅H = 3ℎ/𝑒𝑒2, 𝐵𝐵1/3 = 15 Tesla, \nthe effective mass of an electron in GaAs, 𝑚𝑚∗= 0.067 𝑚𝑚𝑒𝑒, \nthe electron mass, 𝑚𝑚𝑒𝑒= 9.1 × 10−31 kg, \nCoulomb's constant, 𝑘𝑘= 9.0 × 109 N ∙m2/C2, \nthe vacuum permittivity, ε0 = 1/4π𝑘𝑘= 8.854 × 10−12 F/m, \nthe relative permittivity (the ratio of the permittivity of a substance to the vacuum \npermittivity) of GaAs, ε𝑟𝑟= 13, \nthe elementary charge, 𝑒𝑒= 1.6 × 10−19 C, \nPlanck's constant, ℎ= 6.626 × 10−34 J ∙s, and \nBoltzmann's constant, 𝑘𝑘B = 1.38 × 10−23 J/K. \nIn our analysis, we have neglected several factors, whose corresponding energy               \nscales, compared to Δ𝑈𝑈(𝐵𝐵) discussed in (d), are either too large to excite or too \nsmall to be relevant. \n(i) (1 point) Calculate the thermal energy 𝐸𝐸th at temperature 𝑇𝑇= 1.0 K. \n(ii) (2 point) The electrons spatially confined in the whirlpools (or vortices) have \na large kinetic energy. Using the uncertainty relation, estimate the order of \nmagnitude of the kinetic energy. (This amount would also be the additional \nenergy penalty if we put two electrons in the same whirlpool, instead of in \ntwo separate whirlpools, due to Pauli exclusion principle.)  \n \n(g) There are also a series of plateaus at 𝑅𝑅H = ℎ/𝑖𝑖𝑖𝑖2, where 𝑖𝑖= 1, 2, 3, … in Tsui et \nal. experiment, as shown in Figure 1(b). These plateaus, known as the integer \nquantum Hall effect (IQHE), were reported previously by K. von Klitzing in 1980. \nRepeating (c)-(f) for the integer plateaus, one realizes that the novelty of the \nFQHE lies critically in the existence of fractionally charged quasiparticles. R. \n\n \n 4 / 4 \n \nde-Picciotto et al. and L. Saminadayar et al. independently reported the \nobservation of fractional charges at the ν = 1/3  filling in 1997. In the \nexperiments, they measured the noise in the charge current across a narrow \nconstriction, the so-called quantum point contact (QPC). In a simple statistical \nmodel, carriers with discrete charge 𝑒𝑒∗ tunnel across the QPC and generate \ncharge current IB (on top of a trivial background). The number of the carriers 𝑛𝑛τ \narriving at the electrode during a sufficiently small time interval τ obeys Poisson \nprobability distribution with parameter λ \n \nP(𝑛𝑛τ = 𝑘𝑘) = λ𝑘𝑘e−λ\n𝑘𝑘!  \n \nwhere 𝑘𝑘! is the factorial of 𝑘𝑘. You may need the following summation \neλ = ෍λ𝑘𝑘\n𝑘𝑘!\n∞\nk=0\n \n \n(i) (2 point) Determine the charge current 𝐼𝐼B, which measures total charge per \nunit of time, in terms of λ and τ. \n(ii) (2 points) Current noise is defined as the charge fluctuations per unit of time. \nOne can analyze the noise by measuring the mean square deviation of the \nnumber of current-carrying charges. Determine the current noise 𝑆𝑆𝐼𝐼 due to \nthe discreteness of the current-carrying charges in terms of λ and τ. \n(iii) (1 point) Calculate the noise-to-current ratio 𝑆𝑆𝐼𝐼/𝐼𝐼B, which was verified by R. \nde-Picciotto et al. and L. Saminadayar et al. in 1997. (One year later, Tsui \nand Stormer shared the Nobel Prize in Physics with R. B. Laughlin, who \nproposed an elegant ansatz for the ground state wave function at ν = 1/3.) \n  \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2015-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8,9],"initialPage":1,"shared":false,"text":"Question 1\nThe fractional quantum Hall effect (FQHE) was discovered by D. C. Tsui and\nH. Stormer at Bell Labs in 1981. In the experiment electrons were conﬁned in\ntwo dimensions on the GaAs side by the interface potential of a GaAs/AlGaAs\nheterojunction fabricated by A. C. Gossard (here we neglect the thickness of the\ntwo-dimensional electron layer). A strong uniform magnetic ﬁeld B was applied\nperpendicular to the two-dimensional electron system. As illustrated in Figure\n1, when a current I was passing through the sample, the voltage VH across the\ncurrent path exhibited an unexpected quantized plateau (corresponding to a Hall\nresistance RH = 3h/e2) at sufﬁciently low temperatures. The appearance of the\nplateau would imply the presence of fractionally charged quasiparticles in the\nsystem, which we analyze below. For simplicity, we neglect the scattering of the\nelectrons by random potential, as well as the electron spin.\n(a) In a classical model, two-dimensional electrons behave like charged billiard\nballs on a table. In the GaAs/AlGaAs sample, however, the mass of the\nelectrons is reduced to an effective m∗due to their interaction with ions.\n(i) (2 point) Write down the equation of motion of an electron in perpen-\ndicular electric ﬁeld ⃗E = −Eyˆy and magnetic ﬁeld ⃗B = Bˆz.\nSolution: An electron with charge −e (e > 0) experiences the Lorentz force\ndue to the perpendicular magnetic ﬁeld and the electric force\nm∗d⃗v\ndt = −e\n\u0010\n⃗v × ⃗B + ⃗E\n\u0011\nwhere ⃗v is the velocity of the electron.\nGrading: 1 point for writing down the electric force and the magnetic force\ncorrect, and 1 point for writing down the effective mass and the acceleration\ncorrect.\n(ii) (1 point) Determine the velocity vs of the electrons in the stationary\n1\n\ncase.\nSolution: In the stationary regime, the acceleration vanishes. Hence\n⃗vs × ⃗B + ⃗E = 0\nThe velocity can be expressed as\n⃗vs =\n⃗E × ⃗B\nB2\nwhose magnitude is simply vs = E/B.\nGrading: Either writing down the correct magnitude of the velocity or its\nvector form is sufﬁcient for the 1 point.\n(iii) (1 point) Which direction is the velocity pointing at?\nSolution: The velocity ⃗vs should be perpendicular to both the magnetic ﬁeld\nand the electric ﬁeld. If ⃗B is in the z direction and ⃗E in the −y direction, as\ngiven by the problem, ⃗vs is in the −x direction, generating a charge current\nin the x direction.\nGrading: 1 point for the correct direction.\n(b) (2 points) The Hall resistance is deﬁned as RH = VH/I. In the classical\nmodel, ﬁnd RH as a function of the number of the electrons N and the\nmagnetic ﬂux φ = BA = BWL, where A is the area of the sample, and W\n2\n\nand L the effective width and length of the sample, respectively.\nSolution: The Hall voltage VH = EyW. The current in the −x direction is\nI = ∆Q\n∆t = Ne\nL/vs\n= Ne\nL\nEy\nB = eN\nφ VH\nTherefore,\nRH = VH\nI\n= 1\ne\nφ\nN\nGrading: 1 point for the ﬁnal expression and 1 point for writing down the\nexpression for relating I with the number of electrons and their stationary\nvelocity (hence the electric ﬁeld and the magnetic ﬁeld).\n(c) (2 points) We know that electrons move in circular orbitss in the magnetic\nﬁeld. In the quantum mechanical picture, the impinging magnetic ﬁeld B\ncould be viewed as creating tiny whirlpools, so-called vortices, in the sea of\nelectrons–one whirlpool for each ﬂux quantum h/e of the magnetic ﬁeld,\nwhere h is the Planck’s constant and e the elementary charge of an electron.\nFor the case of RH = 3h/e2, which was discovered by Tsui and Stormer,\nderive the ratio of the number of the electrons N to the number of the ﬂux\nquanta Nφ, known as the ﬁlling factor ν.\nSolution: The Hall resistance can be rewritten as\nRH = 1\ne\nφ\nN = h\ne2\nφ/(h/e)\nN\n= h\ne2\nNφ\nN\nAt the plateau, ν = N/Nφ = 1/3.\nGrading: 1 point for the ﬁnal expression.\n(d) (2 points) It turns out that binding an integer number of vortices (n > 1)\nwith each electron generates a bigger surrounding whirlpool, hence pushes\naway all other electrons. Therefore, the system can considerably reduce\n3\n\nits electrostatic Coulomb energy at the corresponding ﬁlling factor. Deter-\nmine the scaling exponent α of the amount of energy gain for each electron\n∆U(B) ∝Bα.\nSolution: The average distance between electrons can be written as fl0,\nwhere\nl0 =\ns\nLW\nN\n=\ns\nφ\nNB =\ns\nh\nνeB\nand f is a dimensionless constant that is determined by the electron distri-\nbution (or, quantum mechanically, wave function). Binding multiple vortices\nwith an electron effectively reduces the probability of other electrons getting\nclose. Therefore, the electrons optimize their distribution in such a way that\ntheir average distance increases from f1l0 to f2l0 (f1 < f2). One expect the\nCoulomb energy gain per electron is proportional to\ne2\n4πε0εr(f1l0) −\ne2\n4πε0εr(f2l0) =\n 1\nf1\n−1\nf2\n!\ne2\n4πε0εrl0\nTherefore, ∆(B) ∝1/l0 ∝\n√\nB, or α = 1/2.\nGrading: The key point here is to realize that the energy scale is determined\nby the Coulomb interaction, which scales inversely with a length scale (e.g.,\nthe magnetic length) that characterizes the mean electron distance (and its\nchange). 1 point for the ﬁnal expression and 1 point for writing down the\ncorrect relation between the length scale and the magnetic ﬁeld.\n(e) (2 points) As the magnetic ﬁeld deviates from the exact ﬁlling ν = 1/m\nto a higher ﬁeld, more vortices (whirlpools in the electron sea) are being\ncreated. They are not bound to electrons and behave like particles carry-\ning effectively positive charges, hence known as quasiholes, compared to\nthe negatively charged electrons. The amount of charge deﬁcit in any of\nthese quasiholes amounts to exactly 1/m of an electronic charge. An anal-\nogous argument can be made for magnetic ﬁelds slightly below ν and the\ncreation of quasielectrons of negative charge e∗= −e/m. Assume the sam-\nple has an area A. At the quantized Hall plateau of RH = 3h/e2, calculate\nthe amount of change in B that corresponds to the introduction of exactly\none fractionally charged quasihole. (When their density is low, the quasi-\nparticles are conﬁned by the random potential generated by impurities and\n4\n\nimperfections, hence the Hall resistance remains quantized for a ﬁnite range\nof B.)\nSolution: The ﬂux change due to the change of the magnetic ﬁeld is\n∆φ = ∆B(WL) = h\ne\nTherefore, ∆B = h/(eWL).\nGrading: 2 points for the ﬁnal expression.\n(f) In Tsui et al. experiment,\n• the magnetic ﬁeld corresponding to the center of the quantized Hall\nplateau RH = 3h/e2, B1/3 = 15 Tesla,\n• the effective mass of an electron in GaAs, m∗= 0.067me,\n• the electron mass, me = 9.1 × 10−31 kg,\n• Coulomb’s constant, k = 9.0 × 109 N·m2/C2,\n• the vacuum permittivity, ε0 = 1/(4πk) = 8.854 × 10−12 F/m,\n• the relative permittivity (the ratio of the permittivity of a substance to\nthe vacuum permittivity) of GaAs, εr = 13,\n• the elementary charge, e = 1.6 × 10−19 C,\n• Planck’s constant, h = 6.626 × 10−34 J·s, and\n• Boltzmann’s constant, kB = 1.38 × 10−23 J/K.\nIn our analysis, we have neglected several factors, whose corresponding\nenergy scales, compared to ∆(B) discussed in (d), are either too large to\nexcite or too small to be relevant.\n(i) (1 point) Calculate the thermal energy Eth at temperature T = 1.0 K.\nSolution: The thermal energy\nEth = kBT = 1.38 × 10−23 × 1.0 = 1.38 × 10−23 J\nGrading: 1 point for the numerical result.\n5\n\n(ii) (2 point) The electrons spatially conﬁned in the whirlpools (or vor-\ntices) have a large kinetic energy. Using the uncertainty relation, es-\ntimate the order of magnitude of the kinetic energy. (This amount\nwould also be the additional energy penalty if we put two electrons in\nthe same whirlpool, instead of in two separate whirlpools, due to Pauli\nexclusion principle.)\nSolution: The size of a vortex is of order\nl0 =\ns\nh\neB =\ns\n6.626 × 10−34\n1.6 × 10−19 × 15 = 1.66 × 10−8m\nAccording to the uncertainty relation, p ∼∆p ∼h/l0. Therefore, the kinetic\nenergy is\np2\n2m∗\n=\nh2\n2m∗\neB\nh = h\n2\neB\nm∗\n=\n6.626 × 10−34 × 1.6 × 10−19 × 15\n2 × 0.067 × 9.1 × 10−31\n=\n1.3 × 10−20 J\nGrading: 1 point for the ﬁnal numerical result and 1 point for relating the\ncharacteristic length to the momentum through the uncertainty relation, and\nhence the kinetic energy. Note this is an estimate problem, hence any ﬁnal\nnumerical result within a factor of 2π can be regarded as correct.\n(g) There are also a series of plateau at RH = h/ie2, where i = 1,2,3,... in\nTsui et al. experiment, as shown in Figure 1(b). These plateaus, known\nas the integer quantum Hall effect (IQHE), were reported previously by K.\nvon Klitzing in 1980. Repeating (c)-(f) for the integer plateaus, one realizes\nthat the novelty of the FQHE lies critically in the existence of fractionally\ncharged quasiparticles. R. de-Picciotto et al. and L. Saminadayar et al. in-\ndependently reported the observation of fractional charges at the ν = 1/3\nﬁlling in 1997. In the experiments, they measured the noise in the charge\ncurrent across a narrow constriction, the so-called quantum point contact\n(QPC). In a simple statistical model, carriers with discrete charge e∗tunnel\nacross the QPC and generate charge current IB (on top of a trivial back-\nground). The number of the carriers nτ arriving at the electrode during\na sufﬁciently small time interval τ obeys Poisson probability distribution\n6\n\nwith parameter λ\nP(nτ = k) = λke−λ\nk!\n,\n(1)\nwhere k! is the factorial of k. You may need the following summation\neλ =\n∞\nX\nk=0\nλk\nk! ,\n(2)\n(i) (2 point) Determine the charge current IB, which measures total charge\nper unit of time, in terms of λ and τ.\nSolution: The current can be calculated by the ratio of the total charge carried\nby the averaged nτ quasiparticles to the time interval τ.\n⟨nτ⟩=\n∞\nX\nk=1\nkP(k)\n=\n∞\nX\nk=1\nλke−λ\n(k −1)!\n=\nλ\n∞\nX\nk=0\nP(k)\n=\nλ\nwhere we have used\nP\nk P(k) = 1. Therefore,\nIB = ⟨nτ⟩e∗\nτ\n= νeλ\nτ\nGrading: 1 point for correctly calculating the average charge under the Pois-\nson distribution and 1 point for the ﬁnal expression for the charge current.\n(ii) (2 points) Current noise is deﬁned as the charge ﬂuctuations per unit\nof time. One can analyze the noise by measuring the mean square\ndeviation of the number of current-carrying charges. Determine the\ncurrent noise SI due to the discreteness of the current-carrying charges\n7\n\nin terms of λ and τ.\nSolution: Similarly, the noise can be related to the averaged charge ﬂuctua-\ntions during the time interval τ.\nD\n(nτ −⟨nτ)2E\n=\n⟨n2\nτ⟩−⟨nτ⟩2\n=\n∞\nX\nk=1\nk2P(k) −λ2\n=\n\"\nλ2\n∞\nX\nk=0\nP(k) +\n∞\nX\nk=1\nkP(k)\n#\n−λ2\n=\nλ\nTherefore,\nSI =\nD\n(nτ −⟨nτ)2E\n(e∗)2\nτ\n= (νe)2λ\nτ\nGrading: 1 point for correctly calculating the charge ﬂuctuations under the\nPoisson distribution and 1 point for the ﬁnal expression that relates the current\nnoise to the charge ﬂuctuations.\n(iii) (1 point) Calculate the noise-to-current ratio SI/IB, which was veri-\nﬁed by R. de-Picciotto et al. and L. Saminadayar et al. in 1997. (One\nyear later, Tsui and Stormer shared the Nobel Prize in Physics with\nR. B. Laughlin, who proposed an elegant ansatz for the ground state\nwave function at ν = 1/3.)\nSolution: The noise-to-current ratio SI/IB = e∗= νe.\nGrading: 1 point for the ﬁnal expression.\n8\n\nFigure 1: (a) Sketch of the experimental setup for the observation of the FQHE.\nAs indicated, a current I is passing through a two-dimensional system in the lon-\ngitudinal direction with an effective length L. The Hall voltage VH is measured in\nthe transverse direction with an effective width W. In addition, a uniform mag-\nnetic ﬁeld B is applied perpendicular to the plane. The direction of the current is\ngiven for illustrative purpose only, which may not be correct. (b) Hall resistance\nRH versus B at four different temperatures (curves shifted for clarity), adapted\nfrom the original publication on the FQHE. The features at RH = 3h/e2 are due\nto the FQHE.\n9\n","textExtraction":"available"}}
+{
+  "id": "apho-2015-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2015_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2015_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2015-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question 1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The fractional quantum Hall effect (FQHE) was discovered by D. C. Tsui and H. Stormer at Bell Labs in 1981. In the experiment electrons were confined in two dimensions on the GaAs side by the interface potential of a GaAs/AlGaAs heterojunction fabricated by A. C. Gossard (here we neglect the thickness of the two-dimensional electron layer). A strong uniform magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " was applied perpendicular to the two-dimensional electron system. As illustrated in Figure 1, when a current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " was passing through the sample, the voltage "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{H}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " across the current path exhibited an unexpected quantized plateau (corresponding to a Hall resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{H} = 3h/e^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") at sufficiently low temperatures. The appearance of the plateau would imply the presence of fractionally charged quasiparticles in the system, which we analyze below. For simplicity, we neglect the scattering of the electrons by random potential, as well as the electron spin."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(a) In a classical model, two-dimensional electrons behave like charged billiard balls on a table. In the GaAs/AlGaAs sample, however, the mass of the electrons is reduced to an effective mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m^*\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " due to their interaction with ions."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Write down the equation of motion of an electron in perpendicular electric field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{E} = -E_y\\hat{y}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B} = B\\hat{z}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Determine the velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the electrons in the stationary case."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(iii) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Which direction is the velocity pointing at?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(b) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") The Hall resistance is defined as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{H} = V_\\mathrm{H}/I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In the classical model, find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{H}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of the number of the electrons "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the magnetic flux "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi = BA = BWL\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the area of the sample, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the effective width and length of the sample, respectively."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(c) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") We know that electrons move in circular orbits in the magnetic field. In the quantum mechanical picture, the impinging magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " could be viewed as creating tiny whirlpools, so-called vortices, in the sea of electrons—one whirlpool for each flux quantum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h/e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the magnetic field, where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the Planck’s constant and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the elementary charge of an electron. For the case of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{H} = 3h/e^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which was discovered by Tsui and Stormer, derive the ratio of the number of the electrons "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the number of the flux quanta "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", known as the filling factor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2015-t1/9fefeb77c7bb9be3bd22.png",
+                "alt": "apho-2015-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 1: (a) Sketch of the experimental setup for the observation of the FQHE. As indicated, a current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is passing through a two-dimensional electron system in the longitudinal direction with an effective length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The Hall voltage "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{H}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is measured in the transverse direction with an effective width "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In addition, a uniform magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is applied perpendicular to the plane. The direction of the current is given for illustrative purpose only, which may not be correct. (b) Hall resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{H}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " versus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at four different temperatures (curves shifted for clarity) in the original publication on the FQHE. The features at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{H} = 3h/e^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are due to the FQHE."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(d) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") It turns out that binding an integer number of vortices ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n > 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") with each electron generates a bigger surrounding whirlpool, hence pushes away all other electrons. Therefore, the system can considerably reduce its electrostatic Coulomb energy at the corresponding filling factor. Determine the scaling exponent "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the amount of energy gain for each electron "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta U(B) \\propto B^\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(e) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") As the magnetic field deviates from the exact filling "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu = 1/n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to a higher field, more vortices (whirlpools in the electron sea) are being created. They are not bound to electrons and behave like particles carrying effectively positive charges, hence known as quasiholes, compared to the negatively charged electrons. The amount of charge deficit in any of these quasiholes amounts to exactly "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1/n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of an electronic charge. An analogous argument can be made for magnetic fields slightly below "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the creation of quasielectrons of negative charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e^* = -e/n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". At the quantized Hall plateau of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{H} = 3h/e^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", calculate the amount of change in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that corresponds to the introduction of exactly one fractionally charged quasihole. (When their density is low, the quasiparticles are confined by the random potential generated by impurities and imperfections, hence the Hall resistance remains quantized for a finite range of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ".)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(f) In Tsui "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " experiment,"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nthe magnetic field corresponding to the center of the quantized Hall plateau"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{H} = 3h/e^2,\\ B_{1/3} = 15\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "  Tesla,"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nthe effective mass of an electron in GaAs, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m^* = 0.067\\,m_e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ","
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nthe electron mass, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_e = 9.1 \\times 10^{-31}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg,"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nCoulomb’s constant, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 9.0 \\times 10^9\\ \\mathrm{N \\cdot m^2/C^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ","
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nthe vacuum permittivity, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon_0 = 1/4\\pi k = 8.854 \\times 10^{-12}\\ \\mathrm{F/m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ","
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nthe relative permittivity (the ratio of the permittivity of a substance to the vacuum permittivity) of GaAs, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon_r = 13\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ","
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nthe elementary charge, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e = 1.6 \\times 10^{-19}\\ \\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ","
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nPlanck’s constant, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h = 6.626 \\times 10^{-34}\\ \\mathrm{J \\cdot s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nBoltzmann’s constant, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_\\mathrm{B} = 1.38 \\times 10^{-23}\\ \\mathrm{J/K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nIn our analysis, we have neglected several factors, whose corresponding energy scales, compared to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta U(B)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " discussed in (d), are either too large to excite or too small to be relevant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Calculate the thermal energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{th}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T = 1.0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " K."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") The electrons spatially confined in the whirlpools (or vortices) have a large kinetic energy. Using the uncertainty relation, estimate the order of magnitude of the kinetic energy. (This amount would also be the additional energy penalty if we put two electrons in the same whirlpool, instead of in two separate whirlpools, due to Pauli exclusion principle.)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(g) There are also a series of plateaus at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{H} = h/ie^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(i = 1, 2, 3, \\ldots\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in Tsui "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " experiment, as shown in Figure 1(b). These plateaus, known as the integer quantum Hall effect (IQHE), were reported previously by K. von Klitzing in 1980. Repeating (c)-(f) for the integer plateaus, one realizes that the novelty of the FQHE lies critically in the existence of fractionally charged quasiparticles. R. de-Picciotto "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and L. Saminadayar "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " independently reported the observation of fractional charges at the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu = 1/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " filling in 1997. In the experiments, they measured the noise in the charge current across a narrow constriction, the so-called quantum point contact (QPC). In a simple statistical model, carriers with discrete charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e^*\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " tunnel across the QPC and generate charge current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_\\mathrm{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (on top of a trivial background). The number of the carriers "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " arriving at the electrode during a sufficiently small time interval "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " obeys Poisson probability distribution with parameter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathrm{P}(n_\\tau = k) = \\frac{\\lambda^k \\mathrm{e}^{-\\lambda}}{k!}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k!\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the factorial of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". You may need the following summation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathrm{e}^\\lambda = \\sum_{\\mathrm{k}=0}^{\\infty} \\frac{\\lambda^k}{k!}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Determine the charge current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_\\mathrm{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which measures total charge per unit of time, in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Current noise is defined as the charge fluctuations per unit of time. One can analyze the noise by measuring the mean square deviation of the number of current-carrying charges. Determine the current noise "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " due to the discreteness of the current-carrying charges in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(iii) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Calculate the noise-to-current ratio "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_I/I_\\mathrm{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which was verified by R. de-Picciotto "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and L. Saminadayar "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in 1997. (One year later, Tsui and Stormer shared the Nobel Prize in Physics with R. B. Laughlin, who proposed an elegant ansatz for the ground state wave function at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu = 1/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ".)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Question 1\n\n\nThe fractional quantum Hall effect (FQHE) was discovered by D. C. Tsui and H. Stormer at Bell Labs in 1981. In the experiment electrons were confined in two dimensions on the GaAs side by the interface potential of a GaAs/AlGaAs heterojunction fabricated by A. C. Gossard (here we neglect the thickness of the two-dimensional electron layer). A strong uniform magnetic field \n\\(B\\)\n was applied perpendicular to the two-dimensional electron system. As illustrated in Figure 1, when a current \n\\(I\\)\n was passing through the sample, the voltage \n\\(V_\\mathrm{H}\\)\n across the current path exhibited an unexpected quantized plateau (corresponding to a Hall resistance \n\\(R_\\mathrm{H} = 3h/e^2\\)\n) at sufficiently low temperatures. The appearance of the plateau would imply the presence of fractionally charged quasiparticles in the system, which we analyze below. For simplicity, we neglect the scattering of the electrons by random potential, as well as the electron spin.\n\n\n(a) In a classical model, two-dimensional electrons behave like charged billiard balls on a table. In the GaAs/AlGaAs sample, however, the mass of the electrons is reduced to an effective mass \n\\(m^*\\)\n due to their interaction with ions.\n\n\n(i) (\n2 point\n) Write down the equation of motion of an electron in perpendicular electric field \n\\(\\vec{E} = -E_y\\hat{y}\\)\n and magnetic field \n\\(\\vec{B} = B\\hat{z}\\)\n.\n\n\n(ii) (\n1 point\n) Determine the velocity \n\\(v_\\mathrm{s}\\)\n of the electrons in the stationary case.\n\n\n(iii) (\n1 point\n) Which direction is the velocity pointing at?\n\n\n(b) (\n2 points\n) The Hall resistance is defined as \n\\(R_\\mathrm{H} = V_\\mathrm{H}/I\\)\n. In the classical model, find \n\\(R_\\mathrm{H}\\)\n as a function of the number of the electrons \n\\(N\\)\n and the magnetic flux \n\\(\\phi = BA = BWL\\)\n, where \n\\(A\\)\n is the area of the sample, and \n\\(W\\)\n and \n\\(L\\)\n the effective width and length of the sample, respectively.\n\n\n(c) (\n2 points\n) We know that electrons move in circular orbits in the magnetic field. In the quantum mechanical picture, the impinging magnetic field \n\\(B\\)\n could be viewed as creating tiny whirlpools, so-called vortices, in the sea of electrons—one whirlpool for each flux quantum \n\\(h/e\\)\n of the magnetic field, where \n\\(h\\)\n is the Planck’s constant and \n\\(e\\)\n the elementary charge of an electron. For the case of \n\\(R_\\mathrm{H} = 3h/e^2\\)\n, which was discovered by Tsui and Stormer, derive the ratio of the number of the electrons \n\\(N\\)\n to the number of the flux quanta \n\\(N_\\phi\\)\n, known as the filling factor \n\\(\\nu\\)\n.\n\n\n\n\n\n\n\n\n\nFigure 1: (a) Sketch of the experimental setup for the observation of the FQHE. As indicated, a current \n\\(I\\)\n is passing through a two-dimensional electron system in the longitudinal direction with an effective length \n\\(L\\)\n. The Hall voltage \n\\(V_\\mathrm{H}\\)\n is measured in the transverse direction with an effective width \n\\(W\\)\n. In addition, a uniform magnetic field \n\\(B\\)\n is applied perpendicular to the plane. The direction of the current is given for illustrative purpose only, which may not be correct. (b) Hall resistance \n\\(R_\\mathrm{H}\\)\n versus \n\\(B\\)\n at four different temperatures (curves shifted for clarity) in the original publication on the FQHE. The features at \n\\(R_\\mathrm{H} = 3h/e^2\\)\n are due to the FQHE.\n\n\n(d) (\n2 points\n) It turns out that binding an integer number of vortices (\n\\(n > 1\\)\n) with each electron generates a bigger surrounding whirlpool, hence pushes away all other electrons. Therefore, the system can considerably reduce its electrostatic Coulomb energy at the corresponding filling factor. Determine the scaling exponent \n\\(\\alpha\\)\n of the amount of energy gain for each electron \n\\(\\Delta U(B) \\propto B^\\alpha\\)\n.\n\n\n(e) (\n2 points\n) As the magnetic field deviates from the exact filling \n\\(\\nu = 1/n\\)\n to a higher field, more vortices (whirlpools in the electron sea) are being created. They are not bound to electrons and behave like particles carrying effectively positive charges, hence known as quasiholes, compared to the negatively charged electrons. The amount of charge deficit in any of these quasiholes amounts to exactly \n\\(1/n\\)\n of an electronic charge. An analogous argument can be made for magnetic fields slightly below \n\\(\\nu\\)\n and the creation of quasielectrons of negative charge \n\\(e^* = -e/n\\)\n. At the quantized Hall plateau of \n\\(R_\\mathrm{H} = 3h/e^2\\)\n, calculate the amount of change in \n\\(B\\)\n that corresponds to the introduction of exactly one fractionally charged quasihole. (When their density is low, the quasiparticles are confined by the random potential generated by impurities and imperfections, hence the Hall resistance remains quantized for a finite range of \n\\(B\\)\n.)\n\n\n(f) In Tsui \net al.\n experiment,\n\n\nthe magnetic field corresponding to the center of the quantized Hall plateau\n\n\n\n\\(R_\\mathrm{H} = 3h/e^2,\\ B_{1/3} = 15\\)\n  Tesla,\n\n\nthe effective mass of an electron in GaAs, \n\\(m^* = 0.067\\,m_e\\)\n,\n\n\nthe electron mass, \n\\(m_e = 9.1 \\times 10^{-31}\\)\n kg,\n\n\nCoulomb’s constant, \n\\(k = 9.0 \\times 10^9\\ \\mathrm{N \\cdot m^2/C^2}\\)\n,\n\n\nthe vacuum permittivity, \n\\(\\varepsilon_0 = 1/4\\pi k = 8.854 \\times 10^{-12}\\ \\mathrm{F/m}\\)\n,\n\n\nthe relative permittivity (the ratio of the permittivity of a substance to the vacuum permittivity) of GaAs, \n\\(\\varepsilon_r = 13\\)\n,\n\n\nthe elementary charge, \n\\(e = 1.6 \\times 10^{-19}\\ \\mathrm{C}\\)\n,\n\n\nPlanck’s constant, \n\\(h = 6.626 \\times 10^{-34}\\ \\mathrm{J \\cdot s}\\)\n, and\n\n\nBoltzmann’s constant, \n\\(k_\\mathrm{B} = 1.38 \\times 10^{-23}\\ \\mathrm{J/K}\\)\n.\n\n\nIn our analysis, we have neglected several factors, whose corresponding energy scales, compared to \n\\(\\Delta U(B)\\)\n discussed in (d), are either too large to excite or too small to be relevant.\n\n\n(i) (\n1 point\n) Calculate the thermal energy \n\\(E_\\mathrm{th}\\)\n at temperature \n\\(T = 1.0\\)\n K.\n\n\n(ii) (\n2 point\n) The electrons spatially confined in the whirlpools (or vortices) have a large kinetic energy. Using the uncertainty relation, estimate the order of magnitude of the kinetic energy. (This amount would also be the additional energy penalty if we put two electrons in the same whirlpool, instead of in two separate whirlpools, due to Pauli exclusion principle.)\n\n\n(g) There are also a series of plateaus at \n\\(R_\\mathrm{H} = h/ie^2\\)\n, where \n\\(i = 1, 2, 3, \\ldots\\)\n in Tsui \net al.\n experiment, as shown in Figure 1(b). These plateaus, known as the integer quantum Hall effect (IQHE), were reported previously by K. von Klitzing in 1980. Repeating (c)-(f) for the integer plateaus, one realizes that the novelty of the FQHE lies critically in the existence of fractionally charged quasiparticles. R. de-Picciotto \net al.\n and L. Saminadayar \net al.\n independently reported the observation of fractional charges at the \n\\(\\nu = 1/3\\)\n filling in 1997. In the experiments, they measured the noise in the charge current across a narrow constriction, the so-called quantum point contact (QPC). In a simple statistical model, carriers with discrete charge \n\\(e^*\\)\n tunnel across the QPC and generate charge current \n\\(I_\\mathrm{B}\\)\n (on top of a trivial background). The number of the carriers \n\\(n_\\tau\\)\n arriving at the electrode during a sufficiently small time interval \n\\(\\tau\\)\n obeys Poisson probability distribution with parameter \n\\(\\lambda\\)\n \n\\[\\mathrm{P}(n_\\tau = k) = \\frac{\\lambda^k \\mathrm{e}^{-\\lambda}}{k!}\\]\n where \n\\(k!\\)\n is the factorial of \n\\(k\\)\n. You may need the following summation \n\\[\\mathrm{e}^\\lambda = \\sum_{\\mathrm{k}=0}^{\\infty} \\frac{\\lambda^k}{k!}\\]\n\n\n(i) (\n2 point\n) Determine the charge current \n\\(I_\\mathrm{B}\\)\n, which measures total charge per unit of time, in terms of \n\\(\\lambda\\)\n and \n\\(\\tau\\)\n.\n\n\n(ii) (\n2 points\n) Current noise is defined as the charge fluctuations per unit of time. One can analyze the noise by measuring the mean square deviation of the number of current-carrying charges. Determine the current noise \n\\(S_I\\)\n due to the discreteness of the current-carrying charges in terms of \n\\(\\lambda\\)\n and \n\\(\\tau\\)\n.\n\n\n(iii) (\n1 point\n) Calculate the noise-to-current ratio \n\\(S_I/I_\\mathrm{B}\\)\n, which was verified by R. de-Picciotto \net al.\n and L. Saminadayar \net al.\n in 1997. (One year later, Tsui and Stormer shared the Nobel Prize in Physics with R. B. Laughlin, who proposed an elegant ansatz for the ground state wave function at \n\\(\\nu = 1/3\\)\n.)\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2015-t1/9fefeb77c7bb9be3bd22.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2015-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question 1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The fractional quantum Hall effect (FQHE) was discovered by D. C. Tsui and H. Stormer at Bell Labs in 1981. In the experiment electrons were confined in two dimensions on the GaAs side by the interface potential of a GaAs/AlGaAs heterojunction fabricated by A. C. Gossard (here we neglect the thickness of the two-dimensional electron layer). A strong uniform magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " was applied perpendicular to the two-dimensional electron system. As illustrated in Figure 1, when a current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " was passing through the sample, the voltage "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " across the current path exhibited an unexpected quantized plateau (corresponding to a Hall resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_H = 3h/e^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") at sufficiently low temperatures. The appearance of the plateau would imply the presence of fractionally charged quasiparticles in the system, which we analyze below. For simplicity, we neglect the scattering of the electrons by random potential, as well as the electron spin."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(a) In a classical model, two-dimensional electrons behave like charged billiard balls on a table. In the GaAs/AlGaAs sample, however, the mass of the electrons is reduced to an effective "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m^*\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " due to their interaction with ions."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Write down the equation of motion of an electron in perpendicular electric field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{E} = -E_y\\hat{y}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B} = B\\hat{z}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " An electron with charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") experiences the Lorentz force due to the perpendicular magnetic field and the electric force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m^*\\frac{d\\vec{v}}{dt} = -e\\left(\\vec{v}\\times\\vec{B} + \\vec{E}\\right)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{v}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the velocity of the electron."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Grading:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1 point for writing down the electric force and the magnetic force correct, and 1 point for writing down the effective mass and the acceleration correct."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Determine the velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the electrons in the stationary case."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " In the stationary regime, the acceleration vanishes. Hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\vec{v}_s\\times\\vec{B} + \\vec{E} = 0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The velocity can be expressed as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\vec{v}_s = \\frac{\\vec{E}\\times\\vec{B}}{B^2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " whose magnitude is simply "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_s = E/B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Grading:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Either writing down the correct magnitude of the velocity or its vector form is sufficient for the 1 point."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(iii) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Which direction is the velocity pointing at?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{v}_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " should be perpendicular to both the magnetic field and the electric field. If "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction, as given by the problem, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{v}_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction, generating a charge current in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Grading:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1 point for the correct direction."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(b) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") The Hall resistance is defined as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_H = V_H/I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In the classical model, find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of the number of the electrons "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the magnetic flux "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi = BA = BWL\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the area of the sample, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the effective width and length of the sample, respectively."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The Hall voltage "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_H = E_yW\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The current in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I = \\frac{\\Delta Q}{\\Delta t} = \\frac{Ne}{L/v_s} = \\frac{Ne}{L}\\frac{E_y}{B} = e\\frac{N}{\\phi}V_H\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[R_H = \\frac{V_H}{I} = \\frac{1}{e}\\frac{\\phi}{N}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Grading:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1 point for the final expression and 1 point for writing down the expression for relating "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with the number of electrons and their stationary velocity (hence the electric field and the magnetic field)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(c) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") We know that electrons move in circular orbitss in the magnetic field. In the quantum mechanical picture, the impinging magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " could be viewed as creating tiny whirlpools, so-called vortices, in the sea of electrons–one whirlpool for each flux quantum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h/e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the magnetic field, where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the Planck’s constant and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the elementary charge of an electron. For the case of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_H = 3h/e^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which was discovered by Tsui and Stormer, derive the ratio of the number of the electrons "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the number of the flux quanta "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", known as the filling factor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The Hall resistance can be rewritten as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[R_H = \\frac{1}{e}\\frac{\\phi}{N} = \\frac{h}{e^2}\\frac{\\phi/(h/e)}{N} = \\frac{h}{e^2}\\frac{N_\\phi}{N}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " At the plateau, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu = N/N_\\phi = 1/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Grading:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1 point for the final expression."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(d) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") It turns out that binding an integer number of vortices ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n > 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") with each electron generates a bigger surrounding whirlpool, hence pushes away all other electrons. Therefore, the system can considerably reduce its electrostatic Coulomb energy at the corresponding filling factor. Determine the scaling exponent "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the amount of energy gain for each electron "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta U(B) \\propto B^\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The average distance between electrons can be written as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(fl_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[l_0 = \\sqrt{\\frac{LW}{N}} = \\sqrt{\\frac{\\phi}{NB}} = \\sqrt{\\frac{h}{\\nu eB}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a dimensionless constant that is determined by the electron distribution (or, quantum mechanically, wave function). Binding multiple vortices with an electron effectively reduces the probability of other electrons getting close. Therefore, the electrons optimize their distribution in such a way that their average distance increases from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_1l_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_2l_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_1 < f_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). One expect the Coulomb energy gain per electron is proportional to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{e^2}{4\\pi\\varepsilon_0\\varepsilon_r(f_1l_0)} - \\frac{e^2}{4\\pi\\varepsilon_0\\varepsilon_r(f_2l_0)} = \\left(\\frac{1}{f_1} - \\frac{1}{f_2}\\right)\\frac{e^2}{4\\pi\\varepsilon_0\\varepsilon_rl_0}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta(B) \\propto 1/l_0 \\propto \\sqrt{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha = 1/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Grading:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The key point here is to realize that the energy scale is determined by the Coulomb interaction, which scales inversely with a length scale (e.g., the magnetic length) that characterizes the mean electron distance (and its change). 1 point for the final expression and 1 point for writing down the correct relation between the length scale and the magnetic field."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(e) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") As the magnetic field deviates from the exact filling "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu = 1/m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to a higher field, more vortices (whirlpools in the electron sea) are being created. They are not bound to electrons and behave like particles carrying effectively positive charges, hence known as quasiholes, compared to the negatively charged electrons. The amount of charge deficit in any of these quasiholes amounts to exactly "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1/m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of an electronic charge. An analogous argument can be made for magnetic fields slightly below "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the creation of quasielectrons of negative charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e^* = -e/m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Assume the sample has an area "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". At the quantized Hall plateau of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_H = 3h/e^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", calculate the amount of change in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that corresponds to the introduction of exactly one fractionally charged quasihole. (When their density is low, the quasiparticles are confined by the random potential generated by impurities and imperfections, hence the Hall resistance remains quantized for a finite range of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ".)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The flux change due to the change of the magnetic field is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta\\phi = \\Delta B(WL) = \\frac{h}{e}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta B = h/(eWL)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Grading:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 2 points for the final expression."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(f) In Tsui "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " experiment,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "the magnetic field corresponding to the center of the quantized Hall plateau "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(R_H = 3h/e^2\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(B_{1/3} = 15\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " Tesla,"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "the effective mass of an electron in GaAs, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(m^* = 0.067m_e\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ","
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "the electron mass, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(m_e = 9.1\\times 10^{-31}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " kg,"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Coulomb’s constant, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(k = 9.0\\times 10^9\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " N"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\cdot\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "m"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(^2\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "/C"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(^2\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ","
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "the vacuum permittivity, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\varepsilon_0 = 1/(4\\pi k) = 8.854\\times 10^{-12}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " F/m,"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "the relative permittivity (the ratio of the permittivity of a substance to the vacuum permittivity) of GaAs, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\varepsilon_r = 13\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ","
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "the elementary charge, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(e = 1.6\\times 10^{-19}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " C,"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Planck’s constant, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(h = 6.626\\times 10^{-34}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " J"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\cdot\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "s, and"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Boltzmann’s constant, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(k_B = 1.38\\times 10^{-23}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " J/K."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In our analysis, we have neglected several factors, whose corresponding energy scales, compared to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta(B)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " discussed in (d), are either too large to excite or too small to be relevant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Calculate the thermal energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_{th}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T = 1.0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " K."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The thermal energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E_{th} = k_BT = 1.38\\times 10^{-23}\\times 1.0 = 1.38\\times 10^{-23}\\ \\mathrm{J}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Grading:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1 point for the numerical result."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") The electrons spatially confined in the whirlpools (or vortices) have a large kinetic energy. Using the uncertainty relation, estimate the order of magnitude of the kinetic energy. (This amount would also be the additional energy penalty if we put two electrons in the same whirlpool, instead of in two separate whirlpools, due to Pauli exclusion principle.)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The size of a vortex is of order "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[l_0 = \\sqrt{\\frac{h}{eB}} = \\sqrt{\\frac{6.626\\times 10^{-34}}{1.6\\times 10^{-19}\\times 15}} = 1.66\\times 10^{-8}\\mathrm{m}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " According to the uncertainty relation, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p \\sim \\Delta p \\sim h/l_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Therefore, the kinetic energy is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\frac{p^2}{2m^*} \\quad &= \\quad \\frac{h^2}{2m^*}\\frac{eB}{h} = \\frac{h}{2}\\frac{eB}{m^*}\\\\\n&= \\quad \\frac{6.626\\times 10^{-34}\\times 1.6\\times 10^{-19}\\times 15}{2\\times 0.067\\times 9.1\\times 10^{-31}}\\\\\n&= \\quad 1.3\\times 10^{-20}\\ \\mathrm{J}\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Grading:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1 point for the final numerical result and 1 point for relating the characteristic length to the momentum through the uncertainty relation, and hence the kinetic energy. Note this is an estimate problem, hence any final numerical result within a factor of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2\\pi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be regarded as correct."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(g) There are also a series of plateau at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_H = h/ie^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(i = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ",2,3,... in Tsui "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " experiment, as shown in Figure 1(b). These plateaus, known as the integer quantum Hall effect (IQHE), were reported previously by K. von Klitzing in 1980. Repeating (c)-(f) for the integer plateaus, one realizes that the novelty of the FQHE lies critically in the existence of fractionally charged quasiparticles. R. de-Picciotto "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and L. Saminadayar "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " independently reported the observation of fractional charges at the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu = 1/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " filling in 1997. In the experiments, they measured the noise in the charge current across a narrow constriction, the so-called quantum point contact (QPC). In a simple statistical model, carriers with discrete charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e^*\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " tunnel across the QPC and generate charge current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (on top of a trivial background). The number of the carriers "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " arriving at the electrode during a sufficiently small time interval "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " obeys Poisson probability distribution with parameter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nP(n_\\tau = k) = \\frac{\\lambda^ke^{-\\lambda}}{k!},\n\\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k!\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the factorial of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". You may need the following summation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ne^\\lambda = \\sum_{k=0}^{\\infty}\\frac{\\lambda^k}{k!},\n\\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Determine the charge current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which measures total charge per unit of time, in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The current can be calculated by the ratio of the total charge carried by the averaged "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " quasiparticles to the time interval "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\langle n_\\tau\\rangle = \\sum_{k=1}^{\\infty}kP(k) \\quad &= \\quad \\sum_{k=1}^{\\infty}\\frac{\\lambda^ke^{-\\lambda}}{(k-1)!}\\\\\n&= \\quad \\lambda\\sum_{k=0}^{\\infty}P(k)\\\\\n&= \\quad \\lambda\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where we have used "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sum_k P(k) = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I_B = \\frac{\\langle n_\\tau\\rangle e^*}{\\tau} = \\frac{\\nu e\\lambda}{\\tau}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Grading:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1 point for correctly calculating the average charge under the Poisson distribution and 1 point for the final expression for the charge current."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Current noise is defined as the charge fluctuations per unit of time. One can analyze the noise by measuring the mean square deviation of the number of current-carrying charges. Determine the current noise "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " due to the discreteness of the current-carrying charges in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Similarly, the noise can be related to the averaged charge fluctuations during the time interval "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\left\\langle\\left(n_\\tau - \\langle n_\\tau\\right)^2\\right\\rangle \\quad &= \\quad \\langle n_\\tau^2\\rangle - \\langle n_\\tau\\rangle^2\\\\\n&= \\quad \\sum_{k=1}^{\\infty}k^2P(k) - \\lambda^2\\\\\n&= \\quad \\left[\\lambda^2\\sum_{k=0}^{\\infty}P(k) + \\sum_{k=1}^{\\infty}kP(k)\\right] - \\lambda^2\\\\\n&= \\quad \\lambda\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[S_I = \\frac{\\left\\langle\\left(n_\\tau - \\langle n_\\tau\\right)^2\\right\\rangle\\left(e^*\\right)^2}{\\tau} = \\frac{(\\nu e)^2\\lambda}{\\tau}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Grading:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1 point for correctly calculating the charge fluctuations under the Poisson distribution and 1 point for the final expression that relates the current noise to the charge fluctuations."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(iii) ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Calculate the noise-to-current ratio "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_I/I_B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which was verified by R. de-Picciotto "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and L. Saminadayar "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in 1997. (One year later, Tsui and Stormer shared the Nobel Prize in Physics with R. B. Laughlin, who proposed an elegant ansatz for the ground state wave function at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu = 1/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ".)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The noise-to-current ratio "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_I/I_B = e^* = \\nu e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Grading:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1 point for the final expression."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2015-t1/2b5dcc61c40e4ede2dfc.png",
+                "alt": "apho-2015-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 1: (a) Sketch of the experimental setup for the observation of the FQHE. As indicated, a current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is passing through a two-dimensional system in the longitudinal direction with an effective length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The Hall voltage "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is measured in the transverse direction with an effective width "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In addition, a uniform magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is applied perpendicular to the plane. The direction of the current is given for illustrative purpose only, which may not be correct. (b) Hall resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " versus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at four different temperatures (curves shifted for clarity), adapted from the original publication on the FQHE. The features at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_H = 3h/e^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are due to the FQHE."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Question 1\n\n\nThe fractional quantum Hall effect (FQHE) was discovered by D. C. Tsui and H. Stormer at Bell Labs in 1981. In the experiment electrons were confined in two dimensions on the GaAs side by the interface potential of a GaAs/AlGaAs heterojunction fabricated by A. C. Gossard (here we neglect the thickness of the two-dimensional electron layer). A strong uniform magnetic field \n\\(B\\)\n was applied perpendicular to the two-dimensional electron system. As illustrated in Figure 1, when a current \n\\(I\\)\n was passing through the sample, the voltage \n\\(V_H\\)\n across the current path exhibited an unexpected quantized plateau (corresponding to a Hall resistance \n\\(R_H = 3h/e^2\\)\n) at sufficiently low temperatures. The appearance of the plateau would imply the presence of fractionally charged quasiparticles in the system, which we analyze below. For simplicity, we neglect the scattering of the electrons by random potential, as well as the electron spin.\n\n\n(a) In a classical model, two-dimensional electrons behave like charged billiard balls on a table. In the GaAs/AlGaAs sample, however, the mass of the electrons is reduced to an effective \n\\(m^*\\)\n due to their interaction with ions.\n\n\n(i) (\n2 point\n) Write down the equation of motion of an electron in perpendicular electric field \n\\(\\vec{E} = -E_y\\hat{y}\\)\n and magnetic field \n\\(\\vec{B} = B\\hat{z}\\)\n.\n\n\nSolution:\n An electron with charge \n\\(-e\\)\n (\n\\(e > 0\\)\n) experiences the Lorentz force due to the perpendicular magnetic field and the electric force \n\\[m^*\\frac{d\\vec{v}}{dt} = -e\\left(\\vec{v}\\times\\vec{B} + \\vec{E}\\right)\\]\n where \n\\(\\vec{v}\\)\n is the velocity of the electron.\n\n\nGrading:\n 1 point for writing down the electric force and the magnetic force correct, and 1 point for writing down the effective mass and the acceleration correct.\n\n\n(ii) (\n1 point\n) Determine the velocity \n\\(v_s\\)\n of the electrons in the stationary case.\n\n\nSolution:\n In the stationary regime, the acceleration vanishes. Hence \n\\[\\vec{v}_s\\times\\vec{B} + \\vec{E} = 0\\]\n The velocity can be expressed as \n\\[\\vec{v}_s = \\frac{\\vec{E}\\times\\vec{B}}{B^2}\\]\n whose magnitude is simply \n\\(v_s = E/B\\)\n.\n\n\nGrading:\n Either writing down the correct magnitude of the velocity or its vector form is sufficient for the 1 point.\n\n\n(iii) (\n1 point\n) Which direction is the velocity pointing at?\n\n\nSolution:\n The velocity \n\\(\\vec{v}_s\\)\n should be perpendicular to both the magnetic field and the electric field. If \n\\(\\vec{B}\\)\n is in the \n\\(z\\)\n direction and \n\\(\\vec{E}\\)\n in the \n\\(-y\\)\n direction, as given by the problem, \n\\(\\vec{v}_s\\)\n is in the \n\\(-x\\)\n direction, generating a charge current in the \n\\(x\\)\n direction.\n\n\nGrading:\n 1 point for the correct direction.\n\n\n(b) (\n2 points\n) The Hall resistance is defined as \n\\(R_H = V_H/I\\)\n. In the classical model, find \n\\(R_H\\)\n as a function of the number of the electrons \n\\(N\\)\n and the magnetic flux \n\\(\\phi = BA = BWL\\)\n, where \n\\(A\\)\n is the area of the sample, and \n\\(W\\)\n and \n\\(L\\)\n the effective width and length of the sample, respectively.\n\n\nSolution:\n The Hall voltage \n\\(V_H = E_yW\\)\n. The current in the \n\\(-x\\)\n direction is \n\\[I = \\frac{\\Delta Q}{\\Delta t} = \\frac{Ne}{L/v_s} = \\frac{Ne}{L}\\frac{E_y}{B} = e\\frac{N}{\\phi}V_H\\]\n Therefore, \n\\[R_H = \\frac{V_H}{I} = \\frac{1}{e}\\frac{\\phi}{N}\\]\n\n\nGrading:\n 1 point for the final expression and 1 point for writing down the expression for relating \n\\(I\\)\n with the number of electrons and their stationary velocity (hence the electric field and the magnetic field).\n\n\n(c) (\n2 points\n) We know that electrons move in circular orbitss in the magnetic field. In the quantum mechanical picture, the impinging magnetic field \n\\(B\\)\n could be viewed as creating tiny whirlpools, so-called vortices, in the sea of electrons–one whirlpool for each flux quantum \n\\(h/e\\)\n of the magnetic field, where \n\\(h\\)\n is the Planck’s constant and \n\\(e\\)\n the elementary charge of an electron. For the case of \n\\(R_H = 3h/e^2\\)\n, which was discovered by Tsui and Stormer, derive the ratio of the number of the electrons \n\\(N\\)\n to the number of the flux quanta \n\\(N_\\phi\\)\n, known as the filling factor \n\\(\\nu\\)\n.\n\n\nSolution:\n The Hall resistance can be rewritten as \n\\[R_H = \\frac{1}{e}\\frac{\\phi}{N} = \\frac{h}{e^2}\\frac{\\phi/(h/e)}{N} = \\frac{h}{e^2}\\frac{N_\\phi}{N}\\]\n At the plateau, \n\\(\\nu = N/N_\\phi = 1/3\\)\n.\n\n\nGrading:\n 1 point for the final expression.\n\n\n(d) (\n2 points\n) It turns out that binding an integer number of vortices (\n\\(n > 1\\)\n) with each electron generates a bigger surrounding whirlpool, hence pushes away all other electrons. Therefore, the system can considerably reduce its electrostatic Coulomb energy at the corresponding filling factor. Determine the scaling exponent \n\\(\\alpha\\)\n of the amount of energy gain for each electron \n\\(\\Delta U(B) \\propto B^\\alpha\\)\n.\n\n\nSolution:\n The average distance between electrons can be written as \n\\(fl_0\\)\n, where \n\\[l_0 = \\sqrt{\\frac{LW}{N}} = \\sqrt{\\frac{\\phi}{NB}} = \\sqrt{\\frac{h}{\\nu eB}}\\]\n and \n\\(f\\)\n is a dimensionless constant that is determined by the electron distribution (or, quantum mechanically, wave function). Binding multiple vortices with an electron effectively reduces the probability of other electrons getting close. Therefore, the electrons optimize their distribution in such a way that their average distance increases from \n\\(f_1l_0\\)\n to \n\\(f_2l_0\\)\n (\n\\(f_1 < f_2\\)\n). One expect the Coulomb energy gain per electron is proportional to \n\\[\\frac{e^2}{4\\pi\\varepsilon_0\\varepsilon_r(f_1l_0)} - \\frac{e^2}{4\\pi\\varepsilon_0\\varepsilon_r(f_2l_0)} = \\left(\\frac{1}{f_1} - \\frac{1}{f_2}\\right)\\frac{e^2}{4\\pi\\varepsilon_0\\varepsilon_rl_0}\\]\n Therefore, \n\\(\\Delta(B) \\propto 1/l_0 \\propto \\sqrt{B}\\)\n, or \n\\(\\alpha = 1/2\\)\n.\n\n\nGrading:\n The key point here is to realize that the energy scale is determined by the Coulomb interaction, which scales inversely with a length scale (e.g., the magnetic length) that characterizes the mean electron distance (and its change). 1 point for the final expression and 1 point for writing down the correct relation between the length scale and the magnetic field.\n\n\n(e) (\n2 points\n) As the magnetic field deviates from the exact filling \n\\(\\nu = 1/m\\)\n to a higher field, more vortices (whirlpools in the electron sea) are being created. They are not bound to electrons and behave like particles carrying effectively positive charges, hence known as quasiholes, compared to the negatively charged electrons. The amount of charge deficit in any of these quasiholes amounts to exactly \n\\(1/m\\)\n of an electronic charge. An analogous argument can be made for magnetic fields slightly below \n\\(\\nu\\)\n and the creation of quasielectrons of negative charge \n\\(e^* = -e/m\\)\n. Assume the sample has an area \n\\(A\\)\n. At the quantized Hall plateau of \n\\(R_H = 3h/e^2\\)\n, calculate the amount of change in \n\\(B\\)\n that corresponds to the introduction of exactly one fractionally charged quasihole. (When their density is low, the quasiparticles are confined by the random potential generated by impurities and imperfections, hence the Hall resistance remains quantized for a finite range of \n\\(B\\)\n.)\n\n\nSolution:\n The flux change due to the change of the magnetic field is \n\\[\\Delta\\phi = \\Delta B(WL) = \\frac{h}{e}\\]\n Therefore, \n\\(\\Delta B = h/(eWL)\\)\n.\n\n\nGrading:\n 2 points for the final expression.\n\n\n(f) In Tsui \net al.\n experiment,\n\n\n\n\nthe magnetic field corresponding to the center of the quantized Hall plateau \n\\(R_H = 3h/e^2\\)\n, \n\\(B_{1/3} = 15\\)\n Tesla,\n\n\nthe effective mass of an electron in GaAs, \n\\(m^* = 0.067m_e\\)\n,\n\n\nthe electron mass, \n\\(m_e = 9.1\\times 10^{-31}\\)\n kg,\n\n\nCoulomb’s constant, \n\\(k = 9.0\\times 10^9\\)\n N\n\\(\\cdot\\)\nm\n\\(^2\\)\n/C\n\\(^2\\)\n,\n\n\nthe vacuum permittivity, \n\\(\\varepsilon_0 = 1/(4\\pi k) = 8.854\\times 10^{-12}\\)\n F/m,\n\n\nthe relative permittivity (the ratio of the permittivity of a substance to the vacuum permittivity) of GaAs, \n\\(\\varepsilon_r = 13\\)\n,\n\n\nthe elementary charge, \n\\(e = 1.6\\times 10^{-19}\\)\n C,\n\n\nPlanck’s constant, \n\\(h = 6.626\\times 10^{-34}\\)\n J\n\\(\\cdot\\)\ns, and\n\n\nBoltzmann’s constant, \n\\(k_B = 1.38\\times 10^{-23}\\)\n J/K.\n\n\n\n\nIn our analysis, we have neglected several factors, whose corresponding energy scales, compared to \n\\(\\Delta(B)\\)\n discussed in (d), are either too large to excite or too small to be relevant.\n\n\n(i) (\n1 point\n) Calculate the thermal energy \n\\(E_{th}\\)\n at temperature \n\\(T = 1.0\\)\n K.\n\n\nSolution:\n The thermal energy \n\\[E_{th} = k_BT = 1.38\\times 10^{-23}\\times 1.0 = 1.38\\times 10^{-23}\\ \\mathrm{J}\\]\n\n\nGrading:\n 1 point for the numerical result.\n\n\n(ii) (\n2 point\n) The electrons spatially confined in the whirlpools (or vortices) have a large kinetic energy. Using the uncertainty relation, estimate the order of magnitude of the kinetic energy. (This amount would also be the additional energy penalty if we put two electrons in the same whirlpool, instead of in two separate whirlpools, due to Pauli exclusion principle.)\n\n\nSolution:\n The size of a vortex is of order \n\\[l_0 = \\sqrt{\\frac{h}{eB}} = \\sqrt{\\frac{6.626\\times 10^{-34}}{1.6\\times 10^{-19}\\times 15}} = 1.66\\times 10^{-8}\\mathrm{m}\\]\n According to the uncertainty relation, \n\\(p \\sim \\Delta p \\sim h/l_0\\)\n. Therefore, the kinetic energy is \n\\[\\begin{align*}\n\\frac{p^2}{2m^*} \\quad &= \\quad \\frac{h^2}{2m^*}\\frac{eB}{h} = \\frac{h}{2}\\frac{eB}{m^*}\\\\\n&= \\quad \\frac{6.626\\times 10^{-34}\\times 1.6\\times 10^{-19}\\times 15}{2\\times 0.067\\times 9.1\\times 10^{-31}}\\\\\n&= \\quad 1.3\\times 10^{-20}\\ \\mathrm{J}\n\\end{align*}\\]\n\n\nGrading:\n 1 point for the final numerical result and 1 point for relating the characteristic length to the momentum through the uncertainty relation, and hence the kinetic energy. Note this is an estimate problem, hence any final numerical result within a factor of \n\\(2\\pi\\)\n can be regarded as correct.\n\n\n(g) There are also a series of plateau at \n\\(R_H = h/ie^2\\)\n, where \n\\(i = 1\\)\n,2,3,... in Tsui \net al.\n experiment, as shown in Figure 1(b). These plateaus, known as the integer quantum Hall effect (IQHE), were reported previously by K. von Klitzing in 1980. Repeating (c)-(f) for the integer plateaus, one realizes that the novelty of the FQHE lies critically in the existence of fractionally charged quasiparticles. R. de-Picciotto \net al.\n and L. Saminadayar \net al.\n independently reported the observation of fractional charges at the \n\\(\\nu = 1/3\\)\n filling in 1997. In the experiments, they measured the noise in the charge current across a narrow constriction, the so-called quantum point contact (QPC). In a simple statistical model, carriers with discrete charge \n\\(e^*\\)\n tunnel across the QPC and generate charge current \n\\(I_B\\)\n (on top of a trivial background). The number of the carriers \n\\(n_\\tau\\)\n arriving at the electrode during a sufficiently small time interval \n\\(\\tau\\)\n obeys Poisson probability distribution with parameter \n\\(\\lambda\\)\n \n\\[\\begin{equation}\nP(n_\\tau = k) = \\frac{\\lambda^ke^{-\\lambda}}{k!},\n\\tag{1}\n\\end{equation}\\]\n where \n\\(k!\\)\n is the factorial of \n\\(k\\)\n. You may need the following summation \n\\[\\begin{equation}\ne^\\lambda = \\sum_{k=0}^{\\infty}\\frac{\\lambda^k}{k!},\n\\tag{2}\n\\end{equation}\\]\n\n\n(i) (\n2 point\n) Determine the charge current \n\\(I_B\\)\n, which measures total charge per unit of time, in terms of \n\\(\\lambda\\)\n and \n\\(\\tau\\)\n.\n\n\nSolution:\n The current can be calculated by the ratio of the total charge carried by the averaged \n\\(n_\\tau\\)\n quasiparticles to the time interval \n\\(\\tau\\)\n. \n\\[\\begin{align*}\n\\langle n_\\tau\\rangle = \\sum_{k=1}^{\\infty}kP(k) \\quad &= \\quad \\sum_{k=1}^{\\infty}\\frac{\\lambda^ke^{-\\lambda}}{(k-1)!}\\\\\n&= \\quad \\lambda\\sum_{k=0}^{\\infty}P(k)\\\\\n&= \\quad \\lambda\n\\end{align*}\\]\n where we have used \n\\(\\sum_k P(k) = 1\\)\n. Therefore, \n\\[I_B = \\frac{\\langle n_\\tau\\rangle e^*}{\\tau} = \\frac{\\nu e\\lambda}{\\tau}\\]\n\n\nGrading:\n 1 point for correctly calculating the average charge under the Poisson distribution and 1 point for the final expression for the charge current.\n\n\n(ii) (\n2 points\n) Current noise is defined as the charge fluctuations per unit of time. One can analyze the noise by measuring the mean square deviation of the number of current-carrying charges. Determine the current noise \n\\(S_I\\)\n due to the discreteness of the current-carrying charges in terms of \n\\(\\lambda\\)\n and \n\\(\\tau\\)\n.\n\n\nSolution:\n Similarly, the noise can be related to the averaged charge fluctuations during the time interval \n\\(\\tau\\)\n. \n\\[\\begin{align*}\n\\left\\langle\\left(n_\\tau - \\langle n_\\tau\\right)^2\\right\\rangle \\quad &= \\quad \\langle n_\\tau^2\\rangle - \\langle n_\\tau\\rangle^2\\\\\n&= \\quad \\sum_{k=1}^{\\infty}k^2P(k) - \\lambda^2\\\\\n&= \\quad \\left[\\lambda^2\\sum_{k=0}^{\\infty}P(k) + \\sum_{k=1}^{\\infty}kP(k)\\right] - \\lambda^2\\\\\n&= \\quad \\lambda\n\\end{align*}\\]\n Therefore, \n\\[S_I = \\frac{\\left\\langle\\left(n_\\tau - \\langle n_\\tau\\right)^2\\right\\rangle\\left(e^*\\right)^2}{\\tau} = \\frac{(\\nu e)^2\\lambda}{\\tau}\\]\n \nGrading:\n 1 point for correctly calculating the charge fluctuations under the Poisson distribution and 1 point for the final expression that relates the current noise to the charge fluctuations.\n\n\n(iii) (\n1 point\n) Calculate the noise-to-current ratio \n\\(S_I/I_B\\)\n, which was verified by R. de-Picciotto \net al.\n and L. Saminadayar \net al.\n in 1997. (One year later, Tsui and Stormer shared the Nobel Prize in Physics with R. B. Laughlin, who proposed an elegant ansatz for the ground state wave function at \n\\(\\nu = 1/3\\)\n.)\n\n\nSolution:\n The noise-to-current ratio \n\\(S_I/I_B = e^* = \\nu e\\)\n.\n\n\nGrading:\n 1 point for the final expression.\n\n\n\n\n\n\n\n\n\nFigure 1: (a) Sketch of the experimental setup for the observation of the FQHE. As indicated, a current \n\\(I\\)\n is passing through a two-dimensional system in the longitudinal direction with an effective length \n\\(L\\)\n. The Hall voltage \n\\(V_H\\)\n is measured in the transverse direction with an effective width \n\\(W\\)\n. In addition, a uniform magnetic field \n\\(B\\)\n is applied perpendicular to the plane. The direction of the current is given for illustrative purpose only, which may not be correct. (b) Hall resistance \n\\(R_H\\)\n versus \n\\(B\\)\n at four different temperatures (curves shifted for clarity), adapted from the original publication on the FQHE. The features at \n\\(R_H = 3h/e^2\\)\n are due to the FQHE.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2015-t1/2b5dcc61c40e4ede2dfc.png"
+    ],
+    "shared": false
+  }
+}

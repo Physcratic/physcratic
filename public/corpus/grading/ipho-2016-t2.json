@@ -1,0 +1,105 @@
+{
+  "problemId": "ipho-2016-t2",
+  "version": "a4f94f5184de9982a88092f394db1c23314f1301a29c1888f47c8c02caad8383",
+  "parts": [
+    {
+      "id": "q1",
+      "sourcePart": "A.1",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "math"
+    },
+    {
+      "id": "q2",
+      "sourcePart": "A.2",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "math"
+    },
+    {
+      "id": "q3",
+      "sourcePart": "A.3",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "math"
+    },
+    {
+      "id": "q4",
+      "sourcePart": "B.1",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "text"
+    },
+    {
+      "id": "q5",
+      "sourcePart": "B.2",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "math"
+    },
+    {
+      "id": "q6",
+      "sourcePart": "B.3",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "math"
+    },
+    {
+      "id": "q7",
+      "sourcePart": "B.4",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "math"
+    },
+    {
+      "id": "q8",
+      "sourcePart": "C.1",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "text"
+    },
+    {
+      "id": "q9",
+      "sourcePart": "C.2",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "text"
+    }
+  ]
+}

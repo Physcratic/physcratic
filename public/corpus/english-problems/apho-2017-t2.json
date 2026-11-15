@@ -1,1 +1,4918 @@
-{"id":"apho-2017-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2017_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2017_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2017-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6],"initialPage":1,"shared":false,"text":"Theory\nQ2-1\nEnglish (Oﬃcial)\nEvolution of Supermassive Black Holes Binary\nIntroduction\nThe concept of gravitational waves is one of the most impressive predictions of Einstein's Theory of Gen-\neral Relativity. Gravitational waves are the space-time ripples propagating with the speed of light sim-\nilarly to electromagnetic waves. Direct detection of gravitational waves is incredibly diﬃcult, however,\nthe ﬁrst signal was detected on September 14, 2015, by LIGO and VIRGO collaborations.\nGravitational waves are emitted during the rapid motion of massive objects. The most powerful source\nof gravitational waves is the merging of two Supermassive Black Holes (SBH). Black holes predicted by\nTheory of General Relativity represent extremely compact objects which might have very large masses.\nOther speciﬁc properties of black holes will not be needed in the solution of this problem.\nIn the generally accepted theory of galaxies' evolution, it is supposed that there is SBH with the mass\nranging from 105 −109 of Solar masses in the galaxy's center. Galaxies are huge stellar systems contain-\ning 1010 −1011 stars. During their evolution, two galaxies can collide and merge into one. What happens\nto two SBHs initially located in their centers? The evolution of the SBH binary system can be divided\ninto three main stages. At each stage SBHs approach each other, although the underlying physical phe-\nnomena differ. We will examine these phenomena separately in the ﬁrst three parts of the problem. In\nthe fourth part, we will use the obtained relations to calculate the total time of the SBH binary system\nevolution.\nAt the end of their evolution, two SBHs will eventually approach each other and merge into a single\nblack hole. The merging process lasts about an hour and is accompanied by an intense burst of gravita-\ntional radiation. Future observatories like LISA will be able to detect this gravitational radiation. Still, the\nresearch on the SBH evolution is under way now, at the dawn of gravitational-wave astronomy.\nGeneral information\n1. Express all your numerical answers in parsecs (pc) for the distances and giga-years (Gy) for the time\nintervals. We will use Solar mass (𝑀𝑆) as a reference mass. You might need these values:\n1 pc = 3.1 × 1016 m,\n𝑀𝑠= 2.0 × 1030 kg,\n𝑡𝐻= 13.7 Gy , age of the Universe,\n𝐺= 6.67 × 10−11 N × m2/kg2,\n𝑐= 3.0 × 108 m/s.\n2. When you encounter the word “estimate”, you are not demanded the exact answer. It is suﬃcient to\nobtain a result that differs from the accurate one, not more than by a factor of 10. On the contrary, when\nyou encounter the word “ﬁnd”, you are supposed to achieve the exact answer. The word “calculate”\nasks you to bring the numerical answer.\n3. Throughout the problem, assume every star in the galaxy to have the same mass 𝑚= 𝑀𝑆.\n4. Throughout the problem we will not take into account the effects of the Theory of General Relativity\nexcept gravitational waves emission. All stars and black holes are considered as point masses governed\nby Newton's gravitation law.\n\nTheory\nQ2-2\nEnglish (Oﬃcial)\nPart A. Dynamic Friction (1.6 points)\nIn this part we shall study the simpliﬁed model of the galaxy. You can ignore the velocities of the stars\nin the galaxy and assume the constant stellar concentration 𝑛. The characteristic size of the galaxy is 𝑅.\nThe stellar concentration is small enough, so the stellar collisions are extemely rare and negligible. Let\nus consider a SBH with the mass 𝑀≫𝑚moving with the velocity 𝑣through the galaxy. Surprisingly,\nthe SBH experiences nonzero average force from the stars. This force slows the motion of the SBH and\nis called the force of dynamical friction for this reason. This part is devoted to the determination of this\nforce.\nA.1\nLet us work in the SBH's reference frame and consider the transit of one star\nwith impact parameter 𝑏(ﬁg. 1). Assume that\n𝑏≫𝑏1 = 𝐺𝑀\n𝑣2 .\n(1)\nThe angular deﬂection of the star 𝛼= 𝑘𝑏1/𝑏, where 𝑘is some coeﬃcient. Find\nthe value of 𝑘. If you cannot ﬁnd 𝑘, assume 𝑘= 1 hereafter.\n0.75pt\nM\nrm\nα\nM\nb\nFig. 1: The deﬂection of a star by the SBH with mass 𝑀. The impact parameter is 𝑏, the minimal\ndistance between the star and the SBH is 𝑟𝑚.\nA.2\nLet Ox axis be directed along the SBH's velocity. Find the momentum compo-\nnent Δ𝑝𝑥transferred from the star to the SBH.\n0.25pt\nA.3\nEstimate the average force 𝐹𝐷𝐹acting on the SBH by taking the average over\nimpact parameter 𝑏. Neglect the contribution of the stars with impact parame-\nters 𝑏< 𝑏1 . Assume the SBH to reside in the central part of a galaxy. Express𝐹𝐷𝐹\nin terms of 𝑀, 𝑣, 𝑅, 𝐺and stellar density 𝜌= 𝑚𝑛.\n0.4pt\nA.4\nAs you obtained in the previous task, the expression for 𝐹𝐷𝐹includes the factor\nlog 𝑅/𝑏1, which we will denote further as log Λ. Calculate the value of log Λ for\n𝑀= 108 𝑀𝑆, 𝑅= 20 kpc = 20 × 103 𝑝𝑐and velocity 𝑣= 200 km/s.\n0.2pt\n\nTheory\nQ2-3\nEnglish (Oﬃcial)\nPart B. Gravitational sligshot (3.0 points)\nIn this part, we will consider the system of two SBHs with equal masses 𝑀≫𝑚located in the center\nof the galaxy. Let's call this system a SBH binary. We will assume that there are no stars near the SBH\nbinary, each SBH has a circular orbit of radius 𝑎in the gravitational ﬁeld of another SBH.\nB.1\nFind the orbital velocity 𝑣𝑏𝑖𝑛of each SBH. Find the total energy 𝐸of the SBH\nbinary. Express it in terms of 𝑎, 𝐺and 𝑀.\n0.25pt\nThere are a lot of stars at distances much larger than 𝑎from the binary. Stars travel along complex\nand diverse trajectories in the gravitational ﬁeld of the whole galaxy. The motion of the stars can be\nconsidered chaotic, like the motion of the molecules in an ideal gas. Let us assume that stars' velocities\nhave equal magnitudes 𝜎≪𝑣𝑏𝑖𝑛and their average mass density is 𝜌. In this case dynamical friction is no\nlonger affecting the SBH binary and energy losses are caused by other phenomenon.\nB.2\nLet us solve a related problem. Let a star of mass 𝑚transit by a point mass\n𝑀2 ≫𝑚being at rest. The minimal distance between the star and the point\nduring the transit is 𝑟𝑚. The velocity of the star at large distance is 𝜎. Find the\nexact value of impact parameter 𝑏.\n0.5pt\nIf a star approaches the SBH binary for a distance about 𝑎, it participates in a complex 3-body interaction\nwith the binary that almost always results in a star being shot out with the velocity about 𝑣𝑏𝑖𝑛(the velocity\nof the star at the large distance after interaction). We will call such a strong interaction a collision of a\nstar with the SBH binary. Acceleration and the shot of the star after the collision is called “gravitational\nslingshot”.\nB.3\nEstimate the characteristic time Δ𝑡between two successive collisions of the SBH\nbinary with stars. Take into account that 𝜎≪𝑣𝑏𝑖𝑛.\n1.0pt\nB.4\nEstimate the SBH binary energy loss rate 𝑑𝐸/𝑑𝑡. Estimate the radius variation\nrate 𝑑𝑎/𝑑𝑡. Express it in terms of 𝑎, 𝜌, 𝜎, 𝐺.\n0.25pt\nB.5\nLet us denote the initial radius of the system as 𝑎1. Estimate the time 𝑇𝑆𝑆for\nthe radius to decrease by a factor of 2 due to “gravitational slingshot”. Calculate\n𝑇𝑆𝑆for 𝜎= 200 km/s, 𝑎1 = 1 pc, 𝜌= 104𝑀𝑆/pc3.\n1.0pt\n\nTheory\nQ2-4\nEnglish (Oﬃcial)\nPart C. Emission of gravitational waves (1.0 points)\nIn this part we shall study the SBH binary with equal masses which doesn't interact with the stars. Even\nin this case the system loses the energy due to gravitational waves emission. The energy loss rate due\nto gravitational waves is\n𝑑𝐸\n𝑑𝑡= −1024\n5\n𝐺\n𝑐5 (𝜔3𝐼)2,\n(2)\nwhere 𝜔is angular velocity of the binary, and   𝐼= 2𝑀𝑎2 is quadrupole moment of the system.\nC.1\nFind the SBH binary radius variation rate 𝑑𝑎/𝑑𝑡due to the emission of gravita-\ntional waves.\n0.2pt\nWhen the orbit radius of the SBH binary 𝑎becomes close to the gravitational radius of the black hole:\n𝑟𝑔= 2𝐺𝑀\n𝑐2\n,\n(3)\ntwo SBHs quickly merge.\nC.2\nLet us denote the initial radius of the system as 𝑎2 ≫𝑟𝑔. Estimate the time 𝑇𝐺𝑊\nit takes for the SBH binary to shrink to the radius about 𝑟𝑔due to the emission\nof gravitational waves. Express 𝑇𝐺𝑊as a function of 𝑎2, 𝑀, 𝑐and 𝐺.\n0.7pt\nC.3\nCalculate the initial radius 𝑎𝐻of the binary of SBHs with equal masses 𝑀=\n108𝑀𝑆if it takes it the age of the Universe to merge: 𝑇𝐺𝑊= 𝑡𝐻.\n0.1pt\n\nTheory\nQ2-5\nEnglish (Oﬃcial)\nPart D. Full evolution (4.4 points)\nIn this part we will use the results obtained above. Let us consider the real astrophysical situation. Two\ngalaxies having SBH of mass 𝑀= 108 𝑀𝑆in their centers merged into a new stellar system. Let the new\ngalaxy be spherically symmetrical with radius 𝑅= 20 kpc = 20×103 pc. Let us assume that stellar density\nvaries with radius 𝑟to the galaxy center as\n𝜌(𝑟) =\n𝜎2\n4𝜋𝐺𝑟2 ,\n(4)\nwhere 𝜎= 200 km/s.\nD.1\nLet the body move in circular orbit of radius 𝑎< 𝑅in gravitational ﬁeld of the\nstars. Neglect the force of dynamical friction and ﬁnd the velocity 𝑣of the body.\n0.25pt\nImmediately after the merging of galaxies two SBHs have arbitrary positions inside the new galaxy and\ndo not affect each other. Let's consider one SBH. We assume it moves in a circular orbit of radius 𝑎< 𝑅\naround the galaxy center and slowly loses energy due to the dynamical friction.\nD.2\nEstimate the orbit radius variation rate 𝑑𝑎/𝑑𝑡. In part A we ignored the velocities\nof the stars. Although stars are moving in the real galaxy, not all of them have\nexactly the same speed 𝜎. Instead, the speed of the stars is only of the order of\n𝜎, and so is the relative speed of SBH with respect to the stars, hence you can\nuse the result obtained in A.3 for estimation. You should use the density 𝜌(𝑟)\nfrom equation (4). Assume log Λ to be a constant calculated in A.4.\n0.75pt\nAfter a certain time, two SBH will approach the center of the galaxy. Let two SBH move in a circular orbit\nof radius 𝑎around the center galaxy in the gravitational ﬁeld of the stars.\nD.3\nEstimate the critical radius 𝑎1 at which gravitational interaction between two\nSBHs is no longer negligible and calculate it. We will say that at this moment\ntwo SBHs form a binary system (ﬁg. 2).\n0.3pt\na\nFig. 2: The evolution of SBHs before and after the formation of the binary system\n\nTheory\nQ2-6\nEnglish (Oﬃcial)\nD.4\nLet us assume that after the merging of galaxies two SBHs were at distances\n𝑎0 = 2 kpc = 2 × 103 pc from the galaxy center. Calculate the time 𝑇1 it takes for\ntwo SBH to form a binary due to dynamical friction.\n0.75pt\nAfter forming the binary, two SBHs shoot away all the stars from the center of the galaxy and stay there\nalone. Since this moment, dynamical friction becomes ineffective and the binary starts to lose the energy\nbecause of the slingshot effect. You can assume that the velocities of the stars around the binary are\n𝜎and the stellar density is 𝜌1 = 𝜌(𝑎1) from the equation (4). Slingshot effect shrinks the radius of the\nsystem drastically and after some time the system starts to lose energy mostly due to the radiation of\ngravitational waves.\nD.5\nWhen the binary radius is less than some value 𝑎< 𝑎2 the energy loss is caused\nby gravitational waves emission. Estimate the 𝑎2 value and calculate it.\n0.3pt\nD.6\nEstimate the time 𝑇2 of the binary radius reduction from 𝑎1 to 𝑎2 (the slingshot\nstage). Estimate the time 𝑇3 of binary radius reduction from 𝑎2 to almost zero\n(the stage of gravitational waves emission).\n1.75pt\nD.7\nFor the parameters given above, calculate the total time 𝑇𝑒𝑣of two SBH evolu-\ntion from galaxies merging to SBH merging.\n0.3pt\nHistorical remark. For a long time astrophysicists have been thinking the SBH binary evolution stops\nat the slingshot stage, since the binary has shot out all the stars with small impact parameters which\nmight collide with it. It appeared that two SBH would never merge. This fact was called the ﬁnal parsec\nproblem.\nReal galaxies have complicated asymmetric shapes. Few years ago it was found that in galaxies of com-\nplex shapes the stars with small impact parameters appear again and again. The SBH binary continues\nto lose energy, but slower than our estimation gives. The ﬁnal parsec problem was successfully solved.\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2017-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6],"initialPage":1,"shared":false,"text":"Ev\nolution\nof\nSup\nermassiv\ne\nBla \nk\nHoles\nBinary\nSolution\nA.\nD\nynami al\nFri tion\nA1.\nThe\nde\u001de tion\nangle\nis\nde\u001cned\nfrom: tan α ≈α = py\npx\n,\nassuming\nthat α ≪1 .\nOne\n an\n\u001cnd\npy =\nR\nFy dt,\nand\na  ording\nto\nNewton's\ngra\nvit\ny\nla\nw\nFy = GMm\nb2\ncos3 ϕ\nThe\ngeometry: x = b tan ϕ,\nso\nw\ne\n \nhange\nthe\nv\nariable dt = dx\nv = b\nv\ndϕ\ncos2 ϕ\nand\nw\ne\nha\nv\ne\npy = GMm\nbv\nZ π/2\n−π/2\ncos ϕ dϕ = 2GMm\nbv\n.\nHere\nw\ne\nassume\nthat\nthe\nb\no\ndy\nmo\nv\nes\nalong\nthe\nstrigh\nt\nline,\ndue\nto α ≪1 ,\nsee\nFig\n1.\nSo α = py\np\nand\nα = 2GM\nbv2\n= 2b1\nb\n,\nk = 2\nφ\nv\ny\nx\nb\nM\nm\nA2.\nDuring\nthe\ntransit\nof\na\nmassiv\ne\nb\no\ndy\n,\nstar's\nenergy\nremains\n onstan\nt: p2\nx + p2\ny =\n onst\n.\nHen e\n(p + ∆px)2 + p2\ny = p2.\nW\ne\nkno\nw\nthat py ≪p,\nso\nthe\nSBH\nmomen\ntum\n \nhange\nalong\nthe\nx-axis ∆px = −\np2\ny\n2p = −α2\n2 p,\nso\n∆px = −2G2M2m\nb2v3\n.\nA3.\nT\no\n al ulate\nnet\nfor e\nw\ne\nmigh\nt\nin\ntegrate\no\nv\ner\nstars\nwith\ndi\u001beren\nt\nimpa t\nparameters.\nThe\nn\num\nb\ner\nof\nstars'\ntransits\nduring\nthe\ntime ∆t\nequals ∆N = 2πbvn db ∆t,\nso\nfor e,\nde elerating\nthe\nob\nje t\nalong\nthe\nx-axis,\n(1)\nFDF = 1\n∆t\nZ\n∆px dN = −4πG2M2 nm\nv2\nZ bmax\nbmin\ndb\nb = −4πG2M2 ρ\nv2 log Λ\n1\n\n2\nb\nΔb\nx\nv\nThe\nab\no\nv\ne\nform\nulas\nare\ntrue\nonly\nfor b > b1\n,\nso\nthe\nlo\nw\ner\nin\ntegration\nlimit\nis bmin = b1\n,\nand\nthe\nupp\ner\nlimit\nis\ndetermined\nb\ny\nthe\ngalaxy\nsize bmax = R .\nSo\nw\ne\nha\nv\ne\n(2)\nFDF = −4πG2M2 ρ\nv2 log Λ\nwhere Λ = R/b1\n.\nA4.\nW\ne\n al ulate: b1 = GM\nv2 = 10.7\np\n , log Λ = 7.5 .\nB.\nGra\nvit\na\ntional\nslingshot\nB1.\nF\nrom\nthe\nse ond\nNewton's\nla\nw\nMv2\na\n= GM2\n4a2 ,\nand\nw\ne\nha\nv\ne\nfor\nthe\norbital\nv\nelo\n it\ny vbin =\nr\nGM\n4a\n.\nThe\nsystem\nenergy\nis\nE = E\nkin + U = 2 · Mv2\n2\n−GM2\n2a .\nThe\nansw\ner\nis\n(3)\nE = −GM2\n4a\nB2.\nF\nrom\nangular\nmomen\ntum\n onserv\nation\nla\nw\nbσ = rmv0,\nexpress v0\n.\nW\nrite\ndo\nwn\nthe\nenergy\n onserv\nation\nla\nw\nσ2\n2 = v2\n0\n2 −GM2\nrm\n\n3\nand\nderiv\ne\nb = rm\nr\n1 + 2GM2\nσ2rm\n.\nB3.\nT\no\nestimate\nthe\ntime\nb\net\nw\neen\n ollisions\nlet\nus\nuse\nan\nanalogy\nwith\nthe\ngas.\nAs\nkno\nwn\nfrom\nthe\nmole ular\nkineti \ntheory\n,\ngiv\nen\nthat\nmole ules\nha\nv\ne\nradii r\n,\nthermal\nv\nelo\n ities v\n,\nand\nthe\nmole ular\n on en\ntration n,\nthe\ntime ∆t\nb\net\nw\neen\n ollisions\nof\none\nmole ule\nwith\nthe\nothers\n an\nb\ne\nestimated\nfrom\nthe\nrelation πr2vn∆t = 1 .\nIn\nour\nproblem bmax\nstands\nin\npla e\nof\nthe\nmole ule\nradius,\ntherefore\nfor\nestimation\nit\n an\nb\ne\nwritten\n(∆t)−1 = πσb2\nmaxn.\nEstimate\nthe\nmaximal\nimpa t\nparameter bmax\n,\n orresp\nonding\nto\nthe\nstar\n ollision\nwith\nthe\nbinary\nsystem.\nThe\nstar\nshould\nrea \nh\nthe\ndistan e\nof a\nto\nthe\nbinary\nsystem\nto\n ollide.\nThe\nstar\nat\nlarge\ndistan es\nfrom\nthe\nSBH\nbinary\nin\ntera ts\nwith\nit\nas\nwith\na\np\noin\nt\nob\nje t\nof\nmass\nM2 = 2M\n.\nF\nrom\nthe\nresults\nof\nB.2,\nassuming rm = a,\nw\ne\nobtain bmax = a\nq\n1 + 4GM\nσ2a\n.\nT\naking\nin\nto\na  oun\nt\nthat σ2 ≪GM\na\n,\nsimplify:\nbmax = 2\nσ\n√\nGMa,\nso\nw\ne\nha\nv\ne\n∆t =\nmσ\n4πGMρa\nB4.\nDuring\nthe\none\na t\nof\ngra\nvitational\nslingshot,\nstar\nenergy\nin reases\nat\na\nv\nerage\nb\ny\n∆Estar = mv2\nbin\n2\n−mσ2\n2 .\nSo\nthe\nbinary\nenergy\nde reases\nb\ny\nthe\nsame\nmagnitude ∆Ebin = −∆Estar\n.\nT\naking\nin\nto\na  oun\nt\nthat σ ≪vbin\n,\nw\ne\nderiv\ne\n∆Ebin = −m\n2 v2\nbin = GmM\n8a\n.\nA\nv\nerage\nbinary\nsystem\nenergy\nloss\nrate\nequals\n(4)\ndE\ndt = ∆E\n∆t = −πG2M2ρ\n2σ\nT\naking\nthe\ntime\nderiv\nativ\ne\nof\n(3),\nw\ne\nha\nv\ne\n(5)\ndE\ndt = d\ndt\n\u0012\n−GM2\n4a\n\u0013\n= GM2\n4a2\nda\ndt ,\nF\nrom\n(4)\nand\n(5)\nthe\norbit\nradius\nv\nariation\nrate\n an\nb\ne\nestimated\nas\n(6)\nda\ndt = −2πGρa2\nσ\n\n4\nB5.\nEquation\n(6)\n an\nb\ne\neasily\nin\ntegrated\n(7)\nda\na2 = −2πGρ\nσ\ndt.\nT\no\nredu e\nthe\nradius\nt\nwi e\nit\ntak\nes\ntime\nTSS =\nσ\n2πGρa1\n= 7.3 × 10−4\nGy\nC.\nEmission\nof\ngra\nvit\na\ntional\nw\na\nves\nÑ1.\nUsing\nthat ω = vbin\na =\nr\nGM\n4a3\nand\nform\nulas\nfrom\nthe\nproblem\ntext\none\n an\nobtain:\n(8)\ndE\ndt = −1024 × 4\n5\n× GM2v6\nbin\nc5a2\n= 64\n5 · G4M5\nc5a5 .\nCom\nbining\n(5)\nand\n(8)\nw\ne\nget\nthe\ndesirable\nresult:\n(9)\nda\ndt = −256\n5 · G3M3\nc5a3\nÑ2.\nIn\ntegrating\nthe\nequation\n(9)\none\n an\nobtain:\n(10)\na3 da = −256\n5 · G3M3\nc5\ndt\n=⇒\na4\n2 −r4\ng\n4\n= 256\n5 · G3M3\nc5\n· TGW;\nAnd\ntaking\nin\nto\na  oun\nt a2 ≫rg\nw\ne\nderiv\ne\nthe\n\u001cnal\nresult\nfor TGW\n:\n(11)\nTGW =\n5\n1024 · a4\n2c5\nG3M3\nÑ3.\nF\nrom\nthe\nprevious\nequation\nand TGW = tH\n:\n(12)\naH =\n4\ns\n1024\n5\n· G3M3 tH\nc5\n= 0.098\np\n \nD.\nFull\nev\nolution\nD1.\nThe\ngalaxy\nis\nspheri ally\nsymmetri ,\nso\nmass\nen losed\nwithin\na\nsphere\nof\nradius r\nequals\n(13)\nm(r) =\nZ r\n0\n4πx2ρ(x) dx = σ2r\nG .\nTh\nus\nthe\nfree\nfall\na  eleration\nof\nthe\nb\no\ndy\nequals\nin\nthe\ngra\nvitational\n\u001celd\nof\nstars\nis\n(14)\ng(r) = Gm(r)\nr2\n= σ2\nr .\nTherefore\nthe\nb\no\ndy\nv\nelo\n it\ny\nis\ndetermined\nb\ny\nrelation\nv2\nr = g = σ2\nr ,\nwhi \nh\nmeans\n(15)\nv = σ\n\n5\nSo\nthe\nv\nelo\n it\ny\nis\n onstan\nt.\nD2.\nThe\nenergy\nof\nSBH\nin\nthis\ngra\nvitational\n\u001celd\nis\nE = Mσ2\n2\n+ U\nSo\nthe\nkineti \nenergy\nis\n onstan\nt\nand\ndE\ndt = dU\ndt = dU\nda\nda\ndt\nF\nrom\nthe\nde\u001cnition\nof\np\noten\ntial\nenergy\nw\ne\nha\nv\ne\ndU\nda = g(a)M = Mσ2\na\nUsing\nthe\nresult\nof\nA3\nw\ne\nha\nv\ne\ndE\ndt = −FDfv = −4πG2M2ρ(a)\nσ\nlog Λ = −GM2σ log Λ\na2\n.\nCom\nbining\nthis\nequations\nw\ne\nget\nthe\nansw\ner\n(16)\nda\ndt = −GM log Λ\naσ\nD3.\nT\no\nestimate\none\n an\nassume\nthat\nSBHs\nform\na\nbinary\nwhen\nthe\nmass\nof\nstars\ninside\nthe\nsphere\nof\nradius a\nequals\nto M\n:\nm(a) = σ2a\nG = M,\nso\na1 = GM\nσ2\n= 10.8 p\n \nAlternativ\ne\nv\narian\nt:\nthe\nfor e\nfrom\nanother\nSBH\nis\nequal\nto\nfor e\nfrom\nall\nstars:\nGm(a)\na2\n= GM\n4a2\nso\nthe\nansw\ner\nis\na1 = GM\n4σ2 = 2.7 p\n \nD4.\nIn\ntegrating\nthe\nequation\n(16)\nw\ne\nha\nv\ne\na2\n0 −a2\n1\n2\n= GM log Λ\nσ\nT1\nand\nusing\nthat a1 ≪a0\nw\ne\nha\nv\ne\nT1 =\na2\n0σ\n2GM log Λ = 0.121\nGy.\nD5.\nT\notal\nenergy\nlosses\nare\n aused\nb\ny\ngra\nvitational\nslingshot\nand\ngra\nvitational\nw\na\nv\nes\nemission,\nso\n om\nbining\nequations\n(4)\nand\n(8):\n(17)\ndE\ndt = −πG2M2ρ1\n2σ\n−64\n5 · G4M5\nc5a5\n\n6\nwhere\nρ1 = ρ(a1) = ρ(10.8 p\n ) = 6.3 × 103Ms/pc3,\nalternativ\ne: ρ1 = ρ(2.7 p\n ) = 1.0 × 105Ms/ p\n 3\nEnergy\nlosses\ndue\nto\nGW\ndominates\nwhen πG2M2ρ1\n2σ\n< 64G4M5\n5c5a5\ni.e. a < a2\nwhere\na5\n2 = 128\n5π · G2M3σ\nc5ρ1\n= 512\n5\n· G3M3a2\n1\nc5σ\nNumeri al\nansw\ner\nis a2 = 0.018\np\n \n(alternativ\ne: a2 = 0.010\np\n \n).\nD6.\nF\nor\nrough\nappro\nximation\nit\n an\nb\ne\n onsidered\nthat\nat\nthe\nslingshot\nstage\n(a > a2\n)\nenergy\nlosses\nare\n aused\nonly\nb\ny\nslingshot,\nso T2\nis\n al ulated\nanalogiously\nto\nB5: da\na2 = −2πGρ\nσ dt\nand\nT2 ≈\nσ\n2πGρ1a2\n= 0.063\nGy\n(T2 ≈0.0068\nGy)\nAnd\nat\nthe\nGW\nemission\nstage\n(a < a2\n)\nenergy\nlosses\nare\n aused\nonly\nb\ny\nGW\nemission,\nso T3\nis\n al ulated\ndire tly\nfrom\nC2:\nT3 ≈\n5\n1024 · a4\n2c5\nG3M3 = 1\n8π ·\nσ\nGρ1a2\n= 0.016\nGy\n(T3 ≈0.0017\nGy)\nD7.\nT\notal\ntime\nof\nSBH\nbinary\nev\nolution\nfrom\nthe\nmomen\nt\nof\ngalaxies\nmerging\nto\nSBH\nmerging\nequals\nTev = T1 + T2 + TGW = 0.12 + 0.06 + 0.02\nGy = 0.20\nGy\n(Tev = 0.13\nGy)\n","textExtraction":"available"}}
+{
+  "id": "apho-2017-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2017_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2017_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2017-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Evolution of Supermassive Black Holes Binary"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Introduction"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The concept of gravitational waves is one of the most impressive predictions of Einstein’s Theory of General Relativity. Gravitational waves are the space-time ripples propagating with the speed of light similarly to electromagnetic waves. Direct detection of gravitational waves is incredibly difficult, however, the first signal was detected on September 14, 2015, by LIGO and VIRGO collaborations."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Gravitational waves are emitted during the rapid motion of massive objects. The most powerful source of gravitational waves is the merging of two Supermassive Black Holes (SBH). Black holes predicted by Theory of General Relativity represent extremely compact objects which might have very large masses. Other specific properties of black holes will not be needed in the solution of this problem."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the generally accepted theory of galaxies’ evolution, it is supposed that there is SBH with the mass ranging from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(10^5 - 10^9\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of Solar masses in the galaxy’s center. Galaxies are huge stellar systems containing "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(10^{10} - 10^{11}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " stars. During their evolution, two galaxies can collide and merge into one. What happens to two SBHs initially located in their centers? The evolution of the SBH binary system can be divided into "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "three"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " main stages. At each stage SBHs approach each other, although the underlying physical phenomena differ. We will examine these phenomena separately in the first three parts of the problem. In the fourth part, we will use the obtained relations to calculate the total time of the SBH binary system evolution."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At the end of their evolution, two SBHs will eventually approach each other and merge into a single black hole. The merging process lasts about an hour and is accompanied by an intense burst of gravitational radiation. Future observatories like LISA will be able to detect this gravitational radiation. Still, the research on the SBH evolution is under way now, at the dawn of gravitational-wave astronomy."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "General information"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1. Express all your numerical answers in parsecs (pc) for the distances and giga-years (Gy) for the time intervals. We will use Solar mass ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") as a reference mass. You might need these values:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "blockquote",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(1\\,\\mathrm{pc} = 3.1 \\times 10^{16}\\,\\mathrm{m}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ","
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(M_s = 2.0 \\times 10^{30}\\,\\mathrm{kg}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ","
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(t_H = 13.7\\,\\mathrm{Gy}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " , age of the Universe,"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(G = 6.67 \\times 10^{-11}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " N "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\times\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " m"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(^2\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "/kg"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(^2\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ","
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(c = 3.0 \\times 10^{8}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " m/s."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2. When you encounter the word “"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "estimate"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "”, you are not demanded the exact answer. It is sufficient to obtain a result that differs from the accurate one, not more than by a factor of 10. On the contrary, when you encounter the word “"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "find"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "”, you are supposed to achieve the exact answer. The word “"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "calculate"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "” asks you to bring the numerical answer."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3. Throughout the problem, assume every star in the galaxy to have the same mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m = M_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4. Throughout the problem we will not take into account the effects of the Theory of General Relativity except gravitational waves emission. All stars and black holes are considered as point masses governed by Newton’s gravitation law."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Dynamic Friction (1.6 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this part we shall study the simplified model of the galaxy. You can ignore the velocities of the stars in the galaxy and assume the constant stellar concentration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The characteristic size of the galaxy is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The stellar concentration is small enough, so the stellar collisions are extemely rare and negligible. Let us consider a SBH with the mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M \\gg m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " moving with the velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " through the galaxy. Surprisingly, the SBH experiences nonzero average force from the stars. This force slows the motion of the SBH and is called the force of dynamical friction for this reason. This part is devoted to the determination of this force."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Let us work in the SBH’s reference frame and consider the transit of one star with impact parameter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (fig. 1). Assume that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nb \\gg b_1 = \\frac{GM}{v^2}.\n\\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The angular deflection of the star "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha = kb_1/b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is some coefficient. Find the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". If you cannot find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", assume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " hereafter. 0.75pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2017-t2/fe596046967676fb3488.png",
+                "alt": "apho-2017-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig. 1: The deflection of a star by the SBH with mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The impact parameter is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the minimal distance between the star and the SBH is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Let Ox axis be directed along the SBH’s velocity. Find the momentum component "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta p_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " transferred from the star to the SBH. 0.25pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Estimate the average force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_{DF}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " acting on the SBH by taking the average over impact parameter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " . Neglect the contribution of the stars with impact parameters "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b < b_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " . Assume the SBH to reside in the central part of a galaxy. Express"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_{DF}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and stellar density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho = mn\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " . 0.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "As you obtained in the previous task, the expression for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_{DF}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " includes the factor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\log R/b_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which we will denote further as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\log\\Lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Calculate the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\log\\Lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M = 10^8\\ M_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = 20\\,\\mathrm{kpc} = 20 \\times 10^3\\ pc\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v = 200\\,\\mathrm{km/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Gravitational sligshot (3.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this part, we will consider the system of two SBHs with equal masses "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M \\gg m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " located in the center of the galaxy. Let’s call this system a "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "SBH binary"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We will assume that there are no stars near the SBH binary, each SBH has a circular orbit of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the gravitational field of another SBH."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the orbital velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{bin}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of each SBH. Find the total energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the SBH binary. Express it in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.25pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "There are a lot of stars at distances much larger than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the binary. Stars travel along complex and diverse trajectories in the gravitational field of the whole galaxy. The motion of the stars can be considered chaotic, like the motion of the molecules in an ideal gas. Let us assume that stars’ velocities have equal magnitudes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma \\ll v_{bin}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and their average mass density is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In this case dynamical friction is no longer affecting the SBH binary and energy losses are caused by other phenomenon."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Let us solve a related problem. Let a star of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " transit by a point mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_2 \\gg m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " being at rest. The minimal distance between the star and the point during the transit is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The velocity of the star at large distance is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Find the exact value of impact parameter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If a star approaches the SBH binary for a distance about "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", it participates in a complex 3-body interaction with the binary that almost always results in a star being shot out with the velocity about "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{bin}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (the velocity of the star at the large distance after interaction). We will call such a strong interaction a collision of a star with the SBH binary. Acceleration and the shot of the star after the collision is called “"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "gravitational slingshot"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "”."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Estimate the characteristic time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between two successive collisions of the SBH binary with stars. Take into account that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma \\ll v_{bin}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Estimate the SBH binary energy loss rate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dE/dt\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Estimate the radius variation rate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(da/dt\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Express it in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.25pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Let us denote the initial radius of the system as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Estimate the time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{SS}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the radius to decrease by a factor of 2 due to “gravitational slingshot”. Calculate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{SS}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma = 200\\,\\mathrm{km/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_1 = 1\\,\\mathrm{pc}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho = 10^4 M_S/\\mathrm{pc}^3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C. Emission of gravitational waves (1.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this part we shall study the SBH binary with equal masses which doesn’t interact with the stars. Even in this case the system loses the energy due to gravitational waves emission. The energy loss rate due to gravitational waves is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{dE}{dt} = -\\frac{1024}{5}\\frac{G}{c^5}(\\omega^3 I)^2,\n\\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is angular velocity of the binary, and"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I = 2Ma^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is quadrupole moment of the system."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the SBH binary radius variation rate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(da/dt\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " due to the emission of gravitational waves. 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When the orbit radius of the SBH binary "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " becomes close to the gravitational radius of the black hole: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nr_g = \\frac{2GM}{c^2},\n\\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " two SBHs quickly merge."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Let us denote the initial radius of the system as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_2 \\gg r_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Estimate the time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{GW}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " it takes for the SBH binary to shrink to the radius about "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " due to the emission of gravitational waves. Express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{GW}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.7pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Calculate the initial radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the binary of SBHs with equal masses "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M = 10^8 M_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " if it takes it the age of the Universe to merge: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{GW} = t_H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part D. Full evolution (4.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this part we will use the results obtained above. Let us consider the "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "real"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " astrophysical situation. Two galaxies having SBH of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M = 10^8\\ M_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in their centers merged into a new stellar system. Let the new galaxy be spherically symmetrical with radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = 20\\,\\mathrm{kpc} = 20 \\times 10^3\\,\\mathrm{pc}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Let us assume that stellar density varies with radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the galaxy center as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\rho(r) = \\frac{\\sigma^2}{4\\pi G r^2},\n\\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma = 200\\,\\mathrm{km/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Let the body move in circular orbit of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a < R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in gravitational field of the stars. Neglect the force of dynamical friction and find the velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the body. 0.25pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Immediately after the merging of galaxies two SBHs have arbitrary positions inside the new galaxy and do not affect each other. Let’s consider one SBH. We assume it moves in a circular orbit of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a < R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " around the galaxy center and slowly loses energy due to the dynamical friction."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Estimate the orbit radius variation rate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(da/dt\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In part A we ignored the velocities of the stars. Although stars are moving in the real galaxy, not all of them have exactly the same speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " . Instead, the speed of the stars is only of the order of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , and so is the relative speed of SBH with respect to the stars, hence you can use the result obtained in A.3 for estimation. You should use the density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho(r)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from equation (4). Assume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\log\\Lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to be a constant calculated in A.4. 0.75pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "After a certain time, two SBH will approach the center of the galaxy. Let two SBH move in a circular orbit of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " around the center galaxy in the gravitational field of the stars."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Estimate the critical radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at which gravitational interaction between two SBHs is no longer negligible and calculate it. We will say that at this moment two SBHs form a binary system (fig. 2). 0.3pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2017-t2/dfe115cda05a7cab76cd.png",
+                "alt": "apho-2017-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2: The evolution of SBHs before and after the formation of the binary system"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Let us assume that after the merging of galaxies two SBHs were at distances "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_0 = 2\\,\\mathrm{kpc} = 2 \\times 10^3\\,\\mathrm{pc}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the galaxy center. Calculate the time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " it takes for two SBH to form a binary due to dynamical friction. 0.75pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "After forming the binary, two SBHs shoot away all the stars from the center of the galaxy and stay there alone. Since this moment, dynamical friction becomes ineffective and the binary starts to lose the energy because of the slingshot effect. You can assume that the velocities of the stars around the binary are "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the stellar density is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_1 = \\rho(a_1)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the equation (4). Slingshot effect shrinks the radius of the system drastically and after some time the system starts to lose energy mostly due to the radiation of gravitational waves."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "When the binary radius is less than some value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a < a_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the energy loss is caused by gravitational waves emission. Estimate the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " value and calculate it. 0.3pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Estimate the time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the binary radius reduction from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (the slingshot stage). Estimate the time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of binary radius reduction from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to almost zero (the stage of gravitational waves emission). 1.75pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.7"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "For the parameters given above, calculate the total time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{ev}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of two SBH evolution from galaxies merging to SBH merging. 0.3pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Historical remark."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For a long time astrophysicists have been thinking the SBH binary evolution stops at the slingshot stage, since the binary has shot out all the stars with small impact parameters which might collide with it. It appeared that two SBH would never merge. This fact was called "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "the final parsec problem"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Real galaxies have complicated asymmetric shapes. Few years ago it was found that in galaxies of complex shapes the stars with small impact parameters appear again and again. The SBH binary continues to lose energy, but slower than our estimation gives. The final parsec problem was successfully solved."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Evolution of Supermassive Black Holes Binary\n\n\nIntroduction\n\n\nThe concept of gravitational waves is one of the most impressive predictions of Einstein’s Theory of General Relativity. Gravitational waves are the space-time ripples propagating with the speed of light similarly to electromagnetic waves. Direct detection of gravitational waves is incredibly difficult, however, the first signal was detected on September 14, 2015, by LIGO and VIRGO collaborations.\n\n\nGravitational waves are emitted during the rapid motion of massive objects. The most powerful source of gravitational waves is the merging of two Supermassive Black Holes (SBH). Black holes predicted by Theory of General Relativity represent extremely compact objects which might have very large masses. Other specific properties of black holes will not be needed in the solution of this problem.\n\n\nIn the generally accepted theory of galaxies’ evolution, it is supposed that there is SBH with the mass ranging from \n\\(10^5 - 10^9\\)\n of Solar masses in the galaxy’s center. Galaxies are huge stellar systems containing \n\\(10^{10} - 10^{11}\\)\n stars. During their evolution, two galaxies can collide and merge into one. What happens to two SBHs initially located in their centers? The evolution of the SBH binary system can be divided into \nthree\n main stages. At each stage SBHs approach each other, although the underlying physical phenomena differ. We will examine these phenomena separately in the first three parts of the problem. In the fourth part, we will use the obtained relations to calculate the total time of the SBH binary system evolution.\n\n\nAt the end of their evolution, two SBHs will eventually approach each other and merge into a single black hole. The merging process lasts about an hour and is accompanied by an intense burst of gravitational radiation. Future observatories like LISA will be able to detect this gravitational radiation. Still, the research on the SBH evolution is under way now, at the dawn of gravitational-wave astronomy.\n\n\nGeneral information\n\n\n1. Express all your numerical answers in parsecs (pc) for the distances and giga-years (Gy) for the time intervals. We will use Solar mass (\n\\(M_S\\)\n) as a reference mass. You might need these values:\n\n\n\n\n\\(1\\,\\mathrm{pc} = 3.1 \\times 10^{16}\\,\\mathrm{m}\\)\n,\n\n\n\\(M_s = 2.0 \\times 10^{30}\\,\\mathrm{kg}\\)\n,\n\n\n\\(t_H = 13.7\\,\\mathrm{Gy}\\)\n , age of the Universe,\n\n\n\\(G = 6.67 \\times 10^{-11}\\)\n N \n\\(\\times\\)\n m\n\\(^2\\)\n/kg\n\\(^2\\)\n,\n\n\n\\(c = 3.0 \\times 10^{8}\\)\n m/s.\n\n\n\n\n2. When you encounter the word “\nestimate\n”, you are not demanded the exact answer. It is sufficient to obtain a result that differs from the accurate one, not more than by a factor of 10. On the contrary, when you encounter the word “\nfind\n”, you are supposed to achieve the exact answer. The word “\ncalculate\n” asks you to bring the numerical answer.\n\n\n3. Throughout the problem, assume every star in the galaxy to have the same mass \n\\(m = M_S\\)\n.\n\n\n4. Throughout the problem we will not take into account the effects of the Theory of General Relativity except gravitational waves emission. All stars and black holes are considered as point masses governed by Newton’s gravitation law.\n\n\nPart A. Dynamic Friction (1.6 points)\n\n\nIn this part we shall study the simplified model of the galaxy. You can ignore the velocities of the stars in the galaxy and assume the constant stellar concentration \n\\(n\\)\n. The characteristic size of the galaxy is \n\\(R\\)\n. The stellar concentration is small enough, so the stellar collisions are extemely rare and negligible. Let us consider a SBH with the mass \n\\(M \\gg m\\)\n moving with the velocity \n\\(v\\)\n through the galaxy. Surprisingly, the SBH experiences nonzero average force from the stars. This force slows the motion of the SBH and is called the force of dynamical friction for this reason. This part is devoted to the determination of this force.\n\n\nA.1\nLet us work in the SBH’s reference frame and consider the transit of one star with impact parameter \n\\(b\\)\n (fig. 1). Assume that \n\\[\\begin{equation}\nb \\gg b_1 = \\frac{GM}{v^2}.\n\\tag{1}\n\\end{equation}\\]\n The angular deflection of the star \n\\(\\alpha = kb_1/b\\)\n, where \n\\(k\\)\n is some coefficient. Find the value of \n\\(k\\)\n. If you cannot find \n\\(k\\)\n, assume \n\\(k = 1\\)\n hereafter. 0.75pt\n\n\n\n\n\n\n\n\n\nFig. 1: The deflection of a star by the SBH with mass \n\\(M\\)\n. The impact parameter is \n\\(b\\)\n, the minimal distance between the star and the SBH is \n\\(r_m\\)\n.\n\n\nA.2\nLet Ox axis be directed along the SBH’s velocity. Find the momentum component \n\\(\\Delta p_x\\)\n transferred from the star to the SBH. 0.25pt\n\n\nA.3\nEstimate the average force \n\\(F_{DF}\\)\n acting on the SBH by taking the average over impact parameter \n\\(b\\)\n . Neglect the contribution of the stars with impact parameters \n\\(b < b_1\\)\n . Assume the SBH to reside in the central part of a galaxy. Express\n\\(F_{DF}\\)\n in terms of \n\\(M\\)\n, \n\\(v\\)\n, \n\\(R\\)\n, \n\\(G\\)\n and stellar density \n\\(\\rho = mn\\)\n . 0.4pt\n\n\nA.4\nAs you obtained in the previous task, the expression for \n\\(F_{DF}\\)\n includes the factor \n\\(\\log R/b_1\\)\n, which we will denote further as \n\\(\\log\\Lambda\\)\n. Calculate the value of \n\\(\\log\\Lambda\\)\n for \n\\(M = 10^8\\ M_S\\)\n, \n\\(R = 20\\,\\mathrm{kpc} = 20 \\times 10^3\\ pc\\)\n and velocity \n\\(v = 200\\,\\mathrm{km/s}\\)\n. 0.2pt\n\n\nPart B. Gravitational sligshot (3.0 points)\n\n\nIn this part, we will consider the system of two SBHs with equal masses \n\\(M \\gg m\\)\n located in the center of the galaxy. Let’s call this system a \nSBH binary\n. We will assume that there are no stars near the SBH binary, each SBH has a circular orbit of radius \n\\(a\\)\n in the gravitational field of another SBH.\n\n\nB.1\nFind the orbital velocity \n\\(v_{bin}\\)\n of each SBH. Find the total energy \n\\(E\\)\n of the SBH binary. Express it in terms of \n\\(a\\)\n, \n\\(G\\)\n and \n\\(M\\)\n. 0.25pt\n\n\nThere are a lot of stars at distances much larger than \n\\(a\\)\n from the binary. Stars travel along complex and diverse trajectories in the gravitational field of the whole galaxy. The motion of the stars can be considered chaotic, like the motion of the molecules in an ideal gas. Let us assume that stars’ velocities have equal magnitudes \n\\(\\sigma \\ll v_{bin}\\)\n and their average mass density is \n\\(\\rho\\)\n. In this case dynamical friction is no longer affecting the SBH binary and energy losses are caused by other phenomenon.\n\n\nB.2\nLet us solve a related problem. Let a star of mass \n\\(m\\)\n transit by a point mass \n\\(M_2 \\gg m\\)\n being at rest. The minimal distance between the star and the point during the transit is \n\\(r_m\\)\n. The velocity of the star at large distance is \n\\(\\sigma\\)\n. Find the exact value of impact parameter \n\\(b\\)\n. 0.5pt\n\n\nIf a star approaches the SBH binary for a distance about \n\\(a\\)\n, it participates in a complex 3-body interaction with the binary that almost always results in a star being shot out with the velocity about \n\\(v_{bin}\\)\n (the velocity of the star at the large distance after interaction). We will call such a strong interaction a collision of a star with the SBH binary. Acceleration and the shot of the star after the collision is called “\ngravitational slingshot\n”.\n\n\nB.3\nEstimate the characteristic time \n\\(\\Delta t\\)\n between two successive collisions of the SBH binary with stars. Take into account that \n\\(\\sigma \\ll v_{bin}\\)\n. 1.0pt\n\n\nB.4\nEstimate the SBH binary energy loss rate \n\\(dE/dt\\)\n. Estimate the radius variation rate \n\\(da/dt\\)\n. Express it in terms of \n\\(a\\)\n, \n\\(\\rho\\)\n, \n\\(\\sigma\\)\n, \n\\(G\\)\n. 0.25pt\n\n\nB.5\nLet us denote the initial radius of the system as \n\\(a_1\\)\n. Estimate the time \n\\(T_{SS}\\)\n for the radius to decrease by a factor of 2 due to “gravitational slingshot”. Calculate \n\\(T_{SS}\\)\n for \n\\(\\sigma = 200\\,\\mathrm{km/s}\\)\n, \n\\(a_1 = 1\\,\\mathrm{pc}\\)\n, \n\\(\\rho = 10^4 M_S/\\mathrm{pc}^3\\)\n. 1.0pt\n\n\nPart C. Emission of gravitational waves (1.0 points)\n\n\nIn this part we shall study the SBH binary with equal masses which doesn’t interact with the stars. Even in this case the system loses the energy due to gravitational waves emission. The energy loss rate due to gravitational waves is \n\\[\\begin{equation}\n\\frac{dE}{dt} = -\\frac{1024}{5}\\frac{G}{c^5}(\\omega^3 I)^2,\n\\tag{2}\n\\end{equation}\\]\n where \n\\(\\omega\\)\n is angular velocity of the binary, and\n\\(I = 2Ma^2\\)\n is quadrupole moment of the system.\n\n\nC.1\nFind the SBH binary radius variation rate \n\\(da/dt\\)\n due to the emission of gravitational waves. 0.2pt\n\n\nWhen the orbit radius of the SBH binary \n\\(a\\)\n becomes close to the gravitational radius of the black hole: \n\\[\\begin{equation}\nr_g = \\frac{2GM}{c^2},\n\\tag{3}\n\\end{equation}\\]\n two SBHs quickly merge.\n\n\nC.2\nLet us denote the initial radius of the system as \n\\(a_2 \\gg r_g\\)\n. Estimate the time \n\\(T_{GW}\\)\n it takes for the SBH binary to shrink to the radius about \n\\(r_g\\)\n due to the emission of gravitational waves. Express \n\\(T_{GW}\\)\n as a function of \n\\(a_2\\)\n, \n\\(M\\)\n, \n\\(c\\)\n and \n\\(G\\)\n. 0.7pt\n\n\nC.3\nCalculate the initial radius \n\\(a_H\\)\n of the binary of SBHs with equal masses \n\\(M = 10^8 M_S\\)\n if it takes it the age of the Universe to merge: \n\\(T_{GW} = t_H\\)\n. 0.1pt\n\n\nPart D. Full evolution (4.4 points)\n\n\nIn this part we will use the results obtained above. Let us consider the \nreal\n astrophysical situation. Two galaxies having SBH of mass \n\\(M = 10^8\\ M_S\\)\n in their centers merged into a new stellar system. Let the new galaxy be spherically symmetrical with radius \n\\(R = 20\\,\\mathrm{kpc} = 20 \\times 10^3\\,\\mathrm{pc}\\)\n. Let us assume that stellar density varies with radius \n\\(r\\)\n to the galaxy center as \n\\[\\begin{equation}\n\\rho(r) = \\frac{\\sigma^2}{4\\pi G r^2},\n\\tag{4}\n\\end{equation}\\]\n where \n\\(\\sigma = 200\\,\\mathrm{km/s}\\)\n.\n\n\nD.1\nLet the body move in circular orbit of radius \n\\(a < R\\)\n in gravitational field of the stars. Neglect the force of dynamical friction and find the velocity \n\\(v\\)\n of the body. 0.25pt\n\n\nImmediately after the merging of galaxies two SBHs have arbitrary positions inside the new galaxy and do not affect each other. Let’s consider one SBH. We assume it moves in a circular orbit of radius \n\\(a < R\\)\n around the galaxy center and slowly loses energy due to the dynamical friction.\n\n\nD.2\nEstimate the orbit radius variation rate \n\\(da/dt\\)\n. In part A we ignored the velocities of the stars. Although stars are moving in the real galaxy, not all of them have exactly the same speed \n\\(\\sigma\\)\n . Instead, the speed of the stars is only of the order of \n\\(\\sigma\\)\n , and so is the relative speed of SBH with respect to the stars, hence you can use the result obtained in A.3 for estimation. You should use the density \n\\(\\rho(r)\\)\n from equation (4). Assume \n\\(\\log\\Lambda\\)\n to be a constant calculated in A.4. 0.75pt\n\n\nAfter a certain time, two SBH will approach the center of the galaxy. Let two SBH move in a circular orbit of radius \n\\(a\\)\n around the center galaxy in the gravitational field of the stars.\n\n\nD.3\nEstimate the critical radius \n\\(a_1\\)\n at which gravitational interaction between two SBHs is no longer negligible and calculate it. We will say that at this moment two SBHs form a binary system (fig. 2). 0.3pt\n\n\n\n\n\n\n\n\n\n\n\nFig. 2: The evolution of SBHs before and after the formation of the binary system\n\n\n\n\nD.4\nLet us assume that after the merging of galaxies two SBHs were at distances \n\\(a_0 = 2\\,\\mathrm{kpc} = 2 \\times 10^3\\,\\mathrm{pc}\\)\n from the galaxy center. Calculate the time \n\\(T_1\\)\n it takes for two SBH to form a binary due to dynamical friction. 0.75pt\n\n\nAfter forming the binary, two SBHs shoot away all the stars from the center of the galaxy and stay there alone. Since this moment, dynamical friction becomes ineffective and the binary starts to lose the energy because of the slingshot effect. You can assume that the velocities of the stars around the binary are \n\\(\\sigma\\)\n and the stellar density is \n\\(\\rho_1 = \\rho(a_1)\\)\n from the equation (4). Slingshot effect shrinks the radius of the system drastically and after some time the system starts to lose energy mostly due to the radiation of gravitational waves.\n\n\nD.5\nWhen the binary radius is less than some value \n\\(a < a_2\\)\n the energy loss is caused by gravitational waves emission. Estimate the \n\\(a_2\\)\n value and calculate it. 0.3pt\n\n\nD.6\nEstimate the time \n\\(T_2\\)\n of the binary radius reduction from \n\\(a_1\\)\n to \n\\(a_2\\)\n (the slingshot stage). Estimate the time \n\\(T_3\\)\n of binary radius reduction from \n\\(a_2\\)\n to almost zero (the stage of gravitational waves emission). 1.75pt\n\n\nD.7\nFor the parameters given above, calculate the total time \n\\(T_{ev}\\)\n of two SBH evolution from galaxies merging to SBH merging. 0.3pt\n\n\nHistorical remark.\n For a long time astrophysicists have been thinking the SBH binary evolution stops at the slingshot stage, since the binary has shot out all the stars with small impact parameters which might collide with it. It appeared that two SBH would never merge. This fact was called \nthe final parsec problem\n.\n\n\nReal galaxies have complicated asymmetric shapes. Few years ago it was found that in galaxies of complex shapes the stars with small impact parameters appear again and again. The SBH binary continues to lose energy, but slower than our estimation gives. The final parsec problem was successfully solved.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2017-t2/fe596046967676fb3488.png",
+      "/corpus/figures/native/bulk/apho-2017-t2/dfe115cda05a7cab76cd.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2017-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Evolution of Supermassive Black Holes Binary"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "br",
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "\nSolution"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "A. Dynamical Friction"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A1."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The deflection angle is defined from: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tan\\alpha \\approx \\alpha = \\frac{p_y}{p_x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", assuming that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". One can find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_y = \\int F_y\\,dt\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and according to Newton’s gravity law "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_y = \\frac{GMm}{b^2}\\cos^3\\varphi\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The geometry: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = b\\tan\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so we change the variable "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dt = \\frac{dx}{v} = \\frac{b}{v}\\frac{d\\varphi}{\\cos^2\\varphi}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p_y = \\frac{GMm}{bv}\\int_{-\\pi/2}^{\\pi/2}\\cos\\varphi\\,d\\varphi = \\frac{2GMm}{bv}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Here we assume that the body moves along the stright line, due to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", see Fig 1. So "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha = \\frac{p_y}{p}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\boxed{\\alpha = \\frac{2GM}{bv^2} = \\frac{2b_1}{b}}, \\qquad \\boxed{k = 2}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2017-t2/df2f73df71097cf1568a.png",
+                "alt": "apho-2017-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A2."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " During the transit of a massive body, star’s energy remains constant: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_x^2 + p_y^2 = \\mathrm{const}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[(p + \\Delta p_x)^2 + p_y^2 = p^2.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " We know that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_y \\ll p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so the SBH momentum change along the x-axis "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta p_x = -\\frac{p_y^2}{2p} = -\\frac{\\alpha^2}{2}p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\boxed{\\Delta p_x = -\\frac{2G^2M^2m}{b^2v^3}}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A3."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " To calculate net force we might integrate over stars with different impact parameters. The number of stars’ transits during the time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " equals "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta N = 2\\pi bvn\\,db\\,\\Delta t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so force, decelerating the object along the x-axis, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nF_{DF} = \\frac{1}{\\Delta t}\\int \\Delta p_x\\,dN = -4\\pi G^2M^2\\frac{nm}{v^2}\\int_{b_{min}}^{b_{max}}\\frac{db}{b} = -4\\pi G^2M^2\\frac{\\rho}{v^2}\\log\\Lambda\n\\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2017-t2/eeae3ec5d6bffce9aca8.png",
+                "alt": "apho-2017-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The above formulas are true only for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b > b_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so the lower integration limit is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b_{min} = b_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the upper limit is determined by the galaxy size "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b_{max} = R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". So we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nF_{DF} = -4\\pi G^2M^2\\frac{\\rho}{v^2}\\log\\Lambda\n\\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Lambda = R/b_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A4."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " We calculate: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b_1 = \\frac{GM}{v^2} = 10.7\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " pc, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\log\\Lambda = 7.5\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "B. Gravitational slingshot"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B1."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From the second Newton’s law "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{Mv^2}{a} = \\frac{GM^2}{4a^2},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and we have for the orbital velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boxed{\\displaystyle v_{bin} = \\sqrt{\\frac{GM}{4a}}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The system energy is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E = E_{\\mathrm{kin}} + U = 2\\cdot\\frac{Mv^2}{2} - \\frac{GM^2}{2a}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The answer is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\boxed{E = -\\frac{GM^2}{4a}}\n\\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B2."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From angular momentum conservation law "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[b\\sigma = r_mv_0,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Write down the energy conservation law "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\sigma^2}{2} = \\frac{v_0^2}{2} - \\frac{GM_2}{r_m}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and derive "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[b = r_m\\sqrt{1 + \\frac{2GM_2}{\\sigma^2r_m}}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B3."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " To estimate the time between collisions let us use an analogy with the gas. As known from the molecular kinetic theory, given that molecules have radii "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", thermal velocities "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the molecular concentration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between collisions of one molecule with the others can be estimated from the relation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\pi r^2vn\\Delta t = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In our problem "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b_{max}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " stands in place of the molecule radius, therefore for estimation it can be written "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[(\\Delta t)^{-1} = \\pi\\sigma b_{max}^2n.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Estimate the maximal impact parameter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b_{max}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", corresponding to the star collision with the binary system. The star should reach the distance of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the binary system to collide. The star at large distances from the SBH binary interacts with it as with a point object of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_2 = 2M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". From the results of B.2, assuming "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_m = a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b_{max} = a\\sqrt{1 + \\frac{4GM}{\\sigma^2a}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Taking into account that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma^2 \\ll \\frac{GM}{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", simplify: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[b_{max} = \\frac{2}{\\sigma}\\sqrt{GMa},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\boxed{\\Delta t = \\frac{m\\sigma}{4\\pi GM\\rho a}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B4."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " During the one act of gravitational slingshot, star energy increases at average by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta E_{star} = \\frac{mv_{bin}^2}{2} - \\frac{m\\sigma^2}{2}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " So the binary energy decreases by the same magnitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_{bin} = -\\Delta E_{star}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Taking into account that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma \\ll v_{bin}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we derive "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta E_{bin} = -\\frac{m}{2}v_{bin}^2 = \\frac{GmM}{8a}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Average binary system energy loss rate equals "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\boxed{\\frac{dE}{dt} = \\frac{\\Delta E}{\\Delta t} = -\\frac{\\pi G^2M^2\\rho}{2\\sigma}}\n\\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Taking the time derivative of (3), we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{dE}{dt} = \\frac{d}{dt}\\left(-\\frac{GM^2}{4a}\\right) = \\frac{GM^2}{4a^2}\\frac{da}{dt},\n\\tag{5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From (4) and (5) the orbit radius variation rate can be estimated as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\boxed{\\frac{da}{dt} = -\\frac{2\\pi G\\rho a^2}{\\sigma}}\n\\tag{6}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B5."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Equation (6) can be easily integrated "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{da}{a^2} = -\\frac{2\\pi G\\rho}{\\sigma}dt.\n\\tag{7}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " To reduce the radius twice it takes time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\boxed{T_{SS} = \\frac{\\sigma}{2\\pi G\\rho a_1} = 7.3 \\times 10^{-4}\\,\\mathrm{Gy}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "C. Emission of gravitational waves"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C1."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle\\omega = \\frac{v_{bin}}{a} = \\sqrt{\\frac{GM}{4a^3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and formulas from the problem text one can obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{dE}{dt} = -\\frac{1024\\times 4}{5}\\times\\frac{GM^2v_{bin}^6}{c^5a^2} = \\frac{64}{5}\\cdot\\frac{G^4M^5}{c^5a^5}.\n\\tag{8}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Combining (5) and (8) we get the desirable result: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\boxed{\\frac{da}{dt} = -\\frac{256}{5}\\cdot\\frac{G^3M^3}{c^5a^3}}\n\\tag{9}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C2."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Integrating the equation (9) one can obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\na^3\\,da = -\\frac{256}{5}\\cdot\\frac{G^3M^3}{c^5}dt \\qquad \\Longrightarrow \\qquad \\frac{a_2^4 - r_g^4}{4} = \\frac{256}{5}\\cdot\\frac{G^3M^3}{c^5}\\cdot T_{GW};\n\\tag{10}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " And taking into account "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_2 \\gg r_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we derive the final result for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{GW}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\boxed{T_{GW} = \\frac{5}{1024}\\cdot\\frac{a_2^4c^5}{G^3M^3}}\n\\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C3."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From the previous equation and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{GW} = t_H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\boxed{a_H = \\sqrt[4]{\\frac{1024}{5}\\cdot\\frac{G^3M^3\\,t_H}{c^5}} = 0.098\\,\\mathrm{pc}}\n\\tag{12}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "D. Full evolution"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D1."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The galaxy is spherically symmetric, so mass enclosed within a sphere of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " equals "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nm(r) = \\int_0^r 4\\pi x^2\\rho(x)\\,dx = \\frac{\\sigma^2r}{G}.\n\\tag{13}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus the free fall acceleration of the body equals in the gravitational field of stars is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ng(r) = \\frac{Gm(r)}{r^2} = \\frac{\\sigma^2}{r}.\n\\tag{14}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore the body velocity is determined by relation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{v^2}{r} = g = \\frac{\\sigma^2}{r},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which means "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\boxed{v = \\sigma}\n\\tag{15}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " So the velocity is constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D2."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The energy of SBH in this gravitational field is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E = \\frac{M\\sigma^2}{2} + U\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " So the kinetic energy is constant and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dE}{dt} = \\frac{dU}{dt} = \\frac{dU}{da}\\frac{da}{dt}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From the definition of potential energy we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dU}{da} = g(a)M = \\frac{M\\sigma^2}{a}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using the result of A3 we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dE}{dt} = -F_{Df}v = -4\\pi G^2M^2\\frac{\\rho(a)}{\\sigma}\\log\\Lambda = -\\frac{GM^2\\sigma\\log\\Lambda}{a^2}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Combining this equations we get the answer "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{da}{dt} = -\\frac{GM\\log\\Lambda}{a\\sigma}\n\\tag{16}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D3."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " To estimate one can assume that SBHs form a binary when the mass of stars inside the sphere of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " equals to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m(a) = \\frac{\\sigma^2a}{G} = M,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\boxed{a_1 = \\frac{GM}{\\sigma^2} = 10.8\\mathrm{pc}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Alternative variant: the force from another SBH is equal to force from all stars: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{Gm(a)}{a^2} = \\frac{GM}{4a^2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so the answer is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\boxed{a_1 = \\frac{GM}{4\\sigma^2} = 2.7\\mathrm{pc}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D4."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Integrating the equation (16) we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{a_0^2 - a_1^2}{2} = \\frac{GM\\log\\Lambda}{\\sigma}T_1\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and using that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_1 \\ll a_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_1 = \\frac{a_0^2\\sigma}{2GM\\log\\Lambda} = 0.121\\,\\mathrm{Gy}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D5."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Total energy losses are caused by gravitational slingshot and gravitational waves emission, so combining equations (4) and (8): "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{dE}{dt} = -\\frac{\\pi G^2M^2\\rho_1}{2\\sigma} - \\frac{64}{5}\\cdot\\frac{G^4M^5}{c^5a^5}\n\\tag{17}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\rho_1 = \\rho(a_1) = \\rho(10.8\\mathrm{pc}) = 6.3 \\times 10^3M_s/pc^3, \\qquad \\text{alternative: } \\rho_1 = \\rho(2.7\\mathrm{pc}) = 1.0 \\times 10^5M_s/\\mathrm{pc}^3\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Energy losses due to GW dominates when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{\\pi G^2M^2\\rho_1}{2\\sigma} < \\frac{64G^4M^5}{5c^5a^5}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a < a_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a_2^5 = \\frac{128}{5\\pi}\\cdot\\frac{G^2M^3\\sigma}{c^5\\rho_1} = \\frac{512}{5}\\cdot\\frac{G^3M^3a_1^2}{c^5\\sigma}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Numerical answer is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boxed{a_2 = 0.018\\,\\mathrm{pc}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (alternative: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_2 = 0.010\\,\\mathrm{pc}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D6."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For rough approximation it can be considered that at the slingshot stage ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a > a_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") energy losses are caused only by slingshot, so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is calculated analogiously to B5: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{da}{a^2} = -\\frac{2\\pi G\\rho}{\\sigma}dt\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_2 \\approx \\frac{\\sigma}{2\\pi G\\rho_1a_2} = 0.063\\,\\mathrm{Gy} \\qquad\\qquad (T_2 \\approx 0.0068\\,\\mathrm{Gy})\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " And at the GW emission stage ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a < a_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") energy losses are caused only by GW emission, so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is calculated directly from C2: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_3 \\approx \\frac{5}{1024}\\cdot\\frac{a_2^4c^5}{G^3M^3} = \\frac{1}{8\\pi}\\cdot\\frac{\\sigma}{G\\rho_1a_2} = 0.016\\,\\mathrm{Gy} \\qquad\\qquad (T_3 \\approx 0.0017\\,\\mathrm{Gy})\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D7."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Total time of SBH binary evolution from the moment of galaxies merging to SBH merging equals "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_{ev} = T_1 + T_2 + T_{GW} = 0.12 + 0.06 + 0.02\\,\\mathrm{Gy} = 0.20\\,\\mathrm{Gy} \\qquad\\qquad (T_{ev} = 0.13\\,\\mathrm{Gy})\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "\n\nEvolution of Supermassive Black Holes Binary\n\n\nSolution\n\n\n\n\n\n\nA. Dynamical Friction\n\n\n\n\nA1.\n The deflection angle is defined from: \n\\(\\tan\\alpha \\approx \\alpha = \\frac{p_y}{p_x}\\)\n, assuming that \n\\(\\alpha \\ll 1\\)\n. One can find \n\\(p_y = \\int F_y\\,dt\\)\n, and according to Newton’s gravity law \n\\[F_y = \\frac{GMm}{b^2}\\cos^3\\varphi\\]\n The geometry: \n\\(x = b\\tan\\varphi\\)\n, so we change the variable \n\\(dt = \\frac{dx}{v} = \\frac{b}{v}\\frac{d\\varphi}{\\cos^2\\varphi}\\)\n and we have \n\\[p_y = \\frac{GMm}{bv}\\int_{-\\pi/2}^{\\pi/2}\\cos\\varphi\\,d\\varphi = \\frac{2GMm}{bv}.\\]\n Here we assume that the body moves along the stright line, due to \n\\(\\alpha \\ll 1\\)\n, see Fig 1. So \n\\(\\alpha = \\frac{p_y}{p}\\)\n and \n\\[\\boxed{\\alpha = \\frac{2GM}{bv^2} = \\frac{2b_1}{b}}, \\qquad \\boxed{k = 2}\\]\n\n\n\n\n\n\n\n\n\nA2.\n During the transit of a massive body, star’s energy remains constant: \n\\(p_x^2 + p_y^2 = \\mathrm{const}\\)\n. Hence \n\\[(p + \\Delta p_x)^2 + p_y^2 = p^2.\\]\n We know that \n\\(p_y \\ll p\\)\n, so the SBH momentum change along the x-axis \n\\(\\Delta p_x = -\\frac{p_y^2}{2p} = -\\frac{\\alpha^2}{2}p\\)\n, so \n\\[\\boxed{\\Delta p_x = -\\frac{2G^2M^2m}{b^2v^3}}.\\]\n\n\nA3.\n To calculate net force we might integrate over stars with different impact parameters. The number of stars’ transits during the time \n\\(\\Delta t\\)\n equals \n\\(\\Delta N = 2\\pi bvn\\,db\\,\\Delta t\\)\n, so force, decelerating the object along the x-axis, \n\\[\\begin{equation}\nF_{DF} = \\frac{1}{\\Delta t}\\int \\Delta p_x\\,dN = -4\\pi G^2M^2\\frac{nm}{v^2}\\int_{b_{min}}^{b_{max}}\\frac{db}{b} = -4\\pi G^2M^2\\frac{\\rho}{v^2}\\log\\Lambda\n\\tag{1}\n\\end{equation}\\]\n\n\n\n\n\n\n\n\n\nThe above formulas are true only for \n\\(b > b_1\\)\n, so the lower integration limit is \n\\(b_{min} = b_1\\)\n, and the upper limit is determined by the galaxy size \n\\(b_{max} = R\\)\n. So we have \n\\[\\begin{equation}\nF_{DF} = -4\\pi G^2M^2\\frac{\\rho}{v^2}\\log\\Lambda\n\\tag{2}\n\\end{equation}\\]\n where \n\\(\\Lambda = R/b_1\\)\n.\n\n\nA4.\n We calculate: \n\\(b_1 = \\frac{GM}{v^2} = 10.7\\)\n pc, \n\\(\\log\\Lambda = 7.5\\)\n.\n\n\n\n\nB. Gravitational slingshot\n\n\n\n\nB1.\n From the second Newton’s law \n\\[\\frac{Mv^2}{a} = \\frac{GM^2}{4a^2},\\]\n and we have for the orbital velocity \n\\(\\boxed{\\displaystyle v_{bin} = \\sqrt{\\frac{GM}{4a}}}\\)\n. The system energy is \n\\[E = E_{\\mathrm{kin}} + U = 2\\cdot\\frac{Mv^2}{2} - \\frac{GM^2}{2a}.\\]\n The answer is \n\\[\\begin{equation}\n\\boxed{E = -\\frac{GM^2}{4a}}\n\\tag{3}\n\\end{equation}\\]\n\n\nB2.\n From angular momentum conservation law \n\\[b\\sigma = r_mv_0,\\]\n express \n\\(v_0\\)\n. Write down the energy conservation law \n\\[\\frac{\\sigma^2}{2} = \\frac{v_0^2}{2} - \\frac{GM_2}{r_m}\\]\n and derive \n\\[b = r_m\\sqrt{1 + \\frac{2GM_2}{\\sigma^2r_m}}.\\]\n\n\nB3.\n To estimate the time between collisions let us use an analogy with the gas. As known from the molecular kinetic theory, given that molecules have radii \n\\(r\\)\n, thermal velocities \n\\(v\\)\n, and the molecular concentration \n\\(n\\)\n, the time \n\\(\\Delta t\\)\n between collisions of one molecule with the others can be estimated from the relation \n\\(\\pi r^2vn\\Delta t = 1\\)\n. In our problem \n\\(b_{max}\\)\n stands in place of the molecule radius, therefore for estimation it can be written \n\\[(\\Delta t)^{-1} = \\pi\\sigma b_{max}^2n.\\]\n\n\nEstimate the maximal impact parameter \n\\(b_{max}\\)\n, corresponding to the star collision with the binary system. The star should reach the distance of \n\\(a\\)\n to the binary system to collide. The star at large distances from the SBH binary interacts with it as with a point object of mass \n\\(M_2 = 2M\\)\n. From the results of B.2, assuming \n\\(r_m = a\\)\n, we obtain \n\\(b_{max} = a\\sqrt{1 + \\frac{4GM}{\\sigma^2a}}\\)\n. Taking into account that \n\\(\\sigma^2 \\ll \\frac{GM}{a}\\)\n, simplify: \n\\[b_{max} = \\frac{2}{\\sigma}\\sqrt{GMa},\\]\n so we have \n\\[\\boxed{\\Delta t = \\frac{m\\sigma}{4\\pi GM\\rho a}}\\]\n\n\nB4.\n During the one act of gravitational slingshot, star energy increases at average by \n\\[\\Delta E_{star} = \\frac{mv_{bin}^2}{2} - \\frac{m\\sigma^2}{2}.\\]\n So the binary energy decreases by the same magnitude \n\\(\\Delta E_{bin} = -\\Delta E_{star}\\)\n. Taking into account that \n\\(\\sigma \\ll v_{bin}\\)\n, we derive \n\\[\\Delta E_{bin} = -\\frac{m}{2}v_{bin}^2 = \\frac{GmM}{8a}.\\]\n Average binary system energy loss rate equals \n\\[\\begin{equation}\n\\boxed{\\frac{dE}{dt} = \\frac{\\Delta E}{\\Delta t} = -\\frac{\\pi G^2M^2\\rho}{2\\sigma}}\n\\tag{4}\n\\end{equation}\\]\n Taking the time derivative of (3), we have \n\\[\\begin{equation}\n\\frac{dE}{dt} = \\frac{d}{dt}\\left(-\\frac{GM^2}{4a}\\right) = \\frac{GM^2}{4a^2}\\frac{da}{dt},\n\\tag{5}\n\\end{equation}\\]\n From (4) and (5) the orbit radius variation rate can be estimated as \n\\[\\begin{equation}\n\\boxed{\\frac{da}{dt} = -\\frac{2\\pi G\\rho a^2}{\\sigma}}\n\\tag{6}\n\\end{equation}\\]\n\n\nB5.\n Equation (6) can be easily integrated \n\\[\\begin{equation}\n\\frac{da}{a^2} = -\\frac{2\\pi G\\rho}{\\sigma}dt.\n\\tag{7}\n\\end{equation}\\]\n To reduce the radius twice it takes time \n\\[\\boxed{T_{SS} = \\frac{\\sigma}{2\\pi G\\rho a_1} = 7.3 \\times 10^{-4}\\,\\mathrm{Gy}}\\]\n\n\n\n\nC. Emission of gravitational waves\n\n\n\n\nC1.\n Using that \n\\(\\displaystyle\\omega = \\frac{v_{bin}}{a} = \\sqrt{\\frac{GM}{4a^3}}\\)\n and formulas from the problem text one can obtain: \n\\[\\begin{equation}\n\\frac{dE}{dt} = -\\frac{1024\\times 4}{5}\\times\\frac{GM^2v_{bin}^6}{c^5a^2} = \\frac{64}{5}\\cdot\\frac{G^4M^5}{c^5a^5}.\n\\tag{8}\n\\end{equation}\\]\n Combining (5) and (8) we get the desirable result: \n\\[\\begin{equation}\n\\boxed{\\frac{da}{dt} = -\\frac{256}{5}\\cdot\\frac{G^3M^3}{c^5a^3}}\n\\tag{9}\n\\end{equation}\\]\n\n\nC2.\n Integrating the equation (9) one can obtain: \n\\[\\begin{equation}\na^3\\,da = -\\frac{256}{5}\\cdot\\frac{G^3M^3}{c^5}dt \\qquad \\Longrightarrow \\qquad \\frac{a_2^4 - r_g^4}{4} = \\frac{256}{5}\\cdot\\frac{G^3M^3}{c^5}\\cdot T_{GW};\n\\tag{10}\n\\end{equation}\\]\n And taking into account \n\\(a_2 \\gg r_g\\)\n we derive the final result for \n\\(T_{GW}\\)\n: \n\\[\\begin{equation}\n\\boxed{T_{GW} = \\frac{5}{1024}\\cdot\\frac{a_2^4c^5}{G^3M^3}}\n\\tag{11}\n\\end{equation}\\]\n\n\nC3.\n From the previous equation and \n\\(T_{GW} = t_H\\)\n: \n\\[\\begin{equation}\n\\boxed{a_H = \\sqrt[4]{\\frac{1024}{5}\\cdot\\frac{G^3M^3\\,t_H}{c^5}} = 0.098\\,\\mathrm{pc}}\n\\tag{12}\n\\end{equation}\\]\n\n\n\n\nD. Full evolution\n\n\n\n\nD1.\n The galaxy is spherically symmetric, so mass enclosed within a sphere of radius \n\\(r\\)\n equals \n\\[\\begin{equation}\nm(r) = \\int_0^r 4\\pi x^2\\rho(x)\\,dx = \\frac{\\sigma^2r}{G}.\n\\tag{13}\n\\end{equation}\\]\n Thus the free fall acceleration of the body equals in the gravitational field of stars is \n\\[\\begin{equation}\ng(r) = \\frac{Gm(r)}{r^2} = \\frac{\\sigma^2}{r}.\n\\tag{14}\n\\end{equation}\\]\n Therefore the body velocity is determined by relation \n\\[\\frac{v^2}{r} = g = \\frac{\\sigma^2}{r},\\]\n which means \n\\[\\begin{equation}\n\\boxed{v = \\sigma}\n\\tag{15}\n\\end{equation}\\]\n So the velocity is constant.\n\n\nD2.\n The energy of SBH in this gravitational field is \n\\[E = \\frac{M\\sigma^2}{2} + U\\]\n So the kinetic energy is constant and \n\\[\\frac{dE}{dt} = \\frac{dU}{dt} = \\frac{dU}{da}\\frac{da}{dt}\\]\n From the definition of potential energy we have \n\\[\\frac{dU}{da} = g(a)M = \\frac{M\\sigma^2}{a}\\]\n Using the result of A3 we have \n\\[\\frac{dE}{dt} = -F_{Df}v = -4\\pi G^2M^2\\frac{\\rho(a)}{\\sigma}\\log\\Lambda = -\\frac{GM^2\\sigma\\log\\Lambda}{a^2}.\\]\n Combining this equations we get the answer \n\\[\\begin{equation}\n\\frac{da}{dt} = -\\frac{GM\\log\\Lambda}{a\\sigma}\n\\tag{16}\n\\end{equation}\\]\n\n\nD3.\n To estimate one can assume that SBHs form a binary when the mass of stars inside the sphere of radius \n\\(a\\)\n equals to \n\\(M\\)\n: \n\\[m(a) = \\frac{\\sigma^2a}{G} = M,\\]\n so \n\\[\\boxed{a_1 = \\frac{GM}{\\sigma^2} = 10.8\\mathrm{pc}}\\]\n Alternative variant: the force from another SBH is equal to force from all stars: \n\\[\\frac{Gm(a)}{a^2} = \\frac{GM}{4a^2}\\]\n so the answer is \n\\[\\boxed{a_1 = \\frac{GM}{4\\sigma^2} = 2.7\\mathrm{pc}}\\]\n\n\nD4.\n Integrating the equation (16) we have \n\\[\\frac{a_0^2 - a_1^2}{2} = \\frac{GM\\log\\Lambda}{\\sigma}T_1\\]\n and using that \n\\(a_1 \\ll a_0\\)\n we have \n\\[T_1 = \\frac{a_0^2\\sigma}{2GM\\log\\Lambda} = 0.121\\,\\mathrm{Gy}.\\]\n\n\nD5.\n Total energy losses are caused by gravitational slingshot and gravitational waves emission, so combining equations (4) and (8): \n\\[\\begin{equation}\n\\frac{dE}{dt} = -\\frac{\\pi G^2M^2\\rho_1}{2\\sigma} - \\frac{64}{5}\\cdot\\frac{G^4M^5}{c^5a^5}\n\\tag{17}\n\\end{equation}\\]\n where \n\\[\\rho_1 = \\rho(a_1) = \\rho(10.8\\mathrm{pc}) = 6.3 \\times 10^3M_s/pc^3, \\qquad \\text{alternative: } \\rho_1 = \\rho(2.7\\mathrm{pc}) = 1.0 \\times 10^5M_s/\\mathrm{pc}^3\\]\n Energy losses due to GW dominates when \n\\(\\frac{\\pi G^2M^2\\rho_1}{2\\sigma} < \\frac{64G^4M^5}{5c^5a^5}\\)\n i.e. \n\\(a < a_2\\)\n where \n\\[a_2^5 = \\frac{128}{5\\pi}\\cdot\\frac{G^2M^3\\sigma}{c^5\\rho_1} = \\frac{512}{5}\\cdot\\frac{G^3M^3a_1^2}{c^5\\sigma}\\]\n Numerical answer is \n\\(\\boxed{a_2 = 0.018\\,\\mathrm{pc}}\\)\n (alternative: \n\\(a_2 = 0.010\\,\\mathrm{pc}\\)\n).\n\n\nD6.\n For rough approximation it can be considered that at the slingshot stage (\n\\(a > a_2\\)\n) energy losses are caused only by slingshot, so \n\\(T_2\\)\n is calculated analogiously to B5: \n\\(\\frac{da}{a^2} = -\\frac{2\\pi G\\rho}{\\sigma}dt\\)\n and \n\\[T_2 \\approx \\frac{\\sigma}{2\\pi G\\rho_1a_2} = 0.063\\,\\mathrm{Gy} \\qquad\\qquad (T_2 \\approx 0.0068\\,\\mathrm{Gy})\\]\n And at the GW emission stage (\n\\(a < a_2\\)\n) energy losses are caused only by GW emission, so \n\\(T_3\\)\n is calculated directly from C2: \n\\[T_3 \\approx \\frac{5}{1024}\\cdot\\frac{a_2^4c^5}{G^3M^3} = \\frac{1}{8\\pi}\\cdot\\frac{\\sigma}{G\\rho_1a_2} = 0.016\\,\\mathrm{Gy} \\qquad\\qquad (T_3 \\approx 0.0017\\,\\mathrm{Gy})\\]\n\n\nD7.\n Total time of SBH binary evolution from the moment of galaxies merging to SBH merging equals \n\\[T_{ev} = T_1 + T_2 + T_{GW} = 0.12 + 0.06 + 0.02\\,\\mathrm{Gy} = 0.20\\,\\mathrm{Gy} \\qquad\\qquad (T_{ev} = 0.13\\,\\mathrm{Gy})\\]\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2017-t2/df2f73df71097cf1568a.png",
+      "/corpus/figures/native/bulk/apho-2017-t2/eeae3ec5d6bffce9aca8.png"
+    ],
+    "shared": false
+  }
+}

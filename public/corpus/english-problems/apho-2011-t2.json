@@ -1,1 +1,2669 @@
-{"id":"apho-2011-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2011_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2011_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2011-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":" \nPage 1 of 3 \n \nTheoretical Question 2: Creaking Door \n \nThe phenomenon of creaking is very common, and can be found in doors, closets, chalk squeaking on a blackboard, \nplaying a violin, new shoes, car brakes and other systems from everyday life. Here in Israel, a similar phenomenon \ncauses violent earthquakes with a period of several decades. These originate in the Dead Sea rift, located right above \nthe deepest known break in the earth's crust.  \nThe physical mechanism for creaking is based on elasticity combined with the difference between the static and the \nkinetic friction coefficients. In this question, we will study this mechanism and its application to the case of an \nopening door. \nPart I: General model (7.5 points) \nConsider the following system (see Figure 1): \nA box with mass   is attached to a long ideal spring with spring constant  , whose other end is driven at a constant \nvelocity  . The static and the kinetic friction coefficients between the box and the floor are given respectively by    \nand   , where      .  \n \nWe would like to understand why this setup supports two different forms of motion: \n1. The friction is always kinetic. This is known as a pure slip mode. \n2. Kinetic and static friction alternate. This is known as a stick-slip mode. Stick-slip motion is the source of \nthe creaking sound commonly encountered. \na.  (1 pt.) Consider the case where at the initial time    , the box slides on the floor with velocity   , and the \nspring’s tension exactly balances the kinetic friction. Assume       . The spring’s elongation   will \noscillate as a function of  .  \na1. (0.6 points) Find the period    and the amplitude   of these oscillations.  \na2. (0.4 points) Sketch a qualitative graph of the spring’s elongation      for        .  \n \nb. (1.2 pts.) Now, consider the case where at     the box is at rest, while the initial spring elongation   is the same \nas in part (a). Sketch a qualitative graph of the velocity      of the box with respect to the floor for       , \nwhere   is the (new) period of the oscillations     . Motion to the right corresponds to a positive sign of  . \nIndicate approximately on your graph the horizontal line    . \n \nc. (0.5 pts.) For the initial conditions of part (b), find the time-averaged value  ̅ of the spring’s elongation after a \nsufficiently long time has passed. \n \n  \n      \n  \n  \nFigure 1: A general model for creaking \n\n \nPage 2 of 3 \n \n \nd. (2.4 pts.) For the conditions of part (b), find the period   of the oscillations     . \nGenerically, stick-slip motion stops at high driving velocities  . We will now discuss one of the possible mechanisms \nbehind this effect. \ne. (2.4 pts.) Suppose that during each period  , a small amount of energy is dissipated into heat in the spring, via an \nadditional mechanism. Let          be the fractional amplitude loss per period due to dissipation in pure-slip \nmotion. For    , find the critical driving velocity    above which periodic stick-slip becomes impossible. \nThe results of part (e) are not required for part II. \nPart II: Application to creaking door (2.5 points) \nA door hinge is a hollow, open-ended metal cylinder with radius  , height   and thickness   . The lower end of the \ncylinder lies on a metal base attached to the wall (the area of contact is a ring of radius  ); see Figure 2. The static and \nthe kinetic friction coefficients between the cylinder and its base are    and    respectively, with      . The upper \nend of the cylinder is attached to the door, which can be regarded as perfectly rigid. A typical door hangs on two or \nthree such hinges, but its weight is concentrated on only one of them – this is the hinge that will creak. The cylinder of \nthat hinge presses down on its metal base with the weight of the entire door, whose mass is  . \n \n \n \n \n \n \nThe cylinder is not a perfectly rigid body – it can twist tangentially without changing its overall form, so that vertical \nline segments become tilted with a small angle  ; see Figure 3. The elastic force on a small area element    of the \nbase due to this deformation is given by: \n       , \nwhere   is a material property known as the shear modulus. Use the values      ,      ,       , \n       ,        ,           ,       ,          . You may use the approximation     . \n \nf. (1 pt.) We start rotating the door very slowly from equilibrium (zero torque). For small rotation angles, obtain an \nexpression for the torsion coefficient      , where   is the torque which must be applied to rotate the door by \nan angle  . \n \ng. (1.5 pts.) At very low angular velocity, when a transition from stick to slip occurs, a sound pulse is emitted. Find \nthe angular velocity   of the door for which the frequency of these pulses enters the audible range at       . \nFigure 2: Schematic drawing of a door \nFigure 3: The twisted hinge cylinder \n      \n  \n  \nWall \nDoor \n  \n  \n   \n\n \nPage 3 of 3 \n \nAssume that the frequency    of pure-slip oscillations in the hinge is much higher:     . Provide an expression \nand a numerical result. \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2011-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":" \nPage 1 of 5 \n \nTheoretical Question 2: Creaking Door \nSOLUTION \n \na1. The motion here is pure sliding under a constant kinetic friction. This is harmonic motion with a displaced \nequilibrium point. The angular frequency is given by: \n   √    \nFrom here, the period is: \n     \n  \n   √ \n  \nThe initial slope is given by: \n(  \n  )\n \n      \nTherefore, the amplitude of oscillations is: \n          \n  \n        √ \n  \n \na2. The graph is sinusoidal, as shown below. \n \n\n \nPage 2 of 5 \n \nThe initial point is given by: \n       \n \n \nThis is the equilibrium point of the sine function. The students are not required to find this equilibrium point, but they \nare required to understand that it is positive. \nb. This will be a stick-slip graph. The ”humps” are sinusoidal, with a non-continuous derivative at their intersections \nwith the horizontal segments. The peaks of the humps are higher than    , since   must be the average velocity of \nthe box. In fact, they are also higher than     , but this is not required from the students.\n \nc. Let’s pass into the reference frame of the driven end of the spring. The position of the box is then given by minus \nthe elongation  . The motion is an oscillation around the equilibrium position   . The slip phase is sinusoidal as in \npart (a), while the stick phase corresponds to motion with a constant velocity –  . The stick phase ends when the \nelastic force balances the static friction, i.e. at          , and starts again at the symmetric point with respect to \n  .  \n \n    \n   \n   \n\n \nPage 3 of 5 \n \nWe see that the average elongation is again the sine’s equilibrium point: \n  ̅         \n \n \nd. Again, let us pass into the reference frame of the driven end of the spring. During the stick phase, the box traverses \na distance of: \n                       \nIts velocity during this phase is  , so the duration of the stick phase is: \n                 \n  \n \nThe slip phase is a sinusoidal motion around    with angular frequency   . The sinusoidal period is missing a phase \nof   , where   is given by the ratio of initial position and initial velocity with respect to the equilibrium point: \n              \n \n         \n \n√ \n  \nThen the length of the slip phase is: \n        (   \n )   √ \n (       (        \n \n√ \n )) \nAnd the total period is: \n                √ \n (        \n \n√ \n         (        \n \n√ \n )) \ne. Consider again stick-slip motion in the reference frame of the driven end of the spring. During the sinusoidal slip \nphase, the sine’s amplitude will decrease due to the dissipation. At the beginning of the slip phase, the velocity is –  , \nwhile the sine is at the phase  , which we found in the solution to the previous part. Thus, the sine’s velocity \namplitude is       . For periodic stock-slip to occur, the sine must return to the slope –  . Due to the dissipation, \nthis will happen at a phase larger than     . In other words, dissipation shortens the stick phase. The critical case is \nwhen stick phase shortens to zero. This will happen if the sine reaches the slope –   precisely at the equilibrium point, \ni.e. at the phase   . If the slope at    is less steep than   , the box will continue its damped sinusoidal motion \nwithout ever reaching a stick phase again.  \nIf it is to be killed by weak dissipation, the stick phase must be short to begin with. This corresponds to a large  . The \nslip phase then takes up almost an entire period of the sine wave. Thus, to a good approximation, the amplitude loss \nduring the slip phase is given by  . The critical point is when the velocity amplitude drops from        to   during \none period: \n  |  \n |  |        \n      \n|           \n  \n\n \nPage 4 of 5 \n \nwhere the LHS is the change in the amplitude due to dissipation over one period. Using the results from (d) in the \nlimit of small  , we get: \n             \n     \n \n           √\n \n    \nAnother derivation method based on the same reasoning is to use explicitly the initial amplitude   of the harmonic \nmotion: \n           ,                               \nA third method is to consider energy losses           in the reference frame of the spring’s driven end: \n    \n       \n           \nf. For small rotations, the lower edge of the cylinder will remain stuck to the base. When the cylinder is deformed by \nan angle  , a point on its upper edge shifts by a distance   . This corresponds to a rotation angle        of the \ndoor around the cylinder’s axis. The shear force on an area element    of the base is given by: \n          \n      \nThe corresponding torque is: \n          \n      \nSumming over the contact area with the base, the total torque is: \n     \n                 \n \n   \nTherefore, the torsion coefficient is: \n         \n \n        \nThe numerical result is not required from the student. Any expression which reduces to the one above in the limit \n     will be accepted. \ng. We neglect the duration of the slip phase. Using the results of section (d) with   instead of   and rotation instead \nof linear motion, we get: \n                  \n  \n \n\n \nPage 5 of 5 \n \n             \n       \n             \n \n            \n      \n             \nAny expression which reduces to the one above in the limit      will be accepted. Numerical results from such \ndifferent expressions may vary significantly, since          is not really negligible. Each numerical result should \nbe checked against its expression.  \n \n","textExtraction":"available"}}
+{
+  "id": "apho-2011-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2011_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2011_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2011-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Theoretical Question 2: Creaking Door"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The phenomenon of creaking is very common, and can be found in doors, closets, chalk squeaking on a blackboard, playing a violin, new shoes, car brakes and other systems from everyday life. Here in Israel, a similar phenomenon causes violent earthquakes with a period of several decades. These originate in the Dead Sea rift, located right above the deepest known break in the earth’s crust."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The physical mechanism for creaking is based on elasticity combined with the difference between the static and the kinetic friction coefficients. In this question, we will study this mechanism and its application to the case of an opening door."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part I: General model (7.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider the following system (see Figure 1):"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A box with mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is attached to a long ideal spring with spring constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", whose other end is driven at a constant velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The static and the kinetic friction coefficients between the box and the floor are given respectively by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_k < \\mu_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2011-t2/60b8bbc568b3425b878d.png",
+                "alt": "apho-2011-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "em",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Figure 1: A general model for creaking"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We would like to understand why this setup supports two different forms of motion:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": ".The friction is always kinetic. This is known as a "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "pure slip"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " mode."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": ".Kinetic and static friction alternate. This is known as a "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "stick-slip"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " mode. Stick-slip motion is the source of the creaking sound commonly encountered."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.(1 pt.) Consider the case where at the initial time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the box slides on the floor with velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the spring’s tension exactly balances the kinetic friction. Assume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0 < v_0 < u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "spring’s elongation"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will oscillate as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a1. (0.6 points) Find the period "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the amplitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of these oscillations."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a2. (0.4 points) Sketch a qualitative graph of the spring’s elongation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0 < t < 3T_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.(1.2 pts.) Now, consider the case where at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the box is at rest, while the initial spring elongation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the same as in part (a). Sketch a qualitative graph of the velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the box "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "with respect to the floor"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0 < t < 3T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the (new) period of the oscillations "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Motion to the right corresponds to a positive sign of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Indicate approximately on your graph the horizontal line "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v = u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "c.(0.5 pts.) For the initial conditions of part (b), find the time-averaged value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\bar{x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the spring’s elongation after a sufficiently long time has passed."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "d.(2.4 pts.) For the conditions of part (b), find the period "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the oscillations "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Generically, stick-slip motion stops at high driving velocities "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We will now discuss one of the possible mechanisms behind this effect."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "e.(2.4 pts.) Suppose that during each period "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", a small amount of energy is dissipated into heat in the spring, via an additional mechanism. Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta = |\\varDelta A/A|\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the fractional amplitude loss per period due to dissipation in pure-slip motion. For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", find the critical driving velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " above which periodic stick-slip becomes impossible."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The results of part (e) are not required for part II."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part II: Application to creaking door (2.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A door hinge is a hollow, open-ended metal cylinder with radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and thickness "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varDelta r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The lower end of the cylinder lies on a metal base attached to the wall (the area of contact is a ring of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "); see Figure 2. The static and the kinetic friction coefficients between the cylinder and its base are "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " respectively, with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_k < \\mu_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The upper end of the cylinder is attached to the door, which can be regarded as perfectly rigid. A typical door hangs on two or three such hinges, but its weight is concentrated on only one of them – this is the hinge that will creak. The cylinder of that hinge presses down on its metal base with the weight of the entire door, whose mass is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "img",
+                    "src": "/corpus/figures/native/bulk/apho-2011-t2/a8e18a4dd55a7db0de4b.png",
+                    "alt": "apho-2011-t2 original source figure 2"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "em",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Figure 2: Schematic drawing of a door"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "img",
+                    "src": "/corpus/figures/native/bulk/apho-2011-t2/f6ef05e04867cb0b564e.png",
+                    "alt": "apho-2011-t2 original source figure 3"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "em",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Figure 3: The twisted hinge cylinder"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The cylinder is not a perfectly rigid body – it can twist tangentially without changing its overall form, so that vertical line segments become tilted with a small angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "; see Figure 3. The elastic force on a small area element "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dS\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the base due to this deformation is given by: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[dF = G\\alpha dS,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a material property known as the shear modulus. Use the values "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r = 5\\mathrm{mm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h = 3\\mathrm{cm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varDelta r = 1\\mathrm{mm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_s = 0.75\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_k = 0.55\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G = 8 \\cdot 10^{10}\\mathrm{Pa}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M = 30\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g = 9.8\\mathrm{m/s^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". You may use the approximation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varDelta r \\ll r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "f.(1 pt.) We start rotating the door very slowly from equilibrium (zero torque). For small rotation angles, obtain an expression for the torsion coefficient "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\kappa = \\tau/\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the torque which must be applied to rotate the door by an angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "g."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "(1.5 pts.) At very low angular velocity, when a transition from stick to slip occurs, a sound pulse is emitted. Find the angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varOmega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the door for which the frequency of these pulses enters the audible range at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f = 20\\mathrm{Hz}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Assume that the frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of pure-slip oscillations in the hinge is much higher: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_0 \\gg f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Provide an expression and a numerical result."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "\n\nTheoretical Question 2: Creaking Door\n\n\n\n\nThe phenomenon of creaking is very common, and can be found in doors, closets, chalk squeaking on a blackboard, playing a violin, new shoes, car brakes and other systems from everyday life. Here in Israel, a similar phenomenon causes violent earthquakes with a period of several decades. These originate in the Dead Sea rift, located right above the deepest known break in the earth’s crust.\n\n\nThe physical mechanism for creaking is based on elasticity combined with the difference between the static and the kinetic friction coefficients. In this question, we will study this mechanism and its application to the case of an opening door.\n\n\nPart I: General model (7.5 points)\n\n\nConsider the following system (see Figure 1):\n\n\nA box with mass \n\\(m\\)\n is attached to a long ideal spring with spring constant \n\\(k\\)\n, whose other end is driven at a constant velocity \n\\(u\\)\n. The static and the kinetic friction coefficients between the box and the floor are given respectively by \n\\(\\mu_s\\)\n and \n\\(\\mu_k\\)\n, where \n\\(\\mu_k < \\mu_s\\)\n.\n\n\n\n\n\n\n\nFigure 1: A general model for creaking\n\n\n\n\nWe would like to understand why this setup supports two different forms of motion:\n\n\n.The friction is always kinetic. This is known as a \npure slip\n mode.\n\n\n.Kinetic and static friction alternate. This is known as a \nstick-slip\n mode. Stick-slip motion is the source of the creaking sound commonly encountered.\n\n\na.(1 pt.) Consider the case where at the initial time \n\\(t = 0\\)\n, the box slides on the floor with velocity \n\\(v_0\\)\n, and the spring’s tension exactly balances the kinetic friction. Assume \n\\(0 < v_0 < u\\)\n. The \nspring’s elongation\n \n\\(x\\)\n will oscillate as a function of \n\\(t\\)\n.\n\n\na1. (0.6 points) Find the period \n\\(T_0\\)\n and the amplitude \n\\(A\\)\n of these oscillations.\n\n\na2. (0.4 points) Sketch a qualitative graph of the spring’s elongation \n\\(x(t)\\)\n for \n\\(0 < t < 3T_0\\)\n.\n\n\nb.(1.2 pts.) Now, consider the case where at \n\\(t = 0\\)\n the box is at rest, while the initial spring elongation \n\\(x\\)\n is the same as in part (a). Sketch a qualitative graph of the velocity \n\\(v(t)\\)\n of the box \nwith respect to the floor\n for \n\\(0 < t < 3T\\)\n, where \n\\(T\\)\n is the (new) period of the oscillations \n\\(x(t)\\)\n. Motion to the right corresponds to a positive sign of \n\\(v\\)\n. Indicate approximately on your graph the horizontal line \n\\(v = u\\)\n.\n\n\nc.(0.5 pts.) For the initial conditions of part (b), find the time-averaged value \n\\(\\bar{x}\\)\n of the spring’s elongation after a sufficiently long time has passed.\n\n\nd.(2.4 pts.) For the conditions of part (b), find the period \n\\(T\\)\n of the oscillations \n\\(x(t)\\)\n.\n\n\nGenerically, stick-slip motion stops at high driving velocities \n\\(u\\)\n. We will now discuss one of the possible mechanisms behind this effect.\n\n\ne.(2.4 pts.) Suppose that during each period \n\\(T\\)\n, a small amount of energy is dissipated into heat in the spring, via an additional mechanism. Let \n\\(\\eta = |\\varDelta A/A|\\)\n be the fractional amplitude loss per period due to dissipation in pure-slip motion. For \n\\(\\eta \\ll 1\\)\n, find the critical driving velocity \n\\(u_c\\)\n above which periodic stick-slip becomes impossible.\n\n\nThe results of part (e) are not required for part II.\n\n\nPart II: Application to creaking door (2.5 points)\n\n\nA door hinge is a hollow, open-ended metal cylinder with radius \n\\(r\\)\n, height \n\\(h\\)\n and thickness \n\\(\\varDelta r\\)\n. The lower end of the cylinder lies on a metal base attached to the wall (the area of contact is a ring of radius \n\\(r\\)\n); see Figure 2. The static and the kinetic friction coefficients between the cylinder and its base are \n\\(\\mu_s\\)\n and \n\\(\\mu_k\\)\n respectively, with \n\\(\\mu_k < \\mu_s\\)\n. The upper end of the cylinder is attached to the door, which can be regarded as perfectly rigid. A typical door hangs on two or three such hinges, but its weight is concentrated on only one of them – this is the hinge that will creak. The cylinder of that hinge presses down on its metal base with the weight of the entire door, whose mass is \n\\(M\\)\n.\n\n\n\n\n\n\n\n\n\nFigure 2: Schematic drawing of a door\n\n\n\n\n\n\n\n\n\nFigure 3: The twisted hinge cylinder\n\n\n\n\n\n\nThe cylinder is not a perfectly rigid body – it can twist tangentially without changing its overall form, so that vertical line segments become tilted with a small angle \n\\(\\alpha\\)\n; see Figure 3. The elastic force on a small area element \n\\(dS\\)\n of the base due to this deformation is given by: \n\\[dF = G\\alpha dS,\\]\n where \n\\(G\\)\n is a material property known as the shear modulus. Use the values \n\\(r = 5\\mathrm{mm}\\)\n, \n\\(h = 3\\mathrm{cm}\\)\n, \n\\(\\varDelta r = 1\\mathrm{mm}\\)\n, \n\\(\\mu_s = 0.75\\)\n, \n\\(\\mu_k = 0.55\\)\n, \n\\(G = 8 \\cdot 10^{10}\\mathrm{Pa}\\)\n, \n\\(M = 30\\mathrm{kg}\\)\n, \n\\(g = 9.8\\mathrm{m/s^2}\\)\n. You may use the approximation \n\\(\\varDelta r \\ll r\\)\n.\n\n\nf.(1 pt.) We start rotating the door very slowly from equilibrium (zero torque). For small rotation angles, obtain an expression for the torsion coefficient \n\\(\\kappa = \\tau/\\theta\\)\n, where \n\\(\\tau\\)\n is the torque which must be applied to rotate the door by an angle \n\\(\\theta\\)\n.\n\n\ng.\n(1.5 pts.) At very low angular velocity, when a transition from stick to slip occurs, a sound pulse is emitted. Find the angular velocity \n\\(\\varOmega\\)\n of the door for which the frequency of these pulses enters the audible range at \n\\(f = 20\\mathrm{Hz}\\)\n. Assume that the frequency \n\\(f_0\\)\n of pure-slip oscillations in the hinge is much higher: \n\\(f_0 \\gg f\\)\n. Provide an expression and a numerical result.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2011-t2/60b8bbc568b3425b878d.png",
+      "/corpus/figures/native/bulk/apho-2011-t2/a8e18a4dd55a7db0de4b.png",
+      "/corpus/figures/native/bulk/apho-2011-t2/f6ef05e04867cb0b564e.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2011-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Theoretical Question 2: Creaking Door"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "SOLUTION"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "a1."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The motion here is pure sliding under a constant kinetic friction. This is harmonic motion with a displaced equilibrium point. The angular frequency is given by: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\omega_0 = \\sqrt{k/m}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From here, the period is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_0 = \\frac{2\\pi}{\\omega_0} = 2\\pi \\sqrt{\\frac{m}{k}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The initial slope is given by: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left( \\frac{dx}{dt} \\right)_0 = u - v_0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore, the amplitude of oscillations is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[A = \\frac{(dx/dt)_0}{\\omega_0} = (u - v_0) \\sqrt{\\frac{m}{k}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "a2."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The graph is sinusoidal, as shown below."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2011-t2/e59cfe750fd606e6dcb3.png",
+                "alt": "apho-2011-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The initial point is given by: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_0 = \\frac{\\mu_k mg}{k}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This is the equilibrium point of the sine function. The students are not required to find this equilibrium point, but they are required to understand that it is positive."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "b."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This will be a stick-slip graph. The ”humps” are sinusoidal, with a non-continuous derivative at their intersections with the horizontal segments. The peaks of the humps are higher than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v = u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " must be the "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "average"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " velocity of the box. In fact, they are also higher than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v = 2u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", but this is not required from the students."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2011-t2/f2ddb45106c3c6d9f585.png",
+                "alt": "apho-2011-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "c."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Let’s pass into the reference frame of the driven end of the spring. The position of the box is then given by minus the elongation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The motion is an oscillation around the equilibrium position "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The slip phase is sinusoidal as in part (a), while the stick phase corresponds to motion with a constant velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The stick phase ends when the elastic force balances the static friction, i.e. at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_s = \\mu_s mg/k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and starts again at the symmetric point with respect to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2011-t2/9d0bb99b4e22dc0aeeec.png",
+                "alt": "apho-2011-t2 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We see that the average elongation is again the sine’s equilibrium point: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\bar{x} = x_0 = \\frac{\\mu_k mg}{k}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "d."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Again, let us pass into the reference frame of the driven end of the spring. During the stick phase, the box traverses a distance of: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[2(x_s - x_0) = 2(\\mu_s - \\mu_k)mg/k.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Its velocity during this phase is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so the duration of the stick phase is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t_{stick} = \\frac{2(\\mu_s - \\mu_k)mg}{ku}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The slip phase is a sinusoidal motion around "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with angular frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The sinusoidal period is missing a phase of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by the ratio of initial position and initial velocity with respect to the equilibrium point: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tan\\varphi = \\frac{\\omega_0(x_s - x_0)}{u} = \\frac{(\\mu_s - \\mu_k)g}{u} \\sqrt{\\frac{m}{k}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Then the length of the slip phase is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t_{slip} = T_0 \\left( 1 - \\frac{\\varphi}{\\pi} \\right) = 2\\sqrt{\\frac{m}{k}} \\left( \\pi - \\tan^{-1} \\left( \\frac{(\\mu_s - \\mu_k)g}{u} \\sqrt{\\frac{m}{k}} \\right) \\right)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " And the total period is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T = t_{stick} + t_{slip} = 2\\sqrt{\\frac{m}{k}} \\left( \\frac{(\\mu_s - \\mu_k)g}{u} \\sqrt{\\frac{m}{k}} + \\pi - \\tan^{-1} \\left( \\frac{(\\mu_s - \\mu_k)g}{u} \\sqrt{\\frac{m}{k}} \\right) \\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "e."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Consider again stick-slip motion in the reference frame of the driven end of the spring. During the sinusoidal slip phase, the sine’s amplitude will decrease due to the dissipation. At the beginning of the slip phase, the velocity is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", while the sine is at the phase "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which we found in the solution to the previous part. Thus, the sine’s velocity amplitude is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u/\\cos\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". For periodic stock-slip to occur, the sine must return to the slope "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Due to the dissipation, this will happen at a phase larger than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2\\pi - \\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In other words, dissipation shortens the stick phase. The critical case is when stick phase shortens to zero. This will happen if the sine reaches the slope "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " precisely at the equilibrium point, i.e. at the phase "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2\\pi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". If the slope at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2\\pi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is less steep than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the box will continue its damped sinusoidal motion without ever reaching a stick phase again."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If it is to be killed by weak dissipation, the stick phase must be short to begin with. This corresponds to a large "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The slip phase then takes up almost an entire period of the sine wave. Thus, to a good approximation, the amplitude loss during the slip phase is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The critical point is when the velocity amplitude drops from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u/\\cos\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " during one period: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\eta = \\left| \\frac{\\varDelta A}{A} \\right| = \\left| \\frac{u/\\cos\\varphi - u}{u/\\cos\\varphi} \\right| = 1 - \\cos\\varphi \\approx \\frac{\\varphi^2}{2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where the LHS is the change in the amplitude due to dissipation over one period. Using the results from (d) in the limit of small "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\eta = \\frac{m(\\mu_s - \\mu_k)^2 g^2}{2ku_c^2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[u_c = (\\mu_s - \\mu_k)g \\sqrt{\\frac{m}{2k\\eta}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Another derivation method based on the same reasoning is to use explicitly the initial amplitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the harmonic motion: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[u_c = \\omega_0 A(1 - \\eta), \\qquad A^2 = (x_s - x_0)^2 + (m/k)u_c^2\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " A third method is to consider energy losses "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\varDelta E/E| = 2\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the reference frame of the spring’s driven end: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[2\\eta \\cdot \\frac{1}{2} mu_c^2 = \\frac{1}{2} k(x_s - x_0)^2\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "f."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For small rotations, the lower edge of the cylinder will remain stuck to the base. When the cylinder is deformed by an angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", a point on its upper edge shifts by a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This corresponds to a rotation angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta = h\\alpha/r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the door around the cylinder’s axis. The shear force on an area element "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dA\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the base is given by: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[dF = G\\alpha dA = \\frac{Gr}{h} \\theta dA\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The corresponding torque is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[d\\tau = rdF = \\frac{Gr^2}{h} \\theta dA\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Summing over the contact area with the base, the total torque is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau = \\frac{Gr^2}{h} \\theta \\cdot 2\\pi r\\varDelta r = \\frac{2\\pi Gr^3 \\varDelta r}{h} \\theta\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore, the torsion coefficient is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\kappa = \\frac{2\\pi Gr^3 \\varDelta r}{h} \\approx 2000\\mathrm{Nm}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The numerical result is not required from the student. Any expression which reduces to the one above in the limit "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varDelta r \\ll r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will be accepted."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "g."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " We neglect the duration of the slip phase. Using the results of section (d) with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " instead of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and rotation instead of linear motion, we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t_{stick} = \\frac{2(\\mu_s - \\mu_k)Mgr}{\\kappa\\varOmega}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\varOmega = \\frac{2(\\mu_s - \\mu_k)Mgr}{\\kappa t_{stick}} = \\frac{2(\\mu_s - \\mu_k)Mgrf}{\\kappa} = \\frac{(\\mu_s - \\mu_k)Mghf}{\\pi Gr^2 \\varDelta r} = 5.6 \\cdot 10^{-3}\\mathrm{s^{-1}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Any expression which reduces to the one above in the limit "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varDelta r \\ll r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will be accepted. Numerical results from such different expressions may vary significantly, since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varDelta r/r = 0.2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is not really negligible. Each numerical result should be checked against its expression."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "\n\nTheoretical Question 2: Creaking Door\n\n\nSOLUTION\n\n\n\n\na1.\n The motion here is pure sliding under a constant kinetic friction. This is harmonic motion with a displaced equilibrium point. The angular frequency is given by: \n\\[\\omega_0 = \\sqrt{k/m}\\]\n From here, the period is: \n\\[T_0 = \\frac{2\\pi}{\\omega_0} = 2\\pi \\sqrt{\\frac{m}{k}}\\]\n The initial slope is given by: \n\\[\\left( \\frac{dx}{dt} \\right)_0 = u - v_0\\]\n Therefore, the amplitude of oscillations is: \n\\[A = \\frac{(dx/dt)_0}{\\omega_0} = (u - v_0) \\sqrt{\\frac{m}{k}}\\]\n\n\na2.\n The graph is sinusoidal, as shown below.\n\n\n\n\n\n\n\n\n\nThe initial point is given by: \n\\[x_0 = \\frac{\\mu_k mg}{k}\\]\n This is the equilibrium point of the sine function. The students are not required to find this equilibrium point, but they are required to understand that it is positive.\n\n\nb.\n This will be a stick-slip graph. The ”humps” are sinusoidal, with a non-continuous derivative at their intersections with the horizontal segments. The peaks of the humps are higher than \n\\(v = u\\)\n, since \n\\(u\\)\n must be the \naverage\n velocity of the box. In fact, they are also higher than \n\\(v = 2u\\)\n, but this is not required from the students.\n\n\n\n\n\n\n\n\n\nc.\n Let’s pass into the reference frame of the driven end of the spring. The position of the box is then given by minus the elongation \n\\(x\\)\n. The motion is an oscillation around the equilibrium position \n\\(x_0\\)\n. The slip phase is sinusoidal as in part (a), while the stick phase corresponds to motion with a constant velocity \n\\(-u\\)\n. The stick phase ends when the elastic force balances the static friction, i.e. at \n\\(x_s = \\mu_s mg/k\\)\n, and starts again at the symmetric point with respect to \n\\(x_0\\)\n.\n\n\n\n\n\n\n\n\n\nWe see that the average elongation is again the sine’s equilibrium point: \n\\[\\bar{x} = x_0 = \\frac{\\mu_k mg}{k}\\]\n\n\nd.\n Again, let us pass into the reference frame of the driven end of the spring. During the stick phase, the box traverses a distance of: \n\\[2(x_s - x_0) = 2(\\mu_s - \\mu_k)mg/k.\\]\n Its velocity during this phase is \n\\(u\\)\n, so the duration of the stick phase is: \n\\[t_{stick} = \\frac{2(\\mu_s - \\mu_k)mg}{ku}\\]\n The slip phase is a sinusoidal motion around \n\\(x_0\\)\n with angular frequency \n\\(\\omega_0\\)\n. The sinusoidal period is missing a phase of \n\\(2\\varphi\\)\n, where \n\\(\\varphi\\)\n is given by the ratio of initial position and initial velocity with respect to the equilibrium point: \n\\[\\tan\\varphi = \\frac{\\omega_0(x_s - x_0)}{u} = \\frac{(\\mu_s - \\mu_k)g}{u} \\sqrt{\\frac{m}{k}}\\]\n Then the length of the slip phase is: \n\\[t_{slip} = T_0 \\left( 1 - \\frac{\\varphi}{\\pi} \\right) = 2\\sqrt{\\frac{m}{k}} \\left( \\pi - \\tan^{-1} \\left( \\frac{(\\mu_s - \\mu_k)g}{u} \\sqrt{\\frac{m}{k}} \\right) \\right)\\]\n And the total period is: \n\\[T = t_{stick} + t_{slip} = 2\\sqrt{\\frac{m}{k}} \\left( \\frac{(\\mu_s - \\mu_k)g}{u} \\sqrt{\\frac{m}{k}} + \\pi - \\tan^{-1} \\left( \\frac{(\\mu_s - \\mu_k)g}{u} \\sqrt{\\frac{m}{k}} \\right) \\right)\\]\n\n\ne.\n Consider again stick-slip motion in the reference frame of the driven end of the spring. During the sinusoidal slip phase, the sine’s amplitude will decrease due to the dissipation. At the beginning of the slip phase, the velocity is \n\\(-u\\)\n, while the sine is at the phase \n\\(\\varphi\\)\n, which we found in the solution to the previous part. Thus, the sine’s velocity amplitude is \n\\(u/\\cos\\varphi\\)\n. For periodic stock-slip to occur, the sine must return to the slope \n\\(-u\\)\n. Due to the dissipation, this will happen at a phase larger than \n\\(2\\pi - \\varphi\\)\n. In other words, dissipation shortens the stick phase. The critical case is when stick phase shortens to zero. This will happen if the sine reaches the slope \n\\(-u\\)\n precisely at the equilibrium point, i.e. at the phase \n\\(2\\pi\\)\n. If the slope at \n\\(2\\pi\\)\n is less steep than \n\\(-u\\)\n, the box will continue its damped sinusoidal motion without ever reaching a stick phase again.\n\n\nIf it is to be killed by weak dissipation, the stick phase must be short to begin with. This corresponds to a large \n\\(u\\)\n. The slip phase then takes up almost an entire period of the sine wave. Thus, to a good approximation, the amplitude loss during the slip phase is given by \n\\(\\eta\\)\n. The critical point is when the velocity amplitude drops from \n\\(u/\\cos\\varphi\\)\n to \n\\(u\\)\n during one period: \n\\[\\eta = \\left| \\frac{\\varDelta A}{A} \\right| = \\left| \\frac{u/\\cos\\varphi - u}{u/\\cos\\varphi} \\right| = 1 - \\cos\\varphi \\approx \\frac{\\varphi^2}{2}\\]\n where the LHS is the change in the amplitude due to dissipation over one period. Using the results from (d) in the limit of small \n\\(\\varphi\\)\n, we get: \n\\[\\eta = \\frac{m(\\mu_s - \\mu_k)^2 g^2}{2ku_c^2}\\]\n \n\\[u_c = (\\mu_s - \\mu_k)g \\sqrt{\\frac{m}{2k\\eta}}\\]\n Another derivation method based on the same reasoning is to use explicitly the initial amplitude \n\\(A\\)\n of the harmonic motion: \n\\[u_c = \\omega_0 A(1 - \\eta), \\qquad A^2 = (x_s - x_0)^2 + (m/k)u_c^2\\]\n A third method is to consider energy losses \n\\(|\\varDelta E/E| = 2\\eta\\)\n in the reference frame of the spring’s driven end: \n\\[2\\eta \\cdot \\frac{1}{2} mu_c^2 = \\frac{1}{2} k(x_s - x_0)^2\\]\n\n\nf.\n For small rotations, the lower edge of the cylinder will remain stuck to the base. When the cylinder is deformed by an angle \n\\(\\alpha\\)\n, a point on its upper edge shifts by a distance \n\\(h\\alpha\\)\n. This corresponds to a rotation angle \n\\(\\theta = h\\alpha/r\\)\n of the door around the cylinder’s axis. The shear force on an area element \n\\(dA\\)\n of the base is given by: \n\\[dF = G\\alpha dA = \\frac{Gr}{h} \\theta dA\\]\n The corresponding torque is: \n\\[d\\tau = rdF = \\frac{Gr^2}{h} \\theta dA\\]\n Summing over the contact area with the base, the total torque is: \n\\[\\tau = \\frac{Gr^2}{h} \\theta \\cdot 2\\pi r\\varDelta r = \\frac{2\\pi Gr^3 \\varDelta r}{h} \\theta\\]\n Therefore, the torsion coefficient is: \n\\[\\kappa = \\frac{2\\pi Gr^3 \\varDelta r}{h} \\approx 2000\\mathrm{Nm}\\]\n The numerical result is not required from the student. Any expression which reduces to the one above in the limit \n\\(\\varDelta r \\ll r\\)\n will be accepted.\n\n\ng.\n We neglect the duration of the slip phase. Using the results of section (d) with \n\\(M\\)\n instead of \n\\(m\\)\n and rotation instead of linear motion, we get: \n\\[t_{stick} = \\frac{2(\\mu_s - \\mu_k)Mgr}{\\kappa\\varOmega}\\]\n \n\\[\\varOmega = \\frac{2(\\mu_s - \\mu_k)Mgr}{\\kappa t_{stick}} = \\frac{2(\\mu_s - \\mu_k)Mgrf}{\\kappa} = \\frac{(\\mu_s - \\mu_k)Mghf}{\\pi Gr^2 \\varDelta r} = 5.6 \\cdot 10^{-3}\\mathrm{s^{-1}}\\]\n Any expression which reduces to the one above in the limit \n\\(\\varDelta r \\ll r\\)\n will be accepted. Numerical results from such different expressions may vary significantly, since \n\\(\\varDelta r/r = 0.2\\)\n is not really negligible. Each numerical result should be checked against its expression.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2011-t2/e59cfe750fd606e6dcb3.png",
+      "/corpus/figures/native/bulk/apho-2011-t2/f2ddb45106c3c6d9f585.png",
+      "/corpus/figures/native/bulk/apho-2011-t2/9d0bb99b4e22dc0aeeec.png"
+    ],
+    "shared": false
+  }
+}

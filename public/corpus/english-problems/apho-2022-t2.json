@@ -1,1 +1,5942 @@
-{"id":"apho-2022-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2022_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2022_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2022-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Theory\nQ2-1\nOﬃcial (English)\nA Mechanical Model for Phase Transitions1\nA ring of radius 𝑅has a bead of negligible size and mass 𝑚threaded on it. The ring is set rotating\nabout its vertical diameter with angular velocity 𝜔as shown in Fig.\n1.\nAlongside this, there is an\nopposing force on the bead, 𝐹𝑓, which is proportional to the normal reaction 𝑁, and is given by\n𝐹𝑓= 𝑓𝑘𝑁where 𝑓is 1 or −1. You are advised to employ polar coordinates {𝑟, 𝜃}. As far as possible\nexpress your answers in terms of 𝜔𝑐= √𝑔/𝑅where 𝑔is the magnitude of the acceleration due to gravity.\nIn a phase transition the free energy, 𝑉(ℳ) [mechanical equivalent is potential energy] depends on the\nmagnetization ℳas follows\n𝑉(ℳ) = 𝑎(𝑇)ℳ2 + 𝑏(𝑇)ℳ4\nwhere 𝑇→temperature, 𝑏(𝑇) > 0 and 𝑎(𝑇) changes sign with temperature. We attempt to understand\nthe phenomenon of phase transition using the above mentioned model.\nNote 1: For circular motion of radius 𝑅, the velocity in polar coordinates is ̇⃗𝑟= 𝑅̇𝜃̂𝜃and the acceleration\nis ̈⃗𝑟= −𝑅̇𝜃2 ̂𝑟+ 𝑅̈𝜃̂𝜃. Here ̂𝑟and\n̂𝜃are unit vectors in the radial and the tangential directions respectively.\nNote 2: The direction of the opposing force say\n⃗\n𝐹𝑓will be denoted by 𝑓. Here 𝑓= +1 if the bead is moving in\nthe counter-clockwise direction (of increasing) 𝜃and 𝑓= -1 if the bead is moving in the clockwise direction\n𝜃, e.g. 𝑓= 𝑠𝑔𝑛( ̇𝜃) where 𝑠𝑔𝑛is +1 or -1 depending on whether its argument is positive or negative.\nNote 3: You may ﬁnd the expansions\nsin(𝜃)\n=\n𝜃−𝜃3/6 + ..\ncos(𝜃)\n=\n1 −𝜃2/2 + 𝜃4/24 + ..\n(1 + 𝑥)𝑛\n=\n1 + 𝑛𝑥+ 𝑛(𝑛−1)𝑥2/2 + 𝑛(𝑛−1)(𝑛−2)𝑥3/6 + ..\n(where 𝜃is in radians and |𝑥| << 1 ) useful for some parts of the problem.\n1Sitikantha Das (IIT Kharagpur) and Pramendra Ranjan Singh (Principal, Narayan College, J.P. University) were the principal\nauthors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International\nBoard are gratefully acknowledged.\n\nTheory\nQ2-2\nOﬃcial (English)\nFig. 1: The bead on a rotating ring.\nIn what follows we shall understand the dynamics of the bead in the frame of the rotating ring and for\nangles in the range −𝜋/2 < 𝜃< 𝜋/2. The free body diagram of the bead is shown in Fig.2. Neglect all\nforces other than the ones shown in the free body diagram.\nFig. 2: The free body diagram.\nA.1\nWrite down the equations of motion for the radial 𝐹𝑟and the tangential 𝐹𝜃com-\nponents of the force on the bead. Assume 𝜃increasing in the counter-clockwise\ndirection.\n0.5pt\nFor the following parts B.1 to B.9 assume 𝑘= 0.\n\nTheory\nQ2-3\nOﬃcial (English)\nB.1\nState the relation between the equilibrium angle(s) 𝜃0 in terms of { 𝜔, 𝜔𝑐}.\n1.0pt\nB.2\nQualitatively sketch 𝜃0 (𝑦-axis) as a function of 𝜔/𝜔𝑐(𝑥-axis).\n0.5pt\nB.3\nQualitatively sketch the magnitude of the normal reaction force on the bead as\na function of 𝜔/𝜔𝑐at stable equilibrium.\n0.5pt\nB.4\nWe deﬁne the potential energy corresponding to the tangential force 𝐹𝜃,\nnamely\n𝐹𝜃= −1\n𝑅\n𝑑\n𝑑𝜃𝑉(𝜃)\nwith the zero of potential energy at 𝜃= 0. If 𝑉(𝜃) is expressed as 𝑃+ 𝑄cos(𝜃) +\n𝑆sin\n2(𝜃), obtain 𝑃, 𝑄, 𝑆.\n1.0pt\nB.5\nOne can expand 𝑉(𝜃) for small 𝜃and express it as 𝑉(𝜃) = 𝑎(𝜔) 𝜃2+𝑏(𝜔) 𝜃4. Obtain\nthe coeﬃcients 𝑎(𝜔) and 𝑏(𝜔).\n1.0pt\nB.6\nMake representative plots of 𝑉(𝜃) versus 𝜃for values of 𝜔/𝜔𝑐just less than 1.0\n(e.g. say 0.9) and 𝜔/𝜔𝑐large, say 5.0. Note that only qualitative sketches and no\ndetailed calculations for the plots are required.\n1.0pt\nB.7\nLandau theory of second order phase transitions can be used to demarcate\nsimple magnetic systems into two phases. For temperatures 𝑇greater than\nthe critical temperature 𝑇𝑐the system is paramagnetic. For 𝑇< 𝑇𝑐the system\nis ferromagnetic and the magnetization ℳis given by\nℳ(𝑇) = ℳ0(1 −𝑇/𝑇𝑐)1/2\n𝑇< 𝑇𝑐\nLet us denote the exponent 1/2 by 𝛽. Compare this behaviour with the bead\nproblem discussed above. What are the analougues of ℳ, 𝑇𝑐, 𝑇/𝑇𝑐in our case?\nWhat is the equivalent value of 𝛽in our case?\n1.0pt\nB.8\nDetermine the angular frequency of oscillation Ω0 of the bead when it is dis-\nturbed from its “equilibrium” position 𝜃0. Note that for small oscillations\nΩ0 = 1\n𝑅\n√𝑉″(𝜃0)\n𝑚\n1.0pt\nB.9\nQualitatively sketch Ω0 as a function of 𝜔.\n1.0pt\nFor the following parts C.1 to C.2 𝑘≠0.\n\nTheory\nQ2-4\nOﬃcial (English)\nC.1\nTake 𝑓= 1 and express 𝑘= tan 𝛼. We may express the condition for the equilib-\nrium angle(s) 𝜃0 as\n( 𝜔\n𝜔𝑐\n)\n2\n= tan(𝑥)\nsin(𝑦)\nObtain 𝑥and 𝑦.\n1.0pt\nC.2\nIt is given that 𝑓=1 and 𝑘= 0.05. Obtain the equilibrium angles 𝜃0, if any, for\nthe following cases:\n1. 𝜔/𝜔𝑐= 0.50\n2. 𝜔/𝜔𝑐= 0.70\n0.5pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2022-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8,9,10,11],"initialPage":1,"shared":false,"text":"Solutions\nA2-1\nOﬃcial (English)\nA Mechanical Model for Phase Transitions1\nGeneral Grading Guidelines\nWhen student’s solutions are correct and s/he also show how solutions were obtained, the stduent gets\nfull credit. The scheme oulined below is helpful if the student’s answers are partially correct. Atten-\ntion will be paid to the detailed solution so, if the ﬁnal answer is correct but it is obtained by incorrect\nmethod(s) then no credit will be given. Alternative solutions may exist and will be given due credit.\nPartial or full outcomes obtained for later sections in the problem which are incorrect solely because of\nerrors being carried forward from previous sections, but are otherwise reasonable, will not be further\npenalized. For example a dimensioanlly wrong answer when carried forward will not get any credit in the\nsubsequent sections. A numerically wrong evaluation when carried forward will get credit in subsequent\nsections unless the numerical answer is patently wrong (e.g. the value of g is 981 m/sec2! )\nIncorrect or no labeling of an axis is penalized by -0.1 points\nThe numerical answer (i) must be correct to +/- 10% AND (ii) must respect signiﬁcant ﬁgures.\nIt maybe noted that NO micro-marking scheme takes care of all contingencies. A certain amount\nof discretion rests with and a certain level of judgement is invested in the academic committee.\nA.1 (0.5 pt)\nEquations of motion\nThe radial component 𝐹𝑟yields:\n𝑚𝑅̇𝜃2\n=\n𝑁−𝑚𝑔cos(𝜃) −𝑚𝑅sin\n2(𝜃)𝜔2\n(1)\n[0.2]\nThe tangential component 𝐹𝜃\n𝑚𝑅̈𝜃\n=\n𝑚𝑅sin(𝜃) cos(𝜃)𝜔2 −𝑚𝑔sin(𝜃) −sgn ( ̇𝜃) 𝑘𝑁\n(2)\nOR\n𝑚𝑅̈𝜃\n=\n𝑚𝑅sin(𝜃) cos(𝜃)𝜔2 −𝑚𝑔sin(𝜃) −𝑓𝑘𝑁\n(𝑓= 1)\n(3)\n[0.3]\n \nNo points if equations not written using radial and tangential components.\n1Sitikantha Das (IIT Kharagpur) and Pramendra Ranjan Singh (Principal, Narayan College, J.P. University) were the principal\nauthors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International\nBoard are gratefully acknowledged.\n\nSolutions\nA2-2\nOﬃcial (English)\nB.1 (1.0 pt)\nEquilibrium angle(s)\nWe set 𝑘= 0 in the equation for the tangential component of the force. Thus\n𝑚𝑅̈𝜃\n=\n𝑚𝑅sin(𝜃) cos(𝜃)𝜔2 −𝑚𝑔sin(𝜃)\n(4)\nFor equilibrium we set\n̈𝜃0 = 0 in the above equation. Then 𝜃0 = 0 is an equilibrium angle for all values\nof 𝜔\n[0.4]\nThe other values are given by\ncos 𝜃0 =\n𝑔\n𝜔2𝑅= 𝜔2\n𝑐\n𝜔2\n(5)\n[0.3]\n𝜃0 = ± ∣cos−1 𝜔2\n𝑐\n𝜔2 ∣\n(6)\n[0.1]\nwith values of 𝜃0 between -𝜋/2 to 𝜋/2. The ± indicates that there are two equivalent positions. () The\nbead could rise on either side of the axis shown in the ﬁgure depicted in the problem. Note that for\n𝜔< 𝜔𝑐, Eq. (5) implies cos 𝜃0 > 1. This is clearly unphysical. A little reﬂection will convince us that\n𝜃0 = 0 for 𝜔< 𝜔𝑐.\n[0.2]\nB.2 (0.5 pt)\nSketch of 𝜃0.\n0\n𝜔/𝜔𝑐\n𝜃0\n1\n[shape correct: 0.2]\n[only if both branches: 0.3]\n\nSolutions\nA2-3\nOﬃcial (English)\nB.3 (0.5 pt)\nSketch of the magnitude of the normal reaction\n𝜔/𝜔𝑐\n𝑁\n1\n𝑚𝑔\n[𝜔< 𝜔𝑐∶0.2]\n[𝜔> 𝜔𝑐∶0.3]\nIf the shape of the plot is wrong, in that case, the following would be used. If in the detailed work,\nit is shown that 𝑁= 𝑚𝑔for 𝜔< 𝜔𝑐, 0.1 points would be provided. If it is shown that 𝑁= 𝑚𝜔2𝑅for\n𝜔≥𝜔𝑐, 0.1 points would be provided.\n\nSolutions\nA2-4\nOﬃcial (English)\nB.4 (1.0 pt)\nThe potential 𝑉(𝜃)\nSolution 1: Using direct integration\nGiven that\n𝐹𝜃= −1\n𝑅\n𝑑𝑉(𝜃)\n𝑑𝜃\n(7)\nand taking 𝑉(𝜃= 0) = 0, we obtain on integrating Eq. (4) that\n−𝑅∫\n𝜃\n0\n𝐹𝜃𝑑𝜃= ∫\n𝑉\n0\n𝑑𝑉= 𝑉−0\n[0.3]\nthe left hand side is\n−𝑅∫\n𝜃\n0\n𝐹𝜃𝑑𝜃\n=\n−𝑚𝜔2𝑅2\n2\n∫\n𝜃\n0\nsin(2𝜃) + 𝑚𝑔𝑅∫\n𝜃\n0\nsin(𝜃)𝑑𝜃\n=\n𝑚𝜔2𝑅2(cos(2𝜃) −1)\n4\n−𝑚𝑔𝑅(cos(𝜃) −1)\n(8)\n[0.4]\nNoting that 𝑐𝑜𝑠(2(𝜃) −1) = −2 sin\n2(𝜃) and 𝜔2\n𝑐= 𝑔/𝑅we obtain\n𝑉(𝜃) = 𝑚𝑔𝑅[(1 −cos 𝜃) −𝜔2\n2𝜔2𝑐\nsin\n2 𝜃]\n(9)\n[0.3]\nWe can also verify the above equation by substitution into Eq. (7)\n𝑃= 𝑚𝑔𝑅\n𝑄= −𝑚𝑔𝑅\n𝑆= −𝜔2𝑚𝑔𝑅\n2𝜔2𝑐\nSolution 2: Differentiating 𝑉= 𝑃+ 𝑄cos(𝜃) + 𝑆sin\n2(𝜃)\n𝐹𝜃= 𝑚𝑅sin 𝜃cos 𝜃𝜔2 −𝑚𝑔sin 𝜃= −1\n𝑅\n𝑑𝑉(𝜃)\n𝑑𝜃\n= 𝑄\n𝑅sin(𝜃) −2 𝑆\n𝑅sin 𝜃cos 𝜃\n[0.3]\nComparing, we get,\n𝑄= −𝑚𝑔𝑅\n𝑆= −𝜔2𝑚𝑔𝑅\n2𝜔2𝑐\n[0.2,0.2]\nAlso, as 𝑉(0) = 0, we have 𝑃+ 𝑄= 0. Hence, 𝑃= 𝑚𝑔𝑅\n[0.3]\n\nSolutions\nA2-5\nOﬃcial (English)\nB.5 (1.0 pt)\nThe coeﬃcients\nWe use the expansions for the trigonmetric functions sin(𝜃) and cos(𝜃) in Eq. (10). We shall keep\nterms upto and inculding order 𝜃4. Thus\n𝑉(𝜃)\n≈\n𝑚𝑔𝑅[1 −1 + 𝜃2/2 −𝜃4/24 −𝜔2\n2𝜔2𝑐\n(𝜃−𝜃3/6)2]\n≈\n𝑚𝑔𝑅\n2\n[1 −𝜔2\n𝜔2𝑐\n] 𝜃2 + 𝑚𝑔𝑅\n6\n[𝜔2\n𝜔2𝑐\n−1\n4] 𝜃4\nThus\n𝑎(𝜔) = 𝑚𝑔𝑅\n2\n(1 −𝜔2\n𝜔2𝑐\n)\n[0.5]\n𝑏(𝜔) = 𝑚𝑔𝑅\n6\n(𝜔2\n𝜔2𝑐\n−1\n4)\n[0.5]\nNote: no penalty if the 1/4 term is missed.\nOne observes that if one incorrectly expands sin 𝜃≈𝜃, in that case, only 𝑎(𝜔) will turn out to be\ncorrect.\n\nSolutions\nA2-6\nOﬃcial (English)\nB.6 (1.0 pt)\nRepresentative plots of the potential\nSolution 1: Plotting for 𝜃∈[−𝜋/2, 𝜋/2]\n−𝜋\n2\n0\n𝜋\n2\n0\n−𝜃0\n𝜃0\n𝜃\n𝑉(𝜃)\n𝜔< 𝜔𝑐\n𝜔> 𝜔𝑐\n[𝜔< 𝜔𝑐∶0.5]\n[𝜔> 𝜔𝑐∶0.5]\nSolution 2: Plotting for 𝜃∈[−𝜋, 𝜋]\n−𝜋\n0\n𝜋\n0\n−𝜃0\n𝜃0\n𝜃\n𝑉(𝜃)\n𝜔< 𝜔𝑐\n𝜔> 𝜔𝑐\n[𝜔< 𝜔𝑐∶0.5]\n[𝜔> 𝜔𝑐∶0.5]\n\nSolutions\nA2-7\nOﬃcial (English)\nB.7 (1.0 pt)\nBead analogues\nSolution 1:\nFor 𝜔→𝜔+\n𝑐, 𝜃0 is close to zero. Hence on expanding the cosine term in Eq. (5),\n1 −𝜃2\n0\n2\n=\n𝜔2\n𝑐\n𝜔2\n𝜃0\n=\n±\n√\n2 [1 −𝜔2\n𝑐\n𝜔2 ]\n1/2\n(10)\nAlso note from Eq. (5) that as 𝜔→∞, 𝜃0 →±𝜋/2. This plot also has an analogue in phase transition.\nThe magnetization ℳgoes to zero as 𝑇goes to 𝑇𝑐in a similar fashion. Thus the role of ℳis played\nby 𝜃0 and temperature is inversely related to 𝜔. Increasing temperature is equivalent to decreasing\n𝜔. Summarizing,\nℳ⟶𝜃\n[0.4]\n𝑇𝑐⟶1/𝜔2\n𝑐\n𝑇/𝑇𝑐⟶𝜔2\n𝑐/𝜔2\n[0.4]\nEquivalent value of 𝛽for bead is = 1/2.\n[0.2]\nSolution 2:\nFor 𝜔> 𝜔𝑐, cos 𝜃0 = 𝜔2\n𝑐/𝜔2. Hence on writing sin\n2 𝜃0 = 1−cos2 𝜃0 and substituting the value of cos 𝜃0,\none gets sin 𝜃0 = (1−𝜔4\n𝑐\n𝜔4 )1/2. This plot also has an analogue in phase transition. The magnetization ℳ\ngoes to zero as 𝑇goes to 𝑇𝑐in a similar fashion. Thus the role of ℳis played by sin 𝜃0 (or equivalently\n𝜃0 in the small angle limit) and temperature is inversely related to 𝜔4. Increasing temperature is\nequivalent to decreasing 𝜔. Summarizing,\nℳ⟶sin 𝜃\n[0.4]\n𝑇𝑐⟶1/𝜔4\n𝑐\n𝑇/𝑇𝑐⟶𝜔4\n𝑐/𝜔4\n[0.4]\nEquivalent value of 𝛽for bead is = 1/2.\n[0.2]\n[Note: The critical exponent is 1/2 in our case and also in Landau theory. However experimentally\nand in more elaborate theories the exponent of vanishing magnetization is 1/3].\n\nSolutions\nA2-8\nOﬃcial (English)\nB.8 (1.0 pt)\nOscillation frequency\nThe frequency of oscillation Ω0 of the bead about the \"equilibrium\" position 𝜃0 is\nΩ0 = 1\n𝑅\n√𝑉″(𝜃)\n𝑚\nWe take the second order derivative of the potential as given in Eq. (10)\n𝑉″(𝜃) = 𝑚𝑔𝑅cos 𝜃[1 −𝜔2\n𝜔2𝑐\ncos 𝜃] + 𝑚𝑔𝑅𝜔2\n𝜔2𝑐\nsin\n2 𝜃\n(11)\nFor 𝜃= 𝜃0 = ± cos−1 (𝜔2\n𝑐/𝜔2)\n𝑉″(𝜃0) = 𝑚𝑔𝑅𝜔2\n𝜔2𝑐\n(1 −𝜔4\n𝑐\n𝜔4 ) > 0\nif 𝜔> 𝜔𝑐\n(12)\nFor 𝜔< 𝜔𝑐, 𝜃0 = 0, and we obtain from Eq. (12) that\nΩ0 = (𝜔2\n𝑐−𝜔2)1/2\n(13)\n[0.5]\nSimilarly for 𝜔> 𝜔𝑐, using Eq. (13) we obtain\nΩ0\n=\n𝜔(1 −𝜔4\n𝑐\n𝜔4 )\n1/2\n(14)\n[0.5]\nNo credit will be provided is small angle approximation of 𝑉(𝜃) is used.\n\nSolutions\nA2-9\nOﬃcial (English)\nB.9 (1.0 pt)\nSketch of Ω0\n𝜔\nΩ0\n𝜔< 𝜔𝑐\n𝜔> 𝜔𝑐\n𝜔𝑐\n𝜔𝑐\nΩ0 = 𝜔\n[𝜔< 𝜔𝑐∶0.5]\n[𝜔> 𝜔𝑐∶0.5]\nIn the case of wrong expression of Ω0 derived in the previous part, marks would be awarded based\non the plot of expression obtained, and physicality of the plots.\n\nSolutions\nA2-10\nOﬃcial (English)\nC.1 (1.0 pt)\nCondition for equilibrium angles\nWe substitute the expression for the normal reaction (Eq.(1)) in the angular part (Eq.(3)) to obtain\n𝑚𝑅̈𝜃\n=\n𝑚𝑅sin(𝜃) cos(𝜃)𝜔2 −𝑚𝑔sin(𝜃) −𝑓𝑘(𝑚𝑔cos(𝜃) + 𝑚𝑅sin\n2(𝜃)𝜔2 + 𝑚𝑅̇𝜃2)\nNoting that 𝜔2\n𝑐= 𝑔/𝑅and rearranging terms we have\n̈𝜃\n=\n𝜔2\n𝑐⎡⎢\n⎣\n(sin(𝜃)) (cos(𝜃) −𝑓𝑘sin(𝜃)) ( 𝜔\n𝜔𝑐\n)\n2\n−sin(𝜃) −𝑓𝑘cos(𝜃) −𝑓𝑘(\ṅ𝜃\n𝜔𝑐\n)\n2\n⎤⎥\n⎦\n[0.2]\nAt equilibrium,\ṅ𝜃= 0,\n̈𝜃= 0 and 𝑓= sgn( ̇𝜃) = ±1 depending on how this equilibrium was attained,\niė., depending on the value of\ṅ𝜃just before equilibrium was attained. Thus we obtain the expression\nfor the equilibrium angle 𝜃0,\nsin(𝜃0) (cos(𝜃0) −𝑓𝑘sin(𝜃0)) ( 𝜔\n𝜔𝑐\n)\n2\n= sin(𝜃0) + 𝑓𝑘cos(𝜃0) with 𝜃0 ∈(−𝜋/2, 𝜋/2)\n[0.4]\nFor 𝑓= 1 and 𝑘= tan(𝛼) we may express the above as\n( 𝜔\n𝜔𝑐\n)\n2\n=\nsin(𝜃0) + tan(𝛼)𝑐𝑜𝑠(𝜃0)\nsin(𝜃0)(cos(𝜃0) −tan(𝛼) sin(𝜃0))\n=\ntan(𝜃0 + 𝛼)\nsin(𝜃0)\n(15)\n[0.4]\nIn case of algebraic error leading to 𝑥= 𝜃0 −𝛼, only 0.1 points would be deducted.\n\nSolutions\nA2-11\nOﬃcial (English)\nC.2 (0.5 pt)\nRepresentative values for 𝜃0\nWe are given the expansions for the trignometric functions in the problem. We notice that the coef-\nﬁcient of the opposing force 𝑘is small (=0.05). Thus 𝑘= 𝛼. We then have\nsin(𝜃0) ≈𝜃0\ntan(𝜃0 + 𝛼) ≈𝜃0 + 𝛼\n[0.2]\nThus\n( 𝜔\n𝜔𝑐\n)\n2\n≈\n1 + 𝑘\n𝜃0\nSimple calculations yield\n(a) 𝜃0 = -0.07 radians\n(b) 𝜃0 = -0.1 radians\n[0.3]\nThe plot will no longer be symmetric.\n","textExtraction":"available"}}
+{
+  "id": "apho-2022-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2022_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2022_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2022-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "A Mechanical Model for Phase Transitions"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "sup",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A ring of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " has a bead of negligible size and mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " threaded on it. The ring is set rotating about its vertical diameter with angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as shown in Fig. 1. Alongside this, there is an opposing force on the bead, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which is proportional to the normal reaction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_f = fkN\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". You are advised to employ polar coordinates {"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r,\\ \\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "}. As far as possible express your answers in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_c = \\sqrt{g/R}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the magnitude of the acceleration due to gravity."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In a phase transition the free energy, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\mathcal{M})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " [mechanical equivalent is potential energy] depends on the magnetization "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as follows "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V(\\mathcal{M}) = a(T)\\mathcal{M}^2 + b(T)\\mathcal{M}^4\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\!\\rightarrow\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " temperature, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b(T) > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a(T)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " changes sign with temperature. We attempt to understand the phenomenon of phase transition using the above mentioned model."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note 1: For circular motion of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the velocity in polar coordinates is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{\\vec{r}} = R\\dot{\\theta}\\hat{\\theta}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the acceleration is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ddot{\\vec{r}} = -R\\dot{\\theta}^2\\hat{r} + R\\ddot{\\theta}\\hat{\\theta}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{r}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\theta}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are unit vectors in the radial and the tangential directions respectively."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note 2: The direction of the opposing force say "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{F}_f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will be denoted by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = +1 if the bead is moving in the counter-clockwise direction (of increasing) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = -1 if the bead is moving in the clockwise direction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", e.g. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(sgn(\\dot{\\theta})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(sgn\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is +1 or -1 depending on whether its argument is positive or negative."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note 3: You may find the expansions "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{array}{rcl}\n\\sin(\\theta) & = & \\theta - \\theta^3/6 + ..\\\\\n\\cos(\\theta) & = & 1 - \\theta^2/2 + \\theta^4/24 + ..\\\\\n(1+x)^n & = & 1 + nx + n(n-1)x^2/2 + n(n-1)(n-2)x^3/6 + ..\n\\end{array}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is in radians and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|x| << 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ) useful for some parts of the problem."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t2/0471706eb928b11b736d.png",
+                "alt": "apho-2022-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 1: The bead on a rotating ring."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In what follows we shall understand the dynamics of the bead in the frame of the rotating ring and for angles in the range "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\pi/2 < \\theta < \\pi/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The free body diagram of the bead is shown in Fig.2. Neglect all forces other than the ones shown in the free body diagram."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t2/de20faa2c75312f33120.png",
+                "alt": "apho-2022-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2: The free body diagram."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Write down the equations of motion for the radial "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the tangential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " components of the force on the bead. Assume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " increasing in the counter-clockwise direction. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "For the following parts B.1 to B.9 assume "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(k = 0\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "State the relation between the equilibrium angle(s) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of { "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega,\\ \\omega_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "}. 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Qualitatively sketch "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis) as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega/\\omega_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis). 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Qualitatively sketch the magnitude of the normal reaction force on the bead as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega/\\omega_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at stable equilibrium. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "We define the potential energy corresponding to the tangential force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", namely "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_\\theta = -\\frac{1}{R}\\frac{d}{d\\theta}V(\\theta)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with the zero of potential energy at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". If "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is expressed as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P + Q\\cos(\\theta) + S\\sin^2(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P, Q, S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "One can expand "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for small "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and express it as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\theta) = a(\\omega)\\,\\theta^2{+}b(\\omega)\\,\\theta^4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Obtain the coefficients "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a(\\omega)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b(\\omega)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Make representative plots of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " versus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for values of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega/\\omega_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " just less than 1.0 (e.g. say 0.9) and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega/\\omega_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " large, say 5.0. Note that only qualitative sketches and no detailed calculations for the plots are required. 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.7"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Landau theory of second order phase transitions can be used to demarcate simple magnetic systems into two phases. For temperatures "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " greater than the critical temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the system is paramagnetic. For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T < T_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the system is ferromagnetic and the magnetization "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathcal{M}(T) = \\mathcal{M}_0(1 - T/T_c)^{1/2} \\quad T < T_c\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Let us denote the exponent "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Compare this behaviour with the bead problem discussed above. What are the analougues of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T/T_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in our case? What is the equivalent value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in our case? 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.8"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Determine the angular frequency of oscillation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the bead when it is disturbed from its "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "“equilibrium”"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " position "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Note that for small oscillations "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Omega_0 = \\frac{1}{R}\\sqrt{\\frac{V''(\\theta_0)}{m}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.9"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Qualitatively sketch "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "For the following parts C.1 to C.2 "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(k \\neq 0\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Take "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 1 and express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = \\tan\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We may express the condition for the equilibrium angle(s) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(\\frac{\\omega}{\\omega_c}\\right)^2 = \\frac{\\tan(x)}{\\sin(y)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "It is given that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " =1 and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 0.05\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Obtain the equilibrium angles "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", if any, for the following cases:"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n1. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega/\\omega_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 0.50"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n2. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega/\\omega_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 0.70 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "span",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "hr",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "ol",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Sitikantha Das (IIT Kharagpur) and Pramendra Ranjan Singh (Principal, Narayan College, J.P. University) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully acknowledged."
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "↩︎"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "A Mechanical Model for Phase Transitions\n1\n\n\nA ring of radius \n\\(R\\)\n has a bead of negligible size and mass \n\\(m\\)\n threaded on it. The ring is set rotating about its vertical diameter with angular velocity \n\\(\\omega\\)\n as shown in Fig. 1. Alongside this, there is an opposing force on the bead, \n\\(F_f\\)\n, which is proportional to the normal reaction \n\\(N\\)\n, and is given by \n\\(F_f = fkN\\)\n where \n\\(f\\)\n is \n\\(1\\)\n or \n\\(-1\\)\n. You are advised to employ polar coordinates {\n\\(r,\\ \\theta\\)\n}. As far as possible express your answers in terms of \n\\(\\omega_c = \\sqrt{g/R}\\)\n where \n\\(g\\)\n is the magnitude of the acceleration due to gravity.\n\n\nIn a phase transition the free energy, \n\\(V(\\mathcal{M})\\)\n [mechanical equivalent is potential energy] depends on the magnetization \n\\(\\mathcal{M}\\)\n as follows \n\\[V(\\mathcal{M}) = a(T)\\mathcal{M}^2 + b(T)\\mathcal{M}^4\\]\n where \n\\(T\\!\\rightarrow\\)\n temperature, \n\\(b(T) > 0\\)\n and \n\\(a(T)\\)\n changes sign with temperature. We attempt to understand the phenomenon of phase transition using the above mentioned model.\n\n\nNote 1: For circular motion of radius \n\\(R\\)\n, the velocity in polar coordinates is \n\\(\\dot{\\vec{r}} = R\\dot{\\theta}\\hat{\\theta}\\)\n and the acceleration is \n\\(\\ddot{\\vec{r}} = -R\\dot{\\theta}^2\\hat{r} + R\\ddot{\\theta}\\hat{\\theta}\\)\n. Here \n\\(\\hat{r}\\)\n and \n\\(\\hat{\\theta}\\)\n are unit vectors in the radial and the tangential directions respectively.\n\n\nNote 2: The direction of the opposing force say \n\\(\\vec{F}_f\\)\n will be denoted by \n\\(f\\)\n. Here \n\\(f\\)\n = +1 if the bead is moving in the counter-clockwise direction (of increasing) \n\\(\\theta\\)\n and \n\\(f\\)\n = -1 if the bead is moving in the clockwise direction \n\\(\\theta\\)\n, e.g. \n\\(f\\)\n = \n\\(sgn(\\dot{\\theta})\\)\n where \n\\(sgn\\)\n is +1 or -1 depending on whether its argument is positive or negative.\n\n\nNote 3: You may find the expansions \n\\[\\begin{array}{rcl}\n\\sin(\\theta) & = & \\theta - \\theta^3/6 + ..\\\\\n\\cos(\\theta) & = & 1 - \\theta^2/2 + \\theta^4/24 + ..\\\\\n(1+x)^n & = & 1 + nx + n(n-1)x^2/2 + n(n-1)(n-2)x^3/6 + ..\n\\end{array}\\]\n (where \n\\(\\theta\\)\n is in radians and \n\\(|x| << 1\\)\n ) useful for some parts of the problem.\n\n\n\n\n\n\n\n\n\n\n\nFig. 1: The bead on a rotating ring.\n\n\n\n\nIn what follows we shall understand the dynamics of the bead in the frame of the rotating ring and for angles in the range \n\\(-\\pi/2 < \\theta < \\pi/2\\)\n. The free body diagram of the bead is shown in Fig.2. Neglect all forces other than the ones shown in the free body diagram.\n\n\n\n\n\n\n\n\n\n\n\nFig. 2: The free body diagram.\n\n\n\n\nA.1\nWrite down the equations of motion for the radial \n\\(F_r\\)\n and the tangential \n\\(F_\\theta\\)\n components of the force on the bead. Assume \n\\(\\theta\\)\n increasing in the counter-clockwise direction. 0.5pt\n\n\nFor the following parts B.1 to B.9 assume \n\\(k = 0\\)\n.\n\n\nB.1\nState the relation between the equilibrium angle(s) \n\\(\\theta_0\\)\n in terms of { \n\\(\\omega,\\ \\omega_c\\)\n}. 1.0pt\n\n\nB.2\nQualitatively sketch \n\\(\\theta_0\\)\n (\n\\(y\\)\n-axis) as a function of \n\\(\\omega/\\omega_c\\)\n (\n\\(x\\)\n-axis). 0.5pt\n\n\nB.3\nQualitatively sketch the magnitude of the normal reaction force on the bead as a function of \n\\(\\omega/\\omega_c\\)\n at stable equilibrium. 0.5pt\n\n\nB.4\nWe define the potential energy corresponding to the tangential force \n\\(F_\\theta\\)\n, namely \n\\[F_\\theta = -\\frac{1}{R}\\frac{d}{d\\theta}V(\\theta)\\]\n with the zero of potential energy at \n\\(\\theta = 0\\)\n. If \n\\(V(\\theta)\\)\n is expressed as \n\\(P + Q\\cos(\\theta) + S\\sin^2(\\theta)\\)\n, obtain \n\\(P, Q, S\\)\n. 1.0pt\n\n\nB.5\nOne can expand \n\\(V(\\theta)\\)\n for small \n\\(\\theta\\)\n and express it as \n\\(V(\\theta) = a(\\omega)\\,\\theta^2{+}b(\\omega)\\,\\theta^4\\)\n. Obtain the coefficients \n\\(a(\\omega)\\)\n and \n\\(b(\\omega)\\)\n. 1.0pt\n\n\nB.6\nMake representative plots of \n\\(V(\\theta)\\)\n versus \n\\(\\theta\\)\n for values of \n\\(\\omega/\\omega_c\\)\n just less than 1.0 (e.g. say 0.9) and \n\\(\\omega/\\omega_c\\)\n large, say 5.0. Note that only qualitative sketches and no detailed calculations for the plots are required. 1.0pt\n\n\nB.7\nLandau theory of second order phase transitions can be used to demarcate simple magnetic systems into two phases. For temperatures \n\\(T\\)\n greater than the critical temperature \n\\(T_c\\)\n the system is paramagnetic. For \n\\(T < T_c\\)\n the system is ferromagnetic and the magnetization \n\\(\\mathcal{M}\\)\n is given by \n\\[\\mathcal{M}(T) = \\mathcal{M}_0(1 - T/T_c)^{1/2} \\quad T < T_c\\]\n Let us denote the exponent \n\\(1/2\\)\n by \n\\(\\beta\\)\n. Compare this behaviour with the bead problem discussed above. What are the analougues of \n\\(\\mathcal{M}\\)\n, \n\\(T_c\\)\n, \n\\(T/T_c\\)\n in our case? What is the equivalent value of \n\\(\\beta\\)\n in our case? 1.0pt\n\n\nB.8\nDetermine the angular frequency of oscillation \n\\(\\Omega_0\\)\n of the bead when it is disturbed from its \n“equilibrium”\n position \n\\(\\theta_0\\)\n. Note that for small oscillations \n\\[\\Omega_0 = \\frac{1}{R}\\sqrt{\\frac{V''(\\theta_0)}{m}}\\]\n 1.0pt\n\n\nB.9\nQualitatively sketch \n\\(\\Omega_0\\)\n as a function of \n\\(\\omega\\)\n. 1.0pt\n\n\nFor the following parts C.1 to C.2 \n\\(k \\neq 0\\)\n.\n\n\nC.1\nTake \n\\(f\\)\n = 1 and express \n\\(k = \\tan\\alpha\\)\n. We may express the condition for the equilibrium angle(s) \n\\(\\theta_0\\)\n as \n\\[\\left(\\frac{\\omega}{\\omega_c}\\right)^2 = \\frac{\\tan(x)}{\\sin(y)}\\]\n Obtain \n\\(x\\)\n and \n\\(y\\)\n. 1.0pt\n\n\nC.2\nIt is given that \n\\(f\\)\n =1 and \n\\(k = 0.05\\)\n. Obtain the equilibrium angles \n\\(\\theta_0\\)\n, if any, for the following cases:\n\n\n1. \n\\(\\omega/\\omega_c\\)\n = 0.50\n\n\n2. \n\\(\\omega/\\omega_c\\)\n = 0.70 0.5pt\n\n\n\n\n\n\n\n\n\nSitikantha Das (IIT Kharagpur) and Pramendra Ranjan Singh (Principal, Narayan College, J.P. University) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully acknowledged.\n↩︎\n\n\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2022-t2/0471706eb928b11b736d.png",
+      "/corpus/figures/native/bulk/apho-2022-t2/de20faa2c75312f33120.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2022-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "A Mechanical Model for Phase Transitions"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "sup",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "General Grading Guidelines"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When student’s solutions are correct and s/he also show how solutions were obtained, the stduent gets full credit. The scheme oulined below is helpful if the student’s answers are partially correct. Attention will be paid to the detailed solution so, if the final answer is correct but it is obtained by incorrect method(s) then no credit will be given. Alternative solutions may exist and will be given due credit."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Partial or full outcomes obtained for later sections in the problem which are incorrect solely because of errors being carried forward from previous sections, but are otherwise reasonable, will not be further penalized. For example a dimensioanlly wrong answer when carried forward will not get any credit in the subsequent sections. A numerically wrong evaluation when carried forward will get credit in subsequent sections unless the numerical answer is patently wrong (e.g. the value of g is 981 m/sec"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "! )"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Incorrect or no labeling of an axis is penalized by -0.1 points"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The numerical answer (i) must be correct to +/- 10% AND (ii) must respect significant figures."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "It maybe noted that NO micro-marking scheme takes care of all contingencies. A certain amount of discretion rests with and a certain level of judgement is invested in the academic committee."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (0.5 pt)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Equations of motion"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The radial component "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " yields: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nmR\\dot{\\theta}^2 \\quad = \\quad N - mg\\cos(\\theta) - mR\\sin^2(\\theta)\\omega^2 \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The tangential component "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\nmR\\ddot{\\theta} \\quad &= \\quad mR\\sin(\\theta)\\cos(\\theta)\\omega^2 - mg\\sin(\\theta) - \\operatorname{sgn}\\left(\\dot{\\theta}\\right)kN \\tag{2}\\\\\n\\text{OR} \\quad & \\notag\\\\\nmR\\ddot{\\theta} \\quad &= \\quad mR\\sin(\\theta)\\cos(\\theta)\\omega^2 - mg\\sin(\\theta) - fkN \\quad (f = 1) \\tag{3}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "No points if equations not written using radial and tangential components."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1.0 pt)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Equilibrium angle(s)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We set "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the equation for the tangential component of the force. Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nmR\\ddot{\\theta} \\quad = \\quad mR\\sin(\\theta)\\cos(\\theta)\\omega^2 - mg\\sin(\\theta) \\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For equilibrium we set "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ddot{\\theta}_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 0 in the above equation. Then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 0 is an equilibrium angle for all values of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The other values are given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\cos\\theta_0 = \\frac{g}{\\omega^2 R} = \\frac{\\omega_c^2}{\\omega^2} \\tag{5}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\theta_0 = \\pm\\left|\\cos^{-1}\\frac{\\omega_c^2}{\\omega^2}\\right| \\tag{6}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "with values of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between -"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\pi/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\pi/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\pm\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " indicates that there are two equivalent positions. () The bead could rise on either side of the axis shown in the figure depicted in the problem. Note that for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega < \\omega_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", Eq. (5) implies "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cos\\theta_0 > 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This is clearly unphysical. A little reflection will convince us that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0 = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega < \\omega_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (0.5 pt)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Sketch of "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\theta_0\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t2/0ef1b6382f5b206e57c6.png",
+                "alt": "apho-2022-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[shape correct: 0.2]"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[only if both branches: 0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (0.5 pt)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Sketch of the magnitude of the normal reaction"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t2/027b407fa7c90a451162.png",
+                "alt": "apho-2022-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "["
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega < \\omega_c :\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2]"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "["
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega > \\omega_c :\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If the shape of the plot is wrong, in that case, the following would be used. If in the detailed work, it is shown that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N = mg\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega < \\omega_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " points would be provided. If it is shown that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N = m\\omega^2 R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega \\geq \\omega_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " points would be provided."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1.0 pt)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "The potential "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(V(\\theta)\\)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Solution 1: Using direct integration"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nGiven that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nF_\\theta = -\\frac{1}{R}\\frac{dV(\\theta)}{d\\theta} \\tag{7}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and taking "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\theta = 0) = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we obtain on integrating Eq. (4) that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[-R\\int_0^\\theta F_\\theta d\\theta = \\int_0^V dV = V - 0\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "the left hand side is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n-R\\int_0^\\theta F_\\theta d\\theta \\quad &= \\quad \\frac{-m\\omega^2 R^2}{2}\\int_0^\\theta \\sin(2\\theta) + mgR\\int_0^\\theta \\sin(\\theta)d\\theta \\notag\\\\\n&= \\quad \\frac{m\\omega^2 R^2(\\cos(2\\theta) - 1)}{4} - mgR(\\cos(\\theta) - 1) \\tag{8}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Noting that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(cos(2(\\theta) - 1) = -2\\sin^2(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_c^2 = g/R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nV(\\theta) = mgR\\left[(1 - \\cos\\theta) - \\frac{\\omega^2}{2\\omega_c^2}\\sin^2\\theta\\right] \\tag{9}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We can also verify the above equation by substitution into Eq. (7)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P = mgR\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Q = -mgR\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S = -\\dfrac{\\omega^2 mgR}{2\\omega_c^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nSolution 2: Differentiating "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V = P + Q\\cos(\\theta) + S\\sin^2(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_\\theta = mR\\sin\\theta\\cos\\theta\\omega^2 - mg\\sin\\theta = -\\dfrac{1}{R}\\dfrac{dV(\\theta)}{d\\theta} = \\dfrac{Q}{R}\\sin(\\theta) - 2\\dfrac{S}{R}\\sin\\theta\\cos\\theta\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Comparing, we get,"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Q = -mgR\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S = -\\dfrac{\\omega^2 mgR}{2\\omega_c^2}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2,0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Also, as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(0) = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P + Q = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P = mgR\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1.0 pt)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "The coefficients"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We use the expansions for the trigonmetric functions "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cos(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in Eq. (10). We shall keep terms upto and inculding order "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta^4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nV(\\theta) \\quad &\\approx \\quad mgR\\left[1 - 1 + \\theta^2/2 - \\theta^4/24 - \\frac{\\omega^2}{2\\omega_c^2}(\\theta - \\theta^3/6)^2\\right]\\\\\n&\\approx \\quad \\frac{mgR}{2}\\left[1 - \\frac{\\omega^2}{\\omega_c^2}\\right]\\theta^2 + \\frac{mgR}{6}\\left[\\frac{\\omega^2}{\\omega_c^2} - \\frac{1}{4}\\right]\\theta^4\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a(\\omega) = \\frac{mgR}{2}(1 - \\frac{\\omega^2}{\\omega_c^2})\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[b(\\omega) = \\frac{mgR}{6}(\\frac{\\omega^2}{\\omega_c^2} - \\frac{1}{4})\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note: no penalty if the 1/4 term is missed."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nOne observes that if one incorrectly expands "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin\\theta \\approx \\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", in that case, only "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a(\\omega)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will turn out to be correct."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1.0 pt)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Representative plots of the potential"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Solution 1: Plotting for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta \\in [-\\pi/2, \\pi/2]\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t2/b673b5075405056a3098.png",
+                "alt": "apho-2022-t2 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "["
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega < \\omega_c :\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5]"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "["
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega > \\omega_c :\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Solution 2: Plotting for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta \\in [-\\pi, \\pi]\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t2/61a31192300aa0d54aae.png",
+                "alt": "apho-2022-t2 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "["
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega < \\omega_c :\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5]"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "["
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega > \\omega_c :\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.7"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1.0 pt)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Bead analogues"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nSolution 1:"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nFor  "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega \\rightarrow \\omega_c^+,\\ \\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is close to zero. Hence on expanding the cosine term in Eq. (5), "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n1 - \\frac{\\theta_0^2}{2} \\quad &= \\quad \\frac{\\omega_c^2}{\\omega^2} \\notag\\\\\n\\theta_0 \\quad &= \\quad \\pm\\sqrt{2}\\left[1 - \\frac{\\omega_c^2}{\\omega^2}\\right]^{1/2} \\tag{10}\n\\end{align}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Also note from Eq. (5) that as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega \\rightarrow \\infty\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0 \\rightarrow \\pm\\pi/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This plot also has an analogue in phase transition. The magnetization "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " goes to zero as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " goes to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in a similar fashion. Thus the role of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is played by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and temperature is inversely related to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Increasing temperature is equivalent to decreasing "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Summarizing, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathcal{M} \\longrightarrow \\theta\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nT_c &\\longrightarrow 1/\\omega_c^2\\\\\nT/T_c &\\longrightarrow \\omega_c^2/\\omega^2\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Equivalent value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for bead is = 1/2."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Solution 2:"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nFor  "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega > \\omega_c,\\ \\cos\\theta_0 = \\omega_c^2/\\omega^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence on writing "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin^2\\theta_0 = 1{-}\\cos^2\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and substituting the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cos\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", one gets "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin\\theta_0 = (1{-}\\frac{\\omega_c^4}{\\omega^4})^{1/2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This plot also has an analogue in phase transition. The magnetization "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " goes to zero as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " goes to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in a similar fashion. Thus the role of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is played by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (or equivalently "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the small angle limit) and temperature is inversely related to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega^4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Increasing temperature is equivalent to decreasing "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Summarizing, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathcal{M} \\longrightarrow \\sin\\theta\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nT_c &\\longrightarrow 1/\\omega_c^4\\\\\nT/T_c &\\longrightarrow \\omega_c^4/\\omega^4\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Equivalent value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for bead is = 1/2."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "[Note: The critical exponent is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in our case and also in Landau theory. However experimentally and in more elaborate theories the exponent of vanishing magnetization is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "]."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.8"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1.0 pt)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Oscillation frequency"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The frequency of oscillation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the bead about the \"equilibrium\" position "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Omega_0 = \\frac{1}{R}\\sqrt{\\frac{V''(\\theta)}{m}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " We take the second order derivative of the potential as given in Eq. (10) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nV''(\\theta) = mgR\\cos\\theta\\left[1 - \\frac{\\omega^2}{\\omega_c^2}\\cos\\theta\\right] + mgR\\,\\frac{\\omega^2}{\\omega_c^2}\\,\\sin^2\\theta \\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta = \\theta_0 = \\pm\\cos^{-1}\\,(\\omega_c^2/\\omega^2)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nV''(\\theta_0) = mgR\\,\\frac{\\omega^2}{\\omega_c^2}\\left(1 - \\frac{\\omega_c^4}{\\omega^4}\\right) > 0 \\qquad\\qquad \\text{if } \\omega > \\omega_c \\tag{12}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega < \\omega_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0 = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and we obtain from Eq. (12) that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Omega_0 = (\\omega_c^2 - \\omega^2)^{1/2} \\tag{13}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Similarly for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega > \\omega_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", using Eq. (13) we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Omega_0 \\quad = \\quad \\omega\\left(1 - \\frac{\\omega_c^4}{\\omega^4}\\right)^{1/2} \\tag{14}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "No credit will be provided is small angle approximation of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is used."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.9"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1.0 pt)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Sketch of "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\Omega_0\\)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t2/82712cba53181bf3a6a9.png",
+                "alt": "apho-2022-t2 original source figure 5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "["
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega < \\omega_c :\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5]"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "["
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega > \\omega_c :\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the case of wrong expression of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " derived in the previous part, marks would be awarded based on the plot of expression obtained, and physicality of the plots."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1.0 pt)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Condition for equilibrium angles"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We substitute the expression for the normal reaction (Eq.(1)) in the angular part (Eq.(3)) to obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[mR\\ddot{\\theta} \\quad = \\quad mR\\sin(\\theta)\\cos(\\theta)\\omega^2 - mg\\sin(\\theta) - fk(mg\\cos(\\theta) + mR\\sin^2(\\theta)\\omega^2 + mR\\dot{\\theta}^2)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Noting that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g/R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and rearranging terms we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\ddot{\\theta} \\quad = \\quad \\omega_c^2\\left[(\\sin(\\theta))\\,(\\cos(\\theta) - fk\\sin(\\theta))\\left(\\frac{\\omega}{\\omega_c}\\right)^2 - \\sin(\\theta) - fk\\cos(\\theta) - fk\\left(\\frac{\\dot{\\theta}}{\\omega_c}\\right)^2\\right]\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At equilibrium, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{\\theta} = 0,\\ \\ddot{\\theta} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f = \\operatorname{sgn}\\bigl(\\dot{\\theta}\\bigr) = \\pm 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " depending on how this equilibrium was attained, iė., depending on the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{\\theta}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " just before equilibrium was attained. Thus we obtain the expression for the equilibrium angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\sin(\\theta_0)\\,(\\cos(\\theta_0) - fk\\sin(\\theta_0))\\left(\\frac{\\omega}{\\omega_c}\\right)^2 = \\sin(\\theta_0) + fk\\cos(\\theta_0)\\ \\text{with}\\ \\theta_0 \\in (-\\pi/2, \\pi/2)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 1 and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = \\tan(\\alpha)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we may express the above as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\left(\\frac{\\omega}{\\omega_c}\\right)^2 \\quad &= \\quad \\frac{\\sin(\\theta_0) + \\tan(\\alpha)cos(\\theta_0)}{\\sin(\\theta_0)(\\cos(\\theta_0) - \\tan(\\alpha)\\sin(\\theta_0))} \\notag\\\\\n&= \\quad \\frac{\\tan(\\theta_0 + \\alpha)}{\\sin(\\theta_0)} \\tag{15}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In case of algebraic error leading to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = \\theta_0 - \\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", only 0.1 points would be deducted."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (0.5 pt)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Representative values for "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\theta_0\\)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nWe are given the expansions for the trignometric functions in the problem. We notice that the coefficient of the opposing force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is small (=0.05). Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We then have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\sin(\\theta_0) \\approx \\theta_0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tan(\\theta_0 + \\alpha) \\approx \\theta_0 + \\alpha\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(\\frac{\\omega}{\\omega_c}\\right)^2 \\quad \\approx \\quad 1 + \\frac{k}{\\theta_0}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Simple calculations yield"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n(a) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = -0.07 radians"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n(b) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = -0.1 radians"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The plot will no longer be symmetric."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "span",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "hr",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "ol",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Sitikantha Das (IIT Kharagpur) and Pramendra Ranjan Singh (Principal, Narayan College, J.P. University) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully acknowledged."
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "↩︎"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "A Mechanical Model for Phase Transitions\n1\n\n\nGeneral Grading Guidelines\n\n\nWhen student’s solutions are correct and s/he also show how solutions were obtained, the stduent gets full credit. The scheme oulined below is helpful if the student’s answers are partially correct. Attention will be paid to the detailed solution so, if the final answer is correct but it is obtained by incorrect method(s) then no credit will be given. Alternative solutions may exist and will be given due credit.\n\n\nPartial or full outcomes obtained for later sections in the problem which are incorrect solely because of errors being carried forward from previous sections, but are otherwise reasonable, will not be further penalized. For example a dimensioanlly wrong answer when carried forward will not get any credit in the subsequent sections. A numerically wrong evaluation when carried forward will get credit in subsequent sections unless the numerical answer is patently wrong (e.g. the value of g is 981 m/sec\n\\(^{2}\\)\n! )\n\n\nIncorrect or no labeling of an axis is penalized by -0.1 points\n\n\nThe numerical answer (i) must be correct to +/- 10% AND (ii) must respect significant figures.\n\n\nIt maybe noted that NO micro-marking scheme takes care of all contingencies. A certain amount of discretion rests with and a certain level of judgement is invested in the academic committee.\n\n\nA.1\n (0.5 pt)\n\n\n\nEquations of motion\n\n\nThe radial component \n\\(F_r\\)\n yields: \n\\[\\begin{equation}\nmR\\dot{\\theta}^2 \\quad = \\quad N - mg\\cos(\\theta) - mR\\sin^2(\\theta)\\omega^2 \\tag{1}\n\\end{equation}\\]\n\n\n[0.2]\n\n\nThe tangential component \n\\(F_\\theta\\)\n \n\\[\\begin{align}\nmR\\ddot{\\theta} \\quad &= \\quad mR\\sin(\\theta)\\cos(\\theta)\\omega^2 - mg\\sin(\\theta) - \\operatorname{sgn}\\left(\\dot{\\theta}\\right)kN \\tag{2}\\\\\n\\text{OR} \\quad & \\notag\\\\\nmR\\ddot{\\theta} \\quad &= \\quad mR\\sin(\\theta)\\cos(\\theta)\\omega^2 - mg\\sin(\\theta) - fkN \\quad (f = 1) \\tag{3}\n\\end{align}\\]\n\n\n[0.3]\n\n\nNo points if equations not written using radial and tangential components.\n\n\nB.1\n (1.0 pt)\n\n\n\nEquilibrium angle(s)\n\n\nWe set \n\\(k = 0\\)\n in the equation for the tangential component of the force. Thus \n\\[\\begin{equation}\nmR\\ddot{\\theta} \\quad = \\quad mR\\sin(\\theta)\\cos(\\theta)\\omega^2 - mg\\sin(\\theta) \\tag{4}\n\\end{equation}\\]\n For equilibrium we set \n\\(\\ddot{\\theta}_0\\)\n = 0 in the above equation. Then \n\\(\\theta_0\\)\n = 0 is an equilibrium angle for all values of \n\\(\\omega\\)\n\n\n[0.4]\n\n\nThe other values are given by \n\\[\\begin{equation}\n\\cos\\theta_0 = \\frac{g}{\\omega^2 R} = \\frac{\\omega_c^2}{\\omega^2} \\tag{5}\n\\end{equation}\\]\n\n\n[0.3]\n \n\\[\\begin{equation}\n\\theta_0 = \\pm\\left|\\cos^{-1}\\frac{\\omega_c^2}{\\omega^2}\\right| \\tag{6}\n\\end{equation}\\]\n\n\n[0.1]\n\n\nwith values of \n\\(\\theta_0\\)\n between -\n\\(\\pi/2\\)\n to \n\\(\\pi/2\\)\n. The \n\\(\\pm\\)\n indicates that there are two equivalent positions. () The bead could rise on either side of the axis shown in the figure depicted in the problem. Note that for \n\\(\\omega < \\omega_c\\)\n, Eq. (5) implies \n\\(\\cos\\theta_0 > 1\\)\n. This is clearly unphysical. A little reflection will convince us that \n\\(\\theta_0 = 0\\)\n for \n\\(\\omega < \\omega_c\\)\n.\n\n\n[0.2]\n\n\nB.2\n (0.5 pt)\n\n\n\nSketch of \n\\(\\theta_0\\)\n.\n\n\n\n\n\n\n\n\n\n[shape correct: 0.2]\n\n\n\n[only if both branches: 0.3]\n\n\nB.3\n (0.5 pt)\n\n\n\nSketch of the magnitude of the normal reaction\n\n\n\n\n\n\n\n\n\n[\n\\(\\omega < \\omega_c :\\)\n \n0.2]\n\n\n\n[\n\\(\\omega > \\omega_c :\\)\n \n0.3]\n\n\nIf the shape of the plot is wrong, in that case, the following would be used. If in the detailed work, it is shown that \n\\(N = mg\\)\n for \n\\(\\omega < \\omega_c\\)\n, \n0.1\n points would be provided. If it is shown that \n\\(N = m\\omega^2 R\\)\n for \n\\(\\omega \\geq \\omega_c\\)\n, \n0.1\n points would be provided.\n\n\nB.4\n (1.0 pt)\n\n\n\nThe potential \n\\(V(\\theta)\\)\n\n\nSolution 1: Using direct integration\n\n\nGiven that \n\\[\\begin{equation}\nF_\\theta = -\\frac{1}{R}\\frac{dV(\\theta)}{d\\theta} \\tag{7}\n\\end{equation}\\]\n and taking \n\\(V(\\theta = 0) = 0\\)\n, we obtain on integrating Eq. (4) that \n\\[-R\\int_0^\\theta F_\\theta d\\theta = \\int_0^V dV = V - 0\\]\n\n\n[0.3]\n\n\nthe left hand side is \n\\[\\begin{align}\n-R\\int_0^\\theta F_\\theta d\\theta \\quad &= \\quad \\frac{-m\\omega^2 R^2}{2}\\int_0^\\theta \\sin(2\\theta) + mgR\\int_0^\\theta \\sin(\\theta)d\\theta \\notag\\\\\n&= \\quad \\frac{m\\omega^2 R^2(\\cos(2\\theta) - 1)}{4} - mgR(\\cos(\\theta) - 1) \\tag{8}\n\\end{align}\\]\n\n\n[0.4]\n\n\nNoting that \n\\(cos(2(\\theta) - 1) = -2\\sin^2(\\theta)\\)\n and \n\\(\\omega_c^2 = g/R\\)\n we obtain \n\\[\\begin{equation}\nV(\\theta) = mgR\\left[(1 - \\cos\\theta) - \\frac{\\omega^2}{2\\omega_c^2}\\sin^2\\theta\\right] \\tag{9}\n\\end{equation}\\]\n\n\n[0.3]\n\n\nWe can also verify the above equation by substitution into Eq. (7)\n\n\n\n\\(P = mgR\\)\n\n\n\n\\(Q = -mgR\\)\n\n\n\n\\(S = -\\dfrac{\\omega^2 mgR}{2\\omega_c^2}\\)\n\n\nSolution 2: Differentiating \n\\(V = P + Q\\cos(\\theta) + S\\sin^2(\\theta)\\)\n\n\n\n\\(F_\\theta = mR\\sin\\theta\\cos\\theta\\omega^2 - mg\\sin\\theta = -\\dfrac{1}{R}\\dfrac{dV(\\theta)}{d\\theta} = \\dfrac{Q}{R}\\sin(\\theta) - 2\\dfrac{S}{R}\\sin\\theta\\cos\\theta\\)\n\n\n[0.3]\n\n\nComparing, we get,\n\n\n\n\\(Q = -mgR\\)\n\n\n\n\\(S = -\\dfrac{\\omega^2 mgR}{2\\omega_c^2}\\)\n\n\n[0.2,0.2]\n\n\nAlso, as \n\\(V(0) = 0\\)\n, we have \n\\(P + Q = 0\\)\n. Hence, \n\\(P = mgR\\)\n\n\n[0.3]\n\n\nB.5\n (1.0 pt)\n\n\n\nThe coefficients\n\n\nWe use the expansions for the trigonmetric functions \n\\(\\sin(\\theta)\\)\n and \n\\(\\cos(\\theta)\\)\n in Eq. (10). We shall keep terms upto and inculding order \n\\(\\theta^4\\)\n. Thus \n\\[\\begin{align*}\nV(\\theta) \\quad &\\approx \\quad mgR\\left[1 - 1 + \\theta^2/2 - \\theta^4/24 - \\frac{\\omega^2}{2\\omega_c^2}(\\theta - \\theta^3/6)^2\\right]\\\\\n&\\approx \\quad \\frac{mgR}{2}\\left[1 - \\frac{\\omega^2}{\\omega_c^2}\\right]\\theta^2 + \\frac{mgR}{6}\\left[\\frac{\\omega^2}{\\omega_c^2} - \\frac{1}{4}\\right]\\theta^4\n\\end{align*}\\]\n\n\nThus \n\\[a(\\omega) = \\frac{mgR}{2}(1 - \\frac{\\omega^2}{\\omega_c^2})\\]\n\n\n[0.5]\n \n\\[b(\\omega) = \\frac{mgR}{6}(\\frac{\\omega^2}{\\omega_c^2} - \\frac{1}{4})\\]\n\n\n[0.5]\n\n\nNote: no penalty if the 1/4 term is missed.\n\n\nOne observes that if one incorrectly expands \n\\(\\sin\\theta \\approx \\theta\\)\n, in that case, only \n\\(a(\\omega)\\)\n will turn out to be correct.\n\n\nB.6\n (1.0 pt)\n\n\n\nRepresentative plots of the potential\n\n\nSolution 1: Plotting for \n\\(\\theta \\in [-\\pi/2, \\pi/2]\\)\n\n\n\n\n\n\n\n\n\n[\n\\(\\omega < \\omega_c :\\)\n \n0.5]\n\n\n\n[\n\\(\\omega > \\omega_c :\\)\n \n0.5]\n\n\nSolution 2: Plotting for \n\\(\\theta \\in [-\\pi, \\pi]\\)\n\n\n\n\n\n\n\n\n\n[\n\\(\\omega < \\omega_c :\\)\n \n0.5]\n\n\n\n[\n\\(\\omega > \\omega_c :\\)\n \n0.5]\n\n\nB.7\n (1.0 pt)\n\n\n\nBead analogues\n\n\nSolution 1:\n\n\nFor  \n\\(\\omega \\rightarrow \\omega_c^+,\\ \\theta_0\\)\n is close to zero. Hence on expanding the cosine term in Eq. (5), \n\\[\\begin{align}\n1 - \\frac{\\theta_0^2}{2} \\quad &= \\quad \\frac{\\omega_c^2}{\\omega^2} \\notag\\\\\n\\theta_0 \\quad &= \\quad \\pm\\sqrt{2}\\left[1 - \\frac{\\omega_c^2}{\\omega^2}\\right]^{1/2} \\tag{10}\n\\end{align}\\]\n Also note from Eq. (5) that as \n\\(\\omega \\rightarrow \\infty\\)\n, \n\\(\\theta_0 \\rightarrow \\pm\\pi/2\\)\n. This plot also has an analogue in phase transition. The magnetization \n\\(\\mathcal{M}\\)\n goes to zero as \n\\(T\\)\n goes to \n\\(T_c\\)\n in a similar fashion. Thus the role of \n\\(\\mathcal{M}\\)\n is played by \n\\(\\theta_0\\)\n and temperature is inversely related to \n\\(\\omega\\)\n. Increasing temperature is equivalent to decreasing \n\\(\\omega\\)\n. Summarizing, \n\\[\\mathcal{M} \\longrightarrow \\theta\\]\n\n\n[0.4]\n \n\\[\\begin{align*}\nT_c &\\longrightarrow 1/\\omega_c^2\\\\\nT/T_c &\\longrightarrow \\omega_c^2/\\omega^2\n\\end{align*}\\]\n\n\n[0.4]\n\n\nEquivalent value of \n\\(\\beta\\)\n for bead is = 1/2.\n\n\n[0.2]\n\n\nSolution 2:\n\n\nFor  \n\\(\\omega > \\omega_c,\\ \\cos\\theta_0 = \\omega_c^2/\\omega^2\\)\n. Hence on writing \n\\(\\sin^2\\theta_0 = 1{-}\\cos^2\\theta_0\\)\n and substituting the value of \n\\(\\cos\\theta_0\\)\n, one gets \n\\(\\sin\\theta_0 = (1{-}\\frac{\\omega_c^4}{\\omega^4})^{1/2}\\)\n. This plot also has an analogue in phase transition. The magnetization \n\\(\\mathcal{M}\\)\n goes to zero as \n\\(T\\)\n goes to \n\\(T_c\\)\n in a similar fashion. Thus the role of \n\\(\\mathcal{M}\\)\n is played by \n\\(\\sin\\theta_0\\)\n (or equivalently \n\\(\\theta_0\\)\n in the small angle limit) and temperature is inversely related to \n\\(\\omega^4\\)\n. Increasing temperature is equivalent to decreasing \n\\(\\omega\\)\n. Summarizing, \n\\[\\mathcal{M} \\longrightarrow \\sin\\theta\\]\n\n\n[0.4]\n \n\\[\\begin{align*}\nT_c &\\longrightarrow 1/\\omega_c^4\\\\\nT/T_c &\\longrightarrow \\omega_c^4/\\omega^4\n\\end{align*}\\]\n\n\n[0.4]\n\n\nEquivalent value of \n\\(\\beta\\)\n for bead is = 1/2.\n\n\n[0.2]\n\n\n[Note: The critical exponent is \n\\(1/2\\)\n in our case and also in Landau theory. However experimentally and in more elaborate theories the exponent of vanishing magnetization is \n\\(1/3\\)\n].\n\n\nB.8\n (1.0 pt)\n\n\n\nOscillation frequency\n\n\nThe frequency of oscillation \n\\(\\Omega_0\\)\n of the bead about the \"equilibrium\" position \n\\(\\theta_0\\)\n is \n\\[\\Omega_0 = \\frac{1}{R}\\sqrt{\\frac{V''(\\theta)}{m}}\\]\n We take the second order derivative of the potential as given in Eq. (10) \n\\[\\begin{equation}\nV''(\\theta) = mgR\\cos\\theta\\left[1 - \\frac{\\omega^2}{\\omega_c^2}\\cos\\theta\\right] + mgR\\,\\frac{\\omega^2}{\\omega_c^2}\\,\\sin^2\\theta \\tag{11}\n\\end{equation}\\]\n For \n\\(\\theta = \\theta_0 = \\pm\\cos^{-1}\\,(\\omega_c^2/\\omega^2)\\)\n \n\\[\\begin{equation}\nV''(\\theta_0) = mgR\\,\\frac{\\omega^2}{\\omega_c^2}\\left(1 - \\frac{\\omega_c^4}{\\omega^4}\\right) > 0 \\qquad\\qquad \\text{if } \\omega > \\omega_c \\tag{12}\n\\end{equation}\\]\n For \n\\(\\omega < \\omega_c\\)\n, \n\\(\\theta_0 = 0\\)\n, and we obtain from Eq. (12) that \n\\[\\begin{equation}\n\\Omega_0 = (\\omega_c^2 - \\omega^2)^{1/2} \\tag{13}\n\\end{equation}\\]\n\n\n[0.5]\n\n\nSimilarly for \n\\(\\omega > \\omega_c\\)\n, using Eq. (13) we obtain \n\\[\\begin{equation}\n\\Omega_0 \\quad = \\quad \\omega\\left(1 - \\frac{\\omega_c^4}{\\omega^4}\\right)^{1/2} \\tag{14}\n\\end{equation}\\]\n\n\n[0.5]\n\n\nNo credit will be provided is small angle approximation of \n\\(V(\\theta)\\)\n is used.\n\n\nB.9\n (1.0 pt)\n\n\n\nSketch of \n\\(\\Omega_0\\)\n\n\n\n\n\n\n\n\n\n[\n\\(\\omega < \\omega_c :\\)\n \n0.5]\n\n\n\n[\n\\(\\omega > \\omega_c :\\)\n \n0.5]\n\n\nIn the case of wrong expression of \n\\(\\Omega_0\\)\n derived in the previous part, marks would be awarded based on the plot of expression obtained, and physicality of the plots.\n\n\nC.1\n (1.0 pt)\n\n\n\nCondition for equilibrium angles\n\n\nWe substitute the expression for the normal reaction (Eq.(1)) in the angular part (Eq.(3)) to obtain \n\\[mR\\ddot{\\theta} \\quad = \\quad mR\\sin(\\theta)\\cos(\\theta)\\omega^2 - mg\\sin(\\theta) - fk(mg\\cos(\\theta) + mR\\sin^2(\\theta)\\omega^2 + mR\\dot{\\theta}^2)\\]\n Noting that \n\\(\\omega_c^2\\)\n = \n\\(g/R\\)\n and rearranging terms we have \n\\[\\ddot{\\theta} \\quad = \\quad \\omega_c^2\\left[(\\sin(\\theta))\\,(\\cos(\\theta) - fk\\sin(\\theta))\\left(\\frac{\\omega}{\\omega_c}\\right)^2 - \\sin(\\theta) - fk\\cos(\\theta) - fk\\left(\\frac{\\dot{\\theta}}{\\omega_c}\\right)^2\\right]\\]\n\n\n[0.2]\n\n\nAt equilibrium, \n\\(\\dot{\\theta} = 0,\\ \\ddot{\\theta} = 0\\)\n and \n\\(f = \\operatorname{sgn}\\bigl(\\dot{\\theta}\\bigr) = \\pm 1\\)\n depending on how this equilibrium was attained, iė., depending on the value of \n\\(\\dot{\\theta}\\)\n just before equilibrium was attained. Thus we obtain the expression for the equilibrium angle \n\\(\\theta_0\\)\n, \n\\[\\sin(\\theta_0)\\,(\\cos(\\theta_0) - fk\\sin(\\theta_0))\\left(\\frac{\\omega}{\\omega_c}\\right)^2 = \\sin(\\theta_0) + fk\\cos(\\theta_0)\\ \\text{with}\\ \\theta_0 \\in (-\\pi/2, \\pi/2)\\]\n\n\n[0.4]\n\n\nFor \n\\(f\\)\n = 1 and \n\\(k = \\tan(\\alpha)\\)\n we may express the above as \n\\[\\begin{align}\n\\left(\\frac{\\omega}{\\omega_c}\\right)^2 \\quad &= \\quad \\frac{\\sin(\\theta_0) + \\tan(\\alpha)cos(\\theta_0)}{\\sin(\\theta_0)(\\cos(\\theta_0) - \\tan(\\alpha)\\sin(\\theta_0))} \\notag\\\\\n&= \\quad \\frac{\\tan(\\theta_0 + \\alpha)}{\\sin(\\theta_0)} \\tag{15}\n\\end{align}\\]\n\n\n[0.4]\n\n\nIn case of algebraic error leading to \n\\(x = \\theta_0 - \\alpha\\)\n, only 0.1 points would be deducted.\n\n\nC.2\n (0.5 pt)\n\n\n\nRepresentative values for \n\\(\\theta_0\\)\n\n\nWe are given the expansions for the trignometric functions in the problem. We notice that the coefficient of the opposing force \n\\(k\\)\n is small (=0.05). Thus \n\\(k\\)\n = \n\\(\\alpha\\)\n. We then have \n\\[\\sin(\\theta_0) \\approx \\theta_0\\]\n \n\\[\\tan(\\theta_0 + \\alpha) \\approx \\theta_0 + \\alpha\\]\n\n\n[0.2]\n\n\nThus \n\\[\\left(\\frac{\\omega}{\\omega_c}\\right)^2 \\quad \\approx \\quad 1 + \\frac{k}{\\theta_0}\\]\n Simple calculations yield\n\n\n(a) \n\\(\\theta_0\\)\n = -0.07 radians\n\n\n(b) \n\\(\\theta_0\\)\n = -0.1 radians\n\n\n[0.3]\n\n\nThe plot will no longer be symmetric.\n\n\n\n\n\n\n\n\n\nSitikantha Das (IIT Kharagpur) and Pramendra Ranjan Singh (Principal, Narayan College, J.P. University) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully acknowledged.\n↩︎\n\n\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2022-t2/0ef1b6382f5b206e57c6.png",
+      "/corpus/figures/native/bulk/apho-2022-t2/027b407fa7c90a451162.png",
+      "/corpus/figures/native/bulk/apho-2022-t2/b673b5075405056a3098.png",
+      "/corpus/figures/native/bulk/apho-2022-t2/61a31192300aa0d54aae.png",
+      "/corpus/figures/native/bulk/apho-2022-t2/82712cba53181bf3a6a9.png"
+    ],
+    "shared": false
+  }
+}

@@ -1,1 +1,5644 @@
-{"id":"ipho-2023-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2023_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2023_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2023-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Theory\nQ2-1\nEnglish (Official)\nNeutron Stars (10 points)\nWe discuss the stability of large nuclei and estimate the mass of neutron stars theoretically and experi-\nmentally.\nPart A. Mass and stability of nuclei (2.5 points)\nThe rest-energy of a nucleus 𝑚(𝑍, 𝑁)𝑐2 consisting of 𝑍protons and 𝑁neutrons is smaller than the sum of\nrest-energies of protons and neutrons, hereafter called nucleons, by the binding energy 𝐵(𝑍, 𝑁), where\n𝑐is the speed of light in vacuum. Ignoring minor corrections, we can approximate the binding energy\nconsisting of the volume term with 𝑎𝑉, the surface term with 𝑎𝑆, the Coulomb energy term with 𝑎𝐶, and\nthe symmetry energy term with 𝑎sym in the following way.\n𝑚(𝑍, 𝑁)𝑐2 = 𝐴𝑚𝑁𝑐2 −𝐵(𝑍, 𝑁),\n𝐵(𝑍, 𝑁) = 𝑎𝑉𝐴−𝑎𝑆𝐴2/3 −𝑎𝐶\n𝑍2\n𝐴1/3 −𝑎sym\n(𝑁−𝑍)2\n𝐴\n,\n(1)\nwhere 𝐴= 𝑍+𝑁is the mass number and 𝑚𝑁is the nucleon mass. In the calculation, use 𝑎𝑉≈15.8 MeV,\n𝑎𝑆≈17.8 MeV, 𝑎𝐶≈0.711 MeV, and 𝑎sym ≈23.7 MeV (MeV = 106 electron volts).\nA.1\nUnder the condition of 𝑍= 𝑁, determine 𝐴for maximizing the binding energy\nper nucleon, 𝐵/𝐴.\n0.9pt\nA.2\nUnder the condition of fixed 𝐴, the atomic number of the most stable nucleus\n𝑍∗is determined by maximizing 𝐵(𝑍, 𝐴−𝑍). For 𝐴= 197, calculate 𝑍∗using\nEq. (1).\n0.9pt\nA.3\nA nucleus having large 𝐴breaks up into lighter nuclei through fission in order to\nminimize the total rest-mass energy. For simplicity, we consider one of multiple\nways to break a nucleus with (𝑍, 𝑁) into two equal nuclei, which occurs when\nthe following energy relation holds,\n𝑚(𝑍, 𝑁)𝑐2 > 2𝑚(𝑍/2, 𝑁/2)𝑐2.\nWhen this relation is written as\n𝑍2/𝐴> 𝐶fission\n𝑎𝑆\n𝑎𝐶\n,\nobtain 𝐶fission up to two significant digits.\n0.7pt\nPart B. Neutron star as a gigantic nucleus (1.5 points)\nFor large nuclei with a large enough mass number 𝐴> 𝐴𝑐with a threshold 𝐴𝑐, these nuclei stay stable\nagainst nuclear fission because of the sufficiently large binding energy due to gravity.\n\nTheory\nQ2-2\nEnglish (Official)\nB.1\nWe assume that 𝑁= 𝐴and 𝑍= 0 is realized for sufficiently large 𝐴and Eq.\n(1) continues to hold with the addition of the gravitational binding energy. The\nbinding energy due to gravity is\n𝐵grav = 3\n5\n𝐺𝑀2\n𝑅\n,\nwhere 𝑀= 𝑚𝑁𝐴and 𝑅= 𝑅0𝐴1/3 with 𝑅0 ≃1.1 × 10−15 m = 1.1 fm are the mass\nand the radius of the nucleus, respectively.\nFor 𝐵grav = 𝑎grav𝐴5/3, obtain 𝑎grav in the MeV unit up to the first significant digit.\nThen, ignoring the surface term, estimate 𝐴𝑐up to the first significant digit. In\nthe calculation, use 𝑚𝑁𝑐2 ≃939 MeV and 𝐺= ħ𝑐/𝑀2\n𝑃where 𝑀𝑃𝑐2 ≃1.22 ×\n1022 MeV and ħ𝑐≃197 MeV ⋅fm.\n1.5pt\nPart C. Neutron star in a binary system (6.0 points)\nSome neutron stars are pulsars regularly emitting electromagnetic waves, which we call \"light\" for sim-\nplicity here, at a constant period. Neutron stars often make binary systems with a White Dwarf. Let us\nconsider the star configuration shown in Fig. 1, where a light pulse from a neutron star N to the Earth\nE passes near a White Dwarf W of the binary system. Measuring these pulses influenced by the star's\ngravity leads to an accurate estimation of the mass of W as explained below, resulting in the estimation\nof the mass of N.\nFig. 1: Configurations with the 𝑥-axis along the line connecting N and E. (a) for 𝑥𝑁< 0 and (b)\nfor 𝑥𝑁> 0.\n\nTheory\nQ2-3\nEnglish (Official)\nC.1\nAs shown in the figure below, under the constant gravitational acceleration 𝑔\nwe place two levels I and II with the height difference Δℎ(> 0). Set the identical\nclocks at I, II, and 𝐹, the free-falling system, denoted by clock-I, clock-II, and\nclock-𝐹, respectively.\nSet-up of the thought experiment.\nWe assume that an observer sits with clock-𝐹, and initially 𝐹is placed at the\nsame height as that of clock-I and its velocity is zero. Since the clocks are identi-\ncal, they register equal time intervals, Δ𝜏𝐹= Δ𝜏I. Then, we let 𝐹fall freely, and\nwork in the frame of 𝐹, which is considered to be inertial. In this frame, clock-\nII passes by clock-𝐹with velocity 𝑣, so that the time dilation of clock-II can be\ndetermined by the Lorentz transformation. When time Δ𝜏I elapses on clock-𝐹,\ntime Δ𝜏II elapses on clock-II.\nDetermine Δ𝜏II in terms of Δ𝜏I up to the first order in Δ𝜙/𝑐2, where Δ𝜙= 𝑔Δℎis\na difference of the gravitational potential, i.e., the gravitational potential energy\nper unit mass.\n1.0pt\nC.2\nUnder the gravitational potential 𝜙, time delays change the effective speed of\nlight, 𝑐eff, observed at the infinity, though the local speed of light is 𝑐. When\n𝜙(𝑟= ∞) = 0, 𝑐eff can be given up to the first order in 𝜙/𝑐2 as\n𝑐eff ≈(1 + 2𝜙\n𝑐2 ) 𝑐\nincluding the effect of space distortion, which was not featured in C.1. We note\nthat the light path can be approximated as a straight line.\nAs shown in Fig. 1 (a), we take the 𝑥-axis along the light path from the neutron\nstar N to the Earth E and place 𝑥= 0 at the point where the White Dwarf W is\nthe closest to the light path. Let 𝑥𝑁(< 0) be the 𝑥-coordinate of N, 𝑥𝐸(> 0) be\nthat of E, and 𝑑be the distance between W and the light path.\nEstimate the changes of the arrival time Δ𝑡of the light from N to E caused by\nthe White Dwarf with mass 𝑀WD and evaluate the answer in a simple form dis-\nregarding higher order terms of the following small quantities: 𝑑/|𝑥𝑁| ≪1,\n𝑑/𝑥𝐸≪1, and 𝐺𝑀WD/(𝑐2𝑑) ≪1. If necessary, use the following formula.\n∫\n𝑑𝑥\n√\n𝑥2 + 𝑑2 = 1\n2 log(\n√\n𝑥2 + 𝑑2 + 𝑥\n√\n𝑥2 + 𝑑2 −𝑥\n) + 𝐶.\n( log is the natural logarithm)\n1.8pt\n\nTheory\nQ2-4\nEnglish (Official)\nC.3\nAs shown below, in a binary star system N and W are assumed to be moving in\ncircular orbits with zero eccentricity around the center of mass 𝐺on the orbit\nplane. Let 𝜀be the orbital inclination angle measured from the orbit plane to\nthe line directed toward E from 𝐺, and let 𝐿be the length between N and W\nand 𝑀WD be the mass of the White Dwarf. In the following, we assume 𝜀≪1.\nBinary star system.\nWe observe light pulses from N on E far away from N. The light path to E varies\nwith time depending on the configuration of N and W. The delay in the time\ninterval of arriving pulses on E has the maximum value Δ𝑡max for 𝑥𝑁≃−𝐿\nand the minimum value Δ𝑡min for 𝑥𝑁≃𝐿(see Fig. 1 (b) for the configuration).\nCalculate Δ𝑡max −Δ𝑡min in a simple form disregarding higher order terms of\nsmall quantities as done in C.2. We note that the delays due to gravity from\nstellar objects other than W are assumed to cancel out in Δ𝑡max −Δ𝑡min.\n1.8pt\nC.4\nThe below figure shows the observed time delays as a function of the orbital\nphase 𝜑for the binary star system with 𝐿≈6 × 106 km and cos 𝜀≈0.99989.\nEstimate 𝑀WD in terms of the solar mass 𝑀⊙and show the results for 𝑀WD/𝑀⊙\nup to the first significant digit. Here the approximate relation, 𝐺𝑀⊙/𝑐3 ≈5 𝜇s,\ncan be used.\nObserved time delays Δ𝑡as a function of the orbital phase 𝜑(see the\nfigure in C.3) to locate N and W on the orbits.\n0.8pt\nC.5\nIn the binary system of neutron stars, two stars release energy and angular\nmomentum by emitting gravitational waves and eventually collide to merge.\nFor simplicity, let us consider only a circular motion with the radius 𝑅and the\nangular velocity 𝜔and then 𝜔= 𝜒𝑅𝑝holds with the constant 𝜒depending on\nneither 𝜔nor 𝑅if relativistic effects are ignored. Determine the value for 𝑝.\n0.4pt\n\nTheory\nQ2-5\nEnglish (Official)\nC.6\nThe amplitude of the emitted gravitational wave from the binary system in C.5 is\nproportional to 𝑅2𝜔2. Figure below qualitatively shows four different temporal\nprofiles of the observed gravitational waves before the two-star collision. Select\nthe most appropriate profile from (a) to (d).\nObserved data profiles of gravitational waves.\n0.2pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2023-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Solutions to Theory Problems\nS2‒1\nTheory Problem 2: Neutron Stars (10 points)\nPart A. Mass and stability of nuclei (2.5 points)\nA.1\nThe given binding energy is often called the Weizsäcker-Bethe mass formula, and the physical\ninterpretation of the volume and the surface terms is based on the liquid drop model. The formula\nworks quite well except for the shell effects. Find 𝐴to minimize the binding energy per mass number,\ni.e.,\n𝐵\n𝐴= 𝑎𝑉−𝑎𝑆𝐴−1/3 −𝑎𝐶\n4 𝐴2/3 .\n(S2.1)\nAs long as 𝐴is small, the second term is dominantly increasing with increasing 𝐴, and it is eventually\ntaken over by the third term which is decreasing. Therefore, the extremal corresponds to the maximum\nof 𝐵/𝐴. One can explicitly carry out\n𝑑(𝐵/𝐴)\n𝑑𝐴\n= 0\n(S2.2)\nto find the following condition,\n𝑎𝑆\n3 𝐴−4/3 −𝑎𝐶\n6 𝐴−1/3 = 0 .\n(S2.3)\nThe solution is\n𝐴= 2𝑎𝑆\n𝑎𝐶\n.\n(S2.4)\nFrom the given numerical values, 𝐴= 50 (which must be an integer) is concluded.\n▷Note: In reality 𝐵/𝐴has a maximum for 𝐴ranging from 56Fe to 62Ni. The discrepancy from the answer\nin this problem is understood by the approximation of dropping the pairing energy and disregarding a\nmass difference between the proton and the neutron.\nA.1\n0.9 pt\n𝐴= 50\nA.2\nTake the differentiation of 𝐵(𝑍, 𝐴−𝑍)/𝐴with respect to 𝑍for a fixed 𝐴, which leads to\n−2𝑎𝐶\n𝑍∗\n𝐴1/3 −4𝑎sym\n2𝑍∗−𝐴\n𝐴\n= 0 .\n(S2.5)\nBy solving this in terms of 𝑍∗, one finds\n𝑍∗=\n1\n1 +\n𝑎𝐶\n4𝑎sym\n𝐴2/3 ⋅𝐴\n2 .\n(S2.6)\nFrom this expression one can understand that 𝑍∗≃𝑁as long as 𝐴is small enough, while 𝑍∗becomes far\nsmaller than 𝑁for large 𝐴. It is obvious from the explicit form that the symmetry energy tends to favor\n𝑍= 𝑁but the Coulomb interaction tends to favor 𝑍→0, and the balance between these competing\neffects determines 𝑍∗. Nuclei with too many neutrons (protons) would go through the 𝛽−decay (the 𝛽+\ndecay or the electron capture) toward the stable (𝑍, 𝑁).\nA.2\n0.9 pt\n𝑍∗= 79\n1\n\nSolutions to Theory Problems\nS2‒2\nA.3\nPlugging the binding energy into the given inequality, one sees that the volume terms cancel due\nto volume conservation. Then, the condition involves only 𝑎𝑆and 𝑎𝐶which are related as\n𝑎𝑆[𝐴2/3 −2(𝐴\n2 )\n2/3\n] + 𝑎𝐶[ 𝑍2\n𝐴1/3 −2 (𝑍/2)2\n(𝐴/2)1/3 ] > 0 .\n(S2.7)\nAs guided in the problem, the above inequality becomes as simple as\n𝑍2\n𝐴> 21/3 −1\n1 −2−2/3 ⋅𝑎𝑆\n𝑎𝐶\n.\n(S2.8)\nTherefore, the numerical coefficient turns out to be 0.7.\n▷Note:\nThe physical interpretation of this result may need some explanations. Using the values of\n𝑎𝑆and 𝑎𝐶, one finds that such a symmetric fission process is possible for 𝑍2/𝐴≳18. For example,\nlead (Pb) with 𝑍= 82 and 𝐴= 208 is a stable element among several isotopes. Now, one can compute\n822/208 ≈32, which is larger than the threshold 18. The key to resolving this gap is the potential barrier\nfrom the deformation. When a heavy nucleus splits into two fragments, the shape and the surface should\nchange from the stable configuration (which is not necessarily spherical due to interaction) and thus\nthe surface energy increases. Although some heavy elements are energetically unstable, the lifetime\nnecessary to overcome the potential barrier can be very large.\nA.3\n0.7 pt\n𝐶fission = 7.0 × 10−1\nPart B. Neutron star as a gigantic nucleus (1.5 points)\nB.1\nThe expression apart from the parametric dependence on 𝐴can be identified as\n𝑎grav = 3\n5\n𝐺𝑚2\n𝑁\n𝑅0\n,\n(S2.9)\nwhich is re-expressed in terms of 𝑀𝑃using the given relation to 𝐺, leading to\n𝑎grav = 3\n5\nℏ𝑐𝑚2\n𝑁\n𝑅0𝑀2\n𝑃\n= 3\n5 ⋅197 fm ⋅MeV × (939 MeV/𝑐2)2\n1.1 fm × (1.22 × 1022 MeV/𝑐2)2 ≃6.4 × 10−37 MeV .\n(S2.10)\nHere, 𝑀𝑃is a quantity often called the Planck mass. The gravitational effect is extremely tiny as compared\nto the typical scale in nuclear physics and this scale difference is manifest for this expression of 𝐺with\n𝑀𝑃in the MeV unit.\nThe stability is judged from the condition that the binding energy should be positive, i.e.,\n𝐵total(𝐴) = 𝑎𝑉𝐴−𝑎sym𝐴+ 𝑎grav𝐴5/3 > 0 .\n(S2.11)\nThis inequality can be translated into 𝐴> 𝐴𝑐with 𝐴𝑐given by\n𝐴𝑐= (𝑎sym −𝑎𝑉\n𝑎grav\n)\n3/2\n≃4.4 × 1055 .\n(S2.12)\n▷Note:\nOne may think that one neutron drip is a process with the least change in the surface area\nand thus the smallest barrier.\nThis leads to a condition, 𝐵total(𝐴) > 𝐵total(𝐴−1) or approximately\n𝑑𝐵total(𝐴)/𝑑𝐴> 0, which is satisfied in a window with 𝐵total < 0. This condition, 𝑑𝐵total/𝑑𝐴= 0, results in\nsmaller 𝐴𝑐but it is nontrivial whether such an unstable initial state could be prepared in the nature. The\nneutron star is born in the Type-II (core-collapse) supernovae, and a baby star called the proto-neutron\nstar is an energetic state at high temperature. Neutrinos bring heat out from the proto-neutron star\n2\n\nSolutions to Theory Problems\nS2‒3\nwithin the time scale of 𝒪(10) seconds. What is the possible smallest mass of the neutron star? This\nis not completely understood partly because the computer simulation of the supernovae is a big chal-\nlenge even today. Although the neutron star mass can become much smaller than 𝑀⊙theoretically, the\nsimulation and the observation favor the mass ≳1.4𝑀⊙.\nB.1\n1.5 pt\n𝑎grav = 6 × 10−37 MeV\n𝐴𝑐= 4 × 1055\nPart C. Neutron star in a binary system (6.0 points)\nC.1\nFrom the energy conservation, the free-falling system earns the kinetic energy 1\n2𝑚𝑣2 from the\npotential energy 𝑚𝑔Δℎ, and the velocity takes\n𝑣2 = 2𝑔Δℎ= 2Δ𝜙.\n(S2.13)\nThe time delay can be derived from the standard arguments. Suppose that Clock-II passes two infinitesi-\nmally separate points, 𝑧and 𝑧+Δ𝑧, in F at time 𝑡and 𝑡+Δ𝜏II, then the time interval registered by Clock-II\nis\nΔ𝜏II = 𝛾\n𝑐(𝑐Δ𝜏F −𝛽Δ𝑧) ,\n(S2.14)\nwhere the Lorentz transformation is used1 with 𝛽= 𝑣/𝑐and 𝛾= 1/√1 −𝛽2. Because Δ𝑧/Δ𝜏F = 𝑣and\nΔ𝜏F = Δ𝜏I, the above expression is written as\nΔ𝜏II = 𝛾(1 −𝛽2)Δ𝜏F = √1 −𝛽2 Δ𝜏I .\n(S2.15)\nUsing the expression of 𝑣2, one finally arrives at\nΔ𝜏II = √1 −2Δ𝜙\n𝑐2 Δ𝜏I ≃(1 −Δ𝜙\n𝑐2 ) Δ𝜏I .\n(S2.16)\nC.1\n1.0 pt\nΔ𝜏II = (1 −Δ𝜙\n𝑐2 )Δ𝜏I\nC.2\nIn terms of the effective speed of light, the total time necessary for the light propagation from N\nto E is\n𝑡E-N = ∫\n𝑥𝐸\n𝑥𝑁\n𝑑𝑥\n𝑐eff(𝑥) .\n(S2.17)\nThe denominator is expanded in terms of the gravitational potential and the leading-order correction is\nfound to be\n𝑡E-N ≃1\n𝑐∫\n𝑥𝐸\n𝑥𝑁\n𝑑𝑥(1 +\n2𝐺𝑀WD\n𝑐2√\n𝑥2 + 𝑑2 ) = 𝑥𝐸−𝑥𝑁\n𝑐\n+ Δ𝑡,\n(S2.18)\n1Clock‒F is in an inertial frame but Clock‒II is not. Using Clock‒II′ in another free‒falling frame II′ as an inertial reference to\nClock‒II, the Lorentz transformation is validated for Clock‒II′ seen from Clock‒F.\n3\n\nSolutions to Theory Problems\nS2‒4\nwhere the time delay Δ𝑡is identified as\nΔ𝑡= 2𝐺𝑀WD\n𝑐3\n∫\n𝑥𝐸\n𝑥𝑁\n𝑑𝑥\n√\n𝑥2 + 𝑑2 = 𝐺𝑀WD\n𝑐3\nlog(\n√\n𝑥2 + 𝑑2 + 𝑥\n√\n𝑥2 + 𝑑2 −𝑥\n)∣\n𝑥=𝑥𝐸\n𝑥=𝑥𝑁\n.\n(S2.19)\nInside the logarithm, the following approximations are made:\n√𝑥2\n𝑁+ 𝑑2 + 𝑥𝑁≃\n𝑑2\n2|𝑥𝑁| ,\n√𝑥2\n𝑁+ 𝑑2 −𝑥𝑁≃2|𝑥𝑁| ,\n(S2.20)\nand\n√𝑥2\n𝐸+ 𝑑2 −𝑥𝐸≃𝑑2\n2𝑥𝐸\n,\n√𝑥2\n𝐸+ 𝑑2 + 𝑥𝐸≃2𝑥𝐸.\n(S2.21)\nThen, the simple form of approximated Δ𝑡is\nΔ𝑡≃𝐺𝑀WD\n𝑐3\nlog(\n2𝑥𝐸⋅2|𝑥𝑁|\n𝑑2/(2𝑥𝐸) ⋅𝑑2/(2|𝑥𝑁|)) = 2𝐺𝑀WD\n𝑐3\nlog(4|𝑥𝑁|𝑥𝐸\n𝑑2\n) .\n(S2.22)\nC.2\n1.8 pt\nΔ𝑡= 2𝐺𝑀WD\n𝑐3\nlog(4|𝑥𝑁|𝑥𝐸\n𝑑2\n)\nC.3\nBecause |𝑥𝑁| = 𝐿cos 𝜀≃𝐿and 𝑑= 𝐿sin 𝜀≃𝐿𝜀for Δ𝑡max, the answer of C.2 gives\nΔ𝑡max = 2𝐺𝑀WD\n𝑐3\nlog(4𝑥𝐸/𝐿𝜀2)\n(S2.23)\nFor Δ𝑡min the sign of 𝑥𝑁is changed. Although the expression of Δ𝑡is intact, the approximation takes a\ndifferent form as\n√𝑥2\n𝑁+ 𝑑2 + 𝑥𝑁≃2𝑥𝑁,\n√𝑥2\n𝑁+ 𝑑2 −𝑥𝑁≃\n𝑑2\n2𝑥𝑁\n.\n(S2.24)\nThen, the approximated form of Δ𝑡min is\nΔ𝑡min ≃𝐺𝑀WD\n𝑐3\nlog(2𝑥𝐸⋅𝑑2/(2𝑥𝑁)\n𝑑2/(2𝑥𝐸) ⋅2𝑥𝑁\n) = 2𝐺𝑀WD\n𝑐3\nlog(𝑥𝐸/𝐿) ,\n(S2.25)\nwhere 𝑥𝑁≃𝐿is used in the last expression. In the difference, Δ𝑡max −Δ𝑡min, one sees that 𝐿and 𝑥𝐸\ndisappear.\nC.3\n1.8 pt\nΔ𝑡max −Δ𝑡min = 2𝐺𝑀WD\n𝑐3\nlog(4/𝜀2)\nC.4\nUsing the expansion, cos 𝜀≃1 −1\n2𝜀2, one can evaluate\n𝜀2 ≃2 × (1 −cos 𝜀) = 0.00022 .\n(S2.26)\nFrom the graph the difference in time delays is roughly read out as\nΔ𝑡max −Δ𝑡min ≈50 𝜇s\n(S2.27)\nFrom these numerical values, 𝑀WD is solved as\n𝑀WD = 𝑀⊙(2𝐺𝑀⊙\n𝑐3\n)\n−1 Δ𝑡max −Δ𝑡min\nlog(4/𝜀2)\n≃\n50 𝜇s\n10 𝜇s log(4/0.00022) 𝑀⊙≃0.5 𝑀⊙.\n(S2.28)\n4\n\nSolutions to Theory Problems\nS2‒5\n▷Note: The data in this problem roughly correspond to PSR J1614-2230 [see P.B. Demorest et al., Nature\n467, 1080-1083 (2010)]. From the Shapiro delay measurement, the White Dwarf mass was estimated as\n0.500 ± 0.006𝑀⊙. With the Keplerian orbital parameters in the binary system, the neutron star mass was\nconsidered to be 1.97 ± 0.04𝑀⊙, which was the heaviest neutron star at that time. Since then, several\ncandidates for heavier neutron stars have been found.\nC.4\n0.8 pt\n𝑀WD/𝑀⊙= 0.5\nC.5\nFor the circular orbit with the radius 𝑅, the equation of motion is\n𝑚𝑅𝜔2 = 𝐺𝑚𝑀\n𝑅2 ,\n(S2.29)\nif 𝑀is sufficiently large. From this it is easy to see\n𝑅3𝜔2 = 𝐺𝑀= (const.)\n(S2.30)\nThis is nothing but Kepler's third law and the relation holds for more general elliptical orbits around the\ncenter of mass.\nC.5\n0.4 pt\n𝑝= −3\n2\nC.6\nThe sum of the kinetic energy and the potential energy is\n𝐸= 1\n2𝑚𝑅2𝜔2 −𝐺𝑚𝑀\n𝑅\n.\n(S2.31)\nFrom the equation of motion this is rewritten as\n𝐸= −1\n2𝐺𝑚𝑀\n𝑅\n.\n(S2.32)\nTherefore, when 𝐸decreases due to gravitational wave emission, 𝑅should decrease. Then, 𝜔should\nincrease. Since the amplitude is proportional to 𝑅2𝜔2 ∝𝑅−1, it should increase. In summary, both the\nfrequency and the amplitude should increase as time goes on, as illustrated in (b).\nC.6\n0.2 pt\nThe most appropriate profile is (b).\n5\n","textExtraction":"available"}}
+{
+  "id": "ipho-2023-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2023-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Neutron Stars (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We discuss the stability of large nuclei and estimate the mass of neutron stars theoretically and experimentally."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Mass and stability of nuclei (2.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The rest-energy of a nucleus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m(Z, N)c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " consisting of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " protons and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " neutrons is smaller than the sum of rest-energies of protons and neutrons, hereafter called nucleons, by the binding energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B(Z, N)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the speed of light in vacuum. Ignoring minor corrections, we can approximate the binding energy consisting of the volume term with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the surface term with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the Coulomb energy term with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the symmetry energy term with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_\\mathrm{sym}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the following way. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nm(Z, N)c^2 = Am_Nc^2 - B(Z, N), \\qquad B(Z, N) = a_V A - a_S A^{2/3} - a_C \\frac{Z^2}{A^{1/3}} - a_\\mathrm{sym} \\frac{(N - Z)^2}{A}, \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A = Z + N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the mass number and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the nucleon mass. In the calculation, use "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_V \\approx 15.8\\,\\mathrm{MeV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_S \\approx 17.8\\,\\mathrm{MeV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_C \\approx 0.711\\,\\mathrm{MeV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_\\mathrm{sym} \\approx 23.7\\,\\mathrm{MeV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (MeV "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(= 10^6\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " electron volts)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Under the condition of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z = N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", determine "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for maximizing the binding energy per nucleon, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B/A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.9pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Under the condition of fixed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the atomic number of the most stable nucleus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z^*\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is determined by maximizing "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B(Z, A - Z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A = 197\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", calculate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z^*\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " using Eq. (1). 0.9pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "A nucleus having large "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " breaks up into lighter nuclei through fission in order to minimize the total rest-mass energy. For simplicity, we consider one of multiple ways to break a nucleus with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((Z, N)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " into two equal nuclei, which occurs when the following energy relation holds, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m(Z, N)c^2 > 2m(Z/2, N/2)c^2.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " When this relation is written as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[Z^2/A > C_\\mathrm{fission} \\frac{a_S}{a_C},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_\\mathrm{fission}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " up to two significant digits. 0.7pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Neutron star as a gigantic nucleus (1.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For large nuclei with a large enough mass number "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A > A_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with a threshold "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", these nuclei stay stable against nuclear fission because of the sufficiently large binding energy due to gravity."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "We assume that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N = A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is realized for sufficiently large "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and Eq. (1) continues to hold with the addition of the gravitational binding energy. The binding energy due to gravity is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[B_\\mathrm{grav} = \\frac{3}{5}\\frac{GM^2}{R},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M = m_N A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = R_0 A^{1/3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_0 \\simeq 1.1 \\times 10^{-15}\\,\\mathrm{m} = 1.1\\,\\mathrm{fm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are the mass and the radius of the nucleus, respectively. For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_\\mathrm{grav} = a_\\mathrm{grav} A^{5/3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_\\mathrm{grav}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the MeV unit up to the first significant digit. Then, ignoring the surface term, estimate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " up to the first significant digit. In the calculation, use "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_Nc^2 \\simeq 939\\,\\mathrm{MeV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G = \\hbar c/M_P^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_Pc^2 \\simeq 1.22 \\times 10^{22}\\,\\mathrm{MeV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hbar c \\simeq 197\\,\\mathrm{MeV\\cdot fm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C. Neutron star in a binary system (6.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Some neutron stars are pulsars regularly emitting electromagnetic waves, which we call \"light\" for simplicity here, at a constant period. Neutron stars often make binary systems with a White Dwarf. Let us consider the star configuration shown in Fig. 1, where a light pulse from a neutron star "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "N"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the Earth "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " passes near a White Dwarf "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "W"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the binary system. Measuring these pulses influenced by the star’s gravity leads to an accurate estimation of the mass of "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "W"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as explained below, resulting in the estimation of the mass of "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "N"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t2/9dbb548f14e77a9603fa.png",
+                "alt": "ipho-2023-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 1: Configurations with the "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(x\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "-axis along the line connecting "
+              },
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "N"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "E"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ". (a) for "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(x_N < 0\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " and (b) for "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(x_N > 0\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "As shown in the figure below, under the constant gravitational acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we place two levels I and II with the height difference "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta h(> 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Set the identical clocks at I, II, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the free-falling system, denoted by clock-I, clock-II, and clock-"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", respectively."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t2/20c75f168214b542651b.png",
+                "alt": "ipho-2023-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Set-up of the thought experiment."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We assume that an observer sits with clock-"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and initially "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is placed at the same height as that of clock-I and its velocity is zero. Since the clocks are identical, they register equal time intervals, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\tau_F = \\Delta\\tau_\\mathrm{I}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Then, we let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " fall freely, and work in the frame of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which is considered to be inertial. In this frame, clock-II passes by clock-"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so that the time dilation of clock-II can be determined by the Lorentz transformation. When time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\tau_\\mathrm{I}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " elapses on clock-"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\tau_\\mathrm{II}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " elapses on clock-II. Determine "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\tau_\\mathrm{II}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\tau_\\mathrm{I}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " up to the first order in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\phi/c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\phi = g\\Delta h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a difference of the gravitational potential, "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "i.e."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the gravitational potential energy per unit mass. 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Under the gravitational potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", time delays change the effective speed of light, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\mathrm{eff}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", observed at the infinity, though the local speed of light is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". When "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi(r = \\infty) = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\mathrm{eff}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be given up to the first order in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi/c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[c_\\mathrm{eff} \\approx \\left(1 + \\frac{2\\phi}{c^2}\\right) c\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " including the effect of space distortion, which was not featured in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We note that the light path can be approximated as a straight line."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As shown in Fig. 1 (a), we take the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis along the light path from the neutron star "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "N"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the Earth "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and place "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the point where the White Dwarf "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "W"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the closest to the light path. Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_N (< 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-coordinate of "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "N"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_E (> 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be that of "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the distance between "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "W"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the light path."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Estimate the changes of the arrival time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the light from "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "N"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " caused by the White Dwarf with mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\mathrm{WD}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and evaluate the answer in a simple form disregarding higher order terms of the following small quantities: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d/|x_N| \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d/x_E \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(GM_\\mathrm{WD}/(c^2 d) \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". If necessary, use the following formula. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int \\frac{dx}{\\sqrt{x^2 + d^2}} = \\frac{1}{2}\\log\\left(\\frac{\\sqrt{x^2 + d^2} + x}{\\sqrt{x^2 + d^2} - x}\\right) + C. \\qquad (\\log \\text{ is the natural logarithm})\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "As shown below, in a binary star system "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "N"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "W"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are assumed to be moving in circular orbits with zero eccentricity around the center of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the orbit plane. Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the orbital inclination angle measured from the orbit plane to the line directed toward "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the length between "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "N"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "W"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\mathrm{WD}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the mass of the White Dwarf. In the following, we assume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t2/34312a7b8f91613a60d1.png",
+                "alt": "ipho-2023-t2 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Binary star system."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We observe light pulses from "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "N"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " far away from "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "N"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The light path to "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " varies with time depending on the configuration of "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "N"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "W"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The delay in the time interval of arriving pulses on "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " has the maximum value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t_\\mathrm{max}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_N \\simeq -L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the minimum value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t_\\mathrm{min}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_N \\simeq L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (see Fig. 1 (b) for the configuration). Calculate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t_\\mathrm{max} - \\Delta t_\\mathrm{min}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in a simple form disregarding higher order terms of small quantities as done in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We note that the delays due to gravity from stellar objects other than "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "W"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are assumed to cancel out in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t_\\mathrm{max} - \\Delta t_\\mathrm{min}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The below figure shows the observed time delays as a function of the orbital phase "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the binary star system with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L \\approx 6 \\times 10^6\\,\\mathrm{km}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cos\\varepsilon \\approx 0.99989\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Estimate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\mathrm{WD}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of the solar mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and show the results for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\mathrm{WD}/M_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " up to the first significant digit. Here the approximate relation, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(GM_\\odot/c^3 \\approx 5\\,\\mu\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", can be used. 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t2/f94e1744315fa8ac864b.png",
+                "alt": "ipho-2023-t2 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Observed time delays "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\Delta t\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " as a function of the orbital phase "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\varphi\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " (see the figure in "
+              },
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "C.3"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ") to locate "
+              },
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "N"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " and "
+              },
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "W"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " on the orbits."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "In the binary system of neutron stars, two stars release energy and angular momentum by emitting gravitational waves and eventually collide to merge. For simplicity, let us consider only a circular motion with the radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega = \\chi R^p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " holds with the constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\chi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " depending on neither "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " nor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " if relativistic effects are ignored. Determine the value for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The amplitude of the emitted gravitational wave from the binary system in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is proportional to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R^2\\omega^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Figure below qualitatively shows four different temporal profiles of the observed gravitational waves before the two-star collision. Select the most appropriate profile from (a) to (d). 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t2/ee8910fe899b92017e18.png",
+                "alt": "ipho-2023-t2 original source figure 5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Observed data profiles of gravitational waves."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Neutron Stars (10 points)\n\n\nWe discuss the stability of large nuclei and estimate the mass of neutron stars theoretically and experimentally.\n\n\nPart A. Mass and stability of nuclei (2.5 points)\n\n\nThe rest-energy of a nucleus \n\\(m(Z, N)c^2\\)\n consisting of \n\\(Z\\)\n protons and \n\\(N\\)\n neutrons is smaller than the sum of rest-energies of protons and neutrons, hereafter called nucleons, by the binding energy \n\\(B(Z, N)\\)\n, where \n\\(c\\)\n is the speed of light in vacuum. Ignoring minor corrections, we can approximate the binding energy consisting of the volume term with \n\\(a_V\\)\n, the surface term with \n\\(a_S\\)\n, the Coulomb energy term with \n\\(a_C\\)\n, and the symmetry energy term with \n\\(a_\\mathrm{sym}\\)\n in the following way. \n\\[\\begin{equation}\nm(Z, N)c^2 = Am_Nc^2 - B(Z, N), \\qquad B(Z, N) = a_V A - a_S A^{2/3} - a_C \\frac{Z^2}{A^{1/3}} - a_\\mathrm{sym} \\frac{(N - Z)^2}{A}, \\tag{1}\n\\end{equation}\\]\n where \n\\(A = Z + N\\)\n is the mass number and \n\\(m_N\\)\n is the nucleon mass. In the calculation, use \n\\(a_V \\approx 15.8\\,\\mathrm{MeV}\\)\n, \n\\(a_S \\approx 17.8\\,\\mathrm{MeV}\\)\n, \n\\(a_C \\approx 0.711\\,\\mathrm{MeV}\\)\n, and \n\\(a_\\mathrm{sym} \\approx 23.7\\,\\mathrm{MeV}\\)\n (MeV \n\\(= 10^6\\)\n electron volts).\n\n\nA.1\nUnder the condition of \n\\(Z = N\\)\n, determine \n\\(A\\)\n for maximizing the binding energy per nucleon, \n\\(B/A\\)\n. 0.9pt\n\n\nA.2\nUnder the condition of fixed \n\\(A\\)\n, the atomic number of the most stable nucleus \n\\(Z^*\\)\n is determined by maximizing \n\\(B(Z, A - Z)\\)\n. For \n\\(A = 197\\)\n, calculate \n\\(Z^*\\)\n using Eq. (1). 0.9pt\n\n\nA.3\nA nucleus having large \n\\(A\\)\n breaks up into lighter nuclei through fission in order to minimize the total rest-mass energy. For simplicity, we consider one of multiple ways to break a nucleus with \n\\((Z, N)\\)\n into two equal nuclei, which occurs when the following energy relation holds, \n\\[m(Z, N)c^2 > 2m(Z/2, N/2)c^2.\\]\n When this relation is written as \n\\[Z^2/A > C_\\mathrm{fission} \\frac{a_S}{a_C},\\]\n obtain \n\\(C_\\mathrm{fission}\\)\n up to two significant digits. 0.7pt\n\n\nPart B. Neutron star as a gigantic nucleus (1.5 points)\n\n\nFor large nuclei with a large enough mass number \n\\(A > A_c\\)\n with a threshold \n\\(A_c\\)\n, these nuclei stay stable against nuclear fission because of the sufficiently large binding energy due to gravity.\n\n\nB.1\nWe assume that \n\\(N = A\\)\n and \n\\(Z = 0\\)\n is realized for sufficiently large \n\\(A\\)\n and Eq. (1) continues to hold with the addition of the gravitational binding energy. The binding energy due to gravity is \n\\[B_\\mathrm{grav} = \\frac{3}{5}\\frac{GM^2}{R},\\]\n where \n\\(M = m_N A\\)\n and \n\\(R = R_0 A^{1/3}\\)\n with \n\\(R_0 \\simeq 1.1 \\times 10^{-15}\\,\\mathrm{m} = 1.1\\,\\mathrm{fm}\\)\n are the mass and the radius of the nucleus, respectively. For \n\\(B_\\mathrm{grav} = a_\\mathrm{grav} A^{5/3}\\)\n, obtain \n\\(a_\\mathrm{grav}\\)\n in the MeV unit up to the first significant digit. Then, ignoring the surface term, estimate \n\\(A_c\\)\n up to the first significant digit. In the calculation, use \n\\(m_Nc^2 \\simeq 939\\,\\mathrm{MeV}\\)\n and \n\\(G = \\hbar c/M_P^2\\)\n where \n\\(M_Pc^2 \\simeq 1.22 \\times 10^{22}\\,\\mathrm{MeV}\\)\n and \n\\(\\hbar c \\simeq 197\\,\\mathrm{MeV\\cdot fm}\\)\n. 1.5pt\n\n\nPart C. Neutron star in a binary system (6.0 points)\n\n\nSome neutron stars are pulsars regularly emitting electromagnetic waves, which we call \"light\" for simplicity here, at a constant period. Neutron stars often make binary systems with a White Dwarf. Let us consider the star configuration shown in Fig. 1, where a light pulse from a neutron star \nN\n to the Earth \nE\n passes near a White Dwarf \nW\n of the binary system. Measuring these pulses influenced by the star’s gravity leads to an accurate estimation of the mass of \nW\n as explained below, resulting in the estimation of the mass of \nN\n.\n\n\n\n\n\n\n\n\n\n\n\nFig. 1: Configurations with the \n\\(x\\)\n-axis along the line connecting \nN\n and \nE\n. (a) for \n\\(x_N < 0\\)\n and (b) for \n\\(x_N > 0\\)\n.\n\n\n\n\nC.1\nAs shown in the figure below, under the constant gravitational acceleration \n\\(g\\)\n we place two levels I and II with the height difference \n\\(\\Delta h(> 0)\\)\n. Set the identical clocks at I, II, and \n\\(F\\)\n, the free-falling system, denoted by clock-I, clock-II, and clock-\n\\(F\\)\n, respectively.\n\n\n\n\n\n\n\n\n\n\n\nSet-up of the thought experiment.\n\n\n\n\nWe assume that an observer sits with clock-\n\\(F\\)\n, and initially \n\\(F\\)\n is placed at the same height as that of clock-I and its velocity is zero. Since the clocks are identical, they register equal time intervals, \n\\(\\Delta\\tau_F = \\Delta\\tau_\\mathrm{I}\\)\n. Then, we let \n\\(F\\)\n fall freely, and work in the frame of \n\\(F\\)\n, which is considered to be inertial. In this frame, clock-II passes by clock-\n\\(F\\)\n with velocity \n\\(v\\)\n, so that the time dilation of clock-II can be determined by the Lorentz transformation. When time \n\\(\\Delta\\tau_\\mathrm{I}\\)\n elapses on clock-\n\\(F\\)\n, time \n\\(\\Delta\\tau_\\mathrm{II}\\)\n elapses on clock-II. Determine \n\\(\\Delta\\tau_\\mathrm{II}\\)\n in terms of \n\\(\\Delta\\tau_\\mathrm{I}\\)\n up to the first order in \n\\(\\Delta\\phi/c^2\\)\n, where \n\\(\\Delta\\phi = g\\Delta h\\)\n is a difference of the gravitational potential, \ni.e.\n, the gravitational potential energy per unit mass. 1.0pt\n\n\nC.2\nUnder the gravitational potential \n\\(\\phi\\)\n, time delays change the effective speed of light, \n\\(c_\\mathrm{eff}\\)\n, observed at the infinity, though the local speed of light is \n\\(c\\)\n. When \n\\(\\phi(r = \\infty) = 0\\)\n, \n\\(c_\\mathrm{eff}\\)\n can be given up to the first order in \n\\(\\phi/c^2\\)\n as \n\\[c_\\mathrm{eff} \\approx \\left(1 + \\frac{2\\phi}{c^2}\\right) c\\]\n including the effect of space distortion, which was not featured in \nC.1\n. We note that the light path can be approximated as a straight line.\n\n\nAs shown in Fig. 1 (a), we take the \n\\(x\\)\n-axis along the light path from the neutron star \nN\n to the Earth \nE\n and place \n\\(x = 0\\)\n at the point where the White Dwarf \nW\n is the closest to the light path. Let \n\\(x_N (< 0)\\)\n be the \n\\(x\\)\n-coordinate of \nN\n, \n\\(x_E (> 0)\\)\n be that of \nE\n, and \n\\(d\\)\n be the distance between \nW\n and the light path.\n\n\nEstimate the changes of the arrival time \n\\(\\Delta t\\)\n of the light from \nN\n to \nE\n caused by the White Dwarf with mass \n\\(M_\\mathrm{WD}\\)\n and evaluate the answer in a simple form disregarding higher order terms of the following small quantities: \n\\(d/|x_N| \\ll 1\\)\n, \n\\(d/x_E \\ll 1\\)\n, and \n\\(GM_\\mathrm{WD}/(c^2 d) \\ll 1\\)\n. If necessary, use the following formula. \n\\[\\int \\frac{dx}{\\sqrt{x^2 + d^2}} = \\frac{1}{2}\\log\\left(\\frac{\\sqrt{x^2 + d^2} + x}{\\sqrt{x^2 + d^2} - x}\\right) + C. \\qquad (\\log \\text{ is the natural logarithm})\\]\n 1.8pt\n\n\nC.3\nAs shown below, in a binary star system \nN\n and \nW\n are assumed to be moving in circular orbits with zero eccentricity around the center of mass \n\\(G\\)\n on the orbit plane. Let \n\\(\\varepsilon\\)\n be the orbital inclination angle measured from the orbit plane to the line directed toward \nE\n from \n\\(G\\)\n, and let \n\\(L\\)\n be the length between \nN\n and \nW\n and \n\\(M_\\mathrm{WD}\\)\n be the mass of the White Dwarf. In the following, we assume \n\\(\\varepsilon \\ll 1\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nBinary star system.\n\n\n\n\nWe observe light pulses from \nN\n on \nE\n far away from \nN\n. The light path to \nE\n varies with time depending on the configuration of \nN\n and \nW\n. The delay in the time interval of arriving pulses on \nE\n has the maximum value \n\\(\\Delta t_\\mathrm{max}\\)\n for \n\\(x_N \\simeq -L\\)\n and the minimum value \n\\(\\Delta t_\\mathrm{min}\\)\n for \n\\(x_N \\simeq L\\)\n (see Fig. 1 (b) for the configuration). Calculate \n\\(\\Delta t_\\mathrm{max} - \\Delta t_\\mathrm{min}\\)\n in a simple form disregarding higher order terms of small quantities as done in \nC.2\n. We note that the delays due to gravity from stellar objects other than \nW\n are assumed to cancel out in \n\\(\\Delta t_\\mathrm{max} - \\Delta t_\\mathrm{min}\\)\n. 1.8pt\n\n\nC.4\nThe below figure shows the observed time delays as a function of the orbital phase \n\\(\\varphi\\)\n for the binary star system with \n\\(L \\approx 6 \\times 10^6\\,\\mathrm{km}\\)\n and \n\\(\\cos\\varepsilon \\approx 0.99989\\)\n. Estimate \n\\(M_\\mathrm{WD}\\)\n in terms of the solar mass \n\\(M_\\odot\\)\n and show the results for \n\\(M_\\mathrm{WD}/M_\\odot\\)\n up to the first significant digit. Here the approximate relation, \n\\(GM_\\odot/c^3 \\approx 5\\,\\mu\\mathrm{s}\\)\n, can be used. 0.8pt\n\n\n\n\n\n\n\n\n\n\n\nObserved time delays \n\\(\\Delta t\\)\n as a function of the orbital phase \n\\(\\varphi\\)\n (see the figure in \nC.3\n) to locate \nN\n and \nW\n on the orbits.\n\n\n\n\nC.5\nIn the binary system of neutron stars, two stars release energy and angular momentum by emitting gravitational waves and eventually collide to merge. For simplicity, let us consider only a circular motion with the radius \n\\(R\\)\n and the angular velocity \n\\(\\omega\\)\n and then \n\\(\\omega = \\chi R^p\\)\n holds with the constant \n\\(\\chi\\)\n depending on neither \n\\(\\omega\\)\n nor \n\\(R\\)\n if relativistic effects are ignored. Determine the value for \n\\(p\\)\n. 0.4pt\n\n\nC.6\nThe amplitude of the emitted gravitational wave from the binary system in \nC.5\n is proportional to \n\\(R^2\\omega^2\\)\n. Figure below qualitatively shows four different temporal profiles of the observed gravitational waves before the two-star collision. Select the most appropriate profile from (a) to (d). 0.2pt\n\n\n\n\n\n\n\n\n\n\n\nObserved data profiles of gravitational waves.\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2023-t2/9dbb548f14e77a9603fa.png",
+      "/corpus/figures/native/bulk/ipho-2023-t2/20c75f168214b542651b.png",
+      "/corpus/figures/native/bulk/ipho-2023-t2/34312a7b8f91613a60d1.png",
+      "/corpus/figures/native/bulk/ipho-2023-t2/f94e1744315fa8ac864b.png",
+      "/corpus/figures/native/bulk/ipho-2023-t2/ee8910fe899b92017e18.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2023-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Theory Problem 2: Neutron Stars (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Mass and stability of nuclei (2.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The given binding energy is often called the Weizsäcker-Bethe mass formula, and the physical interpretation of the volume and the surface terms is based on the liquid drop model. The formula works quite well except for the shell effects. Find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to minimize the binding energy per mass number, i.e., "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{B}{A} = a_V - a_S A^{-1/3} - \\frac{a_C}{4}A^{2/3}\\,.\n\\tag{S2.1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " As long as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is small, the second term is dominantly increasing with increasing "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and it is eventually taken over by the third term which is decreasing. Therefore, the extremal corresponds to the maximum of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B/A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". One can explicitly carry out "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{d(B/A)}{dA} = 0\n\\tag{S2.2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to find the following condition, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{a_S}{3}A^{-4/3} - \\frac{a_C}{6}A^{-1/3} = 0\\,.\n\\tag{S2.3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The solution is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nA = \\frac{2a_S}{a_C}\\,.\n\\tag{S2.4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From the given numerical values, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A = 50\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (which must be an integer) is concluded."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\triangleright\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " Note: In reality "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(B/A\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " has a maximum for "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(A\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ranging from "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(^{56}\\mathrm{Fe}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " to "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(^{62}\\mathrm{Ni}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ". The discrepancy from the answer in this problem is understood by the approximation of dropping the pairing energy and disregarding a mass difference between the proton and the neutron."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.9 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[A = 50\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Take the differentiation of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B(Z,A-Z)/A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with respect to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for a fixed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which leads to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n-2a_C\\frac{Z^*}{A^{1/3}} - 4a_{\\mathrm{sym}}\\frac{2Z^*-A}{A} = 0\\,.\n\\tag{S2.5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " By solving this in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z^*\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", one finds "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nZ^* = \\frac{1}{1+\\frac{a_C}{4a_{\\mathrm{sym}}}A^{2/3}}\\cdot\\frac{A}{2}\\,.\n\\tag{S2.6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From this expression one can understand that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z^* \\simeq N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as long as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is small enough, while "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z^*\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " becomes far smaller than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for large "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". It is obvious from the explicit form that the symmetry energy tends to favor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z = N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " but the Coulomb interaction tends to favor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z \\to 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the balance between these competing effects determines "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z^*\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Nuclei with too many neutrons (protons) would go through the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta^-\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " decay (the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta^+\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " decay or the electron capture) toward the stable "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((Z, N)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.9 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[Z^* = 79\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Plugging the binding energy into the given inequality, one sees that the volume terms cancel due to volume conservation. Then, the condition involves only "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which are related as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\na_S\\left[A^{2/3} - 2\\left(\\frac{A}{2}\\right)^{2/3}\\right] + a_C\\left[\\frac{Z^2}{A^{1/3}} - 2\\frac{(Z/2)^2}{(A/2)^{1/3}}\\right] > 0\\,.\n\\tag{S2.7}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " As guided in the problem, the above inequality becomes as simple as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{Z^2}{A} > \\frac{2^{1/3}-1}{1-2^{-2/3}}\\cdot\\frac{a_S}{a_C}\\,.\n\\tag{S2.8}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore, the numerical coefficient turns out to be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.7\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\triangleright\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " Note: The physical interpretation of this result may need some explanations. Using the values of "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(a_S\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(a_C\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", one finds that such a symmetric fission process is possible for "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(Z^2/A \\gtrsim 18\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ". For example, lead (Pb) with "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(Z = 82\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(A = 208\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " is a stable element among several isotopes. Now, one can compute "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(82^2/208 \\approx 32\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", which is larger than the threshold "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(18\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ". The key to resolving this gap is the potential barrier from the deformation. When a heavy nucleus splits into two fragments, the shape and the surface should change from the stable configuration (which is not necessarily spherical due to interaction) and thus the surface energy increases. Although some heavy elements are energetically unstable, the lifetime necessary to overcome the potential barrier can be very large."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.7 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[C_{\\mathrm{fission}} = 7.0\\times 10^{-1}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Neutron star as a gigantic nucleus (1.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The expression apart from the parametric dependence on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be identified as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\na_{\\mathrm{grav}} = \\frac{3}{5}\\frac{Gm_N^2}{R_0}\\,,\n\\tag{S2.9}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which is re-expressed in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " using the given relation to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", leading to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\na_{\\mathrm{grav}} = \\frac{3}{5}\\frac{\\hbar c\\, m_N^2}{R_0 M_P^2} = \\frac{3}{5}\\cdot\\frac{197\\,\\mathrm{fm\\cdot MeV}\\times(939\\,\\mathrm{MeV}/c^2)^2}{1.1\\,\\mathrm{fm}\\times(1.22\\times 10^{22}\\,\\mathrm{MeV}/c^2)^2} \\simeq 6.4\\times 10^{-37}\\,\\mathrm{MeV}\\,.\n\\tag{S2.10}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Here, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a quantity often called the Planck mass. The gravitational effect is extremely tiny as compared to the typical scale in nuclear physics and this scale difference is manifest for this expression of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the MeV unit."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The stability is judged from the condition that the binding energy should be positive, i.e., "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nB_{\\mathrm{total}}(A) = a_V A - a_{\\mathrm{sym}} A + a_{\\mathrm{grav}} A^{5/3} > 0\\,.\n\\tag{S2.11}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This inequality can be translated into "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A > A_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nA_c = \\left(\\frac{a_{\\mathrm{sym}} - a_V}{a_{\\mathrm{grav}}}\\right)^{3/2} \\simeq 4.4\\times 10^{55}\\,.\n\\tag{S2.12}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\triangleright\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " Note: One may think that one neutron drip is a process with the least change in the surface area and thus the smallest barrier. This leads to a condition, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(B_{\\mathrm{total}}(A) > B_{\\mathrm{total}}(A - 1)\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " or approximately "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(dB_{\\mathrm{total}}(A)/dA > 0\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", which is satisfied in a window with "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(B_{\\mathrm{total}} < 0\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ". This condition, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(dB_{\\mathrm{total}}/dA = 0\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", results in smaller "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(A_c\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " but it is nontrivial whether such an unstable initial state could be prepared in the nature. The neutron star is born in the Type-II (core-collapse) supernovae, and a baby star called the proto-neutron star is an energetic state at high temperature. Neutrinos bring heat out from the proto-neutron star within the time scale of "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\mathcal{O}(10)\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " seconds. What is the possible smallest mass of the neutron star? This is not completely understood partly because the computer simulation of the supernovae is a big challenge even today. Although the neutron star mass can become much smaller than "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(M_\\odot\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " theoretically, the simulation and the observation favor the mass "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\gtrsim 1.4M_\\odot\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.5 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a_{\\mathrm{grav}} = 6\\times 10^{-37}\\,\\mathrm{MeV}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[A_c = 4\\times 10^{55}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C. Neutron star in a binary system (6.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From the energy conservation, the free-falling system earns the kinetic energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{1}{2}mv^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the potential energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(mg\\Delta h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the velocity takes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nv^2 = 2g\\Delta h = 2\\Delta\\phi\\,.\n\\tag{S2.13}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The time delay can be derived from the standard arguments. Suppose that Clock-II passes two infinitesimally separate points, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z+\\Delta z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", in F at time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t+\\Delta\\tau_{\\mathrm{II}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", then the time interval registered by Clock-II is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta\\tau_{\\mathrm{II}} = \\frac{\\gamma}{c}(c\\Delta\\tau_{\\mathrm{F}} - \\beta\\Delta z)\\,,\n\\tag{S2.14}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where the Lorentz transformation is used"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "sup",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta = v/c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma = 1/\\sqrt{1-\\beta^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Because "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta z/\\Delta\\tau_{\\mathrm{F}} = v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\tau_{\\mathrm{F}} = \\Delta\\tau_{\\mathrm{I}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the above expression is written as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta\\tau_{\\mathrm{II}} = \\gamma(1-\\beta^2)\\Delta\\tau_{\\mathrm{F}} = \\sqrt{1-\\beta^2}\\,\\Delta\\tau_{\\mathrm{I}}\\,.\n\\tag{S2.15}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using the expression of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", one finally arrives at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta\\tau_{\\mathrm{II}} = \\sqrt{1-2\\frac{\\Delta\\phi}{c^2}}\\,\\Delta\\tau_{\\mathrm{I}} \\simeq \\left(1-\\frac{\\Delta\\phi}{c^2}\\right)\\Delta\\tau_{\\mathrm{I}}\\,.\n\\tag{S2.16}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta\\tau_{\\mathrm{II}} = \\left(1-\\frac{\\Delta\\phi}{c^2}\\right)\\Delta\\tau_{\\mathrm{I}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " In terms of the effective speed of light, the total time necessary for the light propagation from "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "N"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nt_{\\mathrm{E-N}} = \\int_{x_N}^{x_E}\\frac{dx}{c_{\\mathrm{eff}}(x)}\\,.\n\\tag{S2.17}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The denominator is expanded in terms of the gravitational potential and the leading-order correction is found to be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nt_{\\mathrm{E-N}} \\simeq \\frac{1}{c}\\int_{x_N}^{x_E}dx\\left(1+\\frac{2GM_{\\mathrm{WD}}}{c^2\\sqrt{x^2+d^2}}\\right) = \\frac{x_E-x_N}{c}+\\Delta t\\,,\n\\tag{S2.18}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where the time delay "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is identified as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta t = \\frac{2GM_{\\mathrm{WD}}}{c^3}\\int_{x_N}^{x_E}\\frac{dx}{\\sqrt{x^2+d^2}} = \\frac{GM_{\\mathrm{WD}}}{c^3}\\log\\left(\\frac{\\sqrt{x^2+d^2}+x}{\\sqrt{x^2+d^2}-x}\\right)\\Bigg|_{x=x_N}^{x=x_E}\\,.\n\\tag{S2.19}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Inside the logarithm, the following approximations are made: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\sqrt{x_N^2+d^2}+x_N \\simeq \\frac{d^2}{2|x_N|}\\,,\\qquad \\sqrt{x_N^2+d^2}-x_N \\simeq 2|x_N|\\,,\n\\tag{S2.20}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\sqrt{x_E^2+d^2}-x_E \\simeq \\frac{d^2}{2x_E}\\,,\\qquad \\sqrt{x_E^2+d^2}+x_E \\simeq 2x_E\\,.\n\\tag{S2.21}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Then, the simple form of approximated "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta t \\simeq \\frac{GM_{\\mathrm{WD}}}{c^3}\\log\\left(\\frac{2x_E\\cdot 2|x_N|}{d^2/(2x_E)\\cdot d^2/(2|x_N|)}\\right) = \\frac{2GM_{\\mathrm{WD}}}{c^3}\\log\\left(\\frac{4|x_N||x_E|}{d^2}\\right)\\,.\n\\tag{S2.22}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.8 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta t = \\frac{2GM_{\\mathrm{WD}}}{c^3}\\log\\left(\\frac{4|x_N||x_E|}{d^2}\\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Because "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|x_N| = L\\cos\\varepsilon \\simeq L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d = L\\sin\\varepsilon \\simeq L\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t_{\\mathrm{max}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the answer of C.2 gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta t_{\\mathrm{max}} = \\frac{2GM_{\\mathrm{WD}}}{c^3}\\log(4x_E/L\\varepsilon^2)\n\\tag{S2.23}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t_{\\mathrm{min}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the sign of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is changed. Although the expression of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is intact, the approximation takes a different form as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\sqrt{x_N^2+d^2}+x_N \\simeq 2x_N\\,,\\qquad \\sqrt{x_N^2+d^2}-x_N \\simeq \\frac{d^2}{2x_N}\\,.\n\\tag{S2.24}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Then, the approximated form of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t_{\\mathrm{min}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta t_{\\mathrm{min}} \\simeq \\frac{GM_{\\mathrm{WD}}}{c^3}\\log\\left(\\frac{2x_E\\cdot d^2/(2x_N)}{d^2/(2x_E)\\cdot 2x_N}\\right) = \\frac{2GM_{\\mathrm{WD}}}{c^3}\\log(x_E/L)\\,,\n\\tag{S2.25}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_N \\simeq L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is used in the last expression. In the difference, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t_{\\mathrm{max}}-\\Delta t_{\\mathrm{min}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", one sees that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " disappear."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.8 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta t_{\\mathrm{max}}-\\Delta t_{\\mathrm{min}} = \\frac{2GM_{\\mathrm{WD}}}{c^3}\\log(4/\\varepsilon^2)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using the expansion, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cos\\varepsilon \\simeq 1-\\frac{1}{2}\\varepsilon^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", one can evaluate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\varepsilon^2 \\simeq 2\\times(1-\\cos\\varepsilon) = 0.00022\\,.\n\\tag{S2.26}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From the graph the difference in time delays is roughly read out as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta t_{\\mathrm{max}}-\\Delta t_{\\mathrm{min}} \\approx 50\\,\\mu\\mathrm{s}\n\\tag{S2.27}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From these numerical values, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_{\\mathrm{WD}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is solved as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nM_{\\mathrm{WD}} = M_\\odot\\left(\\frac{2GM_\\odot}{c^3}\\right)^{-1}\\frac{\\Delta t_{\\mathrm{max}}-\\Delta t_{\\mathrm{min}}}{\\log(4/\\varepsilon^2)} \\simeq \\frac{50\\,\\mu\\mathrm{s}}{10\\,\\mu\\mathrm{s}\\,\\log(4/0.00022)}\\,M_\\odot \\simeq 0.5\\,M_\\odot\\,.\n\\tag{S2.28}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\triangleright\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " Note: The data in this problem roughly correspond to PSR J1614-2230 [see P.B. Demorest "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "em",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "et al."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", Nature 467, 1080-1083 (2010)]. From the Shapiro delay measurement, the White Dwarf mass was estimated as "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(0.500\\pm 0.006M_\\odot\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ". With the Keplerian orbital parameters in the binary system, the neutron star mass was considered to be "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(1.97\\pm 0.04M_\\odot\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", which was the heaviest neutron star at that time. Since then, several candidates for heavier neutron stars have been found."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.8 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[M_{\\mathrm{WD}}/M_\\odot = 0.5\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For the circular orbit with the radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the equation of motion is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nmR\\omega^2 = G\\frac{mM}{R^2}\\,,\n\\tag{S2.29}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is sufficiently large. From this it is easy to see "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nR^3\\omega^2 = GM = (\\mathrm{const.})\n\\tag{S2.30}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This is nothing but Kepler’s third law and the relation holds for more general elliptical orbits around the center of mass."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.4 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p = -\\frac{3}{2}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The sum of the kinetic energy and the potential energy is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE = \\frac{1}{2}mR^2\\omega^2 - G\\frac{mM}{R}\\,.\n\\tag{S2.31}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From the equation of motion this is rewritten as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE = -\\frac{1}{2}G\\frac{mM}{R}\\,.\n\\tag{S2.32}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore, when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " decreases due to gravitational wave emission, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " should decrease. Then, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " should increase. Since the amplitude is proportional to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R^2\\omega^2 \\propto R^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", it should increase. In summary, both the frequency and the amplitude should increase as time goes on, as illustrated in (b)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.2 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The most appropriate profile is (b)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "span",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "hr",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "ol",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Clock-F is in an inertial frame but Clock-II is not. Using Clock-II"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\('\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " in another free-falling frame II"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\('\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " as an inertial reference to Clock-II, the Lorentz transformation is validated for Clock-II"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\('\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " seen from Clock-F."
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "↩︎"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Theory Problem 2: Neutron Stars (10 points)\n\n\nPart A. Mass and stability of nuclei (2.5 points)\n\n\nA.1\n The given binding energy is often called the Weizsäcker-Bethe mass formula, and the physical interpretation of the volume and the surface terms is based on the liquid drop model. The formula works quite well except for the shell effects. Find \n\\(A\\)\n to minimize the binding energy per mass number, i.e., \n\\[\\begin{equation}\n\\frac{B}{A} = a_V - a_S A^{-1/3} - \\frac{a_C}{4}A^{2/3}\\,.\n\\tag{S2.1}\n\\end{equation}\\]\n As long as \n\\(A\\)\n is small, the second term is dominantly increasing with increasing \n\\(A\\)\n, and it is eventually taken over by the third term which is decreasing. Therefore, the extremal corresponds to the maximum of \n\\(B/A\\)\n. One can explicitly carry out \n\\[\\begin{equation}\n\\frac{d(B/A)}{dA} = 0\n\\tag{S2.2}\n\\end{equation}\\]\n to find the following condition, \n\\[\\begin{equation}\n\\frac{a_S}{3}A^{-4/3} - \\frac{a_C}{6}A^{-1/3} = 0\\,.\n\\tag{S2.3}\n\\end{equation}\\]\n The solution is \n\\[\\begin{equation}\nA = \\frac{2a_S}{a_C}\\,.\n\\tag{S2.4}\n\\end{equation}\\]\n From the given numerical values, \n\\(A = 50\\)\n (which must be an integer) is concluded.\n\n\n\n\n\n\n\\(\\triangleright\\)\n Note: In reality \n\\(B/A\\)\n has a maximum for \n\\(A\\)\n ranging from \n\\(^{56}\\mathrm{Fe}\\)\n to \n\\(^{62}\\mathrm{Ni}\\)\n. The discrepancy from the answer in this problem is understood by the approximation of dropping the pairing energy and disregarding a mass difference between the proton and the neutron.\n\n\n\n\n\n\nA.1\n0.9 pt\n\n\n\\[A = 50\\]\n\n\nA.2\n Take the differentiation of \n\\(B(Z,A-Z)/A\\)\n with respect to \n\\(Z\\)\n for a fixed \n\\(A\\)\n, which leads to \n\\[\\begin{equation}\n-2a_C\\frac{Z^*}{A^{1/3}} - 4a_{\\mathrm{sym}}\\frac{2Z^*-A}{A} = 0\\,.\n\\tag{S2.5}\n\\end{equation}\\]\n By solving this in terms of \n\\(Z^*\\)\n, one finds \n\\[\\begin{equation}\nZ^* = \\frac{1}{1+\\frac{a_C}{4a_{\\mathrm{sym}}}A^{2/3}}\\cdot\\frac{A}{2}\\,.\n\\tag{S2.6}\n\\end{equation}\\]\n From this expression one can understand that \n\\(Z^* \\simeq N\\)\n as long as \n\\(A\\)\n is small enough, while \n\\(Z^*\\)\n becomes far smaller than \n\\(N\\)\n for large \n\\(A\\)\n. It is obvious from the explicit form that the symmetry energy tends to favor \n\\(Z = N\\)\n but the Coulomb interaction tends to favor \n\\(Z \\to 0\\)\n, and the balance between these competing effects determines \n\\(Z^*\\)\n. Nuclei with too many neutrons (protons) would go through the \n\\(\\beta^-\\)\n decay (the \n\\(\\beta^+\\)\n decay or the electron capture) toward the stable \n\\((Z, N)\\)\n.\n\n\nA.2\n0.9 pt\n\n\n\\[Z^* = 79\\]\n\n\nA.3\n Plugging the binding energy into the given inequality, one sees that the volume terms cancel due to volume conservation. Then, the condition involves only \n\\(a_S\\)\n and \n\\(a_C\\)\n which are related as \n\\[\\begin{equation}\na_S\\left[A^{2/3} - 2\\left(\\frac{A}{2}\\right)^{2/3}\\right] + a_C\\left[\\frac{Z^2}{A^{1/3}} - 2\\frac{(Z/2)^2}{(A/2)^{1/3}}\\right] > 0\\,.\n\\tag{S2.7}\n\\end{equation}\\]\n As guided in the problem, the above inequality becomes as simple as \n\\[\\begin{equation}\n\\frac{Z^2}{A} > \\frac{2^{1/3}-1}{1-2^{-2/3}}\\cdot\\frac{a_S}{a_C}\\,.\n\\tag{S2.8}\n\\end{equation}\\]\n Therefore, the numerical coefficient turns out to be \n\\(0.7\\)\n.\n\n\n\n\n\n\n\\(\\triangleright\\)\n Note: The physical interpretation of this result may need some explanations. Using the values of \n\\(a_S\\)\n and \n\\(a_C\\)\n, one finds that such a symmetric fission process is possible for \n\\(Z^2/A \\gtrsim 18\\)\n. For example, lead (Pb) with \n\\(Z = 82\\)\n and \n\\(A = 208\\)\n is a stable element among several isotopes. Now, one can compute \n\\(82^2/208 \\approx 32\\)\n, which is larger than the threshold \n\\(18\\)\n. The key to resolving this gap is the potential barrier from the deformation. When a heavy nucleus splits into two fragments, the shape and the surface should change from the stable configuration (which is not necessarily spherical due to interaction) and thus the surface energy increases. Although some heavy elements are energetically unstable, the lifetime necessary to overcome the potential barrier can be very large.\n\n\n\n\n\n\nA.3\n0.7 pt\n\n\n\\[C_{\\mathrm{fission}} = 7.0\\times 10^{-1}\\]\n\n\nPart B. Neutron star as a gigantic nucleus (1.5 points)\n\n\nB.1\n The expression apart from the parametric dependence on \n\\(A\\)\n can be identified as \n\\[\\begin{equation}\na_{\\mathrm{grav}} = \\frac{3}{5}\\frac{Gm_N^2}{R_0}\\,,\n\\tag{S2.9}\n\\end{equation}\\]\n which is re-expressed in terms of \n\\(M_P\\)\n using the given relation to \n\\(G\\)\n, leading to \n\\[\\begin{equation}\na_{\\mathrm{grav}} = \\frac{3}{5}\\frac{\\hbar c\\, m_N^2}{R_0 M_P^2} = \\frac{3}{5}\\cdot\\frac{197\\,\\mathrm{fm\\cdot MeV}\\times(939\\,\\mathrm{MeV}/c^2)^2}{1.1\\,\\mathrm{fm}\\times(1.22\\times 10^{22}\\,\\mathrm{MeV}/c^2)^2} \\simeq 6.4\\times 10^{-37}\\,\\mathrm{MeV}\\,.\n\\tag{S2.10}\n\\end{equation}\\]\n Here, \n\\(M_P\\)\n is a quantity often called the Planck mass. The gravitational effect is extremely tiny as compared to the typical scale in nuclear physics and this scale difference is manifest for this expression of \n\\(G\\)\n with \n\\(M_P\\)\n in the MeV unit.\n\n\nThe stability is judged from the condition that the binding energy should be positive, i.e., \n\\[\\begin{equation}\nB_{\\mathrm{total}}(A) = a_V A - a_{\\mathrm{sym}} A + a_{\\mathrm{grav}} A^{5/3} > 0\\,.\n\\tag{S2.11}\n\\end{equation}\\]\n This inequality can be translated into \n\\(A > A_c\\)\n with \n\\(A_c\\)\n given by \n\\[\\begin{equation}\nA_c = \\left(\\frac{a_{\\mathrm{sym}} - a_V}{a_{\\mathrm{grav}}}\\right)^{3/2} \\simeq 4.4\\times 10^{55}\\,.\n\\tag{S2.12}\n\\end{equation}\\]\n\n\n\n\n\n\n\\(\\triangleright\\)\n Note: One may think that one neutron drip is a process with the least change in the surface area and thus the smallest barrier. This leads to a condition, \n\\(B_{\\mathrm{total}}(A) > B_{\\mathrm{total}}(A - 1)\\)\n or approximately \n\\(dB_{\\mathrm{total}}(A)/dA > 0\\)\n, which is satisfied in a window with \n\\(B_{\\mathrm{total}} < 0\\)\n. This condition, \n\\(dB_{\\mathrm{total}}/dA = 0\\)\n, results in smaller \n\\(A_c\\)\n but it is nontrivial whether such an unstable initial state could be prepared in the nature. The neutron star is born in the Type-II (core-collapse) supernovae, and a baby star called the proto-neutron star is an energetic state at high temperature. Neutrinos bring heat out from the proto-neutron star within the time scale of \n\\(\\mathcal{O}(10)\\)\n seconds. What is the possible smallest mass of the neutron star? This is not completely understood partly because the computer simulation of the supernovae is a big challenge even today. Although the neutron star mass can become much smaller than \n\\(M_\\odot\\)\n theoretically, the simulation and the observation favor the mass \n\\(\\gtrsim 1.4M_\\odot\\)\n.\n\n\n\n\n\n\nB.1\n1.5 pt\n\n\n\\[a_{\\mathrm{grav}} = 6\\times 10^{-37}\\,\\mathrm{MeV}\\]\n \n\\[A_c = 4\\times 10^{55}\\]\n\n\nPart C. Neutron star in a binary system (6.0 points)\n\n\nC.1\n From the energy conservation, the free-falling system earns the kinetic energy \n\\(\\frac{1}{2}mv^2\\)\n from the potential energy \n\\(mg\\Delta h\\)\n, and the velocity takes \n\\[\\begin{equation}\nv^2 = 2g\\Delta h = 2\\Delta\\phi\\,.\n\\tag{S2.13}\n\\end{equation}\\]\n The time delay can be derived from the standard arguments. Suppose that Clock-II passes two infinitesimally separate points, \n\\(z\\)\n and \n\\(z+\\Delta z\\)\n, in F at time \n\\(t\\)\n and \n\\(t+\\Delta\\tau_{\\mathrm{II}}\\)\n, then the time interval registered by Clock-II is \n\\[\\begin{equation}\n\\Delta\\tau_{\\mathrm{II}} = \\frac{\\gamma}{c}(c\\Delta\\tau_{\\mathrm{F}} - \\beta\\Delta z)\\,,\n\\tag{S2.14}\n\\end{equation}\\]\n where the Lorentz transformation is used\n1\n with \n\\(\\beta = v/c\\)\n and \n\\(\\gamma = 1/\\sqrt{1-\\beta^2}\\)\n. Because \n\\(\\Delta z/\\Delta\\tau_{\\mathrm{F}} = v\\)\n and \n\\(\\Delta\\tau_{\\mathrm{F}} = \\Delta\\tau_{\\mathrm{I}}\\)\n, the above expression is written as \n\\[\\begin{equation}\n\\Delta\\tau_{\\mathrm{II}} = \\gamma(1-\\beta^2)\\Delta\\tau_{\\mathrm{F}} = \\sqrt{1-\\beta^2}\\,\\Delta\\tau_{\\mathrm{I}}\\,.\n\\tag{S2.15}\n\\end{equation}\\]\n Using the expression of \n\\(v^2\\)\n, one finally arrives at \n\\[\\begin{equation}\n\\Delta\\tau_{\\mathrm{II}} = \\sqrt{1-2\\frac{\\Delta\\phi}{c^2}}\\,\\Delta\\tau_{\\mathrm{I}} \\simeq \\left(1-\\frac{\\Delta\\phi}{c^2}\\right)\\Delta\\tau_{\\mathrm{I}}\\,.\n\\tag{S2.16}\n\\end{equation}\\]\n\n\nC.1\n1.0 pt\n\n\n\\[\\Delta\\tau_{\\mathrm{II}} = \\left(1-\\frac{\\Delta\\phi}{c^2}\\right)\\Delta\\tau_{\\mathrm{I}}\\]\n\n\nC.2\n In terms of the effective speed of light, the total time necessary for the light propagation from \nN\n to \nE\n is \n\\[\\begin{equation}\nt_{\\mathrm{E-N}} = \\int_{x_N}^{x_E}\\frac{dx}{c_{\\mathrm{eff}}(x)}\\,.\n\\tag{S2.17}\n\\end{equation}\\]\n The denominator is expanded in terms of the gravitational potential and the leading-order correction is found to be \n\\[\\begin{equation}\nt_{\\mathrm{E-N}} \\simeq \\frac{1}{c}\\int_{x_N}^{x_E}dx\\left(1+\\frac{2GM_{\\mathrm{WD}}}{c^2\\sqrt{x^2+d^2}}\\right) = \\frac{x_E-x_N}{c}+\\Delta t\\,,\n\\tag{S2.18}\n\\end{equation}\\]\n where the time delay \n\\(\\Delta t\\)\n is identified as \n\\[\\begin{equation}\n\\Delta t = \\frac{2GM_{\\mathrm{WD}}}{c^3}\\int_{x_N}^{x_E}\\frac{dx}{\\sqrt{x^2+d^2}} = \\frac{GM_{\\mathrm{WD}}}{c^3}\\log\\left(\\frac{\\sqrt{x^2+d^2}+x}{\\sqrt{x^2+d^2}-x}\\right)\\Bigg|_{x=x_N}^{x=x_E}\\,.\n\\tag{S2.19}\n\\end{equation}\\]\n Inside the logarithm, the following approximations are made: \n\\[\\begin{equation}\n\\sqrt{x_N^2+d^2}+x_N \\simeq \\frac{d^2}{2|x_N|}\\,,\\qquad \\sqrt{x_N^2+d^2}-x_N \\simeq 2|x_N|\\,,\n\\tag{S2.20}\n\\end{equation}\\]\n and \n\\[\\begin{equation}\n\\sqrt{x_E^2+d^2}-x_E \\simeq \\frac{d^2}{2x_E}\\,,\\qquad \\sqrt{x_E^2+d^2}+x_E \\simeq 2x_E\\,.\n\\tag{S2.21}\n\\end{equation}\\]\n Then, the simple form of approximated \n\\(\\Delta t\\)\n is \n\\[\\begin{equation}\n\\Delta t \\simeq \\frac{GM_{\\mathrm{WD}}}{c^3}\\log\\left(\\frac{2x_E\\cdot 2|x_N|}{d^2/(2x_E)\\cdot d^2/(2|x_N|)}\\right) = \\frac{2GM_{\\mathrm{WD}}}{c^3}\\log\\left(\\frac{4|x_N||x_E|}{d^2}\\right)\\,.\n\\tag{S2.22}\n\\end{equation}\\]\n\n\nC.2\n1.8 pt\n\n\n\\[\\Delta t = \\frac{2GM_{\\mathrm{WD}}}{c^3}\\log\\left(\\frac{4|x_N||x_E|}{d^2}\\right)\\]\n\n\nC.3\n Because \n\\(|x_N| = L\\cos\\varepsilon \\simeq L\\)\n and \n\\(d = L\\sin\\varepsilon \\simeq L\\varepsilon\\)\n for \n\\(\\Delta t_{\\mathrm{max}}\\)\n, the answer of C.2 gives \n\\[\\begin{equation}\n\\Delta t_{\\mathrm{max}} = \\frac{2GM_{\\mathrm{WD}}}{c^3}\\log(4x_E/L\\varepsilon^2)\n\\tag{S2.23}\n\\end{equation}\\]\n For \n\\(\\Delta t_{\\mathrm{min}}\\)\n the sign of \n\\(x_N\\)\n is changed. Although the expression of \n\\(\\Delta t\\)\n is intact, the approximation takes a different form as \n\\[\\begin{equation}\n\\sqrt{x_N^2+d^2}+x_N \\simeq 2x_N\\,,\\qquad \\sqrt{x_N^2+d^2}-x_N \\simeq \\frac{d^2}{2x_N}\\,.\n\\tag{S2.24}\n\\end{equation}\\]\n Then, the approximated form of \n\\(\\Delta t_{\\mathrm{min}}\\)\n is \n\\[\\begin{equation}\n\\Delta t_{\\mathrm{min}} \\simeq \\frac{GM_{\\mathrm{WD}}}{c^3}\\log\\left(\\frac{2x_E\\cdot d^2/(2x_N)}{d^2/(2x_E)\\cdot 2x_N}\\right) = \\frac{2GM_{\\mathrm{WD}}}{c^3}\\log(x_E/L)\\,,\n\\tag{S2.25}\n\\end{equation}\\]\n where \n\\(x_N \\simeq L\\)\n is used in the last expression. In the difference, \n\\(\\Delta t_{\\mathrm{max}}-\\Delta t_{\\mathrm{min}}\\)\n, one sees that \n\\(L\\)\n and \n\\(x_E\\)\n disappear.\n\n\nC.3\n1.8 pt\n\n\n\\[\\Delta t_{\\mathrm{max}}-\\Delta t_{\\mathrm{min}} = \\frac{2GM_{\\mathrm{WD}}}{c^3}\\log(4/\\varepsilon^2)\\]\n\n\nC.4\n Using the expansion, \n\\(\\cos\\varepsilon \\simeq 1-\\frac{1}{2}\\varepsilon^2\\)\n, one can evaluate \n\\[\\begin{equation}\n\\varepsilon^2 \\simeq 2\\times(1-\\cos\\varepsilon) = 0.00022\\,.\n\\tag{S2.26}\n\\end{equation}\\]\n From the graph the difference in time delays is roughly read out as \n\\[\\begin{equation}\n\\Delta t_{\\mathrm{max}}-\\Delta t_{\\mathrm{min}} \\approx 50\\,\\mu\\mathrm{s}\n\\tag{S2.27}\n\\end{equation}\\]\n From these numerical values, \n\\(M_{\\mathrm{WD}}\\)\n is solved as \n\\[\\begin{equation}\nM_{\\mathrm{WD}} = M_\\odot\\left(\\frac{2GM_\\odot}{c^3}\\right)^{-1}\\frac{\\Delta t_{\\mathrm{max}}-\\Delta t_{\\mathrm{min}}}{\\log(4/\\varepsilon^2)} \\simeq \\frac{50\\,\\mu\\mathrm{s}}{10\\,\\mu\\mathrm{s}\\,\\log(4/0.00022)}\\,M_\\odot \\simeq 0.5\\,M_\\odot\\,.\n\\tag{S2.28}\n\\end{equation}\\]\n\n\n\n\n\n\n\\(\\triangleright\\)\n Note: The data in this problem roughly correspond to PSR J1614-2230 [see P.B. Demorest \net al.\n, Nature 467, 1080-1083 (2010)]. From the Shapiro delay measurement, the White Dwarf mass was estimated as \n\\(0.500\\pm 0.006M_\\odot\\)\n. With the Keplerian orbital parameters in the binary system, the neutron star mass was considered to be \n\\(1.97\\pm 0.04M_\\odot\\)\n, which was the heaviest neutron star at that time. Since then, several candidates for heavier neutron stars have been found.\n\n\n\n\n\n\nC.4\n0.8 pt\n\n\n\\[M_{\\mathrm{WD}}/M_\\odot = 0.5\\]\n\n\nC.5\n For the circular orbit with the radius \n\\(R\\)\n, the equation of motion is \n\\[\\begin{equation}\nmR\\omega^2 = G\\frac{mM}{R^2}\\,,\n\\tag{S2.29}\n\\end{equation}\\]\n if \n\\(M\\)\n is sufficiently large. From this it is easy to see \n\\[\\begin{equation}\nR^3\\omega^2 = GM = (\\mathrm{const.})\n\\tag{S2.30}\n\\end{equation}\\]\n This is nothing but Kepler’s third law and the relation holds for more general elliptical orbits around the center of mass.\n\n\nC.5\n0.4 pt\n\n\n\\[p = -\\frac{3}{2}\\]\n\n\nC.6\n The sum of the kinetic energy and the potential energy is \n\\[\\begin{equation}\nE = \\frac{1}{2}mR^2\\omega^2 - G\\frac{mM}{R}\\,.\n\\tag{S2.31}\n\\end{equation}\\]\n From the equation of motion this is rewritten as \n\\[\\begin{equation}\nE = -\\frac{1}{2}G\\frac{mM}{R}\\,.\n\\tag{S2.32}\n\\end{equation}\\]\n Therefore, when \n\\(E\\)\n decreases due to gravitational wave emission, \n\\(R\\)\n should decrease. Then, \n\\(\\omega\\)\n should increase. Since the amplitude is proportional to \n\\(R^2\\omega^2 \\propto R^{-1}\\)\n, it should increase. In summary, both the frequency and the amplitude should increase as time goes on, as illustrated in (b).\n\n\nC.6\n0.2 pt\n\n\nThe most appropriate profile is (b).\n\n\n\n\n\n\n\n\n\nClock-F is in an inertial frame but Clock-II is not. Using Clock-II\n\\('\\)\n in another free-falling frame II\n\\('\\)\n as an inertial reference to Clock-II, the Lorentz transformation is validated for Clock-II\n\\('\\)\n seen from Clock-F.\n↩︎\n\n\n\n\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

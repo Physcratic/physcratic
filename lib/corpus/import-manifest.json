@@ -64,8 +64,8 @@
       "id": "ipho-2025-t1",
       "path": "/corpus/english-problems/ipho-2025-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -83,8 +83,8 @@
       "id": "ipho-2025-t2",
       "path": "/corpus/english-problems/ipho-2025-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -102,8 +102,8 @@
       "id": "ipho-2025-t3",
       "path": "/corpus/english-problems/ipho-2025-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -121,8 +121,8 @@
       "id": "ipho-2024-t1",
       "path": "/corpus/english-problems/ipho-2024-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -140,8 +140,8 @@
       "id": "ipho-2024-t2",
       "path": "/corpus/english-problems/ipho-2024-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -159,8 +159,8 @@
       "id": "ipho-2024-t3",
       "path": "/corpus/english-problems/ipho-2024-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -178,8 +178,8 @@
       "id": "ipho-2023-t1",
       "path": "/corpus/english-problems/ipho-2023-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -197,8 +197,8 @@
       "id": "ipho-2023-t2",
       "path": "/corpus/english-problems/ipho-2023-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -216,8 +216,8 @@
       "id": "ipho-2023-t3",
       "path": "/corpus/english-problems/ipho-2023-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -235,8 +235,8 @@
       "id": "ipho-2022-t1",
       "path": "/corpus/english-problems/ipho-2022-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -254,8 +254,8 @@
       "id": "ipho-2022-t2",
       "path": "/corpus/english-problems/ipho-2022-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -273,8 +273,8 @@
       "id": "ipho-2022-t3",
       "path": "/corpus/english-problems/ipho-2022-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -292,8 +292,8 @@
       "id": "ipho-2021-t1",
       "path": "/corpus/english-problems/ipho-2021-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -311,8 +311,8 @@
       "id": "ipho-2021-t2",
       "path": "/corpus/english-problems/ipho-2021-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -330,8 +330,8 @@
       "id": "ipho-2021-t3",
       "path": "/corpus/english-problems/ipho-2021-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -349,8 +349,8 @@
       "id": "ipho-2019-t1",
       "path": "/corpus/english-problems/ipho-2019-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -368,8 +368,8 @@
       "id": "ipho-2019-t2",
       "path": "/corpus/english-problems/ipho-2019-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -387,8 +387,8 @@
       "id": "ipho-2019-t3",
       "path": "/corpus/english-problems/ipho-2019-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -406,8 +406,8 @@
       "id": "ipho-2018-t1",
       "path": "/corpus/english-problems/ipho-2018-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -425,8 +425,8 @@
       "id": "ipho-2018-t2",
       "path": "/corpus/english-problems/ipho-2018-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -444,8 +444,8 @@
       "id": "ipho-2018-t3",
       "path": "/corpus/english-problems/ipho-2018-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -463,8 +463,8 @@
       "id": "ipho-2008-t1",
       "path": "/corpus/english-problems/ipho-2008-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -482,8 +482,8 @@
       "id": "ipho-2017-t2",
       "path": "/corpus/english-problems/ipho-2017-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -501,8 +501,8 @@
       "id": "ipho-2017-t3",
       "path": "/corpus/english-problems/ipho-2017-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -520,8 +520,8 @@
       "id": "ipho-2016-t2",
       "path": "/corpus/english-problems/ipho-2016-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -539,8 +539,8 @@
       "id": "ipho-2005-t1",
       "path": "/corpus/english-problems/ipho-2005-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -558,8 +558,8 @@
       "id": "ipho-2015-t1",
       "path": "/corpus/english-problems/ipho-2015-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -577,8 +577,8 @@
       "id": "ipho-2015-t2",
       "path": "/corpus/english-problems/ipho-2015-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -596,8 +596,8 @@
       "id": "ipho-2015-t3",
       "path": "/corpus/english-problems/ipho-2015-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -615,8 +615,8 @@
       "id": "ipho-2016-t1",
       "path": "/corpus/english-problems/ipho-2016-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -634,8 +634,8 @@
       "id": "ipho-2014-t3",
       "path": "/corpus/english-problems/ipho-2014-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -653,8 +653,8 @@
       "id": "ipho-2013-t1",
       "path": "/corpus/english-problems/ipho-2013-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -672,8 +672,8 @@
       "id": "ipho-2013-t2",
       "path": "/corpus/english-problems/ipho-2013-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -691,8 +691,8 @@
       "id": "ipho-2013-t3",
       "path": "/corpus/english-problems/ipho-2013-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -729,8 +729,8 @@
       "id": "ipho-2011-t1",
       "path": "/corpus/english-problems/ipho-2011-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -748,8 +748,8 @@
       "id": "ipho-2010-t1",
       "path": "/corpus/english-problems/ipho-2010-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -767,8 +767,8 @@
       "id": "ipho-2010-t2",
       "path": "/corpus/english-problems/ipho-2010-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -786,8 +786,8 @@
       "id": "ipho-2008-t2",
       "path": "/corpus/english-problems/ipho-2008-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -805,8 +805,8 @@
       "id": "ipho-2007-t2",
       "path": "/corpus/english-problems/ipho-2007-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -824,8 +824,8 @@
       "id": "ipho-2009-t1",
       "path": "/corpus/english-problems/ipho-2009-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -843,8 +843,8 @@
       "id": "ipho-2005-t2",
       "path": "/corpus/english-problems/ipho-2005-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -862,8 +862,8 @@
       "id": "ipho-2009-t2",
       "path": "/corpus/english-problems/ipho-2009-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -881,8 +881,8 @@
       "id": "ipho-2004-t3",
       "path": "/corpus/english-problems/ipho-2004-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -900,8 +900,8 @@
       "id": "apho-2025-t1",
       "path": "/corpus/english-problems/apho-2025-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -919,8 +919,8 @@
       "id": "apho-2025-t2",
       "path": "/corpus/english-problems/apho-2025-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -938,8 +938,8 @@
       "id": "apho-2025-t3",
       "path": "/corpus/english-problems/apho-2025-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -957,8 +957,8 @@
       "id": "apho-2024-t1",
       "path": "/corpus/english-problems/apho-2024-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -976,8 +976,8 @@
       "id": "apho-2024-t2",
       "path": "/corpus/english-problems/apho-2024-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -995,8 +995,8 @@
       "id": "apho-2024-t3",
       "path": "/corpus/english-problems/apho-2024-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1014,8 +1014,8 @@
       "id": "apho-2023-t1",
       "path": "/corpus/english-problems/apho-2023-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1033,8 +1033,8 @@
       "id": "apho-2023-t2",
       "path": "/corpus/english-problems/apho-2023-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1052,8 +1052,8 @@
       "id": "apho-2023-t3",
       "path": "/corpus/english-problems/apho-2023-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1071,8 +1071,8 @@
       "id": "apho-2011-t2",
       "path": "/corpus/english-problems/apho-2011-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1090,8 +1090,8 @@
       "id": "apho-2022-t1",
       "path": "/corpus/english-problems/apho-2022-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1109,8 +1109,8 @@
       "id": "apho-2022-t2",
       "path": "/corpus/english-problems/apho-2022-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1128,8 +1128,8 @@
       "id": "apho-2022-t3",
       "path": "/corpus/english-problems/apho-2022-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1147,8 +1147,8 @@
       "id": "apho-2021-t1",
       "path": "/corpus/english-problems/apho-2021-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1166,8 +1166,8 @@
       "id": "apho-2021-t2",
       "path": "/corpus/english-problems/apho-2021-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1185,8 +1185,8 @@
       "id": "apho-2021-t3",
       "path": "/corpus/english-problems/apho-2021-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1204,8 +1204,8 @@
       "id": "apho-2019-t1",
       "path": "/corpus/english-problems/apho-2019-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1223,8 +1223,8 @@
       "id": "apho-2019-t2",
       "path": "/corpus/english-problems/apho-2019-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1242,8 +1242,8 @@
       "id": "apho-2019-t3",
       "path": "/corpus/english-problems/apho-2019-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1261,8 +1261,8 @@
       "id": "apho-2018-t1",
       "path": "/corpus/english-problems/apho-2018-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1280,8 +1280,8 @@
       "id": "apho-2018-t2",
       "path": "/corpus/english-problems/apho-2018-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1299,8 +1299,8 @@
       "id": "apho-2018-t3",
       "path": "/corpus/english-problems/apho-2018-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1318,8 +1318,8 @@
       "id": "apho-2017-t1",
       "path": "/corpus/english-problems/apho-2017-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1337,8 +1337,8 @@
       "id": "apho-2017-t2",
       "path": "/corpus/english-problems/apho-2017-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1356,8 +1356,8 @@
       "id": "apho-2017-t3",
       "path": "/corpus/english-problems/apho-2017-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1375,8 +1375,8 @@
       "id": "apho-2016-t1",
       "path": "/corpus/english-problems/apho-2016-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1394,8 +1394,8 @@
       "id": "apho-2009-t1",
       "path": "/corpus/english-problems/apho-2009-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1413,8 +1413,8 @@
       "id": "apho-2016-t3",
       "path": "/corpus/english-problems/apho-2016-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1432,8 +1432,8 @@
       "id": "apho-2015-t1",
       "path": "/corpus/english-problems/apho-2015-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1451,8 +1451,8 @@
       "id": "apho-2015-t2",
       "path": "/corpus/english-problems/apho-2015-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1470,8 +1470,8 @@
       "id": "apho-2015-t3",
       "path": "/corpus/english-problems/apho-2015-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1489,8 +1489,8 @@
       "id": "apho-2006-t2",
       "path": "/corpus/english-problems/apho-2006-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1508,8 +1508,8 @@
       "id": "apho-2014-t2",
       "path": "/corpus/english-problems/apho-2014-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1527,8 +1527,8 @@
       "id": "apho-2014-t3",
       "path": "/corpus/english-problems/apho-2014-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1546,8 +1546,8 @@
       "id": "apho-2013-t1",
       "path": "/corpus/english-problems/apho-2013-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1565,8 +1565,8 @@
       "id": "apho-2013-t3",
       "path": "/corpus/english-problems/apho-2013-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1622,8 +1622,8 @@
       "id": "eupho-2025-t1",
       "path": "/corpus/problems/eupho-2025-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO_2025_Theory_ENG.pdf",
@@ -1639,8 +1639,8 @@
       "id": "eupho-2025-t2",
       "path": "/corpus/problems/eupho-2025-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO_2025_Theory_ENG.pdf",
@@ -1656,8 +1656,8 @@
       "id": "eupho-2025-t3",
       "path": "/corpus/problems/eupho-2025-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO_2025_Theory_ENG.pdf",
@@ -1673,8 +1673,8 @@
       "id": "eupho-2024-t1",
       "path": "/corpus/problems/eupho-2024-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_final.pdf",
@@ -1690,8 +1690,8 @@
       "id": "eupho-2024-t2",
       "path": "/corpus/problems/eupho-2024-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_final.pdf",
@@ -1707,8 +1707,8 @@
       "id": "eupho-2024-t3",
       "path": "/corpus/problems/eupho-2024-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_final.pdf",
@@ -1724,8 +1724,8 @@
       "id": "eupho-2023-t1",
       "path": "/corpus/problems/eupho-2023-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theory.pdf",
@@ -1741,8 +1741,8 @@
       "id": "eupho-2023-t2",
       "path": "/corpus/problems/eupho-2023-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theory.pdf",
@@ -1758,8 +1758,8 @@
       "id": "eupho-2023-t3",
       "path": "/corpus/problems/eupho-2023-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theory.pdf",
@@ -1775,8 +1775,8 @@
       "id": "eupho-2022-t1",
       "path": "/corpus/problems/eupho-2022-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_theory___English.pdf",
@@ -1792,8 +1792,8 @@
       "id": "eupho-2022-t2",
       "path": "/corpus/problems/eupho-2022-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_theory___English.pdf",
@@ -1809,8 +1809,8 @@
       "id": "eupho-2022-t3",
       "path": "/corpus/problems/eupho-2022-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_theory___English.pdf",
@@ -1826,8 +1826,8 @@
       "id": "eupho-2021-t1",
       "path": "/corpus/problems/eupho-2021-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021-theory.pdf",
@@ -1843,8 +1843,8 @@
       "id": "eupho-2021-t2",
       "path": "/corpus/problems/eupho-2021-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021-theory.pdf",
@@ -1860,8 +1860,8 @@
       "id": "eupho-2021-t3",
       "path": "/corpus/problems/eupho-2021-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021-theory.pdf",
@@ -2030,8 +2030,8 @@
       "id": "eupho-2017-t1",
       "path": "/corpus/problems/eupho-2017-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory.pdf",
@@ -2047,8 +2047,8 @@
       "id": "eupho-2017-t2",
       "path": "/corpus/problems/eupho-2017-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory.pdf",
@@ -2064,8 +2064,8 @@
       "id": "eupho-2017-t3",
       "path": "/corpus/problems/eupho-2017-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory.pdf",
@@ -2466,8 +2466,8 @@
     },
     {
       "path": "/corpus/collection.json",
-      "bytes": 2845298,
-      "sha256": "b65a0bfdd8aa6c1cd9a162bc6fc77c39304a21f7ce9c845b656041d8b326e5ee"
+      "bytes": 18717845,
+      "sha256": "0146b2ea9af48075a5b90ea384b683119c793370c03ed742a37c6a56df2d19a5"
     },
     {
       "path": "/corpus/documents/english-apho-2006-t2-solution/document.pdf",
@@ -5796,18 +5796,18 @@
     },
     {
       "path": "/corpus/english-problems/apho-2006-t2.json",
-      "bytes": 13085,
-      "sha256": "ace8abc5cbf5cc08c646a6d12abab34b2f0224c7c4497fa9a6b4b3bbfc541ef3"
+      "bytes": 164182,
+      "sha256": "4c9902b7fe5cd65a0f95862783c2afb2a86a868f5019dbc0848218fda6a43bc7"
     },
     {
       "path": "/corpus/english-problems/apho-2009-t1.json",
-      "bytes": 16480,
-      "sha256": "2adc78c1cbb46e87b06989a67ea25aef486e9bca4c0b975ee76023ee7d972506"
+      "bytes": 88395,
+      "sha256": "b98056e9fad848e0a6734eede3b81e3815f06b88c9b39645739e09dcdaacb725"
     },
     {
       "path": "/corpus/english-problems/apho-2011-t2.json",
-      "bytes": 11737,
-      "sha256": "8d846a3f5b44442ba43ed11a2bc6832888aa57b0ee9a89f73d4186b18e94844e"
+      "bytes": 80567,
+      "sha256": "d4b7f59c7b41fdaee900a5d10abfa67aae97f20fc53f174d462eb9b898794385"
     },
     {
       "path": "/corpus/english-problems/apho-2012-t1.json",
@@ -5821,223 +5821,223 @@
     },
     {
       "path": "/corpus/english-problems/apho-2013-t1.json",
-      "bytes": 11909,
-      "sha256": "403d66e1ae205971b15591f5a94c8a2744b3655f223fbc4595b5062534f91125"
+      "bytes": 64980,
+      "sha256": "1ac1b4bca45a33b6994938591a52b751da9daf57a95a3514efc3d6ebde73c975"
     },
     {
       "path": "/corpus/english-problems/apho-2013-t3.json",
-      "bytes": 22885,
-      "sha256": "83e74d474e7a4d3dcdb0aa24d6017da5a0ce89bc0f7a97bcaaee9c4d074766ef"
+      "bytes": 114764,
+      "sha256": "e49d0c96650dd374086cc88fa8a06b2d30bb64d13fa5ae9340a565e6581c2ee3"
     },
     {
       "path": "/corpus/english-problems/apho-2014-t2.json",
-      "bytes": 10112,
-      "sha256": "d5fd97f9827e6bcbac359d65e487cddb2e391dee6b6ef060c5d1b8e3b93040b9"
+      "bytes": 128063,
+      "sha256": "bdbd9bd1e0491098f29ff0648f3e2692687836c6dfb5db18f5dd94026c860a6a"
     },
     {
       "path": "/corpus/english-problems/apho-2014-t3.json",
-      "bytes": 16271,
-      "sha256": "cfdd4b454e992e50d08442db46d3f17edf699d0fdbb43aa459c9c78c919f42b3"
+      "bytes": 164498,
+      "sha256": "bc090b98e17d50b3ac82400a236ae5c26bf561c641d29c7317ee3e3f5640f4fa"
     },
     {
       "path": "/corpus/english-problems/apho-2015-t1.json",
-      "bytes": 21923,
-      "sha256": "8a2f7268cdc06e7bc66ebe39f7595342fb23942b0c94da511db0e70ada7a890e"
+      "bytes": 144408,
+      "sha256": "7781e26e304cb2dcb9d8921c3125d640454c0fc8d11b8d5fdd94b6e2d3b3dbec"
     },
     {
       "path": "/corpus/english-problems/apho-2015-t2.json",
-      "bytes": 25089,
-      "sha256": "d16f4d10d28a71e545fda39ccae1dc1dfb473a2576e38fbc0026693e1cc76374"
+      "bytes": 130809,
+      "sha256": "4651537e149f8ea471cb70d11b1b3c6a8f14d3deaec3d97bfc5210d5dfd14583"
     },
     {
       "path": "/corpus/english-problems/apho-2015-t3.json",
-      "bytes": 24162,
-      "sha256": "d6f33e780f797e6c58ec9400ec1c0832b35f189dc27c3e9321e5aee2191f268f"
+      "bytes": 157370,
+      "sha256": "b5ddbdb9b7cc5ba83ee7ea2694f3fa17cf5fe570847fd1d212cdd58db743bfd7"
     },
     {
       "path": "/corpus/english-problems/apho-2016-t1.json",
-      "bytes": 24624,
-      "sha256": "9e8883e412d352d5a147553aa5341f8dc2ec987ab356c26c7bf4c61b76840a97"
+      "bytes": 183794,
+      "sha256": "2b0f3639c055509bd91e1a2bca567b7c6c10e63e955bcaa7ff8ab56a165fa294"
     },
     {
       "path": "/corpus/english-problems/apho-2016-t3.json",
-      "bytes": 17884,
-      "sha256": "e13acb677f82cbe567381e392e7c65a1859f9ee03bda60c6f09ae9679a54398d"
+      "bytes": 175644,
+      "sha256": "0d3e2205a1270d58f2b70269e1b6c849b8deed4dae93dc58ed4a6edb68ba7f84"
     },
     {
       "path": "/corpus/english-problems/apho-2017-t1.json",
-      "bytes": 22310,
-      "sha256": "30b0de423411e380b8d516dac7db363be7b95e5fd575d4b837fe0d15e75f84ef"
+      "bytes": 182791,
+      "sha256": "60c7f7eb6849eae232e034ec806bd3cb9df6d64cba591e7b7ebbaa5f491042db"
     },
     {
       "path": "/corpus/english-problems/apho-2017-t2.json",
-      "bytes": 21757,
-      "sha256": "c2a2a0d34bd6d0925a5d3ae0ed95fd5c3fe70e98569a764c9e3fd36b6bdbfaff"
+      "bytes": 147606,
+      "sha256": "c5ff2553349161f0437ae5a9a333006cdd084799d988e4d8f06d04ebc95768b4"
     },
     {
       "path": "/corpus/english-problems/apho-2017-t3.json",
-      "bytes": 27913,
-      "sha256": "6395daefa97430da414e2331d42d4167a8041a756fa02fd359c797e7abe3f2eb"
+      "bytes": 150602,
+      "sha256": "b23c0cf9ba1d965b6efe3151c03656363c9cb8f52c363ef9eb6e35308884a400"
     },
     {
       "path": "/corpus/english-problems/apho-2018-t1.json",
-      "bytes": 27052,
-      "sha256": "ae292866a8e9cd6df55b41e6581051d136187b10a92fcf107702e851a9a59a1f"
+      "bytes": 173264,
+      "sha256": "bb6bb4efbdfe2c84d07980a53190352fc75803e11e02ee34ac61aa1a72511531"
     },
     {
       "path": "/corpus/english-problems/apho-2018-t2.json",
-      "bytes": 21402,
-      "sha256": "d009d6ca94f1e317b36ab30fbfbcda028409ff2aeec58cca2220d442b86c0eea"
+      "bytes": 127564,
+      "sha256": "a62baa140729308862b541a6ba8e0c530aee5244dcfc49c0fd36f79725ee6bbd"
     },
     {
       "path": "/corpus/english-problems/apho-2018-t3.json",
-      "bytes": 28420,
-      "sha256": "8c24ab9b20402428c7eb45cc2170dbb126315e2813818a5bc652ac910bf94fb0"
+      "bytes": 204068,
+      "sha256": "671cc87d298c31e385ae771ce1b7a71d3c7eedac2c97601204b33dc77e7d1abb"
     },
     {
       "path": "/corpus/english-problems/apho-2019-t1.json",
-      "bytes": 22109,
-      "sha256": "e4706cfdcfba87995ac9a9703ab34bb18424d98070067e4d87693a16d730a44e"
+      "bytes": 158688,
+      "sha256": "ee2c4d5f4a40f6b5b52cc8770201f2f907a7ed6f28d6bd120593bd11da45824e"
     },
     {
       "path": "/corpus/english-problems/apho-2019-t2.json",
-      "bytes": 24057,
-      "sha256": "e52a333dbb6af0ac01dcc2c658134383fe50f421747d70b31902698111805743"
+      "bytes": 186733,
+      "sha256": "2806b7f8caff72f89de107fffb63448abbff0c97935e17d1dc0e611198cc99b7"
     },
     {
       "path": "/corpus/english-problems/apho-2019-t3.json",
-      "bytes": 15744,
-      "sha256": "627c1fdc563c5230ac09499865c737dd0aa44a4b163da21267de9b2e3f80a075"
+      "bytes": 132972,
+      "sha256": "7c844fbc024f5bbf8928d7d5d08e2ae842508d576f71a246f63bb10de6035ffc"
     },
     {
       "path": "/corpus/english-problems/apho-2021-t1.json",
-      "bytes": 27826,
-      "sha256": "42c2c80e4ee17bdf4ef2d9481381d4181593a6a4e5ad86c77e2320b17d8656eb"
+      "bytes": 274617,
+      "sha256": "381c86ff994fdf3f588412d937826e9ec0176322ed0ca3e06b93fbc589d5caeb"
     },
     {
       "path": "/corpus/english-problems/apho-2021-t2.json",
-      "bytes": 35198,
-      "sha256": "177a3cf7756fa650633395fbb9b716be466325d0a54c80dc4833c28f2d2847a1"
+      "bytes": 357863,
+      "sha256": "06fed48b81238850a0a286bbf7320fdbb729f940bff21ff71074064f24f47371"
     },
     {
       "path": "/corpus/english-problems/apho-2021-t3.json",
-      "bytes": 28677,
-      "sha256": "bb1d360227a9e97c8fdb789411022d4cfc1a3621a35246791eb17802c438dc53"
+      "bytes": 197072,
+      "sha256": "ca4bf8099fd78016a8bf2b07e2837aa0341963bcf57958670d80c9c1678169e2"
     },
     {
       "path": "/corpus/english-problems/apho-2022-t1.json",
-      "bytes": 16483,
-      "sha256": "ba7c1329c6ee77b15da9159f168a44b1ca22ede629773f4b6a721fac068c91cc"
+      "bytes": 119514,
+      "sha256": "3ef1bcc90ab047ca6bcc76251e54399bf5ac375364f405859145b0dd97799259"
     },
     {
       "path": "/corpus/english-problems/apho-2022-t2.json",
-      "bytes": 17144,
-      "sha256": "d79bece1f79a8eebe21a923c25a38a938dc45325756c6d7c5e88dfc7c6eafa9d"
+      "bytes": 159115,
+      "sha256": "1b715301896137c9d2df764e766422168f14ae38cef439bf23fc1574d0fd6fdb"
     },
     {
       "path": "/corpus/english-problems/apho-2022-t3.json",
-      "bytes": 16207,
-      "sha256": "19ba6d10a285178302ad6565d1cb10f317d04b9dc75ba8e3215635d418f03f99"
+      "bytes": 132244,
+      "sha256": "5aebf6c9e69889894ea1a4e5f9414c667ca1b1f7e761bd4c55f8051e8e61a4e4"
     },
     {
       "path": "/corpus/english-problems/apho-2023-t1.json",
-      "bytes": 30673,
-      "sha256": "867355ee365710c1112d66f8883b698e6aabd2e19dbb032b5c35ddc7effd48af"
+      "bytes": 264685,
+      "sha256": "1158c6e8dd07dc04f90a2f9c2c9a0fd10afab558c46f9b1aeb0eda071747b94a"
     },
     {
       "path": "/corpus/english-problems/apho-2023-t2.json",
-      "bytes": 31866,
-      "sha256": "c27c2ca45880ada0628e02311b76065607b1a36ddcf3e2e97929015664f124f7"
+      "bytes": 262230,
+      "sha256": "fc5388e39e289bf7dd7bd59eef41d08a1b4a815177411a248b7f236063c5bc8d"
     },
     {
       "path": "/corpus/english-problems/apho-2023-t3.json",
-      "bytes": 30156,
-      "sha256": "418acf0ceb2253f6d4c35b0fb82414fdea4cd67e1ffb422b8e318e243a956f6c"
+      "bytes": 225971,
+      "sha256": "4f2b12f6fd7f4ea2bbb8062602d183a3eb29a63513bd6d8cebfa71f4e8592364"
     },
     {
       "path": "/corpus/english-problems/apho-2024-t1.json",
-      "bytes": 9844,
-      "sha256": "2436a074aa9370bba9da1a62d538684711d68404eb513a8ae6ceb40ef4d3ff1c"
+      "bytes": 83864,
+      "sha256": "78ddeecd943a12a69655fa7419daf8e07a514db271886f3f216e58a68a270d36"
     },
     {
       "path": "/corpus/english-problems/apho-2024-t2.json",
-      "bytes": 9545,
-      "sha256": "486b13dd01ded1e6d19f0d1ba4524d72074809ce019e770d1e96308a41f214a9"
+      "bytes": 92191,
+      "sha256": "a27d65fa3225eb4e47bb38835390a1e3b052a45fb727ea5ec3d623e2c07b4a4d"
     },
     {
       "path": "/corpus/english-problems/apho-2024-t3.json",
-      "bytes": 18169,
-      "sha256": "fd83b6b9b7714e9e14555ef6e765b5653317db665b9b351db91fae61d9fa898e"
+      "bytes": 97805,
+      "sha256": "783768b3c0aaa28bfac7d3dedd70a3157694f2ef38598c581cdbe13d26a09457"
     },
     {
       "path": "/corpus/english-problems/apho-2025-t1.json",
-      "bytes": 22218,
-      "sha256": "234fa22e5bcf303d414df917109e333fecc3798e2b224612d4e239eab2e79990"
+      "bytes": 307495,
+      "sha256": "b87350b3572ad84a5737df6d70a5c2aa0c105c1a250e0be43060f08b0f72f626"
     },
     {
       "path": "/corpus/english-problems/apho-2025-t2.json",
-      "bytes": 23783,
-      "sha256": "5e7c02e3fc569795cfdd2caeb0580443468482e79ceb16c53720fce5d4e203cf"
+      "bytes": 345012,
+      "sha256": "a5362a071e96359480202198551b99e7f69395cd055bca5725606b32bd8dd03b"
     },
     {
       "path": "/corpus/english-problems/apho-2025-t3.json",
-      "bytes": 27175,
-      "sha256": "420b3785c682dccefff90b50e3b136196a1bad866b299b2e11c14a400d255d0b"
+      "bytes": 392616,
+      "sha256": "8f898f00d267f1cf8f07f7a6227141e52764089337468921a58f7a55b4ab897e"
     },
     {
       "path": "/corpus/english-problems/ipho-2004-t3.json",
-      "bytes": 13093,
-      "sha256": "ebbe397b3c3d05c411b0b828765dc27e4d2b722d3f8d2404300dfb8701ea9fd3"
+      "bytes": 125909,
+      "sha256": "ed25b2d019eadac935d852896af98828e4dab379d23d136755de32cd4c64f0e3"
     },
     {
       "path": "/corpus/english-problems/ipho-2005-t1.json",
-      "bytes": 14221,
-      "sha256": "1313f13396164cba2cd7df06b5c15041aa7552b467e75510716c8ecd031fb4b7"
+      "bytes": 189138,
+      "sha256": "91b356199c442870277e8fa2bb55ecb809e6db055df9752d494dd54f35d268fa"
     },
     {
       "path": "/corpus/english-problems/ipho-2005-t2.json",
-      "bytes": 12639,
-      "sha256": "7596105e5cb2ab9f2af3145cdfd836c0fb0060d278e9e303eae221ac243e37da"
+      "bytes": 144536,
+      "sha256": "20993dce6f47d6621f436d84930c229608ec6c638015f9a2ef0d15355f02b35b"
     },
     {
       "path": "/corpus/english-problems/ipho-2007-t2.json",
-      "bytes": 15504,
-      "sha256": "b1d644569905c7f2286ac1ec08785bdc2d67068d5c9456b141a0a6c18fc4f749"
+      "bytes": 91367,
+      "sha256": "4588caacc446e92b9f5f1789b3f14da5c31d722838b0c5216e4bbca8c7ffd7e3"
     },
     {
       "path": "/corpus/english-problems/ipho-2008-t1.json",
-      "bytes": 22907,
-      "sha256": "3a3b6b2b0b6eb66eb0643e1830cda0283b1e06c9652822fa6c3e0619fcff03f6"
+      "bytes": 142434,
+      "sha256": "55907d73d3f2e0552d29cdaf068484f1bf9a71aea5642817c7d0396ab3365d26"
     },
     {
       "path": "/corpus/english-problems/ipho-2008-t2.json",
-      "bytes": 19289,
-      "sha256": "cc982a648c884e2192e5c99ebc0a9885f4ed3cfa71d5c03d837dbf32523f8ff3"
+      "bytes": 112939,
+      "sha256": "739a27500f8973eba0333ea6ac0a0ee25c15aad4c17062ab7c21b6c2113ed362"
     },
     {
       "path": "/corpus/english-problems/ipho-2009-t1.json",
-      "bytes": 16313,
-      "sha256": "580d6a3dab64248f7b2965b2815a1eee6f91f7206b147ce4b9367b9665fdb6a2"
+      "bytes": 95643,
+      "sha256": "dd7fb2a3df9c9682d8d2b839315a153201cf9cca13d28cac445d23c4b0667868"
     },
     {
       "path": "/corpus/english-problems/ipho-2009-t2.json",
-      "bytes": 21099,
-      "sha256": "3a530d04563665bed663bc9b4b0c4dcf411ab0d8f2ba49c54ccf363268611089"
+      "bytes": 137272,
+      "sha256": "a89de4f65d6f08843a1a0127aeaa46475afd646c7967f46763d234d42294e316"
     },
     {
       "path": "/corpus/english-problems/ipho-2010-t1.json",
-      "bytes": 16143,
-      "sha256": "a79b7b8c80b7e9862faeef56c9a2f780b5962d6138b06f935ce294abf2388f10"
+      "bytes": 102410,
+      "sha256": "14d2ea1dbeae645b8afef7917e3dc1d2ffd0cbbc84191ccfe65f65e0ab4368d0"
     },
     {
       "path": "/corpus/english-problems/ipho-2010-t2.json",
-      "bytes": 12428,
-      "sha256": "4c2848b6862071c216777819bcaaecefd68ae39a34a0ce601d6e865207da4a9a"
+      "bytes": 74211,
+      "sha256": "49da61642af2f8ff50ce4ca09433e8c580187b2acee04ab641b02c84324c5f89"
     },
     {
       "path": "/corpus/english-problems/ipho-2011-t1.json",
-      "bytes": 16785,
-      "sha256": "e56ff38afe7f12dd231c23559f9477b7ddd64a56a45c3c1f439ae470003fdea0"
+      "bytes": 93547,
+      "sha256": "08fdafd60ee6d8a1ed9d34a5a9ebfd424d420ce18e3993d320fb835e03b8cdcd"
     },
     {
       "path": "/corpus/english-problems/ipho-2012-t2.json",
@@ -6046,163 +6046,163 @@
     },
     {
       "path": "/corpus/english-problems/ipho-2013-t1.json",
-      "bytes": 15581,
-      "sha256": "df05ebd9252085e84cc416741f350dc2e7f82d89eff5e1a7e069c080d8386856"
+      "bytes": 176956,
+      "sha256": "2b3471882946bb34509cb216ce77cbff4f8d19d8e79c7a8bb412faf3fc97dc51"
     },
     {
       "path": "/corpus/english-problems/ipho-2013-t2.json",
-      "bytes": 20083,
-      "sha256": "f1024d4696e9888c19318f4f706857baa80c69d68155bfa51780dd0762c05b4a"
+      "bytes": 199115,
+      "sha256": "d0e006ef9fc309928a61cb3bea96dc1177a7c9c1dceaa74aec84df93124115aa"
     },
     {
       "path": "/corpus/english-problems/ipho-2013-t3.json",
-      "bytes": 22129,
-      "sha256": "24cdeea25a981659ec641554a9b179b33a5ed7c0a2f08da9d7f11f32eaef9ade"
+      "bytes": 190431,
+      "sha256": "b53d098fbbe255ea66bbb886725cb34a870a91d53e9702cb973baeb1ae368c8f"
     },
     {
       "path": "/corpus/english-problems/ipho-2014-t3.json",
-      "bytes": 15863,
-      "sha256": "416307ada5eeebd0509c8e7819fc6c3e07853a829731b4d1bf50769a94d9e327"
+      "bytes": 98893,
+      "sha256": "61e030f0c57d2267a4029bd8595e1d1b159abc6e73668a40af21b93e4b21414e"
     },
     {
       "path": "/corpus/english-problems/ipho-2015-t1.json",
-      "bytes": 19774,
-      "sha256": "b54ed78ecd0b5d5890de0babf892c56e8a4f1a81c9d9a33a7bcb25dfd641a4eb"
+      "bytes": 170839,
+      "sha256": "f2610d04bd4656250ef073123515ef28999e36346c988834647f4bb429f3703c"
     },
     {
       "path": "/corpus/english-problems/ipho-2015-t2.json",
-      "bytes": 19766,
-      "sha256": "733a5ef37413f3f7ee28b12f7fb8297fb8f705f7c27594c80bb6f4519101cefe"
+      "bytes": 181200,
+      "sha256": "fbe73ba7e7acfb5637f735cb880f15670df4aa5044316de3b5040a8a77c92288"
     },
     {
       "path": "/corpus/english-problems/ipho-2015-t3.json",
-      "bytes": 25083,
-      "sha256": "bf191b529fc35d0731e22bced126e7939b470cf36c5265212652357a36923658"
+      "bytes": 241266,
+      "sha256": "a9438fc49505776e1fc20793d1eea1a8f369362c9f22c6f190c85ad22d4267b7"
     },
     {
       "path": "/corpus/english-problems/ipho-2016-t1.json",
-      "bytes": 24194,
-      "sha256": "8ec81ddf9425791f36c10e677a394263fa96ea59967d806e13babde00c0f0386"
+      "bytes": 254657,
+      "sha256": "1a090a4e3c0aac7ac9506e523a9d5161307c656b578f788a60741d971975580c"
     },
     {
       "path": "/corpus/english-problems/ipho-2016-t2.json",
-      "bytes": 16709,
-      "sha256": "c4482578e0c9678e531fc4bb6b302e11a50f4eacc505161dc1ebdd242d8267fd"
+      "bytes": 153909,
+      "sha256": "53dcdea2647019a84f18b0cd2bf91f5704cc915933fe61b6e8efe364a881fc4f"
     },
     {
       "path": "/corpus/english-problems/ipho-2017-t2.json",
-      "bytes": 1733,
-      "sha256": "702b5d76250e02c818cad35409f52782d3c464c2d268de1aba30b08ccd230b4b"
+      "bytes": 99751,
+      "sha256": "3ce943cc7c6235613539674adee1fd0a796b9b8a38bad9d70646e48fcab7ff27"
     },
     {
       "path": "/corpus/english-problems/ipho-2017-t3.json",
-      "bytes": 2411,
-      "sha256": "efa399475d476b8563148b3b136926e4b23aa52569438d13eea36f49b767f943"
+      "bytes": 120736,
+      "sha256": "3890419bd38a6240d5793263ca88f48740fc8a291e9ff8afb9854eee0b419563"
     },
     {
       "path": "/corpus/english-problems/ipho-2018-t1.json",
-      "bytes": 14168,
-      "sha256": "86bbe597b9f6c63bc8ba973e018cd7ffe848c3a211776a32bd5fb61901b8945a"
+      "bytes": 103902,
+      "sha256": "48ae7ee72882bda7c197f1144d34c7e3b315fc307268dc93ae4f5de4cfc069e1"
     },
     {
       "path": "/corpus/english-problems/ipho-2018-t2.json",
-      "bytes": 15245,
-      "sha256": "36877a05e4a54b0dfbf8fe9e207d050ebdfec984dc3c7a4fcb9c86f9eafa3747"
+      "bytes": 108463,
+      "sha256": "eae00813e9a8d695e2295099af29d80c79e6bf75b2039d4a4af5ba331fec2e48"
     },
     {
       "path": "/corpus/english-problems/ipho-2018-t3.json",
-      "bytes": 16925,
-      "sha256": "87e8269fd73200c7b14c2f84bbc5141b5d7c04d462d8928ee3e66f39bc9db0db"
+      "bytes": 115482,
+      "sha256": "960e6ac694605ee08a390693f9781a9a67e0493c556aa9c45bc3c2323e5479d1"
     },
     {
       "path": "/corpus/english-problems/ipho-2019-t1.json",
-      "bytes": 14113,
-      "sha256": "08bebeeaace1380e040607060a26b1a71abe60704d08b40b57dcf116f1ab825f"
+      "bytes": 83283,
+      "sha256": "9384be65c679df8f97d6e973dfab4d9fe02b35e6699d30bd3eb0f925f08a1d8e"
     },
     {
       "path": "/corpus/english-problems/ipho-2019-t2.json",
-      "bytes": 23800,
-      "sha256": "6a2c7520eaa821248c706c869fc0fe163607de38a6ebea5f6aaa84f95576ab52"
+      "bytes": 165523,
+      "sha256": "610508bd35118609418371aa191f4c1e7010ebae3a57f58fcdaeaeb81ed06bd0"
     },
     {
       "path": "/corpus/english-problems/ipho-2019-t3.json",
-      "bytes": 17490,
-      "sha256": "b5d3b57a7d264a86b2c47338bba5da2cfb70cb341881bac7f6129e1b703b0d8f"
+      "bytes": 113728,
+      "sha256": "93d172b54df74b7304b4488ce22c8e4363e2344e1ab64755a731e90f31da8cc3"
     },
     {
       "path": "/corpus/english-problems/ipho-2021-t1.json",
-      "bytes": 17667,
-      "sha256": "0d70bf960978a15c6128e742163b1fd913320520c18321f57df7893cd4c2da4b"
+      "bytes": 127621,
+      "sha256": "d22f9c5d1e937f02d3b059d5ddb071a1671b0c65e302b3eb7772bd7f93409e97"
     },
     {
       "path": "/corpus/english-problems/ipho-2021-t2.json",
-      "bytes": 21563,
-      "sha256": "db0342de2a77f9791cff5e022fc81465d7bf98eed99f8c9ee6f6cbd33856471b"
+      "bytes": 144300,
+      "sha256": "17794a32604bee9c75165357261af3bc2b54f16b210e890050463d0131b05336"
     },
     {
       "path": "/corpus/english-problems/ipho-2021-t3.json",
-      "bytes": 22689,
-      "sha256": "c27bb0abf63bdb8e95cd26e3b572c508679c0a34380091f4ffc4c3857b9189d1"
+      "bytes": 138175,
+      "sha256": "fd075b1fcd1b87ea7bf4ca153c2402070ed127e47f21c22011d365f820c429d5"
     },
     {
       "path": "/corpus/english-problems/ipho-2022-t1.json",
-      "bytes": 42001,
-      "sha256": "6662c18b6842f6e5dca68dc219d10a3f13e88e99afc75065e54c3f9c1c957eaa"
+      "bytes": 421940,
+      "sha256": "edb422246ad47df5e3c06b4c1de56c90efb66f2b82ef4dd69805e20f5ba7f361"
     },
     {
       "path": "/corpus/english-problems/ipho-2022-t2.json",
-      "bytes": 39043,
-      "sha256": "6df6e24340fc86ae8471b73e1a778b8e0b069369cd01359d3db7f758a76a8cd5"
+      "bytes": 539862,
+      "sha256": "ff624581a583bd2d419091b07d70b5c325a0ec8e7fb8fbc5ef49e4baac40bb59"
     },
     {
       "path": "/corpus/english-problems/ipho-2022-t3.json",
-      "bytes": 31899,
-      "sha256": "bd45003aaf7bf165e61c385edcb47b232e0fafbb7c38ae57443854848e988cf0"
+      "bytes": 294355,
+      "sha256": "f4de5ad038d55d9aa0e625426b766d631fa1a42125c585ea7c9c8c4c292104c6"
     },
     {
       "path": "/corpus/english-problems/ipho-2023-t1.json",
-      "bytes": 23781,
-      "sha256": "b605f0e434b8070fe4a7620f96394fb05ee04abff75203fb950746b3ddfe3876"
+      "bytes": 233177,
+      "sha256": "374bef58a0f7324cc5014f923697c05169a39c00514aa290bb6fbc0d911d24ae"
     },
     {
       "path": "/corpus/english-problems/ipho-2023-t2.json",
-      "bytes": 20656,
-      "sha256": "f720e647d9f15e7e8767dde481f2f9277ad28081b2dd36a5ec106982d77ffb0d"
+      "bytes": 167458,
+      "sha256": "c01d39e27ed17aad30ddeb4abc5e235bd50927f93141cfe1904c104dfade003c"
     },
     {
       "path": "/corpus/english-problems/ipho-2023-t3.json",
-      "bytes": 15203,
-      "sha256": "2b50a05a9e7f9ac77cc95fdb2828e2d8ed35ba2c53f2fdb82140c65c86c34937"
+      "bytes": 127414,
+      "sha256": "21124be06dc9d9cebf8f1824720d823fa2dcd35e7020a2a018c043544be769b8"
     },
     {
       "path": "/corpus/english-problems/ipho-2024-t1.json",
-      "bytes": 19829,
-      "sha256": "1f7be18fe860751f1a3dacc0a0c1903d98b73e2a36173711bb25a7975245c0e4"
+      "bytes": 120901,
+      "sha256": "cc2103a142966877af878380fe37e2e8c26e5276a83caaadf74668892e7d85c4"
     },
     {
       "path": "/corpus/english-problems/ipho-2024-t2.json",
-      "bytes": 20481,
-      "sha256": "bb2832d26a250c80fdcdfe2e88d0e4322ae4597599d01a0e93ffbbcad8a7c642"
+      "bytes": 136393,
+      "sha256": "d3e88b762de37ebe59b7ed87cfaefbfbeba93038e9eaf86c2427fd61a4eb18c3"
     },
     {
       "path": "/corpus/english-problems/ipho-2024-t3.json",
-      "bytes": 19255,
-      "sha256": "19ab63f88c6077bc3f2e2c0ef428f44dd0f09262cb8775afda6e932c0fe0393e"
+      "bytes": 128641,
+      "sha256": "3884cf267e006389f7f21cd0bce0524a6727325213c8cb1270514af9331c2aa5"
     },
     {
       "path": "/corpus/english-problems/ipho-2025-t1.json",
-      "bytes": 42925,
-      "sha256": "4b55e62c9b792c676468a9ccfb6b28a27fd7b5dba3d2b45df9c7586d719f54e5"
+      "bytes": 146005,
+      "sha256": "11b4e248b84927bbbcf90882254c9397eb112d437735ac5c106aa8faf1ef6afa"
     },
     {
       "path": "/corpus/english-problems/ipho-2025-t2.json",
-      "bytes": 44408,
-      "sha256": "3cc882a6e12021a18bee58ef2b6dcbffa189c3157c2aae725cfa4749b7279784"
+      "bytes": 542197,
+      "sha256": "378f2a53a4a4f189af115830e53267036dceae766e19753c62f4295965d60713"
     },
     {
       "path": "/corpus/english-problems/ipho-2025-t3.json",
-      "bytes": 45563,
-      "sha256": "e032a0382d64521a26bfb27e00e2e698976db5901e630a0ac5dd41d8e36b62f7"
+      "bytes": 153555,
+      "sha256": "e017ab15fcb20094da3f5cdf39736f23d104d5bc27af8b6545f19ac4ef5b9862"
     },
     {
       "path": "/corpus/english-problems/ipho-2026-t1.json",
@@ -7340,6 +7340,2641 @@
       "sha256": "391d4b5b812e276a63fa80962bfb971d384d7f44f9d3b72fbd58102a41533ff2"
     },
     {
+      "path": "/corpus/figures/native/bulk/apho-2006-t2/01e63621b3b564d78e20.png",
+      "bytes": 14272,
+      "sha256": "01e63621b3b564d78e208f4e42d7615de3d047e8536941971cc774e5fd5efc62"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2006-t2/0e6ced8eec12ce5ef62c.png",
+      "bytes": 47052,
+      "sha256": "0e6ced8eec12ce5ef62c8fe4fbc25928aee698f1d55d0f952778fa331e0f238d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2006-t2/44c7d6caaaaba4740ad0.png",
+      "bytes": 3464,
+      "sha256": "44c7d6caaaaba4740ad0a39d6a4ead0c553b1b4c6a0e7c0705219a2aa9734d8a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2006-t2/7fe5f93e28e295ef2c3a.png",
+      "bytes": 120933,
+      "sha256": "7fe5f93e28e295ef2c3adde92a2ac390a616c84195284392884991ddc179a9f5"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2006-t2/c8537cf54b0c2ae40436.png",
+      "bytes": 8132,
+      "sha256": "c8537cf54b0c2ae40436c95b4b9b3412f188db21167805f1f48db3e83526259a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2006-t2/e3dc6df09ca04eee5544.png",
+      "bytes": 46018,
+      "sha256": "e3dc6df09ca04eee5544fed743b04c0f130fda148a2c42b701a9a088da6ff119"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2009-t1/27a98a150bf0a4157c8b.png",
+      "bytes": 12588,
+      "sha256": "27a98a150bf0a4157c8bb622c8e47052e6fc22612ef91466986bf1ac2d002a9d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2009-t1/3cf5f5b64107048e33cf.png",
+      "bytes": 22880,
+      "sha256": "3cf5f5b64107048e33cffa08614a1826346400c27d9468785b2494fa903d769f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2009-t1/7a1f104f8d5197c5015d.png",
+      "bytes": 23120,
+      "sha256": "7a1f104f8d5197c5015d79800a2391a8f74d22a3bcf02b5ed4d70dc8d48855a3"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2009-t1/fca12de57d465f84cdc2.png",
+      "bytes": 23653,
+      "sha256": "fca12de57d465f84cdc24056b4291be10ec7652a635d5c3c058f5779bac735cd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2009-t1/feaee4c644c93b9806ec.png",
+      "bytes": 28410,
+      "sha256": "feaee4c644c93b9806ec3aec8c5b9d9b01837deccb6263d0a8630fa6caa788c8"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2011-t2/60b8bbc568b3425b878d.png",
+      "bytes": 4865,
+      "sha256": "60b8bbc568b3425b878d39791737fa1b4015613c9cfb4ad935db29f3c40dab77"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2011-t2/9d0bb99b4e22dc0aeeec.png",
+      "bytes": 14997,
+      "sha256": "9d0bb99b4e22dc0aeeece76b8a943005de213340aa23fec50f5740080551b414"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2011-t2/a8e18a4dd55a7db0de4b.png",
+      "bytes": 8519,
+      "sha256": "a8e18a4dd55a7db0de4b6a383be74c537dd2ebeb8f95798c47fce3413494ea88"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2011-t2/e59cfe750fd606e6dcb3.png",
+      "bytes": 12904,
+      "sha256": "e59cfe750fd606e6dcb386a7768a1870aa33d290af70622b432d3b1f51249560"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2011-t2/f2ddb45106c3c6d9f585.png",
+      "bytes": 15526,
+      "sha256": "f2ddb45106c3c6d9f5856ec90efa82b1c9ee71a804c406a9387f47782c537d6f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2011-t2/f6ef05e04867cb0b564e.png",
+      "bytes": 11847,
+      "sha256": "f6ef05e04867cb0b564eef6487eb1c80c0ce6a37c3317a7f90f0d697da5382ca"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2013-t1/09c2ed5cef5db6b8a133.png",
+      "bytes": 43943,
+      "sha256": "09c2ed5cef5db6b8a1335e0874b3a7323f4398ea7a71ebe203cbf4105fa97262"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2013-t1/247a39abc8656662cf09.png",
+      "bytes": 30309,
+      "sha256": "247a39abc8656662cf097ee556105691e873a7551931b448ec2de3a888972fe7"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2013-t1/bbc7390ad299a0f6644e.png",
+      "bytes": 16128,
+      "sha256": "bbc7390ad299a0f6644e4bf80aa93190427e20c52fde4415dece366a7471bce4"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2013-t1/c7c94ab4ab456f24512d.png",
+      "bytes": 18871,
+      "sha256": "c7c94ab4ab456f24512d812b8ede4b57676dd31e3f47023d85758811dd563c2f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2013-t3/2ac222d1f4da3fe8d37c.png",
+      "bytes": 16723,
+      "sha256": "2ac222d1f4da3fe8d37c70b4d97c562d0496ce0c0d651c758b409b1919ef4222"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2013-t3/57b73d51411f522081b7.png",
+      "bytes": 30622,
+      "sha256": "57b73d51411f522081b7880beaef599402e04aa09e0eeced049e0a5ed09a5e0a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2013-t3/ed09bd18abd2bc03c3c1.png",
+      "bytes": 20437,
+      "sha256": "ed09bd18abd2bc03c3c12502c8fd9fcd29e0aca64ede971162d269e4f932efb4"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2014-t2/d80a62d6457ad18f2c32.png",
+      "bytes": 91222,
+      "sha256": "d80a62d6457ad18f2c3250008c7d4ef446a9073675704a420692a1e37f1ba3e0"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2014-t2/dbc610bfb56ad1ae2077.png",
+      "bytes": 91731,
+      "sha256": "dbc610bfb56ad1ae20777173861b24c9a55a2eeae1eba274a7711cc97b4f4e74"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2014-t3/1b257af8748cbb7ac11b.png",
+      "bytes": 15657,
+      "sha256": "1b257af8748cbb7ac11b0eed094f93dea68d9b7f52e6372f28aa7c4dc93c34f7"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2014-t3/29cfa774e8201eea1459.png",
+      "bytes": 16882,
+      "sha256": "29cfa774e8201eea1459d894680a40144f24959747c32fd5ad2aa8a13ae67c14"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2014-t3/549dcb3d694f2fc9cf03.png",
+      "bytes": 16883,
+      "sha256": "549dcb3d694f2fc9cf03354ff3f5e3a818f2fc85e3ea205edce879cbc61480b6"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2014-t3/ffc6d8451d90b9931100.png",
+      "bytes": 13388,
+      "sha256": "ffc6d8451d90b9931100b0d545757c757e68574321179bbc429e6facbffc7f65"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t1/2b5dcc61c40e4ede2dfc.png",
+      "bytes": 70415,
+      "sha256": "2b5dcc61c40e4ede2dfca02f0b82a2e9092f8aeb6caf6a2bc1481d772b493cdd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t1/9fefeb77c7bb9be3bd22.png",
+      "bytes": 115539,
+      "sha256": "9fefeb77c7bb9be3bd224d395e811267ae15087e7145cc467b1abb30fc9d96b2"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t2/00b0982c1503f4719d16.jpg",
+      "bytes": 55706,
+      "sha256": "00b0982c1503f4719d16f22a174d250b38a797f18ff1a350f84a7d0afcb310ce"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t2/0cb4e8c2a4aa9f1891af.png",
+      "bytes": 40148,
+      "sha256": "0cb4e8c2a4aa9f1891af4b3d0408546599a81dc224b58c9fdb0dc49bc0f40f64"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t2/26522445566d0b99e055.png",
+      "bytes": 31769,
+      "sha256": "26522445566d0b99e055234d36f4e25ee97e0785b9da980f1b1137e8de723aa5"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t2/4762274a28948c33cd5c.png",
+      "bytes": 117509,
+      "sha256": "4762274a28948c33cd5c211bfe4caf2bc3f138e78ef9de9c3b42db1248d4139a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t2/682e74becbdd3f3106a9.jpg",
+      "bytes": 64768,
+      "sha256": "682e74becbdd3f3106a9432bb0c978cfd24e05110d867d55bfc6fdbb347f6a3d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t2/b98626f5709b668cc753.png",
+      "bytes": 29305,
+      "sha256": "b98626f5709b668cc7531fe1e2227fad80358180cb26d3689430b52ce508c38c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t2/ca28a63d0fd3c34f6f41.png",
+      "bytes": 26511,
+      "sha256": "ca28a63d0fd3c34f6f41e7a42fddac1f2e8707fa311d3d2f0c26f038d2944efb"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t2/d64113f35f4b969969d5.png",
+      "bytes": 197397,
+      "sha256": "d64113f35f4b969969d504ce1db1c451ae0afeed4ec86fd9e979e67be7dae8d2"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t2/db5572ce3cae781ad6fe.png",
+      "bytes": 188868,
+      "sha256": "db5572ce3cae781ad6fedcd5a6a0ca661fba2379720f377c3a5fc9619025be88"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t2/e27376409a0385a2bc4b.png",
+      "bytes": 8183,
+      "sha256": "e27376409a0385a2bc4baf4641d537d95baafc30ce334862f180fb8aba00f91f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t2/f7901117cb04788d7c38.jpg",
+      "bytes": 70421,
+      "sha256": "f7901117cb04788d7c38839a372f554672de459562f9dbe7bb4d847ffee6ab48"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t3/105867cc6ad11a79c708.png",
+      "bytes": 16504,
+      "sha256": "105867cc6ad11a79c70872089c1532df68af41a9de3d2afa8813e538f71ab850"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t3/244d7692a593ddf3a570.png",
+      "bytes": 16742,
+      "sha256": "244d7692a593ddf3a57094094ee5433738b2900450bf7235bb7bc741cbd33ddb"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t3/6e7c85219b28577f1358.png",
+      "bytes": 42752,
+      "sha256": "6e7c85219b28577f135883c9ef6ff8591b4c6eaa15df8413ecd2da710320b523"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t3/9d09f4e5eae715025d34.png",
+      "bytes": 43253,
+      "sha256": "9d09f4e5eae715025d3440539ccc49fad9f4cb11b2a80455a68f31c737292f8d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t3/ca898b695c3cef6a6dc5.png",
+      "bytes": 16650,
+      "sha256": "ca898b695c3cef6a6dc502512b715661436f0ff5ff6be2f5c218818cfc908973"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t3/e1971aecdeeb5325390d.png",
+      "bytes": 9177,
+      "sha256": "e1971aecdeeb5325390d5d811e20b253bc0150c1a1672aa3b6c38b13f40782db"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t3/e28d4bbf6969534e2931.png",
+      "bytes": 9130,
+      "sha256": "e28d4bbf6969534e2931dd27d3e2d94806ed6b8cdad00c7a1f849aea404e373c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2015-t3/fbbf4778e02d0310d27b.png",
+      "bytes": 16494,
+      "sha256": "fbbf4778e02d0310d27b1348fb33664ed283b799f1085bd24d4d304a7205b8d4"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2016-t1/199dbf14ef1da5c77bd2.png",
+      "bytes": 131919,
+      "sha256": "199dbf14ef1da5c77bd2b1ced0b1d4debf4e8d0a5a4e0d93c364a1db9195eeec"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2016-t1/1f05c91a8d5512459474.png",
+      "bytes": 270433,
+      "sha256": "1f05c91a8d55124594743bde77ea1b8b614d34452534d6539c19d52a60b8b3b1"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2016-t1/25b5daab74018ef3b0b5.png",
+      "bytes": 30141,
+      "sha256": "25b5daab74018ef3b0b549557f3d17c0ebe5ab1b9cfeed26e2920d973235eee9"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2016-t1/56c1dc4b608cc897fe5e.png",
+      "bytes": 15647,
+      "sha256": "56c1dc4b608cc897fe5e32c588b46c52b3e4864f2876ee856be12c5c4b2a0445"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2016-t1/93d9c2802ee122dfcc40.png",
+      "bytes": 73890,
+      "sha256": "93d9c2802ee122dfcc402ecc4d9cb865e449656eaf9eb175033d3cd198c303ab"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2016-t1/ed46195942e4ca9a85e8.png",
+      "bytes": 110227,
+      "sha256": "ed46195942e4ca9a85e8b992130dde7ff184488f425dd30175ea68ca0b989ba8"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2016-t1/ee02e71ca591da7c2e11.png",
+      "bytes": 34926,
+      "sha256": "ee02e71ca591da7c2e119874fe38f5713fc0c613767daea0ebd4246f102b6af6"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2016-t3/01a92adbfee725c51362.png",
+      "bytes": 23462,
+      "sha256": "01a92adbfee725c51362def7f75e5bd35432b94cc7e00c14de008776f8ce62d6"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2016-t3/6aa3bebbcb98fc70c0e3.png",
+      "bytes": 17024,
+      "sha256": "6aa3bebbcb98fc70c0e34759528f2ab9d475bcdc28200015bf94f3783ac24f8d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2016-t3/e0f733eabb008e7c89eb.png",
+      "bytes": 12421,
+      "sha256": "e0f733eabb008e7c89eb4daa78de4ac494949fecdbfc2998100a732bdbec3f53"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2016-t3/fb4b50dca5c0fe911f12.png",
+      "bytes": 39956,
+      "sha256": "fb4b50dca5c0fe911f1234e25bc42221337b1fc4f6e4d38923f8dd7b5703f3c7"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/0269f518a212b2b96fc4.png",
+      "bytes": 6579,
+      "sha256": "0269f518a212b2b96fc46f41881016e72d76b4bb5c20633b1ccd6ae36a0f0d7e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/06415a3eb911dd47f0c2.png",
+      "bytes": 3992,
+      "sha256": "06415a3eb911dd47f0c22eb4e060a2883c6cd358fbbd06b9e0d13c043d7ff649"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/15174cd65ad5bc431614.png",
+      "bytes": 30065,
+      "sha256": "15174cd65ad5bc4316147ebdd935c80cb2b4edc8d3c9b40ed95a48128cd41744"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/20115f79b355080c9d59.png",
+      "bytes": 9239,
+      "sha256": "20115f79b355080c9d599395515be2da1d31300d1473d8939958b47cba516897"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/385861a5c378f4c43d58.png",
+      "bytes": 15721,
+      "sha256": "385861a5c378f4c43d58ad095bcb45c239f9866e4258b1b4f220dde483b51412"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/38b204ce5d1f1ddb7cfd.png",
+      "bytes": 28358,
+      "sha256": "38b204ce5d1f1ddb7cfd0e323aa2ae41aac16254fa77748b661128e84a2a4029"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/3de7b287dbc763f3c663.png",
+      "bytes": 5803,
+      "sha256": "3de7b287dbc763f3c6638f8d4e81df91e87554f497705db2c8edf3d356be2b45"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/480aef8510953f5acaf4.png",
+      "bytes": 32163,
+      "sha256": "480aef8510953f5acaf4426dddbc1de5ebd5199435a51f392a676babf90a5acd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/5ddba8720c63347cc79e.png",
+      "bytes": 50017,
+      "sha256": "5ddba8720c63347cc79e312de39c93e3f7dde1e36b460dcd16145bb2279152e5"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/9d777d53768de11a2505.png",
+      "bytes": 12532,
+      "sha256": "9d777d53768de11a250513709eda28a47105a259abcbaed0316806584a7b97b6"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/a3d508e04220071ee195.png",
+      "bytes": 4432,
+      "sha256": "a3d508e04220071ee195a1cbb1923daa2083557bb20bc90d132cd6fc1b806446"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/a4c0bf39126902d6d9a0.png",
+      "bytes": 6725,
+      "sha256": "a4c0bf39126902d6d9a095173a6a1ccbee1deaa723fbc752e8f0a3d9b2683c9b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/acc6c87a08b32bb9cc21.png",
+      "bytes": 4326,
+      "sha256": "acc6c87a08b32bb9cc21ca844b20651764b44a5392465a2b6fac8124c79bcca5"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/bbac2acb4e0754491fc6.png",
+      "bytes": 86063,
+      "sha256": "bbac2acb4e0754491fc63b93b7053f44f10608c5aaec4fca3e56c647f99bd060"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/be65e8f318a6dc4b2d57.png",
+      "bytes": 4438,
+      "sha256": "be65e8f318a6dc4b2d57e52dbb7ede84858e332ecf68816b49228855df767e01"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/c4396b0494349aac0b40.png",
+      "bytes": 5510,
+      "sha256": "c4396b0494349aac0b4088ca3d3ab4a40130ebc9d55c4defcf41caba48e2e092"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/c4ea5e20ac31f2c60bd0.png",
+      "bytes": 20569,
+      "sha256": "c4ea5e20ac31f2c60bd0c499509b223638d3bc81370d722f0870d4e098f1b19f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/c59dccf6dca8ab748d8c.png",
+      "bytes": 4927,
+      "sha256": "c59dccf6dca8ab748d8cb7cb0b98498e01d86145c50749247d80671853c70500"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/d790c33c3eb493297526.png",
+      "bytes": 4893,
+      "sha256": "d790c33c3eb493297526519794650b231abcf1a969cee50786ecbea979d45b5c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/d7e0bb08ba9fff006b47.png",
+      "bytes": 8380,
+      "sha256": "d7e0bb08ba9fff006b47fefd90015fe9185f07f4f39c7c56e2ec9433e1b2e1b3"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t1/e5956b692a96aefafcee.png",
+      "bytes": 10898,
+      "sha256": "e5956b692a96aefafcee4136d7e9efb7913ff188981f643fd7e83c8279d5d7fc"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t2/df2f73df71097cf1568a.png",
+      "bytes": 7714,
+      "sha256": "df2f73df71097cf1568acef73a8e322ef786a6641f6a5a59d1209b570d0665fe"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t2/dfe115cda05a7cab76cd.png",
+      "bytes": 32983,
+      "sha256": "dfe115cda05a7cab76cdc9a8b0dc90eeb820a0bf11e0d4fa88da716de41b76f7"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t2/eeae3ec5d6bffce9aca8.png",
+      "bytes": 13271,
+      "sha256": "eeae3ec5d6bffce9aca866e3f4e52c0a6af3a6b2e80aa3c0f50cd8c1a671d895"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t2/fe596046967676fb3488.png",
+      "bytes": 11909,
+      "sha256": "fe596046967676fb3488de66867503078e2debb6ff20b66bd72ea4f5483663ce"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t3/0a49a319d14a3e8422c7.png",
+      "bytes": 12714,
+      "sha256": "0a49a319d14a3e8422c7f24399edb1a56d967a1867639e064b20b7caa93a1fd7"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t3/0c015f2f56962e2a669a.png",
+      "bytes": 55126,
+      "sha256": "0c015f2f56962e2a669a313c998175f3ee7c7036d22769c8bd3098c07a806ad1"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t3/19463d760dc4554adaeb.png",
+      "bytes": 7689,
+      "sha256": "19463d760dc4554adaebc3e821bf08f68158458bef0914f13be6e8264e3dbb10"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t3/85b353860742d1a3b988.png",
+      "bytes": 13443,
+      "sha256": "85b353860742d1a3b988e31e3db41e8985db04447ab7445d2720619823217ad7"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t3/89daae0c784b786041d3.png",
+      "bytes": 50899,
+      "sha256": "89daae0c784b786041d39d17aeb847a756fe2636b69c6449baa8e4a4347a8cfd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t3/91a6354fc1d1365d1c55.png",
+      "bytes": 13004,
+      "sha256": "91a6354fc1d1365d1c557c1c046f746ab25a0a7869079f18b36c1808f6062f92"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t3/a74c01d2654493c5df95.png",
+      "bytes": 18969,
+      "sha256": "a74c01d2654493c5df9529930f01a70c8fe214e31c86e8c63d1dd3560094c960"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t3/b2ae7b114e6357551be5.png",
+      "bytes": 11933,
+      "sha256": "b2ae7b114e6357551be59cd81f565ab67a8692d6b3852e4fd399b76faa3589b6"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t3/b62cd2c921f40992052a.png",
+      "bytes": 9190,
+      "sha256": "b62cd2c921f40992052ac1e17239da5395ce7c972efe64c2277552a535c0d6e3"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t3/c2f7594c03831540b3e6.png",
+      "bytes": 19010,
+      "sha256": "c2f7594c03831540b3e627dfbf9be89b21a03936bd749bff7b03f0242e33d5d9"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t3/deed31d6a4972886000f.png",
+      "bytes": 9370,
+      "sha256": "deed31d6a4972886000fa923a8a09623b8ca7d86f8b4c7b5129430fb2f11cc5b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2017-t3/f4305d52d37751bd4be8.png",
+      "bytes": 23752,
+      "sha256": "f4305d52d37751bd4be8b2c5b9945b9479e7352a1eed4fd2190a30681ac74308"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t1/90cee3c1b105a46a2a34.png",
+      "bytes": 41414,
+      "sha256": "90cee3c1b105a46a2a344cb19447321d0aa3c78a5520d345df2726b61910b776"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t1/d634fd60edfa6767a19f.png",
+      "bytes": 49372,
+      "sha256": "d634fd60edfa6767a19fbd0a5f99ec4644ff52ac0c53c55ce95f1379e9caa5e2"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t1/fa40c3fbd135396d6a09.png",
+      "bytes": 126722,
+      "sha256": "fa40c3fbd135396d6a0974f09f385f02aee397ee0667b29c61bb3422048f7d83"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t2/0d6223b17138bfa1e2fe.png",
+      "bytes": 105079,
+      "sha256": "0d6223b17138bfa1e2fe5f787f5a1670eb01635a37a180d6beab966b205329c1"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t2/1218d31f29a372f2d759.png",
+      "bytes": 89963,
+      "sha256": "1218d31f29a372f2d759f4be2a018cb92ed2fa45ed5d4882f82e2fbe1a3cdb23"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t2/582344f8ab4775e6b758.png",
+      "bytes": 92057,
+      "sha256": "582344f8ab4775e6b758ea08c8f46ff9404b2108a3190657b7cf0155d773fd5c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t2/65009a68fd8b1332a537.png",
+      "bytes": 61517,
+      "sha256": "65009a68fd8b1332a5376e62dacde9cd61661e16e4c0da8a1138b13934bbf26b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t2/bad63e22ef95dc015117.png",
+      "bytes": 21934,
+      "sha256": "bad63e22ef95dc015117040b263399313c985d85eaef2ac60caacbee1a0ed2b0"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t2/d968c6bc5427a1395419.png",
+      "bytes": 23913,
+      "sha256": "d968c6bc5427a139541905fb438f61f6c4483704ca1610a2a1e34ce22d96558c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t2/e9565d4514ffc7a05605.png",
+      "bytes": 50782,
+      "sha256": "e9565d4514ffc7a05605bfbaeac65558a1c3f44f9d6914a6e96735acb9fd0c1d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t2/ec796e34b61bcb3a10ab.png",
+      "bytes": 31427,
+      "sha256": "ec796e34b61bcb3a10ab27a5020263b10bd1241afd85676ed50094d671f32067"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t3/84a9278b6d0a159a24ed.png",
+      "bytes": 45608,
+      "sha256": "84a9278b6d0a159a24ed40f6febf0b1c1908cc2afaba8c51a944a52b1d5b8ac1"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t3/8a10b37d68dcc3e7a7f3.png",
+      "bytes": 26153,
+      "sha256": "8a10b37d68dcc3e7a7f3450e601de45b24889138b00d95238dfaea9ff70cfef2"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t3/9d245b491fa992b2614a.png",
+      "bytes": 9875,
+      "sha256": "9d245b491fa992b2614a295b16657c349f0665c77b60b4f6cc4086134ad4a379"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t3/f1e7759f2cedb457ebd8.png",
+      "bytes": 24037,
+      "sha256": "f1e7759f2cedb457ebd85ba3b994bea83495ace463c56a7ab909ee3e5689838c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2018-t3/f4757ffcb84c855df5bb.png",
+      "bytes": 37110,
+      "sha256": "f4757ffcb84c855df5bb69631fb3dbf339996778c9af62e9dfa1e52bf7768323"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t1/06f1f09eee54efe5fd6f.png",
+      "bytes": 7009,
+      "sha256": "06f1f09eee54efe5fd6f5dab2a19717bd0a48575b49d78f1a35a48f61d592596"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t1/210a4e8d1609bd86cd33.png",
+      "bytes": 6521,
+      "sha256": "210a4e8d1609bd86cd33dc7a4c5e444a22a1943a498b093d7482a27af7dab3c2"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t1/56dd14a2ca87d9a2d0df.png",
+      "bytes": 4811,
+      "sha256": "56dd14a2ca87d9a2d0dfe01f76cca42819ee0d3c64a7fd4f2693744a1137d41e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t1/571cf42dab8958858f93.png",
+      "bytes": 39915,
+      "sha256": "571cf42dab8958858f93ca5e7f9b4268421536ee04b4972c18aaf1f36cd78deb"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t1/840db8cd9e7f5ffb66d3.png",
+      "bytes": 16369,
+      "sha256": "840db8cd9e7f5ffb66d3ff9ca38250a36ba6774aa0d985b381ca3bfe5e6d6b69"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t1/aee5af9634c8ff1f72bb.png",
+      "bytes": 9622,
+      "sha256": "aee5af9634c8ff1f72bbea680f25988907d44501fa5558fc6fddd8714f4cdb13"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t1/bfad5348d3e88512f016.png",
+      "bytes": 4916,
+      "sha256": "bfad5348d3e88512f0162a5161bb78976ec4cf5dac1adaf1f4c8264b106fd797"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t1/c33659de9952f0e4479b.png",
+      "bytes": 5515,
+      "sha256": "c33659de9952f0e4479b87be1b5d9a33af403c5644c7c47b728e8ea909e5aadb"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t2/1fb0bacbe904caa62672.png",
+      "bytes": 155574,
+      "sha256": "1fb0bacbe904caa62672a83f742713e0f9aa07329f47b652fcc7db2db6d06dcd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t2/7bd6e413f65fdfb2e1a3.png",
+      "bytes": 23530,
+      "sha256": "7bd6e413f65fdfb2e1a3a229e53a7193d6bf20df9335ca2bba0525b667457686"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t2/cd2d3593b8bb4b38247f.png",
+      "bytes": 32697,
+      "sha256": "cd2d3593b8bb4b38247fba98a7d32e4fdaf651ed3e3200ac6360a363bbdbd887"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t2/f46565df09e6775bce19.png",
+      "bytes": 31252,
+      "sha256": "f46565df09e6775bce19c9b94f3d736b06bb68f0260780ce43f7251eb83ad80f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t3/48326af7bfd13b77804a.png",
+      "bytes": 15861,
+      "sha256": "48326af7bfd13b77804ad747edc1e06e3cb9bc60800b6c10d7e3ce53ec335905"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t3/8288f01308ed43a7c520.png",
+      "bytes": 21822,
+      "sha256": "8288f01308ed43a7c5203e9ee5d793f6b4821bc7debe2a394658907000f3a635"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t3/a46c9b2db089dac31b44.png",
+      "bytes": 40382,
+      "sha256": "a46c9b2db089dac31b440f3bf4b33c2ab9dd8e2696ffcb63008ac7171ead3eb4"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t3/a9c03f5b7c51c38ffde0.png",
+      "bytes": 32837,
+      "sha256": "a9c03f5b7c51c38ffde0ba85d04818b3b97843643dd0ac0e63af0b306e043a73"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2019-t3/ae35ce92792c980d15ed.png",
+      "bytes": 20275,
+      "sha256": "ae35ce92792c980d15edb8f0a8d34b0deac2ab6350a58fe8bb7da27dc33f2e68"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t1/5730a38a5a0308f71b33.png",
+      "bytes": 13499,
+      "sha256": "5730a38a5a0308f71b333e8733c0f3620d158e181c8587f3abeab983cbf93c03"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t1/7a1ad5e666e38f1c5e4a.png",
+      "bytes": 26599,
+      "sha256": "7a1ad5e666e38f1c5e4a8f3d6658a9831fb77014f9c33655cb3b1b71c380dd35"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t1/8c978565b563e2cedda1.png",
+      "bytes": 51259,
+      "sha256": "8c978565b563e2cedda1fead6bb1515fd454e6c147437dc54821eaa236fb964f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t1/d58cca77d2312f175d21.png",
+      "bytes": 8521,
+      "sha256": "d58cca77d2312f175d219183251ff96c8af208fb95a50ebbc10f583efec7f944"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t1/d8bb984392c053aa3c97.png",
+      "bytes": 26382,
+      "sha256": "d8bb984392c053aa3c975c76e05254b2c0f85a3d401ac99c48e9437b17660dc3"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t1/e09f5f4ddb9d7402cd03.png",
+      "bytes": 100087,
+      "sha256": "e09f5f4ddb9d7402cd03b0de6ad8821c65779338d328f93a5b8fca09d69fdd3a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t2/427ab0691e94eec98b33.png",
+      "bytes": 18227,
+      "sha256": "427ab0691e94eec98b33b82789dfc8d3e613a8ac86478861046a03b87667334b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t2/45eced6930ccfa530015.png",
+      "bytes": 16369,
+      "sha256": "45eced6930ccfa530015792e38ac2c19d193f75d15604ccd58f524b65c5bfc0d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t2/aa7a0a989403ea72ab77.png",
+      "bytes": 15208,
+      "sha256": "aa7a0a989403ea72ab776cd635d995a07ba110275f1c639070e6639b9330011d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t2/c4357ca859ffbfa5fcbe.png",
+      "bytes": 28039,
+      "sha256": "c4357ca859ffbfa5fcbed56a2633782e237138d7c5eafd6d6a565105689cb041"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t2/f06360c907469cc1ba08.png",
+      "bytes": 11421,
+      "sha256": "f06360c907469cc1ba08cfc358aabe077ab1cbf1540736e9481a9a83439d4c3a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t3/1504e1c8de7c95783388.png",
+      "bytes": 22975,
+      "sha256": "1504e1c8de7c957833882648e9686ea2b8bd670e4d2beadbc8208a5348bf7f95"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t3/34dafc9b88ddbde80a1b.png",
+      "bytes": 8882,
+      "sha256": "34dafc9b88ddbde80a1bc553c940379355600e4f99d0fd314e3a35da47d288ff"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t3/60c5e211ee32e2055900.png",
+      "bytes": 18095,
+      "sha256": "60c5e211ee32e205590089afd20d5330970394f67b17aafdf3ba454999544c0e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t3/b82df21f9d200f2d1940.png",
+      "bytes": 13582,
+      "sha256": "b82df21f9d200f2d19405307c192e7de29f5183775d98373521375a14e743084"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2021-t3/d7bcf06912a503256b9e.png",
+      "bytes": 16907,
+      "sha256": "d7bcf06912a503256b9e7aaf400f474e23589dbf42a78ed2fc8227efb041f14d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t1/476a0e6ec47280e7b95c.png",
+      "bytes": 24592,
+      "sha256": "476a0e6ec47280e7b95c23d3b57e932cd5ee9a74f82bbd5d1d4b00f272cbbbf1"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t1/808b5baa57612109421c.png",
+      "bytes": 27177,
+      "sha256": "808b5baa57612109421c20b646744edd176ce31dadacb7c753748105e957c871"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t1/b239ec78a0e0d7ca5be0.png",
+      "bytes": 16378,
+      "sha256": "b239ec78a0e0d7ca5be0b4e6e4f58e08671db8052627af900c4a777511085d3a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t1/fc283cd21af2334fbd89.png",
+      "bytes": 5506,
+      "sha256": "fc283cd21af2334fbd89aef9773f4392209585b4cf0354a4ca46d20745f83909"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t2/027b407fa7c90a451162.png",
+      "bytes": 6720,
+      "sha256": "027b407fa7c90a4511627db8f2261201d253ac6695f0bb56eb88a0274f0ba383"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t2/0471706eb928b11b736d.png",
+      "bytes": 21372,
+      "sha256": "0471706eb928b11b736d6cfcd2b5aa2ca318503f9d9ceb0bff73a23c36cc93ea"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t2/0ef1b6382f5b206e57c6.png",
+      "bytes": 8720,
+      "sha256": "0ef1b6382f5b206e57c635b7209679fd37bbb9819cb76c4cef26e091ef12195d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t2/61a31192300aa0d54aae.png",
+      "bytes": 17700,
+      "sha256": "61a31192300aa0d54aaecce5f9811a25c83c50698e700ecbabcab5262b5468cd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t2/82712cba53181bf3a6a9.png",
+      "bytes": 11989,
+      "sha256": "82712cba53181bf3a6a92cd63332cdbff5f848d5fcf49d724e510d66557f8789"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t2/b673b5075405056a3098.png",
+      "bytes": 15092,
+      "sha256": "b673b5075405056a30983e5297c028d52f64515a28fb8e49b6ab2b83914f6624"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t2/de20faa2c75312f33120.png",
+      "bytes": 18521,
+      "sha256": "de20faa2c75312f3312072c20b2f3f9aabcbe10aff6548efe92e047608b96187"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t3/27ecdf29b926b3fefd5a.png",
+      "bytes": 11002,
+      "sha256": "27ecdf29b926b3fefd5a6db28006e8b322f87243412427b43c853bccaeea74e0"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t3/3f775be0c7c341d1467f.png",
+      "bytes": 13669,
+      "sha256": "3f775be0c7c341d1467fccf2c0de18c8bb40e98ba1a154fe37a4621a66c286cb"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2022-t3/b91987e4cfe633b26c76.png",
+      "bytes": 14332,
+      "sha256": "b91987e4cfe633b26c76b8d9a2c61467ffec95878d9d52456af8a1f8faaff61c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t1/13b60cf51f2199fd0ed7.png",
+      "bytes": 60687,
+      "sha256": "13b60cf51f2199fd0ed7b52ce2de5b6878f738a7430f1efe7e35500d638a2179"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t1/2aef8ea562ba6ba4698d.png",
+      "bytes": 228388,
+      "sha256": "2aef8ea562ba6ba4698d27a038c7eba00ebb51c468bc9b33259b8d3accb9dc70"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t1/474a239493ac38522ebc.png",
+      "bytes": 36565,
+      "sha256": "474a239493ac38522ebc81ae14c686932cb1c79230e58dd60a920ab65c93dbe4"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t1/93fc1dbc88c8f0e9a02e.jpg",
+      "bytes": 55069,
+      "sha256": "93fc1dbc88c8f0e9a02e5c229a2f909e1836e7050e5f82eb49c868d9342ad8ea"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t1/a1d59f8703e65d3c43eb.jpg",
+      "bytes": 37459,
+      "sha256": "a1d59f8703e65d3c43eb6ff523c5a883317a0b1b5166abb77c3453e27b24710a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t1/b82553a0d88cb6ed8aa8.png",
+      "bytes": 74368,
+      "sha256": "b82553a0d88cb6ed8aa86a88e7d7a1bb83989b1816746ed1e595e146095ef75e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t1/be5ad54d9f9ee4b7ae76.png",
+      "bytes": 157645,
+      "sha256": "be5ad54d9f9ee4b7ae7672b47ba714fb111eb5930a8d56ed516f7b0908dd8199"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t1/c3b4c5d19571c1d57f5e.jpg",
+      "bytes": 32315,
+      "sha256": "c3b4c5d19571c1d57f5eb006101e76c37323b307eaf230c4308d129f44d43aac"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t1/e16b995abc78c2169bd1.png",
+      "bytes": 35287,
+      "sha256": "e16b995abc78c2169bd14f2fa2bc4e8d66ffe6e3f6c872fd9cf8f22ca4167016"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t1/fa1ff10c0d008dc2fa57.jpg",
+      "bytes": 77155,
+      "sha256": "fa1ff10c0d008dc2fa57ae992b7c18a1cf1fd448d124cec1670638fddf803ea4"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t2/356ec82ea7efd0ceba7e.png",
+      "bytes": 34998,
+      "sha256": "356ec82ea7efd0ceba7e919709c57adf4c1407f12df236ca2af9f828fd3f9c2c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t2/d2b5f22597609bb8fc65.png",
+      "bytes": 12798,
+      "sha256": "d2b5f22597609bb8fc653c75c7ea8f246fa79f19695f8bc2841110b1f3817c9d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t2/e54efbf80a4169825e8f.png",
+      "bytes": 13213,
+      "sha256": "e54efbf80a4169825e8f004c5024bc157c28f27ccd30f9933c96de5a3c134dbb"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t3/5939cfba1f6fc5693c6d.png",
+      "bytes": 17359,
+      "sha256": "5939cfba1f6fc5693c6d02fffe1623278233f11b2e8c6cb12422dc0f116c5db8"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t3/782abc7038c1ebf35a78.jpg",
+      "bytes": 51064,
+      "sha256": "782abc7038c1ebf35a78aad79494c20bf95e7ade15c5a42517f7b33d76dd51f9"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t3/8a5aae984adb20c65d88.png",
+      "bytes": 33417,
+      "sha256": "8a5aae984adb20c65d88a18080b53ee95374c101ec63f8d5e13c412f627a7ea3"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t3/cd80a2a0370e1eba438f.png",
+      "bytes": 41268,
+      "sha256": "cd80a2a0370e1eba438f1432e12745d895d8623f3dd276bb53decd50ed5de12a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t3/ce7ac053388c84f53945.png",
+      "bytes": 16497,
+      "sha256": "ce7ac053388c84f539457b18fef9b53a9cbcf5ffc970d6b2b5a0534720127b77"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2023-t3/fe2e7a44229517fdebf2.png",
+      "bytes": 17396,
+      "sha256": "fe2e7a44229517fdebf21293209400ed131ec531ee7796f415aabf6c10aeeec1"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2024-t1/05a811ec763130ce8207.png",
+      "bytes": 102440,
+      "sha256": "05a811ec763130ce8207759042983b5e8d44d7d01419bee62bb98f6e7dc91506"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2024-t1/f6e32b00f47a52bbd800.png",
+      "bytes": 110047,
+      "sha256": "f6e32b00f47a52bbd800b632c0ff4a4b33fb6fcbb438f44faefbe1cfabbc78d5"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2024-t2/3ac8c48e429aba476139.png",
+      "bytes": 120671,
+      "sha256": "3ac8c48e429aba4761399f2c32e8bce6d6d5226aa26dea485a7b06535f97a19e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2024-t2/44b6c55d5c8cb571b328.png",
+      "bytes": 67723,
+      "sha256": "44b6c55d5c8cb571b3280670bbff0dff389c34e60c6269f4e438abccc8f26d08"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2024-t2/5c4c108e085ef7d431a5.png",
+      "bytes": 25983,
+      "sha256": "5c4c108e085ef7d431a5a4341efd7a114b539c97690a4b69c6a3d6f7286f16c9"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2024-t2/605c80f908a7ae26cf98.png",
+      "bytes": 80368,
+      "sha256": "605c80f908a7ae26cf98af4c78cd68125c16fdc8f9cdf4ef28dadd6d1b8f6ba9"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2024-t2/671cb76cb3d1a2406c55.png",
+      "bytes": 36669,
+      "sha256": "671cb76cb3d1a2406c55f99d163239c5a16b10fa701cfdcb1a9e47c6ff784619"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2024-t2/71a77fcd3d860ee09109.png",
+      "bytes": 20613,
+      "sha256": "71a77fcd3d860ee0910943a2d5aac3d18995e41d2341ea44f577a3a23dda09f6"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2024-t2/fd4e14b22ed5bf0354c4.png",
+      "bytes": 29864,
+      "sha256": "fd4e14b22ed5bf0354c4dab7f2c40b7fdb3ee6b018e26f1d0922113936e86a78"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2024-t3/48531d4b77b0668ff84e.png",
+      "bytes": 261783,
+      "sha256": "48531d4b77b0668ff84eede23a383566bd715ac0babeba0d737d79ccbac5e2e1"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2024-t3/61e73f597063d7f17d68.jpg",
+      "bytes": 32295,
+      "sha256": "61e73f597063d7f17d6841ac034ab0cb365969cf1ac2867b0bcff9a7c41d8679"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2024-t3/9fc5d7b01d146a7c4d63.png",
+      "bytes": 313609,
+      "sha256": "9fc5d7b01d146a7c4d6320786a8475a33fca875dffc66dd2c6a0159305c70fcd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t1/02b432a4be1fdf8f5a02.png",
+      "bytes": 40317,
+      "sha256": "02b432a4be1fdf8f5a02da931a70373082e56d6690e41c4e99a7cdb3b4e11e4b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t1/3d1a65fcaf0e1eda5f3a.png",
+      "bytes": 7783,
+      "sha256": "3d1a65fcaf0e1eda5f3aa29e4f0a530dcd938b1e7a3a056db5e9e915c3f53689"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t1/767e02ef9ce3f2a0f4e5.png",
+      "bytes": 10900,
+      "sha256": "767e02ef9ce3f2a0f4e5114183dfd86ddc28fff953ba414a76109d81aa26e84b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t1/b729e02e25d5b2df2bef.png",
+      "bytes": 23973,
+      "sha256": "b729e02e25d5b2df2bef40e39f9872c92c4ec27e803fc65024882f1f7e88dd34"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t1/bd4fb0c1942134439643.png",
+      "bytes": 11126,
+      "sha256": "bd4fb0c1942134439643be7116c29f3f298585f730bd7d2ffc07eb3b104bb7cb"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t1/c2ff63e06eb82c5a5b61.png",
+      "bytes": 19921,
+      "sha256": "c2ff63e06eb82c5a5b614a132917b5edab784c9f2e5925580daf66c91657113e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t1/cdf6705d662877aa6076.png",
+      "bytes": 13665,
+      "sha256": "cdf6705d662877aa60763226ffda64d8edb779d6e536de463f00b7ec1de21dac"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t1/da92425bdeff2b7696fa.png",
+      "bytes": 30251,
+      "sha256": "da92425bdeff2b7696faaa5a77e09c3362e86152118740226364de1f512ca2ca"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t1/ef782ae6e5fa8cca6ce6.png",
+      "bytes": 14622,
+      "sha256": "ef782ae6e5fa8cca6ce6d4702179e76ef8e9a38ab694d511592128b594b3878e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t1/fa19e88fc327e70fdea2.png",
+      "bytes": 9099,
+      "sha256": "fa19e88fc327e70fdea26f9ed2475288d8dc240a0fe20d67c162a3a0be23e1d4"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t2/2fafee9eefc69f198e05.png",
+      "bytes": 15541,
+      "sha256": "2fafee9eefc69f198e054f8b7f03963ca71a24387900959c8e93dd4125d8df64"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t2/693c88441e73851dbacc.png",
+      "bytes": 15602,
+      "sha256": "693c88441e73851dbacc1e4ef818e34d38c55729be87ba33f320f9ae9694c812"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t2/757489f3d01e4c4f1cc4.png",
+      "bytes": 18211,
+      "sha256": "757489f3d01e4c4f1cc4d2cf1af27b0362e34833d6d48bb2bdab740f2ea0d52e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t2/9641b086cd4bfdc886ee.png",
+      "bytes": 16184,
+      "sha256": "9641b086cd4bfdc886eed22001e90a54d8ed818b5f743d114a59bc7aa52a654f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t2/9f3fdad36b30d7a8ef9d.png",
+      "bytes": 33432,
+      "sha256": "9f3fdad36b30d7a8ef9d54fceff0dcb51ca65ddcaad2f0a97e6d91386c4a6e66"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t2/a2cdaef8d6164abf2a33.png",
+      "bytes": 6670,
+      "sha256": "a2cdaef8d6164abf2a33e41d722463b5fa6240cd86ef11ae6426788e2aa98963"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t2/b99d33a6ee0972f2c194.png",
+      "bytes": 22168,
+      "sha256": "b99d33a6ee0972f2c19407f36287cd9bac0787bf912a725ae74b4a516ee01294"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t2/df0fc9193076b934f5d4.png",
+      "bytes": 10594,
+      "sha256": "df0fc9193076b934f5d4e731dd3c467d4697df0bdf0d063150277cfc11b33ded"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t2/ef5c7ec4c256f5ffb5bf.png",
+      "bytes": 17770,
+      "sha256": "ef5c7ec4c256f5ffb5bfcb0265ca69573c27633b32d49fa4302c94f5cb70eb29"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t2/fd52aae1cab382f6787f.png",
+      "bytes": 21203,
+      "sha256": "fd52aae1cab382f6787f5dd136db7d32519e571c311f6b3b26a025bf7ed050fc"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t3/3021760644bb0323b485.png",
+      "bytes": 9351,
+      "sha256": "3021760644bb0323b4859d956c999adc005c46fa8236928a5ba467c72395ccd2"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t3/3ebcf77eb2295440a188.png",
+      "bytes": 15494,
+      "sha256": "3ebcf77eb2295440a1884c9afe7226a4be5c700543f89ba0ed864e81c8169e92"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t3/42e995f77d83c24ecdff.png",
+      "bytes": 24591,
+      "sha256": "42e995f77d83c24ecdff29f8c257e92f2deae0e5d008a7e38ed1a3a1e7961963"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t3/5666353c54035bd474c2.png",
+      "bytes": 17916,
+      "sha256": "5666353c54035bd474c27e27e977fb074c273b12ac136cc075c32826af338e56"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t3/980065279c22a145cb75.png",
+      "bytes": 12703,
+      "sha256": "980065279c22a145cb75d18cd156e42f0b0d042d8cdbace9bbbab9a104acd6c4"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t3/dc725374eb73ee59796b.png",
+      "bytes": 15348,
+      "sha256": "dc725374eb73ee59796b91554629988b6c86925c0ed972381f24952cbd34c71d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t3/e8af1408aecfc9f04af2.png",
+      "bytes": 13018,
+      "sha256": "e8af1408aecfc9f04af2e9cd7a9dfe39874d55543740980bddc7b159398c78bc"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/apho-2025-t3/fd802b42c25911d3be9a.png",
+      "bytes": 119572,
+      "sha256": "fd802b42c25911d3be9a5ced95221b607c6631a622ac6405022e87777338eecb"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2017-t1/40b4af20994dcf6bf0dd.png",
+      "bytes": 79140,
+      "sha256": "40b4af20994dcf6bf0dd2286c2af26d7f040cd0628064f58cb7ba18df084a0a3"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2017-t1/77449bfb08a7d6661ffc.png",
+      "bytes": 49162,
+      "sha256": "77449bfb08a7d6661ffcd480011b70ffa422571305c94d0d412fb8cf1de19381"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2021-t1/681bb000657d67110244.png",
+      "bytes": 11981,
+      "sha256": "681bb000657d67110244366c89f050c77edd05930cca04426ec83812b1fd164d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2021-t2/4b30461bf6375eed84e6.png",
+      "bytes": 30433,
+      "sha256": "4b30461bf6375eed84e6c1aca900f4c41e8f96b2d793b3612358f73ff0a3a957"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2021-t2/83ae984fc8e5ceaf518a.jpg",
+      "bytes": 45108,
+      "sha256": "83ae984fc8e5ceaf518a9541c142d37d12041a4ddaedaed5597f10a233a98d43"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2021-t2/ca708d3fe87813f7b0ae.png",
+      "bytes": 15849,
+      "sha256": "ca708d3fe87813f7b0ae3b94955e1f81c603c359e87c21c1d35c615a34902e6c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2021-t3/1c072d7011daeea85b1b.jpg",
+      "bytes": 34965,
+      "sha256": "1c072d7011daeea85b1b8c82e8b83364df2955c1d46b6f3b89f949124f47f6fd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2021-t3/2d779026669e4590a209.png",
+      "bytes": 279289,
+      "sha256": "2d779026669e4590a209f1abfc7764990c4588180dbe58417a763e9b4eab5e6c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2021-t3/4cf8bb5b713eee48323b.png",
+      "bytes": 16925,
+      "sha256": "4cf8bb5b713eee48323b0c812d153029cc3e6105fb3dc988f2ff58c2c135b11d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2021-t3/729eaa0f0773230e260a.jpg",
+      "bytes": 138732,
+      "sha256": "729eaa0f0773230e260af487e0d59134592baa0cea4777a9faa8e80a19a2ac90"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2021-t3/89bf33f2a01c7356e9f1.png",
+      "bytes": 316259,
+      "sha256": "89bf33f2a01c7356e9f11eee351d798d71eee4587b1df687ee65a36ad801365e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2021-t3/d7d306d73456f0ae52f9.jpg",
+      "bytes": 19022,
+      "sha256": "d7d306d73456f0ae52f95f8af39fe3406a953718d7543480821f1d1f82e1feb1"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2022-t1/738da92c92f9481b6b3d.png",
+      "bytes": 7466,
+      "sha256": "738da92c92f9481b6b3da9d0d845fc448438de04fb8ee7abde6161f9efe7df9f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2022-t1/809898499977b19a43f8.png",
+      "bytes": 7573,
+      "sha256": "809898499977b19a43f8fc544e4f589e93fbf304e8c3e76af5bba8bb1588af9d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2022-t2/1b202f26be60270996ea.png",
+      "bytes": 16592,
+      "sha256": "1b202f26be60270996eaf2c289b2dd5920c21fe0e8a7395e19802e455a50bbfd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2022-t2/390001cdbceb08193861.png",
+      "bytes": 20945,
+      "sha256": "390001cdbceb0819386148cf638bcb5849ff3d1f6477761b749cf4af3c151a0d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2022-t2/aae95e20c3e986562894.png",
+      "bytes": 3242,
+      "sha256": "aae95e20c3e98656289451e54b1f00c309fee629aece3734dcc06f3660d8ab87"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2022-t3/c3ddc47edb007d637c62.png",
+      "bytes": 17000,
+      "sha256": "c3ddc47edb007d637c621fce4547d1a1afe3fde5e99b2e716dcf336a6611ec06"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2022-t3/cb10b24c3bc2b17fc663.png",
+      "bytes": 8291,
+      "sha256": "cb10b24c3bc2b17fc663e1c6522f2fdb6673c063d621358d7bc3bb6cb6e9e52c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2022-t3/ef858b5aeb381f2ef246.png",
+      "bytes": 8729,
+      "sha256": "ef858b5aeb381f2ef246939491d207273c2488a3a5daf168856f8f0dc754072d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2022-t3/fe04fc7f506250f9780b.png",
+      "bytes": 7160,
+      "sha256": "fe04fc7f506250f9780b01bfd833346dbb3b5d645ebcb4934888c961c89d9bc8"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t1/0f71930f52067ce5106d.png",
+      "bytes": 25346,
+      "sha256": "0f71930f52067ce5106dd90965e1002f6ce921874458eb3ef510bd4cc1f724dc"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t1/835539595ac83b6b1c79.png",
+      "bytes": 10452,
+      "sha256": "835539595ac83b6b1c79aab5aaa135ae6059507c60959d4131e5587d8df1165a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t1/c3bd2a027c6bd7e94626.png",
+      "bytes": 12910,
+      "sha256": "c3bd2a027c6bd7e94626f8e1cd4da73f5b7114c6a390a01b9ceecee30b582018"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t1/ea7c7127877caf8eea6c.png",
+      "bytes": 12639,
+      "sha256": "ea7c7127877caf8eea6cc944d2681bc232f6536faf7f25bc6c95c97213081b82"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/211234ac779dfe8615ed.png",
+      "bytes": 3973,
+      "sha256": "211234ac779dfe8615ed925f93584405b98babe97f173b1fb18c371628501e1f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/21a16845336a9c8c1e35.png",
+      "bytes": 7132,
+      "sha256": "21a16845336a9c8c1e35b59e3d81cdf06531941293ddbcdf058fe8e7fce49c3b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/35a968a7053398049df3.png",
+      "bytes": 3290,
+      "sha256": "35a968a7053398049df3eb6ca042889eeeae09a7ace6f7061e8c9cd902b49b84"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/439174b3c0904ae761f2.png",
+      "bytes": 5364,
+      "sha256": "439174b3c0904ae761f29328572cf6c2250760fce0732a67c1568fb3cc70c6aa"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/44db738e83c512138f4e.png",
+      "bytes": 5999,
+      "sha256": "44db738e83c512138f4e47cbcc8769e0db5e9a1c6431e3a016bc32f605a7c36e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/5987bce899f744709ffb.png",
+      "bytes": 4687,
+      "sha256": "5987bce899f744709ffbbdc66baa5a69317a051cfe96f0544229fb28bb656676"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/8070bc1db4a58967da79.png",
+      "bytes": 4928,
+      "sha256": "8070bc1db4a58967da79ac14038c8e3e4bfc1f39b827c59cababc953806ab6a3"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/9b8be8be1cb270d759f1.png",
+      "bytes": 5610,
+      "sha256": "9b8be8be1cb270d759f1a97874f5117a6cd0c846be47723a388a6a8aa1336b0e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/ae66ce050b2b514ad7c5.png",
+      "bytes": 12854,
+      "sha256": "ae66ce050b2b514ad7c5b24fc4c60d662493aa76f2563ecf778d72628ef978f5"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/da4fd003c737cb3ba1fc.png",
+      "bytes": 4552,
+      "sha256": "da4fd003c737cb3ba1fca3862540b2663f0dde9ef79a6b54a293086a4635f4cf"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/dd17f440113ae2b2e39c.png",
+      "bytes": 3387,
+      "sha256": "dd17f440113ae2b2e39cabc23ed1a6c576f2e65e524460fab5cf05d494d2a1d8"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/de5fb77b17ea84f76f8f.png",
+      "bytes": 4776,
+      "sha256": "de5fb77b17ea84f76f8f6194e9a601b9dbf967f2b6e6cecccc471fbe92c54445"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/e0b8bfe676eafa60adf0.png",
+      "bytes": 3012,
+      "sha256": "e0b8bfe676eafa60adf0295109a95ed04bc957f641dd11758c21360e69a9d437"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t2/f80710e32b15026c9973.png",
+      "bytes": 3664,
+      "sha256": "f80710e32b15026c99739bbe701bea5834a43b7b3c4e682347eb6a26fb1dd5cf"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t3/2ddac3c8263569625019.png",
+      "bytes": 8575,
+      "sha256": "2ddac3c8263569625019e170401e5e359f5006d3c90cb6a16a2e67ca49fc1ff8"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t3/53377882f4a570ccb175.png",
+      "bytes": 14774,
+      "sha256": "53377882f4a570ccb1754481b0c4016037935a010478f9ffe39bd49947c31a91"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t3/5635bebc024f68eb8f18.png",
+      "bytes": 16777,
+      "sha256": "5635bebc024f68eb8f18adde4a3d52b6e32c900a9e3694e9bf5e3156f2087329"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t3/b44104664138c02fba95.png",
+      "bytes": 27149,
+      "sha256": "b44104664138c02fba955897b52e83c39c50253ffb67f432287d11bc0045765b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t3/bb356ae1dfa86f39692a.png",
+      "bytes": 27293,
+      "sha256": "bb356ae1dfa86f39692ab25b8ac1dc8b1c62ee07296624f1e305220d06b507e2"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t3/c876c307db6c3e273fbe.png",
+      "bytes": 14936,
+      "sha256": "c876c307db6c3e273fbe34e32d21065b917b6bc43afde60aca201ef49c10748c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2023-t3/e0e03d70b579d060031b.png",
+      "bytes": 18500,
+      "sha256": "e0e03d70b579d060031bb9c2492527074a2d2923d8afa2d6bec6e7e041bb9f6f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t1/152ab458ea7c76f78530.png",
+      "bytes": 15502,
+      "sha256": "152ab458ea7c76f78530e7a7a38617983c6e1e67b6abe73052a469bec12be981"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t1/6c366472d5e12455c644.png",
+      "bytes": 11399,
+      "sha256": "6c366472d5e12455c644a0bf5e49caf6b6be4a2426b08979f6df30b9080b5dc8"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t1/846a8ff885b27bb1ba27.png",
+      "bytes": 6493,
+      "sha256": "846a8ff885b27bb1ba27fa0a400038bef257b6b6612321357158b7b9815d6ade"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t1/e30388b0d50998762bb7.png",
+      "bytes": 9190,
+      "sha256": "e30388b0d50998762bb7351cb6b992a7e5641e47e4c044ed9a4ab3c97a09a8ce"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t2/044c2c1885ab2f24b363.png",
+      "bytes": 25624,
+      "sha256": "044c2c1885ab2f24b3636cd8694390b3d6c37e50309cd15ddc7a84d7cd8de356"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t2/11401d8a0ecdd770a175.png",
+      "bytes": 44844,
+      "sha256": "11401d8a0ecdd770a175484fd68834d18679715f9cdae9befe16c017cbe5ecda"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t2/75578bb3a9937fe9099b.png",
+      "bytes": 52719,
+      "sha256": "75578bb3a9937fe9099b773903fc847fb8bc01a54061b339133797d9d32fe317"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t2/7ea28d3f1aad94a1e28a.png",
+      "bytes": 13688,
+      "sha256": "7ea28d3f1aad94a1e28ac01668b2cd48a9ede438f72302789080339b915174fb"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t2/9c2e6503e17dd61f991c.png",
+      "bytes": 14018,
+      "sha256": "9c2e6503e17dd61f991c97bfc638cf153ebbb098ecef316425f44e0e05d1bf5a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t2/d0d78c24c0ccdc463621.png",
+      "bytes": 16201,
+      "sha256": "d0d78c24c0ccdc463621f99d1f6adbc890df3d0252ccd8236290e0f1498cfa48"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t2/e008eb36a3e63bb1edfd.png",
+      "bytes": 23603,
+      "sha256": "e008eb36a3e63bb1edfdf07a9f88ca031d4072f1044405333f602f64d2d22eb3"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t2/e61d0fe7dde12e1481af.png",
+      "bytes": 21082,
+      "sha256": "e61d0fe7dde12e1481afb9c58cae86fe5acb500db6c096eaa3bb6957113d7a79"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t2/f9fbcb4f1a115236b6dd.png",
+      "bytes": 88759,
+      "sha256": "f9fbcb4f1a115236b6dd2ca09bc8ba78be8f811699b6174662672065730cfb5b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t3/1655950d648238a827c6.png",
+      "bytes": 20058,
+      "sha256": "1655950d648238a827c6383c004810a0b49ba1c4302f45fd5c2a88510bec991b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t3/8ee2e8be57072f90da86.png",
+      "bytes": 14595,
+      "sha256": "8ee2e8be57072f90da86a6b8fe234b971573356688cd3a98bbb9a2b91ae969d9"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t3/9ab6f6519bfef321daae.png",
+      "bytes": 16532,
+      "sha256": "9ab6f6519bfef321daaec47c46fd49ee7e171abe3f673c8aa20c47ced3888e1d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t3/9b8ef141272332b55854.png",
+      "bytes": 11942,
+      "sha256": "9b8ef141272332b55854d588368a99a02db3143e7fb628a71efcb6759e2d8457"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2024-t3/d3617b337cb84f1edc41.png",
+      "bytes": 8068,
+      "sha256": "d3617b337cb84f1edc41a1909168f4dfbd66e752771abc9922b46ba30b9989d7"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t1/1c27d5cb5f4c3a3ade9a.png",
+      "bytes": 31998,
+      "sha256": "1c27d5cb5f4c3a3ade9a7c3f943fb40f14d25726bee9bb722be335a10d0332af"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t1/5669401e5b8ca9654751.png",
+      "bytes": 14153,
+      "sha256": "5669401e5b8ca96547516ed9d19bd38f2272fd4f77efda82f377a03d858cd9d1"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t1/950aea00322ce76404cf.jpg",
+      "bytes": 34606,
+      "sha256": "950aea00322ce76404cf6b992ce8f2829d4834cd1f241ce40045a7ad060690c0"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t1/9620dd30913ec43c36f6.jpg",
+      "bytes": 56269,
+      "sha256": "9620dd30913ec43c36f6a223a100f8c098e35d7f843ff7897982d38e1bd4c202"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t2/05ff1287aab9712a1bcd.png",
+      "bytes": 15810,
+      "sha256": "05ff1287aab9712a1bcd6465f379ca367a2162c684034465cd5e84e84cb0a207"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t2/272ef922b5bc85af9df9.png",
+      "bytes": 21354,
+      "sha256": "272ef922b5bc85af9df9e636cb1105160c2614ba527ed3e7e3fffbe97814d082"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t2/2c6b9bd446a18f394953.png",
+      "bytes": 6471,
+      "sha256": "2c6b9bd446a18f39495358d01e6d0505ef0b60c401bb55e2d6f4920dbc9fcfee"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t2/4685ee02e3ce6b85934a.png",
+      "bytes": 40991,
+      "sha256": "4685ee02e3ce6b85934a6ebbe06a4834123fd4a825aea71314bc64d594bf26b0"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t2/58b745d743c7b97137c4.png",
+      "bytes": 20087,
+      "sha256": "58b745d743c7b97137c40f89e3b94e9cefe33222bb31d1c788c9c48469756777"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t2/8a85bd752b77b3eac857.png",
+      "bytes": 8960,
+      "sha256": "8a85bd752b77b3eac857cad8aaf55c8fd2b95d6aa414e4646c6e1f072f36cd79"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t2/ee6801b3175455bf435d.png",
+      "bytes": 27281,
+      "sha256": "ee6801b3175455bf435db4819e9cda561e1be9390b916ec5b06845d6699b218e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t2/f9073ae2897e0130d0a2.png",
+      "bytes": 27549,
+      "sha256": "f9073ae2897e0130d0a21c2fd0cee9464c9d46e483e1b262ae8ee0097a91d354"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t2/fe2bb564f7f15389af8c.png",
+      "bytes": 4901,
+      "sha256": "fe2bb564f7f15389af8c615b26d16c061c51b914589f8e883e3b906b7d42d2a8"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t3/044dcb1356995e65d853.png",
+      "bytes": 41029,
+      "sha256": "044dcb1356995e65d853f544bf2f830ed277e64ebc6d20d6c3d00d1e23a2c60a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t3/4fcf729771e6c08e9858.png",
+      "bytes": 26418,
+      "sha256": "4fcf729771e6c08e98581bf4b5ff35bd702f1f1bc1277a58d637e2fd2eed8842"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t3/60e09e67e3b446c4a16d.png",
+      "bytes": 14895,
+      "sha256": "60e09e67e3b446c4a16dae26026387d059d3e477d27541516ac6636fb90f0105"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/eupho-2025-t3/82164d11789af35e3270.png",
+      "bytes": 14394,
+      "sha256": "82164d11789af35e327084937ef4a112500190f542f3c798af50190775671bc3"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2004-t3/85e1fd757142b095a1b5.png",
+      "bytes": 55519,
+      "sha256": "85e1fd757142b095a1b54aaf024a1115d99f595c067916137a2807b4d75d9de5"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2005-t1/32c897be517de70fb89d.png",
+      "bytes": 6343,
+      "sha256": "32c897be517de70fb89d2d9908a341dc48e4ac71891f62f63959a590650f3752"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2005-t1/842ad36fe50bc6fa785c.jpg",
+      "bytes": 13562,
+      "sha256": "842ad36fe50bc6fa785cbe92490a2c3138025a14e912d5a73a81dc97c3fdc01e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2005-t1/b6c95d20bdd3c4401d18.png",
+      "bytes": 12027,
+      "sha256": "b6c95d20bdd3c4401d18d37f89ad412093f80d099103f5330e76cddbc216955f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2005-t1/b97032d1c0041b691bec.png",
+      "bytes": 15641,
+      "sha256": "b97032d1c0041b691bec2f9e62ad5499aef77213fc12387f693373126c563daa"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2005-t1/c64d790966c64a5a42c1.png",
+      "bytes": 8608,
+      "sha256": "c64d790966c64a5a42c15f527eac0eea6ed62075328af99a4c4fd145d96592d8"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2005-t1/cc60bfdf9447d1662640.png",
+      "bytes": 23069,
+      "sha256": "cc60bfdf9447d16626408b22359adff7b84ce488696af60845a605e7e8384808"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2005-t2/0cdbd6c0495cecc4015b.png",
+      "bytes": 17225,
+      "sha256": "0cdbd6c0495cecc4015bd7aee10419e6c66e8f02bfa6e7cb2397ded9e993c626"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2005-t2/6f6ed5d4fa14cdec09b2.png",
+      "bytes": 37662,
+      "sha256": "6f6ed5d4fa14cdec09b2462274b0baadf1af2c6e9403e6bb88b80ba469f9fa78"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2005-t2/96fbff8de0bd7f9529ba.png",
+      "bytes": 11486,
+      "sha256": "96fbff8de0bd7f9529bab4b2442be6b3ea1167f9ee25fbced4b6a2582a996db4"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2005-t2/c2c26ab8aba78783c26a.png",
+      "bytes": 47768,
+      "sha256": "c2c26ab8aba78783c26a4015858c0bb9a711d4ffb03741eb43bf846829e732f2"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2007-t2/3551746abdb73a140c6c.png",
+      "bytes": 9185,
+      "sha256": "3551746abdb73a140c6cf4a60eebb089b98d7a2eed7112fd3e5800fbd02713d5"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2007-t2/df4daa2fa8f2aa5b4755.png",
+      "bytes": 28543,
+      "sha256": "df4daa2fa8f2aa5b475503e3fc087dda0df6829b20382ae5c7c2117d2060de1c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2008-t1/0fd7090ae326c32436d0.png",
+      "bytes": 6952,
+      "sha256": "0fd7090ae326c32436d098c1c634aac739a157bb38e86aad7abf61e9290e53cd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2008-t1/829d4d74b6a1f736f4a7.jpg",
+      "bytes": 260078,
+      "sha256": "829d4d74b6a1f736f4a7699c8b5d077e04ab03d35236ce31dcf7face7cd8a2bb"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2008-t1/9e84166f8d2afc2e42c2.png",
+      "bytes": 26286,
+      "sha256": "9e84166f8d2afc2e42c2b6bb4b7b0924dcd58aa40eb2c105f89699aa61621d8c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2008-t1/d17492d500f4d76fc8ca.png",
+      "bytes": 31156,
+      "sha256": "d17492d500f4d76fc8ca90a23778a01f0e1338a95eb49098914241e9ad76b11d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2008-t1/db0a6effa638d36deb78.png",
+      "bytes": 7620,
+      "sha256": "db0a6effa638d36deb78da17ed39eb28c805d850a52b3829d4b39c6e27b09014"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2008-t1/f6ecf211a41bde36d22f.png",
+      "bytes": 59282,
+      "sha256": "f6ecf211a41bde36d22fe0d5b277f43851ca509b98b4cad598b172557d268c95"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2008-t1/f9119eb18fe645570b85.png",
+      "bytes": 29345,
+      "sha256": "f9119eb18fe645570b85301207c805f42703f9678e095bc9ff06b5d72bcc6520"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2008-t2/203048b174e7ed47b3a4.png",
+      "bytes": 20405,
+      "sha256": "203048b174e7ed47b3a41c09712a7e0c1ebdb4c2dfc661869cd8051ddd402397"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2008-t2/6453ebfe336237a321fe.png",
+      "bytes": 34792,
+      "sha256": "6453ebfe336237a321fee95c7801017c516be8f4da76ec408b154f4db741a5ea"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2008-t2/9433817d38cc65d55bd2.png",
+      "bytes": 12388,
+      "sha256": "9433817d38cc65d55bd22848fd79834af8ec4161d9d2df0adac3f37695583995"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2009-t1/3a1199d54ab7204b10e8.png",
+      "bytes": 40084,
+      "sha256": "3a1199d54ab7204b10e89a77a8c877507b170efee7c665840b6e70cfbb7bee0a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2009-t1/4237825016050b11c7c8.png",
+      "bytes": 27530,
+      "sha256": "4237825016050b11c7c8151beeb2b4737d298e7896a8bb32389b4cffd8a268a2"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2009-t1/eebebcc30a1c4c8144df.png",
+      "bytes": 305164,
+      "sha256": "eebebcc30a1c4c8144dfab5c142d3865a18e6e9b27c0b1af17cc302e765fbc9a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2009-t1/f1f7504c093e00e9945e.jpg",
+      "bytes": 109506,
+      "sha256": "f1f7504c093e00e9945efa15ecad321178ef26d021759c88c53d18c41affe51c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2009-t2/17739903e03f9c134bfb.png",
+      "bytes": 16776,
+      "sha256": "17739903e03f9c134bfb72500a70ed4d72d46a091bbec11c98d34193826904d4"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2009-t2/4a6d6f9b090548292c97.png",
+      "bytes": 10932,
+      "sha256": "4a6d6f9b090548292c976fad0caa94d885bd312240b7a2eae655d4858c6276ec"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2009-t2/6c7d09d2ccc6f9922be1.jpg",
+      "bytes": 15219,
+      "sha256": "6c7d09d2ccc6f9922be1a5ffb1de21ecb91bf29660d7c18c6cabcc60d32c0a5c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2010-t1/195f2207de669414b0cd.png",
+      "bytes": 9377,
+      "sha256": "195f2207de669414b0cd8fb060954c014422a0998ff58fb282fece7c366e2e6e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2010-t1/1e20770159f32a77784b.png",
+      "bytes": 15917,
+      "sha256": "1e20770159f32a77784bec8d8810eeaa29ef6ebefff7fafd389be567a50305c3"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2010-t1/2a6190456aac0b41e83c.png",
+      "bytes": 10718,
+      "sha256": "2a6190456aac0b41e83cc839cc6bfa55fb7141c51780a8a30345cb5595cda4bc"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2010-t1/72ce4f96426e35204795.png",
+      "bytes": 20816,
+      "sha256": "72ce4f96426e3520479553369107c00312b2e997a1ff7fac108d4ac0f89335ea"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2010-t1/b862415d7250d26c336c.png",
+      "bytes": 14131,
+      "sha256": "b862415d7250d26c336cbf3dcc3f31a2a87fbc628d48356258eae987bcc688ca"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2010-t1/ede246ced75df65841e9.png",
+      "bytes": 17623,
+      "sha256": "ede246ced75df65841e91b878e1f431e13804a05d11d108fdf5071f007eb12c9"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2010-t1/efb5df98ea9e902a7a91.png",
+      "bytes": 13140,
+      "sha256": "efb5df98ea9e902a7a916e76e14155bf6fa0dde1b9f74f4f483ec724fb7f5a2f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2010-t2/17b1b188982398351ea9.png",
+      "bytes": 79857,
+      "sha256": "17b1b188982398351ea981084df33d147030fbf1fe53fd50229dcd649c96dbab"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2010-t2/a0d693b54a0bf21228ec.png",
+      "bytes": 53073,
+      "sha256": "a0d693b54a0bf21228eca5402ecbc4a7ecaf439499d31b67344ef934883788ad"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2011-t1/1f6bd93c74674545491e.png",
+      "bytes": 32819,
+      "sha256": "1f6bd93c74674545491eda865f5355aafddc82f5e05ef7e98506216c4c45387e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2011-t1/593a5b59ac6a49bce5fe.png",
+      "bytes": 188200,
+      "sha256": "593a5b59ac6a49bce5fe17aa74768758f6768f791f547065f153a6fdd15e55ff"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2011-t1/77c038f0249efcf6426b.png",
+      "bytes": 9335,
+      "sha256": "77c038f0249efcf6426b49b83383067e127377ea3c89c072e33a11b07cb7b598"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2011-t1/9f768e85a5f9f5aa7198.png",
+      "bytes": 38006,
+      "sha256": "9f768e85a5f9f5aa7198fa26e08ffd5d2ddae97d819f8323f266e82bce476252"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2011-t1/e825a5581aabfb069344.png",
+      "bytes": 24336,
+      "sha256": "e825a5581aabfb069344f41df18c2661dce9f66b2763159fb795019b1c6ad817"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2011-t1/edcb75d311056c89d348.png",
+      "bytes": 15089,
+      "sha256": "edcb75d311056c89d348b9c57559658fbd80cd418d6da21160c24b6d97b80834"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2013-t1/37ca1349b50a49e94e5a.png",
+      "bytes": 63827,
+      "sha256": "37ca1349b50a49e94e5ae110f5dd83851806d5961e719e509c8d0da31d82bbb0"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2013-t1/9169748000cbdff7c67a.png",
+      "bytes": 177582,
+      "sha256": "9169748000cbdff7c67ada0154af809b7ae1ec8f51bf4b3e57b7f5c1ce014b8d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2013-t1/acc78329bbf4301e90e8.png",
+      "bytes": 1292484,
+      "sha256": "acc78329bbf4301e90e8ea3b4b45aa22c3562e76aeb9246019dcc1479e278ea0"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2013-t1/dd369137ef76d0ca7b75.png",
+      "bytes": 119369,
+      "sha256": "dd369137ef76d0ca7b75208cd2349ed53ecb6947b593bc4633932006755b5c4a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2013-t2/c6c064b1345650421755.png",
+      "bytes": 58403,
+      "sha256": "c6c064b13456504217551ae4658d57c2bca1e849023e2b8abb606608621d0516"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2013-t3/1b0bd8f0b36be90c72f6.png",
+      "bytes": 273257,
+      "sha256": "1b0bd8f0b36be90c72f69b129bee9eeac685002732def5881764e448d0a0f5f7"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2013-t3/4a5ecba0f0aeb107a860.png",
+      "bytes": 56813,
+      "sha256": "4a5ecba0f0aeb107a860bb5de1ece7658f989436b8c30372e97844454131fe10"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2013-t3/a6f3c2eed28a26d3ee3f.png",
+      "bytes": 151350,
+      "sha256": "a6f3c2eed28a26d3ee3fd68b6cd34f5719b9b8f2d6307f4bc6326bac90e2472c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2013-t3/c0dc0fdba3f89eb39dee.png",
+      "bytes": 77425,
+      "sha256": "c0dc0fdba3f89eb39deee80e4b6f44885ed01db0ee5b429c28cd5aaf989e1d8e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2014-t3/c8e00641750a77fefedf.png",
+      "bytes": 19646,
+      "sha256": "c8e00641750a77fefedf104a320c1bf45e2fcf8de70b3f91854df5cee8bd565e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t1/6134b36d0660a0887c53.png",
+      "bytes": 6507,
+      "sha256": "6134b36d0660a0887c53c4f329f140d75ae1702fd93338c336e6f3b231ef159c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t2/03ac03bbdc39cf859c5e.png",
+      "bytes": 12576,
+      "sha256": "03ac03bbdc39cf859c5e51da603879b3a3aa3c3fcb1fdae179cbef9653c04e8e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t2/0e4be0d094231ed841ae.png",
+      "bytes": 32881,
+      "sha256": "0e4be0d094231ed841aef1f51b0f3afece19c4f36e0440648aca9aa95b7e10c0"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t2/1a66b69a3762aaf3e5bf.png",
+      "bytes": 9136,
+      "sha256": "1a66b69a3762aaf3e5bfea46525946d3e67395d5495778a00f0d3a59b9e2d949"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t2/2a68e969b379595b2e63.png",
+      "bytes": 75325,
+      "sha256": "2a68e969b379595b2e63c23f555b2fd4679a60e9f517425affb8caf41759ba44"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t2/77149962ea6e6ce4f010.png",
+      "bytes": 58261,
+      "sha256": "77149962ea6e6ce4f010307e50c985218b1c5bf09adaa6c8332f3b6c8024dbc5"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t2/9a189325c358f9ea1275.png",
+      "bytes": 58236,
+      "sha256": "9a189325c358f9ea127573ab6799f79efcf9f3fa51266b78ed847550b2797cd1"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t2/ae18fcff76c5035857b4.png",
+      "bytes": 12870,
+      "sha256": "ae18fcff76c5035857b41a4bd0ef13822315020a7a9ea839f30da551d5440e3b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t2/b75df0d7bd462b768865.png",
+      "bytes": 5667,
+      "sha256": "b75df0d7bd462b76886592c430621a19e7ae948fc7beeb8c5292ba521713a475"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t2/ba782d826f6ea3e79a00.png",
+      "bytes": 92940,
+      "sha256": "ba782d826f6ea3e79a001c170fe7f17380c7e5b441b846d9be535fe98e2e8f48"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t2/c29a0c9a95248f91e33f.png",
+      "bytes": 19313,
+      "sha256": "c29a0c9a95248f91e33fbac9995a16839253afb7e30183ff9856429d2851ce2d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t2/f3e21cb1527fbe4265db.png",
+      "bytes": 9738,
+      "sha256": "f3e21cb1527fbe4265db946676a081ba444694e34a3a9130eb708a096e6f3821"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t2/f906c74cb88e9acb9230.png",
+      "bytes": 10535,
+      "sha256": "f906c74cb88e9acb923011d4f216f2647dc8b2e5405b42d80860df7131553410"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t3/021c831b2148ce822735.png",
+      "bytes": 29247,
+      "sha256": "021c831b2148ce8227350a38e28efc7f18006e6e3d655e3958fb82153abaf9b4"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t3/02ce9d7ed21d91321615.png",
+      "bytes": 27675,
+      "sha256": "02ce9d7ed21d91321615758fe7466aadc92c9089c63e9edae139101d8ca40597"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t3/21a1b67574f5dc1055cc.png",
+      "bytes": 24063,
+      "sha256": "21a1b67574f5dc1055cc1101346ed1a134797644faf89107a9a9c05b7696c38d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t3/3123f51ca53497b3bba3.png",
+      "bytes": 9293,
+      "sha256": "3123f51ca53497b3bba39e61b467aac45e8b0033b0cf3347f37b6f8b81fcfec2"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t3/4775c8ba8326c06fc98a.png",
+      "bytes": 9123,
+      "sha256": "4775c8ba8326c06fc98aa7cd432432da40326e00453d0a3b7416bba64446f839"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t3/c7b6c00aa087b85744c0.png",
+      "bytes": 35887,
+      "sha256": "c7b6c00aa087b85744c0612c41dac2c060f5f55e8428ce2fe2cfdcddaad85c95"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2015-t3/f87ce5dd03fd126ebf54.png",
+      "bytes": 36473,
+      "sha256": "f87ce5dd03fd126ebf5459d8678cb4b87ddade340aac09644f7ef35670aea4c3"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t1/0e7e292e0a2d1ca636a0.png",
+      "bytes": 20030,
+      "sha256": "0e7e292e0a2d1ca636a045393d4d9159d1ce643c3002b5ece572064a45dbbb84"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t1/273c6742fde4123abe50.png",
+      "bytes": 20826,
+      "sha256": "273c6742fde4123abe50166c6440a1d44cf4fa04e0b07c98192d024f9214f97a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t1/45a4bbfebb9957c4cc57.png",
+      "bytes": 9468,
+      "sha256": "45a4bbfebb9957c4cc57eda406044c567fbc583f3c5dcf611935196eb04ca53c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t1/4a4b58bcfa338a2bd436.png",
+      "bytes": 75098,
+      "sha256": "4a4b58bcfa338a2bd43623eaaa7fe903275321ec8df72b6126ff89c8a9d3431c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t1/52ee49803fbcdcc9037b.png",
+      "bytes": 33474,
+      "sha256": "52ee49803fbcdcc9037b9573a6b9223d1c8771daabd4e8962e954c3367b919df"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t1/7b0df4dac15261cbb1a3.png",
+      "bytes": 73345,
+      "sha256": "7b0df4dac15261cbb1a3a4fbad03a74114d48be526a6fd504b22dd10313b04d0"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t1/7c7abe44f7bf963d730f.png",
+      "bytes": 17731,
+      "sha256": "7c7abe44f7bf963d730f0be073dc8b0fe42aa434eab3810906ebd1ee373f3423"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t1/99e15037c149190a2ccf.png",
+      "bytes": 13411,
+      "sha256": "99e15037c149190a2ccf01d2af0004dec1134884542f664450d7b38cab9f6064"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t1/ca998c5136f7ce5ed3ef.png",
+      "bytes": 7169,
+      "sha256": "ca998c5136f7ce5ed3ef9c6a4cd1c3642e47f3d90c9868c702622e64269c14b6"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t1/d9d233e0168c4978dd24.png",
+      "bytes": 18355,
+      "sha256": "d9d233e0168c4978dd24cef66fbfd17beeaf469239c169874a4c3b27815f6d00"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t2/10e523663363d49b3fa9.png",
+      "bytes": 15469,
+      "sha256": "10e523663363d49b3fa9d51db27ffbe5a1dc937a33bc3d0eee7c784bfb0dfdfd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t2/1d8f438c2897f9dde4ad.png",
+      "bytes": 38537,
+      "sha256": "1d8f438c2897f9dde4adb3a731895e60c10597c88f7ac005143aef1f0ddb9e4f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t2/209fff48bb88bc270a78.png",
+      "bytes": 5007,
+      "sha256": "209fff48bb88bc270a784df83d5531673f92d34392c797d3ac740e4ad56fdfac"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t2/2df4cc5766ca3daf1564.png",
+      "bytes": 5097,
+      "sha256": "2df4cc5766ca3daf15648c3aec3df85317819f87733f5ba7ac8fa1f1f6e66bd6"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t2/3e8fc154053f12d4ecb2.png",
+      "bytes": 32505,
+      "sha256": "3e8fc154053f12d4ecb28bf43190e83d759c4e81d9d3a6737d063211f2191294"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t2/7df7c07b5a6ca7a81985.png",
+      "bytes": 22101,
+      "sha256": "7df7c07b5a6ca7a81985a635c720ce24a746c1d225750c004c8180243b8dca65"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2016-t2/8f1a1b789f4a721b3e6f.png",
+      "bytes": 49015,
+      "sha256": "8f1a1b789f4a721b3e6fab72e325f49e4a1e62dfe0fa89b1ba770e4e0d080303"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2017-t2/15da277336805d55c635.png",
+      "bytes": 36838,
+      "sha256": "15da277336805d55c6353258c8b900f9e23a1c19dec3d6bb6b335f853b9580f1"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2017-t2/3822a8e5de28e2e1d50a.png",
+      "bytes": 21803,
+      "sha256": "3822a8e5de28e2e1d50ad58996cdcd61482e3d8ed34169472bec963372714b0f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2017-t2/4cab99f144eb64e439b4.png",
+      "bytes": 48546,
+      "sha256": "4cab99f144eb64e439b4b68108c18f82962961d9e14fbaba5595202a7774ff8a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2017-t2/4f3755cd134ffb8c65f4.png",
+      "bytes": 169829,
+      "sha256": "4f3755cd134ffb8c65f4daa8fc70c841fd9f611ae3fdc8022e1cfecac61860cd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2017-t2/5cde4bfcb28c88f20539.png",
+      "bytes": 13782,
+      "sha256": "5cde4bfcb28c88f20539c0af843bb51a604247c6b4e3b23a174e391acfa78be1"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2017-t2/72f307414f9f1570cbbd.png",
+      "bytes": 134751,
+      "sha256": "72f307414f9f1570cbbd8618cfb4ee7e2dff572bbc6cb1ee2668e6df3bd2a9d0"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2017-t2/a3d38cfdb85aa201a881.jpg",
+      "bytes": 56490,
+      "sha256": "a3d38cfdb85aa201a881d4914110a526ee392d15f6f9ea44456f0c9b6e1b059e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2017-t2/e2945e4aeccf883b9471.png",
+      "bytes": 254119,
+      "sha256": "e2945e4aeccf883b947152df484a6b7f5a484ede369e27211025672d7fa58fad"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2017-t2/fcad60258cc49789799f.png",
+      "bytes": 352315,
+      "sha256": "fcad60258cc49789799fa9e84bcec40120df727658cfe20ec56a65391285e7a9"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2017-t3/bc712024825a35fa4b8a.png",
+      "bytes": 52932,
+      "sha256": "bc712024825a35fa4b8ac4f34c999e4908769bc5ed6d82a0f76ff49d3956b5aa"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2018-t1/9ffe8b0c39c5e15c7860.png",
+      "bytes": 61627,
+      "sha256": "9ffe8b0c39c5e15c7860fde895b1d7d2e64d336d81a08af7873c12799c949b34"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2018-t2/767a928cede180f49ec7.png",
+      "bytes": 49499,
+      "sha256": "767a928cede180f49ec72c590447440507627ad2c71c5971e45a4177b9cbe59c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2018-t2/ef9ccb6968f018598319.png",
+      "bytes": 162560,
+      "sha256": "ef9ccb6968f01859831928e1716fbc0f945c928fe20d23202a1b01418113b578"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2018-t3/7427e7d566b573c5d79b.png",
+      "bytes": 28436,
+      "sha256": "7427e7d566b573c5d79b4fe4f8fabb9c60daefc6c378f41f9bbe9dfa0b68513e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2018-t3/b4f5354a0ed0ad953dad.png",
+      "bytes": 12720,
+      "sha256": "b4f5354a0ed0ad953dad09eff7cbeba042a2a7e5876170b3cc1d73e5bc2d799e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2018-t3/fbd0d169d562a9de2161.png",
+      "bytes": 51109,
+      "sha256": "fbd0d169d562a9de21614720d5aed4d4b00d9ae389e6c56fef9570c040f484a0"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2019-t1/2b8b6bc6e618aad2e837.png",
+      "bytes": 11599,
+      "sha256": "2b8b6bc6e618aad2e837acf75cd9fbb8eae71f4880f6cb33ff56efd4f52d7158"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2019-t1/7d4d4c3562c76161bc31.png",
+      "bytes": 589236,
+      "sha256": "7d4d4c3562c76161bc31c92a2b27f8b1c6868fee11b3e76d51cf42536785092f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2019-t2/025aa7e84911ce0afffc.png",
+      "bytes": 55013,
+      "sha256": "025aa7e84911ce0afffcfdc678df0193fd2e3bc1b7cd2417460a6a9e8829fa5c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2019-t2/225db12ba19006348085.png",
+      "bytes": 268948,
+      "sha256": "225db12ba1900634808568f472442dca751594cf301619c6c006d2627628eb2e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2019-t2/37250777a8e3f8e3c5dd.png",
+      "bytes": 320920,
+      "sha256": "37250777a8e3f8e3c5dd7f0bd61e9e081a81905163f0272f33aed5bb25618f72"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2019-t2/39351c82f376a81e3051.png",
+      "bytes": 31682,
+      "sha256": "39351c82f376a81e3051fa41e0fcdf164196925c0760948bec9fe0c754616c9d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2019-t2/3b0a01c61584c1f4a491.png",
+      "bytes": 114123,
+      "sha256": "3b0a01c61584c1f4a491b8ef7ec7f8941dc416b4e9527256dab696736f2da628"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2019-t2/548664d776e2042402f3.png",
+      "bytes": 59734,
+      "sha256": "548664d776e2042402f3555708cb0b2872caed44aa185d0a05a6ec416d089cbe"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2019-t2/9438dfed401c8f6030d7.png",
+      "bytes": 205301,
+      "sha256": "9438dfed401c8f6030d7003dea94fa60826c024153b691145e03685572a0bf24"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2019-t2/ab78181f3913e8adfdd9.png",
+      "bytes": 44283,
+      "sha256": "ab78181f3913e8adfdd9382c736a144a854b8ba4e596d271209982aa002634ec"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2019-t3/68592aae0d588e67781e.png",
+      "bytes": 2106,
+      "sha256": "68592aae0d588e67781e3f49361c7a966c0d8ce351e211deeef9eb2a66dd7382"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2019-t3/76467bbdec762cdbac34.png",
+      "bytes": 13532,
+      "sha256": "76467bbdec762cdbac348c0e00cb30e133d63e9787ff010f9e5d96792ad65b79"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2019-t3/9fc4062a64a675ecaaae.png",
+      "bytes": 4849,
+      "sha256": "9fc4062a64a675ecaaaea2ef9451f44fcb4a64944d482f8cf5f349928fa92c82"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t1/4f3890920e726a740703.png",
+      "bytes": 8360,
+      "sha256": "4f3890920e726a7407033275d469073e3bbb39576d30f62da4bbe276dee06c99"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t1/5f9ff0d40afdac6a6eef.png",
+      "bytes": 15426,
+      "sha256": "5f9ff0d40afdac6a6eefcabaac03bc6267eb5466c896fc83ced1d11d0d01d3a4"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t1/814e5347e8e706f68bda.png",
+      "bytes": 30247,
+      "sha256": "814e5347e8e706f68bda77f7fd03924beb8bb31409dae3e27541905401610d5b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t1/9a71bbd0782ccaed74f0.png",
+      "bytes": 13598,
+      "sha256": "9a71bbd0782ccaed74f09af0ab45c433452d32547bb27765af1f4f2a48bcb2b7"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t1/d1aa12efd289a42bef42.png",
+      "bytes": 48821,
+      "sha256": "d1aa12efd289a42bef42bf243e68c424e0cee00cb8dd4ce342734ee0684a6800"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t1/ea72cca2169de3f0b439.png",
+      "bytes": 13267,
+      "sha256": "ea72cca2169de3f0b43909fa76fcda38027bd74265343bfc1f6dd27c75415d00"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t2/2114f396522afebf4510.png",
+      "bytes": 19827,
+      "sha256": "2114f396522afebf4510ff84cb793eaa61009548535e89e8f01ff17d793d5a1b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t2/36f03fe8ece015af267f.png",
+      "bytes": 13713,
+      "sha256": "36f03fe8ece015af267f25df03e95bece13b188c472913a4ceea17712bf27010"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t2/4468ac6a49e7e291f0f7.png",
+      "bytes": 16866,
+      "sha256": "4468ac6a49e7e291f0f75b17173fee133bbdde3336e54b55d69a7f9d2f89bd9f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t2/5615224a5fa2f45e9abb.png",
+      "bytes": 18664,
+      "sha256": "5615224a5fa2f45e9abbf5163eccf3f27bd6f65ec1d106cd1a33cc4630dd5d84"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t2/7d5f8764d57a92446d48.png",
+      "bytes": 19516,
+      "sha256": "7d5f8764d57a92446d48bb4aa97a5471c56b4b80dc6e1305db7ab049ec0e2851"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t2/c835f33714a23288ae52.png",
+      "bytes": 17402,
+      "sha256": "c835f33714a23288ae52dbba7882dcd1b65c786b83cb644bef7dce6bebf47425"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t2/df2df01e30a5c7bd4004.png",
+      "bytes": 14550,
+      "sha256": "df2df01e30a5c7bd40043b084a68621feddcbff75ab7b785ab39860001e49071"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t2/f019c2e7e6e615267e70.png",
+      "bytes": 11921,
+      "sha256": "f019c2e7e6e615267e70c9bfd4f2c14dc400fa3161e9d12198b848fb22eb3334"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t2/f8e344e5a2e7fe1234e1.png",
+      "bytes": 13502,
+      "sha256": "f8e344e5a2e7fe1234e190325c363bda68fffce4adf4ce2e6e5c55fb08101c46"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t3/3d498975c5a8351096a3.png",
+      "bytes": 53931,
+      "sha256": "3d498975c5a8351096a31c6df02619c8e9959b7a5af6e47af6e683b7f32e4389"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2021-t3/fbb36d92cb2ff713a629.png",
+      "bytes": 79849,
+      "sha256": "fbb36d92cb2ff713a629a05d2965736331d4fed19d3c4ec231fbe7fb7a4d1b57"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t1/03160d103d1f689c2da4.png",
+      "bytes": 19973,
+      "sha256": "03160d103d1f689c2da41b49d19cf31872cea6e09c2b53b04fc37050f95f80d6"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t1/0324880d490d2b4476f8.png",
+      "bytes": 9858,
+      "sha256": "0324880d490d2b4476f817521e243d490fc1b70c4e1515f2677e26dc29159987"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t1/0635b1463957398f0916.png",
+      "bytes": 4471,
+      "sha256": "0635b1463957398f0916943e3bc2e7f1c5ac6f74f35f03c5640cba039d94a7db"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t1/22a606e886aa951b2b47.png",
+      "bytes": 17624,
+      "sha256": "22a606e886aa951b2b47c5f5f23ca4f4c13b5ed105f45528d0e024875b7c1592"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t1/2ae0ff1138b1953dfee3.jpg",
+      "bytes": 47592,
+      "sha256": "2ae0ff1138b1953dfee36843dd6f5fee0afa85985d5164a5b12236563b8d9ada"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t1/385ba526a71a970fa87f.png",
+      "bytes": 43601,
+      "sha256": "385ba526a71a970fa87faf5873559416a5f222b50e3159f349a5327ffcb37d46"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t1/4724cd05554554648d0d.png",
+      "bytes": 42590,
+      "sha256": "4724cd05554554648d0d30e21946c1d17446c7a290e607c204a4c2126b87ca95"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t1/56420ab3021a02872846.jpg",
+      "bytes": 47277,
+      "sha256": "56420ab3021a02872846aa041e39c55f7f2598f14bbb885814853bdc545ff706"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t1/9de533c3eb99ea1b08e5.png",
+      "bytes": 8206,
+      "sha256": "9de533c3eb99ea1b08e5be8ba06df66a85c11a6f07f9f56b584e172d18d69569"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t1/a775a455b94102abc2cc.png",
+      "bytes": 16752,
+      "sha256": "a775a455b94102abc2ccbfbbac3d7afe0d98c5a05a4c3e1e2fd8596a3565499c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t1/c6611f22fab24dc0e6a0.png",
+      "bytes": 33228,
+      "sha256": "c6611f22fab24dc0e6a0a187c5fd936a3fed172336b50118553dd3d47d138d64"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t1/f7028f469cffe7a22ad8.png",
+      "bytes": 47964,
+      "sha256": "f7028f469cffe7a22ad88f7ab65a44009d5c3f3509bd8013f0bff4a5c4f92387"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t2/10f7e5bcf42bb3fe44ff.png",
+      "bytes": 136834,
+      "sha256": "10f7e5bcf42bb3fe44ff44f22d536cb7fc7559dd8169e2c8c4cd86b69dde2b4d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t2/1d7e46c277e765e5bc4a.png",
+      "bytes": 25447,
+      "sha256": "1d7e46c277e765e5bc4acd84c5b58f5a0f105a94800fff6cee4ef258563f17b5"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t2/23fbc7736b3ce3e79815.png",
+      "bytes": 126618,
+      "sha256": "23fbc7736b3ce3e7981502097ce2cb3c0ad4e48698d745a45b69049fa422186c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t2/2c269579a49642d597bb.png",
+      "bytes": 187901,
+      "sha256": "2c269579a49642d597bb44bb92d13a222eea661647725aaf5a57d0cfa3a47059"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t2/7ac7b1f7e642f58f19de.png",
+      "bytes": 8388,
+      "sha256": "7ac7b1f7e642f58f19deec4d9d4b183f38f98af100e87821e0ff1fefe94cc388"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t2/c5def638659eec3dca62.png",
+      "bytes": 133314,
+      "sha256": "c5def638659eec3dca627f5a0794ce0d8b6d737563511b40c0849f5cecf6f58f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t2/d59c444c72e8adc553e2.png",
+      "bytes": 19675,
+      "sha256": "d59c444c72e8adc553e23711f0650af895820b18008988de17a04b6e29ecd7c8"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t2/e248e955ef6fa6621a83.png",
+      "bytes": 11797,
+      "sha256": "e248e955ef6fa6621a83c8b9e0a9f3ef57b0571893dc9cf5f2b53f0b083984da"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t2/e2743365359faf1a5a33.png",
+      "bytes": 11886,
+      "sha256": "e2743365359faf1a5a330902e84f36132a6023d3a8c0cce055813a38ae1ca648"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t2/f179f7ba5bd6ab7b93db.png",
+      "bytes": 14736,
+      "sha256": "f179f7ba5bd6ab7b93db3cba7db37a776cc9fed9e9f992f3c4199822c4790f09"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t2/f17ef86f671a07fc8683.png",
+      "bytes": 27979,
+      "sha256": "f17ef86f671a07fc868359a1ec94f6e26d74c6f34ca34750491a9a394dc800a0"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t3/6234b8213ee23f5d2382.png",
+      "bytes": 11331,
+      "sha256": "6234b8213ee23f5d23828d1e54c3c82d7895eefcb60066b6847d7afbb327662a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2022-t3/b3f1f18e28f3bcd72dc1.png",
+      "bytes": 4009,
+      "sha256": "b3f1f18e28f3bcd72dc1af8f38de43f722a0abe6b689f2822e7a85c15f17860f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t1/00c7cb42e514f318e77d.png",
+      "bytes": 29670,
+      "sha256": "00c7cb42e514f318e77d74cc67dc400d1bf42ce914d31141e8c16d63a84a2626"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t1/015f464a43560eb87daa.png",
+      "bytes": 7052,
+      "sha256": "015f464a43560eb87daa4af506f45c002ddb47360e6bab1b127787408b94c68d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t1/04632faf9be802e4c829.png",
+      "bytes": 35362,
+      "sha256": "04632faf9be802e4c829da65694ca80ade1f0f55a945c4f3fd52dd399ef4148f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t1/27c0079d6c33ce3ad6e1.png",
+      "bytes": 58331,
+      "sha256": "27c0079d6c33ce3ad6e1e2812d4fd79ebf013e1b37622e4970bcd14abcedf537"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t1/2cf7508b04184e152e53.png",
+      "bytes": 30287,
+      "sha256": "2cf7508b04184e152e5325f2c8a149c597dfd0dc397133cb84389ce2e6d5238e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t1/358e2803fe87a698d3e1.png",
+      "bytes": 13579,
+      "sha256": "358e2803fe87a698d3e1dcce39535398c508659f2c792687dce2b98450abe7c8"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t1/6aa0994fd16d65f4f984.png",
+      "bytes": 10156,
+      "sha256": "6aa0994fd16d65f4f98481f3f8263c881944dca7c65cc6f8768dc10c43b0ef28"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t2/20c75f168214b542651b.png",
+      "bytes": 4040,
+      "sha256": "20c75f168214b542651b5be064f89963a7a9c657da29f64bfef633e86514ce93"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t2/34312a7b8f91613a60d1.png",
+      "bytes": 14477,
+      "sha256": "34312a7b8f91613a60d12fb96a9f7c9c0560f0168372b53d77765a438769140a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t2/9dbb548f14e77a9603fa.png",
+      "bytes": 14247,
+      "sha256": "9dbb548f14e77a9603fa2ee23e0d2d9c855cc3e44cc0ffbd4d96837681abf86c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t2/ee8910fe899b92017e18.png",
+      "bytes": 51817,
+      "sha256": "ee8910fe899b92017e18143f601341c03955922834ea85f4c7db2a8eeebbb886"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t2/f94e1744315fa8ac864b.png",
+      "bytes": 13209,
+      "sha256": "f94e1744315fa8ac864be4d8f61c2f203173b6f4a3e1cbef6fda67f892eda034"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t3/0a3f5350073fae315737.png",
+      "bytes": 31469,
+      "sha256": "0a3f5350073fae3157372831ead2432aed85d517c306c36de8ccdd0694a6c56c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t3/15f5efcdbcf4a6d6976b.png",
+      "bytes": 50669,
+      "sha256": "15f5efcdbcf4a6d6976ba69d4bcf9c3b71c55d22db171bd2760d4cdf29cedb81"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t3/358c42b7164e9acc9017.png",
+      "bytes": 10783,
+      "sha256": "358c42b7164e9acc90175d719cee02a298d19e8c6fafec34a596afb7df7a19f2"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t3/4bac9380dd7fca45bc20.png",
+      "bytes": 149725,
+      "sha256": "4bac9380dd7fca45bc2045102fa3de2d9421526a532dcb3b5e07ef7967c6d5bd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t3/569d59e6855f447f18ff.png",
+      "bytes": 33942,
+      "sha256": "569d59e6855f447f18ff09eaad6e16c996551797ea8723fdeacab2c09ee00423"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t3/5bcaec0ae3908f3d35df.png",
+      "bytes": 9866,
+      "sha256": "5bcaec0ae3908f3d35df0ba4fbd8047d9390e307967a56cbaab10c2b33cae181"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t3/a86469c0b847d485cfd3.png",
+      "bytes": 20792,
+      "sha256": "a86469c0b847d485cfd34fc72d4339e521b1fb6450910880a7c232d569a7ef37"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t3/f453462c0474de994728.png",
+      "bytes": 120478,
+      "sha256": "f453462c0474de994728cd1aa485a4bea5bfe0bebeb800710d8eed69defa4f0f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2023-t3/fa8fbfd7d855afa73e6b.png",
+      "bytes": 124144,
+      "sha256": "fa8fbfd7d855afa73e6b5b85052355e1fe151139522b79d0664a78bca8a23ad3"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2024-t1/d811b7228bb5a7329de0.png",
+      "bytes": 68451,
+      "sha256": "d811b7228bb5a7329de037d080c81ae23f35e734834f6ca2f4660fa4f8765a5d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2024-t1/e22aa367648c1f7d77c3.png",
+      "bytes": 143679,
+      "sha256": "e22aa367648c1f7d77c396c295b3592ba7bcc52e16c04f9bdd34e1366cf6de0a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2024-t2/3e621e5a3f18eeeffe66.png",
+      "bytes": 60226,
+      "sha256": "3e621e5a3f18eeeffe66e74511eaabccf5cb44649d8f9101cda87088c9f3265d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2024-t2/4bb62c8df0526298acaa.png",
+      "bytes": 9993,
+      "sha256": "4bb62c8df0526298acaa954a0150f6ff4c3eafeab577ba7b7828eb3981b5365b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2024-t2/74d97a81a636953b5946.png",
+      "bytes": 47809,
+      "sha256": "74d97a81a636953b5946cb0d5a38d8998990ec0e2b446037ff6cbf856ba74680"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2024-t2/c5ccbb3cb8b731e582cc.png",
+      "bytes": 41867,
+      "sha256": "c5ccbb3cb8b731e582cc1da9915b1ea570964f73578b023109ff80c89d56bd99"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2024-t3/01bfd118a067595454f4.png",
+      "bytes": 28029,
+      "sha256": "01bfd118a067595454f4171cb8e573532fb2c7682f5bfd67f92034a85cb3c408"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2024-t3/b28d0fb3140e733a6dfe.jpg",
+      "bytes": 107575,
+      "sha256": "b28d0fb3140e733a6dfe68c1030fa630c0724d8a531ca2cb6690da2d88591773"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2024-t3/d366342a972900224835.png",
+      "bytes": 187988,
+      "sha256": "d366342a972900224835e940f23cdf1d8f22f4975350ea4279ca20882e8fac01"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t1/160baabef51b9d828f0a.png",
+      "bytes": 190521,
+      "sha256": "160baabef51b9d828f0a9b997770dc28ccb79808e315740e4b655c483f88b1ec"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t1/5e6d23b9aa5b62e8db0e.png",
+      "bytes": 252816,
+      "sha256": "5e6d23b9aa5b62e8db0e7a6af009f744d6734d66fb582efbe11372cc9f851cdb"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t1/6d1907fa0f10aaa56f95.png",
+      "bytes": 162515,
+      "sha256": "6d1907fa0f10aaa56f9558bbe86f726e6f090ab0f38fb31f86aecd3917b33639"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t1/979418f8d4c1afea2f08.png",
+      "bytes": 55119,
+      "sha256": "979418f8d4c1afea2f08c18846eea0674adaab29d17e69f24e18cba74d815e2e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t1/eda02206d087537ca0b7.png",
+      "bytes": 38791,
+      "sha256": "eda02206d087537ca0b79ab96b56e023aea4f572364577d4553bd6f6e1602daf"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/19a87761f54fa5d8143e.png",
+      "bytes": 12884,
+      "sha256": "19a87761f54fa5d8143eb949fd7a863cd6dcd78ee0125d505cf283da12738d28"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/21a16aa450121e9fda67.png",
+      "bytes": 17839,
+      "sha256": "21a16aa450121e9fda6719dd12193faccd17303720d23bc815e29170f0929b73"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/337c378887c8e79f70a0.png",
+      "bytes": 14477,
+      "sha256": "337c378887c8e79f70a02eadd666eb62b245520b3426d42cd113529a6bbb111a"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/370006a57ba4ad635003.png",
+      "bytes": 11056,
+      "sha256": "370006a57ba4ad6350030402f87c24791151f1e7736c53825312d3d8bd78e39c"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/4aa535b2457dd3d330c1.jpg",
+      "bytes": 34531,
+      "sha256": "4aa535b2457dd3d330c1dd02e3a9cf6d18da18b45fb104b09ca26544f608b2c7"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/4b152558093288513ff9.png",
+      "bytes": 28074,
+      "sha256": "4b152558093288513ff984a8e8d83c387b07714ebb347411854035b352f966be"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/6a90688bcaebd403c5d3.png",
+      "bytes": 18217,
+      "sha256": "6a90688bcaebd403c5d363de05f428c916a8298e35274bfc97e270c2590ef1d7"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/838680d25150295b4cf2.png",
+      "bytes": 18055,
+      "sha256": "838680d25150295b4cf2b44be2aa04f031f62640a82a13f68bb83ec5b6c34dcb"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/83f4be591308b735a055.png",
+      "bytes": 12507,
+      "sha256": "83f4be591308b735a055e7fdb5810c065617aeba4f9c88bc8147663fda81af8e"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/876b4908ff34cd1fe3c6.jpg",
+      "bytes": 30999,
+      "sha256": "876b4908ff34cd1fe3c68478327ee7e9a4aa26b534686dfff4cbb26ce19a958f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/9be480fc2e68b301ab27.png",
+      "bytes": 28071,
+      "sha256": "9be480fc2e68b301ab27aaf17668c9f45554bbb9ddb3c88635e525a30cb55d87"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/9f19e9051901a6498501.png",
+      "bytes": 10441,
+      "sha256": "9f19e9051901a64985014d76dba5bd2163f1bfa7074b1c554852bd0c68995331"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/9f5134884ca08d121857.png",
+      "bytes": 46669,
+      "sha256": "9f5134884ca08d121857c9c438ded5a60da94a370385b28876952198e680610b"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/9fe935c176b704f3db0d.jpg",
+      "bytes": 31001,
+      "sha256": "9fe935c176b704f3db0d73dbf43ae7e7eaa7f91ef3d2ffe8ea3d2537d86ee34f"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/a5e8b701ed49e0b3f5fc.png",
+      "bytes": 17823,
+      "sha256": "a5e8b701ed49e0b3f5fc754d28f02027824bf42316300164a6a9588b06e53a09"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/aafd2db2cdfdf97d1155.png",
+      "bytes": 7363,
+      "sha256": "aafd2db2cdfdf97d1155a340c40b2b307c57ed540d3111f20cded41b85921fe4"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/ad6e0e0797f221338981.png",
+      "bytes": 12959,
+      "sha256": "ad6e0e0797f221338981b936c64426afcb388a7bcb57564b69ab4b201ee4af48"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/b45798a5f28dbe8f5c55.png",
+      "bytes": 48519,
+      "sha256": "b45798a5f28dbe8f5c55710c009e12d990dc89150d1168ca4ecda23149049a1d"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/bcbec4337261c533d3b4.png",
+      "bytes": 14682,
+      "sha256": "bcbec4337261c533d3b44435104ae5d34b634120b85f07c9461379841706b3bd"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/c2950980d569dd1df6d9.png",
+      "bytes": 22899,
+      "sha256": "c2950980d569dd1df6d994588e12e30e2f9b51dcc6fd43e149c2b01064abbd30"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t2/f386943cbda76d85ebec.png",
+      "bytes": 18459,
+      "sha256": "f386943cbda76d85ebecabf9e125b268fe5cf39e139da5986c986e600e211993"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t3/25b59376d33110e09e64.png",
+      "bytes": 61877,
+      "sha256": "25b59376d33110e09e64c36a68b2a38f67cceef90ad122cef55de8134c1717ec"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t3/35a09c0135c95a7bc68f.png",
+      "bytes": 159787,
+      "sha256": "35a09c0135c95a7bc68f56789f2a866f135dc9ffd153d11fe43aaaa80f1a0c11"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t3/87b0dc150ac7a887bf2c.jpg",
+      "bytes": 6312,
+      "sha256": "87b0dc150ac7a887bf2c62714796a4389dffc3ae1526eefd698c0ea4e009a5f1"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t3/a7fd05ab95effc8c40f7.png",
+      "bytes": 15747,
+      "sha256": "a7fd05ab95effc8c40f7f33aacb26ad0e4598680a7964394b32fa82487818872"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t3/b3457951602bcd44eeac.png",
+      "bytes": 41863,
+      "sha256": "b3457951602bcd44eeaca359ee1136f095e150f6885687de0a679eaa876d6005"
+    },
+    {
+      "path": "/corpus/figures/native/bulk/ipho-2025-t3/fc255ea221abfeae11c3.png",
+      "bytes": 11333,
+      "sha256": "fc255ea221abfeae11c392d14a371c0f1da4fcc327517ba0f62d6ca6d3d0554f"
+    },
+    {
       "path": "/corpus/figures/native/eupho-2018-solenoid.png",
       "bytes": 9641,
       "sha256": "1350fbeb2b03980211f1bb0893232412c4519b940b3e1c8a2a140a9b477c82d8"
@@ -7425,6 +10060,21 @@
       "sha256": "f1c7025bc0be52104f320ec1cb566c78021c2b80e6d0fbdf55fb2e806a139712"
     },
     {
+      "path": "/corpus/grading/apho-2006-t2.json",
+      "bytes": 3891,
+      "sha256": "acff703dbb201eebc229cec81ddd6e839d1b54e7c5f555a410b1b2caeee2feaf"
+    },
+    {
+      "path": "/corpus/grading/apho-2009-t1.json",
+      "bytes": 3148,
+      "sha256": "02f19e41b574d246dde782caf279542d352e694e7d148153a59375236de5910c"
+    },
+    {
+      "path": "/corpus/grading/apho-2011-t2.json",
+      "bytes": 2757,
+      "sha256": "fe67288c6b335b93188267978489e772575b9db98d9024ba43279d49d07fe080"
+    },
+    {
       "path": "/corpus/grading/apho-2012-t1.json",
       "bytes": 7511,
       "sha256": "98157018dc3e91c5c8094ce3e85dd34dd189f28d1d71f2f17a50b3eb02717728"
@@ -7433,6 +10083,171 @@
       "path": "/corpus/grading/apho-2012-t3.json",
       "bytes": 7647,
       "sha256": "01d10f484e8c51a1995cb984a8bb316b0fb66b81ef4659e83ddd02dfad665b2b"
+    },
+    {
+      "path": "/corpus/grading/apho-2013-t1.json",
+      "bytes": 3132,
+      "sha256": "a3116c8ff97dd80a988758e94647da69234dbca55f1660a9e490483be06e1088"
+    },
+    {
+      "path": "/corpus/grading/apho-2013-t3.json",
+      "bytes": 4291,
+      "sha256": "078c424fbbb6725620d13d515b3220583c458cb8c799575b7ce09a01198d8624"
+    },
+    {
+      "path": "/corpus/grading/apho-2014-t2.json",
+      "bytes": 2759,
+      "sha256": "2f4d0753f8a6d621b1d033eed5afb8fe5c7f5227e440c52abe3fec6cd2b95be8"
+    },
+    {
+      "path": "/corpus/grading/apho-2014-t3.json",
+      "bytes": 2757,
+      "sha256": "7c3c41bf05b390c300a1b60192bca88ba76d0310f2ea92c0ebd1aaf203e9c894"
+    },
+    {
+      "path": "/corpus/grading/apho-2015-t1.json",
+      "bytes": 4669,
+      "sha256": "f4b6dca27b77bb01893111222ff19920b300e2cb505a99b8a177b3b84b6d954c"
+    },
+    {
+      "path": "/corpus/grading/apho-2015-t2.json",
+      "bytes": 3521,
+      "sha256": "bc057901addadbc2dff262880f0cfed6fc03fb46314bab4e3793b86ab1b20610"
+    },
+    {
+      "path": "/corpus/grading/apho-2015-t3.json",
+      "bytes": 882,
+      "sha256": "e18c1e8b8f8f745be8adeb02d5b670f581f53236f4a4f1c6fa3474f7d177db6d"
+    },
+    {
+      "path": "/corpus/grading/apho-2016-t1.json",
+      "bytes": 2764,
+      "sha256": "74a5a7c7b61aa2438b11e67bd9951a3f4bc4f9e67601f5ce170846b2ac043146"
+    },
+    {
+      "path": "/corpus/grading/apho-2016-t3.json",
+      "bytes": 5024,
+      "sha256": "19286a7f019b91b147fd276c9c514f4a11404827b8796fefc92f7eb200e204d6"
+    },
+    {
+      "path": "/corpus/grading/apho-2017-t1.json",
+      "bytes": 4659,
+      "sha256": "3de61ba40919f97d783942a2b16ee18b269d4c49955ca6d6afa81992c308cf98"
+    },
+    {
+      "path": "/corpus/grading/apho-2017-t2.json",
+      "bytes": 8057,
+      "sha256": "964372386be939a34fb3900e809306d62e9354497bb917fd7d9ef96033ced812"
+    },
+    {
+      "path": "/corpus/grading/apho-2017-t3.json",
+      "bytes": 4659,
+      "sha256": "31a1faf6031b573478dc3b247805787c5ff0499ed27511ce89022f54a8faf984"
+    },
+    {
+      "path": "/corpus/grading/apho-2018-t1.json",
+      "bytes": 6929,
+      "sha256": "4616af2052e778d28d08301d5879322dd1a2fab3294194806a67ffd856010c56"
+    },
+    {
+      "path": "/corpus/grading/apho-2018-t2.json",
+      "bytes": 5793,
+      "sha256": "920c6640a1ee9094d20e8a3a647e0bd2c404bd9f3534c3fdb1bc8c47b77b20a8"
+    },
+    {
+      "path": "/corpus/grading/apho-2018-t3.json",
+      "bytes": 8840,
+      "sha256": "2f0d095f5c8b7e0107852095437c88d16d7f7214df15f7d57a10aa4dcd8b6d9a"
+    },
+    {
+      "path": "/corpus/grading/apho-2019-t1.json",
+      "bytes": 4281,
+      "sha256": "43e87c68de652fce1c493226299e8f01113dfa6b3a8632216dff644df245c749"
+    },
+    {
+      "path": "/corpus/grading/apho-2019-t2.json",
+      "bytes": 8061,
+      "sha256": "4fe224136790883009ea7934f705b6c9df6da9a19dcc893280e77df6b1ca3090"
+    },
+    {
+      "path": "/corpus/grading/apho-2019-t3.json",
+      "bytes": 3904,
+      "sha256": "f342b380b0e3b1a11ecdf84b6fdb1a5bd6a976bc674b6562cdfcf02f5de8a2a6"
+    },
+    {
+      "path": "/corpus/grading/apho-2021-t1.json",
+      "bytes": 2771,
+      "sha256": "31d8b6c013509b7b6a7e75c7212d0396e50de69d3765c2ecba511a6705b5baee"
+    },
+    {
+      "path": "/corpus/grading/apho-2021-t2.json",
+      "bytes": 5037,
+      "sha256": "56633f6ea5d5d84fe52b60f5e84a449fc90334a53cd5396bb3e4bd76a73a71e5"
+    },
+    {
+      "path": "/corpus/grading/apho-2021-t3.json",
+      "bytes": 6171,
+      "sha256": "1b0dd732819131bd191e4745bb245fa1b298369b1ca210e3bf81efe85280e193"
+    },
+    {
+      "path": "/corpus/grading/apho-2022-t1.json",
+      "bytes": 2394,
+      "sha256": "504bb343ced6adfce047a9ea86b66a93cf67d604cf9715402ff5e2e03b4858c1"
+    },
+    {
+      "path": "/corpus/grading/apho-2022-t2.json",
+      "bytes": 3903,
+      "sha256": "4d4bd3406e820f244c8a32b20308465671834cec0c5271cb9d25782c0112e570"
+    },
+    {
+      "path": "/corpus/grading/apho-2022-t3.json",
+      "bytes": 3148,
+      "sha256": "d4e8dbf17d08d0cfa75827fa5b982693a403cd4e8164d9aaf3ca16cce1ce248b"
+    },
+    {
+      "path": "/corpus/grading/apho-2023-t1.json",
+      "bytes": 5037,
+      "sha256": "23e910f02315ea5bc383c4ed82f926becb35c45956da0807c61f0309780527fc"
+    },
+    {
+      "path": "/corpus/grading/apho-2023-t2.json",
+      "bytes": 5793,
+      "sha256": "063921e34bcce1983fd3c244b0b767992b13c4ceb5a23c13ab74670fb04dd0ab"
+    },
+    {
+      "path": "/corpus/grading/apho-2023-t3.json",
+      "bytes": 3903,
+      "sha256": "11fd9c95d1236166a9746c510d2a90c52815d67a023059a0713446d6bee55f9d"
+    },
+    {
+      "path": "/corpus/grading/apho-2024-t1.json",
+      "bytes": 3148,
+      "sha256": "ad78aa0933e50c631dae56f08c993a4b4a5754712ba759019a8f7502135dbba6"
+    },
+    {
+      "path": "/corpus/grading/apho-2024-t2.json",
+      "bytes": 2771,
+      "sha256": "bcee3ad3682fb89462aa27fc13cf894c6580e4416999c0af7bfa277ebccbf343"
+    },
+    {
+      "path": "/corpus/grading/apho-2024-t3.json",
+      "bytes": 3148,
+      "sha256": "3090f1b7e1a8dd477778caf8ffc48e6af588c25739452bb5c6eff30413ffcf28"
+    },
+    {
+      "path": "/corpus/grading/apho-2025-t1.json",
+      "bytes": 3148,
+      "sha256": "c000ab14d7aa31bf94999b7ea38c54591da4844fed875c43c0c29981822c3035"
+    },
+    {
+      "path": "/corpus/grading/apho-2025-t2.json",
+      "bytes": 5793,
+      "sha256": "ba842441a3475b478e38bd0bd739aecd8a80b48858e09f8d138de1f67fe5e5f1"
+    },
+    {
+      "path": "/corpus/grading/apho-2025-t3.json",
+      "bytes": 6549,
+      "sha256": "7da73725c155bf3a602f6330cc069e938d2879bdfb733c598ab8d7d61031102a"
     },
     {
       "path": "/corpus/grading/arena-a-grin-and-a-wiggle.json",
@@ -7535,6 +10350,21 @@
       "sha256": "2c705ba6894c2973d52c35a366d989a1d63a57bc7cea26cb9e3d593001f76f9e"
     },
     {
+      "path": "/corpus/grading/eupho-2017-t1.json",
+      "bytes": 883,
+      "sha256": "9aa69509dfa279c1636ac8c330798904b4ee9243ea307c47c52b8ac09702e2ff"
+    },
+    {
+      "path": "/corpus/grading/eupho-2017-t2.json",
+      "bytes": 513,
+      "sha256": "f211aefb9f964c3ade4def4bb067f94f8cc61ccc874b25fb2b694be122c101a1"
+    },
+    {
+      "path": "/corpus/grading/eupho-2017-t3.json",
+      "bytes": 513,
+      "sha256": "685ab350967b72dc875ea2d26833b0c741ad9cf858a634ee29e59b4192bb5024"
+    },
+    {
       "path": "/corpus/grading/eupho-2018-t1.json",
       "bytes": 529,
       "sha256": "db70c3e3bb4be393ff1f81ccceb5dd943a787a7f8028330e0a00c7099d08432f"
@@ -7580,6 +10410,81 @@
       "sha256": "120c6603003e0f9dd06d619a63f7de80864c93385cccf95215cb0671fe310dc9"
     },
     {
+      "path": "/corpus/grading/eupho-2021-t1.json",
+      "bytes": 1258,
+      "sha256": "e0f510f75bcf926872c2b414e8cc83184573c066066df68fffa9ed2bb70f8abc"
+    },
+    {
+      "path": "/corpus/grading/eupho-2021-t2.json",
+      "bytes": 513,
+      "sha256": "15ebd83712ce7663e095c1b8f8c3d7ffa8c6558991d4b6fe4f62a6dedec8adaf"
+    },
+    {
+      "path": "/corpus/grading/eupho-2021-t3.json",
+      "bytes": 1258,
+      "sha256": "a485460a3751570f22b6c0566a4266a8064634b61e7d2e3aab6d580dc063e5fb"
+    },
+    {
+      "path": "/corpus/grading/eupho-2022-t1.json",
+      "bytes": 513,
+      "sha256": "d0bcdca181e9ad49fee04343d92f74cfcd81ee203669b7ed905a05ab3ecd49f6"
+    },
+    {
+      "path": "/corpus/grading/eupho-2022-t2.json",
+      "bytes": 1258,
+      "sha256": "082ab233ad22f5b9bc95c72553cfb95327aee98ec6d7ee8fba335c50e237485d"
+    },
+    {
+      "path": "/corpus/grading/eupho-2022-t3.json",
+      "bytes": 1633,
+      "sha256": "d636a3973bbfa2132a59cfc36d34412ca1796d1bef80aedf9e99e98b0147e086"
+    },
+    {
+      "path": "/corpus/grading/eupho-2023-t1.json",
+      "bytes": 1258,
+      "sha256": "f07d05c18ffce59b53b510a21cc8188ff586dd64365d7f5d8a56a772979d16ca"
+    },
+    {
+      "path": "/corpus/grading/eupho-2023-t2.json",
+      "bytes": 883,
+      "sha256": "9b25ae38d34b654bba3a1437a962aeee9498baeb9108ebf88a60a96058622336"
+    },
+    {
+      "path": "/corpus/grading/eupho-2023-t3.json",
+      "bytes": 1258,
+      "sha256": "58cca900d2d00a8aefae060fbc26d5b15392f0993961d18e41214231a5d46baa"
+    },
+    {
+      "path": "/corpus/grading/eupho-2024-t1.json",
+      "bytes": 883,
+      "sha256": "f0381bbc8a2adc4862ac6b4f83706b455cf292de60e84d8fc407563c1559ec24"
+    },
+    {
+      "path": "/corpus/grading/eupho-2024-t2.json",
+      "bytes": 1634,
+      "sha256": "3c155875ea7ba7fad38a429413e324cf705ba726bc753b27004cf7e8492c44e5"
+    },
+    {
+      "path": "/corpus/grading/eupho-2024-t3.json",
+      "bytes": 1633,
+      "sha256": "60c821f6f7e42827550fe377ef801f50f0a9eb1257d76069a15324445841bb01"
+    },
+    {
+      "path": "/corpus/grading/eupho-2025-t1.json",
+      "bytes": 883,
+      "sha256": "3e885bfe9ae12199ec9b4cbf1262b60c95388a15234193bd02a1d3921d4aeb76"
+    },
+    {
+      "path": "/corpus/grading/eupho-2025-t2.json",
+      "bytes": 883,
+      "sha256": "2423092796071688b8e275351ab25752d2cd714ab6f4f65ab08706239977ba03"
+    },
+    {
+      "path": "/corpus/grading/eupho-2025-t3.json",
+      "bytes": 1258,
+      "sha256": "3ff6c2151636ed3e820d6128a701090ea7df69501c9bf53c4e6076e6c0cfde68"
+    },
+    {
       "path": "/corpus/grading/first-law.json",
       "bytes": 368,
       "sha256": "dd50f516c1bc0b465510c579225d3158b3b5ada1d384726f13be8b93d17beff9"
@@ -7600,9 +10505,239 @@
       "sha256": "178db9e93b72b907a7ab6e7d32c95b286c9f2f093422cc6172a52d812c724b4f"
     },
     {
+      "path": "/corpus/grading/ipho-2004-t3.json",
+      "bytes": 2382,
+      "sha256": "4f627254e5e2c7cbefd1aa7b21399aa1d43d01fe475e92df87ddceb6afc2913c"
+    },
+    {
+      "path": "/corpus/grading/ipho-2005-t1.json",
+      "bytes": 4659,
+      "sha256": "54348f415d3bba8edd115c3cfea1e7d8c350fceae45f1ea8825c1bd07a3e2972"
+    },
+    {
+      "path": "/corpus/grading/ipho-2005-t2.json",
+      "bytes": 3138,
+      "sha256": "8d05a043da107ce1ea96e586eac744fe786853ca7b1f78cb109b2006e4a5b152"
+    },
+    {
+      "path": "/corpus/grading/ipho-2007-t2.json",
+      "bytes": 5793,
+      "sha256": "d98080e310fe0f696716a47cdd5226244d81158c27b4f85fb698010222a41dc0"
+    },
+    {
+      "path": "/corpus/grading/ipho-2008-t1.json",
+      "bytes": 4287,
+      "sha256": "a8841ec187df75ca787a4558f1ddee3545ce560f0ad173af09aca8c14ab88f09"
+    },
+    {
+      "path": "/corpus/grading/ipho-2008-t2.json",
+      "bytes": 5037,
+      "sha256": "6baf38aed9b7a46d771920ebb52582445f5cb956331041df45ffd6b3d99918b3"
+    },
+    {
+      "path": "/corpus/grading/ipho-2009-t1.json",
+      "bytes": 9547,
+      "sha256": "ee40722b2e024c424d17cc9cd4817e28615775a92585fbd7c1c0cf88e5ad7b17"
+    },
+    {
+      "path": "/corpus/grading/ipho-2009-t2.json",
+      "bytes": 10302,
+      "sha256": "159080d33e8fdfe1b9099e0eb5d812209885f80eaad12ff06f65b1f904e0ba26"
+    },
+    {
+      "path": "/corpus/grading/ipho-2010-t1.json",
+      "bytes": 3534,
+      "sha256": "9e07e7cb1d6bad2ccec3f8275387771113a59e6fe3b8c4a0cf7c78018fdb6be7"
+    },
+    {
+      "path": "/corpus/grading/ipho-2010-t2.json",
+      "bytes": 4291,
+      "sha256": "a4db33a702d94b36dcba38fc64a2309de39a64e93baa848eaa6f98a2ec9f9e45"
+    },
+    {
+      "path": "/corpus/grading/ipho-2011-t1.json",
+      "bytes": 1640,
+      "sha256": "a380317fc427aa662422cfa7ba4f350ea9976e8580ed885c365629ee59fc4d8e"
+    },
+    {
       "path": "/corpus/grading/ipho-2012-t2.json",
       "bytes": 4636,
       "sha256": "b55c5e4e29ef7a26b5077061bfa2dca903fa538de43282bfaf638a1cde5bca34"
+    },
+    {
+      "path": "/corpus/grading/ipho-2013-t1.json",
+      "bytes": 5047,
+      "sha256": "597047729a1b74e8a87ba0e756abde13059d8120581e07931520c7c9c741a725"
+    },
+    {
+      "path": "/corpus/grading/ipho-2013-t2.json",
+      "bytes": 6565,
+      "sha256": "f98dd10cb5eb643db78a274b5a2b9375eb4e03cdf747ac436b12e69055f3433d"
+    },
+    {
+      "path": "/corpus/grading/ipho-2013-t3.json",
+      "bytes": 4664,
+      "sha256": "518b1d274fcd7fc46cc5e14aa51981355fcb278ef0a8e3de4cafd977f90b365c"
+    },
+    {
+      "path": "/corpus/grading/ipho-2014-t3.json",
+      "bytes": 3893,
+      "sha256": "e2ba169cc491627ad66d3d6c377482dc9e1d75001d328b79412d553d584eb200"
+    },
+    {
+      "path": "/corpus/grading/ipho-2015-t1.json",
+      "bytes": 5402,
+      "sha256": "92fed3201d4641b5f06d80877c1d2a8ac7222143087a430ed6862443c2161e31"
+    },
+    {
+      "path": "/corpus/grading/ipho-2015-t2.json",
+      "bytes": 4270,
+      "sha256": "cf90713dfb3562bdb43a4a28f25327d706a2dbf598f54021f6073951915ff9e9"
+    },
+    {
+      "path": "/corpus/grading/ipho-2015-t3.json",
+      "bytes": 4270,
+      "sha256": "58b448b92a91f4bda1c3397889df95faea0f239b614e5c2abdebf78efd090203"
+    },
+    {
+      "path": "/corpus/grading/ipho-2016-t1.json",
+      "bytes": 4659,
+      "sha256": "43d03e877f68fe9c701d89a166b9f4b5ba6293a720392f0055b6ea8b97311d2d"
+    },
+    {
+      "path": "/corpus/grading/ipho-2016-t2.json",
+      "bytes": 3525,
+      "sha256": "76a485fe92bf9381f2c53042068428e0b10b2fb85783d69a8f1798e2a1148379"
+    },
+    {
+      "path": "/corpus/grading/ipho-2017-t2.json",
+      "bytes": 4281,
+      "sha256": "28e478f335e323380075ba7b1b725f69e37fc774d6e6f197e695dbab5bd667aa"
+    },
+    {
+      "path": "/corpus/grading/ipho-2017-t3.json",
+      "bytes": 5037,
+      "sha256": "2137cff13d1b2de977e234d0946bf2bfd95b3ca07bb2c62e8adf90016308dbb7"
+    },
+    {
+      "path": "/corpus/grading/ipho-2018-t1.json",
+      "bytes": 3525,
+      "sha256": "7cf4f42f14dadbdcdaceddbe6dacfb3dec61122ce0a76222d0959acb0e62c469"
+    },
+    {
+      "path": "/corpus/grading/ipho-2018-t2.json",
+      "bytes": 4281,
+      "sha256": "941b3f34dd851561b58526088d4a18bf690b37a8807a826df9d4bf334e52ddaf"
+    },
+    {
+      "path": "/corpus/grading/ipho-2018-t3.json",
+      "bytes": 3148,
+      "sha256": "d31ae010b54ebb0d14099436c486d9e6516412f47b4e22fd9ea801785d6c38d2"
+    },
+    {
+      "path": "/corpus/grading/ipho-2019-t1.json",
+      "bytes": 2771,
+      "sha256": "9036b1db252fc6a4a853272ef4ba121b6a38de3840d73d06fa43cdce18e8d60a"
+    },
+    {
+      "path": "/corpus/grading/ipho-2019-t2.json",
+      "bytes": 5409,
+      "sha256": "87a1fb5aa75011076a99e8936551023f90ce10982fbf36421c91631a514f8221"
+    },
+    {
+      "path": "/corpus/grading/ipho-2019-t3.json",
+      "bytes": 4281,
+      "sha256": "4136c92b77786815208265230314f5dc5c593e383f0f5e3b9e3ce5d55a8c41d1"
+    },
+    {
+      "path": "/corpus/grading/ipho-2021-t1.json",
+      "bytes": 3148,
+      "sha256": "ed115e378456a46db039780dbc3560c732e159380cdf8d600f834b1263c079de"
+    },
+    {
+      "path": "/corpus/grading/ipho-2021-t2.json",
+      "bytes": 4281,
+      "sha256": "46b7ed5a6e2a57c45d3002e602672331b4add8a4903dcbc123e2f8c4958fbadf"
+    },
+    {
+      "path": "/corpus/grading/ipho-2021-t3.json",
+      "bytes": 5793,
+      "sha256": "2ae56b911e0f711f89f67692fdaf936fe9e0af1d22ab770113e06c3be3d8429a"
+    },
+    {
+      "path": "/corpus/grading/ipho-2022-t1.json",
+      "bytes": 3525,
+      "sha256": "4137a3137481305e1bb4a64195c703f98f4cf5179494e3e47ee06b70a46cf458"
+    },
+    {
+      "path": "/corpus/grading/ipho-2022-t2.json",
+      "bytes": 5793,
+      "sha256": "cfde3741521fa55eac58ec3f9de65897994b28406a910513d0b9daa37cd21868"
+    },
+    {
+      "path": "/corpus/grading/ipho-2022-t3.json",
+      "bytes": 1640,
+      "sha256": "55ec6771bd38f3da0b4e07f47bca101abf9a82c883947b32f22846905201989b"
+    },
+    {
+      "path": "/corpus/grading/ipho-2023-t1.json",
+      "bytes": 4659,
+      "sha256": "a7fccef24e456e90071ca7820f564a716e0e3d7dcdd0984dccb463002a16631d"
+    },
+    {
+      "path": "/corpus/grading/ipho-2023-t2.json",
+      "bytes": 2771,
+      "sha256": "3e9bc9c1ea2cbdefc104d742b359ee290afd4d6d50856e7df8824d7372733dbf"
+    },
+    {
+      "path": "/corpus/grading/ipho-2023-t3.json",
+      "bytes": 3525,
+      "sha256": "244cf5fdd1b92cb3ccb66c4ae7165bcd9c67050db74308ff6e6d9f76d5059e28"
+    },
+    {
+      "path": "/corpus/grading/ipho-2024-t1.json",
+      "bytes": 5419,
+      "sha256": "178508ff5ce2305f5c0a158be6b6323c3c8c613456f0ad0c576108396d3fdc4e"
+    },
+    {
+      "path": "/corpus/grading/ipho-2024-t2.json",
+      "bytes": 5420,
+      "sha256": "c668f9f598f35f7502b07c6bd3689f62605db5a5a58d516b3627c8d0ca74f484"
+    },
+    {
+      "path": "/corpus/grading/ipho-2024-t3.json",
+      "bytes": 5793,
+      "sha256": "0ca820e6d5e8b3511062790ea5018467cc5c400670827f6d9d967281e433603f"
+    },
+    {
+      "path": "/corpus/grading/ipho-2025-t1.json",
+      "bytes": 6549,
+      "sha256": "a15b889d758fb947452e98843df07d3b43fcc7b8210c95beee89720c16035f1b"
+    },
+    {
+      "path": "/corpus/grading/ipho-2025-t2.json",
+      "bytes": 3903,
+      "sha256": "9a4859974c486ec364287321aadfeaf759cf1630df63a927e4be355ac76dbd67"
+    },
+    {
+      "path": "/corpus/grading/ipho-2025-t3.json",
+      "bytes": 4659,
+      "sha256": "151ead127f9d41a9f22e15c430c8201077f6ec91fee867c8a094a48af1146143"
+    },
+    {
+      "path": "/corpus/grading/ipho-2026-t1.json",
+      "bytes": 2027,
+      "sha256": "41b91a5f153882f952eef065d897e177ec0f71580e60c513cb0ca98d1088b904"
+    },
+    {
+      "path": "/corpus/grading/ipho-2026-t2.json",
+      "bytes": 3164,
+      "sha256": "7a5359f34ad886b4527723c03d680bbdf7e58fc71ff6bbeebcfe64619c9cc727"
+    },
+    {
+      "path": "/corpus/grading/ipho-2026-t3.json",
+      "bytes": 3923,
+      "sha256": "5cf9a0871027512607e071c625d421779a50517e82565daf0f800ec7ccfebcdd"
     },
     {
       "path": "/corpus/grading/power.json",
@@ -7811,18 +10946,18 @@
     },
     {
       "path": "/corpus/problems/eupho-2017-t1.json",
-      "bytes": 15837,
-      "sha256": "126c254cf791691dd039cf01d895b3fd37f9f869b3a077c390121301eb8579d9"
+      "bytes": 74702,
+      "sha256": "4d9a2ee5be170f8a847948d229f6ae96dea691cb26d04cb1591e5ead9f3c92fb"
     },
     {
       "path": "/corpus/problems/eupho-2017-t2.json",
-      "bytes": 15837,
-      "sha256": "8c3e0c7dd1a6ea686be465458f8dac7d1bab69b5e981a79ac8875071e1b6d3a5"
+      "bytes": 38694,
+      "sha256": "e32a0f131b22d5a1fefdbb2ec4262dd50fd983154a7a669a58b48514fcd93038"
     },
     {
       "path": "/corpus/problems/eupho-2017-t3.json",
-      "bytes": 15837,
-      "sha256": "0eafb3630296dccdc0b7f85a39009d512e95f310934fe8c3992376f49570fd2f"
+      "bytes": 41558,
+      "sha256": "d13ad596e435304b390b2a3c41df31fa899d15012ab826187d6be0cd82a2136b"
     },
     {
       "path": "/corpus/problems/eupho-2018-t1.json",
@@ -7871,78 +11006,78 @@
     },
     {
       "path": "/corpus/problems/eupho-2021-t1.json",
-      "bytes": 23421,
-      "sha256": "5e738eceb2020f34e5cdc8aea4d628941fd51d50443a2730fd20da916f4ee2e9"
+      "bytes": 54138,
+      "sha256": "bca05e6a5e3ed277e5da759d2ff79316c3f4b83f4b9be4efe02ab1645a8fb842"
     },
     {
       "path": "/corpus/problems/eupho-2021-t2.json",
-      "bytes": 23421,
-      "sha256": "c1f6494070a516aaa9e1637420f5ab9892037ce59253874dc895cb704d39af2e"
+      "bytes": 65706,
+      "sha256": "1acea3e600db9ea4aef7c8952a2c68050be9389eeedac05cf1ccea17684b8c92"
     },
     {
       "path": "/corpus/problems/eupho-2021-t3.json",
-      "bytes": 23421,
-      "sha256": "e92094e4fef6b96d0870636b33b610c93112f12024e97d0568562c64f24480c6"
+      "bytes": 88078,
+      "sha256": "42bad0dd8253376c7802a642d811331f9d8e2f181fec4972d3829d7068d93051"
     },
     {
       "path": "/corpus/problems/eupho-2022-t1.json",
-      "bytes": 31399,
-      "sha256": "6f4adb22c1b704abf1581359040f6a3d235796b9e4fc973bc26cb2043d577706"
+      "bytes": 99668,
+      "sha256": "314d9afb62b31382765f250a3dbd44102fa74f27225f47b54b1ef8e9810f2994"
     },
     {
       "path": "/corpus/problems/eupho-2022-t2.json",
-      "bytes": 31399,
-      "sha256": "c117e1c3442da3c6498b13f1de787e81a69a0799038a8af201008251324580ad"
+      "bytes": 129794,
+      "sha256": "f9381eae74eee4c5c0bd9ae0685f1c539d9aa7a48e7faa62c593472442a879bc"
     },
     {
       "path": "/corpus/problems/eupho-2022-t3.json",
-      "bytes": 31399,
-      "sha256": "d350a532affad1e6a0471b292d9df51359b0bbc1cd0e8e544062b321716d48f4"
+      "bytes": 177205,
+      "sha256": "ee933831bfc48c45271259e558aefe893f291e12e59e6e2eb975ebeb97a829f8"
     },
     {
       "path": "/corpus/problems/eupho-2023-t1.json",
-      "bytes": 57066,
-      "sha256": "c818ed5061fce759c27c1b21e5afb65a7535c9eaa00e40bd256d13271d4ec30b"
+      "bytes": 217534,
+      "sha256": "dc987727ccde9b7285852e9397e20c8f9abae09880bd304d96d14a1f42682fdd"
     },
     {
       "path": "/corpus/problems/eupho-2023-t2.json",
-      "bytes": 57066,
-      "sha256": "ec8c814c7095804aa1fd139db200e920601c5a21ed0e73213b2fe549f4afdb97"
+      "bytes": 260466,
+      "sha256": "018a2052aa00b899cff4278cfc9149af7f7c2cc74fff1aea790ceab7477d4de1"
     },
     {
       "path": "/corpus/problems/eupho-2023-t3.json",
-      "bytes": 57067,
-      "sha256": "0bb469472dc0d1911f59f5ab47941739e9eab0a14af8da28f2a445365be2294d"
+      "bytes": 186071,
+      "sha256": "59f561b5a7c746e6dbfefeff38ab6fb28b30fef71a1af2aa53cef4421894c64a"
     },
     {
       "path": "/corpus/problems/eupho-2024-t1.json",
-      "bytes": 56519,
-      "sha256": "5d0dc5b523c630578180dea5386eb03595bd2ba0ab62410ecdff0f2270fd9fdb"
+      "bytes": 106864,
+      "sha256": "349e724c0716a786c327c529db0ec4708c2b174b973848c4a48d62fe40232a57"
     },
     {
       "path": "/corpus/problems/eupho-2024-t2.json",
-      "bytes": 56519,
-      "sha256": "c3a44e8b877faccd32b56d36bd4df1b7a914faa5df7846532d397fa75e563687"
+      "bytes": 286486,
+      "sha256": "f45296768e7cf1a6399cdc44f7ab272a8a8b00305491e475e6b22ea83657040b"
     },
     {
       "path": "/corpus/problems/eupho-2024-t3.json",
-      "bytes": 56520,
-      "sha256": "b240871d2836c8d0e6ddbf8b49b598237a3da0bdade04cbac12f24bca3d35455"
+      "bytes": 233797,
+      "sha256": "8229e2df99f07afc16d0d5f7fd22698e896e52eb3c0cbac3602bf0017cc7047c"
     },
     {
       "path": "/corpus/problems/eupho-2025-t1.json",
-      "bytes": 34238,
-      "sha256": "dbcc64ef249e4e1afd303929c0322fcd4084888191404d0b4e1cfa90de540ea8"
+      "bytes": 103387,
+      "sha256": "60678f3dc31006e58a0a56aaf9890f7b46b8d784969e206bb33eabca9c30c765"
     },
     {
       "path": "/corpus/problems/eupho-2025-t2.json",
-      "bytes": 34238,
-      "sha256": "1d61339fe2cc489bc6d86c870db839f706dee06db323b6fc22819841e6f68b67"
+      "bytes": 124259,
+      "sha256": "82a9098524e34e8b37293f830653a90042244d5d6a6e0e988b82d0ae85b5d071"
     },
     {
       "path": "/corpus/problems/eupho-2025-t3.json",
-      "bytes": 34238,
-      "sha256": "5ed6261e54ab253fc936dff4d3b0f9d98621175d94251a3a71986f00df528314"
+      "bytes": 140097,
+      "sha256": "09a0b9290f8827d8a1fa28dba5c71198020f1ade326e57320e36564f3337ed57"
     },
     {
       "path": "/corpus/problems/ipho-2004-t3.json",

@@ -1,1 +1,3977 @@
-{"id":"eupho-2025-t2","importedOn":"2026-10-28","language":"en","sources":[{"url":"https://eupho.ee/wp-content/uploads/2025/06/EuPhO_2025_Theory_ENG.pdf","kind":"statement"},{"url":"https://eupho.ee/wp-content/uploads/2025/06/EuPhO25_Theory_Solutions_20250616_1120.pdf","kind":"solution"}],"statement":{"format":"pdf","pdf":"/corpus/documents/eupho-2025-statement/document.pdf","pages":[{"src":"/corpus/documents/eupho-2025-statement/page-1.webp","width":982,"height":1389}],"text":"Theoretical Problems. Language: English\nT1: Sunny (10 pts)\nYou are asked to study the features of the brightly lit\ncircle and dark rings in the figures below. Make your\ncalculations for an idealized situation: the chair leg\nis strictly cylindrical of radius 𝑎, strictly vertical, with\na perfectly smooth, cylindrical, and perfectly reflect-\ning surface. You may make any additional model as-\nsumptions and approximations you deem reasonable\nthat will simplify your calculations.\na) (5 pts) Determine how the illuminance surplus\n𝐼(𝑟, 𝜃) inside the brightly lit circle on the floor\ndepends on the polar coordinates 𝑟≫𝑎and 𝜃.\nThe illuminance quantifies the amount of incom-\ning light per area. By “surplus” we mean the ad-\nditional illuminance introduced due to the pres-\nence of the cylinder.\nExpress the answer in\nterms of 𝐼0 defined as the illuminance difference\nbetween points A and B in the figure.\nb) (5 pts) In the following figure some fingers are\nblocking some of the light from reaching the\nchair leg. Let 𝑅(𝜃) denote the radial distance of\nthe middle dark ring as a function of the angle 𝜃\nand let 𝑅min be the minimal value of 𝑅(𝜃). Deter-\nmine 𝑅(𝜃) −𝑅min.\nT2: Floating table (10 pts)\nA table is made by fastening a metal frame to a mas-\nsive uniform plate (so they form a rigid body) and at-\ntaching it with chains to another frame that is fixed\non the horizontal ground. The motion of the table is\nlimited to the plane of the side view (right picture).\na) (4 pts) Show that in the configuration on the side\nview, the table is in a stable equilibrium.\nb) (6 pts) Find the period 𝑇of the small oscillations.\nThe masses of the chains and the frame can be\nneglected. The chains are frictionless, inextensible,\nand remain tensioned in oscillations. The grid step\nis 𝑎= 0.100 m, the acceleration of gravity 𝑔= 9.81 m/s2.\na\ng\na\nT3: Crossed wires (10 pts)\na) (1 pt) Current flows through an infinite, straight,\nthin wire. There is an externally imposed, uni-\nform magnetic field directed parallel to the wire.\nQualitatively sketch one of the magnetic field\nlines.\nb) (5 pts) Now consider two infinite, straight, thin\nwires (wires 𝑋and 𝑌), each carrying a current 𝐼\nas shown in the figure. The 𝑥-axis coincides with\nwire 𝑋, while wire 𝑌is parallel to the 𝑦-axis and\npasses through the point (0, 0, −𝑎). Let P be the\npoint (3𝑎, 0, 𝑟).\nAssuming 𝑟≪𝑎, calculate 𝑑, the\ndistance of closest approach of the magnetic field\nline that passes through P to the wire 𝑋.\nc) (4 pts) Let 𝐿be the length of this field line be-\ntween P and its point of closest approach to wire\n𝑋. Using values 𝑎= 10 cm and 𝑟= 1.0 mm, calculate\n𝐿to within 20% relative error.\n𝐼\n𝐼\n𝑎\n𝑟\nP\n3𝑎\n𝑋\n𝑌\n𝑥\n𝑦\n𝑧\n","shared":true,"sourcePages":[1],"initialPage":1},"solution":{"format":"pdf","pdf":"/corpus/documents/eupho-2025-solution/document.pdf","pages":[{"src":"/corpus/documents/eupho-2025-solution/page-1.webp","width":982,"height":1389},{"src":"/corpus/documents/eupho-2025-solution/page-2.webp","width":982,"height":1389},{"src":"/corpus/documents/eupho-2025-solution/page-3.webp","width":982,"height":1389},{"src":"/corpus/documents/eupho-2025-solution/page-4.webp","width":982,"height":1389},{"src":"/corpus/documents/eupho-2025-solution/page-5.webp","width":982,"height":1389},{"src":"/corpus/documents/eupho-2025-solution/page-6.webp","width":982,"height":1389},{"src":"/corpus/documents/eupho-2025-solution/page-7.webp","width":982,"height":1389},{"src":"/corpus/documents/eupho-2025-solution/page-8.webp","width":982,"height":1389},{"src":"/corpus/documents/eupho-2025-solution/page-9.webp","width":982,"height":1389}],"text":"Theoretical Problems - Solutions\nT1: Sunny (10 pts)\n𝑥\n𝑎\n𝑟\n𝑙\n𝜃\n𝛽\n𝛼\n𝛼\n𝛼\n𝛽\n𝜖\nIlluminated spot on floor\nFigure 1: Top view of a light ray hitting the chair leg.\nThe incoming light ray strikes the cylinder at the blue\ndot, and the reflected ray strikes the floor at the red\ndot.\nPart a)\nSince points A and B are very close, 𝐼0 is the\nilluminance surplus due to direct sunlight.\nConsider a small (infinitesimal) horizontal rectan-\ngle [𝑥, 𝑥+ 𝛿𝑥] × [ 𝑦, 𝑦+ 𝛿𝑦] placed in the light beam.\nAs depicted in Fig 1, we let 𝑙be the horizontal dis-\ntance between the point where a ray hits the cylin-\nder and where it hits the floor and 𝛼the horizontal\nangle between the ray and the surface normal. The\nspot on the floor made by the light makes an angle\nof 2𝛼from the incident ray, and forms a small patch\nof size (𝑙2𝛿𝛼)(𝛿𝑙) on the floor.\nConsidering the side view sketched in Figure 2, we\nsee that 𝛿𝑙∝𝛿𝑦for both the ray that hits the ground\ndirectly, or a ray that is reflected before hitting the\nground.\nWe thus have\n𝐼0𝛿𝑥= 2𝐼𝑙𝛿𝛼\n(1)\nLet 𝛽= 𝜋−𝛼as sketched in Fig 1. Then\n𝛿𝑥= 𝑎(sin(𝛽+ 𝛿𝛽) −sin 𝛽) ≈𝑎cos 𝛽𝛿𝛽\n(2)\nTherefore,\n𝐼= −𝐼0𝑎\n2𝑙cos(𝛽)\n(3)\n(Note that cos 𝛽< 0.) This expression is accurate to\norder (𝑎/𝑙)2, but is not in terms of the variables re-\nCenterline\n𝑎cos 𝛼\n𝑙\nℎ0\nℎ\n𝛾\nFigure 2: Side view, with the reflected light ray ro-\ntated to lie in the same plane as the incident ray.\nquested. A more accurate expression would be\n𝐼= −\n𝐼0𝑎\n√\n4𝑙2 + 𝑎2 sin2(𝛽)\ncos(𝛽),\nbut it is not necessary to find this expression.\nTo obtain 𝐼as a function of 𝑟and 𝜃, we need to\nexpress 𝛽and 𝑙in terms of 𝑟and 𝜃.\nIf 𝑎≪𝑟, 𝑙and 𝑟almost coincide. To leading order\nthus 𝑙≈𝑟and 𝜃≈𝜋−2𝛼= 2𝛽−𝜋. Substituting 𝑙and 𝛽\nin (3) results in\n𝐼≈𝐼0𝑎\n2𝑟sin(𝜃/2)\n(4)\nPart b)\nThe rings appear because the fingers block\nthe light. For the middle ring, the finger is approxi-\nmately horizontal.\nFor 𝑙0 be the horizontal distance 𝑙for 𝛼= 𝜋/2. Con-\nsider the sketch in Fig. 2. Note that\n𝑙= 𝑙0 + 𝑎cos 𝛼= 𝑙0 + 𝑎| cos(𝛽)|\n(5)\nThe minimum value 𝑅min is attained at 𝛼= 𝛽= 𝜋/2,\nwhere 𝜃≈0 and 𝑅min ≈𝑙0 within an error of order\n(𝑎/𝑟)2. Hence,\n𝑙≈𝑅min + 𝑎cos 𝛼= 𝑅min + 𝑎| cos(𝛽)|\nThe Cosine theorem applied to the triangle between\nthe center of the chair leg, the point where the ray\nreflects form the leg and the point where it hits the\nfloor, gives the relation\n𝑟2 = 𝑎2 + 𝑙2 −2𝑎𝑙cos(𝛽)\n(6)\n\nTheoretical Problems - Solutions\nUsing (6) and expanding, we obtain\n𝑟2 = 𝑅2\nmin + 4𝑎𝑅min cos 𝛼+ 3𝑎2 cos2 𝛼\nUsing cos 𝛼≈sin(𝜃/2), and dropping terms of order\n(𝑎/𝑟)2, we arrive at\n𝑅−𝑅min ≈2𝑎sin(𝜃/2)\n(7)\nThe factor of 2 is significant!\nMarking scheme T1\nProblem T1 a)\nPts\nA\nCorrect angles, 2𝛼+ 𝜃> 𝜋\n0.5\nOnly state 2𝛼+𝜃= 𝜋without justification\n0.2\nB\nReflection law (stated in any way)\n0.5\nC\n𝑥= 𝑎sin 𝛼\n0.5\nD\nEq. 1\n1.0\nMissing factor of 2\n-0.3\n𝑟instead of 𝑙\n-0.3\nE\nEq. 3 for 𝐼\n0.5\nF\nJustify 𝑙≈𝑟\n0.5\nAssume 𝑙≈𝑟without justification\n0.2\nG\nEq. 4 for 𝐼\n1.5\nTotal on T1 a)\n5.0\nProblem T1 b)\nPts\nH\nCosine Law expression\n1.0\nI\nEq. 5 for 𝑙\n1.0\nqualitative\nunderstanding\nwhy\n𝑅(𝜃)\nvaries with 𝜃\n0.5\nJ\nJustifying 𝑙0 ≈𝑅min to leading order\n1\nOnly stating 𝑙0 ≈𝑅min\n0.5\nK\nFinal Eq. 7\n2.0\nWriting 𝑅−𝑅min = 𝑎sin(𝜃/2)\n1.0\nOnly has 𝑅max −𝑅min = 2𝑎\n0.5\nOnly has 𝑅max −𝑅min = 𝑎\n0.0\nTotal on T1 b)\n5.0\nGeneral rules for marking in T1:\n• The grain size for marking is 0.1 Pts.\n• Yellow shaded categories receive a single mark\n• Partial marks can be awarded for most aspects.\n• For each mistake in calculation (algebraic or nu-\nmeric) 0.3 Pts. are deducted.\n• If a mistake leads to a dimensionally incorrect ex-\npression no marks are given for the result.\n• Propagating errors are not punished again unless\nthey are dimensionally wrong or entail oversim-\nplified/wrong physics (e.g. neglecting friction ef-\nfects).\n• Getting a correct answer for a later part that could\nonly be arrived at by doing a previous part cor-\nrectly will result in the minimum score(s) for pre-\nvious part(s) that would support the end result.\n• Justifying F can be done graphically, algebraically,\nwith words, but needs more than just writing 𝑟≈𝑙.\n• Arriving at a correct G without supporting work\nwould score 4.1 for A-G as (0.2, 0.5, 0.5, 0.7, 0.5,\n0.2, 1.5).\n• Arriving at an incorrect G without supporting work\nwould score 0 for A-G.\n• Arriving at a correct K without supporting work\nwould score 4.5 for L-O as (1.0, 1.0, 0.5, 2.0)\n• Arriving at an incorrect K without supporting work\nwould score 0 for H-J, and then the points for K.\n\nTheoretical Problems - Solutions\nT2: Floating table (10 pts)\nSolution with forces\nFirst, let us consider the\nforces and torques and show that in the configuration\nshown in the figure, the table is indeed in equilib-\nrium. By the word “table”, we understand the rigid\nbody formed by the plate and the frame attached to\nit. In the following considerations and descriptions\nof the table position we often use positions of points\nA, B and C, which belong to the rigid table: distances\nbetween them do not change. Since in the problem\nstatement, the motion is limited to the side view only,\nthe pair of short chains will always have the same\nposition when viewed from the side. So we will con-\nsider them as a single chain (chain 1) with the tension\ndoubled. The same is true for the pair of long chains\n(chain 2).\n2𝑎\n4𝑎\n𝑚®𝑔\n®𝐹1\n®𝐹2\nA\nB\nC\nFigure 3: Scheme of forces for the initial state.\nThere are 3 forces acting on a table (see Fig. 3):\nplate weight 𝑚®𝑔(at the center of mass of the table\nC), and 2 tension forces from the chains: ®𝐹1 (at point\nA, chain 1) and ®𝐹2 (at point B, chain 2). Since all the\nforces only have vertical components different from\n0, their horizontal components are balanced and for\ntheir vertical components, the balance equation is:\n−𝑚𝑔+ 𝐹1 −𝐹2 = 0.\n(8)\nFinally, consider the torque balance around the\npoint 𝐵:\n𝑚𝑔· 4𝑎−𝐹1 · 2𝑎= 0.\n(9)\nSolving the system of equations (8-9), we get 𝐹1 =\n2𝑚𝑔and 𝐹2 = 𝑚𝑔. Since both 𝐹1, 𝐹2 > 0, we conclude\nthat the chains are indeed tensioned and the system\nis in equilibrium.\nNow let’s analyze how the table rotates, when it\nis displaced. Since the chains are tensioned and in-\nextensible, the point 𝐵can only travel along the cir-\ncle 𝑐𝑏. Similarly, the distance between the point A0\nand any point inside the circle 𝑐𝑎is smaller than the\nlength of the short chain (4𝑎); the distance between\nthe point A0 and any point outside of the circle 𝑐𝑎is\nlarger than 4𝑎.\nSince the table is rigid, if we fix the point B and ro-\ntate the table around it, point A would travel along\nthe circle 𝑐𝑡.\nFrom the way how 𝑐𝑡intersects with\n𝑐𝑎, we can conclude that if the table is rotated clock-\nwise, the distance A0A decreases. And if it is rotated\ncounter-clockwise, A0A increases.\nLet’s imagine we translate (move without rotation)\nthe table to the left, so the point 𝐵travels to the point\n𝐵′. Point 𝐴would move to the point 𝐴′, as shown in\nFig. 4. Since 𝐴′ is outside of the circle 𝑐𝑎, A0A′ > A0A\nand the table has to rotate clockwise (around B′) to\ncompensate for this change and return the point A′\nback to the circle 𝑐𝑎(point A′′) to satisfy the constant\nchain length constraint.\nB\nA\nC\nA′′\nB′\nA′\nA0\nB0\n𝑐𝑏\n𝑐𝑎\n𝑐𝑡\nA\nA′′\nA′\nFigure 4: Translation to the left and clockwise rota-\ntion of the table\nIf we translate the table in the opposite direction,\nfollowing similar arguments, we find that the table\nrotates clockwise in this case too, see Fig. 5.\nB\nB′\nB0\nC\nA0\nA\nA′′\nA′\n𝑐𝑎\n𝑐𝑡\nFigure 5: Translation to the right and clockwise ro-\ntation of the table\n\nTheoretical Problems - Solutions\nSince the table rotates in the same direction for\nboth positive and negative horizontal displacements,\nthe Taylor expansion of the angle of rotation 𝜑(𝑥)\ndoes not contain a linear term in 𝑥: 𝜑(𝑥) ∼𝑥2. This\nmeans that for small horizontal displacements, we\ncan neglect the table rotation.\nLet’s look at what happens when the table is dis-\nplaced infinitesimally from its initial position in the\nhorizontal direction (it will also move in the vertical\ndirection, but the displacement in the vertical direc-\ntion is an order of magnitude smaller and we will ne-\nglect it). The vertical components of the forces in the\nchains do not change significantly, but as you can see\nin the Fig. 6, the horizontal components of the forces\nin both chains appear in the direction opposite to the\ndisplacement. This means that the equilibrium is sta-\nble.\n𝑚®𝑔\n®𝐹1\n®𝐹2\nB\nC\nA\nFigure 6: Horizontal displacement of the table\nSince we have already drawn a figure showing the\ndisplaced position of the table, let us write the equa-\ntion of motion for the table plate for small horizon-\ntal displacements 𝑥, where 𝜃1 and 𝜃2 are small an-\ngles between the chains 1 and 2 respectively and the\nvertical. Since the table displacement is small, ten-\nsion forces 𝐹1 and 𝐹2 cannot change significantly (the\nforce change is of the same order as the displace-\nment). Thus, we can use the previously found values:\n𝑚¥𝑥= −𝐹1 sin 𝜃1 −𝐹2 sin 𝜃2 = −𝐹1𝜃1 −𝐹2𝜃2 =\n= −2𝑚𝑔𝑥\n4𝑎−𝑚𝑔𝑥\n6𝑎= −𝑚𝑔2𝑥\n3𝑎,\nwhere we have also considered the lengths of the\nchains 4𝑎(chain 1) and 6𝑎(chain 2), neglected the\nrotation of the plate and used small angle approxi-\nmations. Rearranging this equation, we get:\n¥𝑥+ 2𝑔\n3𝑎𝑥= 0,\nwhich describes horizontal oscillations of the table\nplate with 𝜔=\n√\n2𝑔/(3𝑎) = 8.09 s−1, frequency 𝜈= 1.29 Hz\nand period\n𝑇= 777 ms.\nSolution with energies\nLet’s denote the small dis-\nplacement of the centre of mass from equilibrium po-\nsition C to C′ as (𝑥, 𝑦), where 𝑥, 𝑦≪𝑎, and the small\ntilt of the table as 𝜑, as shown in Fig. 7.\n5𝑎\n2𝑎\n4𝑎\n4𝑎\nA′\nB′\nC′\n𝜑\n𝜑\n𝜑\nB\nA\nC\nFigure 7: Infinitesimal displacement of the table\nGiven the small angle approximation 𝜑≪1 (sin 𝜑≈\n𝜑and cos 𝜑≈1), the displacement of points from equi-\nlibrium positions A and B to A′ and B′ are:\nΔ𝐴𝑥= 𝑥−5𝑎sin 𝜑−2𝑎(1 −cos 𝜑) ≈𝑥−5𝑎𝜑,\nΔ𝐴𝑦= 𝑦−2𝑎sin 𝜑+ 5𝑎(1 −cos 𝜑) ≈𝑦−2𝑎𝜑,\nΔ𝐵𝑥= 𝑥−4𝑎(1 −cos 𝜑) ≈𝑥,\nΔ𝐵𝑦= 𝑦−4𝑎sin 𝜑≈𝑦−4𝑎𝜑.\nNow we can write a condition that the squared\nlength of the small chain remains the same:\n(𝑥−5𝑎𝜑)2 + (4𝑎−𝑦+ 2𝑎𝜑)2 = (4𝑎)2\n𝑥2 −10𝑎𝑥𝜑+ 25𝑎2𝜑2 −8𝑎( 𝑦−2𝑎𝜑) + ( 𝑦−2𝑎𝜑)2 = 0,\nLet’s notice that the largest term in 𝑥is 𝑥2 and in\n𝑦and 𝑎𝜑, it’s 8𝑎( 𝑦+ 2𝑎𝜑). Thus, we can omit all other\nterms, since they are of the higher order (and there-\nfore smaller):\n𝑥2 −8𝑎( 𝑦−2𝑎𝜑) = 0,\n𝑥2\n8𝑎−𝑦+ 2𝑎𝜑= 0.\n(10)\nDoing the same for the long chain we get:\n𝑥2 + (6𝑎+ 𝑦−4𝑎𝜑)2 = (6𝑎)2\n𝑥2 + 12𝑎( 𝑦−4𝑎𝜑) + ( 𝑦−4𝑎𝜑)2 = 0,\nOmitting higher order terms we get:\n𝑥2 + 12𝑎( 𝑦−4𝑎𝜑) = 0,\n𝑥2\n12𝑎+ 𝑦−4𝑎𝜑= 0.\n(11)\nSolving (10) and (11) as linear equations on 𝑦and 𝜑,\nwe get:\n𝑦= 𝑥2\n3𝑎,\n𝜑= 5𝑥2\n48𝑎2 .\nSince the potential energy of the table\n𝑈= 𝑚𝑔𝑦= 2\n3𝑎𝑚𝑔𝑥2\n2 ,\n(12)\n\nTheoretical Problems - Solutions\ndoesn’t have a term linear in 𝑥, we conclude that the\nsystem is in equilibrium. And since the coefficient\nfor 𝑥2 is positive, the equilibrium is stable.\nThe kinetic energy of the table is:\n𝐸= 𝑚¤𝑥2 + ¤𝑦2\n2\n+ 𝐼¤𝜑2\n2 ≈𝑚¤𝑥2\n2 ,\n(13)\nwhere 𝐼is a moment of inertia with respect to rota-\ntion around the axis through the centre of mass C.\nSince both 𝑦and 𝜑depend on 𝑥2, their squared\nderivatives will be proportional to 𝑥2 ¤𝑥2 and can be\nneglected when compared to ¤𝑥2 term.\nFinally, we can find the period of oscillations from\nthe ratio of coefficients of (13) and (12):\n𝑇= 2𝜋\n√\n𝑚\n/\n2𝑚𝑔\n3𝑎\n= 2𝜋\n√\n3𝑎\n2𝑔= 0.777 s.\nSolution with the curvature\nWe begin with the\nobservation that at the initial horizontal position,\npoints A and B in Fig. 3 move horizontally. There-\nfore, the instantaneous centre of table’s rotation is\nat infinity (found as the intersection of lines perpen-\ndicular to the velocity vectors, which are parallel in\nthis case), or in other words there is no rotation. An-\nother way to see it is to consider the projections of\nthe velocities 𝑣𝐴and 𝑣𝐵to the line 𝐴𝐵which should\nbe the same in a rigid body. Thus 𝑣𝐴= 𝑣𝐵= 𝑣and all\nthe points of the table move with the same velocity,\ni.e. there is no immediate rotation.\n®𝑣𝐵\n®𝑣𝐴\n𝐴\n𝐵\n𝐶\nFigure 8: Immediate velocities given the constraints\nConsequently, no rotational kinetic energy is in-\nvolved, and the motion of the table can be treated\nas the motion of a point mass located at the centre of\nmass, point C. Since at the given configuration, the\n𝑣𝐶can only be horizontal, we conclude that initially\ntable is at equilibrium. All that remains is to find the\nradius of curvature 𝑅of its trajectory and calculate\n𝑇= 2𝜋\n√\n𝑅/𝑔.\nTo find the radius of curvature, we note that for an\narbitrary point 𝑃on the table, the curvature ®𝑐= ˆ𝑛/𝑅\n𝐶\n𝐵\n𝐴\n𝑤𝐵\n𝑤𝐴𝑦\n𝑤𝐴𝑥\n𝛼\n𝛼\n𝛼\n𝛼\n𝛼\n𝛼\n𝑤𝐶\nFigure 9: Immediate accelerations\nof its trajectory is a linear function of its coordinates,\nwhere ˆ𝑛denotes a unit vector pointing towards the\ncentre of curvature. Indeed, using a non-inertial ref-\nerence frame where the rigid body remains at rest\nwith origin at 𝑂, the acceleration of point 𝑃is the su-\nperposition of: the acceleration of 𝑂, the centripetal\nacceleration −®\n𝑂𝑃𝜔2, and the tangential acceleration\n®𝜀× ®\n𝑂𝑃. All of these are linear functions of the coordi-\nnates of point 𝑃, where ®𝜀denotes the angular accel-\neration and 𝜔the angular speed. Hence, in the lab\nframe, the acceleration of point 𝑃is a linear function\nof coordinates, as must be its centripetal accelera-\ntion 𝑣2®𝑐. Since the angular speed of the table is zero,\nall points move with the same speed, so ®𝑐must be a\nlinear function of coordinates.\nThe remaining calculation is straightforward: due\nto the translational motion of the body, curvatures\ndepend only on the horizontal coordinate 𝑥. The cur-\nvature of 𝐵at 𝑥= 4𝑎is 𝑐𝐵= −1/(6𝑎), with the minus sign\nindicating that the vector points downwards.\nThe\ncurvature of 𝐴at 𝑥= 2𝑎is 𝑐𝐴= 1/(4𝑎).\nHence, the\ncurvature of 𝐶is 1/(4𝑎) + (1/(4𝑎) + 1/(6𝑎)) = 2/(3𝑎), giv-\ning 𝑅= 1.5 dm and resulting in 𝑇= 777 ms.\nPositive\ncurvature means that the position is a stable equilib-\nrium.\nAnother way to see it, is to consider normal accel-\neration 𝑤𝐶of point C. For 2 points of a rigid body 𝐶\nand 𝐵, the projections of their accelerations 𝑤𝐶, 𝑤𝐵to\nthe segment 𝐵𝐶differ by the value 𝜔2|𝐵𝐶|. However,\nin our case since there is no rotation, the projections\nof acceleration are equal (like velocities). This means\nthat the accelaration 𝑤𝐵is also normal and equal to\n𝑤𝐵= 𝑣2/(6𝑎). Point 𝐴has both normal and tangential\nacceleration. Comparing projections of points 𝐴, 𝐵,\n\nTheoretical Problems - Solutions\nand 𝐴, 𝐶, we get:\n−𝑤𝐵cos 𝛼= 𝑤𝐴𝑦cos 𝛼−𝑤𝐴𝑦sin 𝛼,\n𝑤𝐶cos 𝛼= 𝑤𝐴𝑦cos 𝛼+ 𝑤𝐴𝑦sin 𝛼,\nThus, we find that\n𝑤𝐶= 𝑤𝐵+ 2𝑤𝐴𝑦= 𝑣2\n6𝑎+ 2 𝑣2\n4𝑎=\n𝑣2\n3𝑎/2,\nso radius of curvature is 𝑅= 3𝑎/2.\nYou can visualize the motion of the table using a\nGeoGebra tool, following the web link or the qr code\nhttps://www.geogebra.org/m/wbqwp3tf\nMarking scheme T2\nA\nTable is in equilibrium\nPartial points:\n– (1pt) Sketch of forces or eqn for forces\n2.0\nB\nThe equilibrium is stable\nPartial points:\n– (1pt) Sketch with returning forces, but\nthere is no proof that 𝜔0 = 0\n– (1pt) There is a statement that the\nstability comes from 𝑦= 𝑘𝑥2 if 𝑘> 0, but\n𝑘is not found correctly (and thus could\npotentially be negative)\n2.0\nC\nTable can rotate:\nwhether it is clear from the sketch or\nfrom the equations, i.e. 𝜑is introduced\n1.0\nD\nTable does not have immediate rotation\nwhether it is proved separately or follows\nnaturally from the results of calculations:\n– geometry considered ⇒𝜑∼𝑥2\n– eqn for contraints ⇒𝜑∼𝑥2\n– immediate velocities ⇒no rotation\n1.0\nE\nThe plan how to find the period of oscil-\nlation:\n– 2nd Newton’s law ¥𝑥∼−𝑥\n– idea to find kinetic and potential ener-\ngies\n– using the curvature of the trajectory\n1.0\nF\nFinding all the elements for the plan\nabove:\n– small horizontal forces\n– energies to the correct approximations\n– accelerations/curvatures\nPartial points:\n– (1pt) if not all elements are found or\nthey are found with mistakes\n– (1pt) if there is no proof 𝜔0 = 0 (or no\nconsideration about the rotation at all),\nbut other than that, everything is correct\n– (0pts) if some elements are there, but\nthe plan was different (e.g. the student\nwas looking for energies, but has the\nexpression for forces)\n2.0\nG\nFormula and number for 𝑇\nPartial points:\n– (0.5pts) only formula or a number\n– (0.5pts) simple mistake (like inverse\nformula under the root)\n1.0\nTotal\n10.0\n– Only a single partial point is applied (whatever is\nlarger)\n– If there is a single simple arithemetic error/typo in\ncalculations in item F, which leads to a wrong for-\nmula value in item G, then F and G receive 1 pt each\n(no propagation of error). This doesn’t apply to more\nprofound errors in physics/geometry\n\nTheoretical Problems - Solutions\nT3: Crossed Wires (10 pts)\nPart a)\nIn the absence of an externally imposed\nmagnetic field, an infinite, straight, thin wire creates\na magnetic field whose field lines are closed circular\nloops. These loops lie in the plane perpendicular to\nthe wire and are centered on the wire (red circle in\nthe figure).\nNow, consider the effect of introducing the exter-\nnally imposed magnetic field. At any point, the to-\ntal magnetic field is the vector sum of the magnetic\nfield of the wire and the externally imposed magnetic\nfield. The total magnetic field now has a component\nparallel to the wire. This means the magnetic field\nlines do not remain in a plane perpendicular to the\nwire. They do not form closed loops any more. In-\nstead, they will spiral around the wire, tracing out a\nhelix (blue curve in the figure).\n𝐼\nwire\nPart b)\nIt is a standard result that the magnetic\nfield around an infinite, straight, thin wire carrying a\ncurrent 𝐼has magnitude 𝜇0𝐼/2𝜋𝜌, where 𝜌is the per-\npendicular distance to the wire. This magnetic field\nstrength increases as 𝑟decreases. Before consider-\ning the wire configuration of part b, it will be useful\nto discuss what happens in part a if the helical field\nline is very close to the wire. By ‘close’, we mean\nvalues of 𝜌small enough that the magnetic field of\nthe wire is much greater than the externally applied\nmagnetic field. Then, the field lines cannot deviate\nmuch from the circular loops they would trace out if\nthe externally applied field were not present. This\nmeans the helix would be wound very tightly.\nNow we move on to discuss the wire configuration\nof part b. Let the magnetic field due to wire 𝑋be ®𝐵𝑋\nand the magnetic field due to wire 𝑌be ®𝐵𝑌. At any\npoint in space, the magnetic field is the vector sum\nof ®𝐵𝑋and ®𝐵𝑌. At points that are close to wire 𝑋(dis-\ntances 𝜌≪𝑎), we have | ®𝐵𝑋| ≫| ®𝐵𝑌|. Therefore, as in\npart a, the field lines near wire 𝑋will not deviate very\nmuch from circular loops centered on wire 𝑋. How-\never, ®𝐵𝑌has a component along wire 𝑋, so the field\nlines do not perfectly close on themselves. Instead,\nthey will trace out a tightly wound spiral around wire\n𝑋, as shown in the figure for the previous part. Unlike\nthere, the spiral is not necessarily a perfect helix: as\nthe field lines spiral to larger or smaller 𝑥, the radius\n𝜌(𝑥) of the spiral might change. To find the distance\nof closest approach of a field line to wire 𝑋, we must\nfind the minimal value of 𝜌(𝑥) as 𝑥varies.\nThe spiraling field line shown in the figure below\nseems to trace out a surface, 𝑆, surrounding wire 𝑋.\nA more precise definition of 𝑆is as follows. Let 𝐶be\nthe circle of radius 𝑟, centered on wire 𝑋, in the plane\n𝑥= 3𝑎. Through every point on 𝐶, we can draw a mag-\nnetic field line. The set of field lines passing through\npoints of 𝐶traces out a surface; this is the surface we\ndefine as 𝑆. Each field line in this set spirals around\nwire 𝑋as described above, so 𝑆looks like a ‘funnel’\nwhose cross section, at any fixed 𝑥, is nearly circu-\nlar. The cross section is nearly circular as long as the\ncondition 𝜌≪\n√\n𝑎2 + 𝑥2 is satisfied, because this means\nthe magnetic field is perturbed only slightly by wire\n𝑌and the field lines do not deviate much from the\ncircular loops that they would trace if wire 𝑌were\nnot present.\nNear point P, 𝜌≪\n√\n𝑎2 + 𝑥2 is satisfied\nbecause 𝑟≪𝑎. We will verify a posteriori that the\nmagnetic field line never reaches values of 𝜌that vi-\nolate the condition 𝜌≪\n√\n𝑎2 + 𝑥2.\nI\nI\na\nr\nP\nwire X\nwire Y\n2d\nThe key idea is that the magnetic flux through the\nmiddle of the ‘funnel’ 𝑆is conserved. No magnetic\nflux exits through the sides of the funnel because—\nby construction—the magnetic field is tangent to 𝑆at\nevery point. For this reason, the region bounded by 𝑆\nis called a ‘flux tube’. The flux through the flux tube\nis entirely due to ®𝐵𝑌, which is approximately uniform\nover the circular cross section at each 𝑥.\n𝐼\n𝐼\n𝑎\n𝑥\n√\n𝑎2 + 𝑥2\n𝜌(𝑥)\n𝜃\nwire 𝑋\nwire 𝑌\n®𝐵𝑋\n®𝐵𝑌\nThe component of ®𝐵𝑌directed along the wire is\n𝐵∥= | ®𝐵𝑌| cos(𝜃) = (𝜇0𝐼/2𝜋)(𝑎/(𝑎2+𝑥2)) (see figure above).\nTherefore, the conserved flux is 1\n2𝜇0𝐼𝑎𝜌2/(𝑎2 +𝑥2). The\nequation of 𝑆is then 𝜌2/(𝑎2 + 𝑥2) = const. = 𝑟2/10𝑎2, us-\ning the fact that 𝑆passes through P. We can now see\nthat 𝜌never grows so large that 𝜌≪\n√\n𝑎2 + 𝑥2 fails, so\nour equation for 𝑆remains valid for all 𝑥. Then, the\nminimal value of 𝜌(𝑥) is 𝜌(0) = 𝑑= 𝑟/\n√\n10.\nPart c)\nLet the point of closest approach be Q. We\nneed to calculate the length of the spiraling field line\nbetween points P and Q. Due to the tight winding of\n\nTheoretical Problems - Solutions\nthe field lines, this length is much larger than 𝑟or 𝑎.\nTherefore, the precise position of point Q around the\nloop closest to 𝑥= 0 (for example, whether it is on\nthe side closer to wire 𝑌or on the side further from\nwire 𝑌) is unimportant. To leading order, 𝐿equals the\nlength along the field line from P to the point on the\nfield line with 𝑥= 0.\nConsider two points on the field line whose 𝑥-\ncoordinates differ by a small amount d𝑥. The length\nd𝐿of the short segment of field line joining these\npoints is given by d𝑥≈(𝐵∥/𝐵⊥)d𝐿.\nHere, we have\ndecomposed the magnetic field vector into a compo-\nnent 𝐵∥along wire 𝑋and a component 𝐵⊥perpen-\ndicular to wire 𝑋.\nIn the previous part, we found\n𝐵∥= (𝜇0𝐼/2𝜋)(𝑎/(𝑎2 + 𝑥2)). The field of wire 𝑋gives the\ndominant contribution to 𝐵⊥, so 𝐵⊥= 𝜇0𝐼/2𝜋𝜌. These\nexpressions are approximate and ignore corrections\nof order 𝑟/𝑎. Since 𝑟/𝑎≈1/100, ignoring these correc-\ntions is acceptable for the required accuracy of 20%.\nThe total length is obtained by integration:\n𝐿=\n∫𝑃\n𝑄\nd𝐿=\n∫\n3𝑎\n0\n𝑎2 + 𝑥2\n𝑎𝜌\nd𝑥.\nNow, we use the equation for 𝜌(𝑥) derived in part b:\n𝜌(𝑥)2/(𝑎2 + 𝑥2) = 𝑟2/(10𝑎2). The result is\n𝐿=\n∫\n3𝑎\n0\n√\n10\n𝑟\n√\n𝑎2 + 𝑥2 d𝑥=\n√\n10𝑎2\n𝑟\n∫\n3\n0\n√\n1 + 𝑢2 d𝑢.\nThis expression must be numerically evaluated to\nwithin 20% relative error.\nTo obtain a numerical\nvalue for the integral, we could use the trapezium\nrule or we could draw the curve 𝑦=\n√\n1 + 𝑥2 be-\ntween 𝑥= 0 and 𝑥= 3 on graph paper and count\nthe number of squares beneath the curve. In fact,\na crude estimate using a single trapezium is suffi-\ncient for the required accuracy:\n∫3\n0\n√\n1 + 𝑢2 d𝑢≈\n∫3\n0 [1 +\n(\n√\n10 −1)(𝑢/3)]d𝑢= 3 + (3/2)(\n√\n10 −1) ≈6.24, resulting\nin a length of 𝐿≈19.7𝑎2/𝑟≈197 m. The exact result is\n𝐿≈17.9𝑎2/𝑟≈179 m.\nAlthough not necessary for full credit, it is pos-\nsible\nto\nevaluate\nthe\nintegral\nexactly.\nSubsti-\ntuting 𝑢\n=\nsinh(𝛽) with d𝑢= cosh(𝛽)d𝛽and using\ncosh2(𝛽) −sinh2(𝛽) = 1 gives\n∫\n3\n0\n√\n1 + 𝑢2 d𝑢=\n∫\nsinh−1(3)\n0\ncosh2(𝛽) d𝛽.\nNow, we use cosh2(𝛽) = (𝑒2𝛽+2+𝑒−2𝛽)/4 = (cosh(2𝛽)+1)/2\nto obtain\n∫\n3\n0\n√\n1 + 𝑢2 d𝑢= 1\n2\n∫\nsinh−1(3)\n0\n[cosh(2𝛽) + 1] d𝛽\n= 1\n4 [sinh(2𝛽) + 2𝛽]sinh−1(3)\n0\n.\nFinally,\nwe\nuse\nsinh(2𝛽)\n=\n(𝑒2𝛽−𝑒−2𝛽)/2\n=\n2 sinh(𝛽) cosh(𝛽)\nand\ncosh(sinh−1(3))\n=\n√\n1 + sinh(sinh−1(3))2 =\n√\n10 to find\n∫\n3\n0\n√\n1 + 𝑢2 d𝑢= 1\n2\n[\n3\n√\n10 + sinh−1(3)\n]\n= 1\n2\n[\n3\n√\n10 + ln(3 +\n√\n10)\n]\n≈5.65 .\nThis gives 𝐿≈17.9𝑎2/𝑟≈179 m, as stated above.\nMarking scheme T3\nProblem T3 a)\nPts.\nA\ndraw clear sketch (straight wire, smooth\nfield line, …)\n0.2\nfield line …\nB\n…is not closed\n0.2\nC\n…is periodic in 𝑥\n0.2\nD\n…is helical (only 0.1 if chirality is wrong)\n0.2\nE\n…is centered on wire\n0.2\nTotal on T3 a)\n1.0\nProblem T3 b)\nPts.\nA\nstate or derive formula for magnetic field\nof infinite, straight wire (only 0.2 if direc-\ntion is not clear)\n0.4\nsketch or explain shape of field line\nB\nfield line is locally nearly circular\n0.2\nC\nfield line resembles helix tightly wound\naround wire\n0.2\nD\nradius of helix is changing\n0.3\nE\nidea to consider funnel surface 𝑆\n0.5\nF\nrealize and justify that\n®𝐵𝑌-flux is con-\nserved along funnel\n1.0\nG\nargue or show that radius of flux tube is\nsmallest at 𝑥= 0\n0.5\nH\napproximate ®𝐵𝑌as uniform in flux tube\ncross-sections\n0.4\nI\ndetermine flux at 𝑥= 3𝑎(0.3 for projec-\ntion, 0.2 for area)\n0.5\nJ\ndetermine flux at 𝑥= 0 using 𝜌\n0.3\nK\ncalculate final result for 𝑑\n0.5\nL\ncheck of validity of approximations in\nconsidered region\n0.2\nTotal on T3 b)\n5.0\nProblem T3 c)\nPts.\nA\nrealize that 𝐿is much larger than 𝑎and 𝑟\n(also if implicit)\n0.2\nB\nequate d𝑥with d𝐿using 𝐵-field compo-\nnents or an angle\n0.4\nC\nrealize that 𝐵⊥is dominated by wire 𝑋\n(might be mentioned in part b) already)\n0.3\nD\nderive integral expression for 𝐿\n0.4\nE\nprovide expression for 𝜌in terms of 𝑎, 𝑟\nand 𝑥(also if in part b))\n0.5\nF\ncarry out reasonable numerical approxi-\nmation or rigorous calculation of integral\n1.2\nG\nresult with 140 m ≤𝐿≤215 m (-0.2 if # sig-\nnificant figures is 1 or > 3)\n1.0\nTotal on T3 c)\n4.0\nGeneral rules for marking in T3:\n\nTheoretical Problems - Solutions\n• The grain size for marking is 0.1 Pts.\n• Partial marks can be awarded for most aspects.\n• For each mistake in calculation (algebraic or nu-\nmeric) 0.2 Pts. are deducted.\n• If a mistake leads to a dimensionally incorrect ex-\npression no marks are given for the result.\n• Propagating errors are not punished again unless\nthey are dimensionally wrong or entail oversim-\nplified/wrong physics (e.g. neglecting friction ef-\nfects).\n• In cases, where in part b) the distance of closest\napproach is determined by using an approxima-\ntion that only considers the 𝐵-field close to P (or\nany similar simplification), the following maximum\nmarks can be obtained: A to C - 0.2 each, E - 0.3\nfor the idea to determine 𝑑from a local considera-\ntion, H - 0.4, K - 0.3 for a simplified calculation of\n𝑑. Total: max. 1.6 Pts.\n","shared":true,"sourcePages":[1,2,3,4,5,6,7,8,9],"initialPage":3}}
+{
+  "id": "eupho-2025-t2",
+  "importedOn": "2026-10-28",
+  "language": "en",
+  "sources": [
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO_2025_Theory_ENG.pdf",
+      "kind": "statement"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO25_Theory_Solutions_20250616_1120.pdf",
+      "kind": "solution"
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/eupho-2025-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "T2: Floating table (10 pts)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A table is made by fastening a metal frame to a massive uniform plate (so they form a rigid body) and attaching it with chains to another frame that is fixed on the horizontal ground. The motion of the table is limited to the plane of the side view (right picture)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a) (4 pts) Show that in the configuration on the side view, the table is in a stable equilibrium."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) (6 pts) Find the period "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the small oscillations."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The masses of the chains and the frame can be neglected. The chains are frictionless, inextensible, and remain tensioned in oscillations. The grid step is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a = 0.100\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the acceleration of gravity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g = 9.81\\,\\mathrm{m/s^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/eupho-2025-t2/ee6801b3175455bf435d.png",
+                "alt": "eupho-2025-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "T2: Floating table (10 pts)\n\n\nA table is made by fastening a metal frame to a massive uniform plate (so they form a rigid body) and attaching it with chains to another frame that is fixed on the horizontal ground. The motion of the table is limited to the plane of the side view (right picture).\n\n\na) (4 pts) Show that in the configuration on the side view, the table is in a stable equilibrium.\n\n\nb) (6 pts) Find the period \n\\(T\\)\n of the small oscillations.\n\n\nThe masses of the chains and the frame can be neglected. The chains are frictionless, inextensible, and remain tensioned in oscillations. The grid step is \n\\(a = 0.100\\,\\mathrm{m}\\)\n, the acceleration of gravity \n\\(g = 9.81\\,\\mathrm{m/s^2}\\)\n.\n\n\n\n\n\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/eupho-2025-t2/ee6801b3175455bf435d.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/eupho-2025-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "T2: Floating table (10 pts)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution with forces"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " First, let us consider the forces and torques and show that in the configuration shown in the figure, the table is indeed in equilibrium. By the word “table”, we understand the rigid body formed by the plate and the frame attached to it. In the following considerations and descriptions of the table position we often use positions of points "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which belong to the rigid table: distances between them do not change. Since in the problem statement, the motion is limited to the side view only, the pair of short chains will always have the same position when viewed from the side. So we will consider them as a single chain (chain 1) with the tension doubled. The same is true for the pair of long chains (chain 2)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/eupho-2025-t2/2c6b9bd446a18f394953.png",
+                "alt": "eupho-2025-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 3: Scheme of forces for the initial state."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "There are 3 forces acting on a table (see Fig. 3): plate weight "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\vec{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (at the center of mass of the table "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "), and 2 tension forces from the chains: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{F}_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (at point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", chain 1) and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{F}_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (at point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", chain 2). Since all the forces only have vertical components different from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", their horizontal components are balanced and for their vertical components, the balance equation is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n-mg + F_1 - F_2 = 0.\n\\tag{8}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Finally, consider the torque balance around the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nmg \\cdot 4a - F_1 \\cdot 2a = 0.\n\\tag{9}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Solving the system of equations (8-9), we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_1 = 2mg\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_2 = mg\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Since both "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_1, F_2 > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we conclude that the chains are indeed tensioned and the system is in equilibrium."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now let’s analyze how the table rotates, when it is displaced. Since the chains are tensioned and inextensible, the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can only travel along the circle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Similarly, the distance between the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and any point inside the circle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is smaller than the length of the short chain ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(4a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "); the distance between the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and any point outside of the circle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is larger than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(4a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since the table is rigid, if we fix the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and rotate the table around it, point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " would travel along the circle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". From the way how "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " intersects with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we can conclude that if the table is rotated clockwise, the distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_0A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " decreases. And if it is rotated counter-clockwise, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_0A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " increases."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let’s imagine we translate (move without rotation) the table to the left, so the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " travels to the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " would move to the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", as shown in Fig. 4. Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is outside of the circle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_0A' > A_0A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the table has to rotate clockwise (around "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") to compensate for this change and return the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " back to the circle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A''\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") to satisfy the constant chain length constraint."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/eupho-2025-t2/4685ee02e3ce6b85934a.png",
+                "alt": "eupho-2025-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 4: Translation to the left and clockwise rotation of the table"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If we translate the table in the opposite direction, following similar arguments, we find that the table rotates clockwise in this case too, see Fig. 5."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/eupho-2025-t2/272ef922b5bc85af9df9.png",
+                "alt": "eupho-2025-t2 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 5: Translation to the right and clockwise rotation of the table"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since the table rotates in the same direction for both positive and negative horizontal displacements, the Taylor expansion of the angle of rotation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " does not contain a linear term in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi(x) \\sim x^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This means that for small horizontal displacements, we can neglect the table rotation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let’s look at what happens when the table is displaced infinitesimally from its initial position in the horizontal direction (it will also move in the vertical direction, but the displacement in the vertical direction is an order of magnitude smaller and we will neglect it). The vertical components of the forces in the chains do not change significantly, but as you can see in the Fig. 6, the horizontal components of the forces in both chains appear in the direction opposite to the displacement. This means that the equilibrium is stable."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/eupho-2025-t2/8a85bd752b77b3eac857.png",
+                "alt": "eupho-2025-t2 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 6: Horizontal displacement of the table"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since we have already drawn a figure showing the displaced position of the table, let us write the equation of motion for the table plate for small horizontal displacements "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are small angles between the chains 1 and 2 respectively and the vertical. Since the table displacement is small, tension forces "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " cannot change significantly (the force change is of the same order as the displacement). Thus, we can use the previously found values: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{aligned}\nm\\ddot{x} &= -F_1 \\sin\\theta_1 - F_2 \\sin\\theta_2 = -F_1\\theta_1 - F_2\\theta_2 \\\\\n&= -2mg\\frac{x}{4a} - mg\\frac{x}{6a} = -mg\\frac{2x}{3a},\n\\end{aligned}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where we have also considered the lengths of the chains "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(4a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (chain 1) and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(6a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (chain 2), neglected the rotation of the plate and used small angle approximations. Rearranging this equation, we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\ddot{x} + \\frac{2g}{3a}x = 0,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which describes horizontal oscillations of the table plate with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega = \\sqrt{2g/(3a)} = 8.09\\,\\mathrm{s}^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu = 1.29\\,\\mathrm{Hz}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and period "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T = 777\\,\\mathrm{ms}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution with energies"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Let’s denote the small displacement of the centre of mass from equilibrium position "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x, y)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x, y \\ll a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the small tilt of the table as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", as shown in Fig. 7."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/eupho-2025-t2/f9073ae2897e0130d0a2.png",
+                "alt": "eupho-2025-t2 original source figure 5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 7: Infinitesimal displacement of the table"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Given the small angle approximation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin\\varphi \\approx \\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cos\\varphi \\approx 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "), the displacement of points from equilibrium positions "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\Delta A_x &= x - 5a\\sin\\varphi - 2a(1 - \\cos\\varphi) \\approx x - 5a\\varphi, \\\\\n\\Delta A_y &= y - 2a\\sin\\varphi + 5a(1 - \\cos\\varphi) \\approx y - 2a\\varphi, \\\\\n\\Delta B_x &= x - 4a(1 - \\cos\\varphi) \\approx x, \\\\\n\\Delta B_y &= y - 4a\\sin\\varphi \\approx y - 4a\\varphi.\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Now we can write a condition that the squared length of the small chain remains the same: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[(x - 5a\\varphi)^2 + (4a - y + 2a\\varphi)^2 = (4a)^2\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x^2 - 10ax\\varphi + 25a^2\\varphi^2 - 8a(y - 2a\\varphi) + (y - 2a\\varphi)^2 = 0,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Let’s notice that the largest term in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", it’s "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(8a(y + 2a\\varphi)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus, we can omit all other terms, since they are of the higher order (and therefore smaller): "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nx^2 - 8a(y - 2a\\varphi) = 0, \\qquad \\frac{x^2}{8a} - y + 2a\\varphi = 0.\n\\tag{10}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Doing the same for the long chain we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x^2 + (6a + y - 4a\\varphi)^2 = (6a)^2\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x^2 + 12a(y - 4a\\varphi) + (y - 4a\\varphi)^2 = 0,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Omitting higher order terms we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nx^2 + 12a(y - 4a\\varphi) = 0, \\qquad \\frac{x^2}{12a} + y - 4a\\varphi = 0.\n\\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Solving (10) and (11) as linear equations on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[y = \\frac{x^2}{3a}, \\qquad \\varphi = \\frac{5x^2}{48a^2}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Since the potential energy of the table "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nU = mg\\,y = \\frac{2}{3a}\\,mg\\,\\frac{x^2}{2},\n\\tag{12}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " doesn’t have a term linear in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we conclude that the system is in equilibrium. And since the coefficient for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is positive, the equilibrium is stable."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The kinetic energy of the table is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE = m\\,\\frac{\\dot{x}^2 + \\dot{y}^2}{2} + I\\,\\frac{\\dot{\\varphi}^2}{2} \\approx m\\,\\frac{\\dot{x}^2}{2},\n\\tag{13}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a moment of inertia with respect to rotation around the axis through the centre of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Since both "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " depend on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", their squared derivatives will be proportional to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x^2\\dot{x}^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and can be neglected when compared to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{x}^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " term."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Finally, we can find the period of oscillations from the ratio of coefficients of (13) and (12): "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T = 2\\pi\\sqrt{\\,m\\Big/\\frac{2mg}{3a}\\,} = 2\\pi\\sqrt{\\frac{3a}{2g}} = 0.777\\ \\mathrm{s}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution with the curvature"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " We begin with the observation that at the initial horizontal position, points "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in Fig. 3 move horizontally. Therefore, the instantaneous centre of table’s rotation is at infinity (found as the intersection of lines perpendicular to the velocity vectors, which are parallel in this case), or in other words there is no rotation. Another way to see it is to consider the projections of the velocities "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the line "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(AB\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which should be the same in a rigid body. Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_A = v_B = v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and all the points of the table move with the same velocity, i.e. there is no immediate rotation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/eupho-2025-t2/05ff1287aab9712a1bcd.png",
+                "alt": "eupho-2025-t2 original source figure 6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 8: Immediate velocities given the constraints"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consequently, no rotational kinetic energy is involved, and the motion of the table can be treated as the motion of a point mass located at the centre of mass, point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Since at the given configuration, the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can only be horizontal, we conclude that initially table is at equilibrium. All that remains is to find the radius of curvature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of its trajectory and calculate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T = 2\\pi\\sqrt{R/g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "To find the radius of curvature, we note that for an arbitrary point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the table, the curvature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{c} = \\hat{n}/R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of its trajectory is a linear function of its coordinates, where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{n}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " denotes a unit vector pointing towards the centre of curvature. Indeed, using a non-inertial reference frame where the rigid body remains at rest with origin at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(O\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the acceleration of point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the superposition of: the acceleration of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(O\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the centripetal acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\vec{OP}\\,\\omega^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the tangential acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{\\varepsilon} \\times \\vec{OP}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". All of these are linear functions of the coordinates of point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{\\varepsilon}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " denotes the angular acceleration and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the angular speed. Hence, in the lab frame, the acceleration of point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a linear function of coordinates, as must be its centripetal acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v^2\\vec{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Since the angular speed of the table is zero, all points move with the same speed, so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " must be a linear function of coordinates."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/eupho-2025-t2/58b745d743c7b97137c4.png",
+                "alt": "eupho-2025-t2 original source figure 7"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 9: Immediate accelerations"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The remaining calculation is straightforward: due to the translational motion of the body, curvatures depend only on the horizontal coordinate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The curvature of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = 4a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_B = -1/(6a)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", with the minus sign indicating that the vector points downwards. The curvature of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = 2a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_A = 1/(4a)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence, the curvature of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1/(4a) + (1/(4a) + 1/(6a)) = 2/(3a)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", giving "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = 1.5\\,\\mathrm{dm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and resulting in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T = 777\\,\\mathrm{ms}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Positive curvature means that the position is a stable equilibrium."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Another way to see it, is to consider normal acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w_C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". For 2 points of a rigid body "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the projections of their accelerations "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w_C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w_B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the segment "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(BC\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " differ by the value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega^2|BC|\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". However, in our case since there is no rotation, the projections of acceleration are equal (like velocities). This means that the accelaration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w_B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is also normal and equal to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w_B = v^2/(6a)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " has both normal and tangential acceleration. Comparing projections of points "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A, B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A, C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n-w_B \\cos\\alpha &= w_{Ay} \\cos\\alpha - w_{Ay} \\sin\\alpha, \\\\\nw_C \\cos\\alpha &= w_{Ay} \\cos\\alpha + w_{Ay} \\sin\\alpha,\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus, we find that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[w_C = w_B + 2w_{Ay} = \\frac{v^2}{6a} + 2\\,\\frac{v^2}{4a} = \\frac{v^2}{3a/2},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so radius of curvature is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = 3a/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "You can visualize the motion of the table using a GeoGebra tool, following the web link or the qr code "
+          },
+          {
+            "type": "element",
+            "tag": "code",
+            "children": [
+              {
+                "type": "text",
+                "text": "https://www.geogebra.org/m/wbqwp3tf"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/eupho-2025-t2/fe2bb564f7f15389af8c.png",
+                "alt": "eupho-2025-t2 original source figure 8"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Marking scheme T2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "table",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tbody",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "A"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Table is in equilibrium"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "em",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Partial points:"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– (1pt) Sketch of forces or eqn for forces"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2.0"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "B"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "The equilibrium is stable"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "em",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Partial points:"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– (1pt) Sketch with returning forces, but there is no proof that "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\omega_0 = 0\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– (1pt) There is a statement that the stability comes from "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(y = kx^2\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " if "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(k > 0\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", but "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(k\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is not found correctly (and thus could potentially be negative)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2.0"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "C"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Table can rotate:"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\nwhether it is clear from the sketch or from the equations, i.e. "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\varphi\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is introduced"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "D"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Table does not have immediate rotation"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\nwhether it is proved separately or follows naturally from the results of calculations:"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– geometry considered "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\Rightarrow \\varphi \\sim x^2\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– eqn for contraints "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\Rightarrow \\varphi \\sim x^2\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– immediate velocities "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\Rightarrow\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " no rotation"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "E"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "The plan how to find the period of oscillation:"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– 2nd Newton’s law "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\ddot{x} \\sim -x\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– idea to find kinetic and potential energies"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– using the curvature of the trajectory"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "F"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Finding all the elements for the plan above:"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– small horizontal forces"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– energies to the correct approximations"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– accelerations/curvatures"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "em",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Partial points:"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– (1pt) if not all elements are found or they are found with mistakes"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– (1pt) if there is no proof "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\omega_0 = 0\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " (or no consideration about the rotation at all), but other than that, everything is correct"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– (0pts) if some elements are there, but the plan was different (e.g. the student was looking for energies, but has the expression for forces)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2.0"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "G"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Formula and number for "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(T\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "em",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Partial points:"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– (0.5pts) only formula or a number"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "br",
+                            "children": []
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n– (0.5pts) simple mistake (like inverse formula under the root)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "strong",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Total"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "strong",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "10.0"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "– Only a single partial point is applied (whatever is larger)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "– If there is a single simple arithemetic error/typo in calculations in item F, which leads to a wrong formula value in item G, then F and G receive 1 pt each (no propagation of error). This doesn’t apply to more profound errors in physics/geometry"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "T2: Floating table (10 pts)\n\n\nSolution with forces\n First, let us consider the forces and torques and show that in the configuration shown in the figure, the table is indeed in equilibrium. By the word “table”, we understand the rigid body formed by the plate and the frame attached to it. In the following considerations and descriptions of the table position we often use positions of points \n\\(A\\)\n, \n\\(B\\)\n and \n\\(C\\)\n, which belong to the rigid table: distances between them do not change. Since in the problem statement, the motion is limited to the side view only, the pair of short chains will always have the same position when viewed from the side. So we will consider them as a single chain (chain 1) with the tension doubled. The same is true for the pair of long chains (chain 2).\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: Scheme of forces for the initial state.\n\n\n\n\nThere are 3 forces acting on a table (see Fig. 3): plate weight \n\\(m\\vec{g}\\)\n (at the center of mass of the table \n\\(C\\)\n), and 2 tension forces from the chains: \n\\(\\vec{F}_1\\)\n (at point \n\\(A\\)\n, chain 1) and \n\\(\\vec{F}_2\\)\n (at point \n\\(B\\)\n, chain 2). Since all the forces only have vertical components different from \n\\(0\\)\n, their horizontal components are balanced and for their vertical components, the balance equation is: \n\\[\\begin{equation}\n-mg + F_1 - F_2 = 0.\n\\tag{8}\n\\end{equation}\\]\n Finally, consider the torque balance around the point \n\\(B\\)\n: \n\\[\\begin{equation}\nmg \\cdot 4a - F_1 \\cdot 2a = 0.\n\\tag{9}\n\\end{equation}\\]\n Solving the system of equations (8-9), we get \n\\(F_1 = 2mg\\)\n and \n\\(F_2 = mg\\)\n. Since both \n\\(F_1, F_2 > 0\\)\n, we conclude that the chains are indeed tensioned and the system is in equilibrium.\n\n\nNow let’s analyze how the table rotates, when it is displaced. Since the chains are tensioned and inextensible, the point \n\\(B\\)\n can only travel along the circle \n\\(c_b\\)\n. Similarly, the distance between the point \n\\(A_0\\)\n and any point inside the circle \n\\(c_a\\)\n is smaller than the length of the short chain (\n\\(4a\\)\n); the distance between the point \n\\(A_0\\)\n and any point outside of the circle \n\\(c_a\\)\n is larger than \n\\(4a\\)\n.\n\n\nSince the table is rigid, if we fix the point \n\\(B\\)\n and rotate the table around it, point \n\\(A\\)\n would travel along the circle \n\\(c_t\\)\n. From the way how \n\\(c_t\\)\n intersects with \n\\(c_a\\)\n, we can conclude that if the table is rotated clockwise, the distance \n\\(A_0A\\)\n decreases. And if it is rotated counter-clockwise, \n\\(A_0A\\)\n increases.\n\n\nLet’s imagine we translate (move without rotation) the table to the left, so the point \n\\(B\\)\n travels to the point \n\\(B'\\)\n. Point \n\\(A\\)\n would move to the point \n\\(A'\\)\n, as shown in Fig. 4. Since \n\\(A'\\)\n is outside of the circle \n\\(c_a\\)\n, \n\\(A_0A' > A_0A\\)\n and the table has to rotate clockwise (around \n\\(B'\\)\n) to compensate for this change and return the point \n\\(A'\\)\n back to the circle \n\\(c_a\\)\n (point \n\\(A''\\)\n) to satisfy the constant chain length constraint.\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: Translation to the left and clockwise rotation of the table\n\n\n\n\nIf we translate the table in the opposite direction, following similar arguments, we find that the table rotates clockwise in this case too, see Fig. 5.\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: Translation to the right and clockwise rotation of the table\n\n\n\n\nSince the table rotates in the same direction for both positive and negative horizontal displacements, the Taylor expansion of the angle of rotation \n\\(\\varphi(x)\\)\n does not contain a linear term in \n\\(x\\)\n: \n\\(\\varphi(x) \\sim x^2\\)\n. This means that for small horizontal displacements, we can neglect the table rotation.\n\n\nLet’s look at what happens when the table is displaced infinitesimally from its initial position in the horizontal direction (it will also move in the vertical direction, but the displacement in the vertical direction is an order of magnitude smaller and we will neglect it). The vertical components of the forces in the chains do not change significantly, but as you can see in the Fig. 6, the horizontal components of the forces in both chains appear in the direction opposite to the displacement. This means that the equilibrium is stable.\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: Horizontal displacement of the table\n\n\n\n\nSince we have already drawn a figure showing the displaced position of the table, let us write the equation of motion for the table plate for small horizontal displacements \n\\(x\\)\n, where \n\\(\\theta_1\\)\n and \n\\(\\theta_2\\)\n are small angles between the chains 1 and 2 respectively and the vertical. Since the table displacement is small, tension forces \n\\(F_1\\)\n and \n\\(F_2\\)\n cannot change significantly (the force change is of the same order as the displacement). Thus, we can use the previously found values: \n\\[\\begin{aligned}\nm\\ddot{x} &= -F_1 \\sin\\theta_1 - F_2 \\sin\\theta_2 = -F_1\\theta_1 - F_2\\theta_2 \\\\\n&= -2mg\\frac{x}{4a} - mg\\frac{x}{6a} = -mg\\frac{2x}{3a},\n\\end{aligned}\\]\n where we have also considered the lengths of the chains \n\\(4a\\)\n (chain 1) and \n\\(6a\\)\n (chain 2), neglected the rotation of the plate and used small angle approximations. Rearranging this equation, we get: \n\\[\\ddot{x} + \\frac{2g}{3a}x = 0,\\]\n which describes horizontal oscillations of the table plate with \n\\(\\omega = \\sqrt{2g/(3a)} = 8.09\\,\\mathrm{s}^{-1}\\)\n, frequency \n\\(\\nu = 1.29\\,\\mathrm{Hz}\\)\n and period \n\\[T = 777\\,\\mathrm{ms}.\\]\n\n\nSolution with energies\n Let’s denote the small displacement of the centre of mass from equilibrium position \n\\(C\\)\n to \n\\(C'\\)\n as \n\\((x, y)\\)\n, where \n\\(x, y \\ll a\\)\n, and the small tilt of the table as \n\\(\\varphi\\)\n, as shown in Fig. 7.\n\n\n\n\n\n\n\n\n\n\n\nFigure 7: Infinitesimal displacement of the table\n\n\n\n\nGiven the small angle approximation \n\\(\\varphi \\ll 1\\)\n (\n\\(\\sin\\varphi \\approx \\varphi\\)\n and \n\\(\\cos\\varphi \\approx 1\\)\n), the displacement of points from equilibrium positions \n\\(A\\)\n and \n\\(B\\)\n to \n\\(A'\\)\n and \n\\(B'\\)\n are: \n\\[\\begin{align*}\n\\Delta A_x &= x - 5a\\sin\\varphi - 2a(1 - \\cos\\varphi) \\approx x - 5a\\varphi, \\\\\n\\Delta A_y &= y - 2a\\sin\\varphi + 5a(1 - \\cos\\varphi) \\approx y - 2a\\varphi, \\\\\n\\Delta B_x &= x - 4a(1 - \\cos\\varphi) \\approx x, \\\\\n\\Delta B_y &= y - 4a\\sin\\varphi \\approx y - 4a\\varphi.\n\\end{align*}\\]\n Now we can write a condition that the squared length of the small chain remains the same: \n\\[(x - 5a\\varphi)^2 + (4a - y + 2a\\varphi)^2 = (4a)^2\\]\n \n\\[x^2 - 10ax\\varphi + 25a^2\\varphi^2 - 8a(y - 2a\\varphi) + (y - 2a\\varphi)^2 = 0,\\]\n Let’s notice that the largest term in \n\\(x\\)\n is \n\\(x^2\\)\n and in \n\\(y\\)\n and \n\\(a\\varphi\\)\n, it’s \n\\(8a(y + 2a\\varphi)\\)\n. Thus, we can omit all other terms, since they are of the higher order (and therefore smaller): \n\\[\\begin{equation}\nx^2 - 8a(y - 2a\\varphi) = 0, \\qquad \\frac{x^2}{8a} - y + 2a\\varphi = 0.\n\\tag{10}\n\\end{equation}\\]\n Doing the same for the long chain we get: \n\\[x^2 + (6a + y - 4a\\varphi)^2 = (6a)^2\\]\n \n\\[x^2 + 12a(y - 4a\\varphi) + (y - 4a\\varphi)^2 = 0,\\]\n Omitting higher order terms we get: \n\\[\\begin{equation}\nx^2 + 12a(y - 4a\\varphi) = 0, \\qquad \\frac{x^2}{12a} + y - 4a\\varphi = 0.\n\\tag{11}\n\\end{equation}\\]\n Solving (10) and (11) as linear equations on \n\\(y\\)\n and \n\\(\\varphi\\)\n, we get: \n\\[y = \\frac{x^2}{3a}, \\qquad \\varphi = \\frac{5x^2}{48a^2}.\\]\n Since the potential energy of the table \n\\[\\begin{equation}\nU = mg\\,y = \\frac{2}{3a}\\,mg\\,\\frac{x^2}{2},\n\\tag{12}\n\\end{equation}\\]\n doesn’t have a term linear in \n\\(x\\)\n, we conclude that the system is in equilibrium. And since the coefficient for \n\\(x^2\\)\n is positive, the equilibrium is stable.\n\n\nThe kinetic energy of the table is: \n\\[\\begin{equation}\nE = m\\,\\frac{\\dot{x}^2 + \\dot{y}^2}{2} + I\\,\\frac{\\dot{\\varphi}^2}{2} \\approx m\\,\\frac{\\dot{x}^2}{2},\n\\tag{13}\n\\end{equation}\\]\n where \n\\(I\\)\n is a moment of inertia with respect to rotation around the axis through the centre of mass \n\\(C\\)\n. Since both \n\\(y\\)\n and \n\\(\\varphi\\)\n depend on \n\\(x^2\\)\n, their squared derivatives will be proportional to \n\\(x^2\\dot{x}^2\\)\n and can be neglected when compared to \n\\(\\dot{x}^2\\)\n term.\n\n\nFinally, we can find the period of oscillations from the ratio of coefficients of (13) and (12): \n\\[T = 2\\pi\\sqrt{\\,m\\Big/\\frac{2mg}{3a}\\,} = 2\\pi\\sqrt{\\frac{3a}{2g}} = 0.777\\ \\mathrm{s}.\\]\n\n\nSolution with the curvature\n We begin with the observation that at the initial horizontal position, points \n\\(A\\)\n and \n\\(B\\)\n in Fig. 3 move horizontally. Therefore, the instantaneous centre of table’s rotation is at infinity (found as the intersection of lines perpendicular to the velocity vectors, which are parallel in this case), or in other words there is no rotation. Another way to see it is to consider the projections of the velocities \n\\(v_A\\)\n and \n\\(v_B\\)\n to the line \n\\(AB\\)\n which should be the same in a rigid body. Thus \n\\(v_A = v_B = v\\)\n and all the points of the table move with the same velocity, i.e. there is no immediate rotation.\n\n\n\n\n\n\n\n\n\n\n\nFigure 8: Immediate velocities given the constraints\n\n\n\n\nConsequently, no rotational kinetic energy is involved, and the motion of the table can be treated as the motion of a point mass located at the centre of mass, point \n\\(C\\)\n. Since at the given configuration, the \n\\(v_C\\)\n can only be horizontal, we conclude that initially table is at equilibrium. All that remains is to find the radius of curvature \n\\(R\\)\n of its trajectory and calculate \n\\(T = 2\\pi\\sqrt{R/g}\\)\n.\n\n\nTo find the radius of curvature, we note that for an arbitrary point \n\\(P\\)\n on the table, the curvature \n\\(\\vec{c} = \\hat{n}/R\\)\n of its trajectory is a linear function of its coordinates, where \n\\(\\hat{n}\\)\n denotes a unit vector pointing towards the centre of curvature. Indeed, using a non-inertial reference frame where the rigid body remains at rest with origin at \n\\(O\\)\n, the acceleration of point \n\\(P\\)\n is the superposition of: the acceleration of \n\\(O\\)\n, the centripetal acceleration \n\\(-\\vec{OP}\\,\\omega^2\\)\n, and the tangential acceleration \n\\(\\vec{\\varepsilon} \\times \\vec{OP}\\)\n. All of these are linear functions of the coordinates of point \n\\(P\\)\n, where \n\\(\\vec{\\varepsilon}\\)\n denotes the angular acceleration and \n\\(\\omega\\)\n the angular speed. Hence, in the lab frame, the acceleration of point \n\\(P\\)\n is a linear function of coordinates, as must be its centripetal acceleration \n\\(v^2\\vec{c}\\)\n. Since the angular speed of the table is zero, all points move with the same speed, so \n\\(\\vec{c}\\)\n must be a linear function of coordinates.\n\n\n\n\n\n\n\n\n\n\n\nFigure 9: Immediate accelerations\n\n\n\n\nThe remaining calculation is straightforward: due to the translational motion of the body, curvatures depend only on the horizontal coordinate \n\\(x\\)\n. The curvature of \n\\(B\\)\n at \n\\(x = 4a\\)\n is \n\\(c_B = -1/(6a)\\)\n, with the minus sign indicating that the vector points downwards. The curvature of \n\\(A\\)\n at \n\\(x = 2a\\)\n is \n\\(c_A = 1/(4a)\\)\n. Hence, the curvature of \n\\(C\\)\n is \n\\(1/(4a) + (1/(4a) + 1/(6a)) = 2/(3a)\\)\n, giving \n\\(R = 1.5\\,\\mathrm{dm}\\)\n and resulting in \n\\(T = 777\\,\\mathrm{ms}\\)\n. Positive curvature means that the position is a stable equilibrium.\n\n\nAnother way to see it, is to consider normal acceleration \n\\(w_C\\)\n of point \n\\(C\\)\n. For 2 points of a rigid body \n\\(C\\)\n and \n\\(B\\)\n, the projections of their accelerations \n\\(w_C\\)\n, \n\\(w_B\\)\n to the segment \n\\(BC\\)\n differ by the value \n\\(\\omega^2|BC|\\)\n. However, in our case since there is no rotation, the projections of acceleration are equal (like velocities). This means that the accelaration \n\\(w_B\\)\n is also normal and equal to \n\\(w_B = v^2/(6a)\\)\n. Point \n\\(A\\)\n has both normal and tangential acceleration. Comparing projections of points \n\\(A, B\\)\n, and \n\\(A, C\\)\n, we get: \n\\[\\begin{align*}\n-w_B \\cos\\alpha &= w_{Ay} \\cos\\alpha - w_{Ay} \\sin\\alpha, \\\\\nw_C \\cos\\alpha &= w_{Ay} \\cos\\alpha + w_{Ay} \\sin\\alpha,\n\\end{align*}\\]\n Thus, we find that \n\\[w_C = w_B + 2w_{Ay} = \\frac{v^2}{6a} + 2\\,\\frac{v^2}{4a} = \\frac{v^2}{3a/2},\\]\n so radius of curvature is \n\\(R = 3a/2\\)\n.\n\n\nYou can visualize the motion of the table using a GeoGebra tool, following the web link or the qr code \nhttps://www.geogebra.org/m/wbqwp3tf\n\n\n\n\n\n\n\n\n\nMarking scheme T2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA\n\n\nTable is in equilibrium\n\n\n\nPartial points:\n\n\n– (1pt) Sketch of forces or eqn for forces\n\n\n2.0\n\n\n\n\n\n\nB\n\n\nThe equilibrium is stable\n\n\n\nPartial points:\n\n\n– (1pt) Sketch with returning forces, but there is no proof that \n\\(\\omega_0 = 0\\)\n\n\n– (1pt) There is a statement that the stability comes from \n\\(y = kx^2\\)\n if \n\\(k > 0\\)\n, but \n\\(k\\)\n is not found correctly (and thus could potentially be negative)\n\n\n2.0\n\n\n\n\n\n\nC\n\n\nTable can rotate:\n\n\nwhether it is clear from the sketch or from the equations, i.e. \n\\(\\varphi\\)\n is introduced\n\n\n1.0\n\n\n\n\n\n\nD\n\n\nTable does not have immediate rotation\n\n\nwhether it is proved separately or follows naturally from the results of calculations:\n\n\n– geometry considered \n\\(\\Rightarrow \\varphi \\sim x^2\\)\n\n\n– eqn for contraints \n\\(\\Rightarrow \\varphi \\sim x^2\\)\n\n\n– immediate velocities \n\\(\\Rightarrow\\)\n no rotation\n\n\n1.0\n\n\n\n\n\n\nE\n\n\nThe plan how to find the period of oscillation:\n\n\n– 2nd Newton’s law \n\\(\\ddot{x} \\sim -x\\)\n\n\n– idea to find kinetic and potential energies\n\n\n– using the curvature of the trajectory\n\n\n1.0\n\n\n\n\n\n\nF\n\n\nFinding all the elements for the plan above:\n\n\n– small horizontal forces\n\n\n– energies to the correct approximations\n\n\n– accelerations/curvatures\n\n\n\nPartial points:\n\n\n– (1pt) if not all elements are found or they are found with mistakes\n\n\n– (1pt) if there is no proof \n\\(\\omega_0 = 0\\)\n (or no consideration about the rotation at all), but other than that, everything is correct\n\n\n– (0pts) if some elements are there, but the plan was different (e.g. the student was looking for energies, but has the expression for forces)\n\n\n2.0\n\n\n\n\n\n\nG\n\n\nFormula and number for \n\\(T\\)\n\n\n\nPartial points:\n\n\n– (0.5pts) only formula or a number\n\n\n– (0.5pts) simple mistake (like inverse formula under the root)\n\n\n1.0\n\n\n\n\n\n\n\n\n\nTotal\n\n\n10.0\n\n\n\n\n\n\n\n\n\n\n– Only a single partial point is applied (whatever is larger)\n\n\n– If there is a single simple arithemetic error/typo in calculations in item F, which leads to a wrong formula value in item G, then F and G receive 1 pt each (no propagation of error). This doesn’t apply to more profound errors in physics/geometry\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/eupho-2025-t2/2c6b9bd446a18f394953.png",
+      "/corpus/figures/native/bulk/eupho-2025-t2/4685ee02e3ce6b85934a.png",
+      "/corpus/figures/native/bulk/eupho-2025-t2/272ef922b5bc85af9df9.png",
+      "/corpus/figures/native/bulk/eupho-2025-t2/8a85bd752b77b3eac857.png",
+      "/corpus/figures/native/bulk/eupho-2025-t2/f9073ae2897e0130d0a2.png",
+      "/corpus/figures/native/bulk/eupho-2025-t2/05ff1287aab9712a1bcd.png",
+      "/corpus/figures/native/bulk/eupho-2025-t2/58b745d743c7b97137c4.png",
+      "/corpus/figures/native/bulk/eupho-2025-t2/fe2bb564f7f15389af8c.png"
+    ],
+    "shared": false
+  }
+}

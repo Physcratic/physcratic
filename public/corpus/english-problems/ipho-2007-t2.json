@@ -1,1 +1,3133 @@
-{"id":"ipho-2007-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2007_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2007_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2007-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":" \n \n \n \n1\nIn this problem we deal with a simplified model of accelerometers designed to activate the safety \nair bags of automobiles during a collision. We would like to build an electromechanical system in \nsuch a way that when the acceleration exceeds a certain limit, one of the electrical parameters of \nthe system such as the voltage at a certain point of the circuit will exceed a threshold and the air \nbag will be activated as a result. \n \nNote: Ignore gravity in this problem. \n \n1 Consider a capacitor with parallel plates as in Figure 1. The area of each plate in the capacitor \nis A and the distance between the two plates is d . The distance between the two plates is \nmuch smaller than the dimensions of the plates. One of these plates is in contact with a wall \nthrough a spring with a spring constant k , and the other plate is fixed. When the distance \nbetween the plates is d  the spring is neither compressed nor stretched, in other words no \nforce is exerted on the spring in this state. Assume that the permittivity of the air between the \nplates is that of free vacuum \n0\nε . The capacitance corresponding to this distance between the \nplates of the capacitor is \nd\nA\nC\n0\n0\nε\n=\n. We put charges \nQ\n+\n and \nQ\n−\n on the plates and let \nthe system achieve mechanical equilibrium.  \n \n \nFigure 1 \n \n1.1 \nCalculate the electrical force, \nE\nF , exerted by the plates on each other. \n0.8 \n \n1.2 \nLet x  be the displacement of the plate connected to the spring. Find x .  \n0.6 \n \n1.3 \nIn this state, what is the electrical potential difference V between the plates of the \ncapacitor in terms of Q , A , d , k ? \n0.4 \n \n1.4 \nLet C  be the capacitance of the capacitor, defined as the ratio of charge to potential \ndifference. Find \n0\nC\nC\n as a function of Q , A , d   and k .  \n0.3 \n \n1.5 \nWhat is the total energy, U , stored in the system in terms of Q , A , d  and k ? \n0.6 \n \nFigure 2, shows a mass M which is attached to a conducting plate with negligible mass and also \nto two springs having identical spring constants k .  The conducting plate can move back and \nforth in the space between two fixed conducting plates. All these plates are similar and have the \nsame area A . Thus these three plates constitute two capacitors. As shown in Figure 2, the fixed \nplates are connected to the given potentials V  and \nV\n−\n, and the middle plate is connected \nk\nd\n\n \n \n \n \n2\nthrough a two-state switch to the ground. The wire connected to the movable plate does not \ndisturb the motion of the plate and the three plates will always remain parallel. When the whole \ncomplex is not being accelerated, the distance from each fixed plate to the movable plate is \nd which is much smaller than the dimensions of the plates. The thickness of the movable plate \ncan be ignored.  \n \nFigure 2 \n \nThe switch can be in either one of the two states α  and β . Assume that the capacitor complex is \nbeing accelerated along with the automobile, and the acceleration is constant. Assume that during \nthis constant acceleration the spring does not oscillate and all components of this complex \ncapacitor are in their equilibrium positions, i.e. they do not move with respect to each other, and \nhence with respect to the automobile.  \nDue to the acceleration, the movable plate will be displaced a certain amount x  from the middle \nof the two fixed plates.  \n \n2 Consider the case where the switch is in state α  i.e. the movable plate is connected to the \nground through a wire, then \n \n2.1 \nFind the charge on each capacitor as a function of  x . \n0.4 \n \n2.2 \nFind the net electrical force on the movable plate, \nE\nF , as a function of x .  \n0.4 \n \n \n \n \n2.3 \nAssume \nx\nd >>\n and terms of order \n2x can be ignored compared to terms of order \n2\nd . Simplify the answer to the previous part.  \n0.2 \n \n2.4 \nWrite the total force on the movable plate (the sum of the electrical and the spring \nforces) as \nx\nkeff\n−\n and give the form of \neff\nk\n.  \n0.7 \n \n2.5 \nExpress the constant acceleration a  as a function of x . \n0.4 \nMovable \nplate \na\nFixed Plate \nFixed Plate \nV  \nα  \nβ\nS\nC\nV\nM  \nk\nk\n\n \n \n \n \n3\n \n \n \n \n \n3 Now assume that the switch is in state β  i.e. the movable plate is connected to the ground \nthrough a capacitor, the capacitance of which is \nS\nC  (there is no initial charge on the \ncapacitors). If the movable plate is displaced by an amount x  from its central position,  \n \n3.1 \nFind \nS\nV  the electrical potential difference across the capacitor \nS\nC  as a function of \nx . \n1.5 \n \n3.2 \nAgain assume that \nx\nd >>\n and ignore terms of order \n2\nx  compared to terms of \norder \n2\nd . Simplify your answer to the previous part. \n0.2 \n \n4 We would like to adjust the parameters in the problem such that the air bag will not be \nactivated in normal braking but opens fast enough during a collision to prevent the driver’s \nhead from colliding with the windshield or the steering wheel. As you have seen in Part 2, the \nforce exerted on the movable plate by the springs and the electrical charges can be \nrepresented as that of a spring with an effective spring constant \neff\nk\n. The whole capacitor \ncomplex is similar to a mass and spring system of mass M and spring constant \neff\nk\n under the \ninfluence of a constant acceleration a , which in this problem is the acceleration of the \nautomobile.  \n \nNote: In this part of the problem, the assumption that the mass and spring are in equilibrium under \na constant acceleration and hence are fixed relative to the automobile, no longer holds.  \n \nIgnore friction and consider the following numerical values for the parameters of the problem: \n \ncm\n0.1\n=\nd\n, \n2\n2 m\n10\n5.2\n−\n×\n=\nA\n, \nN/m\n10\n2.4\n3\n×\n=\nk\n, \n2\n2\n12\n0\n/Nm\nC\n10\n85\n.8\n−\n×\n=\nε\n, \nV\n12\n=\nV\n, \nkg\n15\n.0\n=\nM\n. \n \n4.1 \nUsing this data, find the ratio of the electrical force you calculated in section 2.3 to \nthe force of the springs and show that one can ignore the electrical forces compared \nto the spring forces. \n0.6 \n \nAlthough we did not calculate the electrical forces for the case when the switch is in the state β , \nit can be shown that in this situation, quite similarly, the electrical forces are as small and can be \nignored.  \n \n4.2 \nIf the automobile while traveling with a constant velocity, suddenly brakes with a \nconstant acceleration a , what is the maximum displacement of the movable plate? \nGive your answer in parameter.  \n0.6 \n \nAssume that the switch is in state β  and the system has been designed such that when the \nelectrical voltage across the capacitor reaches \nV\n15\n.0\n=\nS\nV\n, the air bag is activated. We would \nlike the air bag not to be activated during normal braking when the automobile’s acceleration is \nless than the acceleration of gravity\n2\n8.9\ns\nm\ng =\n, but be activated otherwise.  \n \n4.3 \nHow much should \nS\nC  be for this purpose?   \n0.6 \n \n\n \n \n \n \n4\nWe would like to find out if the air bag will be activated fast enough to prevent the driver’s head \nfrom hitting the windshield or the steering wheel. Assume that as a result of collision, the \nautomobile experiences a deceleration equal to g  but the driver’s head keeps moving at a \nconstant speed. \n \n4.4 \nBy estimating the distance between the driver’s head and the steering wheel, find \nthe time 1t  it takes before the driver’s head hits the steering wheel.  \n0.8 \n \n4.5 \nFind the time \n2t  before the air bag is activated and compare it to 1t . Is the air bag \nactivated in time? Assume that airbag opens instantaneously. \n0.9 \n \n \n \n \n \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2007-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Question “Orange” \n \n1.1) \nFirst of all, we use the Gauss’s law for a single plate to obtain the electric field,  \n0\nε\nσ\n=\nE\n.               (0.2) \nThe density of surface charge for a plate with charge,Q  and area, A  is \nA\nQ\n=\nσ\n.                (0.2) \nNote that the electric field is resulted by two equivalent parallel plates. Hence the \ncontribution of each plate to the electric field is \nE\n2\n1\n. Force is defined by the electric filed \ntimes the charge, then we have \nForce = \nQ\nE\n2\n1\n= \nA\nQ\n0\n2\n2ε\n   (0.2)+ (0.2) ( The ½  coefficient + the final result) \n \n1.2) \nThe Hook’s law for a spring is \nx\nk\nFm\n−\n=\n.   (0.2) \nIn 1.2 we derived the electric force between two plates is  \nA\nQ\nFe\n0\n2\n2ε\n=\n. \nThe system is stable. The equilibrium condition yields \n \ne\nm\nF\nF =\n,    (0.2) \nk\nA\nQ\nx\n0\n2\n2ε\n=\n⇒\n   (0.2) \n \n1.3) \nThe electric field is constant thus the potential difference, V  is given by  \n)\n(\nx\nd\nE\nV\n−\n=\n  \n \n (0.2) \n(Other reasonable approaches are acceptable. For example one may use the definition of \ncapacity to obtainV .)   \nBy substituting the electric field obtained from previous section to the above equation, we \nget, \n\n\n\n\n\n−\n=\nd\nk\nA\nQ\nA\nd\nQ\nV\n0\n2\n0\n2\n1\nε\nε\n                   (0.2) \n \n1.4)  \nC is defined by the ratio of charge to potential difference, then  \nV\nQ\nC =\n .            (0.1)        \n\nUsing the answer to 1.3, we get \n1\n0\n2\n0\n2\n1\n−\n\n\n\n\n\n−\n=\nd\nk\nA\nQ\nC\nC\nε\n          (0.2) \n \n1.5) \nNote that we have both the mechanical energy due to the spring  \n2\n2\n1 kx\nU m =\n,           (0.2)          \nand the electrical energy stored in the capacitor.  \nC\nQ\nU E\n2\n2\n=\n .              (0.2) \nTherefore the total energy stored in the system is \n\n\n\n\n\n−\n=\nd\nk\nA\nQ\nA\nd\nQ\nU\n0\n2\n0\n2\n4\n1\n2\nε\nε\n          (0.2) \n \n2.1) \nFor the given value of x , the amount of charge on each capacitor is \n \nx\nd\nV\nA\nC\nV\nQ\n−\n=\n=\n0\n1\n1\nε\n ,                (0.2) \nx\nd\nV\nA\nC\nV\nQ\n+\n=\n=\n0\n2\n2\nε\n .               (0.2) \n \n2.2) \nNote that we have two capacitors. By using the answer to 1.1 for each capacitor, we get \nA\nQ\nF\n0\n2\n1\n1\n2ε\n=\n, \nA\nQ\nF\n0\n2\n2\n2\n2ε\n=\n. \nAs these two forces are in the opposite directions, the net electric force is  \n2\n1\nF\nF\nFE\n−\n=\n,   (0.2)     \n\n\n\n\n\n\n+\n−\n−\n=\n⇒\n2\n2\n2\n0\n)\n(\n1\n)\n(\n1\n2\nx\nd\nx\nd\nV\nA\nFE\nε\n    (0.2) \n \n2.3) \nIgnoring terms of order \n2\nx  in the answer to 2.2., we get     \nx\nd\nV\nA\nFE\n3\n2\n0\n2ε\n=\n          (0.2) \n \n \n2.4) \nThere are two springs placed in series with the same spring constant,k , then the \nmechanical force is \n\nx\nk\nFm\n2\n−\n=\n.     (The coefficient (2) has (0.2)) \nCombining this result with the answer to 2.4 and noticing that these two forces are in the \nopposite directions, we get \nE\nm\nF\nF\nF\n+\n=\n,                  \nx\nd\nV\nA\nk\nF\n\n\n\n\n\n\n−\n−\n=\n⇒\n3\n2\n0\n2\nε\n, (Opposite signs of the \ntwo forces have (0.3)) \n\n\n\n\n\n\n−\n=\n⇒\n3\n2\n0\n2\nd\nV\nA\nk\nkeff\nε\n   (0.2) \n \n2.5) \nBy using the Newtown’s second law, \nma\nF =\n           (0.2) \nand the answer to 2.4, we get \nx\nd\nV\nA\nk\nm\na\n\n\n\n\n\n\n−\n−\n=\n3\n2\n0\n2\nε\n   (0.2) \n \n \n \n \n3.1) \nStarting with Kirchhoff’s laws, for two electrical circuits, we have \n \n\n\n\n\n\n\n\n\n\n\n\n\n\n=\n+\n−\n=\n−\n+\n−\n=\n−\n+\n0\n0\n0\n1\n2\n1\n1\n2\n2\nS\nS\nS\nS\nS\nQ\nQ\nQ\nC\nQ\nV\nC\nQ\nC\nQ\nV\nC\nQ\n  (Each has (0.3), Note: the sings may depend on the specific choice made) \n \nNoting that \ns\nV = \nS\nS\nC\nQ   one obtains  \n2\n2\n0\n2\n2\n0\n2\n2\nx\nd\nd\nA\nC\nx\nd\nx\nA\nV\nV\nS\nS\n−\n+\n−\n=\n⇒\nε\nε\n .    ((0.4) + (0.2): (0.4) for solving the above equations and (0.2) \nfor final result) \n \n\nNote: Students may simplify the above relation using the approximation\n2\n2\nx\nd\n>>\n. It does \nnot matter in this section. \n \n3.2) \nIgnoring terms of order \n2\nx  in the answer to 3.1., we get  \n \nd\nA\nC\nd\nx\nA\nV\nV\nS\nS\n0\n2\n0\n2\n2\nε\nε\n+\n=\n .        (0.2) \n \n4.1) \nThe ratio of the electrical force to the mechanical (spring) force is \n3\n2\n0\nd\nk\nV\nA\nF\nF\nm\nE\nε\n=\n , \nPutting the numerical values: \n9\n10\n6.7\n−\n×\n=\nm\nE\nF\nF\n .               ((0.2) + (0.2) + (0.2): (0.2) for order of magnitude, (0.2) for \ntwo significant digits and (0.2) for correct answer (7.6 or 7.5)).  \nAs it is clear from this result, we can ignore the electrical forces compared to the electric \nforce. \n \n \n \n4.2) \nAs seen in the previous section, one may assume that the only force acting on the moving \nplate is due to springs:  \nx\nk\nF\n2\n=\n .     (The concept of equilibrium (0.2)) \nHence in mechanical equilibrium, the displacement of the moving plate is  \nk\nma\nx\n2\n=\n . \nThe maximum displacement is twice this amount, like the mass spring system in a \ngravitational force field, when the mass is let to fall. \nx\nx\n2\nmax =\n    (0.2) \nk\na\nm\nx\n=\nmax\n    (0.2) \n \n4.3) \nAt the acceleration \ng\na =\n,              (0.2) \nThe maximum displacement is \nk\ng\nm\nx\n=\nmax\n. \nMoreover, from the result obtained in 3.2, we have     \n\nd\nA\nC\nd\nx\nA\nV\nV\nS\nS\n0\n2\nmax\n0\n2\n2\nε\nε\n+\n=\n \nThis should be the same value given in the problem,\nV\n15\n.0\n. \n\n\n\n\n\n\n−\n=\n⇒\n1\n2\nmax\n0\nd\nV\nx\nV\nd\nA\nC\nS\nS\nε\n    (0.2) \nF\n10\n0.8\n11\n−\n×\n=\n⇒\nS\nC\n               (0.2) \n \n4.4) \nLet l  be the distance between the driver’s head and the steering wheel. It can be \nestimated to be about \nm\nm 1\n4.0\n−\n=\nl\n.            (0.2) \nJust at the time the acceleration begins, the relative velocity of the driver’s head with \nrespect to the automobile is zero. \n \n0\n)\n0\n(\n=\n=\n∆\nt\nv\n,             (0.2) \nthen \n2\n1\n2\n1\nt\ng\n=\nl\n     \ng\nt\nl\n2\n1 =\n⇒\n    (0.2) \ns\nt\n5.0\n3.0\n1\n−\n=\n          (0.2) \n \n4.5) \nThe time 2t is half of period of the harmonic oscillator, hence   \n \n2\n2\nT\nt =\n,            (0.3) \nThe period of harmonic oscillator is simply given by  \nk\nm\nT\n2\n2π\n=\n ,     (0.2) \ntherefore, \ns\nt\n013\n.0\n2 =\n.     (0.2) \n \nAs \n2\n1\nt\nt >\n, the airbag activates in time.                   (0.2) \n","textExtraction":"available"}}
+{
+  "id": "ipho-2007-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2007_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2007_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2007-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this problem we deal with a simplified model of accelerometers designed to activate the safety air bags of automobiles during a collision. We would like to build an electromechanical system in such a way that when the acceleration exceeds a certain limit, one of the electrical parameters of the system such as the voltage at a certain point of the circuit will exceed a threshold and the air bag will be activated as a result."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Note: Ignore gravity in this problem."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Consider a capacitor with parallel plates as in Figure 1. The area of each plate in the capacitor is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the distance between the two plates is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The distance between the two plates is much smaller than the dimensions of the plates. One of these plates is in contact with a wall through a spring with a spring constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the other plate is fixed. When the distance between the plates is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the spring is neither compressed nor stretched, in other words no force is exerted on the spring in this state. Assume that the permittivity of the air between the plates is that of free vacuum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The capacitance corresponding to this distance between the plates of the capacitor is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_0 = \\varepsilon_0 A/d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We put charges "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(+Q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-Q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the plates and let the system achieve mechanical equilibrium."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2007-t2/3551746abdb73a140c6c.png",
+                "alt": "ipho-2007-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1Calculate the electrical force, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", exerted by the plates on each other. 0.8"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the displacement of the plate connected to the spring. Find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.3In this state, what is the electrical potential difference "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between the plates of the capacitor in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the capacitance of the capacitor, defined as the ratio of charge to potential difference. Find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C/C_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.5What is the total energy, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", stored in the system in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? 0.6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 2, shows a mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which is attached to a conducting plate with negligible mass and also to two springs having identical spring constants "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The conducting plate can move back and forth in the space between two fixed conducting plates. All these plates are similar and have the same area "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus these three plates constitute two capacitors. As shown in Figure 2, the fixed plates are connected to the given potentials "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the middle plate is connected through a two-state switch to the ground. The wire connected to the movable plate does not disturb the motion of the plate and the three plates will always remain parallel. When the whole complex is not being accelerated, the distance from each fixed plate to the movable plate is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which is much smaller than the dimensions of the plates. The thickness of the movable plate can be ignored."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2007-t2/df4daa2fa8f2aa5b4755.png",
+                "alt": "ipho-2007-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The switch can be in either one of the two states "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Assume that the capacitor complex is being accelerated along with the automobile, and the acceleration is constant. Assume that during this constant acceleration the spring does not oscillate and all components of this complex capacitor are in their equilibrium positions, i.e. they do not move with respect to each other, and hence with respect to the automobile."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nDue to the acceleration, the movable plate will be displaced a certain amount "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the middle of the two fixed plates."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Consider the case where the switch is in state "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " i.e. the movable plate is connected to the ground through a wire, then"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.1Find the charge on each capacitor as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.2Find the net electrical force on the movable plate, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.3Assume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d >> x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and terms of order "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x^{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be ignored compared to terms of order "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d^{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Simplify the answer to the previous part. 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.4Write the total force on the movable plate (the sum of the electrical and the spring forces) as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-k_{eff}x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and give the form of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_{eff}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.7"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.5Express the constant acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Now assume that the switch is in state "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " i.e. the movable plate is connected to the ground through a capacitor, the capacitance of which is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (there is no initial charge on the capacitors). If the movable plate is displaced by an amount "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from its central position,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.1Find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the electrical potential difference across the capacitor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.2Again assume that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d >> x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and ignore terms of order "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x^{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " compared to terms of order "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d^{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Simplify your answer to the previous part. 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "We would like to adjust the parameters in the problem such that the air bag will not be activated in normal braking but opens fast enough during a collision to prevent the driver’s head from colliding with the windshield or the steering wheel. As you have seen in Part 2, the force exerted on the movable plate by the springs and the electrical charges can be represented as that of a spring with an effective spring constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_{eff}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The whole capacitor complex is similar to a "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "mass and spring"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " system of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and spring constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_{eff}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " under the influence of a constant acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which in this problem is the acceleration of the automobile."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Note"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": In this part of the problem, the assumption that the mass and spring are in equilibrium under a constant acceleration and hence are fixed relative to the automobile, no longer holds."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Ignore friction and consider the following numerical values for the parameters of the problem:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d = 1.0\\,\\mathrm{cm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A = 2.5\\times10^{-2}\\,\\mathrm{m}^{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 4.2\\times10^{3}\\,\\mathrm{N/m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon_0 = 8.85\\times10^{-12}\\,\\mathrm{C}^{2}/\\mathrm{Nm}^{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V = 12\\,\\mathrm{V}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M = 0.15\\,\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.1Using this data, find the ratio of the electrical force you calculated in section 2.3 to the force of the springs and show that one can ignore the electrical forces compared to the spring forces. 0.6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Although we did not calculate the electrical forces for the case when the switch is in the state "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", it can be shown that in this situation, quite similarly, the electrical forces are as small and can be ignored."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.2If the automobile while traveling with a constant velocity, suddenly brakes with a constant acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", what is the maximum displacement of the movable plate? Give your answer in parameter. 0.6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Assume that the switch is in state "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the system has been designed such that when the electrical voltage across the capacitor reaches "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_S = 0.15\\,\\mathrm{V}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the air bag is activated. We would like the air bag not to be activated during normal braking when the automobile’s acceleration is less than the acceleration of gravity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g = 9.8\\,m/s^{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", but be activated otherwise."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.3How much should "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be for this purpose? 0.6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We would like to find out if the air bag will be activated fast enough to prevent the driver’s head from hitting the windshield or the steering wheel. Assume that as a result of collision, the automobile experiences a deceleration equal to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " but the driver’s head keeps moving at a constant speed."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.4By estimating the distance between the driver’s head and the steering wheel, find the time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " it takes before the driver’s head hits the steering wheel. 0.8"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.5Find the time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " before the air bag is activated and compare it to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Is the air bag activated in time? Assume that airbag opens instantaneously. 0.9"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "In this problem we deal with a simplified model of accelerometers designed to activate the safety air bags of automobiles during a collision. We would like to build an electromechanical system in such a way that when the acceleration exceeds a certain limit, one of the electrical parameters of the system such as the voltage at a certain point of the circuit will exceed a threshold and the air bag will be activated as a result.\n\n\nNote: Ignore gravity in this problem.\n\n\n1\nConsider a capacitor with parallel plates as in Figure 1. The area of each plate in the capacitor is \n\\(A\\)\n and the distance between the two plates is \n\\(d\\)\n. The distance between the two plates is much smaller than the dimensions of the plates. One of these plates is in contact with a wall through a spring with a spring constant \n\\(k\\)\n, and the other plate is fixed. When the distance between the plates is \n\\(d\\)\n the spring is neither compressed nor stretched, in other words no force is exerted on the spring in this state. Assume that the permittivity of the air between the plates is that of free vacuum \n\\(\\varepsilon_0\\)\n. The capacitance corresponding to this distance between the plates of the capacitor is \n\\(C_0 = \\varepsilon_0 A/d\\)\n. We put charges \n\\(+Q\\)\n and \n\\(-Q\\)\n on the plates and let the system achieve mechanical equilibrium.\n\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\n1.1Calculate the electrical force, \n\\(F_E\\)\n, exerted by the plates on each other. 0.8\n\n\n1.2Let \n\\(x\\)\n be the displacement of the plate connected to the spring. Find \n\\(x\\)\n. 0.6\n\n\n1.3In this state, what is the electrical potential difference \n\\(V\\)\n between the plates of the capacitor in terms of \n\\(Q\\)\n, \n\\(A\\)\n, \n\\(d\\)\n, \n\\(k\\)\n? 0.4\n\n\n1.4Let \n\\(C\\)\n be the capacitance of the capacitor, defined as the ratio of charge to potential difference. Find \n\\(C/C_0\\)\n as a function of \n\\(Q\\)\n, \n\\(A\\)\n, \n\\(d\\)\n and \n\\(k\\)\n. 0.3\n\n\n1.5What is the total energy, \n\\(U\\)\n, stored in the system in terms of \n\\(Q\\)\n, \n\\(A\\)\n, \n\\(d\\)\n and \n\\(k\\)\n? 0.6\n\n\nFigure 2, shows a mass \n\\(M\\)\n which is attached to a conducting plate with negligible mass and also to two springs having identical spring constants \n\\(k\\)\n. The conducting plate can move back and forth in the space between two fixed conducting plates. All these plates are similar and have the same area \n\\(A\\)\n. Thus these three plates constitute two capacitors. As shown in Figure 2, the fixed plates are connected to the given potentials \n\\(V\\)\n and \n\\(-V\\)\n, and the middle plate is connected through a two-state switch to the ground. The wire connected to the movable plate does not disturb the motion of the plate and the three plates will always remain parallel. When the whole complex is not being accelerated, the distance from each fixed plate to the movable plate is \n\\(d\\)\n which is much smaller than the dimensions of the plates. The thickness of the movable plate can be ignored.\n\n\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\nThe switch can be in either one of the two states \n\\(\\alpha\\)\n and \n\\(\\beta\\)\n. Assume that the capacitor complex is being accelerated along with the automobile, and the acceleration is constant. Assume that during this constant acceleration the spring does not oscillate and all components of this complex capacitor are in their equilibrium positions, i.e. they do not move with respect to each other, and hence with respect to the automobile.\n\n\nDue to the acceleration, the movable plate will be displaced a certain amount \n\\(x\\)\n from the middle of the two fixed plates.\n\n\n2\nConsider the case where the switch is in state \n\\(\\alpha\\)\n i.e. the movable plate is connected to the ground through a wire, then\n\n\n2.1Find the charge on each capacitor as a function of \n\\(x\\)\n. 0.4\n\n\n2.2Find the net electrical force on the movable plate, \n\\(F_E\\)\n, as a function of \n\\(x\\)\n. 0.4\n\n\n2.3Assume \n\\(d >> x\\)\n and terms of order \n\\(x^{2}\\)\n can be ignored compared to terms of order \n\\(d^{2}\\)\n. Simplify the answer to the previous part. 0.2\n\n\n2.4Write the total force on the movable plate (the sum of the electrical and the spring forces) as \n\\(-k_{eff}x\\)\n and give the form of \n\\(k_{eff}\\)\n. 0.7\n\n\n2.5Express the constant acceleration \n\\(a\\)\n as a function of \n\\(x\\)\n. 0.4\n\n\n3\nNow assume that the switch is in state \n\\(\\beta\\)\n i.e. the movable plate is connected to the ground through a capacitor, the capacitance of which is \n\\(C_S\\)\n (there is no initial charge on the capacitors). If the movable plate is displaced by an amount \n\\(x\\)\n from its central position,\n\n\n3.1Find \n\\(V_S\\)\n the electrical potential difference across the capacitor \n\\(C_S\\)\n as a function of \n\\(x\\)\n. 1.5\n\n\n3.2Again assume that \n\\(d >> x\\)\n and ignore terms of order \n\\(x^{2}\\)\n compared to terms of order \n\\(d^{2}\\)\n. Simplify your answer to the previous part. 0.2\n\n\n4\nWe would like to adjust the parameters in the problem such that the air bag will not be activated in normal braking but opens fast enough during a collision to prevent the driver’s head from colliding with the windshield or the steering wheel. As you have seen in Part 2, the force exerted on the movable plate by the springs and the electrical charges can be represented as that of a spring with an effective spring constant \n\\(k_{eff}\\)\n. The whole capacitor complex is similar to a \nmass and spring\n system of mass \n\\(M\\)\n and spring constant \n\\(k_{eff}\\)\n under the influence of a constant acceleration \n\\(a\\)\n, which in this problem is the acceleration of the automobile.\n\n\nNote\n: In this part of the problem, the assumption that the mass and spring are in equilibrium under a constant acceleration and hence are fixed relative to the automobile, no longer holds.\n\n\nIgnore friction and consider the following numerical values for the parameters of the problem:\n\n\n\\(d = 1.0\\,\\mathrm{cm}\\)\n, \n\\(A = 2.5\\times10^{-2}\\,\\mathrm{m}^{2}\\)\n, \n\\(k = 4.2\\times10^{3}\\,\\mathrm{N/m}\\)\n, \n\\(\\varepsilon_0 = 8.85\\times10^{-12}\\,\\mathrm{C}^{2}/\\mathrm{Nm}^{2}\\)\n, \n\\(V = 12\\,\\mathrm{V}\\)\n, \n\\(M = 0.15\\,\\mathrm{kg}\\)\n.\n\n\n4.1Using this data, find the ratio of the electrical force you calculated in section 2.3 to the force of the springs and show that one can ignore the electrical forces compared to the spring forces. 0.6\n\n\nAlthough we did not calculate the electrical forces for the case when the switch is in the state \n\\(\\beta\\)\n, it can be shown that in this situation, quite similarly, the electrical forces are as small and can be ignored.\n\n\n4.2If the automobile while traveling with a constant velocity, suddenly brakes with a constant acceleration \n\\(a\\)\n, what is the maximum displacement of the movable plate? Give your answer in parameter. 0.6\n\n\nAssume that the switch is in state \n\\(\\beta\\)\n and the system has been designed such that when the electrical voltage across the capacitor reaches \n\\(V_S = 0.15\\,\\mathrm{V}\\)\n, the air bag is activated. We would like the air bag not to be activated during normal braking when the automobile’s acceleration is less than the acceleration of gravity \n\\(g = 9.8\\,m/s^{2}\\)\n, but be activated otherwise.\n\n\n4.3How much should \n\\(C_S\\)\n be for this purpose? 0.6\n\n\nWe would like to find out if the air bag will be activated fast enough to prevent the driver’s head from hitting the windshield or the steering wheel. Assume that as a result of collision, the automobile experiences a deceleration equal to \n\\(g\\)\n but the driver’s head keeps moving at a constant speed.\n\n\n4.4By estimating the distance between the driver’s head and the steering wheel, find the time \n\\(t_1\\)\n it takes before the driver’s head hits the steering wheel. 0.8\n\n\n4.5Find the time \n\\(t_2\\)\n before the air bag is activated and compare it to \n\\(t_1\\)\n. Is the air bag activated in time? Assume that airbag opens instantaneously. 0.9\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2007-t2/3551746abdb73a140c6c.png",
+      "/corpus/figures/native/bulk/ipho-2007-t2/df4daa2fa8f2aa5b4755.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2007-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Question “Orange”"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "First of all, we use the Gauss’s law for a single plate to obtain the electric field, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E=\\frac{\\sigma}{\\varepsilon_0}.\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The density of surface charge for a plate with charge, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and area, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\sigma=\\frac{Q}{A}.\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Note that the electric field "
+          },
+          {
+            "type": "element",
+            "tag": "u",
+            "children": [
+              {
+                "type": "text",
+                "text": "is resulted"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " by two equivalent parallel plates. Hence the contribution of each plate to the electric field is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{1}{2}E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Force is defined by the electric filed times the charge, then we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\text{Force}=\\frac{1}{2}EQ=\\frac{Q^2}{2\\varepsilon_0 A}\\qquad\\text{(0.2)+ (0.2) ( The ½ coefficient + the final result)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The Hook’s law for a spring is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_m=-kx.\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " In 1.2 we derived the electric force between two plates is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_e=\\frac{Q^2}{2\\varepsilon_0 A}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The system is stable. The equilibrium condition yields "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_m=F_e,\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Rightarrow\\qquad x=\\frac{Q^2}{2\\varepsilon_0 A k}\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.3)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The electric field is constant thus the potential difference, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V=E(d-x)\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (Other reasonable approaches are acceptable. For example one may use the definition of capacity to obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " .)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "By substituting the electric field obtained from previous section to the above equation, we get, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V=\\frac{Qd}{\\varepsilon_0 A}\\left(1-\\frac{Q^2}{2\\varepsilon_0 A k d}\\right)\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is defined by the ratio of charge to potential difference, then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[C=\\frac{Q}{V}.\\qquad\\text{(0.1)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using the answer to 1.3, we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{C}{C_0}=\\left(1-\\frac{Q^2}{2\\varepsilon_0 A k d}\\right)^{-1}\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.5)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note that we have both the mechanical energy due to the spring "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[U_m=\\frac{1}{2}kx^2,\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the electrical energy stored in the capacitor. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[U_E=\\frac{Q^2}{2C}.\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore the total energy stored in the system is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[U=\\frac{Q^2d}{2\\varepsilon_0 A}\\left(1-\\frac{Q^2}{4\\varepsilon_0 A k d}\\right)\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.1)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For the given value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the amount of charge on each capacitor is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[Q_1=VC_1=\\frac{\\varepsilon_0 AV}{d-x},\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[Q_2=VC_2=\\frac{\\varepsilon_0 AV}{d+x}.\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.2)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note that we have two capacitors. By using the answer to 1.1 for each capacitor, we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_1=\\frac{Q_1^2}{2\\varepsilon_0 A},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_2=\\frac{Q_2^2}{2\\varepsilon_0 A}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " As these two forces are in the opposite directions, the net electric force is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_E=F_1-F_2,\\qquad\\text{(0.2)}\\qquad\\Rightarrow\\qquad F_E=\\frac{\\varepsilon_0 AV^2}{2}\\left(\\frac{1}{(d-x)^2}-\\frac{1}{(d+x)^2}\\right)\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.3)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Ignoring terms of order "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the answer to 2.2., we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_E=\\frac{2\\varepsilon_0 AV^2}{d^3}\\,x\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.4)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "There are two springs placed in series with the same spring constant, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", then the mechanical force is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_m=-2kx.\\qquad\\text{(The coefficient (2) has (0.2))}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Combining this result with the answer to 2.4 and noticing that these two forces are in the opposite directions, we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F=F_m+F_E,\\qquad\\Rightarrow\\qquad F=-2\\left(k-\\frac{\\varepsilon_0 AV^2}{d^3}\\right)x,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\text{(Opposite signs of the two forces have (0.3))}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Rightarrow\\quad k_{eff}=2\\left(k-\\frac{\\varepsilon_0 AV^2}{d^3}\\right)\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.5)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "By using the Newtown’s second law, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F=ma\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the answer to 2.4, we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a=-\\frac{2}{m}\\left(k-\\frac{\\varepsilon_0 AV^2}{d^3}\\right)x\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.1)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Starting with Kirchhoff’s laws, for two electrical circuits, we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left\\{\\begin{aligned}\n&\\frac{Q_S}{C_S}+V-\\frac{Q_2}{C_2}=0\\\\\n&-\\frac{Q_S}{C_S}+V-\\frac{Q_1}{C_1}=0\\\\\n&Q_2-Q_1+Q_S=0\n\\end{aligned}\\right.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\text{(Each has (0.3), Note: the sings may depend on the specific choice made)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Noting that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_s=\\frac{Q_S}{C_S}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " one obtains "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Rightarrow\\quad V_S=V\\dfrac{\\dfrac{2\\varepsilon_0 Ax}{d^2-x^2}}{C_S+\\dfrac{2\\varepsilon_0 Ad}{d^2-x^2}}\\text{ .}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "((0.4) + (0.2): (0.4) for solving the above equations and (0.2) for final result)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note: Students may simplify the above relation using the approximation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d^2 >> x^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". It does not matter in this section."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.2)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Ignoring terms of order "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the answer to 3.1., we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V_S=V\\frac{2\\varepsilon_0 Ax}{d^2C_S+2\\varepsilon_0 Ad}.\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.1)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The ratio of the electrical force to the mechanical (spring) force is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{F_E}{F_m}=\\frac{\\varepsilon_0 AV^2}{kd^3},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Putting the numerical values: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{F_E}{F_m}=7.6\\times 10^{-9}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ((0.2) + (0.2) + (0.2): (0.2) for order of magnitude, (0.2) for two significant digits and (0.2) for correct answer (7.6 or 7.5))."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As it is clear from this result, we can ignore the electrical forces compared to the electric force."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.2)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As seen in the previous section, one may assume that the only force acting on the moving plate is due to springs: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F=2kx.\\qquad\\text{(The concept of equilibrium (0.2))}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Hence in mechanical equilibrium, the displacement of the moving plate is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x=\\frac{ma}{2k}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The maximum displacement is twice this amount, like the mass spring system in a gravitational force field, when the mass is let to fall. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_{\\mathrm{max}}=2x\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_{\\mathrm{max}}=\\frac{ma}{k}\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.3)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At the acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a=g,\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The maximum displacement is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_{\\mathrm{max}}=\\frac{mg}{k}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Moreover, from the result obtained in 3.2, we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V_S=V\\frac{2\\varepsilon_0 Ax_{\\mathrm{max}}}{d^2C_S+2\\varepsilon_0 Ad}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This should be the same value given in the problem, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.15\\,\\mathrm{V}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Rightarrow\\quad C_S=\\frac{2\\varepsilon_0 A}{d}\\left(\\frac{Vx_{\\mathrm{max}}}{V_Sd}-1\\right)\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Rightarrow\\quad C_S=8.0\\times 10^{-11}\\,\\mathrm{F}\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.4)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the distance between the driver’s head and the steering wheel. It can be estimated to be about "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\ell=0.4\\,m-1\\,m.\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Just at the time the acceleration begins, the relative velocity of the driver’s head with respect to the automobile is zero. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta v(t=0)=0,\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\ell=\\frac{1}{2}gt_1^2\\quad\\Rightarrow\\quad t_1=\\sqrt{\\frac{2\\ell}{g}}\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t_1=0.3-0.5\\,s\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.5)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is half of period of the harmonic oscillator, hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t_2=\\frac{T}{2},\\qquad\\text{(0.3)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The period of harmonic oscillator is simply given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T=2\\pi\\sqrt{\\frac{m}{2k}},\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t_2=0.013\\,s.\\qquad\\text{(0.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " As "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_1>t_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the airbag activates in time. (0.2)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "\n\nQuestion “Orange”\n\n\n\n\n1.1)\n\n\nFirst of all, we use the Gauss’s law for a single plate to obtain the electric field, \n\\[E=\\frac{\\sigma}{\\varepsilon_0}.\\qquad\\text{(0.2)}\\]\n The density of surface charge for a plate with charge, \n\\(Q\\)\n and area, \n\\(A\\)\n is \n\\[\\sigma=\\frac{Q}{A}.\\qquad\\text{(0.2)}\\]\n Note that the electric field \nis resulted\n by two equivalent parallel plates. Hence the contribution of each plate to the electric field is \n\\(\\frac{1}{2}E\\)\n. Force is defined by the electric filed times the charge, then we have \n\\[\\text{Force}=\\frac{1}{2}EQ=\\frac{Q^2}{2\\varepsilon_0 A}\\qquad\\text{(0.2)+ (0.2) ( The ½ coefficient + the final result)}\\]\n\n\n1.2)\n\n\nThe Hook’s law for a spring is \n\\[F_m=-kx.\\qquad\\text{(0.2)}\\]\n In 1.2 we derived the electric force between two plates is \n\\[F_e=\\frac{Q^2}{2\\varepsilon_0 A}.\\]\n The system is stable. The equilibrium condition yields \n\\[F_m=F_e,\\qquad\\text{(0.2)}\\]\n \n\\[\\Rightarrow\\qquad x=\\frac{Q^2}{2\\varepsilon_0 A k}\\qquad\\text{(0.2)}\\]\n\n\n1.3)\n\n\nThe electric field is constant thus the potential difference, \n\\(V\\)\n is given by \n\\[V=E(d-x)\\qquad\\text{(0.2)}\\]\n (Other reasonable approaches are acceptable. For example one may use the definition of capacity to obtain \n\\(V\\)\n .)\n\n\nBy substituting the electric field obtained from previous section to the above equation, we get, \n\\[V=\\frac{Qd}{\\varepsilon_0 A}\\left(1-\\frac{Q^2}{2\\varepsilon_0 A k d}\\right)\\qquad\\text{(0.2)}\\]\n\n\n1.4)\n\n\n\\(C\\)\n is defined by the ratio of charge to potential difference, then \n\\[C=\\frac{Q}{V}.\\qquad\\text{(0.1)}\\]\n Using the answer to 1.3, we get \n\\[\\frac{C}{C_0}=\\left(1-\\frac{Q^2}{2\\varepsilon_0 A k d}\\right)^{-1}\\qquad\\text{(0.2)}\\]\n\n\n1.5)\n\n\nNote that we have both the mechanical energy due to the spring \n\\[U_m=\\frac{1}{2}kx^2,\\qquad\\text{(0.2)}\\]\n and the electrical energy stored in the capacitor. \n\\[U_E=\\frac{Q^2}{2C}.\\qquad\\text{(0.2)}\\]\n Therefore the total energy stored in the system is \n\\[U=\\frac{Q^2d}{2\\varepsilon_0 A}\\left(1-\\frac{Q^2}{4\\varepsilon_0 A k d}\\right)\\qquad\\text{(0.2)}\\]\n\n\n2.1)\n\n\nFor the given value of \n\\(x\\)\n, the amount of charge on each capacitor is \n\\[Q_1=VC_1=\\frac{\\varepsilon_0 AV}{d-x},\\qquad\\text{(0.2)}\\]\n \n\\[Q_2=VC_2=\\frac{\\varepsilon_0 AV}{d+x}.\\qquad\\text{(0.2)}\\]\n\n\n2.2)\n\n\nNote that we have two capacitors. By using the answer to 1.1 for each capacitor, we get \n\\[F_1=\\frac{Q_1^2}{2\\varepsilon_0 A},\\]\n \n\\[F_2=\\frac{Q_2^2}{2\\varepsilon_0 A}.\\]\n As these two forces are in the opposite directions, the net electric force is \n\\[F_E=F_1-F_2,\\qquad\\text{(0.2)}\\qquad\\Rightarrow\\qquad F_E=\\frac{\\varepsilon_0 AV^2}{2}\\left(\\frac{1}{(d-x)^2}-\\frac{1}{(d+x)^2}\\right)\\qquad\\text{(0.2)}\\]\n\n\n2.3)\n\n\nIgnoring terms of order \n\\(x^2\\)\n in the answer to 2.2., we get \n\\[F_E=\\frac{2\\varepsilon_0 AV^2}{d^3}\\,x\\qquad\\text{(0.2)}\\]\n\n\n2.4)\n\n\nThere are two springs placed in series with the same spring constant, \n\\(k\\)\n, then the mechanical force is \n\\[F_m=-2kx.\\qquad\\text{(The coefficient (2) has (0.2))}\\]\n Combining this result with the answer to 2.4 and noticing that these two forces are in the opposite directions, we get \n\\[F=F_m+F_E,\\qquad\\Rightarrow\\qquad F=-2\\left(k-\\frac{\\varepsilon_0 AV^2}{d^3}\\right)x,\\]\n \n\\[\\text{(Opposite signs of the two forces have (0.3))}\\]\n \n\\[\\Rightarrow\\quad k_{eff}=2\\left(k-\\frac{\\varepsilon_0 AV^2}{d^3}\\right)\\qquad\\text{(0.2)}\\]\n\n\n2.5)\n\n\nBy using the Newtown’s second law, \n\\[F=ma\\qquad\\text{(0.2)}\\]\n and the answer to 2.4, we get \n\\[a=-\\frac{2}{m}\\left(k-\\frac{\\varepsilon_0 AV^2}{d^3}\\right)x\\qquad\\text{(0.2)}\\]\n\n\n3.1)\n\n\nStarting with Kirchhoff’s laws, for two electrical circuits, we have \n\\[\\left\\{\\begin{aligned}\n&\\frac{Q_S}{C_S}+V-\\frac{Q_2}{C_2}=0\\\\\n&-\\frac{Q_S}{C_S}+V-\\frac{Q_1}{C_1}=0\\\\\n&Q_2-Q_1+Q_S=0\n\\end{aligned}\\right.\\]\n \n\\[\\text{(Each has (0.3), Note: the sings may depend on the specific choice made)}\\]\n Noting that \n\\(V_s=\\frac{Q_S}{C_S}\\)\n one obtains \n\\[\\Rightarrow\\quad V_S=V\\dfrac{\\dfrac{2\\varepsilon_0 Ax}{d^2-x^2}}{C_S+\\dfrac{2\\varepsilon_0 Ad}{d^2-x^2}}\\text{ .}\\]\n\n\n((0.4) + (0.2): (0.4) for solving the above equations and (0.2) for final result)\n\n\nNote: Students may simplify the above relation using the approximation \n\\(d^2 >> x^2\\)\n. It does not matter in this section.\n\n\n3.2)\n\n\nIgnoring terms of order \n\\(x^2\\)\n in the answer to 3.1., we get \n\\[V_S=V\\frac{2\\varepsilon_0 Ax}{d^2C_S+2\\varepsilon_0 Ad}.\\qquad\\text{(0.2)}\\]\n\n\n4.1)\n\n\nThe ratio of the electrical force to the mechanical (spring) force is \n\\[\\frac{F_E}{F_m}=\\frac{\\varepsilon_0 AV^2}{kd^3},\\]\n Putting the numerical values: \n\\[\\frac{F_E}{F_m}=7.6\\times 10^{-9}.\\]\n ((0.2) + (0.2) + (0.2): (0.2) for order of magnitude, (0.2) for two significant digits and (0.2) for correct answer (7.6 or 7.5)).\n\n\nAs it is clear from this result, we can ignore the electrical forces compared to the electric force.\n\n\n4.2)\n\n\nAs seen in the previous section, one may assume that the only force acting on the moving plate is due to springs: \n\\[F=2kx.\\qquad\\text{(The concept of equilibrium (0.2))}\\]\n Hence in mechanical equilibrium, the displacement of the moving plate is \n\\[x=\\frac{ma}{2k}.\\]\n The maximum displacement is twice this amount, like the mass spring system in a gravitational force field, when the mass is let to fall. \n\\[x_{\\mathrm{max}}=2x\\qquad\\text{(0.2)}\\]\n \n\\[x_{\\mathrm{max}}=\\frac{ma}{k}\\qquad\\text{(0.2)}\\]\n\n\n4.3)\n\n\nAt the acceleration \n\\[a=g,\\qquad\\text{(0.2)}\\]\n The maximum displacement is \n\\[x_{\\mathrm{max}}=\\frac{mg}{k}.\\]\n Moreover, from the result obtained in 3.2, we have \n\\[V_S=V\\frac{2\\varepsilon_0 Ax_{\\mathrm{max}}}{d^2C_S+2\\varepsilon_0 Ad}\\]\n This should be the same value given in the problem, \n\\(0.15\\,\\mathrm{V}\\)\n. \n\\[\\Rightarrow\\quad C_S=\\frac{2\\varepsilon_0 A}{d}\\left(\\frac{Vx_{\\mathrm{max}}}{V_Sd}-1\\right)\\qquad\\text{(0.2)}\\]\n \n\\[\\Rightarrow\\quad C_S=8.0\\times 10^{-11}\\,\\mathrm{F}\\qquad\\text{(0.2)}\\]\n\n\n4.4)\n\n\nLet \n\\(\\ell\\)\n be the distance between the driver’s head and the steering wheel. It can be estimated to be about \n\\[\\ell=0.4\\,m-1\\,m.\\qquad\\text{(0.2)}\\]\n Just at the time the acceleration begins, the relative velocity of the driver’s head with respect to the automobile is zero. \n\\[\\Delta v(t=0)=0,\\qquad\\text{(0.2)}\\]\n then \n\\[\\ell=\\frac{1}{2}gt_1^2\\quad\\Rightarrow\\quad t_1=\\sqrt{\\frac{2\\ell}{g}}\\qquad\\text{(0.2)}\\]\n \n\\[t_1=0.3-0.5\\,s\\qquad\\text{(0.2)}\\]\n\n\n4.5)\n\n\nThe time \n\\(t_2\\)\n is half of period of the harmonic oscillator, hence \n\\[t_2=\\frac{T}{2},\\qquad\\text{(0.3)}\\]\n The period of harmonic oscillator is simply given by \n\\[T=2\\pi\\sqrt{\\frac{m}{2k}},\\qquad\\text{(0.2)}\\]\n therefore, \n\\[t_2=0.013\\,s.\\qquad\\text{(0.2)}\\]\n As \n\\(t_1>t_2\\)\n, the airbag activates in time. (0.2)\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

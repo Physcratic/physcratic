@@ -45,7 +45,7 @@ import translationIndex from "@/lib/corpus/translation-index.json";
 import { assessSolutionSource } from "@/lib/corpus-readiness";
 import { ImportedSourceContent } from "./imported-source-content";
 import { ArchiveAnswerPanel } from "./archive-answer-panel";
-import { hasOlympiadAnswerFields } from "@/lib/olympiad/catalog";
+import { hasOlympiadAnswerFields, hasSelfReviewResponses } from "@/lib/olympiad/catalog";
 import { SolutionSubmissionForm } from "./solution-submission-form";
 import { StepHeading, StepNumber, solveTokens } from "./solve-ui";
 
@@ -406,7 +406,7 @@ export function ImportedProblemReader({
         </Tabs>
         <AnswerWorkspace>
           <section aria-label="Your solution" className="min-w-0 rounded-xl border bg-card p-5">
-            {checkedFields ? <><p className="pb-4 text-sm leading-relaxed text-muted-foreground">Check final answers using the displayed symbols and units. These checks are not saved to account progress and do not award marks or ELO.</p><ArchiveAnswerPanel key={problem.id} problemId={problem.id} saveProgress={false} /><details className="mt-5 rounded-lg border p-4"><summary className="flex min-h-11 cursor-pointer items-center text-sm font-medium">Save full working or attachments</summary><SolutionSubmissionForm key={problem.id} problemId={problem.id} /></details></> : <><StepHeading step={2} className="pb-2">Answer</StepHeading><p className="pb-4 text-sm leading-relaxed text-muted-foreground">Write your solution below. This problem has no automatic check. Compare your work with the worked solution in step 4.</p><SolutionSubmissionForm key={problem.id} problemId={problem.id} /></>}
+            {checkedFields ? <><p className="pb-4 text-sm leading-relaxed text-muted-foreground">{hasSelfReviewResponses(problem.id) ? "Write an answer for each part, then compare with the worked solution. These responses are not automatically graded and do not award marks or ELO." : "Check final answers using the displayed symbols and units. These checks are not saved to account progress and do not award marks or ELO."}</p><ArchiveAnswerPanel key={problem.id} problemId={problem.id} saveProgress={false} onReviewSolution={() => setTab("solution")} /><details className="mt-5 rounded-lg border p-4"><summary className="flex min-h-11 cursor-pointer items-center text-sm font-medium">Save full working or attachments</summary><SolutionSubmissionForm key={problem.id} problemId={problem.id} /></details></> : <><StepHeading step={2} className="pb-2">Answer</StepHeading><p className="pb-4 text-sm leading-relaxed text-muted-foreground">Write your solution below. This problem has no automatic check. Compare your work with the worked solution in step 4.</p><SolutionSubmissionForm key={problem.id} problemId={problem.id} /></>}
           </section>
         </AnswerWorkspace>
         </div>

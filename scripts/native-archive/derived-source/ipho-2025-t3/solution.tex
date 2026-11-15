@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\section*{Champagne: worked solution}
+This readable derivation follows the retained official solution, including its corrected factor of two in the diffusion growth law. Detailed examiner tables remain in the source PDF.
+\subsection*{A.1}
+The Laplace pressure jump for a spherical gas-liquid interface is $P_b-P_0=2\sigma/a$, so $P_b=P_0+2\sigma/a$.
+\subsection*{A.2}
+Growth requires the concentration in the surrounding liquid to exceed that next to the interface. At the critical radius, $c_\ell=c_b=k_H(P_0+2\sigma/a_c)$. Since $c_0=k_HP_0$,
+\[a_c=\frac{2\sigma}{P_0(c_\ell/c_0-1)}.\]
+For $c_\ell=4c_0$, this gives $a_c\simeq0.3\,\mu\mathrm m$.
+\subsection*{A.3}
+For visible bubbles, neglect the Laplace correction to the pressure. The ideal gas law and the molar inflow balance give
+\[n_c=\frac{4\pi a^3P_0}{3RT_0},\qquad \frac{dn_c}{dt}=4\pi a^2j,\qquad \frac{da}{dt}=\frac{jRT_0}{P_0}.\]
+For model 1,
+\[a^2=a_0^2+\frac{2DRT_0}{P_0}(c_\ell-c_0)t.\]
+For model 2,
+\[a=a_0+\frac{KRT_0}{P_0}(c_\ell-c_0)t.\]
+The measured radius grows linearly, selecting model 2. A slope near $0.24\,\mathrm{mm/s}$ gives $K\simeq1.0\times10^{-4}\,\mathrm{m/s}$. The source accepts slopes from $210$ to $250\,\mu\mathrm{m/s}$ and $K$ from $0.9$ to $1.1$ times $10^{-4}\,\mathrm{m/s}$.
+\subsection*{A.4}
+Upward buoyancy is $4\pi a^3\rho_\ell g_0/3$ and downward Stokes drag is $6\pi\eta av$. The gas weight is negligible compared with buoyancy. Terminal balance gives
+\[v(a)=\frac{2\rho_\ell g_0a^2}{9\eta}.\]
+Successive bubbles mark time steps $1/f_b=0.05\,\mathrm s$. Measuring radii and displacements in the photograph gives a speed near $4.5\,\mathrm{cm/s}$ for a radius near $0.19\,\mathrm{mm}$, hence $\eta\simeq2\times10^{-3}\,\mathrm{Pa\,s}$. The official corrected acceptable viscosity interval is $[1.0,4.0]\times10^{-3}\,\mathrm{Pa\,s}$.
+\subsection*{A.5}
+Write $q_a=da/dt$. Combining the terminal speed with constant growth gives $dz/da=2\rho_\ell g_0a^2/(9\eta q_a)$. Neglecting the initial radius,
+\[H_\ell=\frac{2\rho_\ell g_0a_{H_\ell}^3}{27\eta q_a},\qquad a_{H_\ell}=\left(\frac{27\eta q_aH_\ell}{2\rho_\ell g_0}\right)^{1/3}\simeq0.39\,\mathrm{mm}.\]
+\subsection*{A.6}
+The bubble count reaching the surface per unit time is $N_bf_b$. Their total gas volume per unit time is $4\pi a_{H_\ell}^3N_bf_b/3$. Using A.5, model 2, and the ideal gas law yields
+\[\frac{dc_\ell}{dt}=-\frac{18\pi N_bf_b\eta KH_\ell}{\rho_\ell g_0V_\ell}(c_\ell-c_0),\qquad \tau=\frac{\rho_\ell g_0V_\ell}{18\pi N_bf_b\eta KH_\ell}.\]
+Thus the excess concentration decays exponentially toward equilibrium.
+\subsection*{B.1}
+For rim perimeter $l$, the newly collected liquid volume is $\delta V=hlv_fdt$. Its kinetic-energy gain is $\rho_\ell\delta Vv_f^2/2$. Removing the film eliminates two liquid-air surfaces, reducing surface energy by $2\sigma lv_fdt$. Only half becomes kinetic energy. Equating these gives
+\[v_f=\sqrt{\frac{2\sigma}{\rho_\ell h}}.\]
+\subsection*{B.2}
+The cavity volume is $V(t)=V_0+Sz$ and the adiabatic law gives $P(t)=P_0[V_0/(V_0+Sz)]^\gamma$. Linearization gives $P-P_0\simeq-\gamma P_0Sz/V_0$. Newton's law becomes
+\[m_p\ddot z+\frac{\gamma P_0S^2}{V_0}z=0,\qquad f_0=\frac1{2\pi}\sqrt{\frac{\gamma P_0S^2}{m_pV_0}}.\]
+\subsection*{B.3}
+Use $S=\pi r_c^2$, $m_p=8\rho_gr_c^3/3$, $V_0=4\pi a^3/3$, and $r_c=(2/\sqrt3)a^2\sqrt{\rho_\ell g_0/\sigma}$ at the maximum frequency. Solving gives
+\[a=\frac{3\sqrt3}{64\pi}\frac{\gamma P_0}{\rho_gf_0^2}\sqrt{\frac{\rho_\ell g_0}{\sigma}}\simeq0.53\,\mathrm{mm}.\]
+The aperture reaches $r_c\simeq0.15\,\mathrm{mm}$ during $t_b=3\times10^{-5}\,\mathrm s$, so $v_f=r_c/t_b\simeq5.0\,\mathrm{m/s}$. Then $h=2\sigma/(\rho_\ell v_f^2)\simeq3.7\,\mu\mathrm m$, with rounding as in the source.
+\subsection*{C.1}
+Conserve total carbon dioxide in the gas and dissolved phases:
+\[n_T=\frac{P_iV_G}{RT_0}+k_H(T_0)P_iV_L,\qquad P_i=\frac{n_T}{V_Lk_H(T_0)+V_G/(RT_0)}.\]
+The stated data give $4.81\,\mathrm{bar}$ at $6^\circ\mathrm C$ and $7.76\,\mathrm{bar}$ at $20^\circ\mathrm C$. As instructed, subsequent parts instead use the separately specified pressures $4.69$ and $7.45\,\mathrm{bar}$.
+\subsection*{C.2}
+For reversible adiabatic expansion to atmospheric pressure,
+\[T_f=T_0(P_i/P_0)^{1/\gamma-1}.\]
+This gives $195.3\,\mathrm K$ for the colder bottle and $184.3\,\mathrm K$ for the warmer one, before any phase transition. The sublimation relation at atmospheric pressure gives $T_{\rm trans}=B/A-C\simeq194.4\,\mathrm K$. The colder bottle remains above this threshold and produces grey-white water fog. The warmer bottle crosses the carbon-dioxide solidification threshold and produces blue fog. Statements 1 and 4 are true. Equivalently, compare the saturation pressures $1.07$ and $0.41\,\mathrm{bar}$ at the two calculated final temperatures with atmospheric pressure.
+\subsection*{C.3}
+Initially the net pressure force approximately balances friction, giving $\alpha=(P_i-P_0)d/(4l_0)$. As the contact length decreases, integrate the friction force to obtain
+\[W_f=-\frac{(P_i-P_0)\pi d^2l_0}{8},\qquad W_e=-P_0\frac{\pi d^2l_0}{4}.\]
+For the adiabatically expanding internal gas,
+\[W_g=\frac{P_iV_G}{\gamma-1}\left[1-\left(1+\frac{\pi d^2l_0}{4V_G}\right)^{1-\gamma}\right].\]
+This follows either by integrating $P\,dV$ or by the decrease in gas internal energy. The cork's exit kinetic energy is $E_c=W_g+W_f+W_e$. The official numbers are approximately $2.57-1.17-0.64=0.76\,\mathrm J$. Neglecting the small height gained while in the neck, the subsequent rise is $H_c=E_c/(mg_0)\simeq7.7\,\mathrm m$.
+The source's final edited display drops the $W_e$ term, but its explicit energy ledger, numerical result and marking instructions all retain the external-pressure work. The expression here follows that consistent ledger. Treating the internal pressure as constant instead of adiabatic gives an incorrect result near $12\,\mathrm m$.
+\end{document}

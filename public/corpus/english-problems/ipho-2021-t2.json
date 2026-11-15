@@ -1,1 +1,4839 @@
-{"id":"ipho-2021-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2021_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2021_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2021-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Theory\nQ2-1\nEnglish (Official)\nElectrostatic lens (10 points)\nConsider a uniformly charged metallic ring of radius 𝑅and total charge 𝑞. The ring is a hollow toroid of\nthickness 2𝑎≪𝑅. This thickness can be neglected in parts A, B, C, and E. The 𝑥𝑦plane coincides with the\nplane of the ring, while the 𝑧-axis is perpendicular to it, as shown in Figure 1. In parts A and B you might\nneed to use the formula (Taylor expansion)\n(1 + 𝑥)𝜀≈1 + 𝜀𝑥+ 1\n2𝜀(𝜀−1)𝑥2, when |𝑥| ≪1.\nFigure 1. A charged ring of radius R.\nPart A. Electrostatic potential on the axis of the ring (1 point)\nA.1\nCalculate the electrostatic potential Φ(𝑧) along the axis of the ring at a 𝑧distance\nfrom its center (point A in Figure 1).\n0.3pt\nA.2\nCalculate the electrostatic potential Φ(𝑧) to the lowest non-zero power of 𝑧, as-\nsuming 𝑧≪𝑅.\n0.4pt\nA.3\nAn electron (mass 𝑚and charge −𝑒) is placed at point A (Figure 1, 𝑧≪𝑅). What\nis the force acting on the electron? Looking at the expression of the force, deter-\nmine the sign of 𝑞so that the resulting motion would correspond to oscillations.\nThe moving electron does not influence the charge distribution on the ring.\n0.2pt\nA.4\nWhat is the angular frequency 𝜔of such harmonic oscillations?\n0.1pt\nPart B. Electrostatic potential in the plane of the ring (1.7 points)\nIn this part of the problem you will have to analyze the potential Φ(𝑟) in the plane of the ring (𝑧= 0)\nfor 𝑟≪𝑅(point B in Figure 1). To the lowest non-zero power of 𝑟the electrostatic potential is given by\nΦ(𝑟) ≈𝑞(𝛼+ 𝛽𝑟2).\n\nTheory\nQ2-2\nEnglish (Official)\nB.1\nFind the expression for 𝛽. You might need to use the Taylor expansion formula\ngiven above.\n1.5pt\nB.2\nAn electron is placed at point B (Figure 1, 𝑟≪𝑅). What is the force acting on the\nelectron? Looking at the expression of the force, determine the sign of 𝑞so that\nthe resulting motion would correspond to harmonic oscillations. The moving\nelectron does not influence the charge distribution on the ring.\n0.2pt\nPart C. The focal length of the idealized electrostatic lens: instantaneous charging\n(2.3 points)\nOne wants to build a device to focus electrons—an electrostatic lens. Let us consider the following con-\nstruction. The ring is situated perpendicularly to the 𝑧-axis, as shown in Figure 2. We have a source that\nproduces on-demand packets of non-relativistic electrons. Kinetic energy of these electrons is 𝐸= 𝑚𝑣2/2\n(𝑣is velocity) and they leave the source at precisely controlled moments. The system is programmed so\nthat the ring is charge-neutral most of the time, but its charge becomes 𝑞when electrons are closer than\na distance 𝑑/2 (𝑑≪𝑅) from the plane of the ring (shaded region in Figure 2, called “active region”). In\npart C assume that charging and de-charging processes are instantaneous and the electric field ”fills the\nspace” instantaneously as well. One can neglect magnetic fields and assume that the velocity of electrons\nin the 𝑧-direction is constant. Moving electrons do not perturb the charge distribution on the ring.\nFigure 2. A model of an electrostatic lens.\nC.1\nDetermine the focal length 𝑓of this lens. Assume that 𝑓≫𝑑. Express your\nanswer in terms of the constant 𝛽from question B.1 and other known quantities.\nAssume that before reaching the ”active region” the electron packet is parallel to\nthe 𝑧-axis and 𝑟≪𝑅. The sign of 𝑞is such so that the lens is focusing.\n1.3pt\nIn reality the electron source is placed on the 𝑧-axis at a distance 𝑏> 𝑓from the center of the ring.\nConsider that electrons are no longer parallel to the 𝑧-axis before reaching the ”active region”, but are\nemitted from a point source at a range of different angles 𝛾≪1 rad to the 𝑧-axis. Electrons are focused\nin a point situated at a distance 𝑐from the center of the ring.\n\nTheory\nQ2-3\nEnglish (Official)\nC.2\nFind 𝑐. Express your answer in terms of the constant 𝛽from question B.1 and\nother known quantities.\n0.8pt\nC.3\nIs the equation of a thin optical lens\n1\n𝑏+ 1\n𝑐= 1\n𝑓\nfulfilled for the electrostatic lens? Show it by explicitly calculating 1/𝑏+ 1/𝑐.\n0.2pt\nPart D. The ring as a capacitor (3 points)\nThe model considered above was idealized and we assumed that the ring charged instantaneously. In\nreality charging is non-instantaneous, as the ring is a capacitor with a finite capacitance 𝐶. In this part we\nwill analyze the properties of this capacitor. You might need the following integrals:\n∫\nd𝑥\nsin 𝑥= −ln\n\f\f\f\f\ncos 𝑥+ 1\nsin 𝑥\n\f\f\f\f + const\nand\n∫\nd𝑥\n√\n1 + 𝑥2 = ln\n\f\f\f𝑥+\n√\n1 + 𝑥2\n\f\f\f + const.\nD.1\nCalculate the capacitance 𝐶of the ring. Consider that the ring has a finite width\n2𝑎, but remember that 𝑎≪𝑅.\n2.0pt\nWhen electrons reach the “active region”, the ring is connected to a source of voltage 𝑉0 (Figure 3). When\nelectrons pass the “active region”, the ring is connected to the ground. The resistance of contacts is 𝑅0\nand the resistance of the ring itself can be neglected.\nFigure 3. Charging of the electrostatic lens.\n\nTheory\nQ2-4\nEnglish (Official)\nD.2\nDetermine the dependence of the charge on the ring as a function of time, 𝑞(𝑡),\nand make a schematic plot of this dependence. 𝑡= 0 corresponds to a time\nmoment when electrons are in the plane of the ring. What is the charge on the\nring 𝑞0 when the absolute value 𝑞(𝑡) is maximal? The capacitance of the ring is\n𝐶(i.e., you do not have to use the actual expression found in D.1).\nRemark: the drawn polarity in Figure 3 is for indicative purposes only. The sign\nshould be chosen so that the lens is focusing.\n1.0pt\nPart E. Focal length of a more realistic lens: non-instantaneous charging (2 points)\nIn this part of the problem, we will consider the action of this more realistic lens. Here we will again\nneglect the width of the ring 2𝑎and will assume that electrons travel parallel to the 𝑧-axis before reaching\nthe ”active region”. However, the charging of the ring is no longer instantaneous.\nE.1\nFind the focal length 𝑓of the lens. Assume that 𝑓/𝑣≫𝑅0𝐶, but 𝑑/𝑣and 𝑅0𝐶are\nof the same order of magnitude. Express your answer in terms of the constant\n𝛽from part B and other known quantities.\n1.7pt\nE.2\nYou will see, that the result for 𝑓is similar to that obtained in part C, whereby the\nvalue 𝑞is substituted with 𝑞eff. Find the expression for 𝑞eff in terms of quantities\ngiven in formulation of the problem.\n0.3pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2021-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8,9],"initialPage":1,"shared":false,"text":"Theoretical Question 2 – Solution\nS2-1\nENGLISH\nElectrostatic lens (10 points)\nPart A.\nElectrostatic potential on the axis of the ring (1 point)\nA.1 (0.3 points)\nThe linear charge density of the ring is 𝜆= 𝑞/(2𝜋𝑅). All the points of the ring are situated a distance\n√\n𝑅2 + 𝑧2 away from point A. Integrating over the whole ring we readily obtain:\nΦ (𝑧) =\n𝑞\n4𝜋𝜀0\n1\n√\n𝑅2 + 𝑧2 .\nA.2 (0.4 points)\nUsing an expansion in powers of 𝑧we obtain:\nΦ(𝑧) =\n𝑞\n4𝜋𝜀0\n1\n√\n𝑅2 + 𝑧2 =\n𝑞\n4𝜋𝜀0𝑅\n1\n√︃\n1 + \u0000 𝑧\n𝑅\n\u00012 ≈\n𝑞\n4𝜋𝜀0𝑅\n\u0012\n1 −𝑧2\n2𝑅2\n\u0013\n.\nA.3 (0.2 points)\nThe potential energy of the electron is 𝑉(𝑧) = −𝑒Φ(𝑧). The force acting on the electron is\n𝐹(𝑧) = −d𝑉(𝑧)\nd𝑧\n= +𝑒dΦ\nd𝑧= −\n𝑞𝑒\n4𝜋𝜀0𝑅3𝑧.\nIf this is a restoring force, it should be negative for positive 𝑧. Thus, 𝑞> 0.\nA.4 (0.1 points)\nThe equation of motion for an electron is\n𝑚¥𝑧+\n𝑞𝑒\n4𝜋𝜀0𝑅3𝑧= 0\n(here dots denote time derivatives). We therefore get\n𝜔=\n√︂\n𝑞𝑒\n4𝜋𝑚𝜀0𝑅3 .\n\nTheoretical Question 2 – Solution\nS2-2\nENGLISH\nPart B.\nElectrostatic potential in the plane of the ring (1.7 points)\nB.1 (1.5 points)\nThere are two different ways to solve this problem: (i) using direct integration; (ii) using Gauss’s\nlaw and the result of part A.\nFigure 1: Calculating electrostatic potential in the plane of the ring through direct integration.\n(i) Direct integration. We will follow the notations of Figure 1. Since the potential has cylin-\ndrical symmetry, let the point B, where we calculate the potential, be on the 𝑥-axis. Let\n|OB| = 𝑟; |OC| = 𝑅.\nThus:\n|BC|2 = 𝑅2 + 𝑟2 −2𝑅𝑟cos𝜙.\nElectrostatic potential created by ring element d𝜙at the point B:\ndΦ =\n1\n4𝜋𝜀0\n𝜆𝑅d𝜙\n√︁\n𝑅2 + 𝑟2 −2𝑅𝑟cos𝜙\n=\n1\n4𝜋𝜀0\n𝜆d𝜙\n√︃\n1 + 𝑟2\n𝑅2 −2 𝑟\n𝑅cos𝜙\n.\nUsing the expansion given in the formulation of the problem for 𝜀= −1/2 we have:\ndΦ ≈𝜆d𝜙\n4𝜋𝜀0\n\"\n1 −1\n2\n\u0012 𝑟2\n𝑅2 −2𝑟\n𝑅cos𝜙\n\u0013\n+ 3\n8\n\u0012 𝑟2\n𝑅2 −2𝑟\n𝑅cos𝜙\n\u00132#\n.\nIgnoring the terms of the order 𝑟3 and 𝑟4 we get:\ndΦ ≈𝜆d𝜙\n4𝜋𝜀0\n\u0014\n1 + 𝑟\n𝑅cos𝜙+ 𝑟2\n𝑅2\n\u00123\n2 cos2 𝜙−1\n2\n\u0013\u0015\n.\nIntegrating over all angles we finally obtain:\nΦ(𝑟) =\n𝜆\n4𝜋𝜀0\nˆ 2𝜋\n0\n\u0014\n1 + 𝑟\n𝑅cos𝜙+ 𝑟2\n𝑅2\n\u00123\n2 cos2 𝜙−1\n2\n\u0013\u0015\nd𝜙.\n\nTheoretical Question 2 – Solution\nS2-3\nENGLISH\nΦ(𝑟) =\n𝑞\n4𝜋𝜀0𝑅\n\u0012\n1 + 𝑟2\n4𝑅2\n\u0013\n.\nFrom here, comparing with the expression Φ(𝑟) = 𝑞(𝛼+ 𝛽𝑟2), we obtain\n𝛽=\n1\n16𝜋𝜀0𝑅3 .\n(ii) Gauss’s law.\nFigure 2: Calculating electrostatic potential in the plane of the ring via Gauss’s law.\nLet us analyze a small cylinder of radius 𝑟. The center of the cylinder coincides with the center\nof the ring. In part A we analyzed the potential along the 𝑧-axis, while in this part we analyze the\npotential along the radius 𝑟. For any 𝑧≪𝑅and 𝑟≪𝑅the potential has an expression:\nΦ(𝑧,𝑟) =\n𝑞\n4𝜋𝜀0𝑅\n\u0012\n1 −𝑧2\n2𝑅2\n\u0013\n+ 𝑞𝛽𝑟2.\nThe lowest order terms are quadratic in 𝑟and 𝑧. Due to reflection symmetry the potential does\nnot contain terms of the type 𝑟𝑧. This, for example, immediately gives us 𝛼= 1/(4𝜋𝜀0𝑅). Thus, for\nsmall 𝑟and 𝑧electric fields in the radial and axial directions are:\nE𝑧(𝑧,𝑟) = +\n𝑞\n4𝜋𝜀0𝑅3𝑧,\nE𝑟(𝑧,𝑟) = −2𝑞𝛽𝑟.\nApplying Gauss’s law to the cylinder we obtain:\n˛\n®E · d®𝑆= 0\n⇒\nˆ\nside\n®E · d®𝑆+\nˆ\nbase\n®E · d®𝑆= 0.\nThe second integral is:\nˆ\nbase\n®E · d®𝑆= 2𝜋𝑟2E𝑧(𝑧,𝑟) = 𝑞𝑧𝑟2\n2𝜀0𝑅3 .\nThe first integral is:\nˆ\nside\n®E · d®𝑆= 4𝜋𝑟𝑧E𝑟(𝑧,𝑟) = −8𝜋𝑞𝛽𝑟2𝑧.\n\nTheoretical Question 2 – Solution\nS2-4\nENGLISH\nGauss’s theorem thus gives:\n𝑞𝑧𝑟2\n2𝜀0𝑅3 −8𝜋𝑞𝛽𝑟2𝑧= 0.\nThis immediately yields\n𝛽=\n1\n16𝜋𝜀0𝑅3,\nwhich agrees with the result obtained via direct integration.\nB.2 (0.2 points)\nThe potential of the electron is 𝑉(𝑟) = −𝑒Φ(𝑟). Force acting on the electron in the 𝑥𝑦plane is\n𝐹(𝑟) = −d𝑉(𝑟)\nd𝑟\n= +𝑒dΦ(𝑟)\nd𝑟\n=\n𝑞𝑒\n8𝜋𝜀0𝑅3𝑟.\nTo have oscilations we need the force to be negative for 𝑟> 0. Thus, 𝑞< 0.\nPart C.\nThe focal length of the idealized electrostatic lens (2.3 points)\nC.1 (1.3 points)\nLet us consider an electron with the velocity 𝑣=\n√︁\n2𝐸/𝑚at a distance 𝑟from the “optical” axis\n(Figure 2 of the problem). The electron crosses the “active region” of the lens in time\n𝑡= 𝑑\n𝑣.\nThe equation of motion in the 𝑟direction:\n𝑚¥𝑟= 2𝑒𝑞𝛽𝑟.\nDuring the time the electron crosses the active region of the lens, the electron acquires radial ve-\nlocity:\n𝑣𝑟= 2𝑒𝑞𝛽𝑟\n𝑚\n𝑑\n𝑣< 0.\nThe lens will be focusing if 𝑞< 0. The time it takes for an electron to reach the “optical” axis is:\n𝑡′ = 𝑟\n|𝑣𝑟| = −𝑚𝑣\n2𝑒𝑞𝛽𝑑.\nDuring this time the electron travels in the 𝑧-direction a distance\nΔ𝑧= 𝑡′𝑣= −𝑚𝑣2\n2𝑒𝑞𝛽𝑑= −\n𝐸\n𝑒𝑞𝑑𝛽.\nΔ𝑧does not depend on the radial distance 𝑟, therefore all electron will cross the “optical” axis (will\nbe focused) in the same spot. Thus,\n𝑓= −\n𝐸\n𝑒𝑞𝑑𝛽.\n\nTheoretical Question 2 – Solution\nS2-5\nENGLISH\nC.2 (0.8 points)\nFigure 3: Focusing of electrons.\nLet us consider an electron emitted an an angle 𝛾to the optical axis (Figure 3). Its initial velocity in\nthe radial direction is:\n𝑣𝑟;0 = 𝑣sin𝛾≈𝑣𝛾≈𝑣𝑟\n𝑏,\nwhere 𝑟is the radial distance of the electron when it reaches the plane of the ring. The velocity in\nthe 𝑧-direction is\n𝑣𝑧= 𝑣cos𝛾≈𝑣.\nFor small angles 𝛾the additional velocity in the 𝑟-direction acquired in the “active region” is the\nsame as in part C.1. Thus, the radial velocity after crossing the active region is\n𝑣𝑟= 𝑣𝑟\n𝑏+ 2𝑒𝑞𝛽𝑟\n𝑚\n𝑑\n𝑣,\nwhere the first term is positive and the second term is negative, since 𝑞< 0. If the electrons are\nfocused, then 𝑣𝑟< 0 (this can be verified after obtaining the final result). The electron will reach\nthe optical axis in time\n𝑡′ = 𝑟\n|𝑣𝑟| = −\n𝑟\n2𝑒𝑞𝛽𝑟\n𝑚\n𝑑\n𝑣+ 𝑣𝑟\n𝑏\n= −\n1\n2𝑒𝑞𝛽\n𝑚\n𝑑\n𝑣+ 𝑣\n𝑏\n.\nDuring this time it will travel a distance\n𝑐= 𝑡′𝑣= −\n1\n2𝑒𝑞𝛽\n𝑚\n𝑑\n𝑣2 + 1\n𝑏\n= −\n1\n𝑒𝑞𝛽𝑑\n𝐸\n+ 1\n𝑏\n.\nC.3 (0.2 pt)\nFrom the previous answer we obtain:\n1\n𝑏+ 1\n𝑐= −𝑒𝑞𝛽𝑑\n𝐸\n.\n\nTheoretical Question 2 – Solution\nS2-6\nENGLISH\nComparing with the answer of C.1 we immediately obtain\n1\n𝑏+ 1\n𝑐= 1\n𝑓,\ni.e. the equation of a thin optical lens is valid for an electrostatic lens as well.\nPart D.\nThe ring as a capacitor (3 points)\nD.1 (2.0 points)\nFigure 4: Calculation of the capacitance of the ring.\nLet us sub-divide the entire ring into two parts: a part corresponding to the angle 2𝛼≪1, and the\nrest of the ring, as shown in Figure 4. While the angle is small in comparison to 1, let us assume\nthat the length of the first part, 𝛼𝑅, is still large compared to 𝑎(𝛼𝑅≫𝑎). Let us calculate the\nelectrostatic potential Φ at point K. It it a sum of two terms: the first one produced by the cut-out\npart with an angle 2𝛼(contribution Φ1) and the second one originating from the rest of the ring\n(contribution Φ2).\nContribution Φ1. Since 𝛼≪1, we can neglect the curvature of the cylinder that is cut out from\nthe ring. The linear charge density on the ring is 𝜆=\n𝑞\n2𝜋𝑅. The potential at the center of the cylinder\nis then given by an integral:\nΦ1 = 2 1\n4𝜋𝜀0\n𝑞\n2𝜋𝑅\nˆ 𝛼𝑅\n0\nd𝑥\n√\n𝑥2 + 𝑎2 =\n𝑞\n4𝜋2𝜀0𝑅\nˆ 𝛼𝑅\n0\nd(𝑥/𝑎)\n√︁\n1 + (𝑥/𝑎)2 =\n𝑞\n4𝜋2𝜀0𝑅\nˆ 𝛼𝑅/𝑎\n0\nd𝑦\n√︁\n1 + 𝑦2 .\nUsing the integral provided in the description of the problem we get:\nΦ1 =\n𝑞\n4𝜋2𝜀0𝑅ln\n\u0010\n𝑦+\n√︁\n1 + 𝑦2\n\u0011\f\f\f\n𝛼𝑅/𝑎\n0\n=\n𝑞\n4𝜋2𝜀0𝑅ln ©­\n«\n𝛼𝑅\n𝑎+\n√︄\n1 +\n\u0012𝛼𝑅\n𝑎\n\u00132ª®\n¬\n.\nAs 𝛼𝑅≫𝑎,\nΦ1 ≈\n𝑞\n4𝜋2𝜀0𝑅ln\n\u00122𝛼𝑅\n𝑎\n\u0013\n.\n\nTheoretical Question 2 – Solution\nS2-7\nENGLISH\nFigure 5: Calculation of the capacitance of the ring\nContribution Φ2. In this case we can neglect the thickness 𝑎. Using the cosine theorem we can\nderive the distance between points K and L of Figure 5:\n|KL| = 2𝑅sin 𝜙\n2 .\nThe contribution Φ2 can then be written as an integral:\nΦ2 = 2 𝑞\n2𝜋\n1\n4𝜋𝜀0\nˆ 𝜋\n𝛼\nd𝜙\n2𝑅sin 𝜙\n2\n=\n𝑞\n8𝜋2𝜀0𝑅\nˆ 𝜋\n𝛼\nd𝜙\nsin 𝜙\n2\n=\n𝑞\n4𝜋2𝜀0𝑅\nˆ 𝜋\n𝛼\nd\n\u0010\n𝜙\n2\n\u0011\nsin 𝜙\n2\n=\n𝑞\n4𝜋2𝜀0𝑅\nˆ 𝜋/2\n𝛼/2\nd𝜒\nsin 𝜒.\nUsing the integral from the formulation of the problem, we calculate:\nˆ 𝜋/2\n𝛼/2\nd𝜒\nsin 𝜒= −ln\n\u0012cos 𝜒+ 1\nsin 𝜒\n\u0013\f\f\f\f\n𝜋/2\n𝛼/2\n= ln\n\u0012cos𝛼/2 + 1\nsin𝛼/2\n\u0013\n≈ln\n\u0012 4\n𝛼\n\u0013\nfor 𝛼≪1. Therefore\nΦ2 ≈\n𝑞\n4𝜋2𝜀0𝑅ln\n\u0012 4\n𝛼\n\u0013\n.\nThe total potential and capacitance. The total potential is the sum of Φ1 and Φ2:\nΦ = Φ1 + Φ2 =\n𝑞\n4𝜋2𝜀0𝑅ln\n\u00122𝛼𝑅\n𝑎\n\u0013\n+\n𝑞\n4𝜋2𝜀0𝑅ln\n\u0012 4\n𝛼\n\u0013\n=\n𝑞\n4𝜋2𝜀0𝑅ln\n\u00128𝑅\n𝑎\n\u0013\n.\n𝛼drops out from the expression. From here we obtain the capacitance 𝐶= 𝑞/Φ :\n𝐶= 4𝜋2𝜀0𝑅\nln \u0000 8𝑅\n𝑎\n\u0001 .\n𝐶→0 as 𝑎→0.\n\nTheoretical Question 2 – Solution\nS2-8\nENGLISH\nD.2 (1.0 point)\nLet 𝑞(𝑡) be the charge on the ring at a time 𝑡. Potential of the disk is thus 𝑞(𝑡)/𝐶. Voltage drop of\nthe resistor is 𝑅0𝐼(𝑡) = 𝑅0 d𝑞/d𝑡. Therefore for time −𝑑\n2𝑣< 𝑡< 𝑑\n2𝑣:\n𝑞(𝑡)\n𝐶\n+ 𝑅0\nd𝑞\nd𝑡= 𝑉0.\nIntegrating this equation and keeping in mind that 𝑞(𝑡) = 0 at 𝑡= −𝑑/(2𝑣), we get:\n𝑞(𝑡) = 𝐶𝑉0\n\u0010\n1 −e−\n𝑑\n2𝑣𝑅0𝐶e−\n𝑡\n𝑅0𝐶\n\u0011\n.\nThe charge attains the largest absolute value at 𝑡= 𝑑/(2𝑣). The value of the charge at this time is:\n𝑞0 = 𝐶𝑉0\n\u0010\n1 −e−\n𝑑\n𝑣𝑅0𝐶\n\u0011\n.\nWhen 𝑡> 𝑑\n2𝑣, we get:\n𝑞(𝑡)\n𝐶\n+ 𝑅0\nd𝑞\nd𝑡= 0.\nFrom here:\n𝑞(𝑡) = 𝑞0e−\n𝑡\n𝑅0𝐶+\n𝑑\n2𝑣𝑅0𝐶= 𝐶𝑉0\n\u0010\ne\n𝑑\n2𝑣𝑅0𝐶−e−\n𝑑\n2𝑣𝑅0𝐶\n\u0011\ne−𝑡\n𝑅𝐶.\nTherefore, we obtain:\n𝑞(𝑡) =\n\n\n0\nfor 𝑡< −𝑑\n2𝑣;\n𝐶𝑉0\n\u0010\n1 −e−\n𝑑\n2𝑣𝑅0𝐶e−\n𝑡\n𝑅0𝐶\n\u0011\nfor −𝑑\n2𝑣< 𝑡< 𝑑\n2𝑣;\n𝐶𝑉0\n\u0010\ne\n𝑑\n2𝑣𝑅0𝐶−e−\n𝑑\n2𝑣𝑅0𝐶\n\u0011\ne−\n𝑡\n𝑅0𝐶\nfor 𝑡> 𝑑\n2𝑣.\nFor a lens to be focusing we require that charge is negative, therefore 𝑉0 < 0. The dependence\nof charge on time is shown in Figure 6.\nFigure 6: Charge on the ring as a function of time.\n\nTheoretical Question 2 – Solution\nS2-9\nENGLISH\nPart E.\nFocal length of a more realistic lens (2 points)\nE.1 (1.7 points)\nLike in part C, the radial equation of motion of an electron is:\n𝑚¥𝑟= 2𝑒𝑞(𝑡)𝛽𝑟,\nwhere in this case 𝑞(𝑡) depends on time. Using the notation 𝜂= 2𝑒𝛽/𝑚, we obtain:\n¥𝑟−𝜂𝑞(𝑡)𝑟= 0.\nAs 𝑓/𝑣≫𝑅0𝐶, then during charging–decharging the electron does not substantially change its ra-\ndial position 𝑟, and we can assume 𝑟to be constant during the entire charging–decharging process.\nIn this case the acquired vertical velocity is\n𝑣𝑟= 𝜂𝑟\nˆ ∞\n−𝑑/(2𝑣)\n𝑞(𝑡) d𝑡.\nWe can use the derived equations for 𝑞(𝑡) and find the integrals. The integral\n´ 𝑑/(2𝑣)\n−𝑑/(2𝑣) 𝑞(𝑡) d𝑡is\n(using the notation 𝑑/𝑣= 𝑡0, 𝑅0𝐶= 𝜏, 𝐶𝑉0 = 𝑄0):\nˆ 𝑡0/2\n−𝑡0/2\n𝑞(𝑡) d𝑡=\nˆ 𝑡0/2\n−𝑡0/2\n𝑄0\n\u0010\n1 −e−𝑡0\n2𝜏e−𝑡\n𝜏\n\u0011\nd𝑡= 𝑄0\n\u0010\n𝑡0 −𝜏\nh\n1 −e−𝑡0/𝜏i\u0011\n.\nThe integral\n´ ∞\n𝑑/(2𝑣) 𝑞(𝑡) d𝑡is\nˆ ∞\n𝑡0/2\n𝑄0\n\u0010\ne\n𝑡0\n2𝜏−e−𝑡0\n2𝜏\n\u0011\ne−𝑡\n𝜏d𝑡= 𝑄0𝜏\nh\n1 −e−𝑡0/𝜏i\n.\nAdding the two integrals we obtain for the final integral:\nˆ ∞\n−𝑡0/2\n𝑞(𝑡)𝑑𝑡= 𝑄0𝑡0.\nInterestingly, it does not depend on𝜏= 𝑅0𝐶. Therefore, the acquired vertical velocity of the electron\nis\n𝑣𝑟= 𝜂𝑟𝐶𝑉0𝑑\n𝑣\n= 2𝑒𝛽𝐶𝑉0𝑑𝑟\n𝑚𝑣\n.\nFollowing the logic similar to part C, we derive the focal length\n𝑓= −\n𝐸\n𝑒𝐶𝑉0𝑑𝛽.\nE.2 (0.3 points).\nComparing 𝑓= −𝐸/(𝑒𝐶𝑉0𝑑𝛽) with 𝑓= −𝐸/(𝑒𝑞𝑑𝛽) from part C we immediataly obtain 𝑞eff = 𝐶𝑉0.\n","textExtraction":"available"}}
+{
+  "id": "ipho-2021-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2021-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Electrostatic lens (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider a uniformly charged metallic ring of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and total charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The ring is a hollow toroid of thickness "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2a \\ll R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This thickness can be neglected in parts A, B, C, and E. The "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\,y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane coincides with the plane of the ring, while the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis is perpendicular to it, as shown in Figure 1. In parts A and B you might need to use the formula (Taylor expansion)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[(1+x)^{\\varepsilon} \\approx 1+\\varepsilon x+\\frac{1}{2}\\varepsilon(\\varepsilon-1)x^2, \\quad \\text{when } |x| \\ll 1.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t2/7d5f8764d57a92446d48.png",
+                "alt": "ipho-2021-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1. A charged ring of radius "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(R\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Electrostatic potential on the axis of the ring (1 point)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Calculate the electrostatic potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Phi(z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " along the axis of the ring at a "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " distance from its center (point A in Figure 1). 0.3pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Calculate the electrostatic potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Phi(z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the lowest non-zero power of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", assuming "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z \\ll R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "An electron (mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is placed at point A (Figure 1, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z \\ll R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). What is the force acting on the electron? Looking at the expression of the force, determine the sign of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that the resulting motion would correspond to oscillations. The moving electron does not influence the charge distribution on the ring. 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "What is the angular frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of such harmonic oscillations? 0.1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Electrostatic potential in the plane of the ring (1.7 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this part of the problem you will have to analyze the potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Phi(r)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the plane of the ring ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r \\ll R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (point B in Figure 1). To the lowest non-zero power of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the electrostatic potential is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Phi(r) \\approx q(\\alpha + \\beta r^2)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the expression for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". You might need to use the Taylor expansion formula given above. 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "An electron is placed at point B (Figure 1, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r \\ll R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). What is the force acting on the electron? Looking at the expression of the force, determine the sign of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that the resulting motion would correspond to harmonic oscillations. The moving electron does not influence the charge distribution on the ring. 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C. The focal length of the idealized electrostatic lens: instantaneous charging (2.3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "One wants to build a device to focus electrons—an electrostatic lens. Let us consider the following construction. The ring is situated perpendicularly to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis, as shown in Figure 2. We have a source that produces on-demand packets of non-relativistic electrons. Kinetic energy of these electrons is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E = mv^2/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is velocity) and they leave the source at precisely controlled moments. The system is programmed so that the ring is charge-neutral most of the time, but its charge becomes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " when electrons are closer than a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d \\ll R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") from the plane of the ring (shaded region in Figure 2, called “active region”). In part C assume that charging and de-charging processes are instantaneous and the electric field ”fills the space” instantaneously as well. One can neglect magnetic fields and assume that the velocity of electrons in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-direction is constant. Moving electrons do not perturb the charge distribution on the ring."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t2/df2df01e30a5c7bd4004.png",
+                "alt": "ipho-2021-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 2. A model of an electrostatic lens."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Determine the focal length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of this lens. Assume that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f \\gg d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Express your answer in terms of the constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from question B.1 and other known quantities. Assume that before reaching the ”active region” the electron packet is parallel to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r \\ll R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The sign of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is such so that the lens is focusing. 1.3pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In reality the electron source is placed on the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis at a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b > f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the center of the ring. Consider that electrons are no longer parallel to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis before reaching the ”active region”, but are emitted from a point source at a range of different angles "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " rad to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis. Electrons are focused in a point situated at a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the center of the ring."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Express your answer in terms of the constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from question B.1 and other known quantities. 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Is the equation of a thin optical lens "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{1}{b} + \\frac{1}{c} = \\frac{1}{f}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " fulfilled for the electrostatic lens? Show it by explicitly calculating "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1/b + 1/c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part D. The ring as a capacitor (3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The model considered above was idealized and we assumed that the ring charged instantaneously. In reality charging is non-instantaneous, as the ring is a capacitor with a finite capacitance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In this part we will analyze the properties of this capacitor. You might need the following integrals: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int \\frac{\\mathrm{d}x}{\\sin x} = -\\ln\\left|\\frac{\\cos x + 1}{\\sin x}\\right| + \\mathrm{const}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int \\frac{\\mathrm{d}x}{\\sqrt{1+x^2}} = \\ln\\left|x + \\sqrt{1+x^2}\\right| + \\mathrm{const}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Calculate the capacitance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the ring. Consider that the ring has a finite width "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", but remember that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a \\ll R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 2.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When electrons reach the “active region”, the ring is connected to a source of voltage "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (Figure 3). When electrons pass the “active region”, the ring is connected to the ground. The resistance of contacts is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the resistance of the ring itself can be neglected."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t2/36f03fe8ece015af267f.png",
+                "alt": "ipho-2021-t2 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 3. Charging of the electrostatic lens."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Determine the dependence of the charge on the ring as a function of time, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and make a schematic plot of this dependence. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " corresponds to a time moment when electrons are in the plane of the ring. What is the charge on the ring "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " when the absolute value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is maximal? The capacitance of the ring is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (i.e., you do not have to use the actual expression found in D.1). 1.0pt"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Remark"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": the drawn polarity in Figure 3 is for indicative purposes only. The sign should be chosen so that the lens is focusing."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part E. Focal length of a more realistic lens: non-instantaneous charging (2 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this part of the problem, we will consider the action of this more realistic lens. Here we will again neglect the width of the ring "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and will assume that electrons travel parallel to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis before reaching the ”active region”. However, the charging of the ring is no longer instantaneous."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the focal length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the lens. Assume that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f/v \\gg R_0C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", but "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d/v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_0C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are of the same order of magnitude. Express your answer in terms of the constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from part B and other known quantities. 1.7pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "You will see, that the result for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is similar to that obtained in part C, whereby the value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is substituted with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q_\\mathrm{eff}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Find the expression for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q_\\mathrm{eff}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of quantities given in formulation of the problem. 0.3pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Electrostatic lens (10 points)\n\n\nConsider a uniformly charged metallic ring of radius \n\\(R\\)\n and total charge \n\\(q\\)\n. The ring is a hollow toroid of thickness \n\\(2a \\ll R\\)\n. This thickness can be neglected in parts A, B, C, and E. The \n\\(x\\,y\\)\n plane coincides with the plane of the ring, while the \n\\(z\\)\n-axis is perpendicular to it, as shown in Figure 1. In parts A and B you might need to use the formula (Taylor expansion)\n\n\n\\[(1+x)^{\\varepsilon} \\approx 1+\\varepsilon x+\\frac{1}{2}\\varepsilon(\\varepsilon-1)x^2, \\quad \\text{when } |x| \\ll 1.\\]\n\n\n\n\n\n\n\n\n\n\n\nFigure 1. A charged ring of radius \n\\(R\\)\n.\n\n\n\n\nPart A. Electrostatic potential on the axis of the ring (1 point)\n\n\nA.1\nCalculate the electrostatic potential \n\\(\\Phi(z)\\)\n along the axis of the ring at a \n\\(z\\)\n distance from its center (point A in Figure 1). 0.3pt\n\n\nA.2\nCalculate the electrostatic potential \n\\(\\Phi(z)\\)\n to the lowest non-zero power of \n\\(z\\)\n, assuming \n\\(z \\ll R\\)\n. 0.4pt\n\n\nA.3\nAn electron (mass \n\\(m\\)\n and charge \n\\(-e\\)\n) is placed at point A (Figure 1, \n\\(z \\ll R\\)\n). What is the force acting on the electron? Looking at the expression of the force, determine the sign of \n\\(q\\)\n so that the resulting motion would correspond to oscillations. The moving electron does not influence the charge distribution on the ring. 0.2pt\n\n\nA.4\nWhat is the angular frequency \n\\(\\omega\\)\n of such harmonic oscillations? 0.1pt\n\n\nPart B. Electrostatic potential in the plane of the ring (1.7 points)\n\n\nIn this part of the problem you will have to analyze the potential \n\\(\\Phi(r)\\)\n in the plane of the ring (\n\\(z = 0\\)\n) for \n\\(r \\ll R\\)\n (point B in Figure 1). To the lowest non-zero power of \n\\(r\\)\n the electrostatic potential is given by \n\\(\\Phi(r) \\approx q(\\alpha + \\beta r^2)\\)\n.\n\n\nB.1\nFind the expression for \n\\(\\beta\\)\n. You might need to use the Taylor expansion formula given above. 1.5pt\n\n\nB.2\nAn electron is placed at point B (Figure 1, \n\\(r \\ll R\\)\n). What is the force acting on the electron? Looking at the expression of the force, determine the sign of \n\\(q\\)\n so that the resulting motion would correspond to harmonic oscillations. The moving electron does not influence the charge distribution on the ring. 0.2pt\n\n\nPart C. The focal length of the idealized electrostatic lens: instantaneous charging (2.3 points)\n\n\nOne wants to build a device to focus electrons—an electrostatic lens. Let us consider the following construction. The ring is situated perpendicularly to the \n\\(z\\)\n-axis, as shown in Figure 2. We have a source that produces on-demand packets of non-relativistic electrons. Kinetic energy of these electrons is \n\\(E = mv^2/2\\)\n (\n\\(v\\)\n is velocity) and they leave the source at precisely controlled moments. The system is programmed so that the ring is charge-neutral most of the time, but its charge becomes \n\\(q\\)\n when electrons are closer than a distance \n\\(d/2\\)\n (\n\\(d \\ll R\\)\n) from the plane of the ring (shaded region in Figure 2, called “active region”). In part C assume that charging and de-charging processes are instantaneous and the electric field ”fills the space” instantaneously as well. One can neglect magnetic fields and assume that the velocity of electrons in the \n\\(z\\)\n-direction is constant. Moving electrons do not perturb the charge distribution on the ring.\n\n\n\n\n\n\n\n\n\n\n\nFigure 2. A model of an electrostatic lens.\n\n\n\n\nC.1\nDetermine the focal length \n\\(f\\)\n of this lens. Assume that \n\\(f \\gg d\\)\n. Express your answer in terms of the constant \n\\(\\beta\\)\n from question B.1 and other known quantities. Assume that before reaching the ”active region” the electron packet is parallel to the \n\\(z\\)\n-axis and \n\\(r \\ll R\\)\n. The sign of \n\\(q\\)\n is such so that the lens is focusing. 1.3pt\n\n\nIn reality the electron source is placed on the \n\\(z\\)\n-axis at a distance \n\\(b > f\\)\n from the center of the ring. Consider that electrons are no longer parallel to the \n\\(z\\)\n-axis before reaching the ”active region”, but are emitted from a point source at a range of different angles \n\\(\\gamma \\ll 1\\)\n rad to the \n\\(z\\)\n-axis. Electrons are focused in a point situated at a distance \n\\(c\\)\n from the center of the ring.\n\n\nC.2\nFind \n\\(c\\)\n. Express your answer in terms of the constant \n\\(\\beta\\)\n from question B.1 and other known quantities. 0.8pt\n\n\nC.3\nIs the equation of a thin optical lens \n\\[\\frac{1}{b} + \\frac{1}{c} = \\frac{1}{f}\\]\n fulfilled for the electrostatic lens? Show it by explicitly calculating \n\\(1/b + 1/c\\)\n. 0.2pt\n\n\nPart D. The ring as a capacitor (3 points)\n\n\nThe model considered above was idealized and we assumed that the ring charged instantaneously. In reality charging is non-instantaneous, as the ring is a capacitor with a finite capacitance \n\\(C\\)\n. In this part we will analyze the properties of this capacitor. You might need the following integrals: \n\\[\\int \\frac{\\mathrm{d}x}{\\sin x} = -\\ln\\left|\\frac{\\cos x + 1}{\\sin x}\\right| + \\mathrm{const}\\]\n\n\nand \n\\[\\int \\frac{\\mathrm{d}x}{\\sqrt{1+x^2}} = \\ln\\left|x + \\sqrt{1+x^2}\\right| + \\mathrm{const}.\\]\n\n\nD.1\nCalculate the capacitance \n\\(C\\)\n of the ring. Consider that the ring has a finite width \n\\(2a\\)\n, but remember that \n\\(a \\ll R\\)\n. 2.0pt\n\n\nWhen electrons reach the “active region”, the ring is connected to a source of voltage \n\\(V_0\\)\n (Figure 3). When electrons pass the “active region”, the ring is connected to the ground. The resistance of contacts is \n\\(R_0\\)\n and the resistance of the ring itself can be neglected.\n\n\n\n\n\n\n\n\n\n\n\nFigure 3. Charging of the electrostatic lens.\n\n\n\n\nD.2\nDetermine the dependence of the charge on the ring as a function of time, \n\\(q(t)\\)\n, and make a schematic plot of this dependence. \n\\(t = 0\\)\n corresponds to a time moment when electrons are in the plane of the ring. What is the charge on the ring \n\\(q_0\\)\n when the absolute value \n\\(q(t)\\)\n is maximal? The capacitance of the ring is \n\\(C\\)\n (i.e., you do not have to use the actual expression found in D.1). 1.0pt\n\n\n\nRemark\n: the drawn polarity in Figure 3 is for indicative purposes only. The sign should be chosen so that the lens is focusing.\n\n\nPart E. Focal length of a more realistic lens: non-instantaneous charging (2 points)\n\n\nIn this part of the problem, we will consider the action of this more realistic lens. Here we will again neglect the width of the ring \n\\(2a\\)\n and will assume that electrons travel parallel to the \n\\(z\\)\n-axis before reaching the ”active region”. However, the charging of the ring is no longer instantaneous.\n\n\nE.1\nFind the focal length \n\\(f\\)\n of the lens. Assume that \n\\(f/v \\gg R_0C\\)\n, but \n\\(d/v\\)\n and \n\\(R_0C\\)\n are of the same order of magnitude. Express your answer in terms of the constant \n\\(\\beta\\)\n from part B and other known quantities. 1.7pt\n\n\nE.2\nYou will see, that the result for \n\\(f\\)\n is similar to that obtained in part C, whereby the value \n\\(q\\)\n is substituted with \n\\(q_\\mathrm{eff}\\)\n. Find the expression for \n\\(q_\\mathrm{eff}\\)\n in terms of quantities given in formulation of the problem. 0.3pt\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2021-t2/7d5f8764d57a92446d48.png",
+      "/corpus/figures/native/bulk/ipho-2021-t2/df2df01e30a5c7bd4004.png",
+      "/corpus/figures/native/bulk/ipho-2021-t2/36f03fe8ece015af267f.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2021-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Electrostatic lens (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Electrostatic potential on the axis of the ring (1 point)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1 (0.3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The linear charge density of the ring is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda = q/(2\\pi R)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". All the points of the ring are situated a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sqrt{R^2 + z^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " away from point A. Integrating over the whole ring we readily obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Phi\\,(z) = \\frac{q}{4\\pi\\varepsilon_0}\\,\\frac{1}{\\sqrt{R^2 + z^2}}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2 (0.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using an expansion in powers of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Phi(z) = \\frac{q}{4\\pi\\varepsilon_0}\\,\\frac{1}{\\sqrt{R^2 + z^2}} = \\frac{q}{4\\pi\\varepsilon_0 R}\\,\\frac{1}{\\sqrt{1 + \\left(\\frac{z}{R}\\right)^2}} \\approx \\frac{q}{4\\pi\\varepsilon_0 R}\\left(1 - \\frac{z^2}{2R^2}\\right).\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3 (0.2 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The potential energy of the electron is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(z) = -e\\Phi(z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The force acting on the electron is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F(z) = -\\frac{\\mathrm{d}V(z)}{\\mathrm{d}z} = +e\\frac{\\mathrm{d}\\Phi}{\\mathrm{d}z} = -\\frac{qe}{4\\pi\\varepsilon_0 R^3}\\,z.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " If this is a restoring force, it should be negative for positive "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4 (0.1 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The equation of motion for an electron is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m\\ddot{z} + \\frac{qe}{4\\pi\\varepsilon_0 R^3}\\,z = 0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (here dots denote time derivatives). We therefore get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\omega = \\sqrt{\\frac{qe}{4\\pi m\\varepsilon_0 R^3}}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Electrostatic potential in the plane of the ring (1.7 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1 (1.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "There are two different ways to solve this problem: (i) using direct integration; (ii) using Gauss’s law and the result of part A."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t2/c835f33714a23288ae52.png",
+                "alt": "ipho-2021-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1: Calculating electrostatic potential in the plane of the ring through direct integration."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i) "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Direct integration"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We will follow the notations of Figure 1. Since the potential has cylindrical symmetry, let the point B, where we calculate the potential, be on the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis. Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[|\\mathrm{OB}| = r; \\quad |\\mathrm{OC}| = R.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[|\\mathrm{BC}|^2 = R^2 + r^2 - 2Rr\\cos\\phi.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Electrostatic potential created by ring element "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{d}\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the point B: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathrm{d}\\Phi = \\frac{1}{4\\pi\\varepsilon_0}\\,\\frac{\\lambda R\\,\\mathrm{d}\\phi}{\\sqrt{R^2 + r^2 - 2Rr\\cos\\phi}} = \\frac{1}{4\\pi\\varepsilon_0}\\,\\frac{\\lambda\\,\\mathrm{d}\\phi}{\\sqrt{1 + \\frac{r^2}{R^2} - 2\\frac{r}{R}\\cos\\phi}}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using the expansion given in the formulation of the problem for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon = -1/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we have: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathrm{d}\\Phi \\approx \\frac{\\lambda\\,\\mathrm{d}\\phi}{4\\pi\\varepsilon_0}\\left[1 - \\frac{1}{2}\\left(\\frac{r^2}{R^2} - 2\\frac{r}{R}\\cos\\phi\\right) + \\frac{3}{8}\\left(\\frac{r^2}{R^2} - 2\\frac{r}{R}\\cos\\phi\\right)^2\\right].\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Ignoring the terms of the order "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r^3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r^4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathrm{d}\\Phi \\approx \\frac{\\lambda\\,\\mathrm{d}\\phi}{4\\pi\\varepsilon_0}\\left[1 + \\frac{r}{R}\\cos\\phi + \\frac{r^2}{R^2}\\left(\\frac{3}{2}\\cos^2\\phi - \\frac{1}{2}\\right)\\right].\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Integrating over all angles we finally obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Phi(r) = \\frac{\\lambda}{4\\pi\\varepsilon_0}\\int_0^{2\\pi}\\left[1 + \\frac{r}{R}\\cos\\phi + \\frac{r^2}{R^2}\\left(\\frac{3}{2}\\cos^2\\phi - \\frac{1}{2}\\right)\\right]\\mathrm{d}\\phi.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Phi(r) = \\frac{q}{4\\pi\\varepsilon_0 R}\\left(1 + \\frac{r^2}{4R^2}\\right).\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From here, comparing with the expression "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Phi(r) = q(\\alpha + \\beta r^2)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\beta = \\frac{1}{16\\pi\\varepsilon_0 R^3}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii) "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Gauss’s law."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t2/2114f396522afebf4510.png",
+                "alt": "ipho-2021-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 2: Calculating electrostatic potential in the plane of the ring via Gauss’s law."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let us analyze a small cylinder of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The center of the cylinder coincides with the center of the ring. In part A we analyzed the potential along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis, while in this part we analyze the potential along the radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". For any "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z \\ll R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r \\ll R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the potential has an expression: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Phi(z,r) = \\frac{q}{4\\pi\\varepsilon_0 R}\\left(1 - \\frac{z^2}{2R^2}\\right) + q\\beta r^2.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The lowest order terms are quadratic in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Due to reflection symmetry the potential does not contain terms of the type "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(rz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This, for example, immediately gives us "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha = 1/(4\\pi\\varepsilon_0 R)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus, for small "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " electric fields in the radial and axial directions are: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathcal{E}_z(z,r) = +\\frac{q}{4\\pi\\varepsilon_0 R^3}\\,z, \\qquad \\mathcal{E}_r(z,r) = -2q\\beta r.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Applying Gauss’s law to the cylinder we obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\oint \\vec{\\mathcal{E}}\\cdot\\mathrm{d}\\vec{S} = 0 \\quad\\Rightarrow\\quad \\int_{\\text{side}} \\vec{\\mathcal{E}}\\cdot\\mathrm{d}\\vec{S} + \\int_{\\text{base}} \\vec{\\mathcal{E}}\\cdot\\mathrm{d}\\vec{S} = 0.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The second integral is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int_{\\text{base}} \\vec{\\mathcal{E}}\\cdot\\mathrm{d}\\vec{S} = 2\\pi r^2\\mathcal{E}_z(z,r) = \\frac{qzr^2}{2\\varepsilon_0 R^3}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The first integral is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int_{\\text{side}} \\vec{\\mathcal{E}}\\cdot\\mathrm{d}\\vec{S} = 4\\pi rz\\,\\mathcal{E}_r(z,r) = -8\\pi q\\beta r^2 z.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Gauss’s theorem thus gives: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{qzr^2}{2\\varepsilon_0 R^3} - 8\\pi q\\beta r^2 z = 0.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This immediately yields "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\beta = \\frac{1}{16\\pi\\varepsilon_0 R^3},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which agrees with the result obtained via direct integration."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2 (0.2 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The potential of the electron is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(r) = -e\\Phi(r)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Force acting on the electron in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xy\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F(r) = -\\frac{\\mathrm{d}V(r)}{\\mathrm{d}r} = +e\\frac{\\mathrm{d}\\Phi(r)}{\\mathrm{d}r} = \\frac{qe}{8\\pi\\varepsilon_0 R^3}\\,r.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " To have oscilations we need the force to be negative for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q < 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C. The focal length of the idealized electrostatic lens (2.3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1 (1.3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let us consider an electron with the velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v = \\sqrt{2E/m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the “optical” axis (Figure 2 of the problem). The electron crosses the “active region” of the lens in time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t = \\frac{d}{v}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The equation of motion in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m\\ddot{r} = 2eq\\beta r.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " During the time the electron crosses the active region of the lens, the electron acquires radial velocity: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_r = \\frac{2eq\\beta r}{m}\\,\\frac{d}{v} < 0.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The lens will be focusing if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q < 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The time it takes for an electron to reach the “optical” axis is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t' = \\frac{r}{|v_r|} = -\\frac{mv}{2eq\\beta d}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " During this time the electron travels in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-direction a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta z = t'v = -\\frac{mv^2}{2eq\\beta d} = -\\frac{E}{eqd\\beta}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " does not depend on the radial distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", therefore all electron will cross the “optical” axis (will be focused) in the same spot. Thus, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[f = -\\frac{E}{eqd\\beta}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2 (0.8 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t2/5615224a5fa2f45e9abb.png",
+                "alt": "ipho-2021-t2 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 3: Focusing of electrons."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let us consider an electron emitted an an angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the optical axis (Figure 3). Its initial velocity in the radial direction is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_{r;0} = v\\sin\\gamma \\approx v\\gamma \\approx v\\frac{r}{b},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the radial distance of the electron when it reaches the plane of the ring. The velocity in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-direction is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_z = v\\cos\\gamma \\approx v.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For small angles "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the additional velocity in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-direction acquired in the “active region” is the same as in part C.1. Thus, the radial velocity after crossing the active region is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_r = v\\frac{r}{b} + \\frac{2eq\\beta r}{m}\\,\\frac{d}{v},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where the first term is positive and the second term is negative, since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q < 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". If the electrons are focused, then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_r < 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (this can be verified after obtaining the final result). The electron will reach the optical axis in time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t' = \\frac{r}{|v_r|} = -\\frac{r}{\\frac{2eq\\beta r}{m}\\,\\frac{d}{v} + v\\frac{r}{b}} = -\\frac{1}{\\frac{2eq\\beta}{m}\\,\\frac{d}{v} + \\frac{v}{b}}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " During this time it will travel a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[c = t'v = -\\frac{1}{\\frac{2eq\\beta}{m}\\,\\frac{d}{v^2} + \\frac{1}{b}} = -\\frac{1}{\\frac{eq\\beta d}{E} + \\frac{1}{b}}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3 (0.2 pt)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From the previous answer we obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{1}{b} + \\frac{1}{c} = -\\frac{eq\\beta d}{E}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Comparing with the answer of C.1 we immediately obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{1}{b} + \\frac{1}{c} = \\frac{1}{f},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " i.e. the equation of a thin optical lens is valid for an electrostatic lens as well."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part D. The ring as a capacitor (3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.1 (2.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t2/f019c2e7e6e615267e70.png",
+                "alt": "ipho-2021-t2 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 4: Calculation of the capacitance of the ring."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let us sub-divide the entire ring into two parts: a part corresponding to the angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2\\alpha \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the rest of the ring, as shown in Figure 4. While the angle is small in comparison to 1, let us assume that the length of the first part, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is still large compared to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha R \\gg a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). Let us calculate the electrostatic potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at point K. It it a sum of two terms: the first one produced by the cut-out part with an angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (contribution "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Phi_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and the second one originating from the rest of the ring (contribution "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Phi_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "u",
+            "children": [
+              {
+                "type": "text",
+                "text": "Contribution "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\Phi_1\\)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we can neglect the curvature of the cylinder that is cut out from the ring. The linear charge density on the ring is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda = \\frac{q}{2\\pi R}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The potential at the center of the cylinder is then given by an integral: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Phi_1 = 2\\,\\frac{1}{4\\pi\\varepsilon_0}\\,\\frac{q}{2\\pi R}\\int_0^{\\alpha R}\\frac{\\mathrm{d}x}{\\sqrt{x^2 + a^2}} = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\int_0^{\\alpha R}\\frac{\\mathrm{d}(x/a)}{\\sqrt{1 + (x/a)^2}} = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\int_0^{\\alpha R/a}\\frac{\\mathrm{d}y}{\\sqrt{1 + y^2}}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using the integral provided in the description of the problem we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Phi_1 = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(y + \\sqrt{1 + y^2}\\right)\\Big|_0^{\\alpha R/a} = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(\\frac{\\alpha R}{a} + \\sqrt{1 + \\left(\\frac{\\alpha R}{a}\\right)^2}\\right).\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " As "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha R \\gg a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Phi_1 \\approx \\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(\\frac{2\\alpha R}{a}\\right).\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t2/f8e344e5a2e7fe1234e1.png",
+                "alt": "ipho-2021-t2 original source figure 5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 5: Calculation of the capacitance of the ring"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "u",
+            "children": [
+              {
+                "type": "text",
+                "text": "Contribution "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\Phi_2\\)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In this case we can neglect the thickness "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Using the cosine theorem we can derive the distance between points K and L of Figure 5: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[|\\mathrm{KL}| = 2R\\sin\\frac{\\phi}{2}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The contribution "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Phi_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can then be written as an integral: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Phi_2 = 2\\,\\frac{q}{2\\pi}\\,\\frac{1}{4\\pi\\varepsilon_0}\\int_\\alpha^\\pi\\frac{\\mathrm{d}\\phi}{2R\\sin\\frac{\\phi}{2}} = \\frac{q}{8\\pi^2\\varepsilon_0 R}\\int_\\alpha^\\pi\\frac{\\mathrm{d}\\phi}{\\sin\\frac{\\phi}{2}} = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\int_\\alpha^\\pi\\frac{\\mathrm{d}\\left(\\frac{\\phi}{2}\\right)}{\\sin\\frac{\\phi}{2}} = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\int_{\\alpha/2}^{\\pi/2}\\frac{\\mathrm{d}\\chi}{\\sin\\chi}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using the integral from the formulation of the problem, we calculate: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int_{\\alpha/2}^{\\pi/2}\\frac{\\mathrm{d}\\chi}{\\sin\\chi} = -\\ln\\left.\\left(\\frac{\\cos\\chi + 1}{\\sin\\chi}\\right)\\right|_{\\alpha/2}^{\\pi/2} = \\ln\\left(\\frac{\\cos\\alpha/2 + 1}{\\sin\\alpha/2}\\right) \\approx \\ln\\left(\\frac{4}{\\alpha}\\right)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Therefore "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Phi_2 \\approx \\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(\\frac{4}{\\alpha}\\right).\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "u",
+            "children": [
+              {
+                "type": "text",
+                "text": "The total potential and capacitance"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The total potential is the sum of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Phi_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Phi_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Phi = \\Phi_1 + \\Phi_2 = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(\\frac{2\\alpha R}{a}\\right) +\\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(\\frac{4}{\\alpha}\\right) = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(\\frac{8R}{a}\\right).\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " drops out from the expression. From here we obtain the capacitance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C = q/\\Phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " : "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[C = \\frac{4\\pi^2\\varepsilon_0 R}{\\ln\\left(\\tfrac{8R}{a}\\right)}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C \\to 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a \\to 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.2 (1.0 point)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the charge on the ring at a time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Potential of the disk is thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q(t)/C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Voltage drop of the resistor is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_0I(t) = R_0\\,\\mathrm{d}q/\\mathrm{d}t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Therefore for time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\frac{d}{2v} < t < \\frac{d}{2v}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{q(t)}{C} + R_0\\frac{\\mathrm{d}q}{\\mathrm{d}t} = V_0.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Integrating this equation and keeping in mind that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q(t) = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = -d/(2v)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[q(t) = CV_0\\left(1 - \\mathrm{e}^{-\\frac{d}{2vR_0C}}\\,\\mathrm{e}^{-\\frac{t}{R_0C}}\\right).\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The charge attains the largest absolute value at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = d/(2v)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The value of the charge at this time is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[q_0 = CV_0\\left(1 - \\mathrm{e}^{-\\frac{d}{vR_0C}}\\right).\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " When "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t > \\frac{d}{2v}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{q(t)}{C} + R_0\\frac{\\mathrm{d}q}{\\mathrm{d}t} = 0.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From here: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[q(t) = q_0\\,\\mathrm{e}^{-\\frac{t}{R_0C} + \\frac{d}{2vR_0C}} = CV_0\\left(\\mathrm{e}^{\\frac{d}{2vR_0C}} - \\mathrm{e}^{-\\frac{d}{2vR_0C}}\\right)\\mathrm{e}^{-\\frac{t}{RC}}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore, we obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[q(t) = \\begin{cases}\n0 & \\text{for } t < -\\frac{d}{2v}; \\\\\nCV_0\\left(1 - \\mathrm{e}^{-\\frac{d}{2vR_0C}}\\,\\mathrm{e}^{-\\frac{t}{R_0C}}\\right) & \\text{for } -\\frac{d}{2v} < t < \\frac{d}{2v}; \\\\\nCV_0\\left(\\mathrm{e}^{\\frac{d}{2vR_0C}} - \\mathrm{e}^{-\\frac{d}{2vR_0C}}\\right)\\mathrm{e}^{-\\frac{t}{R_0C}} & \\text{for } t > \\frac{d}{2v}.\n\\end{cases}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For a lens to be focusing we require that charge is negative, therefore "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_0 < 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The dependence of charge on time is shown in Figure 6."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t2/4468ac6a49e7e291f0f7.png",
+                "alt": "ipho-2021-t2 original source figure 6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 6: Charge on the ring as a function of time."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part E. Focal length of a more realistic lens (2 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.1 (1.7 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Like in part C, the radial equation of motion of an electron is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m\\ddot{r} = 2eq(t)\\beta r,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where in this case "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " depends on time. Using the notation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta = 2e\\beta/m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\ddot{r} - \\eta q(t) r = 0.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " As "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f/v \\gg R_0C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", then during charging–decharging the electron does not substantially change its radial position "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and we can assume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to be constant during the entire charging–decharging process. In this case the acquired vertical velocity is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_r = \\eta r\\int_{-d/(2v)}^{\\infty} q(t)\\,\\mathrm{d}t.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " We can use the derived equations for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and find the integrals. The integral "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\int_{-d/(2v)}^{d/(2v)} q(t)\\,\\mathrm{d}t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is (using the notation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d/v = t_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_0C = \\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(CV_0 = Q_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "): "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int_{-t_0/2}^{t_0/2} q(t)\\,\\mathrm{d}t = \\int_{-t_0/2}^{t_0/2} Q_0\\left(1 - \\mathrm{e}^{-\\frac{t_0}{2\\tau}}\\,\\mathrm{e}^{-\\frac{t}{\\tau}}\\right)\\mathrm{d}t = Q_0\\left(t_0 - \\tau\\left[1 - \\mathrm{e}^{-t_0/\\tau}\\right]\\right).\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The integral "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\int_{d/(2v)}^{\\infty} q(t)\\,\\mathrm{d}t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int_{t_0/2}^{\\infty} Q_0\\left(\\mathrm{e}^{\\frac{t_0}{2\\tau}} - \\mathrm{e}^{-\\frac{t_0}{2\\tau}}\\right)\\mathrm{e}^{-\\frac{t}{\\tau}}\\,\\mathrm{d}t = Q_0\\tau\\left[1 - \\mathrm{e}^{-t_0/\\tau}\\right].\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Adding the two integrals we obtain for the final integral: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int_{-t_0/2}^{\\infty} q(t)dt = Q_0t_0.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Interestingly, it does not depend on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau = R_0C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Therefore, the acquired vertical velocity of the electron is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_r = \\eta r\\,\\frac{CV_0 d}{v} = \\frac{2e\\beta CV_0 dr}{mv}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Following the logic similar to part C, we derive the focal length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[f = -\\frac{E}{eCV_0 d\\beta}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.2 (0.3 points)."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Comparing "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f = -E/(eCV_0d\\beta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f = -E/(eqd\\beta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from part C we immediataly obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q_{\\mathrm{eff}} = CV_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Electrostatic lens (10 points)\n\n\nPart A. Electrostatic potential on the axis of the ring (1 point)\n\n\nA.1 (0.3 points)\n\n\nThe linear charge density of the ring is \n\\(\\lambda = q/(2\\pi R)\\)\n. All the points of the ring are situated a distance \n\\(\\sqrt{R^2 + z^2}\\)\n away from point A. Integrating over the whole ring we readily obtain: \n\\[\\Phi\\,(z) = \\frac{q}{4\\pi\\varepsilon_0}\\,\\frac{1}{\\sqrt{R^2 + z^2}}.\\]\n\n\nA.2 (0.4 points)\n\n\nUsing an expansion in powers of \n\\(z\\)\n we obtain: \n\\[\\Phi(z) = \\frac{q}{4\\pi\\varepsilon_0}\\,\\frac{1}{\\sqrt{R^2 + z^2}} = \\frac{q}{4\\pi\\varepsilon_0 R}\\,\\frac{1}{\\sqrt{1 + \\left(\\frac{z}{R}\\right)^2}} \\approx \\frac{q}{4\\pi\\varepsilon_0 R}\\left(1 - \\frac{z^2}{2R^2}\\right).\\]\n\n\nA.3 (0.2 points)\n\n\nThe potential energy of the electron is \n\\(V(z) = -e\\Phi(z)\\)\n. The force acting on the electron is \n\\[F(z) = -\\frac{\\mathrm{d}V(z)}{\\mathrm{d}z} = +e\\frac{\\mathrm{d}\\Phi}{\\mathrm{d}z} = -\\frac{qe}{4\\pi\\varepsilon_0 R^3}\\,z.\\]\n If this is a restoring force, it should be negative for positive \n\\(z\\)\n. Thus, \n\\(q > 0\\)\n.\n\n\nA.4 (0.1 points)\n\n\nThe equation of motion for an electron is \n\\[m\\ddot{z} + \\frac{qe}{4\\pi\\varepsilon_0 R^3}\\,z = 0\\]\n (here dots denote time derivatives). We therefore get \n\\[\\omega = \\sqrt{\\frac{qe}{4\\pi m\\varepsilon_0 R^3}}.\\]\n\n\nPart B. Electrostatic potential in the plane of the ring (1.7 points)\n\n\nB.1 (1.5 points)\n\n\nThere are two different ways to solve this problem: (i) using direct integration; (ii) using Gauss’s law and the result of part A.\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Calculating electrostatic potential in the plane of the ring through direct integration.\n\n\n\n\n(i) \nDirect integration\n. We will follow the notations of Figure 1. Since the potential has cylindrical symmetry, let the point B, where we calculate the potential, be on the \n\\(x\\)\n-axis. Let \n\\[|\\mathrm{OB}| = r; \\quad |\\mathrm{OC}| = R.\\]\n Thus: \n\\[|\\mathrm{BC}|^2 = R^2 + r^2 - 2Rr\\cos\\phi.\\]\n Electrostatic potential created by ring element \n\\(\\mathrm{d}\\phi\\)\n at the point B: \n\\[\\mathrm{d}\\Phi = \\frac{1}{4\\pi\\varepsilon_0}\\,\\frac{\\lambda R\\,\\mathrm{d}\\phi}{\\sqrt{R^2 + r^2 - 2Rr\\cos\\phi}} = \\frac{1}{4\\pi\\varepsilon_0}\\,\\frac{\\lambda\\,\\mathrm{d}\\phi}{\\sqrt{1 + \\frac{r^2}{R^2} - 2\\frac{r}{R}\\cos\\phi}}.\\]\n Using the expansion given in the formulation of the problem for \n\\(\\varepsilon = -1/2\\)\n we have: \n\\[\\mathrm{d}\\Phi \\approx \\frac{\\lambda\\,\\mathrm{d}\\phi}{4\\pi\\varepsilon_0}\\left[1 - \\frac{1}{2}\\left(\\frac{r^2}{R^2} - 2\\frac{r}{R}\\cos\\phi\\right) + \\frac{3}{8}\\left(\\frac{r^2}{R^2} - 2\\frac{r}{R}\\cos\\phi\\right)^2\\right].\\]\n Ignoring the terms of the order \n\\(r^3\\)\n and \n\\(r^4\\)\n we get: \n\\[\\mathrm{d}\\Phi \\approx \\frac{\\lambda\\,\\mathrm{d}\\phi}{4\\pi\\varepsilon_0}\\left[1 + \\frac{r}{R}\\cos\\phi + \\frac{r^2}{R^2}\\left(\\frac{3}{2}\\cos^2\\phi - \\frac{1}{2}\\right)\\right].\\]\n Integrating over all angles we finally obtain: \n\\[\\Phi(r) = \\frac{\\lambda}{4\\pi\\varepsilon_0}\\int_0^{2\\pi}\\left[1 + \\frac{r}{R}\\cos\\phi + \\frac{r^2}{R^2}\\left(\\frac{3}{2}\\cos^2\\phi - \\frac{1}{2}\\right)\\right]\\mathrm{d}\\phi.\\]\n \n\\[\\Phi(r) = \\frac{q}{4\\pi\\varepsilon_0 R}\\left(1 + \\frac{r^2}{4R^2}\\right).\\]\n From here, comparing with the expression \n\\(\\Phi(r) = q(\\alpha + \\beta r^2)\\)\n, we obtain \n\\[\\beta = \\frac{1}{16\\pi\\varepsilon_0 R^3}.\\]\n\n\n(ii) \nGauss’s law.\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Calculating electrostatic potential in the plane of the ring via Gauss’s law.\n\n\n\n\nLet us analyze a small cylinder of radius \n\\(r\\)\n. The center of the cylinder coincides with the center of the ring. In part A we analyzed the potential along the \n\\(z\\)\n-axis, while in this part we analyze the potential along the radius \n\\(r\\)\n. For any \n\\(z \\ll R\\)\n and \n\\(r \\ll R\\)\n the potential has an expression: \n\\[\\Phi(z,r) = \\frac{q}{4\\pi\\varepsilon_0 R}\\left(1 - \\frac{z^2}{2R^2}\\right) + q\\beta r^2.\\]\n The lowest order terms are quadratic in \n\\(r\\)\n and \n\\(z\\)\n. Due to reflection symmetry the potential does not contain terms of the type \n\\(rz\\)\n. This, for example, immediately gives us \n\\(\\alpha = 1/(4\\pi\\varepsilon_0 R)\\)\n. Thus, for small \n\\(r\\)\n and \n\\(z\\)\n electric fields in the radial and axial directions are: \n\\[\\mathcal{E}_z(z,r) = +\\frac{q}{4\\pi\\varepsilon_0 R^3}\\,z, \\qquad \\mathcal{E}_r(z,r) = -2q\\beta r.\\]\n Applying Gauss’s law to the cylinder we obtain: \n\\[\\oint \\vec{\\mathcal{E}}\\cdot\\mathrm{d}\\vec{S} = 0 \\quad\\Rightarrow\\quad \\int_{\\text{side}} \\vec{\\mathcal{E}}\\cdot\\mathrm{d}\\vec{S} + \\int_{\\text{base}} \\vec{\\mathcal{E}}\\cdot\\mathrm{d}\\vec{S} = 0.\\]\n The second integral is: \n\\[\\int_{\\text{base}} \\vec{\\mathcal{E}}\\cdot\\mathrm{d}\\vec{S} = 2\\pi r^2\\mathcal{E}_z(z,r) = \\frac{qzr^2}{2\\varepsilon_0 R^3}.\\]\n The first integral is: \n\\[\\int_{\\text{side}} \\vec{\\mathcal{E}}\\cdot\\mathrm{d}\\vec{S} = 4\\pi rz\\,\\mathcal{E}_r(z,r) = -8\\pi q\\beta r^2 z.\\]\n Gauss’s theorem thus gives: \n\\[\\frac{qzr^2}{2\\varepsilon_0 R^3} - 8\\pi q\\beta r^2 z = 0.\\]\n This immediately yields \n\\[\\beta = \\frac{1}{16\\pi\\varepsilon_0 R^3},\\]\n which agrees with the result obtained via direct integration.\n\n\nB.2 (0.2 points)\n\n\nThe potential of the electron is \n\\(V(r) = -e\\Phi(r)\\)\n. Force acting on the electron in the \n\\(xy\\)\n plane is \n\\[F(r) = -\\frac{\\mathrm{d}V(r)}{\\mathrm{d}r} = +e\\frac{\\mathrm{d}\\Phi(r)}{\\mathrm{d}r} = \\frac{qe}{8\\pi\\varepsilon_0 R^3}\\,r.\\]\n To have oscilations we need the force to be negative for \n\\(r > 0\\)\n. Thus, \n\\(q < 0\\)\n.\n\n\nPart C. The focal length of the idealized electrostatic lens (2.3 points)\n\n\nC.1 (1.3 points)\n\n\nLet us consider an electron with the velocity \n\\(v = \\sqrt{2E/m}\\)\n at a distance \n\\(r\\)\n from the “optical” axis (Figure 2 of the problem). The electron crosses the “active region” of the lens in time \n\\[t = \\frac{d}{v}.\\]\n The equation of motion in the \n\\(r\\)\n direction: \n\\[m\\ddot{r} = 2eq\\beta r.\\]\n During the time the electron crosses the active region of the lens, the electron acquires radial velocity: \n\\[v_r = \\frac{2eq\\beta r}{m}\\,\\frac{d}{v} < 0.\\]\n The lens will be focusing if \n\\(q < 0\\)\n. The time it takes for an electron to reach the “optical” axis is: \n\\[t' = \\frac{r}{|v_r|} = -\\frac{mv}{2eq\\beta d}.\\]\n During this time the electron travels in the \n\\(z\\)\n-direction a distance \n\\[\\Delta z = t'v = -\\frac{mv^2}{2eq\\beta d} = -\\frac{E}{eqd\\beta}.\\]\n \n\\(\\Delta z\\)\n does not depend on the radial distance \n\\(r\\)\n, therefore all electron will cross the “optical” axis (will be focused) in the same spot. Thus, \n\\[f = -\\frac{E}{eqd\\beta}.\\]\n\n\nC.2 (0.8 points)\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: Focusing of electrons.\n\n\n\n\nLet us consider an electron emitted an an angle \n\\(\\gamma\\)\n to the optical axis (Figure 3). Its initial velocity in the radial direction is: \n\\[v_{r;0} = v\\sin\\gamma \\approx v\\gamma \\approx v\\frac{r}{b},\\]\n where \n\\(r\\)\n is the radial distance of the electron when it reaches the plane of the ring. The velocity in the \n\\(z\\)\n-direction is \n\\[v_z = v\\cos\\gamma \\approx v.\\]\n For small angles \n\\(\\gamma\\)\n the additional velocity in the \n\\(r\\)\n-direction acquired in the “active region” is the same as in part C.1. Thus, the radial velocity after crossing the active region is \n\\[v_r = v\\frac{r}{b} + \\frac{2eq\\beta r}{m}\\,\\frac{d}{v},\\]\n where the first term is positive and the second term is negative, since \n\\(q < 0\\)\n. If the electrons are focused, then \n\\(v_r < 0\\)\n (this can be verified after obtaining the final result). The electron will reach the optical axis in time \n\\[t' = \\frac{r}{|v_r|} = -\\frac{r}{\\frac{2eq\\beta r}{m}\\,\\frac{d}{v} + v\\frac{r}{b}} = -\\frac{1}{\\frac{2eq\\beta}{m}\\,\\frac{d}{v} + \\frac{v}{b}}.\\]\n During this time it will travel a distance \n\\[c = t'v = -\\frac{1}{\\frac{2eq\\beta}{m}\\,\\frac{d}{v^2} + \\frac{1}{b}} = -\\frac{1}{\\frac{eq\\beta d}{E} + \\frac{1}{b}}.\\]\n\n\nC.3 (0.2 pt)\n\n\nFrom the previous answer we obtain: \n\\[\\frac{1}{b} + \\frac{1}{c} = -\\frac{eq\\beta d}{E}.\\]\n Comparing with the answer of C.1 we immediately obtain \n\\[\\frac{1}{b} + \\frac{1}{c} = \\frac{1}{f},\\]\n i.e. the equation of a thin optical lens is valid for an electrostatic lens as well.\n\n\nPart D. The ring as a capacitor (3 points)\n\n\nD.1 (2.0 points)\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: Calculation of the capacitance of the ring.\n\n\n\n\nLet us sub-divide the entire ring into two parts: a part corresponding to the angle \n\\(2\\alpha \\ll 1\\)\n, and the rest of the ring, as shown in Figure 4. While the angle is small in comparison to 1, let us assume that the length of the first part, \n\\(\\alpha R\\)\n, is still large compared to \n\\(a\\)\n (\n\\(\\alpha R \\gg a\\)\n). Let us calculate the electrostatic potential \n\\(\\Phi\\)\n at point K. It it a sum of two terms: the first one produced by the cut-out part with an angle \n\\(2\\alpha\\)\n (contribution \n\\(\\Phi_1\\)\n) and the second one originating from the rest of the ring (contribution \n\\(\\Phi_2\\)\n).\n\n\nContribution \n\\(\\Phi_1\\)\n. Since \n\\(\\alpha \\ll 1\\)\n, we can neglect the curvature of the cylinder that is cut out from the ring. The linear charge density on the ring is \n\\(\\lambda = \\frac{q}{2\\pi R}\\)\n. The potential at the center of the cylinder is then given by an integral: \n\\[\\Phi_1 = 2\\,\\frac{1}{4\\pi\\varepsilon_0}\\,\\frac{q}{2\\pi R}\\int_0^{\\alpha R}\\frac{\\mathrm{d}x}{\\sqrt{x^2 + a^2}} = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\int_0^{\\alpha R}\\frac{\\mathrm{d}(x/a)}{\\sqrt{1 + (x/a)^2}} = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\int_0^{\\alpha R/a}\\frac{\\mathrm{d}y}{\\sqrt{1 + y^2}}.\\]\n Using the integral provided in the description of the problem we get: \n\\[\\Phi_1 = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(y + \\sqrt{1 + y^2}\\right)\\Big|_0^{\\alpha R/a} = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(\\frac{\\alpha R}{a} + \\sqrt{1 + \\left(\\frac{\\alpha R}{a}\\right)^2}\\right).\\]\n As \n\\(\\alpha R \\gg a\\)\n, \n\\[\\Phi_1 \\approx \\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(\\frac{2\\alpha R}{a}\\right).\\]\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: Calculation of the capacitance of the ring\n\n\n\n\nContribution \n\\(\\Phi_2\\)\n. In this case we can neglect the thickness \n\\(a\\)\n. Using the cosine theorem we can derive the distance between points K and L of Figure 5: \n\\[|\\mathrm{KL}| = 2R\\sin\\frac{\\phi}{2}.\\]\n The contribution \n\\(\\Phi_2\\)\n can then be written as an integral: \n\\[\\Phi_2 = 2\\,\\frac{q}{2\\pi}\\,\\frac{1}{4\\pi\\varepsilon_0}\\int_\\alpha^\\pi\\frac{\\mathrm{d}\\phi}{2R\\sin\\frac{\\phi}{2}} = \\frac{q}{8\\pi^2\\varepsilon_0 R}\\int_\\alpha^\\pi\\frac{\\mathrm{d}\\phi}{\\sin\\frac{\\phi}{2}} = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\int_\\alpha^\\pi\\frac{\\mathrm{d}\\left(\\frac{\\phi}{2}\\right)}{\\sin\\frac{\\phi}{2}} = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\int_{\\alpha/2}^{\\pi/2}\\frac{\\mathrm{d}\\chi}{\\sin\\chi}.\\]\n Using the integral from the formulation of the problem, we calculate: \n\\[\\int_{\\alpha/2}^{\\pi/2}\\frac{\\mathrm{d}\\chi}{\\sin\\chi} = -\\ln\\left.\\left(\\frac{\\cos\\chi + 1}{\\sin\\chi}\\right)\\right|_{\\alpha/2}^{\\pi/2} = \\ln\\left(\\frac{\\cos\\alpha/2 + 1}{\\sin\\alpha/2}\\right) \\approx \\ln\\left(\\frac{4}{\\alpha}\\right)\\]\n for \n\\(\\alpha \\ll 1\\)\n. Therefore \n\\[\\Phi_2 \\approx \\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(\\frac{4}{\\alpha}\\right).\\]\n\n\nThe total potential and capacitance\n. The total potential is the sum of \n\\(\\Phi_1\\)\n and \n\\(\\Phi_2\\)\n: \n\\[\\Phi = \\Phi_1 + \\Phi_2 = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(\\frac{2\\alpha R}{a}\\right) +\\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(\\frac{4}{\\alpha}\\right) = \\frac{q}{4\\pi^2\\varepsilon_0 R}\\ln\\left(\\frac{8R}{a}\\right).\\]\n \n\\(\\alpha\\)\n drops out from the expression. From here we obtain the capacitance \n\\(C = q/\\Phi\\)\n : \n\\[C = \\frac{4\\pi^2\\varepsilon_0 R}{\\ln\\left(\\tfrac{8R}{a}\\right)}.\\]\n \n\\(C \\to 0\\)\n as \n\\(a \\to 0\\)\n.\n\n\nD.2 (1.0 point)\n\n\nLet \n\\(q(t)\\)\n be the charge on the ring at a time \n\\(t\\)\n. Potential of the disk is thus \n\\(q(t)/C\\)\n. Voltage drop of the resistor is \n\\(R_0I(t) = R_0\\,\\mathrm{d}q/\\mathrm{d}t\\)\n. Therefore for time \n\\(-\\frac{d}{2v} < t < \\frac{d}{2v}\\)\n: \n\\[\\frac{q(t)}{C} + R_0\\frac{\\mathrm{d}q}{\\mathrm{d}t} = V_0.\\]\n Integrating this equation and keeping in mind that \n\\(q(t) = 0\\)\n at \n\\(t = -d/(2v)\\)\n, we get: \n\\[q(t) = CV_0\\left(1 - \\mathrm{e}^{-\\frac{d}{2vR_0C}}\\,\\mathrm{e}^{-\\frac{t}{R_0C}}\\right).\\]\n The charge attains the largest absolute value at \n\\(t = d/(2v)\\)\n. The value of the charge at this time is: \n\\[q_0 = CV_0\\left(1 - \\mathrm{e}^{-\\frac{d}{vR_0C}}\\right).\\]\n When \n\\(t > \\frac{d}{2v}\\)\n, we get: \n\\[\\frac{q(t)}{C} + R_0\\frac{\\mathrm{d}q}{\\mathrm{d}t} = 0.\\]\n From here: \n\\[q(t) = q_0\\,\\mathrm{e}^{-\\frac{t}{R_0C} + \\frac{d}{2vR_0C}} = CV_0\\left(\\mathrm{e}^{\\frac{d}{2vR_0C}} - \\mathrm{e}^{-\\frac{d}{2vR_0C}}\\right)\\mathrm{e}^{-\\frac{t}{RC}}.\\]\n Therefore, we obtain: \n\\[q(t) = \\begin{cases}\n0 & \\text{for } t < -\\frac{d}{2v}; \\\\\nCV_0\\left(1 - \\mathrm{e}^{-\\frac{d}{2vR_0C}}\\,\\mathrm{e}^{-\\frac{t}{R_0C}}\\right) & \\text{for } -\\frac{d}{2v} < t < \\frac{d}{2v}; \\\\\nCV_0\\left(\\mathrm{e}^{\\frac{d}{2vR_0C}} - \\mathrm{e}^{-\\frac{d}{2vR_0C}}\\right)\\mathrm{e}^{-\\frac{t}{R_0C}} & \\text{for } t > \\frac{d}{2v}.\n\\end{cases}\\]\n For a lens to be focusing we require that charge is negative, therefore \n\\(V_0 < 0\\)\n. The dependence of charge on time is shown in Figure 6.\n\n\n\n\n\n\n\n\n\n\n\nFigure 6: Charge on the ring as a function of time.\n\n\n\n\nPart E. Focal length of a more realistic lens (2 points)\n\n\nE.1 (1.7 points)\n\n\nLike in part C, the radial equation of motion of an electron is: \n\\[m\\ddot{r} = 2eq(t)\\beta r,\\]\n where in this case \n\\(q(t)\\)\n depends on time. Using the notation \n\\(\\eta = 2e\\beta/m\\)\n, we obtain: \n\\[\\ddot{r} - \\eta q(t) r = 0.\\]\n As \n\\(f/v \\gg R_0C\\)\n, then during charging–decharging the electron does not substantially change its radial position \n\\(r\\)\n, and we can assume \n\\(r\\)\n to be constant during the entire charging–decharging process. In this case the acquired vertical velocity is \n\\[v_r = \\eta r\\int_{-d/(2v)}^{\\infty} q(t)\\,\\mathrm{d}t.\\]\n We can use the derived equations for \n\\(q(t)\\)\n and find the integrals. The integral \n\\(\\int_{-d/(2v)}^{d/(2v)} q(t)\\,\\mathrm{d}t\\)\n is (using the notation \n\\(d/v = t_0\\)\n, \n\\(R_0C = \\tau\\)\n, \n\\(CV_0 = Q_0\\)\n): \n\\[\\int_{-t_0/2}^{t_0/2} q(t)\\,\\mathrm{d}t = \\int_{-t_0/2}^{t_0/2} Q_0\\left(1 - \\mathrm{e}^{-\\frac{t_0}{2\\tau}}\\,\\mathrm{e}^{-\\frac{t}{\\tau}}\\right)\\mathrm{d}t = Q_0\\left(t_0 - \\tau\\left[1 - \\mathrm{e}^{-t_0/\\tau}\\right]\\right).\\]\n The integral \n\\(\\int_{d/(2v)}^{\\infty} q(t)\\,\\mathrm{d}t\\)\n is \n\\[\\int_{t_0/2}^{\\infty} Q_0\\left(\\mathrm{e}^{\\frac{t_0}{2\\tau}} - \\mathrm{e}^{-\\frac{t_0}{2\\tau}}\\right)\\mathrm{e}^{-\\frac{t}{\\tau}}\\,\\mathrm{d}t = Q_0\\tau\\left[1 - \\mathrm{e}^{-t_0/\\tau}\\right].\\]\n Adding the two integrals we obtain for the final integral: \n\\[\\int_{-t_0/2}^{\\infty} q(t)dt = Q_0t_0.\\]\n Interestingly, it does not depend on \n\\(\\tau = R_0C\\)\n. Therefore, the acquired vertical velocity of the electron is \n\\[v_r = \\eta r\\,\\frac{CV_0 d}{v} = \\frac{2e\\beta CV_0 dr}{mv}.\\]\n Following the logic similar to part C, we derive the focal length \n\\[f = -\\frac{E}{eCV_0 d\\beta}.\\]\n\n\nE.2 (0.3 points).\n\n\nComparing \n\\(f = -E/(eCV_0d\\beta)\\)\n with \n\\(f = -E/(eqd\\beta)\\)\n from part C we immediataly obtain \n\\(q_{\\mathrm{eff}} = CV_0\\)\n.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2021-t2/c835f33714a23288ae52.png",
+      "/corpus/figures/native/bulk/ipho-2021-t2/2114f396522afebf4510.png",
+      "/corpus/figures/native/bulk/ipho-2021-t2/5615224a5fa2f45e9abb.png",
+      "/corpus/figures/native/bulk/ipho-2021-t2/f019c2e7e6e615267e70.png",
+      "/corpus/figures/native/bulk/ipho-2021-t2/f8e344e5a2e7fe1234e1.png",
+      "/corpus/figures/native/bulk/ipho-2021-t2/4468ac6a49e7e291f0f7.png"
+    ],
+    "shared": false
+  }
+}

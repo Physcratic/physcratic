@@ -1,1 +1,4321 @@
-{"id":"apho-2014-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2014_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2014_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2014-t2-statement/document.pdf","pages":[],"sourcePages":[1,2],"initialPage":1,"shared":false,"text":"Page 1 of 2 \n \n \nQuestion 2 \n \nThe two-slit electron interference experiment was first performed by Möllenstedt et al, Merli-\nMissiroli and Pozzi in 1974 and Tonomura et al in 1989. In the two-slit electron interference \nexperiment, a monochromatic electron point source emits particles at S that first passes \nthrough an electron “biprism” before impinging on an observational plane; S1 and S2 are \nvirtual sources at distance d. In the diagram, the filament is pointing into the page. Note that \nit is a very thin filament (not drawn to scale in the diagram).  \n \n \nThe electron “biprism” consists of a grounded cylindrical wire mesh with a fine filament F at \nthe center. The distance between the source and the “biprism” is ℓ, and the distance between \nthe distance between the “biprism” and the screen is L. \n\nPage 2 of 2 \n \n(a) \n(2 points) Taking the center of the circular cross section of the filament as the \norigin O, find the electric potential at any point (x,z) very near the filament in \nterms of Va, a and b where Va is the electric potential of the surface of the \nfilament, a is the radius of the filament and b is the distance between the center of \nthe filament and the cylindrical wire mesh. (Ignore mirror charges.) \n \n(b) \n(4 points) An incoming electron plane wave with wave vector kz is deflected by \nthe “biprism” due to the x-component of the force exerted on the electron. \nDetermine kx the x-component of the wave vector due to the “biprism” in terms of \nthe electron charge, e, vz, Va, kz, a and b, where e and vz are the charge and the  \nz-component of the velocity of the electrons (kx kz). Note that  ⃗  \n   \n  where h \nis the Planck constant. \n \n(c) \nBefore the point S, electrons are emitted from a field emission tip and accelerated \nthrough a potential V0. Determine the wavelength of the electron in terms of the \n(rest) mass m, charge   and V0, \n(i) \n(2 points) assuming relativistic effects can be ignored, and \n(ii) \n(3 points) taking relativistic effects into consideration. \n \n(d) \nIn Tonomura et al experiment, \nvz   \n=   c/2,  \n  \nVa  \n=   10 V,  \nV0  \n=   50 kV,  \na  \n=   0.5 m,  \nb \n=   5 mm, \nℓ \n=   25 cm, \nL \n=   1.5 m, \nh \n=   6.6 x 10-34 Js, \nelectron charge,   = 1.6 x 10-19 C, \nmass of electron, m0 = 9.1 x 10-31 kg, \nand the speed of light in vacuo, c = 3 x 108 ms-1  \n \n(i) \n(2 points) calculate the value of kx,  \n(ii) \n(2 points) determine the fringe separation of the interference pattern on the \nscreen, \n(iii) (1 point) If the electron wave is a spherical wave instead of a plane wave, is \nthe fringe spacing larger, the same or smaller than the fringe spacing \ncalculated in (ii)? \n(iv) (2 points) In part (c), determine the percentage error in the wavelength of \nthe electron using non-relativistic approximation.  \n(v) \n(2 points) the distance d between the apparent double slits. \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2014-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6],"initialPage":1,"shared":false,"text":"Page 1 of 6 \n \n \nQuestion 2 \n \nThe two-slit electron interference experiment was first performed by Möllenstedt et al, Merli-\nMissiroli and Pozzi in 1974 and Tonomura et al in 1989. In the two-slit electron interference \nexperiment, a monochromatic electron point source emits particles at S that first passes \nthrough an electron “biprism” before impinging on an observational plane; S1 and S2 are \nvirtual sources at distance d. In the diagram, the filament is pointing into the page. Note that \nit is a very thin filament (not drawn to scale in the diagram).  \n \n \nThe electron “biprism” consists of a grounded cylindrical wire mesh with a fine filament F at \nthe center. The distance between the source and the “biprism” is ℓ, and the distance between \nthe distance between the “biprism” and the screen is L. \n\nPage 2 of 6 \n \n(a) \n(2 points) Taking the center of the circular cross section of the filament as the \norigin O, find the electric potential at any point (x,z) very near the filament in \nterms of Va, a and b where Va is the electric potential of the surface of the \nfilament, a is the radius of the filament and b is the distance between the center of \nthe filament and the cylindrical wire mesh. (Ignore mirror charges.) \n \n \n \n \n \n \n \n \n \n \n \n   \n \n    \n   \n  \nWriting out |E| = \n \n        \n \n   ( ) \n                                     \n \n  \n \n      \n \n   (1 point) \nNote that \n ( )  \n \n      \n \n   (= 0 at the mesh) \nAlso at the edge of the filament, Va =  (   ) , so \nGiving together \n ( )    \n  (   )\n  (   )  where   √      \n(1 point for final expression) \n\nPage 3 of 6 \n \n(b) \n(4 points) An incoming electron plane wave with wave vector kz is deflected by \nthe “biprism” due to the x-component of the force exerted on the electron. \nDetermine kx the x-component of the wave vector due to the “biprism” in terms of \nthe electron charge, e, vz, Va, kz, a and b, where e and vz are the charge and the  \nz-component of the velocity of the electrons (kx kz). Note that  ⃗  \n   \n  where \nh is the Planck constant. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n         \n  \n∫(   )\n \n  \n(   (    )\n  \n)         \n   \n  \n∫\n      \n(      )    \n \n \n  \n        \n      \n     \n \n \n            \n      \n \n \n  \n   \n  \n        \n  \n   \n    \n       \n \n \nThere are several ways to work out the solution: \nA charge in an electric field will experience a force and hence a change in \nmomentum. Note that potential energy of the electron (charge =    ) is \n    ( )  Using impulse acting on the electron due to the electric field,  \n(2 points) \n(2 points for final expression) \n \nThe alternative solution is to write down the equations of motion for the \nelectrons (2 points) and determine the deflection of the electron as it passes \nthrough the “biprism”: \nSince    \n \n      \n \n , \n(2 points for final expression) \n\nPage 4 of 6 \n \n(c) \nBefore the point S, the electrons are emitted from a field emission tip and \naccelerated through a potential V0. Determine the wavelength of the electron in \nterms of the (rest) mass m, charge –    and V0, \n(i) \n(2 points) assuming relativistic effects can be ignored. \n \n \n \n \n(ii) \n(3 points) taking relativistic effects into consideration. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n   (  )  (   )  \n ( \n  )\n \n (   )  \n    \n  \n (           )  (   )  \n         (      \n     ) \n  \n \n√      (      \n     )\n \n(\n                                            \n                                                 \n                                                             \n) \nConsider \n \n  √          \n  \n \n√      \n \nEquating the kinetic energy to eV0 (1 point) \n(1 point for final expression) \n\nPage 5 of 6 \n \n(d) \nIn Tonomura et al experiment, \nvz   \n=   c/2,  \n  \nVa  \n=   10 V,  \nV0  \n=   50 kV,  \na  \n=   0.5 m,  \nb \n=   5 mm, \nℓ \n=   25 cm, \nL \n=   1.5 m, \nh \n=   6.6 x 10-34 Js, \nelectron charge,    =  1.6 x 10-19 C, \nmass of electron, m = 9.1 x 10-31 kg, \nand the speed of light in vacuo, c = 3 x 108 ms-1  \n \n(i) \n(2 points) calculate the value of kx ,  \n \n \n \n \n \n \n \n \n \n \n \n \n \n(ii) \n(2 points) determine the fringe separation of the interference pattern on   \nthe screen, \n \n \n \n \n \n(iii) (1 point) If the electron wave is a spherical wave instead of a plane wave, is \nthe fringe spacing larger, the same or smaller than the fringe spacing \ncalculated in (ii)? \n \n \n \n        \n      \n \n \n   \n \n                      \nPrevious equation: \nPlugging the relevant numbers into the equation gives: \n(1 point for plugging the correct values) \n   \n \n \n      (1 point for final expression) \n(                                      \n \n                                       \n \n) \nFringe separation is given by \n \n \n  \n        \nLarger. (1 point for the correct answer) \n\nPage 6 of 6 \n \n(iv) (2 points) In part (c), determine the percentage error in the wavelength of \nthe electron using non-relativistic approximation.  \n \n \n \n \n \n \n \n \n \n \n \n \n \n(v) \n(2 points) Calculate the distance d between the apparent double slits. \n \n \n \n \n \n \n \n \n \n \n \n    (   )\n \n \n             \n(\n \n                                                \n                                  \n \n) \nThe double slit formula is given by \nwhere m is the order and y is the distance for maximum intensity \nfrom the central fringe. \nIn this case, since the fringe spacing is 907Å, \n \n  √       \n        \n \n√      \n \n               \n     \n \n√     (  \n   \n     )\n \n               \n                  \n    \n \n       \n(\n \n                                                                    \n                                                                                                             \n \n) \nNon-relativistic: \nRelativistic: \nPercentage error: \nor 2.4 percent. \n","textExtraction":"available"}}
+{
+  "id": "apho-2014-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2014_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2014_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2014-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question 2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The two-slit electron interference experiment was first performed by Möllenstedt "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", Merli-Missiroli and Pozzi in 1974 and Tonomura "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in 1989. In the two-slit electron interference experiment, a monochromatic electron point source emits particles at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that first passes through an electron “biprism” before impinging on an observational plane; "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_{\\mathit{1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_{\\mathit{2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are virtual sources at distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In the diagram, the filament is pointing into the page. Note that it is a very thin filament (not drawn to scale in the diagram)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2014-t2/d80a62d6457ad18f2c32.png",
+                "alt": "apho-2014-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The electron “biprism” consists of a grounded cylindrical wire mesh with a fine filament "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the center. The distance between the source and the “biprism” is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the distance between the distance between the “biprism” and the screen is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(a)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Taking the center of the circular cross section of the filament as the origin "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(O\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", find the electric potential at any point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x{,}z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " very near the filament in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the electric potential of the surface of the filament, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the radius of the filament and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the distance between the center of the filament and the cylindrical wire mesh. (Ignore mirror charges.)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(b)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "4 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") An incoming electron plane wave with wave vector "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is deflected by the “biprism” due to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-component of the force exerted on the electron. Determine "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-component of the wave vector due to the “biprism” in terms of the electron charge, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_{a,}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_{z,}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are the charge and the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-component of the velocity of the electrons ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_x {\\ll} k_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). Note that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{k} = \\frac{2\\pi\\vec{p}}{h}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the Planck constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(c)Before the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", electrons are emitted from a field emission tip and accelerated through a potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_{\\mathit{0}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Determine the wavelength of the electron in terms of the (rest) mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_{\\mathit{0},}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") assuming relativistic effects can be ignored, and"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "3 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") taking relativistic effects into consideration."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(d)In Tonomura "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " experiment,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "table",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tbody",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(v_z\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(c/2\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ","
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(V_a\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "10 V,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(V_{\\mathit{0}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "50 kV,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(a\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0.5 "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\mu\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": "m,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(b\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "5 mm,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\ell\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "25 cm,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(L\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1.5 m,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(h\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "6.6 x 10"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "sup",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "-34"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " Js,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "electron charge, "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(e\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " = 1.6 x 10"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "sup",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "-19"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " C,"
+                          }
+                        ],
+                        "colSpan": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "mass of electron, m"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "sub",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "0"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " = 9.1 x 10"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "sup",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "-31"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " kg,"
+                          }
+                        ],
+                        "colSpan": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "and the speed of light "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "em",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "in vacuo"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(c\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " = 3 x 10"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "sup",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "8"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " ms"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "sup",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "-1"
+                              }
+                            ]
+                          }
+                        ],
+                        "colSpan": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") calculate the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ","
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") determine the fringe separation of the interference pattern on the screen,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(iii)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") If the electron wave is a spherical wave instead of a plane wave, is the fringe spacing larger, the same or smaller than the fringe spacing calculated in (ii)?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(iv)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") In part (c), determine the percentage error in the wavelength of the electron using non-relativistic approximation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(v)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") the distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between the apparent double slits."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Question 2\n\n\nThe two-slit electron interference experiment was first performed by Möllenstedt \net al\n, Merli-Missiroli and Pozzi in 1974 and Tonomura \net al\n in 1989. In the two-slit electron interference experiment, a monochromatic electron point source emits particles at \n\\(S\\)\n that first passes through an electron “biprism” before impinging on an observational plane; \n\\(S_{\\mathit{1}}\\)\n and \n\\(S_{\\mathit{2}}\\)\n are virtual sources at distance \n\\(d\\)\n. In the diagram, the filament is pointing into the page. Note that it is a very thin filament (not drawn to scale in the diagram).\n\n\n\n\n\n\n\n\n\nThe electron “biprism” consists of a grounded cylindrical wire mesh with a fine filament \n\\(F\\)\n at the center. The distance between the source and the “biprism” is \n\\(\\ell\\)\n, and the distance between the distance between the “biprism” and the screen is \n\\(L\\)\n.\n\n\n(a)(\n2 points\n) Taking the center of the circular cross section of the filament as the origin \n\\(O\\)\n, find the electric potential at any point \n\\((x{,}z)\\)\n very near the filament in terms of \n\\(V_a\\)\n, \n\\(a\\)\n and \n\\(b\\)\n where \n\\(V_a\\)\n is the electric potential of the surface of the filament, \n\\(a\\)\n is the radius of the filament and \n\\(b\\)\n is the distance between the center of the filament and the cylindrical wire mesh. (Ignore mirror charges.)\n\n\n(b)(\n4 points\n) An incoming electron plane wave with wave vector \n\\(k_z\\)\n is deflected by the “biprism” due to the \n\\(x\\)\n-component of the force exerted on the electron. Determine \n\\(k_x\\)\n the \n\\(x\\)\n-component of the wave vector due to the “biprism” in terms of the electron charge, \n\\(e\\)\n, \n\\(v_z\\)\n, \n\\(V_{a,}\\)\n \n\\(k_{z,}\\)\n \n\\(a\\)\n and \n\\(b\\)\n, where \n\\(e\\)\n and \n\\(v_z\\)\n are the charge and the \n\\(z\\)\n-component of the velocity of the electrons (\n\\(k_x {\\ll} k_z\\)\n). Note that \n\\(\\vec{k} = \\frac{2\\pi\\vec{p}}{h}\\)\n where \n\\(h\\)\n is the Planck constant.\n\n\n(c)Before the point \n\\(S\\)\n, electrons are emitted from a field emission tip and accelerated through a potential \n\\(V_{\\mathit{0}}\\)\n. Determine the wavelength of the electron in terms of the (rest) mass \n\\(m\\)\n, charge \n\\(e\\)\n and \n\\(V_{\\mathit{0},}\\)\n\n\n(i)(\n2 points\n) assuming relativistic effects can be ignored, and\n\n\n(ii)(\n3 points\n) taking relativistic effects into consideration.\n\n\n(d)In Tonomura \net al\n experiment,\n\n\n\n\n\n\n\n\n\n\n\\(v_z\\)\n\n\n=\n\n\n\\(c/2\\)\n,\n\n\n\n\n\n\n\\(V_a\\)\n\n\n=\n\n\n10 V,\n\n\n\n\n\n\n\\(V_{\\mathit{0}}\\)\n\n\n=\n\n\n50 kV,\n\n\n\n\n\n\n\\(a\\)\n\n\n=\n\n\n0.5 \n\\(\\mu\\)\nm,\n\n\n\n\n\n\n\\(b\\)\n\n\n=\n\n\n5 mm,\n\n\n\n\n\n\n\\(\\ell\\)\n\n\n=\n\n\n25 cm,\n\n\n\n\n\n\n\\(L\\)\n\n\n=\n\n\n1.5 m,\n\n\n\n\n\n\n\\(h\\)\n\n\n=\n\n\n6.6 x 10\n-34\n Js,\n\n\n\n\n\n\nelectron charge, \n\\(e\\)\n = 1.6 x 10\n-19\n C,\n\n\n\n\n\n\nmass of electron, m\n0\n = 9.1 x 10\n-31\n kg,\n\n\n\n\n\n\nand the speed of light \nin vacuo\n, \n\\(c\\)\n = 3 x 10\n8\n ms\n-1\n\n\n\n\n\n\n\n\n\n\n(i)(\n2 points\n) calculate the value of \n\\(k_x\\)\n,\n\n\n(ii)(\n2 points\n) determine the fringe separation of the interference pattern on the screen,\n\n\n(iii)(\n1 point\n) If the electron wave is a spherical wave instead of a plane wave, is the fringe spacing larger, the same or smaller than the fringe spacing calculated in (ii)?\n\n\n(iv)(\n2 points\n) In part (c), determine the percentage error in the wavelength of the electron using non-relativistic approximation.\n\n\n(v)(\n2 points\n) the distance \n\\(d\\)\n between the apparent double slits.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2014-t2/d80a62d6457ad18f2c32.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2014-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question 2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The two-slit electron interference experiment was first performed by Möllenstedt "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", Merli-Missiroli and Pozzi in 1974 and Tonomura "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in 1989. In the two-slit electron interference experiment, a monochromatic electron point source emits particles at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that first passes through an electron “biprism” before impinging on an observational plane; "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_{\\mathit{1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are virtual sources at distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In the diagram, the filament is pointing into the page. Note that it is a very thin filament (not drawn to scale in the diagram)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2014-t2/dbc610bfb56ad1ae2077.png",
+                "alt": "apho-2014-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The electron “biprism” consists of a grounded cylindrical wire mesh with a fine filament "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the center. The distance between the source and the “biprism” is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the distance between the distance between the “biprism” and the screen is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(a)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Taking the center of the circular cross section of the filament as the origin "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(O\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", find the electric potential at any point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x{,}z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " very near the filament in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the electric potential of the surface of the filament, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the radius of the filament and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the distance between the center of the filament and the cylindrical wire mesh. (Ignore mirror charges.)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Writing out "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\mathrm{E}| = \\frac{\\lambda}{2\\pi\\epsilon_0 r} = -\\frac{\\partial}{\\partial r}V(r)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[= -\\frac{\\partial}{\\partial r}\\frac{\\lambda}{2\\pi\\epsilon_0}\\ln\\frac{b}{r} \\quad \\text{(\\textbf{1 point})}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V(r) = \\frac{\\lambda}{2\\pi\\epsilon_0}\\ln\\frac{b}{r} \\quad \\text{(= 0 at the mesh)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Also at the edge of the filament, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_a = V(r = a)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V_a = \\frac{\\lambda}{2\\pi\\epsilon_0}\\ln\\frac{b}{a}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Giving together "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V(r) = V_a\\frac{\\ln(b/r)}{\\ln(b/a)} \\quad \\text{where } r = \\sqrt{x^2 + z^2}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for final expression)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(b)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "4 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") An incoming electron plane wave with wave vector "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is deflected by the “biprism” due to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-component of the force exerted on the electron. Determine "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-component of the wave vector due to the “biprism” in terms of the electron charge, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_{a,}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_{z,}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are the charge and the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-component of the velocity of the electrons ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_x{\\ll}k_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). Note that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{k} = \\frac{2\\pi\\vec{p}}{h}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the Planck constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "There are several ways to work out the solution:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A charge in an electric field will experience a force and hence a change in momentum. Note that potential energy of the electron (charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(= -e_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-e_0V(r)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Using impulse acting on the electron due to the electric field, ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\mathrm{Impulse} &= \\frac{1}{v_z}\\int_{-\\infty}^{\\infty}(-e_0)\\left(-\\frac{\\partial V(x,z')}{\\partial x}\\right)dz'|_{x=a} \\\\\n&= -\\frac{1}{v_z}\\int_{-\\infty}^{\\infty}\\frac{-e_0V_ax}{(x^2 + z'^2)\\ln\\dfrac{b}{a}}dz'|_{x=a} \\\\\n&= \\frac{e_0V_a\\pi}{v_z\\ln\\dfrac{b}{a}} \\\\\n\\Rightarrow \\quad k_x &= \\frac{e_0V_a\\pi}{\\hbar v_z\\ln\\dfrac{b}{a}}\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for final expression)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The alternative solution is to write down the equations of motion for the electrons ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and determine the deflection of the electron as it passes through the “biprism”: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\Delta x}{\\Delta z} = \\frac{\\lambda e}{2\\epsilon_0 mv_z^2}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_a = \\frac{\\lambda}{2\\pi\\epsilon_0}\\ln\\frac{b}{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\Delta x}{\\Delta z} = \\frac{\\pi eV_a}{mv_z^2\\ln\\dfrac{a}{b}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for final expression)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(c)Before the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the electrons are emitted from a field emission tip and accelerated through a potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_{\\mathit{0}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Determine the wavelength of the electron in terms of the (rest) mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", charge – "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_{\\mathit{0},}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") assuming relativistic effects can be ignored."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Equating the kinetic energy to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(eV_{\\mathit{0}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\frac{h}{\\lambda} &= \\sqrt{2m\\lvert -e_0\\rvert V_0} \\\\\n\\lambda &= \\frac{h}{\\sqrt{2me_0V_0}}\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for final expression)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "3 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") taking relativistic effects into consideration."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nE^2 &= (pc)^2 + (mc^2)^2 \\\\\n&= \\left(\\frac{h}{\\lambda}c\\right)^2 + (mc^2)^2 \\\\\n\\frac{h^2c^2}{\\lambda^2} &= (mc^2 + |-e_0|V_0)^2 - (mc^2)^2 \\\\\n&= 2mc^2e_0V_0\\left(1 + \\frac{e_0V_0}{2m_0c^2}\\right) \\\\\n\\lambda &= \\frac{h}{\\sqrt{2me_0V_0\\left(1 + \\dfrac{e_0V_0}{2m_0c^2}\\right)}}\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(\\begin{array}{l}\n\\textbf{1 point}\\text{ for knowing relativitic }\\mathrm{E} - \\mathrm{p}\\text{ relation} \\\\\n\\textbf{1 point}\\text{ for manipulating the equations} \\\\\n\\textbf{1 point}\\text{ for final expression}\n\\end{array}\\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(d)In Tonomura et al experiment,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "table",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tbody",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(v_z\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(c\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": "/2,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(V_a\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "10 V,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(V_{\\mathit{0}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "50 kV,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(a\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0.5 "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\mu\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": "m,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(b\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "5 mm,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\ell\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "25 cm,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(L\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1.5 m,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(h\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "6.6 x 10"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "sup",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "-34"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " Js,"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "electron charge"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "em",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": ","
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(-e = -\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": "1.6 x 10"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "sup",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "-19"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " C,"
+                          }
+                        ],
+                        "colSpan": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "mass of electron, "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(m\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " = 9.1 x 10"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "sup",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "-31"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " kg,"
+                          }
+                        ],
+                        "colSpan": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "and the speed of light "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "em",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "in vacuo"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(c\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " = 3 x 10"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "sup",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "8"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " ms"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "sup",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "-1"
+                              }
+                            ]
+                          }
+                        ],
+                        "colSpan": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") calculate the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Previous equation: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[k_x = \\frac{e_0V_a\\pi}{\\hbar v_z\\ln\\dfrac{b}{a}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Plugging the relevant numbers into the equation gives:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for plugging the correct values) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[k_x = \\frac{\\pi}{907}\\text{Å}^{-1}\\ or\\ 3.46 \\times 10^7m^{-1}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "("
+              },
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1 point"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " for final expression)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") determine the fringe separation of the interference pattern on the screen,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fringe separation is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{1}{2}\\frac{2\\pi}{k_x} = 907\\text{Å}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(\\begin{array}{l}\n\\textbf{1 point}\\text{ for formula, note the factor }\\dfrac{1}{2} \\\\\n\\textbf{1 point}\\text{ for final expression with units}\n\\end{array}\\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(iii)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") If the electron wave is a spherical wave instead of a plane wave, is the fringe spacing larger, the same or smaller than the fringe spacing calculated in (ii)?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Larger. ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the correct answer)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(iv)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") In part (c), determine the percentage error in the wavelength of the electron using non-relativistic approximation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Non-relativistic: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\frac{h}{\\lambda} &= \\sqrt{2me_0V_0} \\\\\n\\lambda_{nonrel} &= \\frac{h}{\\sqrt{2me_0V_0}} \\\\\n&= 5.4697 \\times 10^{-12}m\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Relativistic: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\lambda_{rel} &= \\frac{h}{\\sqrt{2meV_0\\left(1 + \\dfrac{eV_0}{2m_0c^2}\\right)}} \\\\\n&= 5.3408 \\times 10^{-12}m\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Percentage error: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\mathrm{Error} &= \\frac{\\lambda_{nonrel} - \\lambda_{rel}}{\\lambda_{rel}} \\\\\n&= 0.024\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "or 2.4 percent."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(\\begin{array}{l}\n\\textbf{1 point}\\text{ for working out non }-\\text{ relativistic and relativistic wavelength} \\\\\n\\textbf{1 point}\\text{ for final expression}\n\\end{array}\\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(v)("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") Calculate the distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between the apparent double slits."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The double slit formula is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[y = \\frac{m\\lambda(\\ell + L)}{d}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the order and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the distance for maximum intensity from the central fringe."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this case, since the fringe spacing is 907Å, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[d = 1.03 \\times 10^{-4}m\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(\\begin{array}{l}\n\\textbf{1 point}\\text{ for formula} \\\\\n\\textbf{1 point}\\text{ for final numerical answer}\n\\end{array}\\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Question 2\n\n\nThe two-slit electron interference experiment was first performed by Möllenstedt \net al\n, Merli-Missiroli and Pozzi in 1974 and Tonomura \net al\n in 1989. In the two-slit electron interference experiment, a monochromatic electron point source emits particles at \n\\(S\\)\n that first passes through an electron “biprism” before impinging on an observational plane; \n\\(S_{\\mathit{1}}\\)\n and \n\\(S_2\\)\n are virtual sources at distance \n\\(d\\)\n. In the diagram, the filament is pointing into the page. Note that it is a very thin filament (not drawn to scale in the diagram).\n\n\n\n\n\n\n\n\n\nThe electron “biprism” consists of a grounded cylindrical wire mesh with a fine filament \n\\(F\\)\n at the center. The distance between the source and the “biprism” is \n\\(\\ell\\)\n, and the distance between the distance between the “biprism” and the screen is \n\\(L\\)\n.\n\n\n(a)(\n2 points\n) Taking the center of the circular cross section of the filament as the origin \n\\(O\\)\n, find the electric potential at any point \n\\((x{,}z)\\)\n very near the filament in terms of \n\\(V_a\\)\n, \n\\(a\\)\n and \n\\(b\\)\n where \n\\(V_a\\)\n is the electric potential of the surface of the filament, \n\\(a\\)\n is the radius of the filament and \n\\(b\\)\n is the distance between the center of the filament and the cylindrical wire mesh. (Ignore mirror charges.)\n\n\nWriting out \n\\(|\\mathrm{E}| = \\frac{\\lambda}{2\\pi\\epsilon_0 r} = -\\frac{\\partial}{\\partial r}V(r)\\)\n \n\\[= -\\frac{\\partial}{\\partial r}\\frac{\\lambda}{2\\pi\\epsilon_0}\\ln\\frac{b}{r} \\quad \\text{(\\textbf{1 point})}\\]\n\n\nNote that \n\\[V(r) = \\frac{\\lambda}{2\\pi\\epsilon_0}\\ln\\frac{b}{r} \\quad \\text{(= 0 at the mesh)}\\]\n\n\nAlso at the edge of the filament, \n\\(V_a = V(r = a)\\)\n , so \n\\[V_a = \\frac{\\lambda}{2\\pi\\epsilon_0}\\ln\\frac{b}{a}\\]\n\n\nGiving together \n\\[V(r) = V_a\\frac{\\ln(b/r)}{\\ln(b/a)} \\quad \\text{where } r = \\sqrt{x^2 + z^2}\\]\n\n\n(\n1 point\n for final expression)\n\n\n(b)(\n4 points\n) An incoming electron plane wave with wave vector \n\\(k_z\\)\n is deflected by the “biprism” due to the \n\\(x\\)\n-component of the force exerted on the electron. Determine \n\\(k_x\\)\n the \n\\(x\\)\n-component of the wave vector due to the “biprism” in terms of the electron charge, \n\\(e\\)\n, \n\\(v_z\\)\n, \n\\(V_{a,}\\)\n \n\\(k_{z,}\\)\n \n\\(a\\)\n and \n\\(b\\)\n, where \n\\(e\\)\n and \n\\(v_z\\)\n are the charge and the \n\\(z\\)\n-component of the velocity of the electrons (\n\\(k_x{\\ll}k_z\\)\n). Note that \n\\(\\vec{k} = \\frac{2\\pi\\vec{p}}{h}\\)\n where \n\\(h\\)\n is the Planck constant.\n\n\nThere are several ways to work out the solution:\n\n\nA charge in an electric field will experience a force and hence a change in momentum. Note that potential energy of the electron (charge \n\\(= -e_0\\)\n) is \n\\(-e_0V(r)\\)\n. Using impulse acting on the electron due to the electric field, (\n2 points\n) \n\\[\\begin{align*}\n\\mathrm{Impulse} &= \\frac{1}{v_z}\\int_{-\\infty}^{\\infty}(-e_0)\\left(-\\frac{\\partial V(x,z')}{\\partial x}\\right)dz'|_{x=a} \\\\\n&= -\\frac{1}{v_z}\\int_{-\\infty}^{\\infty}\\frac{-e_0V_ax}{(x^2 + z'^2)\\ln\\dfrac{b}{a}}dz'|_{x=a} \\\\\n&= \\frac{e_0V_a\\pi}{v_z\\ln\\dfrac{b}{a}} \\\\\n\\Rightarrow \\quad k_x &= \\frac{e_0V_a\\pi}{\\hbar v_z\\ln\\dfrac{b}{a}}\n\\end{align*}\\]\n\n\n(\n2 points\n for final expression)\n\n\nThe alternative solution is to write down the equations of motion for the electrons (\n2 points\n) and determine the deflection of the electron as it passes through the “biprism”: \n\\[\\frac{\\Delta x}{\\Delta z} = \\frac{\\lambda e}{2\\epsilon_0 mv_z^2}\\]\n\n\nSince \n\\(V_a = \\frac{\\lambda}{2\\pi\\epsilon_0}\\ln\\frac{b}{a}\\)\n, \n\\[\\frac{\\Delta x}{\\Delta z} = \\frac{\\pi eV_a}{mv_z^2\\ln\\dfrac{a}{b}}\\]\n\n\n(\n2 points\n for final expression)\n\n\n(c)Before the point \n\\(S\\)\n, the electrons are emitted from a field emission tip and accelerated through a potential \n\\(V_{\\mathit{0}}\\)\n. Determine the wavelength of the electron in terms of the (rest) mass \n\\(m\\)\n, charge – \n\\(e_0\\)\n and \n\\(V_{\\mathit{0},}\\)\n\n\n(i)(\n2 points\n) assuming relativistic effects can be ignored.\n\n\nEquating the kinetic energy to \n\\(eV_{\\mathit{0}}\\)\n (\n1 point\n) \n\\[\\begin{align*}\n\\frac{h}{\\lambda} &= \\sqrt{2m\\lvert -e_0\\rvert V_0} \\\\\n\\lambda &= \\frac{h}{\\sqrt{2me_0V_0}}\n\\end{align*}\\]\n\n\n(\n1 point\n for final expression)\n\n\n(ii)(\n3 points\n) taking relativistic effects into consideration.\n\n\nConsider \n\\[\\begin{align*}\nE^2 &= (pc)^2 + (mc^2)^2 \\\\\n&= \\left(\\frac{h}{\\lambda}c\\right)^2 + (mc^2)^2 \\\\\n\\frac{h^2c^2}{\\lambda^2} &= (mc^2 + |-e_0|V_0)^2 - (mc^2)^2 \\\\\n&= 2mc^2e_0V_0\\left(1 + \\frac{e_0V_0}{2m_0c^2}\\right) \\\\\n\\lambda &= \\frac{h}{\\sqrt{2me_0V_0\\left(1 + \\dfrac{e_0V_0}{2m_0c^2}\\right)}}\n\\end{align*}\\]\n\n\n\\[\\left(\\begin{array}{l}\n\\textbf{1 point}\\text{ for knowing relativitic }\\mathrm{E} - \\mathrm{p}\\text{ relation} \\\\\n\\textbf{1 point}\\text{ for manipulating the equations} \\\\\n\\textbf{1 point}\\text{ for final expression}\n\\end{array}\\right)\\]\n\n\n(d)In Tonomura et al experiment,\n\n\n\n\n\n\n\n\n\n\n\\(v_z\\)\n\n\n=\n\n\n\\(c\\)\n/2,\n\n\n\n\n\n\n\\(V_a\\)\n\n\n=\n\n\n10 V,\n\n\n\n\n\n\n\\(V_{\\mathit{0}}\\)\n\n\n=\n\n\n50 kV,\n\n\n\n\n\n\n\\(a\\)\n\n\n=\n\n\n0.5 \n\\(\\mu\\)\nm,\n\n\n\n\n\n\n\\(b\\)\n\n\n=\n\n\n5 mm,\n\n\n\n\n\n\n\\(\\ell\\)\n\n\n=\n\n\n25 cm,\n\n\n\n\n\n\n\\(L\\)\n\n\n=\n\n\n1.5 m,\n\n\n\n\n\n\n\\(h\\)\n\n\n=\n\n\n6.6 x 10\n-34\n Js,\n\n\n\n\n\n\nelectron charge\n,\n \n\\(-e = -\\)\n1.6 x 10\n-19\n C,\n\n\n\n\n\n\nmass of electron, \n\\(m\\)\n = 9.1 x 10\n-31\n kg,\n\n\n\n\n\n\nand the speed of light \nin vacuo\n, \n\\(c\\)\n = 3 x 10\n8\n ms\n-1\n\n\n\n\n\n\n\n\n\n\n(i)(\n2 points\n) calculate the value of \n\\(k_x\\)\n ,\n\n\nPrevious equation: \n\\[k_x = \\frac{e_0V_a\\pi}{\\hbar v_z\\ln\\dfrac{b}{a}}\\]\n\n\nPlugging the relevant numbers into the equation gives:\n\n\n(\n1 point\n for plugging the correct values) \n\\[k_x = \\frac{\\pi}{907}\\text{Å}^{-1}\\ or\\ 3.46 \\times 10^7m^{-1}\\]\n\n\n\n\n(\n1 point\n for final expression)\n\n\n\n\n(ii)(\n2 points\n) determine the fringe separation of the interference pattern on the screen,\n\n\nFringe separation is given by \n\\(\\frac{1}{2}\\frac{2\\pi}{k_x} = 907\\text{Å}\\)\n \n\\[\\left(\\begin{array}{l}\n\\textbf{1 point}\\text{ for formula, note the factor }\\dfrac{1}{2} \\\\\n\\textbf{1 point}\\text{ for final expression with units}\n\\end{array}\\right)\\]\n\n\n(iii)(\n1 point\n) If the electron wave is a spherical wave instead of a plane wave, is the fringe spacing larger, the same or smaller than the fringe spacing calculated in (ii)?\n\n\nLarger. (\n1 point\n for the correct answer)\n\n\n(iv)(\n2 points\n) In part (c), determine the percentage error in the wavelength of the electron using non-relativistic approximation.\n\n\nNon-relativistic: \n\\[\\begin{align*}\n\\frac{h}{\\lambda} &= \\sqrt{2me_0V_0} \\\\\n\\lambda_{nonrel} &= \\frac{h}{\\sqrt{2me_0V_0}} \\\\\n&= 5.4697 \\times 10^{-12}m\n\\end{align*}\\]\n\n\nRelativistic: \n\\[\\begin{align*}\n\\lambda_{rel} &= \\frac{h}{\\sqrt{2meV_0\\left(1 + \\dfrac{eV_0}{2m_0c^2}\\right)}} \\\\\n&= 5.3408 \\times 10^{-12}m\n\\end{align*}\\]\n\n\nPercentage error: \n\\[\\begin{align*}\n\\mathrm{Error} &= \\frac{\\lambda_{nonrel} - \\lambda_{rel}}{\\lambda_{rel}} \\\\\n&= 0.024\n\\end{align*}\\]\n\n\n\n\nor 2.4 percent.\n\n\n\n\n\\[\\left(\\begin{array}{l}\n\\textbf{1 point}\\text{ for working out non }-\\text{ relativistic and relativistic wavelength} \\\\\n\\textbf{1 point}\\text{ for final expression}\n\\end{array}\\right)\\]\n\n\n(v)(\n2 points\n) Calculate the distance \n\\(d\\)\n between the apparent double slits.\n\n\nThe double slit formula is given by \n\\[y = \\frac{m\\lambda(\\ell + L)}{d}\\]\n\n\nwhere \n\\(m\\)\n is the order and \n\\(y\\)\n is the distance for maximum intensity from the central fringe.\n\n\nIn this case, since the fringe spacing is 907Å, \n\\[d = 1.03 \\times 10^{-4}m\\]\n \n\\[\\left(\\begin{array}{l}\n\\textbf{1 point}\\text{ for formula} \\\\\n\\textbf{1 point}\\text{ for final numerical answer}\n\\end{array}\\right)\\]\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2014-t2/dbc610bfb56ad1ae2077.png"
+    ],
+    "shared": false
+  }
+}

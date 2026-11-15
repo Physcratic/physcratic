@@ -1,0 +1,17 @@
+{
+  "problemId": "eupho-2017-t3",
+  "version": "2a07e0fd4c62c520d17790ab001f413209c461349037bd91cf10c1e7aa0df027",
+  "parts": [
+    {
+      "id": "q1",
+      "sourcePart": "Answer",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "math"
+    }
+  ]
+}

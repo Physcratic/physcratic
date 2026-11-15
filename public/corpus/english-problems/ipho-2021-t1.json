@@ -1,1 +1,4457 @@
-{"id":"ipho-2021-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2021_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2021_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2021-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Theory\nQ1-1\nEnglish (Official)\nPlanetary Physics (10 points)\nThis problem consists of two independent problems related to the interior of planets. The effects of the\nsurface curvature of the planets can be neglected. You might need to use the formula\n(1 + 𝑥)𝜀≈1 + 𝜀𝑥, when |𝑥| ≪1.\n(1)\nPart A. Mid-ocean ridge (5.0 points)\nConsider a large vessel of water that is situated in a uniform gravitational field with free-fall acceleration\n𝑔. Two vertical rectangular plates parallel to each other are fitted into the vessel so that the vertical edges\nof the plates are in a tight gap-less contact with the vertical walls of the vessel. Length ℎof each plate is\nimmersed in water (Fig. 1). The width of the plates along the 𝑦-axis is 𝑤, water density is 𝜌0.\nFigure 1. Parallel plates in water.\nOil of density 𝜌oil (𝜌oil < 𝜌0) is poured into the space between the plates until the lower level of the oil has\nreached the lower edges of the plates. Assume that plates and vessel edges are high enough for oil not\nto overflow them. Surface tension and mixing of fluids can be neglected.\nA.1\nWhat is the 𝑥-component of the net force 𝐹𝑥acting on the right plate (magnitude\nand direction)?\n0.8pt\nFig. 2 shows a cross-section of a mid-ocean ridge. It consists of overlaying layers of mantle, crust and\nocean water. The mantle is composed of rocks that we assume can flow in geological timescales and\ntherefore, in this problem will be treated as a fluid. The thickness of the crust is much smaller than the\ncharacteristic length scale in the 𝑥-direction, hence, the crust behaves as a freely bendable plate. To high\naccuracy, such a ridge can be modeled as a two-dimensional system, without any variation of variables\nalong the 𝑦-axis, which is perpendicular to the plane of Fig. 2. Assume that the ridge length 𝐿along the\n𝑦-axis is much larger than any other length introduced in this problem.\nAt the centre of the ridge the thickness of the crust is assumed to be zero. As the horizontal distance 𝑥\nfrom the centre increases, the crust gets thicker and approaches a constant thickness 𝐷as 𝑥→∞. Corre-\nspondingly, the ocean floor subsides by a vertical height ℎbelow the top of the ridge O, which we define\nas the origin of our coordinate system (see Fig. 2). Water density 𝜌0 and temperature 𝑇0 can be assumed\nto be constant in space and time. The same can be assumed for mantle density 𝜌1 and its temperature 𝑇1.\nThe temperature of the crust 𝑇is also constant in time but can depend on position.\n\nTheory\nQ1-2\nEnglish (Official)\nIt is known that, to high accuracy, the crustal material expands linearly with temperature 𝑇. Since water\nand mantle temperatures are assumed to be constant, it is convenient to use a rescaled version of the\nthermal expansion coefficient. Then 𝑙(𝑇) = 𝑙1 [1 −𝑘𝑙(𝑇1 −𝑇) /(𝑇1 −𝑇0)], where 𝑙is the length of a piece\nof crustal material, 𝑙1 is its length at temperature 𝑇1, and 𝑘𝑙is the rescaled thermal expansion coefficient,\nwhich can be assumed to be constant.\nFigure 2. Mid-ocean ridge. Note that the 𝑧-axis is pointing downwards.\nA.2\nAssuming that the crust is isotropic, find how its density 𝜌depends on its tem-\nperature 𝑇. Assuming that |𝑘𝑙| ≪1, write your answer in the approximate form\n𝜌(𝑇) ≈𝜌1\n[\n1 + 𝑘𝑇1 −𝑇\n𝑇1 −𝑇0\n]\n,\n(2)\nwhere terms of order 𝑘2\n𝑙and higher are neglected. Then, identify constant 𝑘.\n0.6pt\nIt is known that 𝑘> 0. Also, thermal conductivity of the crust 𝜅can be assumed to be constant. As a\nconsequence, very far away from the ridge axis the temperature of the crust depends linearly with depth.\nA.3\nBy assuming that mantle and water each behave like an incompressible fluid at\nhydrostatic equilibrium, express the far-distance crust thickness 𝐷in terms of ℎ,\n𝜌0, 𝜌1, and 𝑘. Any motion of the material can be neglected.\n1.1pt\nA.4\nFind, to the leading order in 𝑘, the net horizontal force 𝐹acting on the right half\n(𝑥> 0) of the crust in terms of 𝜌0, 𝜌1, ℎ, 𝐿, 𝑘and 𝑔.\n1.6pt\nSuppose that crust is thermally isolated from the rest of the Earth. As a result of heat conduction, the\ntemperatures of the upper and lower surfaces of the crust are going to get closer to each other until the\ncrust reaches thermal equilibrium. Specific heat of the crust is 𝑐and can be assumed to be constant.\n\nTheory\nQ1-3\nEnglish (Official)\nA.5\nBy using dimensional analysis or order-of-magnitude analysis, estimate the char-\nacteristic time 𝜏in which the difference between the upper and lower surface\ntemperatures of the crust far away from the ridge axis is going to approach zero.\nYou can assume that 𝜏does not depend on the two initial surface temperatures\nof the crust.\n0.9pt\nPart B. Seismic waves in a stratified medium (5.0 points)\nSuppose that a short earthquake happens at the surface of some planet. The seismic waves can be as-\nsumed to originate from a line source situated at 𝑧= 𝑥= 0, where 𝑥is the horizontal coordinate and 𝑧\nis the depth below the surface (Fig. 3). The seismic wave source can be assumed to be much longer than\nany other length considered in this question.\nAs a result of the earthquake, a uniform flux of the so-called longitudinal P waves is emitted along all the\ndirections in the 𝑥-𝑧plane that have positive component along the 𝑧-axis. Since the wave theory in a solid\nis generally complicated, in this problem we neglect all the other waves emitted by the earthquake. The\ncrust of the planet is stratified so that the P-wave speed 𝑣depends on depth 𝑧according to 𝑣= 𝑣0(1+𝑧/𝑧0),\nwhere 𝑣0 is the speed at the surface and 𝑧0 is a known positive constant.\nFigure 3. Coordinate system used in part B.\nB.1\nConsider a single ray emitted by the earthquake that makes an initial angle 0 <\n𝜃0 < 𝜋/2 with the 𝑧-axis and travels in the 𝑥-𝑧plane. What is the horizontal\ncoordinate 𝑥1(𝜃0) ≠0 at which this ray can be detected at the surface of the\nplanet? It is known that the ray path is an arc of a circle. Write your answer in\nthe form 𝑥1(𝜃0) = 𝐴cot(𝑏𝜃0), where 𝐴and 𝑏are constants to be found.\n1.5pt\nIf you were unable to find 𝐴and 𝑏, in the following questions you can use the result 𝑥1(𝜃0) = 𝐴cot(𝑏𝜃0) as\ngiven. Suppose that total energy per unit length of the source released as P waves into the crust during the\nearthquake is 𝐸. Assume that waves are completely absorbed when they reach the surface of the planet\nfrom below.\nB.2\nFind how the energy density per unit area 𝜀(𝑥) absorbed by the surface depends\non the distance along the surface 𝑥. Sketch the plot of 𝜀(𝑥).\n1.5pt\n\nTheory\nQ1-4\nEnglish (Official)\nFrom now on, assume that the waves are instead fully reflected when reaching the surface. Imagine a\ndevice positioned at 𝑧= 𝑥= 0 that has the same geometry as the previously considered earthquake\nsource. The device is capable of emitting P waves in a freely chosen angular distribution. We make the\ndevice emit a signal with a narrow range of emission angles. In particular, the initial angle the signal makes\nwith the vertical belongs to the interval [𝜃0 −1\n2𝛿𝜃0, 𝜃0 + 1\n2𝛿𝜃0], where 0 < 𝜃0 < 𝜋/2, 𝛿𝜃0 ≪1 and 𝛿𝜃0 ≪𝜃0.\nB.3\nAt what distance 𝑥max along the surface from the source is the furthest point\nthat the signal does not reach? Write your answer in terms of 𝜃0, 𝛿𝜃0 and other\nconstants given above.\n2.0pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2021-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6],"initialPage":1,"shared":false,"text":"Theoretical Qestion 1 – Solution\nS1-1\nENGLISH\nPlanetary Physics (10 points)\nPart A.\nMid-ocean ridge (5.0 points)\nA.1 (0.8 points)\nFigure 1\nLetℎ′ be the height of the column of oil (see Fig. 1). Then pressure at depthℎbelow the water surface\nmust be 𝑝ℎ= 𝜌0𝑔ℎ= 𝜌oil𝑔ℎ′, from where ℎ′ = 𝜌0\n𝜌oilℎ. Horizontal force on the plate 𝐹𝑥= 𝐹1 −𝐹0, where\nthe force due to new fluid is 𝐹1 = 𝜌oil𝑔ℎ′\n2\n· ℎ′𝑤and the force due to water is 𝐹0 = 𝜌0𝑔ℎ\n2\n· ℎ𝑤.\nCombining all the equation above, we get\n𝐹𝑥=\n\u0012 𝜌0\n𝜌oil\n−1\n\u0013 𝜌0𝑔ℎ2𝑤\n2\n.\nThis force acts on the right plate to the right.\nA.2 (0.6 points)\nConsider a rectangular mass element of the crust. Since relation𝑙(𝑇) = 𝑙1 [1 −𝑘𝑙(𝑇1 −𝑇) /(𝑇1 −𝑇0)]\nholds for all three dimensions of the solid, its volume 𝑉satisfies\n𝑉= 𝑉1\n\u0012\n1 −𝑘𝑙\n𝑇1 −𝑇\n𝑇1 −𝑇0\n\u00133\n,\nwhere 𝑉1 is the volume at 𝑇= 𝑇1. If the mass of the element is 𝑚, density is then\n𝜌(𝑇) = 𝑚\n𝑉= 𝑚\n𝑉1\n\u0012\n1 −𝑘𝑙\n𝑇1 −𝑇\n𝑇1 −𝑇0\n\u0013−3\n= 𝜌1\n\u0012\n1 −𝑘𝑙\n𝑇1 −𝑇\n𝑇1 −𝑇0\n\u0013−3\n.\nSince 𝑘𝑙≪1, this can be approximated as\n𝜌(𝑇) ≈𝜌1\n\u0012\n1 + 3𝑘𝑙\n𝑇1 −𝑇\n𝑇1 −𝑇0\n\u0013\n,\nso that 𝑘= 3𝑘𝑙.\n\nTheoretical Qestion 1 – Solution\nS1-2\nENGLISH\nA.3 (1.1 points)\nSince mantle behaves like a fluid in hydrostatic equilibrium, pressure 𝑝(𝑥,𝑧) at 𝑧= ℎ+ 𝐷must be\nthe same for all 𝑥. Therefore,\n𝑝(0,ℎ+ 𝐷) = 𝑝(∞,ℎ+ 𝐷) .\nSimilarly, we must have\n𝑝(0, 0) = 𝑝(∞, 0) .\nHence, the change in pressure between 𝑧= 0 and 𝑧= ∞must be the same at both 𝑥= 0 and 𝑥= ∞.\nAt the ridge axis\n𝑝(0,ℎ+ 𝐷) −𝑝(0, 0) = 𝜌1𝑔(ℎ+ 𝐷) ,\nwhile far away\n𝑝(∞,ℎ+ 𝐷) −𝑝(∞, 0) = 𝜌0𝑔ℎ+\n∫ℎ+𝐷\nℎ\n𝜌(𝑇(∞,𝑧)) 𝑔d𝑧.\nSince the temperature of the crust at 𝑥= ∞depends linearly on height, afer applying the relevant\ntemperature boundary conditions,\n𝑇(∞,𝑧) = 𝑇0 + (𝑇1 −𝑇0) 𝑧−ℎ\n𝐷\n.\nFrom all the equations above and by using the density formula given in the problem text,\n𝜌1𝑔(ℎ+ 𝐷) = 𝜌0𝑔ℎ+\n∫ℎ+𝐷\nℎ\n𝜌1\n \n1 + 𝑘\n𝑇1 −𝑇0 −(𝑇1 −𝑇0) 𝑧−ℎ\n𝐷\n𝑇1 −𝑇0\n!\n𝑔d𝑧,\nfrom where we straightforwardly obtain\n𝐷= 2\n𝑘\n\u0012\n1 −𝜌0\n𝜌1\n\u0013\nℎ.\nA.4 (1.6 points)\nThe net horizontal force on the half of the ridge is the diﬀerence between the pressure forces acting\nat 𝑥= 0 and 𝑥= ∞:\n𝐹= 𝐿\n∫ℎ+𝐷\n0\n𝑝(0,𝑧) d𝑧−𝐿\n∫ℎ\n0\n𝑝(∞,𝑧) .\nFrom considerations of the previous question, pressure at 𝑥= 0 is\n𝑝(0,𝑧) = 𝑝(0, 0) + 𝜌1𝑔𝑧,\nwhile very far away\n𝑝(∞,𝑧) = 𝑝(∞, 0) + 𝜌0𝑔𝑧\nThe equations above can be combined into\n𝐹= 𝐿\n∫ℎ+𝐷\n0\n(𝑝(0, 0) + 𝜌1𝑔𝑧) d𝑧−𝐿\n∫ℎ\n0\n(𝑝(∞, 0) + 𝜌0𝑔𝑧) d𝑧.\n\nTheoretical Qestion 1 – Solution\nS1-3\nENGLISH\nAfer a straightforward integration and using 𝑝(0, 0) = 𝑝(∞, 0),\n𝐹= 𝐿𝑝(0, 0) 𝐷+ 𝐿𝜌1𝑔(ℎ+ 𝐷)2\n2\n−𝐿𝜌0𝑔ℎ2\n2 .\nSince 𝑘≪1, and 𝐷∝𝑘−1, the term with 𝐷2 ∝𝑘−2 is of the leading order, hence, afer substituting\nthe result of A.3, the required answer is\n𝐹≈2𝑔𝐿ℎ2 (𝜌1 −𝜌0)2\n𝑘2𝜌1\n.\nA.5 (0.9 points)\nMethod 1: dimensional analysis.\nThe timescale 𝜏is expected to depend only on density of the\ncrust 𝜌1, its specific heat 𝑐, thermal conductivity 𝜅and thickness 𝐷. Hence, we can write\n𝜏= 𝐴𝜌𝛼\n1𝑐𝛽𝜅𝛾𝐷𝛿,\nwhere 𝐴is a dimensionless constant. We will obtain the powers 𝛼–𝛿via dimensional analysis.\nDefine the symbols for diﬀerent dimensions: L for length, M for mass, T for time and Θ for tem-\nperature. Then 𝜏, 𝜌1, 𝑐, 𝜅and 𝐷have dimensions T, ML−3, L2T−2Θ−1, MLT−3Θ−1 and L, respectively.\nThe resulting set of linear equations to balance the powers of length, mass, time and temperature,\nrespectively, is\n\n\n0 = −3𝛼+ 2𝛽+ 𝛾+ 𝛿,\n0 = 𝛼+ 𝛾,\n1 = −2𝛽−3𝛾,\n0 = −𝛽−𝛾.\nThis gives 𝛼= 𝛽= 1, 𝛾= −1, 𝛿= 2. Hence,\n𝜏= 𝐴𝑐𝜌1𝐷2\n𝜅\n.\nMethod 2: scale analysis.\nConsider a piece of crust of area 𝑆. Heat flux that has to be trans-\nmited through the crust is of order 𝑄∼𝑐𝜌1𝑆𝐷Δ𝑇, where Δ𝑇= 𝑇1 −𝑇0. On the other hand, the law\nof thermal conductivity gives that 𝜅Δ𝑇\n𝐷∼𝑄\n𝑆𝜏.\nFrom the two equations, 𝑐𝜌1𝑆𝐷Δ𝑇∼𝑆𝜏𝜅Δ𝑇\n𝐷, from where we get that 𝜏is independent of Δ𝑇and\n𝜏∼𝑐𝜌1𝐷2\n𝜅\n.\n\nTheoretical Qestion 1 – Solution\nS1-4\nENGLISH\nPart B.\nSeismic waves in a stratified medium (5.0 points)\nB.1 (1.5 points)\nSeismic waves in this problem can be treated by using ray theory. Namely, their propagation is\ndescribed by the Snell’s law of refraction\n𝑛(0) sin𝜃0 = 𝑛(𝑧) sin𝜃,\nwhere the refractive index is\n𝑛(𝑧) =\n𝑐\n𝑣(𝑧) =\n𝑐\n𝑣0\n\u0010\n1 + 𝑧\n𝑧0\n\u0011\nand 𝑐denotes the seismic wave speed in a material with refractive index 𝑛= 1. From the two\nequations above we have\n𝑣0\n\u0012\n1 + 𝑧\n𝑧0\n\u0013\nsin𝜃0 = 𝑣0 sin𝜃.\nMethod 1.\nSince this describes an arc of a circle, we have that at 𝜃= 𝜋\n2 , 𝑧= 𝑅−𝑅sin𝜃0 (Fig. 2),\ngiving\n\u0012\n1 + 𝑅−𝑅sin𝜃0\n𝑧0\n\u0013\nsin𝜃0 = 1,\nfrom where the circle radius 𝑅=\n𝑧0\nsin𝜃0. From simple geometry we get\n𝑥1 (𝜃0) = 2𝑅cos𝜃0,\nleading to\n𝑥1 (𝜃0) = 2𝑧0 cot𝜃0,\ni.e. 𝐴= 2𝑧0 and 𝑏= 1.\nFigure 2\n\nTheoretical Qestion 1 – Solution\nS1-5\nENGLISH\nMethod 2.\nImplicitly diﬀerentiating 𝑣0\n\u0010\n1 + 𝑧\n𝑧0\n\u0011\nsin𝜃0 = 𝑣0 sin𝜃gives\nd𝑧\n𝑧0\nsin𝜃0 = cos𝜃d𝜃.\nAn infinitesimal ray path length d𝑙is related to the change in the vertical coordinate via\nd𝑧= d𝑙cos𝜃,\ngiving\nd𝑙=\n𝑧0\nsin𝜃0\nd𝜃.\nThis is an equation of an arc of a circle of radius 𝑅=\n𝑧0\nsin𝜃0\nAlternatively, instead of considering an infinitesimal ray path length d𝑙, one can obtain the\nanswer by writing\ncot𝜃= d𝑧\nd𝑥= d𝑧\nd𝜃\nd𝜃\nd𝑥.\nThe first derivative can be eliminated via Snell’s law, leading to\ncot𝜃= 𝑧0 cos𝜃\nsin𝜃0\nd𝜃\nd𝑥,\nwhich can be integrated to get\n𝑥1 = −𝑧0\nsin𝜃0\n∫end\nstart\ndcos𝜃= 2𝑧0 cos𝜃0\nsin𝜃0\n,\nwhere we used Snell’s law again to get that the ray has cos𝜃= −cos𝜃0 at the point where it reaches\nthe surface.\nB.2 (1.5 points)\nIn two dimensions, 𝐸\n𝜋d𝜃0 is the energy carried by rays that are emited within interval [𝜃0,𝜃0 + d𝜃0).\nOn the other hand, the energy carried by rays that arrive at [𝑥,𝑥+ d𝑥) is 𝜀d𝑥. Therefore,\n𝜀= 𝐸\n𝜋\n\f\f\f\f\nd𝜃0\nd𝑥\n\f\f\f\f .\nUsing the result of question B.1,\nd𝑥\nd𝜃0\n= −\n𝐴𝑏\nsin2 (𝑏𝜃0) = −𝐴𝑏\u00001 + cot2 (𝑏𝜃0)\u0001 = −𝑏\u0000𝐴2 + 𝑥2\u0001\n𝐴\n.\nHence,\n𝜀(𝑥) =\n𝐸𝐴\n𝜋𝑏(𝐴2 + 𝑥2) =\n2𝐸𝑧0\n𝜋\u00004𝑧2\n0 + 𝑥2\u0001 .\nThis function is ploted in Fig. 3.\n\nTheoretical Qestion 1 – Solution\nS1-6\nENGLISH\nFigure 3. Plot of the function 𝜀(𝑥).\nB.3 (2.0 points)\nDefine 𝑥−= 𝑥1\n\u0010\n𝜃0 −𝛿𝜃0\n2\n\u0011\nand 𝑥+ = 𝑥1\n\u0010\n𝜃0 + 𝛿𝜃0\n2\n\u0011\n. To the leading order in 𝛿𝜃0, 𝑥−≈𝑥+ ≈𝑥1 (𝜃0).\nWith each reflection of the signal, the horizontal distance between the points where the edges of\nthe signal reflect increases by |𝑥+ −𝑥−| = 𝑥−−𝑥+. When moving along the positive 𝑥-axis, these\nzones get wider until they overlap. If this happens afer 𝑁reflections, then\n𝑁≈𝑥1 (𝜃0)\n𝑥−−𝑥+\n,\nwhere the approximate sign tends to equality as 𝛿𝜃0 →0.\nThe position where the zones start to overlap is at 𝑥max = 𝑁𝑥1(𝜃0). Therefore,\n𝑥max =\n𝑥1(𝜃0)2\n𝑥1\n\u0010\n𝜃0 −𝛿𝜃0\n2\n\u0011\n−𝑥1\n\u0010\n𝜃0 + 𝛿𝜃0\n2\n\u0011 .\nSince 𝛿𝜃0 ≪𝜃0, we can approximate\n𝑥1\n\u0012\n𝜃0 −𝛿𝜃0\n2\n\u0013\n−𝑥1\n\u0012\n𝜃0 + 𝛿𝜃0\n2\n\u0013\n≈−d𝑥1(𝜃0)\nd𝜃0\n𝛿𝜃0 =\n𝐴𝑏\nsin2 (𝑏𝜃0)𝛿𝜃0.\nCombining the last two equations and substituting the 𝑥1 (𝜃0) expression gives\n𝑥max = 𝐴cos2 (𝑏𝜃0)\n𝑏𝛿𝜃0\n= 2𝑧0 cos2 𝜃0\n𝛿𝜃0\n.\n","textExtraction":"available"}}
+{
+  "id": "ipho-2021-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2021-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Planetary Physics (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This problem consists of two independent problems related to the interior of planets. The effects of the surface curvature of the planets can be neglected. You might need to use the formula"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n(1+x)^{\\varepsilon} \\approx 1+\\varepsilon x, \\quad \\text{when } |x| \\ll 1. \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Mid-ocean ridge (5.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider a large vessel of water that is situated in a uniform gravitational field with free-fall acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Two vertical rectangular plates parallel to each other are fitted into the vessel so that the vertical edges of the plates are in a tight gap-less contact with the vertical walls of the vessel. Length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of each plate is immersed in water (Fig. 1). The width of the plates along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", water density is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t1/814e5347e8e706f68bda.png",
+                "alt": "ipho-2021-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1. Parallel plates in water."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Oil of density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_\\mathrm{oil}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_\\mathrm{oil} < \\rho_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is poured into the space between the plates until the lower level of the oil has reached the lower edges of the plates. Assume that plates and vessel edges are high enough for oil not to overflow them. Surface tension and mixing of fluids can be neglected."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "What is the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-component of the net force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " acting on the right plate (magnitude and direction)? 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig. 2 shows a cross-section of a mid-ocean ridge. It consists of overlaying layers of mantle, crust and ocean water. The mantle is composed of rocks that we assume can flow in geological timescales and therefore, in this problem will be treated as a fluid. The thickness of the crust is much smaller than the characteristic length scale in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-direction, hence, the crust behaves as a freely bendable plate. To high accuracy, such a ridge can be modeled as a two-dimensional system, without any variation of variables along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis, which is perpendicular to the plane of Fig. 2. Assume that the ridge length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis is much larger than any other length introduced in this problem."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At the centre of the ridge the thickness of the crust is assumed to be zero. As the horizontal distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the centre increases, the crust gets thicker and approaches a constant thickness "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x \\to \\infty\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Correspondingly, the ocean floor subsides by a vertical height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " below the top of the ridge O, which we define as the origin of our coordinate system (see Fig. 2). Water density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be assumed to be constant in space and time. The same can be assumed for mantle density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and its temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The temperature of the crust "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is also constant in time but can depend on position."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t1/d1aa12efd289a42bef42.png",
+                "alt": "ipho-2021-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 2. Mid-ocean ridge. Note that the "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(z\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "-axis is pointing downwards."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "It is known that, to high accuracy, the crustal material expands linearly with temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Since water and mantle temperatures are assumed to be constant, it is convenient to use a rescaled version of the thermal expansion coefficient. Then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l(T) = l_1\\, [1 - k_l(T_1 - T)\\, /\\,(T_1 - T_0)]\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the length of a piece of crustal material, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is its length at temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the rescaled thermal expansion coefficient, which can be assumed to be constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Assuming that the crust is isotropic, find how its density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " depends on its temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Assuming that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|k_l| \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", write your answer in the approximate form "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\rho(T) \\approx \\rho_1 \\left[1 + k\\frac{T_1 - T}{T_1 - T_0}\\right], \\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where terms of order "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_l^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and higher are neglected. Then, identify constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.6pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "It is known that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Also, thermal conductivity of the crust "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\kappa\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be assumed to be constant. As a consequence, very far away from the ridge axis the temperature of the crust depends linearly with depth."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "By assuming that mantle and water each behave like an incompressible fluid at hydrostatic equilibrium, express the far-distance crust thickness "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Any motion of the material can be neglected. 1.1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find, to the leading order in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the net horizontal force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " acting on the right half ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") of the crust in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.6pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Suppose that crust is thermally isolated from the rest of the Earth. As a result of heat conduction, the temperatures of the upper and lower surfaces of the crust are going to get closer to each other until the crust reaches thermal equilibrium. Specific heat of the crust is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and can be assumed to be constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "By using dimensional analysis or order-of-magnitude analysis, estimate the characteristic time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in which the difference between the upper and lower surface temperatures of the crust far away from the ridge axis is going to approach zero. You can assume that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " does not depend on the two initial surface temperatures of the crust. 0.9pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Seismic waves in a stratified medium (5.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Suppose that a short earthquake happens at the surface of some planet. The seismic waves can be assumed to originate from a line source situated at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = x = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the horizontal coordinate and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the depth below the surface (Fig. 3). The seismic wave source can be assumed to be much longer than any other length considered in this question."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As a result of the earthquake, a uniform flux of the so-called longitudinal P waves is emitted along all the directions in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane that have positive component along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis. Since the wave theory in a solid is generally complicated, in this problem we neglect all the other waves emitted by the earthquake. The crust of the planet is stratified so that the P-wave speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " depends on depth "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " according to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v = v_0(1+z/z_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the speed at the surface and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a known positive constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t1/4f3890920e726a740703.png",
+                "alt": "ipho-2021-t1 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 3. Coordinate system used in part B."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Consider a single ray emitted by the earthquake that makes an initial angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0 < \\theta_0 < \\pi/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis and travels in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane. What is the horizontal coordinate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_1(\\theta_0) \\neq 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at which this ray can be detected at the surface of the planet? It is known that the ray path is an arc of a circle. Write your answer in the form "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_1(\\theta_0) = A\\cot(b\\theta_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are constants to be found. 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If you were unable to find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", in the following questions you can use the result "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_1(\\theta_0) = A\\cot(b\\theta_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as given. Suppose that total energy per unit length of the source released as P waves into the crust during the earthquake is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Assume that waves are completely absorbed when they reach the surface of the planet from below."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find how the energy density per unit area "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " absorbed by the surface depends on the distance along the surface "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Sketch the plot of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From now on, assume that the waves are instead fully reflected when reaching the surface. Imagine a device positioned at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = x = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that has the same geometry as the previously considered earthquake source. The device is capable of emitting P waves in a freely chosen angular distribution. We make the device emit a signal with a narrow range of emission angles. In particular, the initial angle the signal makes with the vertical belongs to the interval "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\([\\theta_0 - \\tfrac{1}{2}\\delta\\theta_0, \\theta_0 + \\tfrac{1}{2}\\delta\\theta_0]\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0 < \\theta_0 < \\pi/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\theta_0 \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\theta_0 \\ll \\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "At what distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{max}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " along the surface from the source is the furthest point that the signal does not reach? Write your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and other constants given above. 2.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Planetary Physics (10 points)\n\n\nThis problem consists of two independent problems related to the interior of planets. The effects of the surface curvature of the planets can be neglected. You might need to use the formula\n\n\n\\[\\begin{equation}\n(1+x)^{\\varepsilon} \\approx 1+\\varepsilon x, \\quad \\text{when } |x| \\ll 1. \\tag{1}\n\\end{equation}\\]\n\n\nPart A. Mid-ocean ridge (5.0 points)\n\n\nConsider a large vessel of water that is situated in a uniform gravitational field with free-fall acceleration \n\\(g\\)\n. Two vertical rectangular plates parallel to each other are fitted into the vessel so that the vertical edges of the plates are in a tight gap-less contact with the vertical walls of the vessel. Length \n\\(h\\)\n of each plate is immersed in water (Fig. 1). The width of the plates along the \n\\(y\\)\n-axis is \n\\(w\\)\n, water density is \n\\(\\rho_0\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nFigure 1. Parallel plates in water.\n\n\n\n\nOil of density \n\\(\\rho_\\mathrm{oil}\\)\n (\n\\(\\rho_\\mathrm{oil} < \\rho_0\\)\n) is poured into the space between the plates until the lower level of the oil has reached the lower edges of the plates. Assume that plates and vessel edges are high enough for oil not to overflow them. Surface tension and mixing of fluids can be neglected.\n\n\nA.1\nWhat is the \n\\(x\\)\n-component of the net force \n\\(F_x\\)\n acting on the right plate (magnitude and direction)? 0.8pt\n\n\nFig. 2 shows a cross-section of a mid-ocean ridge. It consists of overlaying layers of mantle, crust and ocean water. The mantle is composed of rocks that we assume can flow in geological timescales and therefore, in this problem will be treated as a fluid. The thickness of the crust is much smaller than the characteristic length scale in the \n\\(x\\)\n-direction, hence, the crust behaves as a freely bendable plate. To high accuracy, such a ridge can be modeled as a two-dimensional system, without any variation of variables along the \n\\(y\\)\n-axis, which is perpendicular to the plane of Fig. 2. Assume that the ridge length \n\\(L\\)\n along the \n\\(y\\)\n-axis is much larger than any other length introduced in this problem.\n\n\nAt the centre of the ridge the thickness of the crust is assumed to be zero. As the horizontal distance \n\\(x\\)\n from the centre increases, the crust gets thicker and approaches a constant thickness \n\\(D\\)\n as \n\\(x \\to \\infty\\)\n. Correspondingly, the ocean floor subsides by a vertical height \n\\(h\\)\n below the top of the ridge O, which we define as the origin of our coordinate system (see Fig. 2). Water density \n\\(\\rho_0\\)\n and temperature \n\\(T_0\\)\n can be assumed to be constant in space and time. The same can be assumed for mantle density \n\\(\\rho_1\\)\n and its temperature \n\\(T_1\\)\n. The temperature of the crust \n\\(T\\)\n is also constant in time but can depend on position.\n\n\n\n\n\n\n\n\n\n\n\nFigure 2. Mid-ocean ridge. Note that the \n\\(z\\)\n-axis is pointing downwards.\n\n\n\n\nIt is known that, to high accuracy, the crustal material expands linearly with temperature \n\\(T\\)\n. Since water and mantle temperatures are assumed to be constant, it is convenient to use a rescaled version of the thermal expansion coefficient. Then \n\\(l(T) = l_1\\, [1 - k_l(T_1 - T)\\, /\\,(T_1 - T_0)]\\)\n, where \n\\(l\\)\n is the length of a piece of crustal material, \n\\(l_1\\)\n is its length at temperature \n\\(T_1\\)\n, and \n\\(k_l\\)\n is the rescaled thermal expansion coefficient, which can be assumed to be constant.\n\n\nA.2\nAssuming that the crust is isotropic, find how its density \n\\(\\rho\\)\n depends on its temperature \n\\(T\\)\n. Assuming that \n\\(|k_l| \\ll 1\\)\n, write your answer in the approximate form \n\\[\\begin{equation}\n\\rho(T) \\approx \\rho_1 \\left[1 + k\\frac{T_1 - T}{T_1 - T_0}\\right], \\tag{2}\n\\end{equation}\\]\n where terms of order \n\\(k_l^2\\)\n and higher are neglected. Then, identify constant \n\\(k\\)\n. 0.6pt\n\n\nIt is known that \n\\(k > 0\\)\n. Also, thermal conductivity of the crust \n\\(\\kappa\\)\n can be assumed to be constant. As a consequence, very far away from the ridge axis the temperature of the crust depends linearly with depth.\n\n\nA.3\nBy assuming that mantle and water each behave like an incompressible fluid at hydrostatic equilibrium, express the far-distance crust thickness \n\\(D\\)\n in terms of \n\\(h\\)\n, \n\\(\\rho_0\\)\n, \n\\(\\rho_1\\)\n, and \n\\(k\\)\n. Any motion of the material can be neglected. 1.1pt\n\n\nA.4\nFind, to the leading order in \n\\(k\\)\n, the net horizontal force \n\\(F\\)\n acting on the right half (\n\\(x > 0\\)\n) of the crust in terms of \n\\(\\rho_0\\)\n, \n\\(\\rho_1\\)\n, \n\\(h\\)\n, \n\\(L\\)\n, \n\\(k\\)\n and \n\\(g\\)\n. 1.6pt\n\n\nSuppose that crust is thermally isolated from the rest of the Earth. As a result of heat conduction, the temperatures of the upper and lower surfaces of the crust are going to get closer to each other until the crust reaches thermal equilibrium. Specific heat of the crust is \n\\(c\\)\n and can be assumed to be constant.\n\n\nA.5\nBy using dimensional analysis or order-of-magnitude analysis, estimate the characteristic time \n\\(\\tau\\)\n in which the difference between the upper and lower surface temperatures of the crust far away from the ridge axis is going to approach zero. You can assume that \n\\(\\tau\\)\n does not depend on the two initial surface temperatures of the crust. 0.9pt\n\n\nPart B. Seismic waves in a stratified medium (5.0 points)\n\n\nSuppose that a short earthquake happens at the surface of some planet. The seismic waves can be assumed to originate from a line source situated at \n\\(z = x = 0\\)\n, where \n\\(x\\)\n is the horizontal coordinate and \n\\(z\\)\n is the depth below the surface (Fig. 3). The seismic wave source can be assumed to be much longer than any other length considered in this question.\n\n\nAs a result of the earthquake, a uniform flux of the so-called longitudinal P waves is emitted along all the directions in the \n\\(x\\)\n-\n\\(z\\)\n plane that have positive component along the \n\\(z\\)\n-axis. Since the wave theory in a solid is generally complicated, in this problem we neglect all the other waves emitted by the earthquake. The crust of the planet is stratified so that the P-wave speed \n\\(v\\)\n depends on depth \n\\(z\\)\n according to \n\\(v = v_0(1+z/z_0)\\)\n, where \n\\(v_0\\)\n is the speed at the surface and \n\\(z_0\\)\n is a known positive constant.\n\n\n\n\n\n\n\n\n\n\n\nFigure 3. Coordinate system used in part B.\n\n\n\n\nB.1\nConsider a single ray emitted by the earthquake that makes an initial angle \n\\(0 < \\theta_0 < \\pi/2\\)\n with the \n\\(z\\)\n-axis and travels in the \n\\(x\\)\n-\n\\(z\\)\n plane. What is the horizontal coordinate \n\\(x_1(\\theta_0) \\neq 0\\)\n at which this ray can be detected at the surface of the planet? It is known that the ray path is an arc of a circle. Write your answer in the form \n\\(x_1(\\theta_0) = A\\cot(b\\theta_0)\\)\n, where \n\\(A\\)\n and \n\\(b\\)\n are constants to be found. 1.5pt\n\n\nIf you were unable to find \n\\(A\\)\n and \n\\(b\\)\n, in the following questions you can use the result \n\\(x_1(\\theta_0) = A\\cot(b\\theta_0)\\)\n as given. Suppose that total energy per unit length of the source released as P waves into the crust during the earthquake is \n\\(E\\)\n. Assume that waves are completely absorbed when they reach the surface of the planet from below.\n\n\nB.2\nFind how the energy density per unit area \n\\(\\varepsilon(x)\\)\n absorbed by the surface depends on the distance along the surface \n\\(x\\)\n. Sketch the plot of \n\\(\\varepsilon(x)\\)\n. 1.5pt\n\n\nFrom now on, assume that the waves are instead fully reflected when reaching the surface. Imagine a device positioned at \n\\(z = x = 0\\)\n that has the same geometry as the previously considered earthquake source. The device is capable of emitting P waves in a freely chosen angular distribution. We make the device emit a signal with a narrow range of emission angles. In particular, the initial angle the signal makes with the vertical belongs to the interval \n\\([\\theta_0 - \\tfrac{1}{2}\\delta\\theta_0, \\theta_0 + \\tfrac{1}{2}\\delta\\theta_0]\\)\n, where \n\\(0 < \\theta_0 < \\pi/2\\)\n, \n\\(\\delta\\theta_0 \\ll 1\\)\n and \n\\(\\delta\\theta_0 \\ll \\theta_0\\)\n.\n\n\nB.3\nAt what distance \n\\(x_\\mathrm{max}\\)\n along the surface from the source is the furthest point that the signal does not reach? Write your answer in terms of \n\\(\\theta_0\\)\n, \n\\(\\delta\\theta_0\\)\n and other constants given above. 2.0pt\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2021-t1/814e5347e8e706f68bda.png",
+      "/corpus/figures/native/bulk/ipho-2021-t1/d1aa12efd289a42bef42.png",
+      "/corpus/figures/native/bulk/ipho-2021-t1/4f3890920e726a740703.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2021-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Planetary Physics (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Mid-ocean ridge (5.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1 (0.8 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t1/ea72cca2169de3f0b439.png",
+                "alt": "ipho-2021-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the height of the column of oil (see Fig. 1). Then pressure at depth "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " below the water surface must be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_h = \\rho_0 g h = \\rho_\\mathrm{oil} g h'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", from where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h' = \\frac{\\rho_0}{\\rho_\\mathrm{oil}} h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Horizontal force on the plate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_x = F_1 - F_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where the force due to new fluid is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_1 = \\frac{\\rho_\\mathrm{oil} g h'}{2}\\cdot h'w\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the force due to water is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_0 = \\frac{\\rho_0 g h}{2}\\cdot hw\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Combining all the equation above, we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_x = \\left(\\frac{\\rho_0}{\\rho_\\mathrm{oil}} - 1\\right)\\frac{\\rho_0 g h^2 w}{2}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This force acts on the right plate to the right."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2 (0.6 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider a rectangular mass element of the crust. Since relation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l(T) = l_1 \\left[1 - k_l (T_1 - T) /(T_1 - T_0)\\right]\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " holds for all three dimensions of the solid, its volume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " satisfies "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V = V_1 \\left(1 - k_l \\frac{T_1 - T}{T_1 - T_0}\\right)^3,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the volume at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T = T_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". If the mass of the element is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", density is then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\rho(T) = \\frac{m}{V} = \\frac{m}{V_1} \\left(1 - k_l \\frac{T_1 - T}{T_1 - T_0}\\right)^{-3} = \\rho_1 \\left(1 - k_l \\frac{T_1 - T}{T_1 - T_0}\\right)^{-3}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_l \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", this can be approximated as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\rho (T) \\approx \\rho_1 \\left(1 + 3k_l \\frac{T_1 - T}{T_1 - T_0}\\right),\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 3k_l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3 (1.1 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since mantle behaves like a fluid in hydrostatic equilibrium, pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\,(x,z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = h + D\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " must be the same for all "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p\\,(0, h+D) = p\\,(\\infty, h+D)\\,.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Similarly, we must have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p\\,(0,0) = p\\,(\\infty,0)\\,.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hence, the change in pressure between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = \\infty\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " must be the same at both "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = \\infty\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". At the ridge axis "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p\\,(0, h+D) - p\\,(0,0) = \\rho_1 g\\,(h+D)\\,,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " while far away "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p\\,(\\infty, h+D) - p\\,(\\infty, 0) = \\rho_0 g h + \\int_h^{h+D} \\rho\\,(T\\,(\\infty,z))\\, g\\,\\mathrm{d}z.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since the temperature of the crust at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = \\infty\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " depends linearly on height, after applying the relevant temperature boundary conditions, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T\\,(\\infty, z) = T_0 + (T_1 - T_0)\\,\\frac{z - h}{D}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From all the equations above and by using the density formula given in the problem text, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\rho_1 g\\,(h+D) = \\rho_0 g h + \\int_h^{h+D} \\rho_1 \\left(1 + k\\frac{T_1 - T_0 - (T_1 - T_0)\\,\\frac{z-h}{D}}{T_1 - T_0}\\right) g\\,\\mathrm{d}z,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from where we straightforwardly obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[D = \\frac{2}{k} \\left(1 - \\frac{\\rho_0}{\\rho_1}\\right) h.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4 (1.6 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The net horizontal force on the half of the ridge is the difference between the pressure forces acting at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = \\infty\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F = L \\int_0^{h+D} p\\,(0,z)\\,\\mathrm{d}z - L \\int_0^{h} p\\,(\\infty,z)\\,\\mathrm{d}z.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From considerations of the previous question, pressure at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p\\,(0,z) = p\\,(0,0) + \\rho_1 g z,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " while very far away "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p\\,(\\infty,z) = p\\,(\\infty,0) + \\rho_0 g z\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The equations above can be combined into "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F = L \\int_0^{h+D} \\left(p\\,(0,0) + \\rho_1 g z\\right)\\mathrm{d}z - L \\int_0^{h} \\left(p\\,(\\infty,0) + \\rho_0 g z\\right)\\mathrm{d}z.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "After a straightforward integration and using "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\,(0,0) = p\\,(\\infty,0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F = L p\\,(0,0)\\, D + L\\rho_1 g \\frac{(h+D)^2}{2} - L\\rho_0 g \\frac{h^2}{2}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D \\propto k^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the term with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D^2 \\propto k^{-2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is of the leading order, hence, after substituting the result of A.3, the required answer is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F \\approx \\frac{2gLh^2\\,(\\rho_1 - \\rho_0)^2}{k^2\\rho_1}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.5 (0.9 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Method 1: dimensional analysis."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The timescale "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is expected to depend only on density of the crust "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", its specific heat "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", thermal conductivity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\kappa\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and thickness "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence, we can write "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau = A\\rho_1^{\\alpha} c^{\\beta} \\kappa^{\\gamma} D^{\\delta},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a dimensionless constant. We will obtain the powers "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "–"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " via dimensional analysis."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Define the symbols for different dimensions: L for length, M for mass, T for time and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for temperature. Then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\kappa\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " have dimensions T, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{ML^{-3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{L^2T^{-2}\\Theta^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{MLT^{-3}\\Theta^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and L, respectively. The resulting set of linear equations to balance the powers of length, mass, time and temperature, respectively, is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{cases}\n0 = -3\\alpha + 2\\beta + \\gamma + \\delta, \\\\\n0 = \\alpha + \\gamma, \\\\\n1 = -2\\beta - 3\\gamma, \\\\\n0 = -\\beta - \\gamma.\n\\end{cases}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha = \\beta = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma = -1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta = 2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau = A\\frac{c\\rho_1 D^2}{\\kappa}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Method 2: scale analysis."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Consider a piece of crust of area "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Heat flux that has to be transmitted through the crust is of order "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Q \\sim c\\rho_1 SD\\Delta T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta T = T_1 - T_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". On the other hand, the law of thermal conductivity gives that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\kappa\\frac{\\Delta T}{D} \\sim \\frac{Q}{S\\tau}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From the two equations, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\rho_1 SD\\Delta T \\sim S\\tau\\kappa\\frac{\\Delta T}{D}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", from where we get that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is independent of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau \\sim \\frac{c\\rho_1 D^2}{\\kappa}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Seismic waves in a stratified medium (5.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1 (1.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Seismic waves in this problem can be treated by using ray theory. Namely, their propagation is described by the Snell’s law of refraction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[n\\,(0) \\sin \\theta_0 = n\\,(z) \\sin \\theta,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where the refractive index is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[n\\,(z) = \\frac{c}{v\\,(z)} = \\frac{c}{v_0 \\left(1 + \\frac{z}{z_0}\\right)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " denotes the seismic wave speed in a material with refractive index "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". From the two equations above we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_0 \\left(1 + \\frac{z}{z_0}\\right) \\sin \\theta_0 = v_0 \\sin \\theta.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Method 1."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Since this describes an arc of a circle, we have that at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta = \\frac{\\pi}{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = R - R\\sin\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (Fig. 2), giving "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(1 + \\frac{R - R \\sin \\theta_0}{z_0}\\right) \\sin \\theta_0 = 1,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from where the circle radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = \\frac{z_0}{\\sin \\theta_0}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". From simple geometry we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_1\\,(\\theta_0) = 2R \\cos \\theta_0,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " leading to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_1\\,(\\theta_0) = 2z_0 \\cot \\theta_0,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A = 2z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t1/5f9ff0d40afdac6a6eef.png",
+                "alt": "ipho-2021-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Method 2."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Implicitly differentiating "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_0 \\left(1 + \\frac{z}{z_0}\\right) \\sin \\theta_0 = v_0 \\sin \\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\mathrm{d}z}{z_0} \\sin \\theta_0 = \\cos \\theta\\,\\mathrm{d}\\theta.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An infinitesimal ray path length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{d}l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is related to the change in the vertical coordinate via "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathrm{d}z = \\mathrm{d}l\\, \\cos \\theta,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " giving "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathrm{d}l = \\frac{z_0}{\\sin \\theta_0}\\,\\mathrm{d}\\theta.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This is an equation of an arc of a circle of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = \\frac{z_0}{\\sin \\theta_0}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Alternatively, instead of considering an infinitesimal ray path length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{d}l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", one can obtain the answer by writing "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\cot \\theta = \\frac{\\mathrm{d}z}{\\mathrm{d}x} = \\frac{\\mathrm{d}z}{\\mathrm{d}\\theta}\\frac{\\mathrm{d}\\theta}{\\mathrm{d}x}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The first derivative can be eliminated via Snell’s law, leading to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\cot \\theta = \\frac{z_0 \\cos \\theta}{\\sin \\theta_0}\\frac{\\mathrm{d}\\theta}{\\mathrm{d}x},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which can be integrated to get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_1 = -\\frac{z_0}{\\sin \\theta_0} \\int_{\\mathrm{start}}^{\\mathrm{end}} \\mathrm{d}\\cos\\theta = \\frac{2z_0 \\cos \\theta_0}{\\sin \\theta_0},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where we used Snell’s law again to get that the ray has "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cos \\theta = -\\cos \\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the point where it reaches the surface."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2 (1.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In two dimensions, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{E}{\\pi}\\,\\mathrm{d}\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the energy carried by rays that are emitted within interval "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\([\\theta_0, \\theta_0 + \\mathrm{d}\\theta_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". On the other hand, the energy carried by rays that arrive at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\([x, x + \\mathrm{d}x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon\\,\\mathrm{d}x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\varepsilon = \\frac{E}{\\pi} \\left|\\frac{\\mathrm{d}\\theta_0}{\\mathrm{d}x}\\right|.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using the result of question B.1, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\mathrm{d}x}{\\mathrm{d}\\theta_0} = -\\frac{Ab}{\\sin^2 (b\\theta_0)} = -Ab\\left(1 + \\cot^2 (b\\theta_0)\\right) = -\\frac{b\\left(A^2 + x^2\\right)}{A}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hence, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\varepsilon\\,(x) = \\frac{EA}{\\pi b\\left(A^2 + x^2\\right)} = \\frac{2Ez_0}{\\pi\\left(4z_0^2 + x^2\\right)}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This function is plotted in Fig. 3."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t1/9a71bbd0782ccaed74f0.png",
+                "alt": "ipho-2021-t1 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 3. Plot of the function "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\varepsilon(x)\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3 (2.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Define "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_- = x_1\\left(\\theta_0 - \\frac{\\delta\\theta_0}{2}\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_+ = x_1\\left(\\theta_0 + \\frac{\\delta\\theta_0}{2}\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". To the leading order in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_- \\approx x_+ \\approx x_1\\,(\\theta_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". With each reflection of the signal, the horizontal distance between the points where the edges of the signal reflect increases by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|x_+ - x_-| = x_- - x_+\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". When moving along the positive "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis, these zones get wider until they overlap. If this happens after "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " reflections, then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[N \\approx \\frac{x_1\\,(\\theta_0)}{x_- - x_+},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where the approximate sign tends to equality as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\theta_0 \\to 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The position where the zones start to overlap is at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_{\\mathrm{max}} = N x_1(\\theta_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_{\\mathrm{max}} = \\frac{x_1(\\theta_0)^2}{x_1\\left(\\theta_0 - \\frac{\\delta\\theta_0}{2}\\right) - x_1\\left(\\theta_0 + \\frac{\\delta\\theta_0}{2}\\right)}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\theta_0 \\ll \\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we can approximate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_1\\left(\\theta_0 - \\frac{\\delta\\theta_0}{2}\\right) - x_1\\left(\\theta_0 + \\frac{\\delta\\theta_0}{2}\\right) \\approx -\\frac{\\mathrm{d}x_1(\\theta_0)}{\\mathrm{d}\\theta_0}\\delta\\theta_0 = \\frac{Ab}{\\sin^2 (b\\theta_0)}\\delta\\theta_0.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Combining the last two equations and substituting the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_1\\,(\\theta_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " expression gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_{\\mathrm{max}} = \\frac{A \\cos^2 (b\\theta_0)}{b\\, \\delta\\theta_0} = \\frac{2z_0 \\cos^2 \\theta_0}{\\delta\\theta_0}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Planetary Physics (10 points)\n\n\nPart A. Mid-ocean ridge (5.0 points)\n\n\nA.1 (0.8 points)\n\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\nLet \n\\(h'\\)\n be the height of the column of oil (see Fig. 1). Then pressure at depth \n\\(h\\)\n below the water surface must be \n\\(p_h = \\rho_0 g h = \\rho_\\mathrm{oil} g h'\\)\n, from where \n\\(h' = \\frac{\\rho_0}{\\rho_\\mathrm{oil}} h\\)\n. Horizontal force on the plate \n\\(F_x = F_1 - F_0\\)\n, where the force due to new fluid is \n\\(F_1 = \\frac{\\rho_\\mathrm{oil} g h'}{2}\\cdot h'w\\)\n and the force due to water is \n\\(F_0 = \\frac{\\rho_0 g h}{2}\\cdot hw\\)\n.\n\n\nCombining all the equation above, we get \n\\[F_x = \\left(\\frac{\\rho_0}{\\rho_\\mathrm{oil}} - 1\\right)\\frac{\\rho_0 g h^2 w}{2}.\\]\n\n\nThis force acts on the right plate to the right.\n\n\nA.2 (0.6 points)\n\n\nConsider a rectangular mass element of the crust. Since relation \n\\(l(T) = l_1 \\left[1 - k_l (T_1 - T) /(T_1 - T_0)\\right]\\)\n holds for all three dimensions of the solid, its volume \n\\(V\\)\n satisfies \n\\[V = V_1 \\left(1 - k_l \\frac{T_1 - T}{T_1 - T_0}\\right)^3,\\]\n where \n\\(V_1\\)\n is the volume at \n\\(T = T_1\\)\n. If the mass of the element is \n\\(m\\)\n, density is then \n\\[\\rho(T) = \\frac{m}{V} = \\frac{m}{V_1} \\left(1 - k_l \\frac{T_1 - T}{T_1 - T_0}\\right)^{-3} = \\rho_1 \\left(1 - k_l \\frac{T_1 - T}{T_1 - T_0}\\right)^{-3}.\\]\n\n\nSince \n\\(k_l \\ll 1\\)\n, this can be approximated as \n\\[\\rho (T) \\approx \\rho_1 \\left(1 + 3k_l \\frac{T_1 - T}{T_1 - T_0}\\right),\\]\n so that \n\\(k = 3k_l\\)\n.\n\n\nA.3 (1.1 points)\n\n\nSince mantle behaves like a fluid in hydrostatic equilibrium, pressure \n\\(p\\,(x,z)\\)\n at \n\\(z = h + D\\)\n must be the same for all \n\\(x\\)\n. Therefore, \n\\[p\\,(0, h+D) = p\\,(\\infty, h+D)\\,.\\]\n\n\nSimilarly, we must have \n\\[p\\,(0,0) = p\\,(\\infty,0)\\,.\\]\n\n\nHence, the change in pressure between \n\\(z = 0\\)\n and \n\\(z = \\infty\\)\n must be the same at both \n\\(x = 0\\)\n and \n\\(x = \\infty\\)\n. At the ridge axis \n\\[p\\,(0, h+D) - p\\,(0,0) = \\rho_1 g\\,(h+D)\\,,\\]\n while far away \n\\[p\\,(\\infty, h+D) - p\\,(\\infty, 0) = \\rho_0 g h + \\int_h^{h+D} \\rho\\,(T\\,(\\infty,z))\\, g\\,\\mathrm{d}z.\\]\n\n\nSince the temperature of the crust at \n\\(x = \\infty\\)\n depends linearly on height, after applying the relevant temperature boundary conditions, \n\\[T\\,(\\infty, z) = T_0 + (T_1 - T_0)\\,\\frac{z - h}{D}.\\]\n\n\nFrom all the equations above and by using the density formula given in the problem text, \n\\[\\rho_1 g\\,(h+D) = \\rho_0 g h + \\int_h^{h+D} \\rho_1 \\left(1 + k\\frac{T_1 - T_0 - (T_1 - T_0)\\,\\frac{z-h}{D}}{T_1 - T_0}\\right) g\\,\\mathrm{d}z,\\]\n from where we straightforwardly obtain \n\\[D = \\frac{2}{k} \\left(1 - \\frac{\\rho_0}{\\rho_1}\\right) h.\\]\n\n\nA.4 (1.6 points)\n\n\nThe net horizontal force on the half of the ridge is the difference between the pressure forces acting at \n\\(x = 0\\)\n and \n\\(x = \\infty\\)\n: \n\\[F = L \\int_0^{h+D} p\\,(0,z)\\,\\mathrm{d}z - L \\int_0^{h} p\\,(\\infty,z)\\,\\mathrm{d}z.\\]\n\n\nFrom considerations of the previous question, pressure at \n\\(x = 0\\)\n is \n\\[p\\,(0,z) = p\\,(0,0) + \\rho_1 g z,\\]\n while very far away \n\\[p\\,(\\infty,z) = p\\,(\\infty,0) + \\rho_0 g z\\]\n\n\nThe equations above can be combined into \n\\[F = L \\int_0^{h+D} \\left(p\\,(0,0) + \\rho_1 g z\\right)\\mathrm{d}z - L \\int_0^{h} \\left(p\\,(\\infty,0) + \\rho_0 g z\\right)\\mathrm{d}z.\\]\n\n\nAfter a straightforward integration and using \n\\(p\\,(0,0) = p\\,(\\infty,0)\\)\n, \n\\[F = L p\\,(0,0)\\, D + L\\rho_1 g \\frac{(h+D)^2}{2} - L\\rho_0 g \\frac{h^2}{2}.\\]\n\n\nSince \n\\(k \\ll 1\\)\n, and \n\\(D \\propto k^{-1}\\)\n, the term with \n\\(D^2 \\propto k^{-2}\\)\n is of the leading order, hence, after substituting the result of A.3, the required answer is \n\\[F \\approx \\frac{2gLh^2\\,(\\rho_1 - \\rho_0)^2}{k^2\\rho_1}.\\]\n\n\nA.5 (0.9 points)\n\n\nMethod 1: dimensional analysis.\n The timescale \n\\(\\tau\\)\n is expected to depend only on density of the crust \n\\(\\rho_1\\)\n, its specific heat \n\\(c\\)\n, thermal conductivity \n\\(\\kappa\\)\n and thickness \n\\(D\\)\n. Hence, we can write \n\\[\\tau = A\\rho_1^{\\alpha} c^{\\beta} \\kappa^{\\gamma} D^{\\delta},\\]\n where \n\\(A\\)\n is a dimensionless constant. We will obtain the powers \n\\(\\alpha\\)\n–\n\\(\\delta\\)\n via dimensional analysis.\n\n\nDefine the symbols for different dimensions: L for length, M for mass, T for time and \n\\(\\Theta\\)\n for temperature. Then \n\\(\\tau\\)\n, \n\\(\\rho_1\\)\n, \n\\(c\\)\n, \n\\(\\kappa\\)\n and \n\\(D\\)\n have dimensions T, \n\\(\\mathrm{ML^{-3}}\\)\n, \n\\(\\mathrm{L^2T^{-2}\\Theta^{-1}}\\)\n, \n\\(\\mathrm{MLT^{-3}\\Theta^{-1}}\\)\n and L, respectively. The resulting set of linear equations to balance the powers of length, mass, time and temperature, respectively, is \n\\[\\begin{cases}\n0 = -3\\alpha + 2\\beta + \\gamma + \\delta, \\\\\n0 = \\alpha + \\gamma, \\\\\n1 = -2\\beta - 3\\gamma, \\\\\n0 = -\\beta - \\gamma.\n\\end{cases}\\]\n\n\nThis gives \n\\(\\alpha = \\beta = 1\\)\n, \n\\(\\gamma = -1\\)\n, \n\\(\\delta = 2\\)\n. Hence, \n\\[\\tau = A\\frac{c\\rho_1 D^2}{\\kappa}.\\]\n\n\nMethod 2: scale analysis.\n Consider a piece of crust of area \n\\(S\\)\n. Heat flux that has to be transmitted through the crust is of order \n\\(Q \\sim c\\rho_1 SD\\Delta T\\)\n, where \n\\(\\Delta T = T_1 - T_0\\)\n. On the other hand, the law of thermal conductivity gives that \n\\(\\kappa\\frac{\\Delta T}{D} \\sim \\frac{Q}{S\\tau}\\)\n.\n\n\nFrom the two equations, \n\\(c\\rho_1 SD\\Delta T \\sim S\\tau\\kappa\\frac{\\Delta T}{D}\\)\n, from where we get that \n\\(\\tau\\)\n is independent of \n\\(\\Delta T\\)\n and \n\\[\\tau \\sim \\frac{c\\rho_1 D^2}{\\kappa}.\\]\n\n\nPart B. Seismic waves in a stratified medium (5.0 points)\n\n\nB.1 (1.5 points)\n\n\nSeismic waves in this problem can be treated by using ray theory. Namely, their propagation is described by the Snell’s law of refraction \n\\[n\\,(0) \\sin \\theta_0 = n\\,(z) \\sin \\theta,\\]\n where the refractive index is \n\\[n\\,(z) = \\frac{c}{v\\,(z)} = \\frac{c}{v_0 \\left(1 + \\frac{z}{z_0}\\right)}\\]\n and \n\\(c\\)\n denotes the seismic wave speed in a material with refractive index \n\\(n = 1\\)\n. From the two equations above we have \n\\[v_0 \\left(1 + \\frac{z}{z_0}\\right) \\sin \\theta_0 = v_0 \\sin \\theta.\\]\n\n\nMethod 1.\n Since this describes an arc of a circle, we have that at \n\\(\\theta = \\frac{\\pi}{2}\\)\n, \n\\(z = R - R\\sin\\theta_0\\)\n (Fig. 2), giving \n\\[\\left(1 + \\frac{R - R \\sin \\theta_0}{z_0}\\right) \\sin \\theta_0 = 1,\\]\n from where the circle radius \n\\(R = \\frac{z_0}{\\sin \\theta_0}\\)\n. From simple geometry we get \n\\[x_1\\,(\\theta_0) = 2R \\cos \\theta_0,\\]\n leading to \n\\[x_1\\,(\\theta_0) = 2z_0 \\cot \\theta_0,\\]\n i.e. \n\\(A = 2z_0\\)\n and \n\\(b = 1\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\nMethod 2.\n Implicitly differentiating \n\\(v_0 \\left(1 + \\frac{z}{z_0}\\right) \\sin \\theta_0 = v_0 \\sin \\theta\\)\n gives \n\\[\\frac{\\mathrm{d}z}{z_0} \\sin \\theta_0 = \\cos \\theta\\,\\mathrm{d}\\theta.\\]\n\n\nAn infinitesimal ray path length \n\\(\\mathrm{d}l\\)\n is related to the change in the vertical coordinate via \n\\[\\mathrm{d}z = \\mathrm{d}l\\, \\cos \\theta,\\]\n giving \n\\[\\mathrm{d}l = \\frac{z_0}{\\sin \\theta_0}\\,\\mathrm{d}\\theta.\\]\n\n\nThis is an equation of an arc of a circle of radius \n\\(R = \\frac{z_0}{\\sin \\theta_0}\\)\n\n\nAlternatively, instead of considering an infinitesimal ray path length \n\\(\\mathrm{d}l\\)\n, one can obtain the answer by writing \n\\[\\cot \\theta = \\frac{\\mathrm{d}z}{\\mathrm{d}x} = \\frac{\\mathrm{d}z}{\\mathrm{d}\\theta}\\frac{\\mathrm{d}\\theta}{\\mathrm{d}x}.\\]\n\n\nThe first derivative can be eliminated via Snell’s law, leading to \n\\[\\cot \\theta = \\frac{z_0 \\cos \\theta}{\\sin \\theta_0}\\frac{\\mathrm{d}\\theta}{\\mathrm{d}x},\\]\n which can be integrated to get \n\\[x_1 = -\\frac{z_0}{\\sin \\theta_0} \\int_{\\mathrm{start}}^{\\mathrm{end}} \\mathrm{d}\\cos\\theta = \\frac{2z_0 \\cos \\theta_0}{\\sin \\theta_0},\\]\n where we used Snell’s law again to get that the ray has \n\\(\\cos \\theta = -\\cos \\theta_0\\)\n at the point where it reaches the surface.\n\n\nB.2 (1.5 points)\n\n\nIn two dimensions, \n\\(\\frac{E}{\\pi}\\,\\mathrm{d}\\theta_0\\)\n is the energy carried by rays that are emitted within interval \n\\([\\theta_0, \\theta_0 + \\mathrm{d}\\theta_0)\\)\n. On the other hand, the energy carried by rays that arrive at \n\\([x, x + \\mathrm{d}x)\\)\n is \n\\(\\varepsilon\\,\\mathrm{d}x\\)\n. Therefore, \n\\[\\varepsilon = \\frac{E}{\\pi} \\left|\\frac{\\mathrm{d}\\theta_0}{\\mathrm{d}x}\\right|.\\]\n\n\nUsing the result of question B.1, \n\\[\\frac{\\mathrm{d}x}{\\mathrm{d}\\theta_0} = -\\frac{Ab}{\\sin^2 (b\\theta_0)} = -Ab\\left(1 + \\cot^2 (b\\theta_0)\\right) = -\\frac{b\\left(A^2 + x^2\\right)}{A}.\\]\n\n\nHence, \n\\[\\varepsilon\\,(x) = \\frac{EA}{\\pi b\\left(A^2 + x^2\\right)} = \\frac{2Ez_0}{\\pi\\left(4z_0^2 + x^2\\right)}.\\]\n\n\nThis function is plotted in Fig. 3.\n\n\n\n\n\n\n\n\n\n\n\nFigure 3. Plot of the function \n\\(\\varepsilon(x)\\)\n.\n\n\n\n\nB.3 (2.0 points)\n\n\nDefine \n\\(x_- = x_1\\left(\\theta_0 - \\frac{\\delta\\theta_0}{2}\\right)\\)\n and \n\\(x_+ = x_1\\left(\\theta_0 + \\frac{\\delta\\theta_0}{2}\\right)\\)\n. To the leading order in \n\\(\\delta\\theta_0\\)\n, \n\\(x_- \\approx x_+ \\approx x_1\\,(\\theta_0)\\)\n. With each reflection of the signal, the horizontal distance between the points where the edges of the signal reflect increases by \n\\(|x_+ - x_-| = x_- - x_+\\)\n. When moving along the positive \n\\(x\\)\n-axis, these zones get wider until they overlap. If this happens after \n\\(N\\)\n reflections, then \n\\[N \\approx \\frac{x_1\\,(\\theta_0)}{x_- - x_+},\\]\n where the approximate sign tends to equality as \n\\(\\delta\\theta_0 \\to 0\\)\n.\n\n\nThe position where the zones start to overlap is at \n\\(x_{\\mathrm{max}} = N x_1(\\theta_0)\\)\n. Therefore, \n\\[x_{\\mathrm{max}} = \\frac{x_1(\\theta_0)^2}{x_1\\left(\\theta_0 - \\frac{\\delta\\theta_0}{2}\\right) - x_1\\left(\\theta_0 + \\frac{\\delta\\theta_0}{2}\\right)}.\\]\n\n\nSince \n\\(\\delta\\theta_0 \\ll \\theta_0\\)\n, we can approximate \n\\[x_1\\left(\\theta_0 - \\frac{\\delta\\theta_0}{2}\\right) - x_1\\left(\\theta_0 + \\frac{\\delta\\theta_0}{2}\\right) \\approx -\\frac{\\mathrm{d}x_1(\\theta_0)}{\\mathrm{d}\\theta_0}\\delta\\theta_0 = \\frac{Ab}{\\sin^2 (b\\theta_0)}\\delta\\theta_0.\\]\n\n\nCombining the last two equations and substituting the \n\\(x_1\\,(\\theta_0)\\)\n expression gives \n\\[x_{\\mathrm{max}} = \\frac{A \\cos^2 (b\\theta_0)}{b\\, \\delta\\theta_0} = \\frac{2z_0 \\cos^2 \\theta_0}{\\delta\\theta_0}.\\]\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2021-t1/ea72cca2169de3f0b439.png",
+      "/corpus/figures/native/bulk/ipho-2021-t1/5f9ff0d40afdac6a6eef.png",
+      "/corpus/figures/native/bulk/ipho-2021-t1/9a71bbd0782ccaed74f0.png"
+    ],
+    "shared": false
+  }
+}

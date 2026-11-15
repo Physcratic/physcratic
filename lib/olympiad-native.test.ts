@@ -12,7 +12,8 @@ import { practiceCheckCatalog } from "./practice-check-catalog";
 import firstLedger from "../docs/engineering/native-archive-batch-1-sources.json";
 import secondLedger from "../docs/engineering/native-archive-batch-2-sources.json";
 import thirdLedger from "../docs/engineering/native-archive-batch-3-sources.json";
-const ledger = [...firstLedger, ...secondLedger, ...thirdLedger];
+import bulkLedger from "../docs/engineering/native-archive-bulk-sources.json";
+const ledger = [...firstLedger, ...secondLedger, ...thirdLedger, ...bulkLedger];
 
 for (const definition of olympiadDefinitions) {
   test(definition.problemId + " has bounded typed fields and accepts the verified reference forms", () => {
@@ -73,8 +74,10 @@ for (const id of nativeOlympiadIds) test(id + " is a complete native document wi
     let equations = 0;
     const walk = (nodes: ImportedNode[]) => nodes.forEach(n => {
       if (n.type === "text") {
-        for (const m of n.text.matchAll(/\\\(([\s\S]*?)\\\)|\\\[([\s\S]*?)\\\]/g)) {
-          katex.renderToString(m[1] ?? m[2], { throwOnError: true, displayMode: m[2] !== undefined, strict: "ignore" });
+        for (const m of n.text.matchAll(/(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)|(?<!\\)\$(?!\$)[^$]+?(?<!\\)\$)/g)) {
+          const display = m[0].startsWith("$$") || m[0].startsWith("\\[");
+          const width = display || m[0].startsWith("\\(") ? 2 : 1;
+          katex.renderToString(m[0].slice(width, -width), { throwOnError: true, displayMode: display, strict: "ignore" });
           equations++;
         }
       } else if (n.tag === "img") {

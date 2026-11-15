@@ -1,1 +1,3276 @@
-{"id":"ipho-2009-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2009_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2009_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2009-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"THEORETICAL PROBLEM No. 1 \n \nEVOLUTION OF THE EARTH-MOON SYSTEM \n \nScientists can determine the distance Earth-Moon with great precision. They achieve \nthis by bouncing a laser beam on special mirrors deposited on the Moon´s surface by \nastronauts in 1969, and measuring the round travel time of the light (see Figure 1). \n \n \n \n \nWith these observations, they have directly measured that the Moon is slowly receding \nfrom the Earth. That is, the Earth-Moon distance is increasing with time. This is \nhappening because due to tidal torques the Earth is transferring angular momentum to \nthe Moon, see Figure 2. In this problem you will derive the basic parameters of the \nphenomenon. \n \n  \nFigure 1. A laser beam sent \nfrom an observatory is used \nto measure accurately the \ndistance between the Earth \nand the Moon. \n\n \n \n \n \n \n \n \n \n \n \n1. Conservation of Angular Momentum. \n \nLet \n1L  be the present total angular momentum of the Earth-Moon system. Now, make \nthe following assumptions: i) \n1L  is the sum of the rotation of the Earth around its axis \nand the translation of the Moon in its orbit around the Earth only. ii) The Moon’s orbit \nis circular and the Moon can be taken as a point. iii) The Earth’s axis of rotation and the \nMoon’s axis of revolution are parallel. iv) To simplify the calculations, we take the \nmotion to be around the center of the Earth and not the center of mass. Throughout the \nproblem, all moments of inertia, torques and angular momenta are defined around the \naxis of the Earth. v) Ignore the influence of the Sun.  \n \n1a Write down the equation for the present total angular momentum of the \nEarth-Moon system. Set this equation in terms of\nEI , the moment of \ninertia of the Earth; \n1\nE\nω\n, the present angular frequency of the Earth’s \nrotation;\n1\nM\nI\n, the present moment of inertia of the Moon with respect to \nthe Earth´s axis; and \n1\nM\nω\n, the present angular frequency of the Moon’s \norbit. \n0.2 \n \nThis process of transfer of angular momentum will end when the period of rotation of \nthe Earth and the period of revolution of the Moon around the Earth have the same \nduration. At this point the tidal bulges produced by the Moon on the Earth will be \naligned with the line between the Moon and the Earth and the torque will disappear. \n \n \nFigure 2. The Moon’s gravity produces tidal deformations or “bulges” in the Earth. \nBecause of the Earth’s rotation, the line that goes through the bulges is not aligned \nwith the line between the Earth and the Moon. This misalignment produces a torque \nthat transfers angular momentum from the Earth’s rotation to the Moon’s \ntranslation. The drawing is not to scale. \n\n1b Write down the equation for the final total angular momentum \n2\nL of the \nEarth-Moon system. Make the same assumptions as in Question 1a. Set \nthis equation in terms of\nEI , the moment of inertia of the Earth; \n2\nω , the \nfinal angular frequency of the Earth’s rotation and Moon’s translation; \nand\n2\nM\nI\n, the final moment of inertia of the Moon. \n0.2 \n \n \n1c Neglecting the contribution of the Earth´s rotation to the final total \nangular momentum, write down the equation that expresses the angular \nmomentum conservation for this problem. \n0.3 \n \n2. Final Separation and Final Angular Frequency of the Earth-Moon System. \n \nAssume that the gravitational equation for a circular orbit (of the Moon around the \nEarth) is always valid. Neglect the contribution of the Earth´s rotation to the final total \nangular momentum. \n \n2a Write down the gravitational equation for the circular orbit of the Moon \naround the Earth, at the final state, in terms of\nE\nM , \n2\nω , G and the final \nseparation \n2\nD  between the Earth and the Moon. \nE\nM  is the mass of the \nEarth and G  is the gravitational constant. \n0.2 \n \n \n2b Write down the equation for the final separation \n2\nD  between the Earth \nand the Moon in terms of the known parameters, \n1L , the total angular \nmomentum of the system, \nE\nM and \nM\nM\n, the masses of the Earth and \nMoon, respectively, and G . \n0.5 \n \n2c Write down the equation for the final angular frequency \n2\nω  of the Earth-\nMoon system in terms of the known parameters \n1L , \nE\nM , \nM\nM\n and G . \n0.5 \n \nBelow you will be asked to find the numerical values of \n2\nD  and \n2\nω . For this you need \nto know the moment of inertia of the Earth.  \n \n2d Write down the equation for the moment of inertia of the Earth \nEI  \nassuming it is a sphere with inner density \niρ  from the center to a radius \nir , and with outer density \no\nρ\n from the radius \nir  to the surface at a \nradius \nor  (see Figure 3).  \n0.5 \n \n \n \n\n  \n \n \n \n Determine the numerical values requested in this problem always to two significant \ndigits. \n \n \n2e Evaluate the moment of inertia of the Earth \nEI , using\n4\n10\n3.1 ×\n=\niρ\nkg m-3, \n6\n10\n5.3 ×\n=\nir\nm, \n3\n10\n0.4 ×\n=\no\nρ\n kg m-3, and \n6\n10\n4.6 ×\n=\nor\nm.  \n0.2 \n \nThe masses of the Earth and Moon are \n24\n10\n0.6 ×\n=\nE\nM\n kg and \n22\n10\n3.7 ×\n=\nM\nM\nkg, \nrespectively. The present separation between the Earth and the Moon is \n8\n1\n10\n8.3 ×\n=\nD\nm. \nThe present angular frequency of the Earth’s rotation is \n5\n1\n10\n3.7\n−\n×\n=\nE\nω\ns-1. The present \nangular frequency of the Moon’s translation around the Earth is\n6\n1\n10\n7.2\n−\n×\n=\nM\nω\ns-1, and \nthe gravitational constant is \n11\n10\n7.6\n−\n×\n=\nG\nm3 kg-1 s-2. \n \n \n2f \nEvaluate the numerical value of the total angular momentum of the \nsystem, \n1L . \n0.2 \n \n \n2g Find the final separation\n2\nD in meters and in units of the present \nseparation\n1\nD . \n0.3 \n \n \n2h Find the final angular frequency \n2\nω  in s-1, as well as the final duration of \nthe day in units of present days. \n0.3 \n \n \nFigure 3. The Earth as a sphere \nwith two densities, \niρ  and \no\nρ . \n \n\nVerify that the assumption of neglecting the contribution of the Earth´s rotation to the \nfinal total angular momentum is justified by finding the ratio of the final angular \nmomentum of the Earth to that of the Moon. This should be a small quantity. \n \n2i \nFind the ratio of the final angular momentum of the Earth to that of the \nMoon.  \n \n0.2 \n \n3. How much is the Moon receding per year? \n \nNow, you will find how much the Moon is receding from the Earth each year. For this, \nyou will need to know the equation for the torque acting at present on the Moon. \nAssume that the tidal bulges can be approximated by two point masses, each of massm , \nlocated on the surface of the Earth, see Fig. 4. Let θ  be the angle between the line that \ngoes through the bulges and the line that joins the centers of the Earth and the Moon.  \n \n \n \n \n \n \n \n3a Find\ncF , the magnitude of the force produced on the Moon by the closest \npoint mass.  \n \n0.4 \n \n \n3b Find\nf\nF , the magnitude of the force produced on the Moon by the farthest  \npoint mass.   \n0.4 \n \nFigure 4.  Schematic diagram to estimate the torque produced on the Moon by the \nbulges on the Earth. The drawing is not to scale. \n\nYou may now evaluate the torques produced by the point masses.  \n \n3c Find the magnitude of\nc\nτ , the torque produced by the closest point mass.  \n0.4 \n \n3d Find the magnitude of\nf\nτ , the torque produced by the farthest point mass. \n0.4 \n \n3e Find the magnitude of the total torque τ  produced by the two masses. \nSince \n1\nD\nro <<\n you should approximate your expression to lowest \nsignificant order in \n1\n/ D\nro\n. You may use that \nax\nx a\n+\n≈\n+\n1\n)\n1(\n, if \n1\n<<\nx\n.   \n1.0 \n \n \n3f \nCalculate the numerical value of the total torque τ , taking into account \nthat \no3\n=\nθ\n and that \n16\n10\n6.3\n×\n=\nm\n kg  (note that this mass is of the order \nof \n8\n10−times the mass of the Earth). \n0.5 \n \nSince the torque is the rate of change of angular momentum with time, find the increase \nin the distance Earth-Moon at present, per year. For this step, express the angular \nmomentum of the Moon in terms of \nM\nM\n, \nE\nM , \n1\nD  and G  only. \n \n3g Find the increase in the distance Earth-Moon at present, per year.  \n1.0 \n \nFinally, estimate how much the length of the day is increasing each year. \n \n3h Find the decrease of \n1\nE\nω\n per year and how much is the length of the day \nat present increasing each year.  \n \n1.0 \n \n4. Where is the energy going? \n \nIn contrast to the angular momentum, that is conserved, the total (rotational plus \ngravitational) energy of the system is not. We will look into this in this last section. \n \n4a Write down an equation for the total (rotational plus gravitational) energy \nof the Earth-Moon system at present, E . Put this equation in terms of\nEI , \n1\nE\nω\n ,  \nM\nM\n, \nE\nM , \n1\nD  and G  only. \n0.4 \n \n4b Write down an equation for the change in E , \nE\n∆\n, as a function of the \nchanges in  \n1\nD  and in \n1\nE\nω\n. Evaluate the numerical value of \nE\n∆\n for a \nyear, using the values of changes in  \n1\nD  and in \n1\nE\nω\nfound in questions 3g \nand 3h.  \n0.4 \n\n \nVerify that this loss of energy is consistent with an estimate for the energy dissipated as \nheat in the tides produced by the Moon on the Earth. Assume that the tides rise, on the \naverage by 0.5 m, a layer of water \n=\nh\n  0.5 m deep that covers the surface of the Earth \n(for simplicity assume that all the surface of the Earth is covered with water). This \nhappens twice a day. Further assume that 10% of this gravitational energy is dissipated \nas heat due to viscosity when the water descends. Take the density of water to be \n3\n10\n=\nwater\nρ\n kg m-3, and the gravitational acceleration on the surface of the Earth to be \n8.9\n=\ng\n m s-2. \n \n4c What is the mass of this surface layer of water? \n0.2 \n \n4d Calculate how much energy is dissipated in a year? How does this \ncompare with the energy lost per year by the Earth-Moon system at \npresent?  \n0.3 \n \n \n \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2009-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"THEORETICAL PROBLEM No. 1 \n \nEVOLUTION OF THE EARTH-MOON SYSTEM \n \nSOLUTIONS \n \n     1.  Conservation of Angular Momentum \n \n1a \n1\n1\n1\n1\nM\nM\nE\nE\nI\nI\nL\n\n\n\n\n \n0.2 \n \n1b \n2\n2\n2\n2\n\n\nM\nE\nI\nI\nL\n\n\n \n0.2 \n \n \n1c \n1\n2\n2\n1\n1\n1\nL\nI\nI\nI\nM\nM\nM\nE\nE\n\n\n\n\n\n\n \n0.3 \n \n2. Final Separation and Angular Frequency of the Earth-Moon System. \n \n \n2a \nE\nM\nG\nD \n3\n2\n2\n2\n\n \n0.2 \n \n \n2b \n2\n2\n1\n2\nM\nE M\nM\nG\nL\nD \n \n0.5 \n \n \n2c \n3\n1\n3\n2\n2\n2\nL\nM\nM\nG\nM\nE\n\n\n \n0.5 \n \n2d The moment of inertia of the Earth will be the addition of the moment of \ninertia of a sphere with radius \nor  and density \no\n and of a sphere with \nradius ir  and density\no\ni\n\n\n: \n)]\n(\n[\n3\n4\n5\n2\n5\n5\no\ni\ni\no\no\nE\nr\nr\nI\n\n\n\n\n\n\n\n. \n \n0.5 \n \n \n2e \n37\n5\n5\n10\n0.8\n)]\n(\n[\n3\n4\n5\n2\n\n\n\n\n\no\ni\ni\no\no\nE\nr\nr\nI\n\n\n\n\nkg m2 \n \n0.2 \n \n2f \n34\n1\n1\n1\n1\n10\n4.3 \n\n\n\nM\nM\nE\nE\nI\nI\nL\n\n\n kg m2 s-1 \n0.2 \n \n\n \n2g \n8\n2\n10\n4.5 \n\nD\nm, that is  \n1\n2\n4.1\nD\nD \n \n \n0.3 \n \n2h \n6\n2\n10\n6.1\n\n\n\n\ns-1, that is, a period of 46 days. \n \n0.3 \n \n \n2i \nSince \n32\n2\n10\n3.1 \n\n\nEI\n kg m2 s-1 and\n34\n2\n2\n10\n4.3 \n\n\nM\nI\n kg m2 s-1 , the \napproximation is justified since the final angular momentum of the Earth \nis 1/260 of that of the Moon. \n \n0.2 \n \n3. How much is the Moon receding per year? \n \n \n3a Using the law of cosines, the magnitude of the force produced by the mass \nm closest to the Moon will be: \n)\ncos(\n2\n1\n2\n2\n1\n\no\no\nM\nc\nr\nD\nr\nD\nM\nm\nG\nF\n\n\n\n \n0.4 \n \n3b Using the law of cosines, the magnitude of the force produced by the mass \nm farthest to the Moon will be: \n)\ncos(\n2\n1\n2\n2\n1\n\no\no\nM\nf\nr\nD\nr\nD\nM\nm\nG\nF\n\n\n\n \n0.4 \n \n \n3c Using the law of sines, the torque will be \n2\n/\n3\n1\n2\n2\n1\n1\n0\n2\n/\n1\n1\n2\n2\n1\n1\n0\n)]\ncos(\n2\n[\n)\nsin(\n)]\ncos(\n2\n[\n)\nsin(\n\n\n\n\n\no\no\nM\no\no\nc\nc\nr\nD\nr\nD\nD\nr\nM\nm\nG\nr\nD\nr\nD\nD\nr\nF\n\n\n\n\n\n\n \n \n0.4 \n \n \n3d Using the law of sines, the torque will be \n2\n/\n3\n1\n2\n2\n1\n1\n0\n2\n/\n1\n1\n2\n2\n1\n1\n0\n)]\ncos(\n2\n[\n)\nsin(\n)]\ncos(\n2\n[\n)\nsin(\n\n\n\n\n\no\no\nM\no\no\nf\nf\nr\nD\nr\nD\nD\nr\nM\nm\nG\nr\nD\nr\nD\nD\nr\nF\n\n\n\n\n\n\n \n0.4 \n \n \n3e \n3\n1\n2\n1\n2\n1\n2\n1\n2\n1\n2\n2\n1\n0\n)\ncos(\n)\nsin(\n6\n))\ncos(\n3\n2\n3\n1\n)\ncos(\n3\n2\n3\n1(\n)\nsin(\nD\nr\nM\nm\nG\nD\nr\nD\nr\nD\nr\nD\nr\nD\nr\nM\nm\nG\no\nM\no\no\no\no\nM\nf\nc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n1.0 \n \n \n\n3f \n16\n3\n1\n2\n10\n1.4\n)\ncos(\n)\nsin(\n6\n\n\n\nD\nr\nM\nm\nG\no\nM\n\n\n\nN m \n0.5 \n \n \n3g Since\nE\nM\nM\nG\nD \n3\n1\n2\n1\n\n, we have that the angular momentum of the Moon is \n\n\n2\n/\n1\n1\n2\n/\n1\n3\n1\n2\n1\n1\n1\nE\nM\nE\nM\nM\nM\nM\nG\nD\nM\nD\nM\nG\nD\nM\nI\n\n\n\n\n\n\n\n \nThe torque will be: \n\n\n\n\n\n\nt\nD\nD\nM\nG\nM\nt\nD\nM\nG\nM\nE\nM\nE\nM\n\n\n\n\n\n\n2\n/\n1\n1\n1\n2\n/\n1\n2\n/\n1\n1\n2\n/\n1\n2\n)\n(\n\n \nSo, we have that \n2\n/\n1\n1\n1\n2\n\n\n\n\n\n\n\nE\nM\nM\nG\nD\nM\nt\nD\n\n \nThat for \n7\n10\n1.3 \n\nt\ns = 1 year, gives \n034\n.0\n1 \nD\nm. \nThis is the yearly increase in the Earth-Moon distance. \n1.0 \n \n \n3h We now use that \nt\nI\nE\nE\n\n\n\n\n1\n\n\n \nfrom where we get  \nE\nE\nI\nt\n\n\n\n\n\n1\n \nthat for \n7\n10\n1.3 \n\nt\n s = 1 year gives \n14\n1\n10\n6.1\n\n\n\n\n\nE\n\ns-1.  \nIf \nE\nP is the period of time considered, we have that: \nE\nE\nE\nE\nP\nP\n\n1\n\n\n\n\n \nsince \n4\n10\n64\n.8\n1\n\n\nday\nPE\ns, we get \n5\n10\n9.1\n\n\n\nE\nP\ns. \nThis is the amount of time that the day lengthens in a year.  \n \n1.0 \n \n \n4. Where is the energy going? \n \n \n4a The present total (rotational plus gravitational) energy of the system is: \n1\n2\n1\n2\n1\n2\n1\n2\n1\nD\nM\nM\nG\nI\nI\nE\nM\nE\nM\nM\nE\nE\n\n\n\n\n\n. \nUsing that  \nE\nM\nM\nG\nD \n3\n1\n2\n1\n\n, we get \n0.4 \n\n1\n2\n1\n2\n1\n2\n1\nD\nM\nM\nG\nI\nE\nM\nE\nE\nE\n\n\n\n \n \n4b \n1\n2\n1\n1\n1\n2\n1\nD\nD\nM\nM\nG\nI\nE\nM\nE\nE\nE\nE\n\n\n\n\n\n\n\n, that gives \n19\n10\n0.9\n\n\n\nE\nJ \n0.4 \n \n4c \nwater\no\nwater\nh\nr\nM\n\n\n\n\n\n2\n4\nkg = \n17\n10\n6.2\n\nkg. \n0.2 \n \n \n4d \n19\n1\n10\n3.9\n1.0\n365\n2\n5.0\n\n\n\n\n\n\n\n\n\n\n\ndays\nday\nm\nM\ng\nE\nwater\nwater\nJ. Then, the \ntwo energy estimates are comparable. \n0.3 \n \n \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2009-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2009_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2009_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2009-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "THEORETICAL PROBLEM No. 1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "EVOLUTION OF THE EARTH-MOON SYSTEM"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Scientists can determine the distance Earth-Moon with great precision. They achieve this by bouncing a laser beam on special mirrors deposited on the Moon’s surface by astronauts in 1969, and measuring the round travel time of the light (see Figure 1)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2009-t1/f1f7504c093e00e9945e.jpg",
+                "alt": "ipho-2009-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 1. A laser beam sent from an observatory is used to measure accurately the distance between the Earth and the Moon."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "With these observations, they have directly measured that the Moon is slowly receding from the Earth. That is, the Earth-Moon distance is increasing with time. This is happening because due to tidal torques the Earth is transferring angular momentum to the Moon, see Figure 2. In this problem you will derive the basic parameters of the phenomenon."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2009-t1/eebebcc30a1c4c8144df.png",
+                "alt": "ipho-2009-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 2. The Moon’s gravity produces tidal deformations or “bulges” in the Earth. Because of the Earth’s rotation, the line that goes through the bulges is not aligned with the line between the Earth and the Moon. This misalignment produces a torque that transfers angular momentum from the Earth’s rotation to the Moon’s translation. The drawing is not to scale."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1. Conservation of Angular Momentum."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the present total angular momentum of the Earth-Moon system. Now, make the following assumptions: i) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the sum of the rotation of the Earth around its axis and the translation of the Moon in its orbit around the Earth only. ii) The Moon’s orbit is circular and the Moon can be taken as a point. iii) The Earth’s axis of rotation and the Moon’s axis of revolution are parallel. iv) To simplify the calculations, we take the motion to be around the center of the Earth and not the center of mass. Throughout the problem, all moments of inertia, torques and angular momenta are defined around the axis of the Earth. v) Ignore the influence of the Sun."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1aWrite down the equation for the present total angular momentum of the Earth-Moon system. Set this equation in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the moment of inertia of the Earth; "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_{E1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the present angular frequency of the Earth’s rotation; "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_{M1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the present moment of inertia of the Moon with respect to the Earth’s axis; and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_{M1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the present angular frequency of the Moon’s orbit. 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This process of transfer of angular momentum will end when the period of rotation of the Earth and the period of revolution of the Moon around the Earth have the same duration. At this point the tidal bulges produced by the Moon on the Earth will be aligned with the line between the Moon and the Earth and the torque will disappear."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1bWrite down the equation for the final total angular momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the Earth-Moon system. Make the same assumptions as in Question 1a. Set this equation in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the moment of inertia of the Earth; "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the final angular frequency of the Earth’s rotation and Moon’s translation; and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_{M2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the final moment of inertia of the Moon. 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1cNeglecting the contribution of the Earth’s rotation to the final total angular momentum, write down the equation that expresses the angular momentum conservation for this problem. 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2. Final Separation and Final Angular Frequency of the Earth-Moon System."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Assume that the gravitational equation for a circular orbit (of the Moon around the Earth) is always valid. Neglect the contribution of the Earth’s rotation to the final total angular momentum."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2aWrite down the gravitational equation for the circular orbit of the Moon around the Earth, at the final state, in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the final separation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between the Earth and the Moon. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the mass of the Earth and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the gravitational constant. 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2bWrite down the equation for the final separation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between the Earth and the Moon in terms of the known parameters, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the total angular momentum of the system, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the masses of the Earth and Moon, respectively, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2cWrite down the equation for the final angular frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the Earth-Moon system in terms of the known parameters "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Below you will be asked to find the numerical values of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". For this you need to know the moment of inertia of the Earth."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2dWrite down the equation for the moment of inertia of the Earth "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " assuming it is a sphere with inner density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the center to a radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and with outer density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_o\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the surface at a radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_o\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (see Figure 3). 0.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2009-t1/3a1199d54ab7204b10e8.png",
+                "alt": "ipho-2009-t1 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 3. The Earth as a sphere with two densities, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_o\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Determine the numerical values requested in this problem always to "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "two significant digits"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2eEvaluate the moment of inertia of the Earth "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", using "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_i = 1.3\\times 10^{4}\\,\\mathrm{kg\\,m^{-3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_i = 3.5\\times 10^{6}\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_o = 4.0\\times 10^{3}\\,\\mathrm{kg\\,m^{-3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_o = 6.4\\times 10^{6}\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The masses of the Earth and Moon are "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_E = 6.0\\times 10^{24}\\,\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_M = 7.3\\times 10^{22}\\,\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", respectively. The present separation between the Earth and the Moon is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_1 = 3.8\\times 10^{8}\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The present angular frequency of the Earth’s rotation is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_{E1} = 7.3\\times 10^{-5}\\,\\mathrm{s^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The present angular frequency of the Moon’s translation around the Earth is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_{M1} = 2.7\\times 10^{-6}\\,\\mathrm{s^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the gravitational constant is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G = 6.7\\times 10^{-11}\\,\\mathrm{m^3\\,kg^{-1}\\,s^{-2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2fEvaluate the numerical value of the total angular momentum of the system, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2gFind the final separation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in meters and in units of the present separation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2hFind the final angular frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{s^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", as well as the final duration of the day in units of present days. 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Verify that the assumption of neglecting the contribution of the Earth’s rotation to the final total angular momentum is justified by finding the ratio of the final angular momentum of the Earth to that of the Moon. This should be a small quantity."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2iFind the ratio of the final angular momentum of the Earth to that of the Moon. 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "3. How much is the Moon receding per year?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now, you will find how much the Moon is receding from the Earth each year. For this, you will need to know the equation for the torque acting at present on the Moon. Assume that the tidal bulges can be approximated by two point masses, each of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", located on the surface of the Earth, see Fig. 4. Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the angle between the line that goes through the bulges and the line that joins the centers of the Earth and the Moon."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2009-t1/4237825016050b11c7c8.png",
+                "alt": "ipho-2009-t1 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 4. Schematic diagram to estimate the torque produced on the Moon by the bulges on the Earth. The drawing is not to scale."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3aFind "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the magnitude of the force produced on the Moon by the closest point mass. 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3bFind "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the magnitude of the force produced on the Moon by the farthest point mass. 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "You may now evaluate the torques produced by the point masses."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3cFind the magnitude of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the torque produced by the closest point mass. 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3dFind the magnitude of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the torque produced by the farthest point mass. 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3eFind the magnitude of the total torque "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " produced by the two masses. Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_o << D_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " you should approximate your expression to lowest significant order in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_o / D_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". You may use that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((1+x)^{a} \\approx 1+ax\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x<<1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3fCalculate the numerical value of the total torque "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", taking into account that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta = 3^{\\circ}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m = 3.6\\times 10^{16}\\,\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (note that this mass is of the order of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(10^{-8}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " times the mass of the Earth). 0.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since the torque is the rate of change of angular momentum with time, find the increase in the distance Earth-Moon at present, per year. For this step, express the angular momentum of the Moon in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " only."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3gFind the increase in the distance Earth-Moon at present, per year. 1.0"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Finally, estimate how much the length of the day is increasing each year."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3hFind the decrease of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_{E1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " per year and how much is the length of the day at present increasing each year. 1.0"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "4. Where is the energy going?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In contrast to the angular momentum, that is conserved, the total (rotational plus gravitational) energy of the system is not. We will look into this in this last section."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4aWrite down an equation for the total (rotational plus gravitational) energy of the Earth-Moon system at present, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Put this equation in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_{E1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " only. 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4bWrite down an equation for the change in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", as a function of the changes in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_{E1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Evaluate the numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for a year, using the values of changes in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_{E1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " found in questions 3g and 3h. 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Verify that this loss of energy is consistent with an estimate for the energy dissipated as heat in the tides produced by the Moon on the Earth. Assume that the tides rise, on the average by 0.5 m, a layer of water "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h = 0.5\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " deep that covers the surface of the Earth (for simplicity assume that all the surface of the Earth is covered with water). This happens twice a day. Further assume that 10% of this gravitational energy is dissipated as heat due to viscosity when the water descends. Take the density of water to be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_{water} = 10^{3}\\,\\mathrm{kg\\,m^{-3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the gravitational acceleration on the surface of the Earth to be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g = 9.8\\,\\mathrm{m\\,s^{-2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4cWhat is the mass of this surface layer of water? 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4dCalculate how much energy is dissipated in a year? How does this compare with the energy lost per year by the Earth-Moon system at present? 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "THEORETICAL PROBLEM No. 1\n\n\nEVOLUTION OF THE EARTH-MOON SYSTEM\n\n\nScientists can determine the distance Earth-Moon with great precision. They achieve this by bouncing a laser beam on special mirrors deposited on the Moon’s surface by astronauts in 1969, and measuring the round travel time of the light (see Figure 1).\n\n\n\n\n\n\n\n\n\nFigure 1. A laser beam sent from an observatory is used to measure accurately the distance between the Earth and the Moon.\n\n\nWith these observations, they have directly measured that the Moon is slowly receding from the Earth. That is, the Earth-Moon distance is increasing with time. This is happening because due to tidal torques the Earth is transferring angular momentum to the Moon, see Figure 2. In this problem you will derive the basic parameters of the phenomenon.\n\n\n\n\n\n\n\n\n\nFigure 2. The Moon’s gravity produces tidal deformations or “bulges” in the Earth. Because of the Earth’s rotation, the line that goes through the bulges is not aligned with the line between the Earth and the Moon. This misalignment produces a torque that transfers angular momentum from the Earth’s rotation to the Moon’s translation. The drawing is not to scale.\n\n\n1. Conservation of Angular Momentum.\n\n\nLet \n\\(L_1\\)\n be the present total angular momentum of the Earth-Moon system. Now, make the following assumptions: i) \n\\(L_1\\)\n is the sum of the rotation of the Earth around its axis and the translation of the Moon in its orbit around the Earth only. ii) The Moon’s orbit is circular and the Moon can be taken as a point. iii) The Earth’s axis of rotation and the Moon’s axis of revolution are parallel. iv) To simplify the calculations, we take the motion to be around the center of the Earth and not the center of mass. Throughout the problem, all moments of inertia, torques and angular momenta are defined around the axis of the Earth. v) Ignore the influence of the Sun.\n\n\n1aWrite down the equation for the present total angular momentum of the Earth-Moon system. Set this equation in terms of \n\\(I_E\\)\n, the moment of inertia of the Earth; \n\\(\\omega_{E1}\\)\n, the present angular frequency of the Earth’s rotation; \n\\(I_{M1}\\)\n, the present moment of inertia of the Moon with respect to the Earth’s axis; and \n\\(\\omega_{M1}\\)\n, the present angular frequency of the Moon’s orbit. 0.2\n\n\nThis process of transfer of angular momentum will end when the period of rotation of the Earth and the period of revolution of the Moon around the Earth have the same duration. At this point the tidal bulges produced by the Moon on the Earth will be aligned with the line between the Moon and the Earth and the torque will disappear.\n\n\n1bWrite down the equation for the final total angular momentum \n\\(L_2\\)\n of the Earth-Moon system. Make the same assumptions as in Question 1a. Set this equation in terms of \n\\(I_E\\)\n, the moment of inertia of the Earth; \n\\(\\omega_2\\)\n, the final angular frequency of the Earth’s rotation and Moon’s translation; and \n\\(I_{M2}\\)\n, the final moment of inertia of the Moon. 0.2\n\n\n1cNeglecting the contribution of the Earth’s rotation to the final total angular momentum, write down the equation that expresses the angular momentum conservation for this problem. 0.3\n\n\n2. Final Separation and Final Angular Frequency of the Earth-Moon System.\n\n\nAssume that the gravitational equation for a circular orbit (of the Moon around the Earth) is always valid. Neglect the contribution of the Earth’s rotation to the final total angular momentum.\n\n\n2aWrite down the gravitational equation for the circular orbit of the Moon around the Earth, at the final state, in terms of \n\\(M_E\\)\n, \n\\(\\omega_2\\)\n, \n\\(G\\)\n and the final separation \n\\(D_2\\)\n between the Earth and the Moon. \n\\(M_E\\)\n is the mass of the Earth and \n\\(G\\)\n is the gravitational constant. 0.2\n\n\n2bWrite down the equation for the final separation \n\\(D_2\\)\n between the Earth and the Moon in terms of the known parameters, \n\\(L_1\\)\n, the total angular momentum of the system, \n\\(M_E\\)\n and \n\\(M_M\\)\n, the masses of the Earth and Moon, respectively, and \n\\(G\\)\n. 0.5\n\n\n2cWrite down the equation for the final angular frequency \n\\(\\omega_2\\)\n of the Earth-Moon system in terms of the known parameters \n\\(L_1\\)\n, \n\\(M_E\\)\n, \n\\(M_M\\)\n and \n\\(G\\)\n. 0.5\n\n\nBelow you will be asked to find the numerical values of \n\\(D_2\\)\n and \n\\(\\omega_2\\)\n. For this you need to know the moment of inertia of the Earth.\n\n\n2dWrite down the equation for the moment of inertia of the Earth \n\\(I_E\\)\n assuming it is a sphere with inner density \n\\(\\rho_i\\)\n from the center to a radius \n\\(r_i\\)\n, and with outer density \n\\(\\rho_o\\)\n from the radius \n\\(r_i\\)\n to the surface at a radius \n\\(r_o\\)\n (see Figure 3). 0.5\n\n\n\n\n\n\n\n\n\nFigure 3. The Earth as a sphere with two densities, \n\\(\\rho_i\\)\n and \n\\(\\rho_o\\)\n.\n\n\nDetermine the numerical values requested in this problem always to \ntwo significant digits\n.\n\n\n2eEvaluate the moment of inertia of the Earth \n\\(I_E\\)\n, using \n\\(\\rho_i = 1.3\\times 10^{4}\\,\\mathrm{kg\\,m^{-3}}\\)\n, \n\\(r_i = 3.5\\times 10^{6}\\,\\mathrm{m}\\)\n, \n\\(\\rho_o = 4.0\\times 10^{3}\\,\\mathrm{kg\\,m^{-3}}\\)\n, and \n\\(r_o = 6.4\\times 10^{6}\\,\\mathrm{m}\\)\n. 0.2\n\n\nThe masses of the Earth and Moon are \n\\(M_E = 6.0\\times 10^{24}\\,\\mathrm{kg}\\)\n and \n\\(M_M = 7.3\\times 10^{22}\\,\\mathrm{kg}\\)\n, respectively. The present separation between the Earth and the Moon is \n\\(D_1 = 3.8\\times 10^{8}\\,\\mathrm{m}\\)\n. The present angular frequency of the Earth’s rotation is \n\\(\\omega_{E1} = 7.3\\times 10^{-5}\\,\\mathrm{s^{-1}}\\)\n. The present angular frequency of the Moon’s translation around the Earth is \n\\(\\omega_{M1} = 2.7\\times 10^{-6}\\,\\mathrm{s^{-1}}\\)\n, and the gravitational constant is \n\\(G = 6.7\\times 10^{-11}\\,\\mathrm{m^3\\,kg^{-1}\\,s^{-2}}\\)\n.\n\n\n2fEvaluate the numerical value of the total angular momentum of the system, \n\\(L_1\\)\n. 0.2\n\n\n2gFind the final separation \n\\(D_2\\)\n in meters and in units of the present separation \n\\(D_1\\)\n. 0.3\n\n\n2hFind the final angular frequency \n\\(\\omega_2\\)\n in \n\\(\\mathrm{s^{-1}}\\)\n, as well as the final duration of the day in units of present days. 0.3\n\n\nVerify that the assumption of neglecting the contribution of the Earth’s rotation to the final total angular momentum is justified by finding the ratio of the final angular momentum of the Earth to that of the Moon. This should be a small quantity.\n\n\n2iFind the ratio of the final angular momentum of the Earth to that of the Moon. 0.2\n\n\n3. How much is the Moon receding per year?\n\n\nNow, you will find how much the Moon is receding from the Earth each year. For this, you will need to know the equation for the torque acting at present on the Moon. Assume that the tidal bulges can be approximated by two point masses, each of mass \n\\(m\\)\n, located on the surface of the Earth, see Fig. 4. Let \n\\(\\theta\\)\n be the angle between the line that goes through the bulges and the line that joins the centers of the Earth and the Moon.\n\n\n\n\n\n\n\n\n\nFigure 4. Schematic diagram to estimate the torque produced on the Moon by the bulges on the Earth. The drawing is not to scale.\n\n\n3aFind \n\\(F_c\\)\n, the magnitude of the force produced on the Moon by the closest point mass. 0.4\n\n\n3bFind \n\\(F_f\\)\n, the magnitude of the force produced on the Moon by the farthest point mass. 0.4\n\n\nYou may now evaluate the torques produced by the point masses.\n\n\n3cFind the magnitude of \n\\(\\tau_c\\)\n, the torque produced by the closest point mass. 0.4\n\n\n3dFind the magnitude of \n\\(\\tau_f\\)\n, the torque produced by the farthest point mass. 0.4\n\n\n3eFind the magnitude of the total torque \n\\(\\tau\\)\n produced by the two masses. Since \n\\(r_o << D_1\\)\n you should approximate your expression to lowest significant order in \n\\(r_o / D_1\\)\n. You may use that \n\\((1+x)^{a} \\approx 1+ax\\)\n, if \n\\(x<<1\\)\n. 1.0\n\n\n3fCalculate the numerical value of the total torque \n\\(\\tau\\)\n, taking into account that \n\\(\\theta = 3^{\\circ}\\)\n and that \n\\(m = 3.6\\times 10^{16}\\,\\mathrm{kg}\\)\n (note that this mass is of the order of \n\\(10^{-8}\\)\n times the mass of the Earth). 0.5\n\n\nSince the torque is the rate of change of angular momentum with time, find the increase in the distance Earth-Moon at present, per year. For this step, express the angular momentum of the Moon in terms of \n\\(M_M\\)\n, \n\\(M_E\\)\n, \n\\(D_1\\)\n and \n\\(G\\)\n only.\n\n\n3gFind the increase in the distance Earth-Moon at present, per year. 1.0\n\n\nFinally, estimate how much the length of the day is increasing each year.\n\n\n3hFind the decrease of \n\\(\\omega_{E1}\\)\n per year and how much is the length of the day at present increasing each year. 1.0\n\n\n4. Where is the energy going?\n\n\nIn contrast to the angular momentum, that is conserved, the total (rotational plus gravitational) energy of the system is not. We will look into this in this last section.\n\n\n4aWrite down an equation for the total (rotational plus gravitational) energy of the Earth-Moon system at present, \n\\(E\\)\n. Put this equation in terms of \n\\(I_E\\)\n, \n\\(\\omega_{E1}\\)\n, \n\\(M_M\\)\n, \n\\(M_E\\)\n, \n\\(D_1\\)\n and \n\\(G\\)\n only. 0.4\n\n\n4bWrite down an equation for the change in \n\\(E\\)\n, \n\\(\\Delta E\\)\n, as a function of the changes in \n\\(D_1\\)\n and in \n\\(\\omega_{E1}\\)\n. Evaluate the numerical value of \n\\(\\Delta E\\)\n for a year, using the values of changes in \n\\(D_1\\)\n and in \n\\(\\omega_{E1}\\)\n found in questions 3g and 3h. 0.4\n\n\nVerify that this loss of energy is consistent with an estimate for the energy dissipated as heat in the tides produced by the Moon on the Earth. Assume that the tides rise, on the average by 0.5 m, a layer of water \n\\(h = 0.5\\,\\mathrm{m}\\)\n deep that covers the surface of the Earth (for simplicity assume that all the surface of the Earth is covered with water). This happens twice a day. Further assume that 10% of this gravitational energy is dissipated as heat due to viscosity when the water descends. Take the density of water to be \n\\(\\rho_{water} = 10^{3}\\,\\mathrm{kg\\,m^{-3}}\\)\n, and the gravitational acceleration on the surface of the Earth to be \n\\(g = 9.8\\,\\mathrm{m\\,s^{-2}}\\)\n.\n\n\n4cWhat is the mass of this surface layer of water? 0.2\n\n\n4dCalculate how much energy is dissipated in a year? How does this compare with the energy lost per year by the Earth-Moon system at present? 0.3\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2009-t1/f1f7504c093e00e9945e.jpg",
+      "/corpus/figures/native/bulk/ipho-2009-t1/eebebcc30a1c4c8144df.png",
+      "/corpus/figures/native/bulk/ipho-2009-t1/3a1199d54ab7204b10e8.png",
+      "/corpus/figures/native/bulk/ipho-2009-t1/4237825016050b11c7c8.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2009-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "THEORETICAL PROBLEM No. 1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "EVOLUTION OF THE EARTH-MOON SYSTEM"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "SOLUTIONS"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1. Conservation of Angular Momentum"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1a "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[L_1 = I_E\\omega_{E1} + I_{M1}\\omega_{M1}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1b "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[L_2 = I_E\\omega_2 + I_{M2}\\omega_2\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1c "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I_E\\omega_{E1} + I_{M1}\\omega_{M1} = I_{M2}\\omega_2 = L_1\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2. Final Separation and Angular Frequency of the Earth-Moon System."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2a "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\omega_2^2 D_2^3 = G M_E\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2b "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[D_2 = \\frac{L_1^2}{G M_E M_M^2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2c "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\omega_2 = \\frac{G^2 M_E^2 M_M^3}{L_1^3}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2d The moment of inertia of the Earth will be the addition of the moment of inertia of a sphere with radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_o\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_o\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and of a sphere with radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_i-\\rho_o\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I_E = \\frac{2}{5}\\frac{4\\pi}{3}\\left[r_o^5\\rho_o + r_i^5(\\rho_i-\\rho_o)\\right]\\text{.}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2e "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I_E = \\frac{2}{5}\\frac{4\\pi}{3}\\left[r_o^5\\rho_o + r_i^5(\\rho_i-\\rho_o)\\right] = 8.0\\times 10^{37}\\,\\mathrm{kg\\,m^2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2f "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[L_1 = I_E\\omega_{E1} + I_{M1}\\omega_{M1} = 3.4\\times 10^{34}\\,\\mathrm{kg\\,m^2\\,s^{-1}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2g "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_2 = 5.4\\times 10^8\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", that is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_2 = 1.4\\,D_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2h "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_2 = 1.6\\times 10^{-6}\\,\\mathrm{s^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", that is, a period of 46 days. 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2i Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_E\\omega_2 = 1.3\\times 10^{32}\\,\\mathrm{kg\\,m^2\\,s^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_{M2}\\omega_2 = 3.4\\times 10^{34}\\,\\mathrm{kg\\,m^2\\,s^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the approximation is justified since the final angular momentum of the Earth is 1/260 of that of the Moon. 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "3. How much is the Moon receding per year?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3a Using the law of cosines, the magnitude of the force produced by the mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " closest to the Moon will be: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_c = \\frac{G m M_M}{D_1^2 + r_o^2 - 2D_1 r_o\\cos(\\theta)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3b Using the law of cosines, the magnitude of the force produced by the mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " farthest to the Moon will be: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_f = \\frac{G m M_M}{D_1^2 + r_o^2 + 2D_1 r_o\\cos(\\theta)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3c Using the law of sines, the torque will be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau_c = F_c\\,\\frac{\\sin(\\theta)\\,r_0 D_1}{[D_1^2 + r_o^2 - 2D_1 r_o\\cos(\\theta)]^{1/2}} = \\frac{G m M_M \\sin(\\theta)\\,r_0 D_1}{[D_1^2 + r_o^2 - 2D_1 r_o\\cos(\\theta)]^{3/2}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3d Using the law of sines, the torque will be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau_f = F_f\\,\\frac{\\sin(\\theta)\\,r_0 D_1}{[D_1^2 + r_o^2 + 2D_1 r_o\\cos(\\theta)]^{1/2}} = \\frac{G m M_M \\sin(\\theta)\\,r_0 D_1}{[D_1^2 + r_o^2 + 2D_1 r_o\\cos(\\theta)]^{3/2}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3e "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{aligned}\n\\tau_c - \\tau_f &= G m M_M \\sin(\\theta)\\,r_0\\,D_1^{-2}\\left(1 - \\frac{3r_o^2}{2D_1^2} + \\frac{3r_o\\cos(\\theta)}{D_1} - 1 + \\frac{3r_o^2}{2D_1^2} + \\frac{3r_o\\cos(\\theta)}{D_1}\\right) \\\\\n&= \\frac{6 G m M_M r_o^2 \\sin(\\theta)\\cos(\\theta)}{D_1^3}\n\\end{aligned}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1.0"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3f "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau = \\frac{6 G m M_M r_o^2 \\sin(\\theta)\\cos(\\theta)}{D_1^3} = 4.1\\times 10^{16}\\,\\mathrm{N\\,m}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3g Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_{M1}^2 D_1^3 = G M_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have that the angular momentum of the Moon is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I_{M1}\\omega_{M1} = M_M D_1^2\\left[\\frac{G M_E}{D_1^3}\\right]^{1/2} = M_M\\left[D_1 G M_E\\right]^{1/2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The torque will be: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau = \\frac{M_M\\left[G M_E\\right]^{1/2}\\,\\Delta\\left(D_1^{1/2}\\right)}{\\Delta t} = \\frac{M_M\\left[G M_E\\right]^{1/2}\\,\\Delta D_1}{2\\left[D_1\\right]^{1/2}\\,\\Delta t}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " So, we have that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta D_1 = \\frac{2\\,\\tau\\,\\Delta t}{M_M}\\left[\\frac{D_1}{G M_E}\\right]^{1/2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " That for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t = 3.1\\times 10^7\\,\\mathrm{s} = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " year, gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta D_1 = 0.034\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This is the yearly increase in the Earth-Moon distance. 1.0"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3h We now use that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau = -\\frac{I_E\\,\\Delta\\omega_{E1}}{\\Delta t}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from where we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta\\omega_{E1} = -\\frac{\\tau\\,\\Delta t}{I_E}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t = 3.1\\times 10^7\\,\\mathrm{s} = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " year gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta\\omega_{E1} = -1.6\\times 10^{-14}\\,\\mathrm{s^{-1}}\\text{.}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " If "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the period of time considered, we have that: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\Delta P_E}{P_E} = -\\frac{\\Delta\\omega_{E1}}{\\omega_E}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_E = 1\\,day = 8.64\\times 10^4\\,\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta P_E = 1.9\\times 10^{-5}\\,\\mathrm{s}\\text{.}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This is the amount of time that the day lengthens in a year. 1.0"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "4. Where is the energy going?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4a The present total (rotational plus gravitational) energy of the system is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E = \\frac{1}{2}I_E\\omega_{E1}^2 + \\frac{1}{2}I_M\\omega_{M1}^2 - \\frac{G M_E M_M}{D_1}\\text{.}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_{M1}^2 D_1^3 = G M_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E = \\frac{1}{2}I_E\\omega_{E1}^2 - \\frac{1}{2}\\frac{G M_E M_M}{D_1}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4b "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta E = I_E\\omega_{E1}\\Delta\\omega_{E1} + \\frac{1}{2}\\frac{G M_E M_M}{D_1^2}\\Delta D_1 \\text{, that gives}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta E = -9.0\\times 10^{19}\\,\\mathrm{J}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4c "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_{water} = 4\\pi r_o^2 \\times h \\times \\rho_{water}\\,\\mathrm{kg} = 2.6\\times 10^{17}\\,\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4d "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_{water} = -g M_{water} \\times 0.5\\,m \\times 2\\,day^{-1} \\times 365\\,days \\times 0.1 = -9.3\\times 10^{19}\\,\\mathrm{J}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Then, the two energy estimates are comparable. 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "THEORETICAL PROBLEM No. 1\n\n\nEVOLUTION OF THE EARTH-MOON SYSTEM\n\n\nSOLUTIONS\n\n\n1. Conservation of Angular Momentum\n\n\n1a \n\\[L_1 = I_E\\omega_{E1} + I_{M1}\\omega_{M1}\\]\n 0.2\n\n\n1b \n\\[L_2 = I_E\\omega_2 + I_{M2}\\omega_2\\]\n 0.2\n\n\n1c \n\\[I_E\\omega_{E1} + I_{M1}\\omega_{M1} = I_{M2}\\omega_2 = L_1\\]\n 0.3\n\n\n2. Final Separation and Angular Frequency of the Earth-Moon System.\n\n\n2a \n\\[\\omega_2^2 D_2^3 = G M_E\\]\n 0.2\n\n\n2b \n\\[D_2 = \\frac{L_1^2}{G M_E M_M^2}\\]\n 0.5\n\n\n2c \n\\[\\omega_2 = \\frac{G^2 M_E^2 M_M^3}{L_1^3}\\]\n 0.5\n\n\n2d The moment of inertia of the Earth will be the addition of the moment of inertia of a sphere with radius \n\\(r_o\\)\n and density \n\\(\\rho_o\\)\n and of a sphere with radius \n\\(r_i\\)\n and density \n\\(\\rho_i-\\rho_o\\)\n: \n\\[I_E = \\frac{2}{5}\\frac{4\\pi}{3}\\left[r_o^5\\rho_o + r_i^5(\\rho_i-\\rho_o)\\right]\\text{.}\\]\n 0.5\n\n\n2e \n\\[I_E = \\frac{2}{5}\\frac{4\\pi}{3}\\left[r_o^5\\rho_o + r_i^5(\\rho_i-\\rho_o)\\right] = 8.0\\times 10^{37}\\,\\mathrm{kg\\,m^2}\\]\n 0.2\n\n\n2f \n\\[L_1 = I_E\\omega_{E1} + I_{M1}\\omega_{M1} = 3.4\\times 10^{34}\\,\\mathrm{kg\\,m^2\\,s^{-1}}\\]\n 0.2\n\n\n2g \n\\(D_2 = 5.4\\times 10^8\\,\\mathrm{m}\\)\n, that is \n\\(D_2 = 1.4\\,D_1\\)\n. 0.3\n\n\n2h \n\\(\\omega_2 = 1.6\\times 10^{-6}\\,\\mathrm{s^{-1}}\\)\n, that is, a period of 46 days. 0.3\n\n\n2i Since \n\\(I_E\\omega_2 = 1.3\\times 10^{32}\\,\\mathrm{kg\\,m^2\\,s^{-1}}\\)\n and \n\\(I_{M2}\\omega_2 = 3.4\\times 10^{34}\\,\\mathrm{kg\\,m^2\\,s^{-1}}\\)\n, the approximation is justified since the final angular momentum of the Earth is 1/260 of that of the Moon. 0.2\n\n\n3. How much is the Moon receding per year?\n\n\n3a Using the law of cosines, the magnitude of the force produced by the mass \n\\(m\\)\n closest to the Moon will be: \n\\[F_c = \\frac{G m M_M}{D_1^2 + r_o^2 - 2D_1 r_o\\cos(\\theta)}\\]\n 0.4\n\n\n3b Using the law of cosines, the magnitude of the force produced by the mass \n\\(m\\)\n farthest to the Moon will be: \n\\[F_f = \\frac{G m M_M}{D_1^2 + r_o^2 + 2D_1 r_o\\cos(\\theta)}\\]\n 0.4\n\n\n3c Using the law of sines, the torque will be \n\\[\\tau_c = F_c\\,\\frac{\\sin(\\theta)\\,r_0 D_1}{[D_1^2 + r_o^2 - 2D_1 r_o\\cos(\\theta)]^{1/2}} = \\frac{G m M_M \\sin(\\theta)\\,r_0 D_1}{[D_1^2 + r_o^2 - 2D_1 r_o\\cos(\\theta)]^{3/2}}\\]\n 0.4\n\n\n3d Using the law of sines, the torque will be \n\\[\\tau_f = F_f\\,\\frac{\\sin(\\theta)\\,r_0 D_1}{[D_1^2 + r_o^2 + 2D_1 r_o\\cos(\\theta)]^{1/2}} = \\frac{G m M_M \\sin(\\theta)\\,r_0 D_1}{[D_1^2 + r_o^2 + 2D_1 r_o\\cos(\\theta)]^{3/2}}\\]\n 0.4\n\n\n3e \n\\[\\begin{aligned}\n\\tau_c - \\tau_f &= G m M_M \\sin(\\theta)\\,r_0\\,D_1^{-2}\\left(1 - \\frac{3r_o^2}{2D_1^2} + \\frac{3r_o\\cos(\\theta)}{D_1} - 1 + \\frac{3r_o^2}{2D_1^2} + \\frac{3r_o\\cos(\\theta)}{D_1}\\right) \\\\\n&= \\frac{6 G m M_M r_o^2 \\sin(\\theta)\\cos(\\theta)}{D_1^3}\n\\end{aligned}\\]\n 1.0\n\n\n3f \n\\[\\tau = \\frac{6 G m M_M r_o^2 \\sin(\\theta)\\cos(\\theta)}{D_1^3} = 4.1\\times 10^{16}\\,\\mathrm{N\\,m}\\]\n 0.5\n\n\n3g Since \n\\(\\omega_{M1}^2 D_1^3 = G M_E\\)\n, we have that the angular momentum of the Moon is \n\\[I_{M1}\\omega_{M1} = M_M D_1^2\\left[\\frac{G M_E}{D_1^3}\\right]^{1/2} = M_M\\left[D_1 G M_E\\right]^{1/2}\\]\n The torque will be: \n\\[\\tau = \\frac{M_M\\left[G M_E\\right]^{1/2}\\,\\Delta\\left(D_1^{1/2}\\right)}{\\Delta t} = \\frac{M_M\\left[G M_E\\right]^{1/2}\\,\\Delta D_1}{2\\left[D_1\\right]^{1/2}\\,\\Delta t}\\]\n So, we have that \n\\[\\Delta D_1 = \\frac{2\\,\\tau\\,\\Delta t}{M_M}\\left[\\frac{D_1}{G M_E}\\right]^{1/2}\\]\n That for \n\\(\\Delta t = 3.1\\times 10^7\\,\\mathrm{s} = 1\\)\n year, gives \n\\(\\Delta D_1 = 0.034\\,\\mathrm{m}\\)\n. This is the yearly increase in the Earth-Moon distance. 1.0\n\n\n3h We now use that \n\\[\\tau = -\\frac{I_E\\,\\Delta\\omega_{E1}}{\\Delta t}\\]\n from where we get \n\\[\\Delta\\omega_{E1} = -\\frac{\\tau\\,\\Delta t}{I_E}\\]\n that for \n\\(\\Delta t = 3.1\\times 10^7\\,\\mathrm{s} = 1\\)\n year gives \n\\[\\Delta\\omega_{E1} = -1.6\\times 10^{-14}\\,\\mathrm{s^{-1}}\\text{.}\\]\n If \n\\(P_E\\)\n is the period of time considered, we have that: \n\\[\\frac{\\Delta P_E}{P_E} = -\\frac{\\Delta\\omega_{E1}}{\\omega_E}\\]\n since \n\\(P_E = 1\\,day = 8.64\\times 10^4\\,\\mathrm{s}\\)\n, we get \n\\[\\Delta P_E = 1.9\\times 10^{-5}\\,\\mathrm{s}\\text{.}\\]\n This is the amount of time that the day lengthens in a year. 1.0\n\n\n4. Where is the energy going?\n\n\n4a The present total (rotational plus gravitational) energy of the system is: \n\\[E = \\frac{1}{2}I_E\\omega_{E1}^2 + \\frac{1}{2}I_M\\omega_{M1}^2 - \\frac{G M_E M_M}{D_1}\\text{.}\\]\n Using that \n\\(\\omega_{M1}^2 D_1^3 = G M_E\\)\n, we get \n\\[E = \\frac{1}{2}I_E\\omega_{E1}^2 - \\frac{1}{2}\\frac{G M_E M_M}{D_1}\\]\n 0.4\n\n\n4b \n\\[\\Delta E = I_E\\omega_{E1}\\Delta\\omega_{E1} + \\frac{1}{2}\\frac{G M_E M_M}{D_1^2}\\Delta D_1 \\text{, that gives}\\]\n \n\\[\\Delta E = -9.0\\times 10^{19}\\,\\mathrm{J}\\]\n 0.4\n\n\n4c \n\\(M_{water} = 4\\pi r_o^2 \\times h \\times \\rho_{water}\\,\\mathrm{kg} = 2.6\\times 10^{17}\\,\\mathrm{kg}\\)\n. 0.2\n\n\n4d \n\\(\\Delta E_{water} = -g M_{water} \\times 0.5\\,m \\times 2\\,day^{-1} \\times 365\\,days \\times 0.1 = -9.3\\times 10^{19}\\,\\mathrm{J}\\)\n. Then, the two energy estimates are comparable. 0.3\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

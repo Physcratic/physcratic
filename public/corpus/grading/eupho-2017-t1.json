@@ -1,0 +1,28 @@
+{
+  "problemId": "eupho-2017-t1",
+  "version": "ea2427dc315c27eac5c02523477927db11aafd8f45f5603750f287429d62fd00",
+  "parts": [
+    {
+      "id": "q1",
+      "sourcePart": "a",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "text"
+    },
+    {
+      "id": "q2",
+      "sourcePart": "b",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "math"
+    }
+  ]
+}

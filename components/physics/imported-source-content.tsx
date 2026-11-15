@@ -64,7 +64,11 @@ function SourceNode({ node }: { node: ImportedNode }) {
   // Mirror HTML has nested block elements inside paragraphs; normalize without dropping content.
   return createElement(
     node.tag === "p" ? "div" : node.tag,
-    node.tag === "p" ? { className: "source-paragraph" } : {},
+    node.tag === "p" ? { className: "source-paragraph" }
+      : node.tag === "td" || node.tag === "th" ? { colSpan: node.colSpan, rowSpan: node.rowSpan }
+      : node.tag === "ol" ? { start: node.start, type: node.listType, style: { listStyleType: ({ a: "lower-alpha", A: "upper-alpha", i: "lower-roman", I: "upper-roman", "1": "decimal" } as const)[node.listType ?? "1"] } }
+      : node.tag === "table" ? { tabIndex: 0, "aria-label": "Source table" }
+      : {},
     children,
   );
 }

@@ -10,6 +10,7 @@ import "../lib/olympiad/native-pancharatnam";
 import "../lib/olympiad/native-2020";
 import { olympiadDefinitions } from "../lib/olympiad/keys";
 import { publicArchiveMetadata } from "../lib/archive-grading/catalog";
+import bulkIds from "../lib/olympiad/bulk-native-ids.json";
 
 const load = (file: string) => JSON.parse(readFileSync(file, "utf8"));
 const save = (file: string, value: unknown) => { mkdirSync(path.dirname(file), { recursive: true }); writeFileSync(file, JSON.stringify(value, null, 2) + "\n"); };
@@ -32,8 +33,8 @@ for (const [id, content] of Object.entries(nativeOlympiadContent)) {
     const referencePdf = original.pdf ?? original.referencePdf;
     if (!referencePdf) throw Error("Missing original PDF: " + id);
     const sourceBytes = readFileSync("public" + referencePdf);
-    ledger.push({ id, kind, originalPdf: referencePdf, originalSha256: hash(sourceBytes), nodes: content[kind].length, figures: figures(content[kind]), review: "transcribed-and-page-compared", independentReview: "pending" });
-    record[kind] = { format: "html", referencePdf, nodes: content[kind], text: text(content[kind]), figures: figures(content[kind]), shared: false };
+    ledger.push({ id, kind, originalPdf: referencePdf, originalSha256: hash(sourceBytes), nodes: content[kind].length, figures: figures(content[kind]), review: bulkIds.includes(id) ? "latex-import-validated-source-review-pending" : "transcribed-and-page-compared", independentReview: "pending" });
+    if (!id.startsWith("ipho-2026-")) record[kind] = { format: "html", referencePdf, nodes: content[kind], text: text(content[kind]), figures: figures(content[kind]), shared: false };
     entry[kind + "Format"] = "html";
     for (const figure of figures(content[kind])) changedAssets.add(figure);
   }
@@ -57,9 +58,10 @@ for (const asset of changedAssets) {
   byPath.set(asset, { path: asset, bytes: data.length, sha256: hash(data) });
 }
 save("lib/corpus/import-manifest.json", { ...manifest, problems: index.problems, assets: [...byPath.values()].sort((a, b) => (a as { path: string }).path.localeCompare((b as { path: string }).path, "en")) });
-save("docs/engineering/native-archive-batch-1-sources.json", ledger.filter(item => !/^(eupho-2019|eupho-2020|apho-2012-t3)/.test(item.id)));
+save("docs/engineering/native-archive-batch-1-sources.json", ledger.filter(item => ["eupho-2018-t1", "eupho-2018-t2", "eupho-2018-t3", "ipho-2012-t2", "apho-2012-t1"].includes(item.id)));
 save("docs/engineering/native-archive-batch-2-sources.json", ledger.filter(item => /^(eupho-2019|apho-2012-t3)/.test(item.id)));
 save("docs/engineering/native-archive-batch-3-sources.json", ledger.filter(item => /^eupho-2020/.test(item.id)));
+save("docs/engineering/native-archive-bulk-sources.json", ledger.filter(item => bulkIds.includes(item.id)));
 save("docs/engineering/native-archive-inventory.json", {
   baseline: "bcc132eb44b01d67402910015972b594b08810c2",
   total: index.count,

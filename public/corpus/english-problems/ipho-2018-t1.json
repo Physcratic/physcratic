@@ -1,1 +1,3272 @@
-{"id":"ipho-2018-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2018_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2018_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2018-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Theory\nQ1-1\nEnglish (Oﬃcial)\nLIGO-GW150914 (10 points)\nIn 2015, the gravitational-wave observatory LIGO detected, for the ﬁrst time, the passing of gravitational\nwaves (GW) through Earth. This event, named GW150914, was triggered by waves produced by two black\nholes that were orbiting on quasi-circular orbits. This problem will make you estimate some physical\nparameters of the system, from the properties of the detected signal.\nPart A: Newtonian (conservative) orbits (3.0 points)\nA.1\nConsider a system of two stars with masses 𝑀1, 𝑀2, at locations\n⃗𝑟1,\n⃗𝑟2, res-\npectively, with respect to the center-of-mass of the system, that is,\n𝑀1 ⃗𝑟1 + 𝑀2 ⃗𝑟2 = 0 .\n(1)\nThe stars are isolated from the rest of the Universe and moving at non-\nrelativistic velocities. Using Newton's laws, the acceleration vector of mass 𝑀1\ncan be expressed as\nd2 ⃗𝑟1\nd𝑡2 = −𝛼⃗𝑟1\n𝑟𝑛\n1\n,\n(2)\nwhere 𝑟1 = | ⃗𝑟1|, 𝑟2 = | ⃗𝑟2|. Find 𝑛∈ℕand 𝛼= 𝛼(𝐺, 𝑀1, 𝑀2), where 𝐺is Newton's\nconstant [𝐺≃6.67 × 10−11N m2 kg−2].\n1.0pt\nA.2\nThe total energy of the 2-mass system, in circular orbits, can be expressed as:\n𝐸= 𝐴(𝜇, Ω, 𝐿) −𝐺𝑀𝜇\n𝐿\n,\n(3)\nwhere\n𝜇≡\n𝑀1𝑀2\n𝑀1 + 𝑀2\n,\n𝑀≡𝑀1 + 𝑀2 ,\n(4)\nare the reduced mass and total mass of the system, Ω is the angular velocity of\neach mass and 𝐿is the total separation 𝐿= 𝑟1 + 𝑟2. Obtain the explicit form of\nthe term 𝐴(𝜇, Ω, 𝐿).\n1.0pt\nA.3\nEquation 3 can be simpliﬁed to 𝐸= 𝛽𝐺𝑀𝜇\n𝐿. Determine the number 𝛽.\n1.0pt\nPart B: Introducing relativistic dissipation (7.0 points)\nThe correct theory of gravity, General Relativity, was formulated by Einstein in 1915, and predicts that\ngravity travels with the speed of light. The messengers carrying information about the interaction are\ncalled GWs. GWs are emitted whenever masses are accelerated, making the system of masses lose\nenergy.\nConsider a system of two point-like particles, isolated from the rest of the Universe. Einstein proved that\nfor small enough velocities the emitted GWs: 1) have a frequency which is twice as large as the orbital\nfrequency; 2) can be characterized by a luminosity, i.e. emitted power 𝒫, which is dominated by Einstein's\n\nTheory\nQ1-2\nEnglish (Oﬃcial)\nquadrupole formula,\n𝒫= 𝐺\n5𝑐5\n3\n∑\n𝑖=1\n3\n∑\n𝑗=1\n(d3𝑄𝑖𝑗\nd𝑡3 ) (d3𝑄𝑖𝑗\nd𝑡3 ) .\n(5)\nHere, 𝑐is the velocity of light 𝑐≃3 × 108 m/s. For a system of 2 pointlike particles orbiting on the 𝑥−𝑦\nplane, 𝑄𝑖𝑗is the following table (𝑖, 𝑗label the row/column number)\n𝑄11 =\n2\n∑\n𝐴=1\n𝑀𝐴\n3\n(2𝑥2\n𝐴−𝑦2\n𝐴) ,\n𝑄22 =\n2\n∑\n𝐴=1\n𝑀𝐴\n3\n(2𝑦2\n𝐴−𝑥2\n𝐴) ,\n𝑄33 = −\n2\n∑\n𝐴=1\n𝑀𝐴\n3 (𝑥2\n𝐴+ 𝑦2\n𝐴) ,\n(6)\n𝑄12 = 𝑄21 =\n2\n∑\n𝐴=1\n𝑀𝐴𝑥𝐴𝑦𝐴,\n(7)\nand 𝑄𝑖𝑗= 0 for all other possibilities. Here, (𝑥𝐴, 𝑦𝐴) is the position of mass A in the center-of-mass frame.\nB.1\nFor the circular orbits described in A.2 the components of 𝑄𝑖𝑗can be expressed\nas a function of time 𝑡as:\n𝑄𝑖𝑖= 𝜇𝐿2\n2\n(𝑎𝑖+ 𝑏𝑖cos 𝑘𝑡) ,\n𝑄𝑖𝑗\n𝑖≠𝑗\n= 𝜇𝐿2\n2\n𝑐𝑖𝑗sin 𝑘𝑡.\n(8)\nDetermine 𝑘in terms of Ω and the numerical values of the constants 𝑎𝑖, 𝑏𝑖, 𝑐𝑖𝑗.\n1.0pt\nB.2\nCompute the power 𝒫emitted in gravitational waves for that system, and ob-\ntain:\n𝒫= 𝜉𝐺\n𝑐5 𝜇2𝐿4Ω6 .\n(9)\nWhat is the number 𝜉? [If you could not obtain 𝜉, use 𝜉= 6.4 in the following.]\n1.0pt\nB.3\nIn the absence of GW emission the two masses will orbit on a ﬁxed circular orbit\nindeﬁnitely. However, the emission of GWs causes the system to lose energy\nand to slowly evolve towards smaller circular orbits. Obtain that the rate of\nchange dΩ\nd𝑡of the orbital angular velocity takes the form\n(dΩ\nd𝑡)\n3\n= (3𝜉)3 Ω11\n𝑐15 (𝐺𝑀c)5 ,\n(10)\nwhere 𝑀c is called the chirp mass. Obtain 𝑀c as a function of 𝑀and 𝜇. This\nmass determines the increase in frequency during the orbital decay. [The name\n\"chirp\" is inspired by the high pitch sound (increasing frequency) produced by\nsmall birds.]\n1.0pt\n\nTheory\nQ1-3\nEnglish (Oﬃcial)\nB.4\nUsing the information provided above, relate the orbital angular velocity Ω with\nthe GW frequency 𝑓GW. Knowing that, for any smooth function 𝐹(𝑡) and 𝑎≠1,\nd𝐹(𝑡)\nd𝑡\n= 𝜒𝐹(𝑡)𝑎\n⇒\n𝐹(𝑡)1−𝑎= 𝜒(1 −𝑎)(𝑡−𝑡0) ,\n(11)\nwhere 𝜒is a constant and 𝑡0 is an integration constant, show that (10) implies\nthat the GW frequency is\n𝑓−8/3\nGW\n= 8𝜋8/3𝜉(𝐺𝑀𝑐\n𝑐3\n)\n(2/3)+𝑝\n(𝑡0 −𝑡)2−𝑝\n(12)\nand determine the constant 𝑝.\n2.0pt\nOn September 14, 2015 GW150914 was registered by the LIGO detectors, consisting of two L-shaped\narms, each 4 km long. These arms changed by a relative length according to Fig. 1. The arms of the\ndetector respond linearly to a passing gravitational wave, and the response pattern mimics the wave.\nThis wave was created by two black holes on quasi-circular orbits; the loss of energy through gravita-\ntional radiation caused the orbit to shrink and the black holes to eventually collide. The collision point\ncorresponds, roughly, to the peak of the signal after point D, in Fig. 1.\nFigure 1. Strain, i.e. relative variation of the size of each arm, at the LIGO detector H1. The\nhorizontal axis is time, and the points A, B, C, D correspond to 𝑡= 0.000, 0.009, 0.034, 0.040\nseconds, respectively.\nB.5\nFrom the ﬁgure, estimate 𝑓GW(𝑡) at\n𝑡AB = 𝑡B + 𝑡A\n2\nand\n𝑡CD = 𝑡D + 𝑡C\n2\n.\n(13)\nAssuming that (12) is valid all the way until the collision (which strictly speaking\nis not true) and that the two objects have equal mass, estimate the chirp mass,\n𝑀𝑐, and total mass of the system, in terms of solar masses 𝑀⊙≃2 × 1030 kg.\n1.0pt\nB.6\nEstimate the minimal orbital separation between the two objects at 𝑡CD. Hence\nestimate a maximum size for each object, 𝑅max. Obtain 𝑅⊙/𝑅max to compare\nthis size with the radius of our Sun, 𝑅⊙≃7 × 105 km. Estimate also their orbital\nlinear velocity at the same instant, 𝑣col, comparing it with the speed of light,\n𝑣col/𝑐.\n1.0pt\n\nTheory\nQ1-4\nEnglish (Oﬃcial)\nConclude that these are extremely fast moving, extremely compact objects indeed!\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2018-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Confidential\nSolutions to Theory Problem 1\nLIGO-GW150914\n(V. Cardoso, C. Herdeiro)\nJuly 15, 2018\nv6.0\n\nConfidential\nTheory\nEnglish (UK)\nST1-1\nGW150914 (10 points)\nPart A. Newtonian (conservative) orbits (3.0 points)\nA.1 Apply Newton’s law to mass 𝑀1:\n𝑀1\nd2 ⃗𝑟1\nd𝑡2 = 𝐺𝑀1𝑀2\n| ⃗𝑟2 −\n⃗𝑟1|2\n⃗𝑟2 −\n⃗𝑟1\n| ⃗𝑟2 −\n⃗𝑟1| .\n(1)\nUse, from eq. (1) of the question sheet\n⃗𝑟2 = −𝑀1\n𝑀2\n⃗𝑟1 ,\n(2)\nin eq. (1) above, to obtain\nd2 ⃗𝑟1\nd𝑡2 = −\n𝐺𝑀3\n2\n(𝑀1 + 𝑀2)2𝑟2\n1\n⃗𝑟1\n𝑟1\n.\n(3)\nA.1\n𝑛= 3,\n𝛼=\n𝐺𝑀3\n2\n(𝑀1 + 𝑀2)2 .\n1.0pt\nA.2 The total energy of the system is the sum of the two kinetic energies plus the gravitational poten-\ntial energy. For circular motions, the linear velocity of each of the masses reads\n| ⃗𝑣1| = 𝑟1Ω ,\n| ⃗𝑣2| = 𝑟2Ω ,\n(4)\nThus, the total energy is\n𝐸= 1\n2(𝑀1𝑟2\n1 + 𝑀2𝑟2\n2)Ω2 −𝐺𝑀1𝑀2\n𝐿\n,\n(5)\nNow,\n(𝑀1𝑟1 −𝑀2𝑟2)2 = 0\n⇒\n𝑀1𝑟2\n1 + 𝑀2𝑟2\n2 = 𝜇𝐿2 .\n(6)\nThus,\n𝐸= 1\n2𝜇𝐿2Ω2 −𝐺𝑀𝜇\n𝐿\n.\n(7)\nA.2\n𝐴(𝜇, Ω, 𝐿) = 1\n2𝜇𝐿2Ω2 .\n1.0pt\nA.3 Energy (3) of the question sheet can be interpreted as describing a system of a mass 𝜇in a cir-\ncular orbit with angular velocity Ω, radius 𝐿, around a mass 𝑀(at rest). Equating the gravitational\nacceleration to the centripetal acceleration:\n𝐺𝑀\n𝐿2 = Ω2𝐿.\n(8)\nThis is indeed Kepler’s third law (for circular orbits). Then, from (7),\n𝐸= −1\n2𝐺𝑀𝜇\n𝐿\n.\n(9)\nA.3\n𝛽= −1\n2 .\n1.0pt\n\nConfidential\nTheory\nEnglish (UK)\nST1-2\nPart B - Introducing relativistic dissipation (7.0 points)\nB.1 Some simple trigonometry for the 𝑥, 𝑦motion of the masses (in an appropriate Cartesian system)\nyields:\n(𝑥1, 𝑦1) = 𝑟1(cos(Ω𝑡), sin(Ω𝑡)) ,\n(𝑥2, 𝑦2) = −𝑟2(cos(Ω𝑡), sin(Ω𝑡)) .\n(10)\nThen,\n𝑄𝑖𝑗= 𝑀1𝑟2\n1 + 𝑀2𝑟2\n2\n2\n⎛\n⎜\n⎜\n⎜\n⎝\n4\n3 cos2(Ω𝑡) −2\n3 sin2(Ω𝑡)\n2 sin(Ω𝑡) cos(Ω𝑡)\n0\n2 sin(Ω𝑡) cos(Ω𝑡)\n4\n3 sin2(Ω𝑡) −2\n3 cos2(Ω𝑡)\n0\n0\n0\n−2\n3\n⎞\n⎟\n⎟\n⎟\n⎠\n,\n(11)\nor, using some simple trigonometry and (6),\n𝑄𝑖𝑗= 𝜇𝐿2\n2\n⎛\n⎜\n⎜\n⎜\n⎝\n1\n3 + cos 2Ω𝑡\nsin 2Ω𝑡\n0\nsin 2Ω𝑡\n1\n3 −cos 2Ω𝑡\n0\n0\n0\n−2\n3\n⎞\n⎟\n⎟\n⎟\n⎠\n.\n(12)\nB.1\n𝑘= 2Ω ,\n𝑎1 = 𝑎2 = 1\n3 , 𝑎3 = −2\n3 ,\n𝑏1 = 1, 𝑏2 = −1, 𝑏3 = 0 , 𝑐12 = 𝑐21 = 1, 𝑐𝑖𝑗\notherwise\n=\n0 .\n1.0pt\nB.2 First take the derivatives:\nd3𝑄𝑖𝑗\nd𝑡3\n= 4Ω3𝜇𝐿2 ⎛\n⎜\n⎜\n⎜\n⎝\nsin 2Ω𝑡\n−cos 2Ω𝑡\n0\n−cos 2Ω𝑡\n−sin 2Ω𝑡\n0\n0\n0\n0\n⎞\n⎟\n⎟\n⎟\n⎠\n.\n(13)\nThen perform the sum:\nd𝐸\nd𝑡= 𝐺\n5𝑐5 (4Ω3𝜇𝐿2)2[2 sin2(2Ω𝑡) + 2 cos2(2Ω𝑡)] = 32\n5\n𝐺\n𝑐5 𝜇2𝐿4Ω6 .\n(14)\nB.2\n𝜉= 32\n5 .\n1.0pt\nB.3 Now we assume a sequency of Keplerian orbits, with decreasing energy, which is being taken\nfrom the system by the GWs.\nFirst, from (9), differentiating with respect to time,\nd𝐸\nd𝑡= 𝐺𝑀𝜇\n2𝐿2\nd𝐿\nd𝑡,\n(15)\nSince this loss of energy is due to GWs, we equate it with (minus) the luminosity of GWs, given by (14)\n𝐺𝑀𝜇\n2𝐿2\nd𝐿\nd𝑡= −32\n5\n𝐺\n𝑐5 𝜇2𝐿4Ω6 .\n(16)\nWe can eliminate the 𝐿and d𝐿/d𝑡dependence in this equation in terms of Ω and dΩ/d𝑡, by using\nKepler’s third law (8), which relates:\n𝐿3 = 𝐺𝑀\nΩ2 ,\nd𝐿\nd𝑡= −2\n3\n𝐿\nΩ\ndΩ\nd𝑡.\n(17)\n\nConfidential\nTheory\nEnglish (UK)\nST1-3\nSubstituting in (16), we obtain:\n(dΩ\nd𝑡)\n3\n= (96\n5 )\n3 Ω11\n𝑐15 𝐺5𝜇3𝑀2 ≡(96\n5 )\n3 Ω11\n𝑐15 (𝐺𝑀c)5 .\n(18)\nB.3\n𝑀c = (𝜇3𝑀2)1/5 .\n1.0pt\nB.4 Angular and cycle frequencies are related as Ω = 2𝜋𝑓. From the information provided above: GWs\nhave a frequency which is twice as large as the orbital frequency, we have\nΩ\n2𝜋= 𝑓GW\n2\n.\n(19)\nFormula (10) of the question sheet has the form\ndΩ\nd𝑡= 𝜒Ω11/3 ,\n𝜒≡96\n5\n(𝐺𝑀c)5/3\n𝑐5\n.\n(20)\nThus, from (11) of the question sheet\nΩ(𝑡)−8/3 = 8\n3𝜒(𝑡0 −𝑡) ,\n(21)\nor, using (20) and the definition of 𝜒gives\n𝑓−8/3\nGW (𝑡) = (8𝜋)8/3\n5\n(𝐺𝑀c\n𝑐3 )\n5/3\n(𝑡0 −𝑡) .\n(22)\nB.4\n𝑝= 1 .\n2.0pt\nB.5 From the figure, we consider the two Δ𝑡’s as half periods. Thus, the (cycle) GW frequency is 𝑓GW =\n1/(2Δ𝑡). Then, the four given points allow us to compute the frequency at the mean time of the two\nintervals as\n𝑡AB\n𝑡CD\n𝑡(s)\n0.0045\n0.037\n𝑓GW (Hz)\n(2 × 0.009)−1\n(2 × 0.006)−1\nNow, using (22) we have two pairs of (𝑓GW,𝑡) values for two unknowns (𝑡0,𝑀c). Expressing (22) for both\n𝑡AB and 𝑡CD and dividing the two equations we obtain:\n𝑡0 = 𝐴𝑡CD −𝑡AB\n𝐴−1\n,\n𝐴≡(𝑓GW(𝑡AB)\n𝑓GW(𝑡CD))\n−8/3\n.\n(23)\nReplacing by the numerical values, 𝐴≃2.95 and 𝑡0 ≃0.054 s. Now we can use (22) for either of the\ntwo values 𝑡AB or 𝑡CD and determine 𝑀c. One obtains for the chirp mass\n𝑀c ≃6 × 1031 kg ≃30 × 𝑀⊙.\n(24)\nThus, the total mass 𝑀is\n𝑀= 43/5𝑀c ≃69 × 𝑀⊙.\n(25)\nThis result is actually remarkably close to the best estimates using the full theory of General Relativity!\n[Even though the actual objects do not have precisely equal masses and the theory we have just used\nis not valid very close to the collision.]\n\nConfidential\nTheory\nEnglish (UK)\nST1-4\nB.5\n𝑀c ≃30 × 𝑀⊙,\n𝑀≃69 × 𝑀⊙.\n1.0pt\nB.6 From (8), Kepler’s law states that 𝐿= (𝐺𝑀/Ω2)1/3. The second pair of points highlighted in the\nplot correspond to the cycle prior to merger. Thus, we use (19) to obtain the orbital angular velocity\nat 𝑡CD:\nΩ𝑡CD ∼2.6 × 102 rad/s .\n(26)\nThen, using the total mass (25) we find\n𝐿∼5 × 102 km .\n(27)\nThus, these objects have a maximum radius of 𝑅max ∼250 km. Hence they have over 30 times more\nmass and,\n𝑅⊙\n𝑅max\n∼3 × 103\n(28)\nthey are 3000 times smaller than the Sun and!\nTheir linear velocity is\n𝑣col = 𝐿\n2 Ω ≃7 × 104 km/s .\n(29)\nThey are moving at over 20% of the velocity of light!\nB.6\n𝐿collision ∼5 × 102 km ,\n𝑅⊙\n𝑅max\n∼3 × 103 ,\n𝑣col\n𝑐\n∼0.2 .\n1.0pt\n","textExtraction":"available"}}
+{
+  "id": "ipho-2018-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2018-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "LIGO-GW150914 (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In 2015, the gravitational-wave observatory LIGO detected, for the first time, the passing of gravitational waves (GW) through Earth. This event, named GW150914, was triggered by waves produced by two black holes that were orbiting on quasi-circular orbits. This problem will make you estimate some physical parameters of the system, from the properties of the detected signal."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A: Newtonian (conservative) orbits (3.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Consider a system of two stars with masses "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", at locations "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{r}_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{r}_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", respectively, with respect to the center-of-mass of the system, that is, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nM_1\\vec{r}_1 + M_2\\vec{r}_2 = 0\\,. \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The stars are isolated from the rest of the Universe and moving at non-relativistic velocities. Using Newton’s laws, the acceleration vector of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be expressed as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\mathrm{d}^2\\vec{r}_1}{\\mathrm{d}t^2} = -\\alpha\\frac{\\vec{r}_1}{r_1^n}\\,, \\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_1 = |\\vec{r}_1|\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_2 = |\\vec{r}_2|\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n \\in \\mathbb{N}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha = \\alpha(G, M_1, M_2)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is Newton’s constant ["
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G \\simeq 6.67 \\times 10^{-11}\\,\\mathrm{N\\,m^2\\,kg^{-2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "]. 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The total energy of the 2-mass system, in circular orbits, can be expressed as: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE = A(\\mu, \\Omega, L) - G\\frac{M\\mu}{L}\\,, \\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\mu \\equiv \\frac{M_1 M_2}{M_1 + M_2}\\,, \\qquad M \\equiv M_1 + M_2\\,, \\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are the "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "reduced mass"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "total mass"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the system, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the angular velocity of each mass and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the total separation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L = r_1 + r_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Obtain the explicit form of the term "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A(\\mu, \\Omega, L)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Equation 3 can be simplified to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E = \\beta G\\frac{M\\mu}{L}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Determine the number "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B: Introducing relativistic dissipation (7.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The correct theory of gravity, "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "General Relativity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", was formulated by Einstein in 1915, and predicts that gravity travels with the speed of light. The messengers carrying information about the interaction are called GWs. GWs are emitted whenever masses are accelerated, making the system of masses lose energy."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider a system of two point-like particles, isolated from the rest of the Universe. Einstein proved that for small enough velocities the emitted GWs: 1) have a frequency which is twice as large as the orbital frequency; 2) can be characterized by a luminosity, i.e. emitted power "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{P}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which is dominated by Einstein’s quadrupole formula, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\mathcal{P} = \\frac{G}{5c^5}\\sum_{i=1}^{3}\\sum_{j=1}^{3}\\left(\\frac{\\mathrm{d}^3 Q_{ij}}{\\mathrm{d}t^3}\\right)\\left(\\frac{\\mathrm{d}^3 Q_{ij}}{\\mathrm{d}t^3}\\right)\\,. \\tag{5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Here, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the velocity of light "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c \\simeq 3 \\times 10^8\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m/s. For a system of 2 pointlike particles orbiting on the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x-y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Q_{ij}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the following table ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(i, j\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " label the row/column number) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nQ_{11} = \\sum_{A=1}^{2}\\frac{M_A}{3}\\left(2x_A^2 - y_A^2\\right)\\,, \\quad\nQ_{22} = \\sum_{A=1}^{2}\\frac{M_A}{3}\\left(2y_A^2 - x_A^2\\right)\\,, \\quad\nQ_{33} = -\\sum_{A=1}^{2}\\frac{M_A}{3}\\left(x_A^2 + y_A^2\\right)\\,, \\tag{6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nQ_{12} = Q_{21} = \\sum_{A=1}^{2} M_A x_A y_A\\,, \\tag{7}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Q_{ij} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for all other possibilities. Here, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x_A, y_A)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the position of mass A in the center-of-mass frame."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "For the circular orbits described in A.2 the components of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Q_{ij}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be expressed as a function of time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nQ_{ii} = \\frac{\\mu L^2}{2}\\left(a_i + b_i \\cos kt\\right)\\,, \\qquad Q_{ij} \\overset{i\\neq j}{=} \\frac{\\mu L^2}{2}\\, c_{ij} \\sin kt\\,. \\tag{8}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Determine "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the numerical values of the constants "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_{ij}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Compute the power "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{P}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " emitted in gravitational waves for that system, and obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\mathcal{P} = \\xi\\frac{G}{c^5}\\mu^2 L^4 \\Omega^6\\,. \\tag{9}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " What is the number "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\xi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? [If you could not obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\xi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", use "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\xi = 6.4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the following.] 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "In the absence of GW emission the two masses will orbit on a fixed circular orbit indefinitely. However, the emission of GWs causes the system to lose energy and to slowly evolve towards smaller circular orbits. Obtain that the rate of change "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{\\mathrm{d}\\Omega}{\\mathrm{d}t}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the orbital angular velocity takes the form "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\left(\\frac{\\mathrm{d}\\Omega}{\\mathrm{d}t}\\right)^3 = (3\\xi)^3\\frac{\\Omega^{11}}{c^{15}}\\left(GM_\\mathrm{c}\\right)^5\\,, \\tag{10}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is called the "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "chirp mass"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This mass determines the increase in frequency during the orbital decay. [The name \"chirp\" is inspired by the high pitch sound (increasing frequency) produced by small birds.] 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Using the information provided above, relate the orbital angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with the GW frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_\\mathrm{GW}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Knowing that, for any smooth function "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a \\neq 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\mathrm{d}F(t)}{\\mathrm{d}t} = \\chi F(t)^a \\quad\\Rightarrow\\quad F(t)^{1-a} = \\chi(1-a)(t - t_0)\\,, \\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\chi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a constant and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is an integration constant, show that (10) implies that the GW frequency is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nf_\\mathrm{GW}^{-8/3} = 8\\pi^{8/3}\\xi\\left(\\frac{GM_c}{c^3}\\right)^{(2/3)+p}(t_0 - t)^{2-p} \\tag{12}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and determine the constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 2.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "On September 14, 2015 GW150914 was registered by the LIGO detectors, consisting of two L-shaped arms, each 4 km long. These arms changed by a relative length according to Fig. 1. The arms of the detector respond linearly to a passing gravitational wave, and the response pattern mimics the wave. This wave was created by two black holes on quasi-circular orbits; the loss of energy through gravitational radiation caused the orbit to shrink and the black holes to eventually collide. The collision point corresponds, roughly, to the peak of the signal after point D, in Fig. 1."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2018-t1/9ffe8b0c39c5e15c7860.png",
+                "alt": "ipho-2018-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 1. Strain, i.e. relative variation of the size of each arm, at the LIGO detector H1. The horizontal axis is time, and the points A, B, C, D correspond to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = 0.000, 0.009, 0.034, 0.040\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " seconds, respectively."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "From the figure, estimate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_\\mathrm{GW}(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nt_{\\overline{\\mathrm{AB}}} = \\frac{t_\\mathrm{B} + t_\\mathrm{A}}{2} \\quad\\text{and}\\quad t_{\\overline{\\mathrm{CD}}} = \\frac{t_\\mathrm{D} + t_\\mathrm{C}}{2}\\,. \\tag{13}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Assuming that (12) is valid all the way until the collision (which strictly speaking is not true) and that the two objects have equal mass, estimate the chirp mass, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and total mass of the system, in terms of solar masses "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\odot \\simeq 2 \\times 10^{30}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg. 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Estimate the minimal orbital separation between the two objects at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_{\\overline{\\mathrm{CD}}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence estimate a maximum size for each object, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{max}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot/R_\\mathrm{max}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to compare this size with the radius of our Sun, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot \\simeq 7 \\times 10^5\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km. Estimate also their orbital linear velocity at the same instant, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{col}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", comparing it with the speed of light, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{col}/c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Conclude that these are extremely fast moving, extremely compact objects indeed!"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "LIGO-GW150914 (10 points)\n\n\nIn 2015, the gravitational-wave observatory LIGO detected, for the first time, the passing of gravitational waves (GW) through Earth. This event, named GW150914, was triggered by waves produced by two black holes that were orbiting on quasi-circular orbits. This problem will make you estimate some physical parameters of the system, from the properties of the detected signal.\n\n\nPart A: Newtonian (conservative) orbits (3.0 points)\n\n\nA.1\nConsider a system of two stars with masses \n\\(M_1\\)\n, \n\\(M_2\\)\n, at locations \n\\(\\vec{r}_1\\)\n, \n\\(\\vec{r}_2\\)\n, respectively, with respect to the center-of-mass of the system, that is, \n\\[\\begin{equation}\nM_1\\vec{r}_1 + M_2\\vec{r}_2 = 0\\,. \\tag{1}\n\\end{equation}\\]\n The stars are isolated from the rest of the Universe and moving at non-relativistic velocities. Using Newton’s laws, the acceleration vector of mass \n\\(M_1\\)\n can be expressed as \n\\[\\begin{equation}\n\\frac{\\mathrm{d}^2\\vec{r}_1}{\\mathrm{d}t^2} = -\\alpha\\frac{\\vec{r}_1}{r_1^n}\\,, \\tag{2}\n\\end{equation}\\]\n where \n\\(r_1 = |\\vec{r}_1|\\)\n, \n\\(r_2 = |\\vec{r}_2|\\)\n. Find \n\\(n \\in \\mathbb{N}\\)\n and \n\\(\\alpha = \\alpha(G, M_1, M_2)\\)\n, where \n\\(G\\)\n is Newton’s constant [\n\\(G \\simeq 6.67 \\times 10^{-11}\\,\\mathrm{N\\,m^2\\,kg^{-2}}\\)\n]. 1.0pt\n\n\nA.2\nThe total energy of the 2-mass system, in circular orbits, can be expressed as: \n\\[\\begin{equation}\nE = A(\\mu, \\Omega, L) - G\\frac{M\\mu}{L}\\,, \\tag{3}\n\\end{equation}\\]\n where \n\\[\\begin{equation}\n\\mu \\equiv \\frac{M_1 M_2}{M_1 + M_2}\\,, \\qquad M \\equiv M_1 + M_2\\,, \\tag{4}\n\\end{equation}\\]\n are the \nreduced mass\n and \ntotal mass\n of the system, \n\\(\\Omega\\)\n is the angular velocity of each mass and \n\\(L\\)\n is the total separation \n\\(L = r_1 + r_2\\)\n. Obtain the explicit form of the term \n\\(A(\\mu, \\Omega, L)\\)\n. 1.0pt\n\n\nA.3\nEquation 3 can be simplified to \n\\(E = \\beta G\\frac{M\\mu}{L}\\)\n. Determine the number \n\\(\\beta\\)\n. 1.0pt\n\n\nPart B: Introducing relativistic dissipation (7.0 points)\n\n\nThe correct theory of gravity, \nGeneral Relativity\n, was formulated by Einstein in 1915, and predicts that gravity travels with the speed of light. The messengers carrying information about the interaction are called GWs. GWs are emitted whenever masses are accelerated, making the system of masses lose energy.\n\n\nConsider a system of two point-like particles, isolated from the rest of the Universe. Einstein proved that for small enough velocities the emitted GWs: 1) have a frequency which is twice as large as the orbital frequency; 2) can be characterized by a luminosity, i.e. emitted power \n\\(\\mathcal{P}\\)\n, which is dominated by Einstein’s quadrupole formula, \n\\[\\begin{equation}\n\\mathcal{P} = \\frac{G}{5c^5}\\sum_{i=1}^{3}\\sum_{j=1}^{3}\\left(\\frac{\\mathrm{d}^3 Q_{ij}}{\\mathrm{d}t^3}\\right)\\left(\\frac{\\mathrm{d}^3 Q_{ij}}{\\mathrm{d}t^3}\\right)\\,. \\tag{5}\n\\end{equation}\\]\n Here, \n\\(c\\)\n is the velocity of light \n\\(c \\simeq 3 \\times 10^8\\)\n m/s. For a system of 2 pointlike particles orbiting on the \n\\(x-y\\)\n plane, \n\\(Q_{ij}\\)\n is the following table (\n\\(i, j\\)\n label the row/column number) \n\\[\\begin{equation}\nQ_{11} = \\sum_{A=1}^{2}\\frac{M_A}{3}\\left(2x_A^2 - y_A^2\\right)\\,, \\quad\nQ_{22} = \\sum_{A=1}^{2}\\frac{M_A}{3}\\left(2y_A^2 - x_A^2\\right)\\,, \\quad\nQ_{33} = -\\sum_{A=1}^{2}\\frac{M_A}{3}\\left(x_A^2 + y_A^2\\right)\\,, \\tag{6}\n\\end{equation}\\]\n \n\\[\\begin{equation}\nQ_{12} = Q_{21} = \\sum_{A=1}^{2} M_A x_A y_A\\,, \\tag{7}\n\\end{equation}\\]\n and \n\\(Q_{ij} = 0\\)\n for all other possibilities. Here, \n\\((x_A, y_A)\\)\n is the position of mass A in the center-of-mass frame.\n\n\nB.1\nFor the circular orbits described in A.2 the components of \n\\(Q_{ij}\\)\n can be expressed as a function of time \n\\(t\\)\n as: \n\\[\\begin{equation}\nQ_{ii} = \\frac{\\mu L^2}{2}\\left(a_i + b_i \\cos kt\\right)\\,, \\qquad Q_{ij} \\overset{i\\neq j}{=} \\frac{\\mu L^2}{2}\\, c_{ij} \\sin kt\\,. \\tag{8}\n\\end{equation}\\]\n Determine \n\\(k\\)\n in terms of \n\\(\\Omega\\)\n and the numerical values of the constants \n\\(a_i\\)\n, \n\\(b_i\\)\n, \n\\(c_{ij}\\)\n. 1.0pt\n\n\nB.2\nCompute the power \n\\(\\mathcal{P}\\)\n emitted in gravitational waves for that system, and obtain: \n\\[\\begin{equation}\n\\mathcal{P} = \\xi\\frac{G}{c^5}\\mu^2 L^4 \\Omega^6\\,. \\tag{9}\n\\end{equation}\\]\n What is the number \n\\(\\xi\\)\n? [If you could not obtain \n\\(\\xi\\)\n, use \n\\(\\xi = 6.4\\)\n in the following.] 1.0pt\n\n\nB.3\nIn the absence of GW emission the two masses will orbit on a fixed circular orbit indefinitely. However, the emission of GWs causes the system to lose energy and to slowly evolve towards smaller circular orbits. Obtain that the rate of change \n\\(\\frac{\\mathrm{d}\\Omega}{\\mathrm{d}t}\\)\n of the orbital angular velocity takes the form \n\\[\\begin{equation}\n\\left(\\frac{\\mathrm{d}\\Omega}{\\mathrm{d}t}\\right)^3 = (3\\xi)^3\\frac{\\Omega^{11}}{c^{15}}\\left(GM_\\mathrm{c}\\right)^5\\,, \\tag{10}\n\\end{equation}\\]\n where \n\\(M_\\mathrm{c}\\)\n is called the \nchirp mass\n. Obtain \n\\(M_\\mathrm{c}\\)\n as a function of \n\\(M\\)\n and \n\\(\\mu\\)\n. This mass determines the increase in frequency during the orbital decay. [The name \"chirp\" is inspired by the high pitch sound (increasing frequency) produced by small birds.] 1.0pt\n\n\nB.4\nUsing the information provided above, relate the orbital angular velocity \n\\(\\Omega\\)\n with the GW frequency \n\\(f_\\mathrm{GW}\\)\n. Knowing that, for any smooth function \n\\(F(t)\\)\n and \n\\(a \\neq 1\\)\n, \n\\[\\begin{equation}\n\\frac{\\mathrm{d}F(t)}{\\mathrm{d}t} = \\chi F(t)^a \\quad\\Rightarrow\\quad F(t)^{1-a} = \\chi(1-a)(t - t_0)\\,, \\tag{11}\n\\end{equation}\\]\n where \n\\(\\chi\\)\n is a constant and \n\\(t_0\\)\n is an integration constant, show that (10) implies that the GW frequency is \n\\[\\begin{equation}\nf_\\mathrm{GW}^{-8/3} = 8\\pi^{8/3}\\xi\\left(\\frac{GM_c}{c^3}\\right)^{(2/3)+p}(t_0 - t)^{2-p} \\tag{12}\n\\end{equation}\\]\n and determine the constant \n\\(p\\)\n. 2.0pt\n\n\nOn September 14, 2015 GW150914 was registered by the LIGO detectors, consisting of two L-shaped arms, each 4 km long. These arms changed by a relative length according to Fig. 1. The arms of the detector respond linearly to a passing gravitational wave, and the response pattern mimics the wave. This wave was created by two black holes on quasi-circular orbits; the loss of energy through gravitational radiation caused the orbit to shrink and the black holes to eventually collide. The collision point corresponds, roughly, to the peak of the signal after point D, in Fig. 1.\n\n\n\n\n\n\n\n\n\nFigure 1. Strain, i.e. relative variation of the size of each arm, at the LIGO detector H1. The horizontal axis is time, and the points A, B, C, D correspond to \n\\(t = 0.000, 0.009, 0.034, 0.040\\)\n seconds, respectively.\n\n\nB.5\nFrom the figure, estimate \n\\(f_\\mathrm{GW}(t)\\)\n at \n\\[\\begin{equation}\nt_{\\overline{\\mathrm{AB}}} = \\frac{t_\\mathrm{B} + t_\\mathrm{A}}{2} \\quad\\text{and}\\quad t_{\\overline{\\mathrm{CD}}} = \\frac{t_\\mathrm{D} + t_\\mathrm{C}}{2}\\,. \\tag{13}\n\\end{equation}\\]\n Assuming that (12) is valid all the way until the collision (which strictly speaking is not true) and that the two objects have equal mass, estimate the chirp mass, \n\\(M_c\\)\n, and total mass of the system, in terms of solar masses \n\\(M_\\odot \\simeq 2 \\times 10^{30}\\)\n kg. 1.0pt\n\n\nB.6\nEstimate the minimal orbital separation between the two objects at \n\\(t_{\\overline{\\mathrm{CD}}}\\)\n. Hence estimate a maximum size for each object, \n\\(R_\\mathrm{max}\\)\n. Obtain \n\\(R_\\odot/R_\\mathrm{max}\\)\n to compare this size with the radius of our Sun, \n\\(R_\\odot \\simeq 7 \\times 10^5\\)\n km. Estimate also their orbital linear velocity at the same instant, \n\\(v_\\mathrm{col}\\)\n, comparing it with the speed of light, \n\\(v_\\mathrm{col}/c\\)\n. 1.0pt\n\n\nConclude that these are extremely fast moving, extremely compact objects indeed!\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2018-t1/9ffe8b0c39c5e15c7860.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2018-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "GW150914 (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Newtonian (conservative) orbits (3.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Apply Newton’s law to mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nM_1 \\frac{\\mathrm{d}^2\\vec r_1}{\\mathrm{d}t^2} = G\\frac{M_1M_2}{|\\vec r_2-\\vec r_1|^2}\\frac{\\vec r_2-\\vec r_1}{|\\vec r_2-\\vec r_1|} \\; .\n\\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Use, from eq. (1) of the question sheet "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\vec r_2 = -\\frac{M_1}{M_2}\\vec r_1 \\; ,\n\\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in eq. (1) above, to obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\mathrm{d}^2\\vec r_1}{\\mathrm{d}t^2} = -\\frac{GM_2^3}{(M_1+M_2)^2 r_1^2}\\frac{\\vec r_1}{r_1} \\; .\n\\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[n = 3, \\quad \\alpha = \\frac{GM_2^3}{(M_1+M_2)^2} \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The total energy of the system is the sum of the two kinetic energies plus the gravitational potential energy. For circular motions, the linear velocity of each of the masses reads "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n|\\vec v_1| = r_1\\Omega \\; , \\qquad |\\vec v_2| = r_2\\Omega \\; ,\n\\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus, the total energy is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE = \\frac{1}{2}(M_1 r_1^2 + M_2 r_2^2)\\Omega^2 - \\frac{GM_1M_2}{L} \\; ,\n\\tag{5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Now, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n(M_1 r_1 - M_2 r_2)^2 = 0 \\qquad\\Rightarrow\\qquad M_1 r_1^2 + M_2 r_2^2 = \\mu L^2 \\; .\n\\tag{6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE = \\frac{1}{2}\\mu L^2\\Omega^2 - G\\frac{M\\mu}{L} \\; .\n\\tag{7}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[A(\\mu,\\Omega,L) = \\frac{1}{2}\\mu L^2\\Omega^2 \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Energy (3) of the question sheet can be interpreted as describing a system of a mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in a circular orbit with angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", around a mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (at rest). Equating the gravitational acceleration to the centripetal acceleration: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nG\\frac{M}{L^2} = \\Omega^2 L \\; .\n\\tag{8}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This is indeed Kepler’s third law (for circular orbits). Then, from (7), "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE = -\\frac{1}{2}G\\frac{M\\mu}{L} \\; .\n\\tag{9}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\beta = -\\frac{1}{2} \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B - Introducing relativistic dissipation (7.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Some simple trigonometry for the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x, y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " motion of the masses (in an appropriate Cartesian system) yields: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n(x_1, y_1) = r_1(\\cos(\\Omega t), \\sin(\\Omega t)) \\; , \\qquad (x_2, y_2) = -r_2(\\cos(\\Omega t), \\sin(\\Omega t)) \\; .\n\\tag{10}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Then, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nQ_{ij} = \\frac{M_1 r_1^2 + M_2 r_2^2}{2}\n\\left(\\begin{array}{ccc}\n\\frac{4}{3}\\cos^2(\\Omega t) - \\frac{2}{3}\\sin^2(\\Omega t) & 2\\sin(\\Omega t)\\cos(\\Omega t) & 0 \\\\\n2\\sin(\\Omega t)\\cos(\\Omega t) & \\frac{4}{3}\\sin^2(\\Omega t) - \\frac{2}{3}\\cos^2(\\Omega t) & 0 \\\\\n0 & 0 & -\\frac{2}{3}\n\\end{array}\\right) \\; ,\n\\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or, using some simple trigonometry and (6), "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nQ_{ij} = \\frac{\\mu L^2}{2}\n\\left(\\begin{array}{ccc}\n\\frac{1}{3} + \\cos 2\\Omega t & \\sin 2\\Omega t & 0 \\\\\n\\sin 2\\Omega t & \\frac{1}{3} - \\cos 2\\Omega t & 0 \\\\\n0 & 0 & -\\frac{2}{3}\n\\end{array}\\right) \\; .\n\\tag{12}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[k = 2\\Omega \\; , \\quad a_1 = a_2 = \\frac{1}{3} \\; , \\quad a_3 = -\\frac{2}{3} \\; , \\quad b_1 = 1, \\; b_2 = -1, \\; b_3 = 0 \\; , \\quad c_{12} = c_{21} = 1 \\; , \\quad c_{ij} \\overset{\\text{otherwise}}{=} 0 \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " First take the derivatives: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\mathrm{d}^3 Q_{ij}}{\\mathrm{d}t^3} = 4\\Omega^3\\mu L^2\n\\left(\\begin{array}{ccc}\n\\sin 2\\Omega t & -\\cos 2\\Omega t & 0 \\\\\n-\\cos 2\\Omega t & -\\sin 2\\Omega t & 0 \\\\\n0 & 0 & 0\n\\end{array}\\right) \\; .\n\\tag{13}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Then perform the sum: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\mathrm{d}E}{\\mathrm{d}t} = \\frac{G}{5c^5}(4\\Omega^3\\mu L^2)^2[2\\sin^2(2\\Omega t) + 2\\cos^2(2\\Omega t)] = \\frac{32}{5}\\frac{G}{c^5}\\mu^2 L^4\\Omega^6 \\; .\n\\tag{14}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\xi = \\frac{32}{5} \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Now we assume a sequency of Keplerian orbits, with decreasing energy, which is being taken from the system by the GWs. First, from (9), differentiating with respect to time, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\mathrm{d}E}{\\mathrm{d}t} = \\frac{GM\\mu}{2L^2}\\frac{\\mathrm{d}L}{\\mathrm{d}t} \\; ,\n\\tag{15}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Since this loss of energy is due to GWs, we equate it with (minus) the luminosity of GWs, given by (14) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{GM\\mu}{2L^2}\\frac{\\mathrm{d}L}{\\mathrm{d}t} = -\\frac{32}{5}\\frac{G}{c^5}\\mu^2 L^4\\Omega^6 \\; .\n\\tag{16}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " We can eliminate the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{d}L/\\mathrm{d}t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " dependence in this equation in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{d}\\Omega/\\mathrm{d}t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", by using Kepler’s third law (8), which relates: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nL^3 = G\\frac{M}{\\Omega^2} \\; , \\qquad \\frac{\\mathrm{d}L}{\\mathrm{d}t} = -\\frac{2}{3}\\frac{L}{\\Omega}\\frac{\\mathrm{d}\\Omega}{\\mathrm{d}t} \\; .\n\\tag{17}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Substituting in (16), we obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\left(\\frac{\\mathrm{d}\\Omega}{\\mathrm{d}t}\\right)^3 = \\left(\\frac{96}{5}\\right)^3\\frac{\\Omega^{11}}{c^{15}}G^5\\mu^3M^2 \\equiv \\left(\\frac{96}{5}\\right)^3\\frac{\\Omega^{11}}{c^{15}}(GM_{\\mathrm{c}})^5 \\; .\n\\tag{18}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[M_{\\mathrm{c}} = (\\mu^3 M^2)^{1/5} \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Angular and cycle frequencies are related as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega = 2\\pi f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". From the information provided above: "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "GWs have a frequency which is twice as large as the orbital frequency"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\Omega}{2\\pi} = \\frac{f_{\\mathrm{GW}}}{2} \\; .\n\\tag{19}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Formula (10) of the question sheet has the form "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\mathrm{d}\\Omega}{\\mathrm{d}t} = \\chi\\Omega^{11/3} \\; , \\qquad \\chi \\equiv \\frac{96}{5}\\frac{(GM_{\\mathrm{c}})^{5/3}}{c^5} \\; .\n\\tag{20}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus, from (11) of the question sheet "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Omega(t)^{-8/3} = \\frac{8}{3}\\chi(t_0 - t) \\; ,\n\\tag{21}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or, using (20) and the definition of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\chi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nf_{\\mathrm{GW}}^{-8/3}(t) = \\frac{(8\\pi)^{8/3}}{5}\\left(\\frac{GM_{\\mathrm{c}}}{c^3}\\right)^{5/3}(t_0 - t) \\; .\n\\tag{22}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "2.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p = 1 \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From the figure, we consider the two "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "’s as half periods. Thus, the (cycle) GW frequency is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_{\\mathrm{GW}} = 1/(2\\Delta t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Then, the four given points allow us to compute the frequency at the mean time of the two intervals as"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "table",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "thead",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(t_{\\overline{\\mathrm{AB}}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(t_{\\overline{\\mathrm{CD}}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tbody",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(t\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " (s)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0.0045"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0.037"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(f_{\\mathrm{GW}}\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " (Hz)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\((2 \\times 0.009)^{-1}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\((2 \\times 0.006)^{-1}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now, using (22) we have two pairs of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((f_{\\mathrm{GW}},t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " values for two unknowns "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((t_0,M_{\\mathrm{c}})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Expressing (22) for both "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_{\\overline{\\mathrm{AB}}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_{\\overline{\\mathrm{CD}}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and dividing the two equations we obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nt_0 = \\frac{At_{\\overline{\\mathrm{CD}}} - t_{\\overline{\\mathrm{AB}}}}{A-1} \\; , \\qquad A \\equiv \\left(\\frac{f_{\\mathrm{GW}}(t_{\\overline{\\mathrm{AB}}})}{f_{\\mathrm{GW}}(t_{\\overline{\\mathrm{CD}}})}\\right)^{-8/3} \\; .\n\\tag{23}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Replacing by the numerical values, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A \\simeq 2.95\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_0 \\simeq 0.054\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " s. Now we can use (22) for either of the two values "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_{\\overline{\\mathrm{AB}}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_{\\overline{\\mathrm{CD}}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and determine "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_{\\mathrm{c}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". One obtains for the chirp mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nM_{\\mathrm{c}} \\simeq 6\\times 10^{31}\\,\\mathrm{kg} \\simeq 30 \\times M_\\odot \\; .\n\\tag{24}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus, the total mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nM = 4^{3/5}M_{\\mathrm{c}} \\simeq 69 \\times M_\\odot \\; .\n\\tag{25}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This result is actually remarkably close to the best estimates using the full theory of General Relativity! [Even though the actual objects do not have precisely equal masses and the theory we have just used is not valid very close to the collision.]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[M_{\\mathrm{c}} \\simeq 30 \\times M_\\odot \\; , \\qquad M \\simeq 69 \\times M_\\odot \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From (8), Kepler’s law states that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L = (GM/\\Omega^2)^{1/3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The second pair of points highlighted in the plot correspond to the cycle prior to merger. Thus, we use (19) to obtain the orbital angular velocity at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_{\\overline{\\mathrm{CD}}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Omega_{t_{\\overline{\\mathrm{CD}}}} \\sim 2.6 \\times 10^2\\,\\mathrm{rad/s} \\; .\n\\tag{26}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Then, using the total mass (25) we find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nL \\sim 5 \\times 10^2\\,\\mathrm{km} \\; .\n\\tag{27}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus, these objects have a maximum radius of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_{\\max} \\sim 250\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km. Hence they have over 30 times more mass and, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{R_\\odot}{R_{\\max}} \\sim 3 \\times 10^3\n\\tag{28}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " they are 3000 times smaller than the Sun and!"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Their linear velocity is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nv_{\\mathrm{col}} = \\frac{L}{2}\\Omega \\simeq 7 \\times 10^4\\,\\mathrm{km/s} \\; .\n\\tag{29}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " They are moving at over 20% of the velocity of light!"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[L_{\\mathrm{collision}} \\sim 5 \\times 10^2\\,\\mathrm{km} \\; , \\qquad \\frac{R_\\odot}{R_{\\max}} \\sim 3 \\times 10^3 \\; , \\qquad \\frac{v_{\\mathrm{col}}}{c} \\sim 0.2 \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "GW150914 (10 points)\n\n\nPart A. Newtonian (conservative) orbits (3.0 points)\n\n\nA.1\n Apply Newton’s law to mass \n\\(M_1\\)\n: \n\\[\\begin{equation}\nM_1 \\frac{\\mathrm{d}^2\\vec r_1}{\\mathrm{d}t^2} = G\\frac{M_1M_2}{|\\vec r_2-\\vec r_1|^2}\\frac{\\vec r_2-\\vec r_1}{|\\vec r_2-\\vec r_1|} \\; .\n\\tag{1}\n\\end{equation}\\]\n Use, from eq. (1) of the question sheet \n\\[\\begin{equation}\n\\vec r_2 = -\\frac{M_1}{M_2}\\vec r_1 \\; ,\n\\tag{2}\n\\end{equation}\\]\n in eq. (1) above, to obtain \n\\[\\begin{equation}\n\\frac{\\mathrm{d}^2\\vec r_1}{\\mathrm{d}t^2} = -\\frac{GM_2^3}{(M_1+M_2)^2 r_1^2}\\frac{\\vec r_1}{r_1} \\; .\n\\tag{3}\n\\end{equation}\\]\n\n\nA.1\n1.0pt\n\n\n\\[n = 3, \\quad \\alpha = \\frac{GM_2^3}{(M_1+M_2)^2} \\; .\\]\n\n\nA.2\n The total energy of the system is the sum of the two kinetic energies plus the gravitational potential energy. For circular motions, the linear velocity of each of the masses reads \n\\[\\begin{equation}\n|\\vec v_1| = r_1\\Omega \\; , \\qquad |\\vec v_2| = r_2\\Omega \\; ,\n\\tag{4}\n\\end{equation}\\]\n\n\nThus, the total energy is \n\\[\\begin{equation}\nE = \\frac{1}{2}(M_1 r_1^2 + M_2 r_2^2)\\Omega^2 - \\frac{GM_1M_2}{L} \\; ,\n\\tag{5}\n\\end{equation}\\]\n Now, \n\\[\\begin{equation}\n(M_1 r_1 - M_2 r_2)^2 = 0 \\qquad\\Rightarrow\\qquad M_1 r_1^2 + M_2 r_2^2 = \\mu L^2 \\; .\n\\tag{6}\n\\end{equation}\\]\n Thus, \n\\[\\begin{equation}\nE = \\frac{1}{2}\\mu L^2\\Omega^2 - G\\frac{M\\mu}{L} \\; .\n\\tag{7}\n\\end{equation}\\]\n\n\nA.2\n1.0pt\n\n\n\\[A(\\mu,\\Omega,L) = \\frac{1}{2}\\mu L^2\\Omega^2 \\; .\\]\n\n\nA.3\n Energy (3) of the question sheet can be interpreted as describing a system of a mass \n\\(\\mu\\)\n in a circular orbit with angular velocity \n\\(\\Omega\\)\n, radius \n\\(L\\)\n, around a mass \n\\(M\\)\n (at rest). Equating the gravitational acceleration to the centripetal acceleration: \n\\[\\begin{equation}\nG\\frac{M}{L^2} = \\Omega^2 L \\; .\n\\tag{8}\n\\end{equation}\\]\n This is indeed Kepler’s third law (for circular orbits). Then, from (7), \n\\[\\begin{equation}\nE = -\\frac{1}{2}G\\frac{M\\mu}{L} \\; .\n\\tag{9}\n\\end{equation}\\]\n\n\nA.3\n1.0pt\n\n\n\\[\\beta = -\\frac{1}{2} \\; .\\]\n\n\nPart B - Introducing relativistic dissipation (7.0 points)\n\n\nB.1\n Some simple trigonometry for the \n\\(x, y\\)\n motion of the masses (in an appropriate Cartesian system) yields: \n\\[\\begin{equation}\n(x_1, y_1) = r_1(\\cos(\\Omega t), \\sin(\\Omega t)) \\; , \\qquad (x_2, y_2) = -r_2(\\cos(\\Omega t), \\sin(\\Omega t)) \\; .\n\\tag{10}\n\\end{equation}\\]\n Then, \n\\[\\begin{equation}\nQ_{ij} = \\frac{M_1 r_1^2 + M_2 r_2^2}{2}\n\\left(\\begin{array}{ccc}\n\\frac{4}{3}\\cos^2(\\Omega t) - \\frac{2}{3}\\sin^2(\\Omega t) & 2\\sin(\\Omega t)\\cos(\\Omega t) & 0 \\\\\n2\\sin(\\Omega t)\\cos(\\Omega t) & \\frac{4}{3}\\sin^2(\\Omega t) - \\frac{2}{3}\\cos^2(\\Omega t) & 0 \\\\\n0 & 0 & -\\frac{2}{3}\n\\end{array}\\right) \\; ,\n\\tag{11}\n\\end{equation}\\]\n or, using some simple trigonometry and (6), \n\\[\\begin{equation}\nQ_{ij} = \\frac{\\mu L^2}{2}\n\\left(\\begin{array}{ccc}\n\\frac{1}{3} + \\cos 2\\Omega t & \\sin 2\\Omega t & 0 \\\\\n\\sin 2\\Omega t & \\frac{1}{3} - \\cos 2\\Omega t & 0 \\\\\n0 & 0 & -\\frac{2}{3}\n\\end{array}\\right) \\; .\n\\tag{12}\n\\end{equation}\\]\n\n\nB.1\n1.0pt\n\n\n\\[k = 2\\Omega \\; , \\quad a_1 = a_2 = \\frac{1}{3} \\; , \\quad a_3 = -\\frac{2}{3} \\; , \\quad b_1 = 1, \\; b_2 = -1, \\; b_3 = 0 \\; , \\quad c_{12} = c_{21} = 1 \\; , \\quad c_{ij} \\overset{\\text{otherwise}}{=} 0 \\; .\\]\n\n\nB.2\n First take the derivatives: \n\\[\\begin{equation}\n\\frac{\\mathrm{d}^3 Q_{ij}}{\\mathrm{d}t^3} = 4\\Omega^3\\mu L^2\n\\left(\\begin{array}{ccc}\n\\sin 2\\Omega t & -\\cos 2\\Omega t & 0 \\\\\n-\\cos 2\\Omega t & -\\sin 2\\Omega t & 0 \\\\\n0 & 0 & 0\n\\end{array}\\right) \\; .\n\\tag{13}\n\\end{equation}\\]\n Then perform the sum: \n\\[\\begin{equation}\n\\frac{\\mathrm{d}E}{\\mathrm{d}t} = \\frac{G}{5c^5}(4\\Omega^3\\mu L^2)^2[2\\sin^2(2\\Omega t) + 2\\cos^2(2\\Omega t)] = \\frac{32}{5}\\frac{G}{c^5}\\mu^2 L^4\\Omega^6 \\; .\n\\tag{14}\n\\end{equation}\\]\n\n\nB.2\n1.0pt\n\n\n\\[\\xi = \\frac{32}{5} \\; .\\]\n\n\nB.3\n Now we assume a sequency of Keplerian orbits, with decreasing energy, which is being taken from the system by the GWs. First, from (9), differentiating with respect to time, \n\\[\\begin{equation}\n\\frac{\\mathrm{d}E}{\\mathrm{d}t} = \\frac{GM\\mu}{2L^2}\\frac{\\mathrm{d}L}{\\mathrm{d}t} \\; ,\n\\tag{15}\n\\end{equation}\\]\n Since this loss of energy is due to GWs, we equate it with (minus) the luminosity of GWs, given by (14) \n\\[\\begin{equation}\n\\frac{GM\\mu}{2L^2}\\frac{\\mathrm{d}L}{\\mathrm{d}t} = -\\frac{32}{5}\\frac{G}{c^5}\\mu^2 L^4\\Omega^6 \\; .\n\\tag{16}\n\\end{equation}\\]\n We can eliminate the \n\\(L\\)\n and \n\\(\\mathrm{d}L/\\mathrm{d}t\\)\n dependence in this equation in terms of \n\\(\\Omega\\)\n and \n\\(\\mathrm{d}\\Omega/\\mathrm{d}t\\)\n, by using Kepler’s third law (8), which relates: \n\\[\\begin{equation}\nL^3 = G\\frac{M}{\\Omega^2} \\; , \\qquad \\frac{\\mathrm{d}L}{\\mathrm{d}t} = -\\frac{2}{3}\\frac{L}{\\Omega}\\frac{\\mathrm{d}\\Omega}{\\mathrm{d}t} \\; .\n\\tag{17}\n\\end{equation}\\]\n\n\nSubstituting in (16), we obtain: \n\\[\\begin{equation}\n\\left(\\frac{\\mathrm{d}\\Omega}{\\mathrm{d}t}\\right)^3 = \\left(\\frac{96}{5}\\right)^3\\frac{\\Omega^{11}}{c^{15}}G^5\\mu^3M^2 \\equiv \\left(\\frac{96}{5}\\right)^3\\frac{\\Omega^{11}}{c^{15}}(GM_{\\mathrm{c}})^5 \\; .\n\\tag{18}\n\\end{equation}\\]\n\n\nB.3\n1.0pt\n\n\n\\[M_{\\mathrm{c}} = (\\mu^3 M^2)^{1/5} \\; .\\]\n\n\nB.4\n Angular and cycle frequencies are related as \n\\(\\Omega = 2\\pi f\\)\n. From the information provided above: \nGWs have a frequency which is twice as large as the orbital frequency\n, we have \n\\[\\begin{equation}\n\\frac{\\Omega}{2\\pi} = \\frac{f_{\\mathrm{GW}}}{2} \\; .\n\\tag{19}\n\\end{equation}\\]\n\n\nFormula (10) of the question sheet has the form \n\\[\\begin{equation}\n\\frac{\\mathrm{d}\\Omega}{\\mathrm{d}t} = \\chi\\Omega^{11/3} \\; , \\qquad \\chi \\equiv \\frac{96}{5}\\frac{(GM_{\\mathrm{c}})^{5/3}}{c^5} \\; .\n\\tag{20}\n\\end{equation}\\]\n Thus, from (11) of the question sheet \n\\[\\begin{equation}\n\\Omega(t)^{-8/3} = \\frac{8}{3}\\chi(t_0 - t) \\; ,\n\\tag{21}\n\\end{equation}\\]\n or, using (20) and the definition of \n\\(\\chi\\)\n gives \n\\[\\begin{equation}\nf_{\\mathrm{GW}}^{-8/3}(t) = \\frac{(8\\pi)^{8/3}}{5}\\left(\\frac{GM_{\\mathrm{c}}}{c^3}\\right)^{5/3}(t_0 - t) \\; .\n\\tag{22}\n\\end{equation}\\]\n\n\nB.4\n2.0pt\n\n\n\\[p = 1 \\; .\\]\n\n\nB.5\n From the figure, we consider the two \n\\(\\Delta t\\)\n’s as half periods. Thus, the (cycle) GW frequency is \n\\(f_{\\mathrm{GW}} = 1/(2\\Delta t)\\)\n. Then, the four given points allow us to compute the frequency at the mean time of the two intervals as\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(t_{\\overline{\\mathrm{AB}}}\\)\n\n\n\\(t_{\\overline{\\mathrm{CD}}}\\)\n\n\n\n\n\n\n\n\n\n\n\\(t\\)\n (s)\n\n\n0.0045\n\n\n0.037\n\n\n\n\n\n\n\\(f_{\\mathrm{GW}}\\)\n (Hz)\n\n\n\\((2 \\times 0.009)^{-1}\\)\n\n\n\\((2 \\times 0.006)^{-1}\\)\n\n\n\n\n\n\n\n\n\n\nNow, using (22) we have two pairs of \n\\((f_{\\mathrm{GW}},t)\\)\n values for two unknowns \n\\((t_0,M_{\\mathrm{c}})\\)\n. Expressing (22) for both \n\\(t_{\\overline{\\mathrm{AB}}}\\)\n and \n\\(t_{\\overline{\\mathrm{CD}}}\\)\n and dividing the two equations we obtain: \n\\[\\begin{equation}\nt_0 = \\frac{At_{\\overline{\\mathrm{CD}}} - t_{\\overline{\\mathrm{AB}}}}{A-1} \\; , \\qquad A \\equiv \\left(\\frac{f_{\\mathrm{GW}}(t_{\\overline{\\mathrm{AB}}})}{f_{\\mathrm{GW}}(t_{\\overline{\\mathrm{CD}}})}\\right)^{-8/3} \\; .\n\\tag{23}\n\\end{equation}\\]\n Replacing by the numerical values, \n\\(A \\simeq 2.95\\)\n and \n\\(t_0 \\simeq 0.054\\)\n s. Now we can use (22) for either of the two values \n\\(t_{\\overline{\\mathrm{AB}}}\\)\n or \n\\(t_{\\overline{\\mathrm{CD}}}\\)\n and determine \n\\(M_{\\mathrm{c}}\\)\n. One obtains for the chirp mass \n\\[\\begin{equation}\nM_{\\mathrm{c}} \\simeq 6\\times 10^{31}\\,\\mathrm{kg} \\simeq 30 \\times M_\\odot \\; .\n\\tag{24}\n\\end{equation}\\]\n\n\nThus, the total mass \n\\(M\\)\n is \n\\[\\begin{equation}\nM = 4^{3/5}M_{\\mathrm{c}} \\simeq 69 \\times M_\\odot \\; .\n\\tag{25}\n\\end{equation}\\]\n This result is actually remarkably close to the best estimates using the full theory of General Relativity! [Even though the actual objects do not have precisely equal masses and the theory we have just used is not valid very close to the collision.]\n\n\nB.5\n1.0pt\n\n\n\\[M_{\\mathrm{c}} \\simeq 30 \\times M_\\odot \\; , \\qquad M \\simeq 69 \\times M_\\odot \\; .\\]\n\n\nB.6\n From (8), Kepler’s law states that \n\\(L = (GM/\\Omega^2)^{1/3}\\)\n. The second pair of points highlighted in the plot correspond to the cycle prior to merger. Thus, we use (19) to obtain the orbital angular velocity at \n\\(t_{\\overline{\\mathrm{CD}}}\\)\n: \n\\[\\begin{equation}\n\\Omega_{t_{\\overline{\\mathrm{CD}}}} \\sim 2.6 \\times 10^2\\,\\mathrm{rad/s} \\; .\n\\tag{26}\n\\end{equation}\\]\n Then, using the total mass (25) we find \n\\[\\begin{equation}\nL \\sim 5 \\times 10^2\\,\\mathrm{km} \\; .\n\\tag{27}\n\\end{equation}\\]\n\n\nThus, these objects have a maximum radius of \n\\(R_{\\max} \\sim 250\\)\n km. Hence they have over 30 times more mass and, \n\\[\\begin{equation}\n\\frac{R_\\odot}{R_{\\max}} \\sim 3 \\times 10^3\n\\tag{28}\n\\end{equation}\\]\n they are 3000 times smaller than the Sun and!\n\n\nTheir linear velocity is \n\\[\\begin{equation}\nv_{\\mathrm{col}} = \\frac{L}{2}\\Omega \\simeq 7 \\times 10^4\\,\\mathrm{km/s} \\; .\n\\tag{29}\n\\end{equation}\\]\n They are moving at over 20% of the velocity of light!\n\n\nB.6\n1.0pt\n\n\n\\[L_{\\mathrm{collision}} \\sim 5 \\times 10^2\\,\\mathrm{km} \\; , \\qquad \\frac{R_\\odot}{R_{\\max}} \\sim 3 \\times 10^3 \\; , \\qquad \\frac{v_{\\mathrm{col}}}{c} \\sim 0.2 \\; .\\]\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

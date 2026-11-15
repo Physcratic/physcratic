@@ -1,3 +1,4 @@
+import retainedPdfs from "../tests/fixtures/retained-archive-pdfs.json";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -103,8 +104,11 @@ test("2019 official solutions are split by the actual solution code, not the rep
     ["ipho-2019-t3", 3],
   ] as const) {
     const solution = content.find((problem) => problem.id === id)!.solution;
-    assert.equal(solution.format, "pdf");
-    if (solution.format === "pdf") assert.equal(solution.sourcePages.length, pages);
+    assert.equal(solution.format, "html");
+    if (solution.format === "html") {
+      assert.match(solution.referencePdf!, new RegExp(`/english-${id}-solution/document\\.pdf$`));
+      assert.equal(retainedPdfs[id].solution.sourcePages.length, pages);
+    }
   }
 });
 

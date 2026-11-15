@@ -1,1 +1,5582 @@
-{"id":"ipho-2016-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2016_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2016_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2016-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Theory\nEnglish (Oﬃcial)\nQ2-1\nNonlinear Dynamics in Electric Circuits (10 points)\nPlease read the general instructions in the separate envelope before you start this problem.\nIntroduction\nBistable non-linear semiconducting elements (e.g. thyristors) are widely used in electronics as switches\nand generators of electromagnetic oscillations. The primary ﬁeld of applications of thyristors is con-\ntrolling alternating currents in power electronics, for instance rectiﬁcation of AC current to DC at the\nmegawatt scale. Bistable elements may also serve as model systems for self-organization phenomena\nin physics (this topic is covered in part B of the problem), biology (see part C) and other ﬁelds of modern\nnonlinear science.\nGoals\nTo study instabilities and nontrivial dynamics of circuits including elements with non-linear 𝐼−𝑉charac-\nteristics. To discover possible applications of such circuits in engineering and in modeling of biological\nsystems.\nPart A. Stationary states and instabilities (3 points)\nFig. 1 shows the so-called S-shaped 𝐼−𝑉characteristics of a non-linear element 𝑋. In the voltage\nrange between 𝑈h = 4.00 V (the holding voltage) and 𝑈th = 10.0 V (the threshold voltage) this 𝐼−𝑉\ncharacteristics is multivalued. For simplicity, the graph on Fig. 1 is chosen to be piece-wise linear (each\nbranch is a segment of a straight line). In particular, the line in the upper branch touches the origin if it\nis extended. This approximation gives a good description of real thyristors.\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\nU [V]\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\nUh\nUth\nI [A]\nFigure 1: 𝐼−𝑉characteristics of the non-linear element 𝑋.\n\nTheory\nEnglish (Oﬃcial)\nQ2-2\nA.1\nUsing the graph, determine the resistance 𝑅on of the element 𝑋on the upper\nbranch of the 𝐼−𝑉characteristics, and 𝑅off on the lower branch, respectively.\nThe middle branch is described by the equation\n𝐼= 𝐼0 −𝑈\n𝑅int\n.\n(1)\nFind the values of the parameters 𝐼0 and 𝑅int.\n0.4pt\nThe element 𝑋is connected in series (see Fig.2) with a resistor 𝑅, an inductor 𝐿and an ideal voltage\nsource ℰ. One says that the circuit is in a stationary state if the current is constant in time, 𝐼(𝑡) = const.\nℰ\nR\nL\nFigure 2: Circuit with element 𝑋, resistor 𝑅, inductor 𝐿and voltage source ℰ.\nA.2\nWhat are the possible numbers of stationary states that the circuit of Fig. 2 may\nhave for a ﬁxed value of ℰand for 𝑅= 3.00 Ω? How does the answer change for\n𝑅= 1.00 Ω?\n1pt\nA.3\nLet 𝑅= 3.00 Ω, 𝐿= 1.00 𝜇H and ℰ= 15.0 V in the circuit shown in Fig. 2.\nDetermine the values of the current 𝐼stationary and the voltage 𝑉stationary on the\nnon-linear element 𝑋in the stationary state.\n0.6pt\nThe circuit in Fig. 2 is in the stationary state with 𝐼(𝑡) = 𝐼stationary. This stationary state is said to be\nstable if after a small displacement (increase or decrease in the current), the current returns towards the\nstationary state. And if the system keeps moving away from the stationary state, it is said to be unstable.\nA.4\nUse numerical values of the question A.3 and study the stability of the stationary\nstate with 𝐼(𝑡) = 𝐼stationary. Is it stable or unstable?\n1pt\nPart B. Bistable non-linear elements in physics: radio transmitter (5 points)\nWe now investigate a new circuit conﬁguration (see Fig. 3). This time, the non-linear element 𝑋is con-\nnected in parallel to a capacitor of capacitance 𝐶= 1.00 𝜇F. This block is then connected in series to a\nresistor of resistance 𝑅= 3.00 Ω and an ideal constant voltage source of voltage ℰ= 15.0 V. It turns out\nthat this circuit undergoes oscillations with the non-linear element 𝑋jumping from one branch of the\n𝐼−𝑉characteristics to another over the course of one cycle.\n\nTheory\nEnglish (Oﬃcial)\nQ2-3\nC\nℰ\nR\nFigure 3: Circuit with element 𝑋, capacitor 𝐶, resistor 𝑅and voltage source ℰ.\nB.1\nDraw the oscillation cycle on the 𝐼−𝑉graph, including its direction (clockwise\nor anticlockwise). Justify your answer with equations and sketches.\n1.8pt\nB.2\nFind expressions for the times 𝑡1 and 𝑡2 that the system spends on each branch\nof the 𝐼−𝑉graph during the oscillation cycle. Determine their numerical val-\nues. Find the numerical value of the oscillation period 𝑇assuming that the time\nneeded for jumps between the branches of the 𝐼−𝑉graph is negligible.\n1.9pt\nB.3\nEstimate the average power 𝑃dissipated by the non-linear element over the\ncourse of one oscillation. An order of magnitude is suﬃcient.\n0.7pt\nThe circuit in Fig. 3 is used to build a radio transmitter. For this purpose, the element 𝑋is attached to\none end of a linear antenna (a long straight wire) of length 𝑠. The other end of the wire is free. In the\nantenna, an electromagnetic standing wave is formed. The speed of electromagnetic waves along the\nantenna is the same as in vacuum. The transmitter is using the main harmonic of the system, which has\nperiod 𝑇of question B.2.\nB.4\nWhat is the optimal value of 𝑠assuming that it cannot exceed 1 km?\n0.6pt\nPart C. Bistable non-linear elements in biology: neuristor (2 points)\nIn this part of the problem, we consider an application of bistable non-linear elements to modeling of\nbiological processes. A neuron in a human brain has the following property: when excited by an external\nsignal, it makes one single oscillation and then returns to its initial state. This feature is called excitability.\nDue to this property, pulses can propagate in the network of coupled neurons constituting the nerve\nsystems. A semiconductor chip designed to mimic excitability and pulse propagation is called a neuristor\n(from neuron and transistor).\nWe attempt to model a simple neuristor using a circuit that includes the non-linear element 𝑋that we\ninvestigated previously. To this end, the voltage ℰin the circuit of Fig. 3 is decreased to the value ℰ′ =\n12.0 V. The oscillations stop, and the system reaches its stationary state. Then, the voltage is rapidly\nincreased back to the value ℰ= 15.0 V, and after a period of time 𝜏(with 𝜏< 𝑇) is set again to the value\nℰ′ (see Fig. 4). It turns out that there is a certain critical value 𝜏crit., and the system shows qualitatively\ndifferent behavior for 𝜏< 𝜏crit and for 𝜏> 𝜏crit.\n\nTheory\nEnglish (Oﬃcial)\nQ2-4\nt\n11\n12\n13\n14\n15\n16\nℰ [V]\nt0\nt0 + τ\nFigure 4: Voltage of the voltage source as a function of time.\nC.1\nSketch the graphs of the time dependence of the current 𝐼𝑋(𝑡) on the non-linear\nelement 𝑋for 𝜏< 𝜏crit and for 𝜏> 𝜏crit.\n1.2pt\nC.2\nFind the expression and the numerical value of the critical time 𝜏crit for which\nthe scenario switches.\n0.6pt\nC.3\nIs the circuit with 𝜏= 1.00 × 10−6 s a neuristor?\n0.2pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2016-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"Problem 2 : Solution/marking scheme – Nonlinear Dynamics in Electric Circuits\n(10 points)\nPart A. Stationary states and instabilities (3 points)\nSolution A1:\n[0.4]\nBy looking at the I −V graph, we obtain\nRoﬀ= 10.0 Ω,\n0.1\nRon = 1.00 Ω,\n0.1\nRint = 2.00 Ω,\n0.1\nI0 = 6.00 A.\n0.1\nNote: No penalty for the number of digits in this question\nSolution A2:\n[1]\nKirchoﬀlaw for the circuit (U is the voltage of the bistable element):\nE = IR + U\n0.1\nThis yields\nI = E −U\nR\n0.1\nHence, stationary states of the circuit are intersections of the line deﬁned by this equation\nand the I −V graph of X\n0.2\n.\nFor R = 3.00 Ω, one always gets exactly one intersection.\n0.2\nFor R = 1.00 Ω, one gets 1, 2 or 3 intersections depending on the value of E.\n0.4\nThe following table summarizes the number of points granted for possible answers to the\nlast subquestion with R = 1.00 Ω:\nPossible answer\n1\n2\n3\n1,3\n1,2\n2,3\n1,2,3\nPoints\n0\n0\n0.2\n0.3\n0\n0.2\n0.4\nSolution A3:\n[0.6]\nThe stationary state is on the intermediate branch, one can thus use the corresponding\nequation:\n0.2\n1\n\nIstationary\n=\nE −RintI0\nR −Rint\n0.1\n=\n3.00 A\n0.1\nUstationary\n=\nRint(I0 −I)\n0.1\n=\n6.00 V\n0.1\nExtra (non-physical) stationary states on the switched on and/or switched oﬀbranches\nlead to a penalty of 0.2 point.\nSolution A4:\n[1]\nAny correct modeling such as the following:\n0.5\nThe Kirchoﬀlaw for the circuit reads\nE = IR + UX + LdI\ndt = IR + (I0 −I)Rint + LdI\ndt\nThis implies\nLdI\ndt = E −I0Rint −(R −Rint)I\nThe separation between two cases is of importance, especially because of the relative sign\nof dI/dt:\nIf I > Istationary, we have dI/dt < 0 and I decreases.\n0.2\nIf I < Istationary, we have dI/dt > 0 and I increases.\n0.2\nNote: Formulas with time derivatives are not essential, any other correct justiﬁcation is\naccepted.\nWe conclude that the stationary state is stable.\n0.1\nNote: The checkbox gives 0.1 points if “stable” is checked, regardless of the previous rea-\nsoning (also if there is nothing). A wrong reasoning leading to check the “unstable” option\ndoesn’t however give any point for the checkbox.\nPart B. Bistable non-linear elements in physics and engineering: radio transmitter (5 points)\nSolution B1:\n[1.8]\nA correctly drawn cycle gives 1.2 points, distributed as follows:\n• Switched on branch is part of the cycle\n0.2\n• Switched oﬀbranch is part of the cycle\n0.2\n• Jumps are vertical (constant U)\n0.2\n• Jumps are positioned at Uh and Uth\n0.2\n• The system moves to the left on the switched on branch\n0.2\n2\n\n• The system moves to the right on the switched oﬀbranch\n0.2\nEach of the following observations individually gives up to 0.2 points, but their total\ncannot exceed 0.6:\n• U constant during jumps because the charge on the capacitor cannot change in-\nstantaneously\n0.2\n• The intermediate branch cannot be part of the cycle because there is a stationary\nstate on it\n0.2\n• Jumps occur at corners of the IV graph because at those points the system has\nnowhere else to go\n0.2\n• The system moves moves to the left on the switched on branch because it approaches\nthe stable stationary state (which is located outside the IV graph), or argument with\nthe Kirchoﬀlaw\n0.2\n• The system moves moves to the right on the switched oﬀbranch because it ap-\nproaches the stable stationary state (which is located outside the IV graph), or\nargument with the Kirchoﬀlaw\n0.2\n^\nIIA\n)\n\"\n:\noscillation\ncycle\n8 ⇒\n: =\nstationary\nI\nit\nstate\nI\n3\n÷l¥\nIn\n=÷\n=\n \n0\n \n2\n \n3\n 45\n6\n7\n 85:\nth\nSolution B2:\n[1.9]\nSince the non-linear element is oscillating between the switched on and switched\noﬀbranches we can put UX = Ron/oﬀIX. On either of the branches, the circuit behaves\nas a standard RC-circuit with conductance C and resistance Ron/oﬀR/(Ron/oﬀ+ R) (the\nresistor and the element X being connected in parallel).\n0.5\nAnother way to express it is to\n3\n\nwrite the Kirchhoﬀlaw for the switched on and switched oﬀbranches\nRon/oﬀRC dIX\ndt = E −(Ron/oﬀ+ R)IX\nThe time constant of the circuit is\nRon/oﬀR\nRon/oﬀ+ R C.\nIf the branch in question (switched on or switched oﬀ) extended indeﬁnitely, after a long\ntime the system would have landed in a stationary state with the voltage\nUon/oﬀ=\nRon/oﬀ\nRon/oﬀ+ R E.\nThen, the time dependence of the voltage drop on the non-linear element is a sum of the\nconstant term Uon/oﬀand of the exponentially decaying term:\nUX(t) =\nRon/oﬀ\nRon/oﬀ+ R E +\n\u0012\nUon/oﬀ−\nRon/oﬀ\nRon/oﬀ+ R E\n\u0013\ne\n−\nRon/oﬀ+R\nRon/oﬀRC t\nThere are 0.5 points distributed as follow for UX(t):\n• Correct exponential\n0.2\n• Correct constant term (t →∞)\n0.1\n• Correct coeﬃcient in front of the exponential\n0.1\n• Correct equation for UX(t)\n0.1\nTime spent by the system on the switched on branch during one cycle:\nton =\nRonR\nRon + R C log\n\u0012Uth −Uon\nUh −Uon\n\u0013\n= 2.41 · 10−6 s,\n0.4\nTime spent by the system on the switched oﬀbranch during one cycle:\ntoﬀ=\nRoﬀR\nRoﬀ+ R C log\n\u0012 Uoﬀ−Uh\nUoﬀ−Uth\n\u0013\n= 3.71 · 10−6 s.\n0.4\nThe total period of oscillations:\nT = ton + toﬀ= 6.12 · 10−6 s\n0.1\nNote: Correct ﬁnal answers give full points. One may earn points for intermediate steps\n(see above) for partial answers.\nSolution B3:\n[0.7]\nNeglect the energy consumed on the switched oﬀbranch.\nThe energy consumed\n4\n\non the switched on branch during the cycle is estimated by\nE =\n1\nRon\n\u0012Uh + Uth\n2\n\u00132\nton = 1.18 · 10−4 J.\n0.4\nFor the power, this gives an estimate of\nP ∼E\nT = 19.3 W.\n0.3\nNote:\n• Formula + answer inside 5 W ≤P ≤50 W give full points\n• Formula + answer outside the range above but inside 1 W ≤P ≤100 W give 0.5\npoints\n• answer outside range but good formula gives 0.4 points\nAlso, the proposed formula is only an example, any other reasonable approximation of the\nintegral of the upper branch should be accepted.\nSolution B4:\n[0.6]\nThe wave length of the radio signal is given by λ = cT = 1.82 · 103 m.\n0.2\nThe optimal length of the antenna is λ/4 (or 3λ/4, 5λ/4 etc.)\n0.3\nThe only choice which is below 1 km is s = λ/4 = 459 m.\n0.1\nNote: The correct answer s = λ/4 = 459 m gives full points, and the mistake s = λ/2 =\n918 m only 0.4 pts.\nPart C. Bistable non-linear elements in biology: neuristor (2 points)\nSolution C1:\n[1.2]\nFor\n˜E\n=\n12.0 V, the steady state of the system is located on the switched oﬀ\nbranch:\n˜U =\nRoﬀ\nR + Roﬀ\n˜E = 9.23 V.\nWhen the voltage is increased to E = 15.0 V, the system starts moving to the right along\nthe switched oﬀbranch (in the same way it did in task B).\nIf the voltage drops again before the system reaches the threshold voltage, it will simply\nreturn to the stationary state.\nIf system reaches the threshold voltage, it will jump to the switched on branch, and it\nwill make one oscillations (since τ < T) before the voltage drops again and it returns to\nthe stationary state.\n5\n\n^\nI\nx\nT\n<\nto\n0\nreturn\nto\nthe\noriginal\nstationary\nstate\nosier\n:h÷:#\n.\n⇐÷\n>\nto\ntote\nt\n1. Approach to the new stationary state\n0.2\n2. Return to the old stationary state\n0.2\n' '\nT\n-\nX\n!5!\nevolution\non\nJi\nf\nupper\nbranch\nT\n>\nTent\n!4!\njump\nto\ni\nupper\nbranch \\\n!6!\njump\nto\n,\nlower\nbranch\n:\n, )\napprach\ni\nL\n!7!\nreturn\nto\n!3!\nnew\nstate\n,\n:\nStationary\n¥\n, (\nstate\n.\n-\n'\n✓\n.\n!#\n.\ni\nI\n)\nto\ntot\nT\nt\n3. Approach to the new stationary state\n0.1\n4. Jump to the upper branche before t0 + τ\n0.2\n5. Evolution on the upper branch\n0.2\n6. Jump to the lower branche below the old stationary state\n0.1\n7. Return to the old stationary state (from below)\n0.2\n6\n\nSolution C2:\n[0.6]\nThe time needed to reach the threshold voltage is given by\nτcrit =\nRoﬀR\nRoﬀ+ R C log\n \nUoﬀ−˜U\nUoﬀ−Uth\n!\n= 9.36 · 10−7 s.\nNote: This is the same formula as for toﬀin task B2, with Uh replaced by ˜U.\n• Correct time constant\n0.2\n• Correct choice of voltages\n0.2\n• Correct ﬁnal formula\n0.1\n• Correct numerical value\n0.1\nNote: Correct ﬁnal answers give full points. One may earn points for intermediate steps\n(see above) for partial answers.\nSolution C3:\n[0.2]\nSince τ > τcrit, the system will make one oscillation.\nWe conclude that the sys-\ntem is a neuristor.\n0.2\nNote: 0.2 are given only if “Yes” is checked, regardless of the development of the other\ntasks.\n7\n","textExtraction":"available"}}
+{
+  "id": "ipho-2016-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2016_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2016_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2016-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Nonlinear Dynamics in Electric Circuits (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Please read the general instructions in the separate envelope before you start this problem."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Introduction"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Bistable non-linear semiconducting elements (e.g. thyristors) are widely used in electronics as switches and generators of electromagnetic oscillations. The primary field of applications of thyristors is controlling alternating currents in power electronics, for instance rectification of AC current to DC at the megawatt scale. Bistable elements may also serve as model systems for self-organization phenomena in physics (this topic is covered in part B of the problem), biology (see part C) and other fields of modern nonlinear science."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Goals"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "To study instabilities and nontrivial dynamics of circuits including elements with non-linear "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I-V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " characteristics. To discover possible applications of such circuits in engineering and in modeling of biological systems."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Stationary states and instabilities (3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig. 1 shows the so-called "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "S-shaped"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I-V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " characteristics of a non-linear element "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In the voltage range between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U_{\\mathrm{h}} = 4.00\\,\\mathrm{V}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (the holding voltage) and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U_{\\mathrm{th}} = 10.0\\,\\mathrm{V}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (the threshold voltage) this "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I-V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " characteristics is multivalued. For simplicity, the graph on Fig. 1 is chosen to be piece-wise linear (each branch is a segment of a straight line). In particular, the line in the upper branch touches the origin if it is extended. This approximation gives a good description of real thyristors."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2016-t2/7df7c07b5a6ca7a81985.png",
+                "alt": "ipho-2016-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1: "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(I-V\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " characteristics of the non-linear element "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(X\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Using the graph, determine the resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_{\\mathrm{on}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the element "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the upper branch of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I-V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " characteristics, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_{\\mathrm{off}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the lower branch, respectively. The middle branch is described by the equation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI = I_0 - \\frac{U}{R_{\\mathrm{int}}}.\\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Find the values of the parameters "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_{\\mathrm{int}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The element "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is connected in series (see Fig.2) with a resistor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", an inductor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and an ideal voltage source "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". One says that the circuit is in a stationary state if the current is constant in time, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I(t) = \\mathrm{const}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2016-t2/2df4cc5766ca3daf1564.png",
+                "alt": "ipho-2016-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 2: Circuit with element "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(X\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ", resistor "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(R\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ", inductor "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(L\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " and voltage source "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\mathcal{E}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "What are the possible numbers of stationary states that the circuit of Fig. 2 may have for a fixed value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = 3.00\\,\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? How does the answer change for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = 1.00\\,\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? 1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = 3.00\\,\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L = 1.00\\,\\mu\\mathrm{H}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{E} = 15.0\\,\\mathrm{V}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the circuit shown in Fig. 2. Determine the values of the current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_{\\mathrm{stationary}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the voltage "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_{\\mathrm{stationary}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the non-linear element "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the stationary state. 0.6pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The circuit in Fig. 2 is in the stationary state with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I(t) = I_{\\mathrm{stationary}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This stationary state is said to be stable if after a small displacement (increase or decrease in the current), the current returns towards the stationary state. And if the system keeps moving away from the stationary state, it is said to be unstable."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Use numerical values of the question "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and study the stability of the stationary state with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I(t) = I_{\\mathrm{stationary}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Is it stable or unstable? 1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Bistable non-linear elements in physics: radio transmitter (5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We now investigate a new circuit configuration (see Fig. 3). This time, the non-linear element "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is connected in parallel to a capacitor of capacitance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C = 1.00\\,\\mu\\mathrm{F}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This block is then connected in series to a resistor of resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = 3.00\\,\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and an ideal constant voltage source of voltage "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{E} = 15.0\\,\\mathrm{V}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". It turns out that this circuit undergoes oscillations with the non-linear element "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " jumping from one branch of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I-V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " characteristics to another over the course of one cycle."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2016-t2/209fff48bb88bc270a78.png",
+                "alt": "ipho-2016-t2 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 3: Circuit with element "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(X\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ", capacitor "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(C\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ", resistor "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(R\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " and voltage source "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\mathcal{E}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Draw the oscillation cycle on the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I-V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " graph, including its direction (clockwise or anticlockwise). Justify your answer with equations and sketches. 1.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find expressions for the times "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that the system spends on each branch of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I-V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " graph during the oscillation cycle. Determine their numerical values. Find the numerical value of the oscillation period "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " assuming that the time needed for jumps between the branches of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I-V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " graph is negligible. 1.9pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Estimate the average power "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " dissipated by the non-linear element over the course of one oscillation. An order of magnitude is sufficient. 0.7pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The circuit in Fig. 3 is used to build a radio transmitter. For this purpose, the element "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is attached to one end of a linear antenna (a long straight wire) of length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The other end of the wire is free. In the antenna, an electromagnetic standing wave is formed. The speed of electromagnetic waves along the antenna is the same as in vacuum. The transmitter is using the main harmonic of the system, which has period "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of question "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "What is the optimal value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " assuming that it cannot exceed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1\\,\\mathrm{km}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? 0.6pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C. Bistable non-linear elements in biology: neuristor (2 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this part of the problem, we consider an application of bistable non-linear elements to modeling of biological processes. A neuron in a human brain has the following property: when excited by an external signal, it makes one single oscillation and then returns to its initial state. This feature is called excitability. Due to this property, pulses can propagate in the network of coupled neurons constituting the nerve systems. A semiconductor chip designed to mimic excitability and pulse propagation is called a "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "neuristor"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (from neuron and transistor)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We attempt to model a simple neuristor using a circuit that includes the non-linear element "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that we investigated previously. To this end, the voltage "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the circuit of Fig. 3 is decreased to the value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{E}' = 12.0\\,\\mathrm{V}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The oscillations stop, and the system reaches its stationary state. Then, the voltage is rapidly increased back to the value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{E} = 15.0\\,\\mathrm{V}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and after a period of time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau < T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is set again to the value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{E}'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (see Fig. 4). It turns out that there is a certain critical value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_{\\mathrm{crit.}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the system shows qualitatively different behavior for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau < \\tau_{\\mathrm{crit}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau > \\tau_{\\mathrm{crit}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2016-t2/10e523663363d49b3fa9.png",
+                "alt": "ipho-2016-t2 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 4: Voltage of the voltage source as a function of time."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sketch the graphs of the time dependence of the current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_X(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the non-linear element "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau < \\tau_{\\mathrm{crit}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau > \\tau_{\\mathrm{crit}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the expression and the numerical value of the critical time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_{\\mathrm{crit}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for which the scenario switches. 0.6pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Is the circuit with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau = 1.00\\times 10^{-6}\\,\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a neuristor? 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Nonlinear Dynamics in Electric Circuits (10 points)\n\n\nPlease read the general instructions in the separate envelope before you start this problem.\n\n\nIntroduction\n\n\nBistable non-linear semiconducting elements (e.g. thyristors) are widely used in electronics as switches and generators of electromagnetic oscillations. The primary field of applications of thyristors is controlling alternating currents in power electronics, for instance rectification of AC current to DC at the megawatt scale. Bistable elements may also serve as model systems for self-organization phenomena in physics (this topic is covered in part B of the problem), biology (see part C) and other fields of modern nonlinear science.\n\n\nGoals\n\n\nTo study instabilities and nontrivial dynamics of circuits including elements with non-linear \n\\(I-V\\)\n characteristics. To discover possible applications of such circuits in engineering and in modeling of biological systems.\n\n\nPart A. Stationary states and instabilities (3 points)\n\n\nFig. 1 shows the so-called \nS-shaped\n \n\\(I-V\\)\n characteristics of a non-linear element \n\\(X\\)\n. In the voltage range between \n\\(U_{\\mathrm{h}} = 4.00\\,\\mathrm{V}\\)\n (the holding voltage) and \n\\(U_{\\mathrm{th}} = 10.0\\,\\mathrm{V}\\)\n (the threshold voltage) this \n\\(I-V\\)\n characteristics is multivalued. For simplicity, the graph on Fig. 1 is chosen to be piece-wise linear (each branch is a segment of a straight line). In particular, the line in the upper branch touches the origin if it is extended. This approximation gives a good description of real thyristors.\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: \n\\(I-V\\)\n characteristics of the non-linear element \n\\(X\\)\n.\n\n\n\n\nA.1\nUsing the graph, determine the resistance \n\\(R_{\\mathrm{on}}\\)\n of the element \n\\(X\\)\n on the upper branch of the \n\\(I-V\\)\n characteristics, and \n\\(R_{\\mathrm{off}}\\)\n on the lower branch, respectively. The middle branch is described by the equation \n\\[\\begin{equation}\nI = I_0 - \\frac{U}{R_{\\mathrm{int}}}.\\tag{1}\n\\end{equation}\\]\n Find the values of the parameters \n\\(I_0\\)\n and \n\\(R_{\\mathrm{int}}\\)\n. 0.4pt\n\n\nThe element \n\\(X\\)\n is connected in series (see Fig.2) with a resistor \n\\(R\\)\n, an inductor \n\\(L\\)\n and an ideal voltage source \n\\(\\mathcal{E}\\)\n. One says that the circuit is in a stationary state if the current is constant in time, \n\\(I(t) = \\mathrm{const}\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Circuit with element \n\\(X\\)\n, resistor \n\\(R\\)\n, inductor \n\\(L\\)\n and voltage source \n\\(\\mathcal{E}\\)\n.\n\n\n\n\nA.2\nWhat are the possible numbers of stationary states that the circuit of Fig. 2 may have for a fixed value of \n\\(\\mathcal{E}\\)\n and for \n\\(R = 3.00\\,\\Omega\\)\n? How does the answer change for \n\\(R = 1.00\\,\\Omega\\)\n? 1pt\n\n\nA.3\nLet \n\\(R = 3.00\\,\\Omega\\)\n, \n\\(L = 1.00\\,\\mu\\mathrm{H}\\)\n and \n\\(\\mathcal{E} = 15.0\\,\\mathrm{V}\\)\n in the circuit shown in Fig. 2. Determine the values of the current \n\\(I_{\\mathrm{stationary}}\\)\n and the voltage \n\\(V_{\\mathrm{stationary}}\\)\n on the non-linear element \n\\(X\\)\n in the stationary state. 0.6pt\n\n\nThe circuit in Fig. 2 is in the stationary state with \n\\(I(t) = I_{\\mathrm{stationary}}\\)\n. This stationary state is said to be stable if after a small displacement (increase or decrease in the current), the current returns towards the stationary state. And if the system keeps moving away from the stationary state, it is said to be unstable.\n\n\nA.4\nUse numerical values of the question \nA.3\n and study the stability of the stationary state with \n\\(I(t) = I_{\\mathrm{stationary}}\\)\n. Is it stable or unstable? 1pt\n\n\nPart B. Bistable non-linear elements in physics: radio transmitter (5 points)\n\n\nWe now investigate a new circuit configuration (see Fig. 3). This time, the non-linear element \n\\(X\\)\n is connected in parallel to a capacitor of capacitance \n\\(C = 1.00\\,\\mu\\mathrm{F}\\)\n. This block is then connected in series to a resistor of resistance \n\\(R = 3.00\\,\\Omega\\)\n and an ideal constant voltage source of voltage \n\\(\\mathcal{E} = 15.0\\,\\mathrm{V}\\)\n. It turns out that this circuit undergoes oscillations with the non-linear element \n\\(X\\)\n jumping from one branch of the \n\\(I-V\\)\n characteristics to another over the course of one cycle.\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: Circuit with element \n\\(X\\)\n, capacitor \n\\(C\\)\n, resistor \n\\(R\\)\n and voltage source \n\\(\\mathcal{E}\\)\n.\n\n\n\n\nB.1\nDraw the oscillation cycle on the \n\\(I-V\\)\n graph, including its direction (clockwise or anticlockwise). Justify your answer with equations and sketches. 1.8pt\n\n\nB.2\nFind expressions for the times \n\\(t_1\\)\n and \n\\(t_2\\)\n that the system spends on each branch of the \n\\(I-V\\)\n graph during the oscillation cycle. Determine their numerical values. Find the numerical value of the oscillation period \n\\(T\\)\n assuming that the time needed for jumps between the branches of the \n\\(I-V\\)\n graph is negligible. 1.9pt\n\n\nB.3\nEstimate the average power \n\\(P\\)\n dissipated by the non-linear element over the course of one oscillation. An order of magnitude is sufficient. 0.7pt\n\n\nThe circuit in Fig. 3 is used to build a radio transmitter. For this purpose, the element \n\\(X\\)\n is attached to one end of a linear antenna (a long straight wire) of length \n\\(s\\)\n. The other end of the wire is free. In the antenna, an electromagnetic standing wave is formed. The speed of electromagnetic waves along the antenna is the same as in vacuum. The transmitter is using the main harmonic of the system, which has period \n\\(T\\)\n of question \nB.2\n.\n\n\nB.4\nWhat is the optimal value of \n\\(s\\)\n assuming that it cannot exceed \n\\(1\\,\\mathrm{km}\\)\n? 0.6pt\n\n\nPart C. Bistable non-linear elements in biology: neuristor (2 points)\n\n\nIn this part of the problem, we consider an application of bistable non-linear elements to modeling of biological processes. A neuron in a human brain has the following property: when excited by an external signal, it makes one single oscillation and then returns to its initial state. This feature is called excitability. Due to this property, pulses can propagate in the network of coupled neurons constituting the nerve systems. A semiconductor chip designed to mimic excitability and pulse propagation is called a \nneuristor\n (from neuron and transistor).\n\n\nWe attempt to model a simple neuristor using a circuit that includes the non-linear element \n\\(X\\)\n that we investigated previously. To this end, the voltage \n\\(\\mathcal{E}\\)\n in the circuit of Fig. 3 is decreased to the value \n\\(\\mathcal{E}' = 12.0\\,\\mathrm{V}\\)\n. The oscillations stop, and the system reaches its stationary state. Then, the voltage is rapidly increased back to the value \n\\(\\mathcal{E} = 15.0\\,\\mathrm{V}\\)\n, and after a period of time \n\\(\\tau\\)\n (with \n\\(\\tau < T\\)\n) is set again to the value \n\\(\\mathcal{E}'\\)\n (see Fig. 4). It turns out that there is a certain critical value \n\\(\\tau_{\\mathrm{crit.}}\\)\n, and the system shows qualitatively different behavior for \n\\(\\tau < \\tau_{\\mathrm{crit}}\\)\n and for \n\\(\\tau > \\tau_{\\mathrm{crit}}\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: Voltage of the voltage source as a function of time.\n\n\n\n\nC.1\nSketch the graphs of the time dependence of the current \n\\(I_X(t)\\)\n on the non-linear element \n\\(X\\)\n for \n\\(\\tau < \\tau_{\\mathrm{crit}}\\)\n and for \n\\(\\tau > \\tau_{\\mathrm{crit}}\\)\n. 1.2pt\n\n\nC.2\nFind the expression and the numerical value of the critical time \n\\(\\tau_{\\mathrm{crit}}\\)\n for which the scenario switches. 0.6pt\n\n\nC.3\nIs the circuit with \n\\(\\tau = 1.00\\times 10^{-6}\\,\\mathrm{s}\\)\n a neuristor? 0.2pt\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2016-t2/7df7c07b5a6ca7a81985.png",
+      "/corpus/figures/native/bulk/ipho-2016-t2/2df4cc5766ca3daf1564.png",
+      "/corpus/figures/native/bulk/ipho-2016-t2/209fff48bb88bc270a78.png",
+      "/corpus/figures/native/bulk/ipho-2016-t2/10e523663363d49b3fa9.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2016-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Problem 2 : Solution/marking scheme – Nonlinear Dynamics in Electric Circuits"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "element",
+                "tag": "em",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "(10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Part A. Stationary states and instabilities (3 points)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution A1:[0.4]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "By looking at the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I-V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " graph, we obtain"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[R_{\\mathrm{off}} = 10.0\\,\\Omega,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[R_{\\mathrm{on}} = 1.00\\,\\Omega,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[R_{\\mathrm{int}} = 2.00\\,\\Omega,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I_0 = 6.00\\,A.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Note: No penalty for the number of digits in this question"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution A2:[1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Kirchoff law for the circuit ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the voltage of the bistable element):"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathcal{E} = IR + U\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This yields"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I = \\frac{\\mathcal{E}-U}{R}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hence, stationary states of the circuit are intersections of the line defined by this equation and the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I-V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " graph of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nFor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = 3.00\\,\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", one always gets exactly one intersection. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nFor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = 1.00\\,\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", one gets 1, 2 or 3 intersections depending on the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.4"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nThe following table summarizes the number of points granted for possible answers to the last subquestion with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = 1.00\\,\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "table",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "thead",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Possible answer"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "3"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1,3"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1,2"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2,3"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1,2,3"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tbody",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Points"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0.2"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0.3"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0.2"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0.4"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution A3:[0.6]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The stationary state is on the intermediate branch, one can thus use the corresponding equation: "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I_{\\mathrm{stationary}} = \\frac{\\mathcal{E}-R_{\\mathrm{int}}I_0}{R-R_{\\mathrm{int}}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[= 3.00\\,A\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[U_{\\mathrm{stationary}} = R_{\\mathrm{int}}(I_0-I)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[= 6.00\\,V\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Extra (non-physical) stationary states on the switched on and/or switched off branches lead to a penalty of 0.2 point."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution A4:[1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Any correct modeling such as the following: "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nThe Kirchoff law for the circuit reads"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathcal{E} = IR + U_X + L\\frac{dI}{dt} = IR + (I_0-I)R_{\\mathrm{int}} + L\\frac{dI}{dt}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This implies"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[L\\frac{dI}{dt} = \\mathcal{E} - I_0R_{\\mathrm{int}} - (R-R_{\\mathrm{int}})I\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The separation between two cases is of importance, especially because of the relative sign of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dI/dt\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ":"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nIf "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I > I_{\\mathrm{stationary}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dI/dt < 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " decreases. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nIf "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I < I_{\\mathrm{stationary}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dI/dt > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " increases. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Note: Formulas with time derivatives are not essential, any other correct justification is accepted."
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nWe conclude that the stationary state is stable. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Note: The checkbox gives 0.1 points if “stable” is checked, regardless of the previous reasoning (also if there is nothing). A wrong reasoning leading to check the “unstable” option doesn’t however give any point for the checkbox."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Part B. Bistable non-linear elements in physics and engineering: radio transmitter (5 points)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution B1:[1.8]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A correctly drawn cycle gives 1.2 points, distributed as follows:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Switched on branch is part of the cycle"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Switched off branch is part of the cycle"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Jumps are vertical (constant "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(U\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ")"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Jumps are positioned at "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(U_{\\mathrm{h}}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(U_{\\mathrm{th}}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The system moves to the left on the switched on branch"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The system moves to the right on the switched off branch"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Each of the following observations individually gives up to 0.2 points, but their total cannot exceed 0.6:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(U\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " constant during jumps because the charge on the capacitor cannot change instantaneously"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The intermediate branch cannot be part of the cycle because there is a stationary state on it"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Jumps occur at corners of the IV graph because at those points the system has nowhere else to go"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The system moves moves to the left on the switched on branch because it approaches the stable stationary state (which is located outside the IV graph), or argument with the Kirchoff law"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The system moves moves to the right on the switched off branch because it approaches the stable stationary state (which is located outside the IV graph), or argument with the Kirchoff law"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2016-t2/3e8fc154053f12d4ecb2.png",
+                "alt": "ipho-2016-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution B2:[1.9]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since the non-linear element is oscillating between the switched on and switched off branches we can put "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U_X = R_{\\mathrm{on/off}}I_X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". On either of the branches, the circuit behaves as a standard RC-circuit with conductance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_{\\mathrm{on/off}}R/(R_{\\mathrm{on/off}}+R)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (the resistor and the element "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " being connected in parallel). Another way to express it is to "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nwrite the Kirchhoff law for the switched on and switched off branches"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[R_{\\mathrm{on/off}}RC\\frac{dI_X}{dt} = \\mathcal{E} - (R_{\\mathrm{on/off}}+R)I_X\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The time constant of the circuit is"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{R_{\\mathrm{on/off}}R}{R_{\\mathrm{on/off}}+R}C.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If the branch in question (switched on or switched off) extended indefinitely, after a long time the system would have landed in a stationary state with the voltage"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[U_{\\mathrm{on/off}} = \\frac{R_{\\mathrm{on/off}}}{R_{\\mathrm{on/off}}+R}\\mathcal{E}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Then, the time dependence of the voltage drop on the non-linear element is a sum of the constant term "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U_{\\mathrm{on/off}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and of the exponentially decaying term:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[U_X(t) = \\frac{R_{\\mathrm{on/off}}}{R_{\\mathrm{on/off}}+R}\\mathcal{E} + \\left(U_{\\mathrm{on/off}} - \\frac{R_{\\mathrm{on/off}}}{R_{\\mathrm{on/off}}+R}\\mathcal{E}\\right)e^{-\\frac{R_{\\mathrm{on/off}}+R}{R_{\\mathrm{on/off}}RC}t}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "There are 0.5 points distributed as follow for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U_X(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Correct exponential"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Correct constant term ("
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(t \\to \\infty\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ")"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Correct coefficient in front of the exponential"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Correct equation for "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(U_X(t)\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Time spent by the system on the switched on branch during one cycle:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t_{\\mathrm{on}} = \\frac{R_{\\mathrm{on}}R}{R_{\\mathrm{on}}+R}\\,C\\,\\log\\left(\\frac{U_{\\mathrm{th}}-U_{\\mathrm{on}}}{U_{\\mathrm{h}}-U_{\\mathrm{on}}}\\right) = 2.41 \\cdot 10^{-6}\\,s,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Time spent by the system on the switched off branch during one cycle:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t_{\\mathrm{off}} = \\frac{R_{\\mathrm{off}}R}{R_{\\mathrm{off}}+R}\\,C\\,\\log\\left(\\frac{U_{\\mathrm{off}}-U_{\\mathrm{h}}}{U_{\\mathrm{off}}-U_{\\mathrm{th}}}\\right) = 3.71 \\cdot 10^{-6}\\,s.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The total period of oscillations:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T = t_{\\mathrm{on}} + t_{\\mathrm{off}} = 6.12 \\cdot 10^{-6}\\,s\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Note: Correct final answers give full points. One may earn points for intermediate steps (see above) for partial answers."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution B3:[0.7]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Neglect the energy consumed on the switched off branch. The energy consumed on the switched on branch during the cycle is estimated by"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E = \\frac{1}{R_{\\mathrm{on}}}\\left(\\frac{U_h+U_{th}}{2}\\right)^2 t_{\\mathrm{on}} = 1.18 \\cdot 10^{-4}\\,\\mathrm{J}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For the power, this gives an estimate of"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[P \\sim \\frac{E}{T} = 19.3\\,\\mathrm{W}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Note:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "em",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Formula + answer inside "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(5\\,\\mathrm{W} \\leq P \\leq 50\\,\\mathrm{W}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " give full points"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "em",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Formula + answer outside the range above but inside "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(1\\,\\mathrm{W} \\leq P \\leq 100\\,\\mathrm{W}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " give 0.5 points"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "em",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "answer outside range but good formula gives 0.4 points"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Also, the proposed formula is only an example, any other reasonable approximation of the integral of the upper branch should be accepted."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution B4:[0.6]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The wave length of the radio signal is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda = cT = 1.82 \\cdot 10^3\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nThe optimal length of the antenna is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda/4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(3\\lambda/4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(5\\lambda/4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "etc."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.3"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nThe only choice which is below "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1\\,\\mathrm{km}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(s = \\lambda/4 = 459\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Note: The correct answer "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(s = \\lambda/4 = 459\\,\\mathrm{m}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " gives full points, and the mistake "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(s = \\lambda/2 = 918\\,\\mathrm{m}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " only 0.4 pts."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Part C. Bistable non-linear elements in biology: neuristor (2 points)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution C1:[1.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tilde{\\mathcal{E}} = 12.0\\,\\mathrm{V}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the steady state of the system is located on the switched off branch:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tilde{U} = \\frac{R_{\\mathrm{off}}}{R+R_{\\mathrm{off}}}\\tilde{\\mathcal{E}} = 9.23\\,\\mathrm{V}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When the voltage is increased to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{E} = 15.0\\,\\mathrm{V}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the system starts moving to the right along the switched off branch (in the same way it did in task "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). If the voltage drops again before the system reaches the threshold voltage, it will simply return to the stationary state. If system reaches the threshold voltage, it will jump to the switched on branch, and it will make one oscillations (since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau < T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") before the voltage drops again and it returns to the stationary state."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2016-t2/1d8f438c2897f9dde4ad.png",
+                "alt": "ipho-2016-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1. Approach to the new stationary state "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2. Return to the old stationary state "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2016-t2/8f1a1b789f4a721b3e6f.png",
+                "alt": "ipho-2016-t2 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3. Approach to the new stationary state "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4. Jump to the upper branche before "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_0 + \\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "5. Evolution on the upper branch "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "6. Jump to the lower branche below the old stationary state "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "7. Return to the old stationary state (from below) "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution C2:[0.6]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The time needed to reach the threshold voltage is given by"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau_{\\mathrm{crit}} = \\frac{R_{\\mathrm{off}}R}{R_{\\mathrm{off}}+R}\\,C\\,\\log\\left(\\frac{U_{\\mathrm{off}}-\\tilde{U}}{U_{\\mathrm{off}}-U_{\\mathrm{th}}}\\right) = 9.36 \\cdot 10^{-7}\\,s.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note: This is the same formula as for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_{\\mathrm{off}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in task "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U_h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " replaced by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tilde{U}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Correct time constant"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Correct choice of voltages"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Correct final formula"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Correct numerical value"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "0.1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Note: Correct final answers give full points. One may earn points for intermediate steps (see above) for partial answers."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution C3:[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau > \\tau_{\\mathrm{crit}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the system will make one oscillation. We conclude that the system is a neuristor. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Note: 0.2 are given only if “Yes” is checked, regardless of the development of the other tasks."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Problem 2 : Solution/marking scheme – Nonlinear Dynamics in Electric Circuits\n \n(10 points)\n\n\nPart A. Stationary states and instabilities (3 points)\n\n\nSolution A1:[0.4]\n\n\nBy looking at the \n\\(I-V\\)\n graph, we obtain\n\n\n\\[R_{\\mathrm{off}} = 10.0\\,\\Omega,\\]\n \n0.1\n\n\n\\[R_{\\mathrm{on}} = 1.00\\,\\Omega,\\]\n \n0.1\n\n\n\\[R_{\\mathrm{int}} = 2.00\\,\\Omega,\\]\n \n0.1\n\n\n\\[I_0 = 6.00\\,A.\\]\n \n0.1\n\n\nNote: No penalty for the number of digits in this question\n\n\nSolution A2:[1]\n\n\nKirchoff law for the circuit (\n\\(U\\)\n is the voltage of the bistable element):\n\n\n\\[\\mathcal{E} = IR + U\\]\n \n0.1\n\n\nThis yields\n\n\n\\[I = \\frac{\\mathcal{E}-U}{R}\\]\n \n0.1\n\n\nHence, stationary states of the circuit are intersections of the line defined by this equation and the \n\\(I-V\\)\n graph of \n\\(X\\)\n. \n0.2\n\n\nFor \n\\(R = 3.00\\,\\Omega\\)\n, one always gets exactly one intersection. \n0.2\n\n\nFor \n\\(R = 1.00\\,\\Omega\\)\n, one gets 1, 2 or 3 intersections depending on the value of \n\\(\\mathcal{E}\\)\n. \n0.4\n\n\nThe following table summarizes the number of points granted for possible answers to the last subquestion with \n\\(R = 1.00\\,\\Omega\\)\n:\n\n\n\n\n\n\n\n\n\n\nPossible answer\n\n\n1\n\n\n2\n\n\n3\n\n\n1,3\n\n\n1,2\n\n\n2,3\n\n\n1,2,3\n\n\n\n\n\n\n\n\n\n\nPoints\n\n\n0\n\n\n0\n\n\n0.2\n\n\n0.3\n\n\n0\n\n\n0.2\n\n\n0.4\n\n\n\n\n\n\n\n\n\n\nSolution A3:[0.6]\n\n\nThe stationary state is on the intermediate branch, one can thus use the corresponding equation: \n0.2\n\n\n\\[I_{\\mathrm{stationary}} = \\frac{\\mathcal{E}-R_{\\mathrm{int}}I_0}{R-R_{\\mathrm{int}}}\\]\n \n0.1\n\n\n\\[= 3.00\\,A\\]\n \n0.1\n\n\n\\[U_{\\mathrm{stationary}} = R_{\\mathrm{int}}(I_0-I)\\]\n \n0.1\n\n\n\\[= 6.00\\,V\\]\n \n0.1\n\n\nExtra (non-physical) stationary states on the switched on and/or switched off branches lead to a penalty of 0.2 point.\n\n\nSolution A4:[1]\n\n\nAny correct modeling such as the following: \n0.5\n\n\nThe Kirchoff law for the circuit reads\n\n\n\\[\\mathcal{E} = IR + U_X + L\\frac{dI}{dt} = IR + (I_0-I)R_{\\mathrm{int}} + L\\frac{dI}{dt}\\]\n\n\nThis implies\n\n\n\\[L\\frac{dI}{dt} = \\mathcal{E} - I_0R_{\\mathrm{int}} - (R-R_{\\mathrm{int}})I\\]\n\n\nThe separation between two cases is of importance, especially because of the relative sign of \n\\(dI/dt\\)\n:\n\n\nIf \n\\(I > I_{\\mathrm{stationary}}\\)\n, we have \n\\(dI/dt < 0\\)\n and \n\\(I\\)\n decreases. \n0.2\n\n\nIf \n\\(I < I_{\\mathrm{stationary}}\\)\n, we have \n\\(dI/dt > 0\\)\n and \n\\(I\\)\n increases. \n0.2\n\n\n\nNote: Formulas with time derivatives are not essential, any other correct justification is accepted.\n\n\nWe conclude that the stationary state is stable. \n0.1\n\n\nNote: The checkbox gives 0.1 points if “stable” is checked, regardless of the previous reasoning (also if there is nothing). A wrong reasoning leading to check the “unstable” option doesn’t however give any point for the checkbox.\n\n\nPart B. Bistable non-linear elements in physics and engineering: radio transmitter (5 points)\n\n\nSolution B1:[1.8]\n\n\nA correctly drawn cycle gives 1.2 points, distributed as follows:\n\n\n\n\nSwitched on branch is part of the cycle\n0.2\n\n\nSwitched off branch is part of the cycle\n0.2\n\n\nJumps are vertical (constant \n\\(U\\)\n)\n0.2\n\n\nJumps are positioned at \n\\(U_{\\mathrm{h}}\\)\n and \n\\(U_{\\mathrm{th}}\\)\n0.2\n\n\nThe system moves to the left on the switched on branch\n0.2\n\n\nThe system moves to the right on the switched off branch\n0.2\n\n\n\n\nEach of the following observations individually gives up to 0.2 points, but their total cannot exceed 0.6:\n\n\n\n\n\\(U\\)\n constant during jumps because the charge on the capacitor cannot change instantaneously\n0.2\n\n\nThe intermediate branch cannot be part of the cycle because there is a stationary state on it\n0.2\n\n\nJumps occur at corners of the IV graph because at those points the system has nowhere else to go\n0.2\n\n\nThe system moves moves to the left on the switched on branch because it approaches the stable stationary state (which is located outside the IV graph), or argument with the Kirchoff law\n0.2\n\n\nThe system moves moves to the right on the switched off branch because it approaches the stable stationary state (which is located outside the IV graph), or argument with the Kirchoff law\n0.2\n\n\n\n\n\n\n\n\n\n\n\nSolution B2:[1.9]\n\n\nSince the non-linear element is oscillating between the switched on and switched off branches we can put \n\\(U_X = R_{\\mathrm{on/off}}I_X\\)\n. On either of the branches, the circuit behaves as a standard RC-circuit with conductance \n\\(C\\)\n and resistance \n\\(R_{\\mathrm{on/off}}R/(R_{\\mathrm{on/off}}+R)\\)\n (the resistor and the element \n\\(X\\)\n being connected in parallel). Another way to express it is to \n0.5\n\n\nwrite the Kirchhoff law for the switched on and switched off branches\n\n\n\\[R_{\\mathrm{on/off}}RC\\frac{dI_X}{dt} = \\mathcal{E} - (R_{\\mathrm{on/off}}+R)I_X\\]\n\n\nThe time constant of the circuit is\n\n\n\\[\\frac{R_{\\mathrm{on/off}}R}{R_{\\mathrm{on/off}}+R}C.\\]\n\n\nIf the branch in question (switched on or switched off) extended indefinitely, after a long time the system would have landed in a stationary state with the voltage\n\n\n\\[U_{\\mathrm{on/off}} = \\frac{R_{\\mathrm{on/off}}}{R_{\\mathrm{on/off}}+R}\\mathcal{E}.\\]\n\n\nThen, the time dependence of the voltage drop on the non-linear element is a sum of the constant term \n\\(U_{\\mathrm{on/off}}\\)\n and of the exponentially decaying term:\n\n\n\\[U_X(t) = \\frac{R_{\\mathrm{on/off}}}{R_{\\mathrm{on/off}}+R}\\mathcal{E} + \\left(U_{\\mathrm{on/off}} - \\frac{R_{\\mathrm{on/off}}}{R_{\\mathrm{on/off}}+R}\\mathcal{E}\\right)e^{-\\frac{R_{\\mathrm{on/off}}+R}{R_{\\mathrm{on/off}}RC}t}\\]\n\n\nThere are 0.5 points distributed as follow for \n\\(U_X(t)\\)\n:\n\n\n\n\nCorrect exponential\n0.2\n\n\nCorrect constant term (\n\\(t \\to \\infty\\)\n)\n0.1\n\n\nCorrect coefficient in front of the exponential\n0.1\n\n\nCorrect equation for \n\\(U_X(t)\\)\n0.1\n\n\n\n\nTime spent by the system on the switched on branch during one cycle:\n\n\n\\[t_{\\mathrm{on}} = \\frac{R_{\\mathrm{on}}R}{R_{\\mathrm{on}}+R}\\,C\\,\\log\\left(\\frac{U_{\\mathrm{th}}-U_{\\mathrm{on}}}{U_{\\mathrm{h}}-U_{\\mathrm{on}}}\\right) = 2.41 \\cdot 10^{-6}\\,s,\\]\n \n0.4\n\n\nTime spent by the system on the switched off branch during one cycle:\n\n\n\\[t_{\\mathrm{off}} = \\frac{R_{\\mathrm{off}}R}{R_{\\mathrm{off}}+R}\\,C\\,\\log\\left(\\frac{U_{\\mathrm{off}}-U_{\\mathrm{h}}}{U_{\\mathrm{off}}-U_{\\mathrm{th}}}\\right) = 3.71 \\cdot 10^{-6}\\,s.\\]\n \n0.4\n\n\nThe total period of oscillations:\n\n\n\\[T = t_{\\mathrm{on}} + t_{\\mathrm{off}} = 6.12 \\cdot 10^{-6}\\,s\\]\n \n0.1\n\n\nNote: Correct final answers give full points. One may earn points for intermediate steps (see above) for partial answers.\n\n\nSolution B3:[0.7]\n\n\nNeglect the energy consumed on the switched off branch. The energy consumed on the switched on branch during the cycle is estimated by\n\n\n\\[E = \\frac{1}{R_{\\mathrm{on}}}\\left(\\frac{U_h+U_{th}}{2}\\right)^2 t_{\\mathrm{on}} = 1.18 \\cdot 10^{-4}\\,\\mathrm{J}.\\]\n \n0.4\n\n\nFor the power, this gives an estimate of\n\n\n\\[P \\sim \\frac{E}{T} = 19.3\\,\\mathrm{W}.\\]\n \n0.3\n\n\nNote:\n\n\n\n\nFormula + answer inside \n\\(5\\,\\mathrm{W} \\leq P \\leq 50\\,\\mathrm{W}\\)\n give full points\n\n\nFormula + answer outside the range above but inside \n\\(1\\,\\mathrm{W} \\leq P \\leq 100\\,\\mathrm{W}\\)\n give 0.5 points\n\n\nanswer outside range but good formula gives 0.4 points\n\n\n\n\nAlso, the proposed formula is only an example, any other reasonable approximation of the integral of the upper branch should be accepted.\n\n\nSolution B4:[0.6]\n\n\nThe wave length of the radio signal is given by \n\\(\\lambda = cT = 1.82 \\cdot 10^3\\,\\mathrm{m}\\)\n. \n0.2\n\n\nThe optimal length of the antenna is \n\\(\\lambda/4\\)\n (or \n\\(3\\lambda/4\\)\n, \n\\(5\\lambda/4\\)\n \netc.\n) \n0.3\n\n\nThe only choice which is below \n\\(1\\,\\mathrm{km}\\)\n is \n\\(s = \\lambda/4 = 459\\,\\mathrm{m}\\)\n. \n0.1\n\n\n\nNote: The correct answer \n\\(s = \\lambda/4 = 459\\,\\mathrm{m}\\)\n gives full points, and the mistake \n\\(s = \\lambda/2 = 918\\,\\mathrm{m}\\)\n only 0.4 pts.\n\n\nPart C. Bistable non-linear elements in biology: neuristor (2 points)\n\n\nSolution C1:[1.2]\n\n\nFor \n\\(\\tilde{\\mathcal{E}} = 12.0\\,\\mathrm{V}\\)\n, the steady state of the system is located on the switched off branch:\n\n\n\\[\\tilde{U} = \\frac{R_{\\mathrm{off}}}{R+R_{\\mathrm{off}}}\\tilde{\\mathcal{E}} = 9.23\\,\\mathrm{V}.\\]\n\n\nWhen the voltage is increased to \n\\(\\mathcal{E} = 15.0\\,\\mathrm{V}\\)\n, the system starts moving to the right along the switched off branch (in the same way it did in task \nB\n). If the voltage drops again before the system reaches the threshold voltage, it will simply return to the stationary state. If system reaches the threshold voltage, it will jump to the switched on branch, and it will make one oscillations (since \n\\(\\tau < T\\)\n) before the voltage drops again and it returns to the stationary state.\n\n\n\n\n\n\n\n\n\n1. Approach to the new stationary state \n0.2\n\n\n2. Return to the old stationary state \n0.2\n\n\n\n\n\n\n\n\n\n3. Approach to the new stationary state \n0.1\n\n\n4. Jump to the upper branche before \n\\(t_0 + \\tau\\)\n \n0.2\n\n\n5. Evolution on the upper branch \n0.2\n\n\n6. Jump to the lower branche below the old stationary state \n0.1\n\n\n7. Return to the old stationary state (from below) \n0.2\n\n\nSolution C2:[0.6]\n\n\nThe time needed to reach the threshold voltage is given by\n\n\n\\[\\tau_{\\mathrm{crit}} = \\frac{R_{\\mathrm{off}}R}{R_{\\mathrm{off}}+R}\\,C\\,\\log\\left(\\frac{U_{\\mathrm{off}}-\\tilde{U}}{U_{\\mathrm{off}}-U_{\\mathrm{th}}}\\right) = 9.36 \\cdot 10^{-7}\\,s.\\]\n\n\nNote: This is the same formula as for \n\\(t_{\\mathrm{off}}\\)\n in task \nB2\n, with \n\\(U_h\\)\n replaced by \n\\(\\tilde{U}\\)\n.\n\n\n\n\nCorrect time constant\n0.2\n\n\nCorrect choice of voltages\n0.2\n\n\nCorrect final formula\n0.1\n\n\nCorrect numerical value\n0.1\n\n\n\n\nNote: Correct final answers give full points. One may earn points for intermediate steps (see above) for partial answers.\n\n\nSolution C3:[0.2]\n\n\nSince \n\\(\\tau > \\tau_{\\mathrm{crit}}\\)\n, the system will make one oscillation. We conclude that the system is a neuristor. \n0.2\n\n\nNote: 0.2 are given only if “Yes” is checked, regardless of the development of the other tasks.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2016-t2/3e8fc154053f12d4ecb2.png",
+      "/corpus/figures/native/bulk/ipho-2016-t2/1d8f438c2897f9dde4ad.png",
+      "/corpus/figures/native/bulk/ipho-2016-t2/8f1a1b789f4a721b3e6f.png"
+    ],
+    "shared": false
+  }
+}

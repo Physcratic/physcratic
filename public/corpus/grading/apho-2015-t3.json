@@ -1,0 +1,28 @@
+{
+  "problemId": "apho-2015-t3",
+  "version": "6adec357a8d70d453ab9af319952b35c0dc1b9fe52bb004f46afbf619a26d7fc",
+  "parts": [
+    {
+      "id": "q1",
+      "sourcePart": "e",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "math"
+    },
+    {
+      "id": "q2",
+      "sourcePart": "h",
+      "label": "Your answer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the symbols and units in this part. Compare your response with the worked solution. Automatic grading is not configured for this response.",
+      "responseFormat": "math"
+    }
+  ]
+}

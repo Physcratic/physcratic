@@ -1,1 +1,5380 @@
-{"id":"apho-2014-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2014_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2014_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2014-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"Page 1 of 3 \n \n \nQuestion 3 \n \nGravitational lensing is a phenomenon where light from a distant source may be deflected by \nthe curvature of space-time caused by a massive lensing object close to or in the line of sight \nbetween an observer and a distant object. This was first directly observed during the solar \neclipse of 1919 where the observed positions of stars behind the sun differed from their \nastrometric positions following Einstein’s earlier predictions. \n \nIn the case where the observer, lensing object of mass   and source are on a straight line, \nlight from the source is deflected by an angle   (in radians) given by \n \n     \n     \n \nwhere   is the gravitational constant (                    )   is the speed of light \n(              )  and    is the Einstein radius which is the least distance between the \nlensing object and the apparent light path. \n \n(a) \n(4 points) Draw a diagram to describe the physical layout of an ideal (observer, \nlens and point source in a straight line) lensing system. Draw the light path and \nmark the quantities   and   . Also mark the angular Einstein radius    (the \nangular deflection of the source image as seen from earth), and the other \nquantities that an observer on earth can measure. \n \n(b) \n(2 points)  Sketch the image of the source (such as a star), as seen by an observer \non earth, in the case where the source, lensing object and observer are on a \nstraight line. \n \n(c) \n(3 points) Sketch the image of the source (such as a star), as seen by an observer \non earth, in the non-ideal case where the source, lensing object and observer are \nnot in a straight line. Sketch the source-lens system to explain why this is so. \n \n \n \n\nPage 2 of 3 \n \nGravitational lensing has been proposed as a method to detect massive compact halo objects \n(MACHOs) in our galaxy, which may be a candidate for dark matter. These objects are often \ndark stellar remnants such as neutron stars and black holes. As stars and MACHOs orbit in \nthe galaxy, there is a chance that a lensing event may occur when a black hole or neutron star \npasses in front of a background star. \n(d) \n(3 points) The Schwarzschild radius of a black hole defines the point of no return. \nA correct expression for the Schwarzschild radius can be obtained by taking it to \nbe the radius where the escape speed is equal to the speed of light. This means \nthat something inside the Schwarzschild radius cannot escape the black hole. \nUsing Newtonian mechanics, derive the formula for the escape speed at a \ndistance   away from a point object of mass  . Hence, derive the Schwarzschild \nradius for a point object of mass   in terms of the gravitational constant   and \nthe speed of light  . Show your steps and reasoning clearly. (This happens to give \nthe correct expression for the Schwarzschild radius that comes from general \nrelativity.) \n \n(e) \n(1 point) In the case where the source, lens and observer are in a straight line, \ngiven a measurement of   and   , how would you calculate the Schwarzschild \nradius of the lensing object? \n \n(f) \n(2 points) Consider the case where we have a lensing object of the order of a few \nsolar masses (   a few          ) in the nearby regions of the galaxy (distance \n     a few          away) and a source object somewhat further out (     a \nfew     ). Which of the following apply in this case? \nChoose the following conditions that apply to the case as described in the \nquestion: \n \n   is large and tan  , sin  , cos   \nmust be calculated exactly \n    is large and tan    , sin    , \ncos    must be calculated exactly \n   is small and the small angle \napproximations to tan   , sin   , \ncos   are permissible \n    is small and the small angle \napproximations to tan   , sin   , \ncos    are permissible \n   is irrelevant and need not be \ncalculated \n    is irrelevant and need not be \ncalculated \n \n(g) \n(3 points) Using the conditions in part (f), rewrite your expression in part (e) in \nterms of measurable quantities (which are   ,    and   ) for a lensing object of \nthe order of a few solar masses (   a few          ) and in the nearby regions \nof the galaxy (distance      a few          away) with a source object \nsomewhat further out (     a few     ). Show your working. \n \n \n \n\nPage 3 of 3 \n \n(h) \n(2 points) Suppose we have an event where a lensing object of \n            (3.0 solar masses),            away from earth passes in front \nof a star            away from earth. This happens such that the ideal \nconfiguration occurs during the event. What is the angular Einstein radius  \n   (as seen from earth) during this event when the source, lens and observer         \nline up? \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2014-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6],"initialPage":1,"shared":false,"text":"Question 3\n(a) (4 points) Draw a diagram to describe the physical layout of an ideal (observer, lens\nand point source in a straight line) lensing system. Draw the light path and mark the\nquantities α and rE. Also mark the angular Einstein radius θE (the angular deﬂection\nof the source image as seen from earth), and the other quantities that an observer on\nearth can measure.\nSolution:\n˜rE\nrE\nα\nDS\nDL\nSource\nLens\nObserver\nψ\nθE\nα\nApparent Source\nOther relevant quantities include the distances to the lens and source DL and DS.\n(DL and DS need not be equal.)\n• 1 point for correct layout\n– Correct answers should show that light is bent\n– Apparent source is not required\n– Accept answers that show the system as a thin lens approximation\n(sharp deﬂection angles)\n• 1 point for light direction correctly marked\n– Arrows on the light path\n• 1 point for θE, α and rE correctly identiﬁed\n– 1 correct: 0.4 points\n– 2 correct: 0.7 points\n– 3 correct: 1.0 points\n• 1 point for DL and DS (observables; may have different notation)\n– 0.5 points each\nNotes:\n• ψ and ˜rE need not be identiﬁed, but may be useful in a later part.\n\n• rE should be perpendicular to the projected light path, but in our astro-\nnomical system, it makes no difference if it is perpendicular to the source-\nobserver line since θE is small. Accept answers that have rE perpendicular\nto the source-observer line.\n(b) (2 points) Sketch the image of the source (such as a star), as seen by an observer on\nearth, in the case where the source, lensing object and observer are on a straight line.\nSolution: The image of the source should be a symmetrical (1 point) and circular\n(1 point) ring around the lensing object.\nNotes:\n• Do not accept solutions that indicate a magniﬁed image of the source. This\nincludes answers which state that the image is a ﬁlled in circle.\n• 1 point for answers that have 2 source images symmetrically on either side\nof the lens because the system should be considered in 3 dimensions instead\nof 2.\n• Text answers (without any sketch or diagram) are not accepted. Correct\nanswers must have a sketch (as speciﬁed in the question).\n(c) (3 points) Sketch the image of the source (such as a star), as seen by an observer on\nearth, in the non-ideal case where the source, lensing object and observer are not in a\nstraight line. Sketch the source-lens system to explain why this is so.\nSolution:\nWHAT: (1.5 points) The observer will see light from one side of the lens but not\nthe other side. This means that the Einstein ring should be an arc instead of a\ncomplete circle. The ring may be distorted or broken depending on how much\ndeviation from an ideal case. Correct answers should not be a perfect circle or\nstraight line.\nNote:\n• Solutions that give 2 source images on either side of the lens (with asymme-\ntry) are awarded 1 point instead of 1.5 point because the system should be\nconsidered in 3 dimensions instead of 2.\n• Text answers (without any sketch or diagram) are not accepted. Correct\nanswers must have a sketch (as speciﬁed in the question).\nWHY: (1.5 points)\nOne possible answer:\nrE\nDS\nDL\nSource\nLens\nObserver\nrE\nFor slight deviations from the ideal case, accept also the following diagram if rE1\nPage 2\n\nis smaller than rE2.\nrE1\nDS\nDL\nSource\nLens\nObserver\nrE2\nIn general, accept answers which show that the asymmetry in the system will cause\nthe observer to see something asymmetrical.\nNotes:\nThe key concept in this question is asymmetry. Correct answers for either part\nmust demonstrate that departures from the ideal case will result in asymmetry in\nthe observed system, and that the asymmetry about the source-observer line is the\ncause of the asymmetry in the observation.\n(d) (3 points) The Schwarzschild radius of a black hole deﬁnes the point of no return. A\ncorrect expression for the Schwarzschild radius can be obtained by taking it to be the\nradius where the escape speed is equal to the speed of light. This means that something\ninside the Schwarzschild radius cannot escape the black hole.\nUsing Newtonian mechanics, derive the formula for the escape speed at a distance r\naway from a point object of mass M. Hence, derive the Schwarzschild radius for a\npoint object of mass M in terms of the gravitational constant G and the speed of light\nc. Show your steps and reasoning clearly. (This happens to give the correct expression\nfor the Schwarzschild radius that comes from general relativity.)\nSolution: By deﬁnition, the gravitational potential energy of a test mass m at a\ndistance r from the mass is (0.5 point)\nφ = −GMm\nr\n.\nTo escape the gravitational potential, the total energy of the test mass needs to be\nat least 0 so it should have a kinetic energy of (0.5 point)\nK = GMm\nr\n= 1\n2mv2\ne.\nRearranging the above, the escape speed at distance from mass r is (1 point)\nve =\n￿\n2GM\nr\n.\nSubstitute ve = c and rearrange to get (1 point)\nrS = 2GM\nc2 .\n2 points for deriving escape speed (Any reasonable and physically sound method\nbased on Newtonian mechanics)\n1 point for deriving the Schwarzschild radius from the escape speed.\nPage 3\n\n(e) (1 point) Using the formula for light deﬂection, write down an expression for the\nSchwarzschild radius of a lensing object in the case where the source, lens and ob-\nserver is in a straight line.\nSolution: The Schwarzschild radius is\nrS = 2GM\nc2\nso rS = 1\n2αrE\nNotes: Full marks for correct working.\n(f) (2 points) Consider the case where we have a lensing object of the order of a few\nsolar masses (M ∼a few×1030 kg) in the nearby regions of the galaxy (distance DL ∼\na few × 1018 m away) and a source object somewhat further out (DS ∼a few × DL).\nWhat can we say about α and θE in this case? (Choose your answer on your answer\nsheet. Points will be deducted for wrong answers.)\n• α is large and tanα, sinα, cosα\nmust be calculated exactly.\n• α is small and the small angle ap-\nproximations to tanα, sinα, cosα\nare permissable.\n• α is irrelevant and need not be cal-\nculated\n• θE is large and tanθE,\nsinθE,\ncosθE must be calculated exactly.\n• θE is small and the small angle\napproximations to tanθE, sinθE,\ncosθE are permissable.\n• θE is irrelevant and need not be cal-\nculated\nSolution:\n• α is small\n• θE is small\nNotes:\n• Choices pertaining to α and θE are to be marked independently (1 point\neach).\n• The conditions are mutually exclusive so accept only one condition for each\nquantity (α, θE). Answers that select more than one condition for a quantity\n(α, θE) are wrong (no point to be awarded).\nReasoning: Working out the numbers, we can ﬁnd that the Schwarzschild radius\nis on the order of 104 m. Because α has a maximum of 2π (largest possible angle),\nthis means the physical Einstein radius rE ∼104 m is very small compared to the\ndistance to the lens DL ∼1020 m. The geometry of the system therefore means\nthat α is actually a very small angle.\nAnother approximation comes from the geometry of the system which sets bounds\non α and θE so that (see ﬁgure in part (a))\ntanθE = rE\nDL\n= 2rS/α\nDL\n≈10−16\nα\nPage 4\n\nwhich suggests that α or θE or both should be small.\nBased on the geometry of the setup and what we have already established (α\nsmall), we then have the following cases:\n• θE large means that DL is small which is not the case here.\n• α small, θE small is the only valid outcome here\nThe result and constraints in the question suggests that α and θE are both small\nBecause θE is small, the Einstein radius rE ∼104 m is very small compared to the\ndistance to the lensing object DL ∼1020 m or source DS. We can therefore take\nthe small angle approximation where α and θE is involved.\n(g) (3 points) Using the conditions in part (f), rewrite your expression in part (e) in terms\nof measurable quantities (which are θE, DS and DL) for a lensing object of the order\nof a few solar masses (M ∼a few × 1030 kg) and in the nearby regions of the galaxy\n(distance DL ∼a few×1018 m away) with a source object somewhat further out (DS ∼\na few×DL). Show your working.\nSolution: Adding up exterior angles, we see that α = θE + ψ so θE = α −ψ\nwhere is small (ψ and ˜rE deﬁned on the following diagram). Also note that rE is\napproximately perpendicular to the source-observer system because θE is small.\n˜rE\nrE\nα\nDS\nDL\nSource\nLens\nObserver\nψ\nθE\nα\nApparent Source\nUsing the small angle approximation for α and θE, we can write\nrE\nDL\n= tanθE ≈θE\nand\n˜rE\nDS\n=\nrE\nDS −DL\n= tanψ ≈ψ\nThis gives (1 point)\nα = rE\nDL\n+\nrE\nDS −DL\nSo that (1 point)\nrS = 1\n2rEα = 1\n2r2\nE\n￿\nDS\nDL(DS −DL)\n￿\nTo write this in terms of θE, DL and DS, we use rE = θEDL to get (1 point)\nrS = 1\n2θ 2\nE\n￿DSDL\nDS −DL\n￿\nNotes:\n• 1 point for α\n• 1 point for rS\n• 1 point for ﬁnal equation\nPage 5\n\n(h) (2 points) Suppose we have an event where a lensing object of 6.0×1030 kg (3.0 solar\nmasses), 2.6×1018 m away from earth passes in front of a star 9.2×1018 m away from\nearth. This happens such that the ideal conﬁguration occurs during the event. What is\nthe angular Einstein radius θE (as seen from earth) during this event when the source,\nlens and observer line up?\nSolution: The Schwarzschild radius of the lens is\nrS = 2×(6.673×10−11) ×6.0×1030\n(3.0×108)2\n= 8.9×103 m\nFrom the previous part, the angular Einstein radius is given by\nθ 2\nE = 2rS ×\n￿DS −DL\nDSDL\n￿\n= 2×8.9×103 ×\n￿\n(9.2−2.6) ×1018\n(9.2×1018) ×(2.6×1018)\n￿\n= 4.9×10−15\nThus the angular Einstein radius is\nθE =\n￿\n4.9×10−15 = 7.0×10−8 radians = 0.014 arcseconds\n(1 point for correct answer, 1 point for correct working)\nNotes:\n• Students are expected to use the formula derived in part (g) to answer this\nquestion.\n• For the ﬁnal answer:\n– 0.5 point off for missing units. While angles are mathematically di-\nmensionless, a good student should be cognisant of the fact that there\nare different physical units for angular measurement, and that units for\nangles should be speciﬁed.\n– 0.5 point off for ﬁnal answers given to 1 signiﬁcant ﬁgure or less.\n– 1 point off if the ﬁnal number is incorrect.\nPage 6\n","textExtraction":"available"}}
+{
+  "id": "apho-2014-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2014_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2014_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2014-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question 3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Gravitational lensing is a phenomenon where light from a distant source may be deflected by the curvature of space-time caused by a massive lensing object close to or in the line of sight between an observer and a distant object. This was first directly observed during the solar eclipse of 1919 where the observed positions of stars behind the sun differed from their astrometric positions following Einstein’s earlier predictions."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the case where the observer, lensing object of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and source are on a straight line, light from the source is deflected by an angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (in radians) given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\alpha = \\frac{4GM}{r_E c^2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the gravitational constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((6.67 \\times 10^{-11}\\,\\mathrm{N\\,m^2\\,kg^{-2}}),c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the speed of light "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((3.00 \\times 10^{8}\\ \\mathrm{m\\,s^{-1}})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the Einstein radius which is the least distance between the lensing object and the apparent light path."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(a)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(4 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Draw a diagram to describe the physical layout of an ideal (observer, lens and point source in a straight line) lensing system. Draw the light path and mark the quantities "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Also mark the angular Einstein radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (the angular deflection of the source image as seen from earth), and the other quantities that an observer on earth can measure."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(b)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(2 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Sketch the image of the source (such as a star), as seen by an observer on earth, in the case where the source, lensing object and observer are on a straight line."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(c)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(3 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Sketch the image of the source (such as a star), as seen by an observer on earth, in the non-ideal case where the source, lensing object and observer are not in a straight line. Sketch the source-lens system to explain why this is so."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Gravitational lensing has been proposed as a method to detect massive compact halo objects (MACHOs) in our galaxy, which may be a candidate for dark matter. These objects are often dark stellar remnants such as neutron stars and black holes. As stars and MACHOs orbit in the galaxy, there is a chance that a lensing event may occur when a black hole or neutron star passes in front of a background star."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(d)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(3 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The Schwarzschild radius of a black hole defines the point of no return. A correct expression for the Schwarzschild radius can be obtained by taking it to be the radius where the escape speed is equal to the speed of light. This means that something inside the Schwarzschild radius cannot escape the black hole."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using Newtonian mechanics, derive the formula for the escape speed at a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " away from a point object of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence, derive the Schwarzschild radius for a point object of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of the gravitational constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the speed of light "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Show your steps and reasoning clearly. (This happens to give the correct expression for the Schwarzschild radius that comes from general relativity.)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(e)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1 point)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " In the case where the source, lens and observer are in a straight line, given a measurement of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", how would you calculate the Schwarzschild radius of the lensing object?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(f)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(2 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Consider the case where we have a lensing object of the order of a few solar masses ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M \\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a few "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\times\\ 10^{30}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg) in the nearby regions of the galaxy (distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_L \\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a few "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\times\\ 10^{18}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m away) and a source object somewhat further out ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_S \\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a few "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\times\\ D_L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). Which of the following apply in this case?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Choose the following conditions that apply to the case as described in the question:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "table",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tbody",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\bullet\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is large and "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tan\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\sin\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\cos\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " must be calculated exactly"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\bullet\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is large and "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tan\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\sin\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\cos\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " must be calculated exactly"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\bullet\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is small and the small angle approximations to "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tan\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\sin\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\cos\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " are permissible"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\bullet\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is small and the small angle approximations to "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tan\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\sin\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\cos\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " are permissible"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\bullet\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is irrelevant and need not be calculated"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\bullet\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is irrelevant and need not be calculated"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(g)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(3 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using the conditions in part (f), rewrite your expression in part (e) in terms of measurable quantities (which are "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") for a lensing object of the order of a few solar masses ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M \\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a few "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\times\\ 10^{30}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg) and in the nearby regions of the galaxy (distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_L \\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a few "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\times\\ 10^{18}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m away) with a source object somewhat further out ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_S \\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a few "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\times\\ D_L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). Show your working."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(h)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(2 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Suppose we have an event where a lensing object of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(6.0 \\times 10^{30}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg (3.0 solar masses), "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2.6 \\times 10^{18}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m away from earth passes in front of a star "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(9.2 \\times 10^{18}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m away from earth. This happens such that the ideal configuration occurs during the event. What is the angular Einstein radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (as seen from earth) during this event when the source, lens and observer line up?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Question 3\n\n\nGravitational lensing is a phenomenon where light from a distant source may be deflected by the curvature of space-time caused by a massive lensing object close to or in the line of sight between an observer and a distant object. This was first directly observed during the solar eclipse of 1919 where the observed positions of stars behind the sun differed from their astrometric positions following Einstein’s earlier predictions.\n\n\nIn the case where the observer, lensing object of mass \n\\(M\\)\n and source are on a straight line, light from the source is deflected by an angle \n\\(\\alpha\\)\n (in radians) given by \n\\[\\alpha = \\frac{4GM}{r_E c^2}\\]\n where \n\\(G\\)\n is the gravitational constant \n\\((6.67 \\times 10^{-11}\\,\\mathrm{N\\,m^2\\,kg^{-2}}),c\\)\n is the speed of light \n\\((3.00 \\times 10^{8}\\ \\mathrm{m\\,s^{-1}})\\)\n, and \n\\(r_E\\)\n is the Einstein radius which is the least distance between the lensing object and the apparent light path.\n\n\n(a)\n(4 points)\n Draw a diagram to describe the physical layout of an ideal (observer, lens and point source in a straight line) lensing system. Draw the light path and mark the quantities \n\\(\\alpha\\)\n and \n\\(r_E\\)\n. Also mark the angular Einstein radius \n\\(\\theta_E\\)\n (the angular deflection of the source image as seen from earth), and the other quantities that an observer on earth can measure.\n\n\n(b)\n(2 points)\n Sketch the image of the source (such as a star), as seen by an observer on earth, in the case where the source, lensing object and observer are on a straight line.\n\n\n(c)\n(3 points)\n Sketch the image of the source (such as a star), as seen by an observer on earth, in the non-ideal case where the source, lensing object and observer are not in a straight line. Sketch the source-lens system to explain why this is so.\n\n\nGravitational lensing has been proposed as a method to detect massive compact halo objects (MACHOs) in our galaxy, which may be a candidate for dark matter. These objects are often dark stellar remnants such as neutron stars and black holes. As stars and MACHOs orbit in the galaxy, there is a chance that a lensing event may occur when a black hole or neutron star passes in front of a background star.\n\n\n(d)\n(3 points)\n The Schwarzschild radius of a black hole defines the point of no return. A correct expression for the Schwarzschild radius can be obtained by taking it to be the radius where the escape speed is equal to the speed of light. This means that something inside the Schwarzschild radius cannot escape the black hole.\n\n\nUsing Newtonian mechanics, derive the formula for the escape speed at a distance \n\\(r\\)\n away from a point object of mass \n\\(M\\)\n. Hence, derive the Schwarzschild radius for a point object of mass \n\\(M\\)\n in terms of the gravitational constant \n\\(G\\)\n and the speed of light \n\\(c\\)\n. Show your steps and reasoning clearly. (This happens to give the correct expression for the Schwarzschild radius that comes from general relativity.)\n\n\n(e)\n(1 point)\n In the case where the source, lens and observer are in a straight line, given a measurement of \n\\(\\alpha\\)\n and \n\\(r_E\\)\n, how would you calculate the Schwarzschild radius of the lensing object?\n\n\n(f)\n(2 points)\n Consider the case where we have a lensing object of the order of a few solar masses (\n\\(M \\sim\\)\n a few \n\\(\\times\\ 10^{30}\\)\n kg) in the nearby regions of the galaxy (distance \n\\(D_L \\sim\\)\n a few \n\\(\\times\\ 10^{18}\\)\n m away) and a source object somewhat further out (\n\\(D_S \\sim\\)\n a few \n\\(\\times\\ D_L\\)\n). Which of the following apply in this case?\n\n\nChoose the following conditions that apply to the case as described in the question:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\bullet\\)\n\n\n\\(\\alpha\\)\n is large and \n\\(\\tan\\alpha\\)\n, \n\\(\\sin\\alpha\\)\n, \n\\(\\cos\\alpha\\)\n must be calculated exactly\n\n\n\\(\\bullet\\)\n\n\n\\(\\theta_E\\)\n is large and \n\\(\\tan\\theta_E\\)\n, \n\\(\\sin\\theta_E\\)\n, \n\\(\\cos\\theta_E\\)\n must be calculated exactly\n\n\n\n\n\n\n\\(\\bullet\\)\n\n\n\\(\\alpha\\)\n is small and the small angle approximations to \n\\(\\tan\\alpha\\)\n, \n\\(\\sin\\alpha\\)\n, \n\\(\\cos\\alpha\\)\n are permissible\n\n\n\\(\\bullet\\)\n\n\n\\(\\theta_E\\)\n is small and the small angle approximations to \n\\(\\tan\\theta_E\\)\n, \n\\(\\sin\\theta_E\\)\n, \n\\(\\cos\\theta_E\\)\n are permissible\n\n\n\n\n\n\n\\(\\bullet\\)\n\n\n\\(\\alpha\\)\n is irrelevant and need not be calculated\n\n\n\\(\\bullet\\)\n\n\n\\(\\theta_E\\)\n is irrelevant and need not be calculated\n\n\n\n\n\n\n\n\n\n\n(g)\n(3 points)\n Using the conditions in part (f), rewrite your expression in part (e) in terms of measurable quantities (which are \n\\(\\theta_E\\)\n, \n\\(D_S\\)\n and \n\\(D_L\\)\n) for a lensing object of the order of a few solar masses (\n\\(M \\sim\\)\n a few \n\\(\\times\\ 10^{30}\\)\n kg) and in the nearby regions of the galaxy (distance \n\\(D_L \\sim\\)\n a few \n\\(\\times\\ 10^{18}\\)\n m away) with a source object somewhat further out (\n\\(D_S \\sim\\)\n a few \n\\(\\times\\ D_L\\)\n). Show your working.\n\n\n(h)\n(2 points)\n Suppose we have an event where a lensing object of \n\\(6.0 \\times 10^{30}\\)\n kg (3.0 solar masses), \n\\(2.6 \\times 10^{18}\\)\n m away from earth passes in front of a star \n\\(9.2 \\times 10^{18}\\)\n m away from earth. This happens such that the ideal configuration occurs during the event. What is the angular Einstein radius \n\\(\\theta_E\\)\n (as seen from earth) during this event when the source, lens and observer line up?\n\n",
+    "figures": [],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2014-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question 3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(a)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(4 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Draw a diagram to describe the physical layout of an ideal (observer, lens and point source in a straight line) lensing system. Draw the light path and mark the quantities "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Also mark the angular Einstein radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (the angular deflection of the source image as seen from earth), and the other quantities that an observer on earth can measure."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2014-t3/549dcb3d694f2fc9cf03.png",
+                "alt": "apho-2014-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Other relevant quantities include the distances to the lens and source "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " need not be equal.)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1 point for correct layout"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "ul",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Correct answers should show that light is bent"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Apparent source is not required"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Accept answers that show the system as a thin lens approximation (sharp deflection angles)"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1 point for light direction correctly marked"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "ul",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Arrows on the light path"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1 point for "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\theta_E\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\alpha\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(r_E\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " correctly identified"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "ul",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1 correct: 0.4 points"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2 correct: 0.7 points"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "3 correct: 1.0 points"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1 point for "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(D_L\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(D_S\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " (observables; may have different notation)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "ul",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0.5 points each"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Notes:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\psi\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\tilde{r}_E\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " need not be identified, but may be useful in a later part."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(r_E\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " should be perpendicular to the projected light path, but in our astronomical system, it makes no difference if it is perpendicular to the source-observer line since "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\theta_E\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " is small. Accept answers that have "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(r_E\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " perpendicular to the source-observer line."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(b)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(2 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Sketch the image of the source (such as a star), as seen by an observer on earth, in the case where the source, lensing object and observer are on a straight line."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The image of the source should be a symmetrical "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1 point)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and circular "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1 point)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ring around the lensing object."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Notes:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Do not accept solutions that indicate a magnified image of the source. This includes answers which state that the image is a filled in circle."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1 point for answers that have 2 source images symmetrically on either side of the lens because the system should be considered in 3 dimensions instead of 2."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Text answers (without any sketch or diagram) are not accepted. Correct answers must have a sketch (as specified in the question)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(c)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(3 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Sketch the image of the source (such as a star), as seen by an observer on earth, in the non-ideal case where the source, lensing object and observer are not in a straight line. Sketch the source-lens system to explain why this is so."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "WHAT: (1.5 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The observer will see light from one side of the lens but not the other side. This means that the Einstein ring should be an arc instead of a complete circle. The ring may be distorted or broken depending on how much deviation from an ideal case. Correct answers should not be a perfect circle or straight line."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Solutions that give 2 source images on either side of the lens (with asymmetry) are awarded 1 point instead of 1.5 point because the system should be considered in 3 dimensions instead of 2."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Text answers (without any sketch or diagram) are not accepted. Correct answers must have a sketch (as specified in the question)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "WHY: (1.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "One possible answer:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2014-t3/1b257af8748cbb7ac11b.png",
+                "alt": "apho-2014-t3 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For slight deviations from the ideal case, accept also the following diagram if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_{E1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is smaller than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_{E2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2014-t3/ffc6d8451d90b9931100.png",
+                "alt": "apho-2014-t3 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In general, accept answers which show that the asymmetry in the system will cause the observer to see something asymmetrical."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Notes:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The key concept in this question is "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "asymmetry"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Correct answers for either part must demonstrate that departures from the ideal case will result in asymmetry in the observed system, and that the asymmetry about the source-observer line is the cause of the asymmetry in the observation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(d)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(3 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The Schwarzschild radius of a black hole defines the point of no return. A correct expression for the Schwarzschild radius can be obtained by taking it to be the radius where the escape speed is equal to the speed of light. This means that something inside the Schwarzschild radius cannot escape the black hole."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using Newtonian mechanics, derive the formula for the escape speed at a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " away from a point object of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence, derive the Schwarzschild radius for a point object of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of the gravitational constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the speed of light "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Show your steps and reasoning clearly. (This happens to give the correct expression for the Schwarzschild radius that comes from general relativity.)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " By definition, the gravitational potential energy of a test mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the mass is "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.5 point)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\phi = -\\frac{GMm}{r}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " To escape the gravitational potential, the "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "total"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " energy of the test mass needs to be at least 0 so it should have a kinetic energy of "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.5 point)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[K = \\frac{GMm}{r} = \\frac{1}{2}mv_e^2.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Rearranging the above, the escape speed at distance from mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1 point)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_e = \\sqrt{\\frac{2GM}{r}}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Substitute "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_e = c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and rearrange to get "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1 point)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[r_S = \\frac{2GM}{c^2}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2 points"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for deriving escape speed (Any reasonable and physically sound method based on Newtonian mechanics)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for deriving the Schwarzschild radius from the escape speed."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(e)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1 point)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using the formula for light deflection, write down an expression for the Schwarzschild radius of a lensing object in the case where the source, lens and observer is in a straight line."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The Schwarzschild radius is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[r_S = \\frac{2GM}{c^2} \\quad \\text{so} \\quad r_S = \\frac{1}{2}\\alpha r_E\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Notes:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Full marks for correct working."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(f)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(2 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Consider the case where we have a lensing object of the order of a few solar masses ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M \\sim \\text{a few} \\times 10^{30}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg) in the nearby regions of the galaxy (distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_L \\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a few "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\times\\, 10^{18}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m away) and a source object somewhat further out ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_S \\sim \\text{a few} \\times D_L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). What can we say about "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in this case? (Choose your answer on your answer sheet. Points will be deducted for wrong answers.)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "table",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tbody",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\bullet\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is large and "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tan\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\sin\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\cos\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " must be calculated exactly."
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\bullet\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is large and "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tan\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\sin\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\cos\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " must be calculated exactly."
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\bullet\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is small and the small angle approximations to "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tan\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\sin\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\cos\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " are permissable."
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\bullet\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is small and the small angle approximations to "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tan\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\sin\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\cos\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " are permissable."
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\bullet\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\alpha\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is irrelevant and need not be calculated"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\bullet\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\theta_E\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is irrelevant and need not be calculated"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\alpha\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " is small"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\theta_E\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " is small"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Notes:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Choices pertaining to "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\alpha\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\theta_E\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " are to be marked independently (1 point each)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The conditions are mutually exclusive so accept only one condition for each quantity ("
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\alpha\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\theta_E\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "). Answers that select more than one condition for a quantity ("
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\alpha\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\theta_E\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ") are wrong (no point to be awarded)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Reasoning:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Working out the numbers, we can find that the Schwarzschild radius is on the order of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(10^4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m. Because "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " has a maximum of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2\\pi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (largest possible angle), this means the physical Einstein radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_E\\ \\sim 10^4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m is very small compared to the distance to the lens "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_L \\sim 10^{20}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m. The geometry of the system therefore means that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is actually a very small angle."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Another approximation comes from the geometry of the system which sets bounds on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that (see figure in part (a)) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tan\\theta_E = \\frac{r_E}{D_L} = \\frac{2r_S/\\alpha}{D_L} \\approx \\frac{10^{-16}}{\\alpha}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which suggests that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or both should be small."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Based on the geometry of the setup and what we have already established ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " small), we then have the following cases:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\theta_E\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " large means that "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(D_L\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " is small which is not the case here."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\alpha\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " small, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\theta_E\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " small is the only valid outcome here"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The result and constraints in the question suggests that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are both small"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Because "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is small, the Einstein radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_E \\sim 10^4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m is very small compared to the distance to the lensing object "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_L \\sim 10^{20}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m or source "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We can therefore take the small angle approximation where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is involved."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(g)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(3 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using the conditions in part (f), rewrite your expression in part (e) in terms of measurable quantities (which are "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") for a lensing object of the order of a few solar masses ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M \\sim \\text{a few} \\times 10^{30}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg) and in the nearby regions of the galaxy (distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_L \\sim \\text{a few} \\times 10^{18}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m away) with a source object somewhat further out ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_S \\sim \\text{a few} \\times D_L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). Show your working."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Adding up exterior angles, we see that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha = \\theta_E + \\psi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E = \\alpha - \\psi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where is small ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\psi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tilde{r}_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " defined on the following diagram). Also note that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is approximately perpendicular to the source-observer system because "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is small."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2014-t3/29cfa774e8201eea1459.png",
+                "alt": "apho-2014-t3 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using the small angle approximation for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we can write "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{r_E}{D_L} = \\tan\\theta_E \\approx \\theta_E \\quad \\text{and} \\quad \\frac{\\tilde{r}_E}{D_S} = \\frac{r_E}{D_S - D_L} = \\tan\\psi \\approx \\psi\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This gives "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1 point)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\alpha = \\frac{r_E}{D_L} + \\frac{r_E}{D_S - D_L}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " So that "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1 point)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[r_S = \\frac{1}{2}r_E\\alpha = \\frac{1}{2}r_E^2\\left(\\frac{D_S}{D_L(D_S - D_L)}\\right)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " To write this in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D_S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we use "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_E = \\theta_ED_L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to get "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1 point)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[r_S = \\frac{1}{2}\\theta_E^2\\left(\\frac{D_SD_L}{D_S - D_L}\\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Notes:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1 point for "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\alpha\\)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1 point for "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(r_S\\)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1 point for final equation"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(h)"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(2 points)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Suppose we have an event where a lensing object of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(6.0 \\times 10^{30}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg (3.0 solar masses), "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2.6 \\times 10^{18}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m away from earth passes in front of a star "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(9.2 \\times 10^{18}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m away from earth. This happens such that the ideal configuration occurs during the event. What is the angular Einstein radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (as seen from earth) during this event when the source, lens and observer line up?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The Schwarzschild radius of the lens is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[r_S = \\frac{2 \\times (6.673 \\times 10^{-11}) \\times 6.0 \\times 10^{30}}{(3.0 \\times 10^8)^2} = 8.9 \\times 10^3\\ \\mathrm{m}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From the previous part, the angular Einstein radius is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\theta_E^2 &= 2r_S \\times \\left(\\frac{D_S - D_L}{D_SD_L}\\right) \\\\\n&= 2 \\times 8.9 \\times 10^3 \\times \\left(\\frac{(9.2 - 2.6) \\times 10^{18}}{(9.2 \\times 10^{18}) \\times (2.6 \\times 10^{18})}\\right) \\\\\n&= 4.9 \\times 10^{-15}\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus the angular Einstein radius is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\theta_E = \\sqrt{4.9 \\times 10^{-15}} = 7.0 \\times 10^{-8}\\ \\text{radians} = 0.014\\ \\text{arcseconds}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for correct answer, "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1 point"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for correct working)"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Notes:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Students are expected to use the formula derived in part (g) to answer this question."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "For the final answer:"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "ul",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0.5 point off for missing units. While angles are mathematically dimensionless, a good student should be cognisant of the fact that there are different physical units for angular measurement, and that units for angles should be specified."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "0.5 point off for final answers given to 1 significant figure or less."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "li",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1 point off if the final number is incorrect."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Question 3\n\n\n(a)\n(4 points)\n Draw a diagram to describe the physical layout of an ideal (observer, lens and point source in a straight line) lensing system. Draw the light path and mark the quantities \n\\(\\alpha\\)\n and \n\\(r_E\\)\n. Also mark the angular Einstein radius \n\\(\\theta_E\\)\n (the angular deflection of the source image as seen from earth), and the other quantities that an observer on earth can measure.\n\n\nSolution:\n\n\n\n\n\n\n\n\n\nOther relevant quantities include the distances to the lens and source \n\\(D_L\\)\n and \n\\(D_S\\)\n. (\n\\(D_L\\)\n and \n\\(D_S\\)\n need not be equal.)\n\n\n\n\n1 point for correct layout\n\n\n\n\nCorrect answers should show that light is bent\n\n\nApparent source is not required\n\n\nAccept answers that show the system as a thin lens approximation (sharp deflection angles)\n\n\n\n\n1 point for light direction correctly marked\n\n\n\n\nArrows on the light path\n\n\n\n\n1 point for \n\\(\\theta_E\\)\n, \n\\(\\alpha\\)\n and \n\\(r_E\\)\n correctly identified\n\n\n\n\n1 correct: 0.4 points\n\n\n2 correct: 0.7 points\n\n\n3 correct: 1.0 points\n\n\n\n\n1 point for \n\\(D_L\\)\n and \n\\(D_S\\)\n (observables; may have different notation)\n\n\n\n\n0.5 points each\n\n\n\n\n\n\nNotes:\n\n\n\n\n\\(\\psi\\)\n and \n\\(\\tilde{r}_E\\)\n need not be identified, but may be useful in a later part.\n\n\n\\(r_E\\)\n should be perpendicular to the projected light path, but in our astronomical system, it makes no difference if it is perpendicular to the source-observer line since \n\\(\\theta_E\\)\n is small. Accept answers that have \n\\(r_E\\)\n perpendicular to the source-observer line.\n\n\n\n\n(b)\n(2 points)\n Sketch the image of the source (such as a star), as seen by an observer on earth, in the case where the source, lensing object and observer are on a straight line.\n\n\nSolution:\n The image of the source should be a symmetrical \n(1 point)\n and circular \n(1 point)\n ring around the lensing object.\n\n\nNotes:\n\n\n\n\nDo not accept solutions that indicate a magnified image of the source. This includes answers which state that the image is a filled in circle.\n\n\n1 point for answers that have 2 source images symmetrically on either side of the lens because the system should be considered in 3 dimensions instead of 2.\n\n\nText answers (without any sketch or diagram) are not accepted. Correct answers must have a sketch (as specified in the question).\n\n\n\n\n(c)\n(3 points)\n Sketch the image of the source (such as a star), as seen by an observer on earth, in the non-ideal case where the source, lensing object and observer are not in a straight line. Sketch the source-lens system to explain why this is so.\n\n\nSolution:\n\n\nWHAT: (1.5 points)\n The observer will see light from one side of the lens but not the other side. This means that the Einstein ring should be an arc instead of a complete circle. The ring may be distorted or broken depending on how much deviation from an ideal case. Correct answers should not be a perfect circle or straight line.\n\n\nNote:\n\n\n\n\nSolutions that give 2 source images on either side of the lens (with asymmetry) are awarded 1 point instead of 1.5 point because the system should be considered in 3 dimensions instead of 2.\n\n\nText answers (without any sketch or diagram) are not accepted. Correct answers must have a sketch (as specified in the question).\n\n\n\n\nWHY: (1.5 points)\n\n\nOne possible answer:\n\n\n\n\n\n\n\n\n\nFor slight deviations from the ideal case, accept also the following diagram if \n\\(r_{E1}\\)\n is smaller than \n\\(r_{E2}\\)\n.\n\n\n\n\n\n\n\n\n\nIn general, accept answers which show that the asymmetry in the system will cause the observer to see something asymmetrical.\n\n\nNotes:\n\n\nThe key concept in this question is \nasymmetry\n. Correct answers for either part must demonstrate that departures from the ideal case will result in asymmetry in the observed system, and that the asymmetry about the source-observer line is the cause of the asymmetry in the observation.\n\n\n(d)\n(3 points)\n The Schwarzschild radius of a black hole defines the point of no return. A correct expression for the Schwarzschild radius can be obtained by taking it to be the radius where the escape speed is equal to the speed of light. This means that something inside the Schwarzschild radius cannot escape the black hole.\n\n\nUsing Newtonian mechanics, derive the formula for the escape speed at a distance \n\\(r\\)\n away from a point object of mass \n\\(M\\)\n. Hence, derive the Schwarzschild radius for a point object of mass \n\\(M\\)\n in terms of the gravitational constant \n\\(G\\)\n and the speed of light \n\\(c\\)\n. Show your steps and reasoning clearly. (This happens to give the correct expression for the Schwarzschild radius that comes from general relativity.)\n\n\nSolution:\n By definition, the gravitational potential energy of a test mass \n\\(m\\)\n at a distance \n\\(r\\)\n from the mass is \n(0.5 point)\n \n\\[\\phi = -\\frac{GMm}{r}.\\]\n To escape the gravitational potential, the \ntotal\n energy of the test mass needs to be at least 0 so it should have a kinetic energy of \n(0.5 point)\n \n\\[K = \\frac{GMm}{r} = \\frac{1}{2}mv_e^2.\\]\n Rearranging the above, the escape speed at distance from mass \n\\(r\\)\n is \n(1 point)\n \n\\[v_e = \\sqrt{\\frac{2GM}{r}}.\\]\n Substitute \n\\(v_e = c\\)\n and rearrange to get \n(1 point)\n \n\\[r_S = \\frac{2GM}{c^2}.\\]\n\n\n2 points\n for deriving escape speed (Any reasonable and physically sound method based on Newtonian mechanics)\n\n\n\n1 point\n for deriving the Schwarzschild radius from the escape speed.\n\n\n(e)\n(1 point)\n Using the formula for light deflection, write down an expression for the Schwarzschild radius of a lensing object in the case where the source, lens and observer is in a straight line.\n\n\nSolution:\n The Schwarzschild radius is \n\\[r_S = \\frac{2GM}{c^2} \\quad \\text{so} \\quad r_S = \\frac{1}{2}\\alpha r_E\\]\n\n\nNotes:\n Full marks for correct working.\n\n\n(f)\n(2 points)\n Consider the case where we have a lensing object of the order of a few solar masses (\n\\(M \\sim \\text{a few} \\times 10^{30}\\)\n kg) in the nearby regions of the galaxy (distance \n\\(D_L \\sim\\)\n a few \n\\(\\times\\, 10^{18}\\)\n m away) and a source object somewhat further out (\n\\(D_S \\sim \\text{a few} \\times D_L\\)\n). What can we say about \n\\(\\alpha\\)\n and \n\\(\\theta_E\\)\n in this case? (Choose your answer on your answer sheet. Points will be deducted for wrong answers.)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\bullet\\)\n\n\n\\(\\alpha\\)\n is large and \n\\(\\tan\\alpha\\)\n, \n\\(\\sin\\alpha\\)\n, \n\\(\\cos\\alpha\\)\n must be calculated exactly.\n\n\n\\(\\bullet\\)\n\n\n\\(\\theta_E\\)\n is large and \n\\(\\tan\\theta_E\\)\n, \n\\(\\sin\\theta_E\\)\n, \n\\(\\cos\\theta_E\\)\n must be calculated exactly.\n\n\n\n\n\n\n\\(\\bullet\\)\n\n\n\\(\\alpha\\)\n is small and the small angle approximations to \n\\(\\tan\\alpha\\)\n, \n\\(\\sin\\alpha\\)\n, \n\\(\\cos\\alpha\\)\n are permissable.\n\n\n\\(\\bullet\\)\n\n\n\\(\\theta_E\\)\n is small and the small angle approximations to \n\\(\\tan\\theta_E\\)\n, \n\\(\\sin\\theta_E\\)\n, \n\\(\\cos\\theta_E\\)\n are permissable.\n\n\n\n\n\n\n\\(\\bullet\\)\n\n\n\\(\\alpha\\)\n is irrelevant and need not be calculated\n\n\n\\(\\bullet\\)\n\n\n\\(\\theta_E\\)\n is irrelevant and need not be calculated\n\n\n\n\n\n\n\n\n\n\nSolution:\n\n\n\n\n\\(\\alpha\\)\n is small\n\n\n\\(\\theta_E\\)\n is small\n\n\n\n\nNotes:\n\n\n\n\nChoices pertaining to \n\\(\\alpha\\)\n and \n\\(\\theta_E\\)\n are to be marked independently (1 point each).\n\n\nThe conditions are mutually exclusive so accept only one condition for each quantity (\n\\(\\alpha\\)\n, \n\\(\\theta_E\\)\n). Answers that select more than one condition for a quantity (\n\\(\\alpha\\)\n, \n\\(\\theta_E\\)\n) are wrong (no point to be awarded).\n\n\n\n\nReasoning:\n Working out the numbers, we can find that the Schwarzschild radius is on the order of \n\\(10^4\\)\n m. Because \n\\(\\alpha\\)\n has a maximum of \n\\(2\\pi\\)\n (largest possible angle), this means the physical Einstein radius \n\\(r_E\\ \\sim 10^4\\)\n m is very small compared to the distance to the lens \n\\(D_L \\sim 10^{20}\\)\n m. The geometry of the system therefore means that \n\\(\\alpha\\)\n is actually a very small angle.\n\n\nAnother approximation comes from the geometry of the system which sets bounds on \n\\(\\alpha\\)\n and \n\\(\\theta_E\\)\n so that (see figure in part (a)) \n\\[\\tan\\theta_E = \\frac{r_E}{D_L} = \\frac{2r_S/\\alpha}{D_L} \\approx \\frac{10^{-16}}{\\alpha}\\]\n which suggests that \n\\(\\alpha\\)\n or \n\\(\\theta_E\\)\n or both should be small.\n\n\nBased on the geometry of the setup and what we have already established (\n\\(\\alpha\\)\n small), we then have the following cases:\n\n\n\n\n\\(\\theta_E\\)\n large means that \n\\(D_L\\)\n is small which is not the case here.\n\n\n\\(\\alpha\\)\n small, \n\\(\\theta_E\\)\n small is the only valid outcome here\n\n\n\n\nThe result and constraints in the question suggests that \n\\(\\alpha\\)\n and \n\\(\\theta_E\\)\n are both small\n\n\nBecause \n\\(\\theta_E\\)\n is small, the Einstein radius \n\\(r_E \\sim 10^4\\)\n m is very small compared to the distance to the lensing object \n\\(D_L \\sim 10^{20}\\)\n m or source \n\\(D_S\\)\n. We can therefore take the small angle approximation where \n\\(\\alpha\\)\n and \n\\(\\theta_E\\)\n is involved.\n\n\n(g)\n(3 points)\n Using the conditions in part (f), rewrite your expression in part (e) in terms of measurable quantities (which are \n\\(\\theta_E\\)\n, \n\\(D_S\\)\n and \n\\(D_L\\)\n) for a lensing object of the order of a few solar masses (\n\\(M \\sim \\text{a few} \\times 10^{30}\\)\n kg) and in the nearby regions of the galaxy (distance \n\\(D_L \\sim \\text{a few} \\times 10^{18}\\)\n m away) with a source object somewhat further out (\n\\(D_S \\sim \\text{a few} \\times D_L\\)\n). Show your working.\n\n\nSolution:\n Adding up exterior angles, we see that \n\\(\\alpha = \\theta_E + \\psi\\)\n so \n\\(\\theta_E = \\alpha - \\psi\\)\n where is small (\n\\(\\psi\\)\n and \n\\(\\tilde{r}_E\\)\n defined on the following diagram). Also note that \n\\(r_E\\)\n is approximately perpendicular to the source-observer system because \n\\(\\theta_E\\)\n is small.\n\n\n\n\n\n\n\n\n\nUsing the small angle approximation for \n\\(\\alpha\\)\n and \n\\(\\theta_E\\)\n, we can write \n\\[\\frac{r_E}{D_L} = \\tan\\theta_E \\approx \\theta_E \\quad \\text{and} \\quad \\frac{\\tilde{r}_E}{D_S} = \\frac{r_E}{D_S - D_L} = \\tan\\psi \\approx \\psi\\]\n This gives \n(1 point)\n \n\\[\\alpha = \\frac{r_E}{D_L} + \\frac{r_E}{D_S - D_L}\\]\n So that \n(1 point)\n \n\\[r_S = \\frac{1}{2}r_E\\alpha = \\frac{1}{2}r_E^2\\left(\\frac{D_S}{D_L(D_S - D_L)}\\right)\\]\n To write this in terms of \n\\(\\theta_E\\)\n, \n\\(D_L\\)\n and \n\\(D_S\\)\n, we use \n\\(r_E = \\theta_ED_L\\)\n to get \n(1 point)\n \n\\[r_S = \\frac{1}{2}\\theta_E^2\\left(\\frac{D_SD_L}{D_S - D_L}\\right)\\]\n\n\nNotes:\n\n\n\n\n1 point for \n\\(\\alpha\\)\n\n\n1 point for \n\\(r_S\\)\n\n\n1 point for final equation\n\n\n\n\n(h)\n(2 points)\n Suppose we have an event where a lensing object of \n\\(6.0 \\times 10^{30}\\)\n kg (3.0 solar masses), \n\\(2.6 \\times 10^{18}\\)\n m away from earth passes in front of a star \n\\(9.2 \\times 10^{18}\\)\n m away from earth. This happens such that the ideal configuration occurs during the event. What is the angular Einstein radius \n\\(\\theta_E\\)\n (as seen from earth) during this event when the source, lens and observer line up?\n\n\nSolution:\n The Schwarzschild radius of the lens is \n\\[r_S = \\frac{2 \\times (6.673 \\times 10^{-11}) \\times 6.0 \\times 10^{30}}{(3.0 \\times 10^8)^2} = 8.9 \\times 10^3\\ \\mathrm{m}\\]\n From the previous part, the angular Einstein radius is given by \n\\[\\begin{align*}\n\\theta_E^2 &= 2r_S \\times \\left(\\frac{D_S - D_L}{D_SD_L}\\right) \\\\\n&= 2 \\times 8.9 \\times 10^3 \\times \\left(\\frac{(9.2 - 2.6) \\times 10^{18}}{(9.2 \\times 10^{18}) \\times (2.6 \\times 10^{18})}\\right) \\\\\n&= 4.9 \\times 10^{-15}\n\\end{align*}\\]\n Thus the angular Einstein radius is \n\\[\\theta_E = \\sqrt{4.9 \\times 10^{-15}} = 7.0 \\times 10^{-8}\\ \\text{radians} = 0.014\\ \\text{arcseconds}\\]\n\n\n(\n1 point\n for correct answer, \n1 point\n for correct working)\n\n\n\nNotes:\n\n\n\n\nStudents are expected to use the formula derived in part (g) to answer this question.\n\n\nFor the final answer:\n\n\n\n\n0.5 point off for missing units. While angles are mathematically dimensionless, a good student should be cognisant of the fact that there are different physical units for angular measurement, and that units for angles should be specified.\n\n\n0.5 point off for final answers given to 1 significant figure or less.\n\n\n1 point off if the final number is incorrect.\n\n\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2014-t3/549dcb3d694f2fc9cf03.png",
+      "/corpus/figures/native/bulk/apho-2014-t3/1b257af8748cbb7ac11b.png",
+      "/corpus/figures/native/bulk/apho-2014-t3/ffc6d8451d90b9931100.png",
+      "/corpus/figures/native/bulk/apho-2014-t3/29cfa774e8201eea1459.png"
+    ],
+    "shared": false
+  }
+}

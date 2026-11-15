@@ -1,1 +1,5659 @@
-{"id":"apho-2016-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2016_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2016_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2016-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":" \n \nPage 1 of 5 \nTheoretical Question – T3 \n \n Magnetic Field Effects on Superconductors \n(Total Marks: 20) \n \n \n \n \nAn electron is an elementary particle which carries electric charge and an intrinsic magnetic \nmoment related to its spin angular momentum. Due to Coulomb interactions, electrons in \nvacuum are repulsive to each other. However, in some metals, the net force between electrons \ncan become attractive due to the lattice vibrations. When the temperature of the metal is low \nenough, lower than some critical temperature Tc, electrons with opposite momenta and \nopposite spins can form pairs called Cooper pairs. By forming Cooper pairs, each electron \nreduces its energy by  compared to a freely propagating electron in the metal which has \nenergy \n2\ne\n2\np\nm , where p is the momentum and \ne\nm  is the mass of an electron. The Cooper pairs \ncan flow without resistance and the metal becomes a superconductor. \n \nHowever, even at temperatures lower than Tc, superconductivity can be destroyed if the \nsuperconductor is under the influence of an external magnetic field. In this problem, you are \ngoing to work out how Cooper pairs can be destroyed by external magnetic fields through two \neffects.  \n \nThe first is called the paramagnetic effect, in which all the electrons can lower their energy by \naligning the electron magnetic moments parallel to the magnetic field instead of forming \nCooper pairs with opposite spins.  \n \nThe second is called the diamagnetic effect, in which increasing the magnetic field will \nchange the orbital motion of the Cooper pairs and increase their energy. When the applied \nmagnetic field is stronger than a critical value Bc, this increase in energy becomes higher than \n2. As a result, the electrons do not prefer forming Cooper pairs. \n \nRecently, a type of superconductor called Ising superconductors was discovered. These \nsuperconductors can survive even when the applied magnetic field is as strong as 60 Tesla, \ncomparable to the largest magnetic fields which can be created in laboratories. You will work \nout why Ising superconductors can overcome both the paramagnetic and the diamagnetic \neffects of the magnetic fields. \n \n \n \n \n \n \n \n \n\n \n \nPage 2 of 5 \nTheoretical Question – T3 \nA. An Electron in a Magnetic Field \nLet us consider a ring with radius r, charge –e and mass m.  The mass and the charge density \naround the ring are uniform (as shown in Figure 1). \n \n \nFigure 1 \n \n \nA1 What is the angular momentum \n (magnitude and direction) of this ring if the ring is rotating \nwith angular velocity\n? \n2 points \nA2 \nThe magnitude of the magnetic moment is defined as M\nIA\n\n, where I is the current and A is \nthe area of the ring. What is the relationship between the magnetic moment \n and the \nangular momentum\n of the ring? \n2 points \n \n \n \n \nSuppose the normal direction of the ring is \n and it makes an angle θ with the applied \nmagnetic field as shown in Figure 2. \n \nA3 \nFor the ring described in Part (A1), what is the potential energy U  of this ring if the ring is \nplaced in a uniform magnetic field Bz pointing to the z-direction? You should assume the \npotential energy to be zero when θ = π/2. \n \n \nFigure 2 \n \n2 points \n \n \nr\nx\ny\nz\nω\nφ\nθ\nBz\nn\n\n \n \nPage 3 of 5 \nTheoretical Question – T3 \nA4 \nAn electron carries an intrinsic angular momentum, which is called spin. We know that the \nmagnitude of spin in a particular direction is \nℏ\n2, where \n and h is the Planck’s \nconstant. \nWhat are the values of the potential energy Uup and Udown for electrons with spins parallel and \nanti-parallel with the applied magnetic field respectively? \nPlease express your results in terms of the Bohr magneton \n5\n1\nB\ne\n5.788 10 eV T\n2\ne\nm\n\n\n\n\n\n\n\n \nand the magnetic field strength B. \n1 point \nA5 \nAccording to quantum mechanics, the potential energy \nup\nU\n and \ndown\nU\nare twice the values Uup \nand Udown found in Part (A4). Assuming that the applied magnetic field is 1 Tesla. What is the \npotential energy \nup\nU\n and \ndown\nU\n for an electron with spin parallel and anti-parallel to the \napplied magnetic field respectively? In the rest of this question, you should use the \nexpressions for \nup\nU  and \ndown\nU\nfor your calculations. \n1 point \n \n \n \n \nB. Paramagnetic effect of the magnetic field on Cooper pairs \nIn the question below, we consider the paramagnetic effect of an external magnetic field on \nCooper pairs (as shown in Figure 3).  \nTheoretical studies show that in superconductors, two electrons with opposite spins can form \nCooper pairs so that the whole system saves energy. The energy of the Cooper pair can be \nexpressed as \n2\n2\n1\n2\ne\ne\n2\n2\n2\np\np\nm\nm\n\n, where the first two terms denote the kinetic energy of the \nCooper pair and the last term is the energy saved for the electrons to form a Cooper pair. \nHere,  is a positive constant. \n \n \n \nFigure 3 \n \n \n \nCooper pair\nB\n\n \n \nPage 3 of 5 \nTheoretical Question – T3 \nB1 \nAssuming that the effect of the external magnetic field is only on the spins of the electrons, \nnot on the orbital motions of the electrons. What is the energy \nS\nE  of the Cooper pair under a \nuniform magnetic field \n? Recall that the electrons which form a Cooper pair \nmust have opposite spins. \n1 point \nB2 \nIn the normal state (non-superconducting state), electrons do not form Cooper pairs. What is \nthe lowest energy EN  for the two electrons under a uniform in-plane magnetic field \n pointing to the x-direction? Please use the \nup\nU\n and \ndown\nU\n defined in Part (A5) \nin your calculations and ignore the effects of the magnetic field on the orbital motions of the \nelectrons. \n1 point \nB3 \nAt zero temperature, a system will favor the state with the lowest energy. What is the critical \nvalue \nP\nB  in terms of  Δ, such that for \nP\nB\nB\n\n superconductivity will disappear?  \n1 point \n \n \n \nC. Diamagnetic effect of the magnetic field on Cooper pairs \nIn the question below, we are going to ignore the effects of magnetic fields on the spins of \nthe electrons and consider the effects of external magnetic fields on the orbital motions of \nthe Cooper pairs. \nAt zero temperature, the energy difference between the superconducting state and the \nnormal state for a superconductor in a magnetic field 𝐵⃗ = (0,0, 𝐵𝑧) can be written as \n \n2\n2\n2\n2\n2\n2\ne\ne\nd\nd\n4\nd\nz\ne B x\nF\nx\nm\nx\nm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n. \n \nHere \n)\n(x\n\n is a function of position x  and independent of y. 𝜓2(𝑥)denotes the probability \nof finding a Cooper pair near x. Here,\n0\n\n is a constant and it is related to the energy saved \nby forming Cooper pairs. The second and the third terms in F are related to the kinetic \nenergy of the Cooper pairs taking into account the effect of the magnetic field. \nAt zero temperature, the system prefers to minimize its energy F . In this case, \n)\n(x\n\n takes \nthe form\n\n2\n1\n4\n2\ne\nx\nx\n\n\n\n\n\n\n\n\n\n\n\n, with \n0\n\n\n. \n \nC1 \nFind  in terms of e, Bz , and \n. \n \nThe following integrals may be useful: \n \n2\ne\nd\nax\nx\na\n\n\n\n\n\n\n,         \n2\n2\n1\ne\nd\n2\nax\nx\nx\na\na\n\n\n\n\n\n\n. \nHere a is a constant. \n3 points \nPage 4 of 5 \n\n \n \n \nPage 5 of 5 \nTheoretical Question – T3 \nC2 Work out the critical value of Bz  in terms of α, at which the superconducting state is no \nlonger energetically favorable. \n2 points \n \n \n \n \nD Ising Superconductors \nIn materials with spin-orbit coupling (spin-spin couplings can be ignored), an electron with \nmomentum \n experiences an internal magnetic field \n. On the other hand, an \nelectron with momentum \n experiences an opposite magnetic field \n. These \ninternal magnetic fields act on the spins of the electrons only as shown in Figure 4. \nSuperconductors with this kind of internal magnetic fields are called Ising superconductors.  \n \n \n \n \n \n Figure 4: Two electrons form a Cooper pair. Electron 1 with momentum \n experiences \ninternal magnetic field\n but electron 2 with momentum \n experiences an \nopposite magnetic field \n. The internal magnetic fields are denoted in dashed \narrows. \n \n \nD1 Then what is the energy \nI\nE  for a Cooper pair in an Ising superconductor? \n1 point \nD2 \nIn the normal state of the material with spin orbit coupling, what is the energy 𝐸|| for the two \nelectrons under a uniform in-plane magnetic field 𝐵⃗ || = (𝐵𝑥, 0,0) ? (Here the internal \nmagnetic fields still exist and perpendicular to 𝐵⃗ ||. You should also ignore the effects of the \nin-plane magnetic field on the orbital motions of the Cooper pairs.) \n2 points \nD3 What is the critical value\nI\nB such that for |𝐵⃗ ||| > 𝐵I, 𝐸|| < 𝐸I? \n1 point \n \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2016-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":" \n \nMarking Scheme – T3 \nPage 1 of 7 \nPart \nModel Answer                              (Full mark = 20) \nMarks \nA1 \nThe angular momentum should be \n  (1 point for the definition of angular momentum) \nHere \n is the unit vector pointing from the center of the ring to the mass point on the ring \nand \n is the unit vector parallel to the direction of the linear velocity at the mass point. \nWe know that v =wr , so finally we can get \n, with \n.     (1 point for the correct answer: 0.5 points for the \nmagnitude and 0.5 points for the direction) \n \n2 \nA2 \nFor a current loop, the magnetic moment is defined as \n \nThe current can be expressed as \nI = -ef = -e w\n2p   (1 point for the current expression) \nFinally \n (1 point for the answer) \n2 \nA3 \nFor a current loop, under a uniform magnetic field the total torque should be \n    (0.5 point for the torque definition) \nThe work done by the magnetic field on the torque should be \n2\n2\n2\nd\nd\nsin\nd\nW\nM B\nM B\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      (1.5 points for the work on the torque) \n2 \n\n \n \nMarking Scheme – T3 \nPage 2 of 7 \n     (0.5 point for the answer) \nA4 \nWe assume that the magnetic field is along z direction such that \n, then in general \n \nThe magnetic torque of an electron should be \ne\n2\nz\nz\ne\nM\nS\nm\n\n\n      (0.5 points for the electron torque) \nThus \ne\nB\nB\n2\n1\n2\nz\nz\nU\nM B\ne S B\nm\nS B\nB\n\n\n\n\n\n\n\n\n  (0.5 points for the answer) \nHere \nB\ne\n2\ne\nm\n\n is the Bohr magneton. \n5\n1\nB\n5.788 10 eV T\n\n\n\n\n\n\n \n1 \nA5 \nThus for spin parallel state \n, we have \n \n𝑈= 5.788 × 10−5eV  (0.5 points) \n \nFor spin anti-parallel state \n, we have \n𝑈= −5.788 × 10−5eV  (0.5 points) \n \n1  \n\n \n \nMarking Scheme – T3 \nPage 3 of 7 \n \n \n \nB1 \nIn the superconductivity state, electrons forming a Cooper pair have opposite spins, thus \nthe external magnetic field cannot have any effect on the cooper pair. Thus the energy of \nthe Cooper pair does not change.   \nES = p1\n2\n2m + p2\n2\n2m -2D  ( 1 point for the answer) \n1  \nB2 \nIn the normal state, the two electrons will align their magnetic moments parallel to the \nexternal magnetic field. Therefore we have \n2\n2\nB\n1\nB\n2\n1\n2\nN\n2\n2\n2\n2\nx\nx\nx\nx\nS B\nS B\np\np\nE\nm\nm\n\n\n\n\n\n\n \nHere the potential energy of electrons should be twice as the classical estimation \naccording to quantum mechanics. Because \n can make the magnetic \nmoment aligned along x direction, eventually we have \n2\n2\n1\n2\nB\n2\n2\n1\n2\ne\n2\n2\n2\n2\n2\nN\nx\nx\np\np\nE\nB\nm\nm\np\np\ne\nB\nm\nm\nm\n\n\n\n\n\n\n\n   (1 point) \n1 \nB3 \nEN < ES Þ 2BxmB > 2D Þ Bx > D\nmB\n   \nThus \ne\nP\nB\n2m\nB\ne\n\n\n\n\n\n  (1 points) \nNote: The above simple consideration for the upper critical field BP over estimates its \nvalue. The strict derivation considering the Pauli magnetization and superconductivity \ncondensation energy will give\ne\nP\nB\n2\n2\nm\nB\ne\n\n\n\n\n\n. \n1 \nC1 \nMethod 1: \n3 \n\n \n \nMarking Scheme – T3 \nPage 4 of 7 \nSubstituting \n\n2\n1\n4\n2\ne\nx\nx\n\n\n\n\n\n\n\n\n\n\n\ninto the F y( ), we have \n\n\n\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\ne\ne\n2\n2\n2\n2\n2\n2\n2\n2\ne\n2\n2\n2\n2\n2\ne\ne\ne\n2\n2\n2\ne\ne\n2\ne\ne\n2\n4\ne\ne\nd\n4\n2\ne\ne\nd\n2\n1\n2\n4\n4\n4\nx\nx\nx\nx\nx\nz\nx\nx\nz\ne\ne\nz\nz\ne B x\nF\ne\nx\nx\nm\nm\ne B\nx\nx\nm\nm\nm\ne B\nm\nm\nm\ne B\nm\nm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n(1.5 points for the correct expression of F y( )as a function of l ) \nWe can treat F y( ) as a function of l . Thus we have \n \n\n2\n2\n2\ne\ne\n4\n4\nz\ne B\nF\nm\nm\n\n\n\n\n\n\n\n, and \n2\n2\n2\n2\ne\ne\nd\nd\n4\n4\nz\ne B\nF\nm\nm\n\n\n\n\n. \nF y( ) takes the minimum value when d\n0\nd\nF\n\n and \n2\n2\nd\n0\nd\nF\n\n\n, thus \n2\n2\n2\n2\ne\ne\n0\n4\n4\nz\ne B\nm\nm \n\n\n  ( 0.5 point for the way to minimize F y( )) \nFinally, we can get \n   (1 point for the correct answer) \nWe can check that d 2F\ndl 2 > 0 when \n, which guarantees that F y( ) takes the \nminimum value when \n. \nMethod 2: \n\n \n \nMarking Scheme – T3 \nPage 5 of 7 \n\n2\n2\n2\n2\n2\n2\ne\ne\n2\n2\n2\n2\n2\n2\ne\ne\nd\nd\n4\nd\nd\nd\n4\nd\nd\nz\nz\ne B x\nF\nx\nm\nx\nm\ne B x\nx\nm\nx\nm\nH\nx\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n   (1 point) \nIn this way, for normalized wave function  the \n\nF  is simply the energy expectation \n , the eigenvalue of the Hamiltonian \n2\n2\n2\n2\n2\n2\ne\ne\nd\n4\nd\nz\ne B\nH\nx\nm\nx\nm\n\n\n\n\n \nThe first two terms correspond to the quantum simple harmonic oscillator Hamiltonian. \nThus the ground state energy should be  \n \n \nHere \ne\nz\neB\nm\n\n and ground state wave function becomes \n2\ne\n2\n1\n4\ne\n1\n4\n2\n2\nz\nm\nx\neB x\nz\nm\ne\neB\ne\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(1 point) \nTherefore, we have \n  .  (1 point) \nC2 \nFrom Part (C1) we know \n\nmin\ne\n2\nz\neB\nF\nm\n\n\n\n\n. At the critical value for Bz , it makes the \nenergy difference zero. It means that the critical value Bz  satisfies \ne\n0\n2\nz\neB\nm\n\n\n\n. (1 point for this equation) \nConsequently, \n2 \n\n \n \nMarking Scheme – T3 \nPage 6 of 7 \n .  (1 point for the correct answer) \nD1 \n2\n2\n1\n2\nB\n1\nB\n2\nI\n2\n2\n2\n2\n2\nz\nz\nz\nz\np\np\nS B\nS B\nE\nm\nm\n\n\n\n\n\n\n \nHere \n, \n \n2\n2\n1\n2\nB\n1\nB\n2\nI\n2\n2\n1\n2\nB\nB\n2\n2\n1\n2\nB\n2\n2\n1\n2\ne\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\n2\nz\nz\nz\nz\nz\nz\nz\nz\np\np\nS B\nS B\nE\nm\nm\np\np\nB\nB\nm\nm\np\np\nB\nm\nm\np\np\ne\nB\nm\nm\nm\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(1 point) \n1 \nD2 \nIn the normal state, the electrons will align the magnetic moment parallel to the total \nmagnetic field, thus \n𝐸|| =\n𝑝12\n2𝑚+\n𝑝22\n2𝑚+\n2𝜇B𝑆⃗1∙𝐵⃗⃗1\nℏ\n+\n2𝜇B𝑆⃗2∙𝐵⃗⃗2\nℏ\n \nFor electron 1, \n \nFor electron 2, \n \nTherefore, \n and \n \ncan make the their magnetic moments parallel to the total magnetic field respectively. \n(1 point for the correct expression of spins: 0.5 points for each respectively) \nFinally \n𝐸|| =\n𝑝12\n2𝑚+\n𝑝22\n2𝑚−2𝜇B√𝐵𝑥2 + 𝐵𝑧2 = \n𝑝12\n2𝑚+\n𝑝22\n2𝑚−\n𝑒ℏ\n𝑚𝑒√𝐵𝑥2 + 𝐵𝑧2  (1 point for the answer) \n2 \nD3 \n𝐸|| < 𝐸Ising ⇒2𝜇B√𝐵𝑥2 + 𝐵𝑧2 > 2Δ + 2𝜇B𝐵𝑧⇒𝐵𝑥> √Δ2 + 2Δ𝜇B𝐵𝑧\n𝜇B\n  (1 points) \n1 \n\n \n \nMarking Scheme – T3 \nPage 7 of 7 \n \nAnother correct expression is:  \n . \n","textExtraction":"available"}}
+{
+  "id": "apho-2016-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2016_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2016_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2016-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Magnetic Field Effects on Superconductors(Total Marks: 20)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An electron is an elementary particle which carries electric charge and an intrinsic magnetic moment related to its spin angular momentum. Due to Coulomb interactions, electrons in vacuum are repulsive to each other. However, in some metals, the net force between electrons can become attractive due to the lattice vibrations. When the temperature of the metal is low enough, lower than some critical temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", electrons with opposite momenta and opposite spins can form pairs called Cooper pairs. By forming Cooper pairs, each electron reduces its energy by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " compared to a freely propagating electron in the metal which has energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{p^2}{2m_\\mathrm{e}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the momentum and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the mass of an electron. The Cooper pairs can flow without resistance and the metal becomes a superconductor."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "However, even at temperatures lower than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", superconductivity can be destroyed if the superconductor is under the influence of an external magnetic field. In this problem, you are going to work out how Cooper pairs can be destroyed by external magnetic fields through two effects."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The first is called the paramagnetic effect, in which all the electrons can lower their energy by aligning the electron magnetic moments parallel to the magnetic field instead of forming Cooper pairs with opposite spins."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The second is called the diamagnetic effect, in which increasing the magnetic field will change the orbital motion of the Cooper pairs and increase their energy. When the applied magnetic field is stronger than a critical value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", this increase in energy becomes higher than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2\\Delta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". As a result, the electrons do not prefer forming Cooper pairs."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Recently, a type of superconductor called Ising superconductors was discovered. These superconductors can survive even when the applied magnetic field is as strong as 60 Tesla, comparable to the largest magnetic fields which can be created in laboratories. You will work out why Ising superconductors can overcome both the paramagnetic and the diamagnetic effects of the magnetic fields."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.An Electron in a Magnetic Field"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let us consider a ring with radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The mass and the charge density around the ring are uniform (as shown in Figure 1)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2016-t3/e0f733eabb008e7c89eb.png",
+                "alt": "apho-2016-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "table",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "thead",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "A1"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "What is the angular momentum "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\vec{L}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " (magnitude and direction) of this ring if the ring is rotating with angular velocity "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\vec{\\omega}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "?"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2 points"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "tbody",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "A2"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "The magnitude of the magnetic moment is defined as "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(|\\vec{M}| = IA\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": ", where "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(I\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " is the current and "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(A\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " is the area of the ring. What is the relationship between the magnetic moment "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\vec{M}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " and the angular momentum "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\vec{L}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " of the ring?"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2 points"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Suppose the normal direction of the ring is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{n}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and it makes an angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with the applied magnetic field as shown in Figure 2."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "table",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "thead",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "strong",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "A3"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "For the ring described in Part (A1), what is the potential energy "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(U\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " of this ring if the ring is placed in a uniform magnetic field "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(B_z\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " pointing to the "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(z\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": "-direction? You should assume the potential energy to be zero when "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\theta = \\pi/2\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": "."
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\n"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "img",
+                                "src": "/corpus/figures/native/bulk/apho-2016-t3/6aa3bebbcb98fc70c0e3.png",
+                                "alt": "apho-2016-t3 original source figure 2"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Figure 2"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": "\n"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "strong",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "2 points"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "tbody",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "table",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "thead",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "strong",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "A4"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "An electron carries an intrinsic angular momentum, which is called spin. We know that the magnitude of spin in a particular direction is "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\frac{\\hbar}{2}\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", where "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\hbar = h/2\\pi\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " and "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(h\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is the Planck’s constant."
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "What are the values of the potential energy "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(U_\\mathrm{up}\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " and "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(U_\\mathrm{down}\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " for electrons with spins parallel and anti-parallel with the applied magnetic field respectively?"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Please express your results in terms of the Bohr magneton "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\mu_\\mathrm{B} = \\dfrac{e\\hbar}{2m_\\mathrm{e}} = 5.788 \\times 10^{-5}\\,\\mathrm{eV \\cdot T^{-1}}\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " and the magnetic field strength "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(B\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": "."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "strong",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "1 point"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "tbody",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "strong",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "A5"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "According to quantum mechanics, the potential energy "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tilde{U}_\\mathrm{up}\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " and "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tilde{U}_\\mathrm{down}\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " are twice the values "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(U_\\mathrm{up}\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " and "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(U_\\mathrm{down}\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " found in Part (A4). Assuming that the applied magnetic field is 1 Tesla. What is the potential energy "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tilde{U}_\\mathrm{up}\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " and "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tilde{U}_\\mathrm{down}\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " for an electron with spin parallel and anti-parallel to the applied magnetic field respectively? In the rest of this question, you should use the expressions for "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tilde{U}_\\mathrm{up}\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " and "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\tilde{U}_\\mathrm{down}\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " for your calculations."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "strong",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "1 point"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.Paramagnetic effect of the magnetic field on Cooper pairs"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the question below, we consider the paramagnetic effect of an external magnetic field on Cooper pairs (as shown in Figure 3)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Theoretical studies show that in superconductors, two electrons with opposite spins can form Cooper pairs so that the whole system saves energy. The energy of the Cooper pair can be expressed as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{p_1^2}{2m_\\mathrm{e}} + \\dfrac{p_2^2}{2m_\\mathrm{e}} - 2\\Delta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where the first two terms denote the kinetic energy of the Cooper pair and the last term is the energy saved for the electrons to form a Cooper pair. Here, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a positive constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2016-t3/01a92adbfee725c51362.png",
+                "alt": "apho-2016-t3 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "table",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "thead",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "B1"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Assuming that the effect of the external magnetic field is only on the spins of the electrons, not on the orbital motions of the electrons. What is the energy "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(E_\\mathrm{S}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " of the Cooper pair under a uniform magnetic field "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\vec{B} = (B_x, 0, 0)\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "? Recall that the electrons which form a Cooper pair must have opposite spins."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1 point"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "tbody",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "B2"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "In the normal state (non-superconducting state), electrons do not form Cooper pairs. What is the lowest energy "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(E_N\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " for the two electrons under a uniform in-plane magnetic field "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\vec{B} = (B_x, 0, 0)\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " pointing to the "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(x\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "-direction? Please use the "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\tilde{U}_\\mathrm{up}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " and "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\tilde{U}_\\mathrm{down}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " defined in Part (A5) in your calculations and ignore the effects of the magnetic field on the orbital motions of the electrons."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1 point"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "B3"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "At zero temperature, a system will favor the state with the lowest energy. What is the critical value "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(B_\\mathrm{P}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " in terms of "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\Delta\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": ", such that for "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(|\\vec{B}| > B_\\mathrm{P}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " superconductivity will disappear?"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1 point"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.Diamagnetic effect of the magnetic field on Cooper pairs"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the question below, we are going to ignore the effects of magnetic fields on the spins of the electrons and consider the effects of external magnetic fields on the orbital motions of the Cooper pairs."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At zero temperature, the energy difference between the superconducting state and the normal state for a superconductor in a magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B} = (0, 0, B_z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be written as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F = \\int_{-\\infty}^{+\\infty} \\psi \\left( -\\alpha\\psi - \\frac{\\hbar^2}{4m_\\mathrm{e}} \\frac{\\mathrm{d}^2\\psi}{\\mathrm{d}x^2} + \\frac{e^2 B_z^2 x^2}{m_\\mathrm{e}} \\psi \\right) \\mathrm{d}x .\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\psi(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a function of position "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and independent of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\psi^2(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "denotes the probability of finding a Cooper pair near "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Here, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a constant and it is related to the energy saved by forming Cooper pairs. The second and the third terms in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are related to the kinetic energy of the Cooper pairs taking into account the effect of the magnetic field."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At zero temperature, the system prefers to minimize its energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In this case, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\psi(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " takes the form "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\psi(x) = \\left( \\dfrac{2\\lambda}{\\pi} \\right)^{\\frac{1}{4}} \\mathrm{e}^{-\\lambda x^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "table",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "thead",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "strong",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "C1"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Find "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\lambda\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " in terms of "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(e\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(B_z\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ", and "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\hbar\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": "."
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "The following integrals may be useful: "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\[\\int_{-\\infty}^{+\\infty} \\mathrm{e}^{-ax^2} \\mathrm{d}x = \\sqrt{\\frac{\\pi}{a}}, \\qquad \\int_{-\\infty}^{+\\infty} x^2 \\mathrm{e}^{-ax^2} \\mathrm{d}x = \\frac{1}{2a} \\sqrt{\\frac{\\pi}{a}} .\\]"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " Here "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(a\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " is a constant."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "strong",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "3 points"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "tbody",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "table",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "thead",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "C2"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Work out the critical value of "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(B_z\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " in terms of "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\alpha\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": ", at which the superconducting state is no longer energetically favorable."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2 points"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "tbody",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "DIsing Superconductors"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In materials with spin-orbit coupling (spin-spin couplings can be ignored), an electron with momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{p}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " experiences an internal magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}_{1\\perp} = (0, 0, -B_z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". On the other hand, an electron with momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\vec{p}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " experiences an opposite magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}_{2\\perp} = (0, 0, B_z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". These internal magnetic fields act on the spins of the electrons only as shown in Figure 4. Superconductors with this kind of internal magnetic fields are called Ising superconductors."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2016-t3/fb4b50dca5c0fe911f12.png",
+                "alt": "apho-2016-t3 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 4: Two electrons form a Cooper pair. Electron 1 with momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{p}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " experiences internal magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}_{1\\perp} = (0, 0, -B_z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " but electron 2 with momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\vec{p}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " experiences an opposite magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}_{2\\perp} = (0, 0, B_z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The internal magnetic fields are denoted in dashed arrows."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "table",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "thead",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "D1"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Then what is the energy "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(E_\\mathrm{I}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " for a Cooper pair in an Ising superconductor?"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1 point"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "tbody",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "D2"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "In the normal state of the material with spin orbit coupling, what is the energy "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(E_{||}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " for the two electrons under a uniform in-plane magnetic field "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\vec{B}_{||} = (B_x, 0, 0)\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "? (Here the internal magnetic fields still exist and perpendicular to "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\vec{B}_{||}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": ". You should also ignore the effects of the in-plane magnetic field on the orbital motions of the Cooper pairs.)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "2 points"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "D3"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "What is the critical value "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(B_\\mathrm{I}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " such that for "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(|\\vec{B}_{||}| > B_\\mathrm{I}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": ", "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(E_{||} < E_\\mathrm{I}\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "?"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "strong",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1 point"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Magnetic Field Effects on Superconductors(Total Marks: 20)\n\n\nAn electron is an elementary particle which carries electric charge and an intrinsic magnetic moment related to its spin angular momentum. Due to Coulomb interactions, electrons in vacuum are repulsive to each other. However, in some metals, the net force between electrons can become attractive due to the lattice vibrations. When the temperature of the metal is low enough, lower than some critical temperature \n\\(T_\\mathrm{c}\\)\n, electrons with opposite momenta and opposite spins can form pairs called Cooper pairs. By forming Cooper pairs, each electron reduces its energy by \n\\(\\Delta\\)\n compared to a freely propagating electron in the metal which has energy \n\\(\\dfrac{p^2}{2m_\\mathrm{e}}\\)\n, where \n\\(p\\)\n is the momentum and \n\\(m_\\mathrm{e}\\)\n is the mass of an electron. The Cooper pairs can flow without resistance and the metal becomes a superconductor.\n\n\nHowever, even at temperatures lower than \n\\(T_c\\)\n, superconductivity can be destroyed if the superconductor is under the influence of an external magnetic field. In this problem, you are going to work out how Cooper pairs can be destroyed by external magnetic fields through two effects.\n\n\nThe first is called the paramagnetic effect, in which all the electrons can lower their energy by aligning the electron magnetic moments parallel to the magnetic field instead of forming Cooper pairs with opposite spins.\n\n\nThe second is called the diamagnetic effect, in which increasing the magnetic field will change the orbital motion of the Cooper pairs and increase their energy. When the applied magnetic field is stronger than a critical value \n\\(B_\\mathrm{c}\\)\n, this increase in energy becomes higher than \n\\(2\\Delta\\)\n. As a result, the electrons do not prefer forming Cooper pairs.\n\n\nRecently, a type of superconductor called Ising superconductors was discovered. These superconductors can survive even when the applied magnetic field is as strong as 60 Tesla, comparable to the largest magnetic fields which can be created in laboratories. You will work out why Ising superconductors can overcome both the paramagnetic and the diamagnetic effects of the magnetic fields.\n\n\nA.An Electron in a Magnetic Field\n\n\nLet us consider a ring with radius \n\\(r\\)\n, charge \n\\(-e\\)\n and mass \n\\(m\\)\n. The mass and the charge density around the ring are uniform (as shown in Figure 1).\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA1\n\n\nWhat is the angular momentum \n\\(\\vec{L}\\)\n (magnitude and direction) of this ring if the ring is rotating with angular velocity \n\\(\\vec{\\omega}\\)\n?\n\n\n2 points\n\n\n\n\n\n\n\n\n\n\nA2\n\n\nThe magnitude of the magnetic moment is defined as \n\\(|\\vec{M}| = IA\\)\n, where \n\\(I\\)\n is the current and \n\\(A\\)\n is the area of the ring. What is the relationship between the magnetic moment \n\\(\\vec{M}\\)\n and the angular momentum \n\\(\\vec{L}\\)\n of the ring?\n\n\n2 points\n\n\n\n\n\n\n\n\nSuppose the normal direction of the ring is \n\\(\\vec{n}\\)\n and it makes an angle \n\\(\\theta\\)\n with the applied magnetic field as shown in Figure 2.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA3\n\n\nFor the ring described in Part (A1), what is the potential energy \n\\(U\\)\n of this ring if the ring is placed in a uniform magnetic field \n\\(B_z\\)\n pointing to the \n\\(z\\)\n-direction? You should assume the potential energy to be zero when \n\\(\\theta = \\pi/2\\)\n.\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\n2 points\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA4\n\n\nAn electron carries an intrinsic angular momentum, which is called spin. We know that the magnitude of spin in a particular direction is \n\\(\\frac{\\hbar}{2}\\)\n, where \n\\(\\hbar = h/2\\pi\\)\n and \n\\(h\\)\n is the Planck’s constant.\n\n\nWhat are the values of the potential energy \n\\(U_\\mathrm{up}\\)\n and \n\\(U_\\mathrm{down}\\)\n for electrons with spins parallel and anti-parallel with the applied magnetic field respectively?\n\n\nPlease express your results in terms of the Bohr magneton \n\\(\\mu_\\mathrm{B} = \\dfrac{e\\hbar}{2m_\\mathrm{e}} = 5.788 \\times 10^{-5}\\,\\mathrm{eV \\cdot T^{-1}}\\)\n and the magnetic field strength \n\\(B\\)\n.\n\n\n1 point\n\n\n\n\n\n\n\n\n\n\nA5\n\n\nAccording to quantum mechanics, the potential energy \n\\(\\tilde{U}_\\mathrm{up}\\)\n and \n\\(\\tilde{U}_\\mathrm{down}\\)\n are twice the values \n\\(U_\\mathrm{up}\\)\n and \n\\(U_\\mathrm{down}\\)\n found in Part (A4). Assuming that the applied magnetic field is 1 Tesla. What is the potential energy \n\\(\\tilde{U}_\\mathrm{up}\\)\n and \n\\(\\tilde{U}_\\mathrm{down}\\)\n for an electron with spin parallel and anti-parallel to the applied magnetic field respectively? In the rest of this question, you should use the expressions for \n\\(\\tilde{U}_\\mathrm{up}\\)\n and \n\\(\\tilde{U}_\\mathrm{down}\\)\n for your calculations.\n\n\n1 point\n\n\n\n\n\n\n\n\nB.Paramagnetic effect of the magnetic field on Cooper pairs\n\n\nIn the question below, we consider the paramagnetic effect of an external magnetic field on Cooper pairs (as shown in Figure 3).\n\n\nTheoretical studies show that in superconductors, two electrons with opposite spins can form Cooper pairs so that the whole system saves energy. The energy of the Cooper pair can be expressed as \n\\(\\dfrac{p_1^2}{2m_\\mathrm{e}} + \\dfrac{p_2^2}{2m_\\mathrm{e}} - 2\\Delta\\)\n, where the first two terms denote the kinetic energy of the Cooper pair and the last term is the energy saved for the electrons to form a Cooper pair. Here, \n\\(\\Delta\\)\n is a positive constant.\n\n\n\n\n\n\n\nFigure 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nB1\n\n\nAssuming that the effect of the external magnetic field is only on the spins of the electrons, not on the orbital motions of the electrons. What is the energy \n\\(E_\\mathrm{S}\\)\n of the Cooper pair under a uniform magnetic field \n\\(\\vec{B} = (B_x, 0, 0)\\)\n? Recall that the electrons which form a Cooper pair must have opposite spins.\n\n\n1 point\n\n\n\n\n\n\n\n\n\n\nB2\n\n\nIn the normal state (non-superconducting state), electrons do not form Cooper pairs. What is the lowest energy \n\\(E_N\\)\n for the two electrons under a uniform in-plane magnetic field \n\\(\\vec{B} = (B_x, 0, 0)\\)\n pointing to the \n\\(x\\)\n-direction? Please use the \n\\(\\tilde{U}_\\mathrm{up}\\)\n and \n\\(\\tilde{U}_\\mathrm{down}\\)\n defined in Part (A5) in your calculations and ignore the effects of the magnetic field on the orbital motions of the electrons.\n\n\n1 point\n\n\n\n\n\n\nB3\n\n\nAt zero temperature, a system will favor the state with the lowest energy. What is the critical value \n\\(B_\\mathrm{P}\\)\n in terms of \n\\(\\Delta\\)\n, such that for \n\\(|\\vec{B}| > B_\\mathrm{P}\\)\n superconductivity will disappear?\n\n\n1 point\n\n\n\n\n\n\n\n\nC.Diamagnetic effect of the magnetic field on Cooper pairs\n\n\nIn the question below, we are going to ignore the effects of magnetic fields on the spins of the electrons and consider the effects of external magnetic fields on the orbital motions of the Cooper pairs.\n\n\nAt zero temperature, the energy difference between the superconducting state and the normal state for a superconductor in a magnetic field \n\\(\\vec{B} = (0, 0, B_z)\\)\n can be written as \n\\[F = \\int_{-\\infty}^{+\\infty} \\psi \\left( -\\alpha\\psi - \\frac{\\hbar^2}{4m_\\mathrm{e}} \\frac{\\mathrm{d}^2\\psi}{\\mathrm{d}x^2} + \\frac{e^2 B_z^2 x^2}{m_\\mathrm{e}} \\psi \\right) \\mathrm{d}x .\\]\n Here \n\\(\\psi(x)\\)\n is a function of position \n\\(x\\)\n and independent of \n\\(y\\)\n. \n\\(\\psi^2(x)\\)\ndenotes the probability of finding a Cooper pair near \n\\(x\\)\n. Here, \n\\(\\alpha > 0\\)\n is a constant and it is related to the energy saved by forming Cooper pairs. The second and the third terms in \n\\(F\\)\n are related to the kinetic energy of the Cooper pairs taking into account the effect of the magnetic field.\n\n\nAt zero temperature, the system prefers to minimize its energy \n\\(F\\)\n. In this case, \n\\(\\psi(x)\\)\n takes the form \n\\(\\psi(x) = \\left( \\dfrac{2\\lambda}{\\pi} \\right)^{\\frac{1}{4}} \\mathrm{e}^{-\\lambda x^2}\\)\n, with \n\\(\\lambda > 0\\)\n.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nC1\n\n\nFind \n\\(\\lambda\\)\n in terms of \n\\(e\\)\n, \n\\(B_z\\)\n, and \n\\(\\hbar\\)\n.\n\n\nThe following integrals may be useful: \n\\[\\int_{-\\infty}^{+\\infty} \\mathrm{e}^{-ax^2} \\mathrm{d}x = \\sqrt{\\frac{\\pi}{a}}, \\qquad \\int_{-\\infty}^{+\\infty} x^2 \\mathrm{e}^{-ax^2} \\mathrm{d}x = \\frac{1}{2a} \\sqrt{\\frac{\\pi}{a}} .\\]\n Here \n\\(a\\)\n is a constant.\n\n\n3 points\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nC2\n\n\nWork out the critical value of \n\\(B_z\\)\n in terms of \n\\(\\alpha\\)\n, at which the superconducting state is no longer energetically favorable.\n\n\n2 points\n\n\n\n\n\n\n\n\n\n\n\n\nDIsing Superconductors\n\n\nIn materials with spin-orbit coupling (spin-spin couplings can be ignored), an electron with momentum \n\\(\\vec{p}\\)\n experiences an internal magnetic field \n\\(\\vec{B}_{1\\perp} = (0, 0, -B_z)\\)\n. On the other hand, an electron with momentum \n\\(-\\vec{p}\\)\n experiences an opposite magnetic field \n\\(\\vec{B}_{2\\perp} = (0, 0, B_z)\\)\n. These internal magnetic fields act on the spins of the electrons only as shown in Figure 4. Superconductors with this kind of internal magnetic fields are called Ising superconductors.\n\n\n\n\n\n\n\n\n\nFigure 4: Two electrons form a Cooper pair. Electron 1 with momentum \n\\(\\vec{p}\\)\n experiences internal magnetic field \n\\(\\vec{B}_{1\\perp} = (0, 0, -B_z)\\)\n but electron 2 with momentum \n\\(-\\vec{p}\\)\n experiences an opposite magnetic field \n\\(\\vec{B}_{2\\perp} = (0, 0, B_z)\\)\n. The internal magnetic fields are denoted in dashed arrows.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nD1\n\n\nThen what is the energy \n\\(E_\\mathrm{I}\\)\n for a Cooper pair in an Ising superconductor?\n\n\n1 point\n\n\n\n\n\n\n\n\n\n\nD2\n\n\nIn the normal state of the material with spin orbit coupling, what is the energy \n\\(E_{||}\\)\n for the two electrons under a uniform in-plane magnetic field \n\\(\\vec{B}_{||} = (B_x, 0, 0)\\)\n? (Here the internal magnetic fields still exist and perpendicular to \n\\(\\vec{B}_{||}\\)\n. You should also ignore the effects of the in-plane magnetic field on the orbital motions of the Cooper pairs.)\n\n\n2 points\n\n\n\n\n\n\nD3\n\n\nWhat is the critical value \n\\(B_\\mathrm{I}\\)\n such that for \n\\(|\\vec{B}_{||}| > B_\\mathrm{I}\\)\n, \n\\(E_{||} < E_\\mathrm{I}\\)\n?\n\n\n1 point\n\n\n\n\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2016-t3/e0f733eabb008e7c89eb.png",
+      "/corpus/figures/native/bulk/apho-2016-t3/6aa3bebbcb98fc70c0e3.png",
+      "/corpus/figures/native/bulk/apho-2016-t3/01a92adbfee725c51362.png",
+      "/corpus/figures/native/bulk/apho-2016-t3/fb4b50dca5c0fe911f12.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2016-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Marking Scheme – T3"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "PartModel Answer(Full mark = 20)Marks"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A12"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The angular momentum should be"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\vec{L} = r\\vec{e}_r \\times \\vec{p} = r\\vec{e}_r \\times \\vec{e}_\\varphi \\int_0^{2\\pi} \\frac{mv}{2\\pi r} r\\,d\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1 point for the definition of angular momentum)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{e}_r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the unit vector pointing from the center of the ring to the mass point on the ring and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{e}_\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the unit vector parallel to the direction of the linear velocity at the mass point."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We know that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v = \\omega r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , so finally we can get"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{L} = m\\omega r^2\\vec{e}_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{e}_z = \\vec{e}_r \\times \\vec{e}_\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". (1 point for the correct answer: 0.5 points for the magnitude and 0.5 points for the direction)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A22"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For a current loop, the magnetic moment is defined as"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{M} = I\\vec{\\mathrm{A}}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The current can be expressed as"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle I = -ef = -e\\frac{\\omega}{2\\pi}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1 point for the current expression)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Finally"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\begin{aligned}\n\\vec{M} &= -e\\frac{\\omega}{2\\pi}\\pi r^2\\vec{e}_z \\\\\n&= -\\frac{e\\vec{L}}{2m}\n\\end{aligned}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1 point for the answer)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A32"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For a current loop, under a uniform magnetic field the total torque should be"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{\\tau} = \\vec{M} \\times \\vec{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (0.5 point for the torque definition)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The work done by the magnetic field on the torque should be"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\begin{aligned}\nW &= \\int_{\\frac{\\pi}{2}}^{\\theta} \\vec{\\tau} \\cdot \\mathrm{d}\\vec{\\theta}' \\\\\n&= \\int_{\\frac{\\pi}{2}}^{\\theta} -|\\vec{\\tau}|\\,\\mathrm{d}\\theta' \\\\\n&= \\int_{\\theta}^{\\frac{\\pi}{2}} |\\vec{M}||\\vec{B}|\\sin\\theta'\\mathrm{d}\\theta' \\\\\n&= \\vec{M} \\cdot \\vec{B}\n\\end{aligned}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1.5 points for the work on the torque)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\begin{aligned}\nU &= -W \\\\\n&= -\\vec{M} \\cdot \\vec{B} \\\\\n&= \\frac{1}{2}e\\omega r^2 B_z\\cos\\theta\n\\end{aligned}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (0.5 point for the answer)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A41"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We assume that the magnetic field is along z direction such that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B} = B\\vec{e}_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", then in general"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U = -\\vec{M} \\cdot \\vec{B} = -M_z B\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The magnetic torque of an electron should be"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle M_z = \\frac{-e}{2m_\\mathrm{e}}S_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (0.5 points for the electron torque)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\begin{aligned}\nU &= -\\vec{M} \\cdot \\vec{B} \\\\\n&= -\\frac{-e}{2m_\\mathrm{e}}S_z B \\\\\n&= \\frac{\\mu_\\mathrm{B}}{\\hbar}S_z B \\\\\n&= \\frac{1}{2}\\mu_\\mathrm{B}B\n\\end{aligned}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (0.5 points for the answer)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\mu_\\mathrm{B} = \\frac{e\\hbar}{2m_\\mathrm{e}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the Bohr magneton."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_\\mathrm{B} = 5.788 \\times 10^{-5}\\,\\mathrm{eV} \\cdot \\mathrm{T}^{-1}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A51"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus for spin parallel state "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle S_z = \\frac{1}{2}\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U = 5.788 \\times 10^{-5}\\mathrm{eV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (0.5 points)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For spin anti-parallel state "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle S_z = -\\frac{1}{2}\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U = -5.788 \\times 10^{-5}\\mathrm{eV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (0.5 points)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B11"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the superconductivity state, electrons forming a Cooper pair have opposite spins, thus the external magnetic field cannot have any effect on the cooper pair. Thus the energy of the Cooper pair does not change."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle E_S = \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\Delta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ( 1 point for the answer)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B21"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the normal state, the two electrons will align their magnetic moments parallel to the external magnetic field. Therefore we have"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle E_\\mathrm{N} = \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} + \\frac{2\\mu_\\mathrm{B}S_{1x}B_x}{\\hbar} + \\frac{2\\mu_\\mathrm{B}S_{2x}B_x}{\\hbar}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Here the potential energy of electrons should be twice as the classical estimation according to quantum mechanics. Because "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle S_{1x} = S_{2x} = -\\frac{1}{2}\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can make the magnetic moment aligned along "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction, eventually we have"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\begin{aligned}\nE_N &= \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\mu_\\mathrm{B}B_x \\\\\n&= \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - \\frac{e\\hbar}{m_\\mathrm{e}}B_x\n\\end{aligned}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1 point)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B31"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle E_N < E_S \\Rightarrow 2B_x\\mu_B > 2\\Delta \\Rightarrow B_x > \\frac{\\Delta}{\\mu_B}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle B_\\mathrm{P} = \\frac{\\Delta}{\\mu_\\mathrm{B}} = \\frac{2m_\\mathrm{e}\\Delta}{e\\hbar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1 points)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note: The above simple consideration for the upper critical field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " over estimates its value. The strict derivation considering the Pauli magnetization and superconductivity condensation energy will give "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle B_\\mathrm{P} = \\frac{\\Delta}{\\sqrt{2}\\mu_\\mathrm{B}} = \\sqrt{2}\\,\\frac{m_\\mathrm{e}\\Delta}{e\\hbar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C13"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Method 1:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Substituting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\psi(x) = \\left(\\frac{2\\lambda}{\\pi}\\right)^{\\frac{1}{4}}\\mathrm{e}^{-\\lambda x^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " into the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F(\\psi)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\begin{aligned}\nF(\\psi) &= \\sqrt{\\frac{2\\lambda}{\\pi}}\\int\\limits_{-\\infty}^{+\\infty}\\mathrm{e}^{-\\lambda x^2}\\left[-\\alpha\\mathrm{e}^{-\\lambda x^2} - \\frac{\\hbar}{4m_\\mathrm{e}}\\left(-2\\lambda e^{-\\lambda x^2} + 4\\lambda^2x^2\\mathrm{e}^{-\\lambda x^2}\\right) + \\frac{e^2B_z^2x^2}{m_\\mathrm{e}}\\mathrm{e}^{-\\lambda x^2}\\right]\\mathrm{d}x \\\\\n&= \\sqrt{\\frac{2\\lambda}{\\pi}}\\int\\limits_{-\\infty}^{+\\infty}\\left[\\left(-\\alpha + \\frac{\\hbar^2\\lambda}{2m_\\mathrm{e}}\\right)\\mathrm{e}^{-2\\lambda x^2} + \\left(\\frac{e^2B_z^2}{m_e} - \\frac{\\hbar^2\\lambda^2}{m_e}\\right)x^2\\mathrm{e}^{-2\\lambda x^2}\\right]\\mathrm{d}x \\\\\n&= -\\alpha + \\frac{\\hbar^2\\lambda}{2m_\\mathrm{e}} + \\left(\\frac{e^2B_z^2}{m_\\mathrm{e}} - \\frac{\\hbar^2\\lambda^2}{m_\\mathrm{e}}\\right)\\cdot\\frac{1}{4\\lambda} \\\\\n&= -\\alpha + \\frac{\\hbar^2\\lambda}{4m_\\mathrm{e}} + \\frac{e^2B_z^2}{4\\lambda m_\\mathrm{e}}\n\\end{aligned}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(1.5 points for the correct expression of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F(\\psi)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We can treat "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F(\\psi)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus we have"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle F(\\psi) = -\\alpha + \\frac{\\hbar^2\\lambda}{4m_\\mathrm{e}} + \\frac{e^2B_z^2}{4\\lambda m_\\mathrm{e}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\frac{\\mathrm{d}F}{\\mathrm{d}\\lambda} = \\frac{\\hbar^2}{4m_\\mathrm{e}} - \\frac{e^2B_z^2}{4m_\\mathrm{e}\\lambda^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F(\\psi)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " takes the minimum value when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\frac{\\mathrm{d}F}{\\mathrm{d}\\lambda} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\frac{\\mathrm{d}^2F}{\\mathrm{d}\\lambda^2} > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", thus"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\frac{\\hbar^2}{4m_\\mathrm{e}} - \\frac{e^2B_z^2}{4m_\\mathrm{e}\\lambda^2} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ( 0.5 point for the way to minimize "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F(\\psi)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Finally, we can get"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\lambda = \\frac{eB_z}{\\hbar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1 point for the correct answer)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We can check that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\frac{d^2F}{d\\lambda^2} > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\lambda = \\frac{eB_z}{\\hbar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which guarantees that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F(\\psi)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " takes the minimum value when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\lambda = \\frac{eB_z}{\\hbar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Method 2:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\begin{aligned}\nF(\\psi) &= \\int\\limits_{-\\infty}^{+\\infty}\\psi\\left(-\\alpha\\psi - \\frac{\\hbar^2}{4m_\\mathrm{e}}\\frac{\\mathrm{d}^2\\psi}{\\mathrm{d}x^2} + \\frac{e^2B_z^2x^2}{m_\\mathrm{e}}\\psi\\right)\\mathrm{d}x \\\\\n&= \\int\\limits_{-\\infty}^{+\\infty}\\psi\\left(-\\alpha - \\frac{\\hbar^2}{4m_\\mathrm{e}}\\frac{\\mathrm{d}^2}{\\mathrm{d}x^2} + \\frac{e^2B_z^2x^2}{m_\\mathrm{e}}\\right)\\psi\\mathrm{d}x \\\\\n&= \\int\\limits_{-\\infty}^{+\\infty}\\psi\\tilde{H}\\psi\\mathrm{d}x\n\\end{aligned}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1 point)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this way, for normalized wave function "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\psi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F(\\psi)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is simply the energy expectation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\left\\langle\\tilde{H}\\right\\rangle\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , the eigenvalue of the Hamiltonian"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\tilde{H} = -\\frac{\\hbar^2}{4m_\\mathrm{e}}\\frac{\\mathrm{d}^2}{\\mathrm{d}x^2} + \\frac{e^2B_z^2}{m_\\mathrm{e}}x^2 - \\alpha\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The first two terms correspond to the quantum simple harmonic oscillator Hamiltonian. Thus the ground state energy should be"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle F_\\mathrm{min} = \\frac{1}{2}\\hbar\\omega - \\alpha\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\omega = \\frac{eB_z}{m_\\mathrm{e}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and ground state wave function becomes"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\begin{aligned}\n\\psi &= \\left(\\frac{2m_\\mathrm{e}\\omega}{\\pi\\hbar}\\right)^{\\frac{1}{4}}e^{-\\frac{m_\\mathrm{e}\\omega}{\\hbar}x^2} \\\\\n&= \\left(\\frac{2eB_z}{\\pi\\hbar}\\right)^{\\frac{1}{4}}e^{-\\frac{eB_z}{\\hbar}x^2}\n\\end{aligned}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1 point)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore, we have"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\lambda = \\frac{eB_z}{\\hbar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "  . (1 point)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C22"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From Part (C1) we know "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle F_\\mathrm{min}(\\psi) = \\frac{\\hbar eB_z}{2m_\\mathrm{e}} - \\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " . At the critical value for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , it makes the energy difference zero. It means that the critical value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " satisfies"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\frac{\\hbar eB_z}{2m_\\mathrm{e}} - \\alpha = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " . (1 point for this equation)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consequently,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle B_z = \\frac{2m_e\\alpha}{e\\hbar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "  . (1 point for the correct answer)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D11"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle E_\\mathrm{I} = \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\Delta - \\frac{2\\mu_\\mathrm{B}S_{1z}B_z}{\\hbar} + \\frac{2\\mu_\\mathrm{B}S_{2z}B_z}{\\hbar}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle S_{1z} = \\frac{1}{2}\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle S_{2z} = -\\frac{1}{2}\\hbar\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\begin{aligned}\nE_\\mathrm{I} &= \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\Delta - \\frac{2\\mu_\\mathrm{B}S_{1z}B_z}{\\hbar} + \\frac{2\\mu_\\mathrm{B}S_{2z}B_z}{\\hbar} \\\\\n&= \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\Delta - \\frac{2\\mu_\\mathrm{B}B_z}{2} - \\frac{2\\mu_\\mathrm{B}B_z}{2} \\\\\n&= \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\Delta - 2\\mu_\\mathrm{B}B_z \\\\\n&= \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\Delta - \\frac{e\\hbar}{m_\\mathrm{e}}B_z\n\\end{aligned}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1 point)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D22"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the normal state, the electrons will align the magnetic moment parallel to the total magnetic field, thus"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_{||} = \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} + \\frac{2\\mu_\\mathrm{B}\\vec{S}_1\\cdot\\vec{B}_1}{\\hbar} + \\frac{2\\mu_\\mathrm{B}\\vec{S}_2\\cdot\\vec{B}_2}{\\hbar}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For electron 1, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}_1 = \\left(B_x, 0, -B_z\\right)\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For electron 2, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}_2 = \\left(B_x, 0, B_z\\right)\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\vec{S}_1 = -\\frac{1}{2}\\hbar\\left(\\frac{B_x}{\\sqrt{B_x^2 + B_z^2}}, 0, \\frac{-B_z}{\\sqrt{B_x^2 + B_z^2}}\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\vec{S}_2 = -\\frac{1}{2}\\hbar\\left(\\frac{B_x}{\\sqrt{B_x^2 + B_z^2}}, 0, \\frac{B_z}{\\sqrt{B_x^2 + B_z^2}}\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can make the their magnetic moments parallel to the total magnetic field respectively."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(1 point for the correct expression of spins: 0.5 points for each respectively)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Finally"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_{||} = \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\mu_\\mathrm{B}\\sqrt{B_x^2 + B_z^2} = \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - \\frac{e\\hbar}{m_e}\\sqrt{B_x^2 + B_z^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (1 point for the answer)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D31"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E_{||} < E_\\mathrm{Ising} \\Rightarrow 2\\mu_\\mathrm{B}\\sqrt{B_x^2 + B_z^2} > 2\\Delta + 2\\mu_\\mathrm{B}B_z \\Rightarrow B_x > \\frac{\\sqrt{\\Delta^2 + 2\\Delta\\mu_\\mathrm{B}B_z}}{\\mu_\\mathrm{B}} \\quad \\text{(1 points)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Another correct expression is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle B_I > \\frac{2m_e\\sqrt{\\Delta^2 + \\frac{e\\hbar}{m_e}\\Delta B_z}}{e\\hbar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "hr",
+        "children": []
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Marking Scheme – T3\n\n\n\n\n\nPartModel Answer(Full mark = 20)Marks\n\n\n\n\n\nA12\n\n\nThe angular momentum should be\n\n\n\\(\\displaystyle \\vec{L} = r\\vec{e}_r \\times \\vec{p} = r\\vec{e}_r \\times \\vec{e}_\\varphi \\int_0^{2\\pi} \\frac{mv}{2\\pi r} r\\,d\\varphi\\)\n (1 point for the definition of angular momentum)\n\n\nHere \n\\(\\vec{e}_r\\)\n is the unit vector pointing from the center of the ring to the mass point on the ring and \n\\(\\vec{e}_\\varphi\\)\n is the unit vector parallel to the direction of the linear velocity at the mass point.\n\n\nWe know that \n\\(v = \\omega r\\)\n , so finally we can get\n\n\n\\(\\vec{L} = m\\omega r^2\\vec{e}_z\\)\n, with \n\\(\\vec{e}_z = \\vec{e}_r \\times \\vec{e}_\\varphi\\)\n. (1 point for the correct answer: 0.5 points for the magnitude and 0.5 points for the direction)\n\n\n\n\n\nA22\n\n\nFor a current loop, the magnetic moment is defined as\n\n\n\n\\(\\vec{M} = I\\vec{\\mathrm{A}}\\)\n\n\nThe current can be expressed as\n\n\n\\(\\displaystyle I = -ef = -e\\frac{\\omega}{2\\pi}\\)\n (1 point for the current expression)\n\n\nFinally\n\n\n\\(\\begin{aligned}\n\\vec{M} &= -e\\frac{\\omega}{2\\pi}\\pi r^2\\vec{e}_z \\\\\n&= -\\frac{e\\vec{L}}{2m}\n\\end{aligned}\\)\n (1 point for the answer)\n\n\n\n\n\nA32\n\n\nFor a current loop, under a uniform magnetic field the total torque should be\n\n\n\\(\\vec{\\tau} = \\vec{M} \\times \\vec{B}\\)\n (0.5 point for the torque definition)\n\n\nThe work done by the magnetic field on the torque should be\n\n\n\\(\\begin{aligned}\nW &= \\int_{\\frac{\\pi}{2}}^{\\theta} \\vec{\\tau} \\cdot \\mathrm{d}\\vec{\\theta}' \\\\\n&= \\int_{\\frac{\\pi}{2}}^{\\theta} -|\\vec{\\tau}|\\,\\mathrm{d}\\theta' \\\\\n&= \\int_{\\theta}^{\\frac{\\pi}{2}} |\\vec{M}||\\vec{B}|\\sin\\theta'\\mathrm{d}\\theta' \\\\\n&= \\vec{M} \\cdot \\vec{B}\n\\end{aligned}\\)\n (1.5 points for the work on the torque)\n\n\n\\(\\begin{aligned}\nU &= -W \\\\\n&= -\\vec{M} \\cdot \\vec{B} \\\\\n&= \\frac{1}{2}e\\omega r^2 B_z\\cos\\theta\n\\end{aligned}\\)\n (0.5 point for the answer)\n\n\n\n\n\nA41\n\n\nWe assume that the magnetic field is along z direction such that \n\\(\\vec{B} = B\\vec{e}_z\\)\n, then in general\n\n\n\\(U = -\\vec{M} \\cdot \\vec{B} = -M_z B\\)\n\n\nThe magnetic torque of an electron should be\n\n\n\\(\\displaystyle M_z = \\frac{-e}{2m_\\mathrm{e}}S_z\\)\n (0.5 points for the electron torque)\n\n\nThus\n\n\n\\(\\begin{aligned}\nU &= -\\vec{M} \\cdot \\vec{B} \\\\\n&= -\\frac{-e}{2m_\\mathrm{e}}S_z B \\\\\n&= \\frac{\\mu_\\mathrm{B}}{\\hbar}S_z B \\\\\n&= \\frac{1}{2}\\mu_\\mathrm{B}B\n\\end{aligned}\\)\n (0.5 points for the answer)\n\n\nHere \n\\(\\displaystyle \\mu_\\mathrm{B} = \\frac{e\\hbar}{2m_\\mathrm{e}}\\)\n is the Bohr magneton.\n\n\n\\(\\mu_\\mathrm{B} = 5.788 \\times 10^{-5}\\,\\mathrm{eV} \\cdot \\mathrm{T}^{-1}\\)\n\n\n\n\n\nA51\n\n\nThus for spin parallel state \n\\(\\displaystyle S_z = \\frac{1}{2}\\hbar\\)\n, we have\n\n\n\\(U = 5.788 \\times 10^{-5}\\mathrm{eV}\\)\n (0.5 points)\n\n\nFor spin anti-parallel state \n\\(\\displaystyle S_z = -\\frac{1}{2}\\hbar\\)\n, we have\n\n\n\\(U = -5.788 \\times 10^{-5}\\mathrm{eV}\\)\n (0.5 points)\n\n\n\n\n\nB11\n\n\nIn the superconductivity state, electrons forming a Cooper pair have opposite spins, thus the external magnetic field cannot have any effect on the cooper pair. Thus the energy of the Cooper pair does not change.\n\n\n\\(\\displaystyle E_S = \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\Delta\\)\n ( 1 point for the answer)\n\n\n\n\n\nB21\n\n\nIn the normal state, the two electrons will align their magnetic moments parallel to the external magnetic field. Therefore we have\n\n\n\\(\\displaystyle E_\\mathrm{N} = \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} + \\frac{2\\mu_\\mathrm{B}S_{1x}B_x}{\\hbar} + \\frac{2\\mu_\\mathrm{B}S_{2x}B_x}{\\hbar}\\)\n\n\nHere the potential energy of electrons should be twice as the classical estimation according to quantum mechanics. Because \n\\(\\displaystyle S_{1x} = S_{2x} = -\\frac{1}{2}\\hbar\\)\n can make the magnetic moment aligned along \n\\(x\\)\n direction, eventually we have\n\n\n\\(\\begin{aligned}\nE_N &= \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\mu_\\mathrm{B}B_x \\\\\n&= \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - \\frac{e\\hbar}{m_\\mathrm{e}}B_x\n\\end{aligned}\\)\n (1 point)\n\n\n\n\n\nB31\n\n\n\\(\\displaystyle E_N < E_S \\Rightarrow 2B_x\\mu_B > 2\\Delta \\Rightarrow B_x > \\frac{\\Delta}{\\mu_B}\\)\n\n\nThus \n\\(\\displaystyle B_\\mathrm{P} = \\frac{\\Delta}{\\mu_\\mathrm{B}} = \\frac{2m_\\mathrm{e}\\Delta}{e\\hbar}\\)\n (1 points)\n\n\nNote: The above simple consideration for the upper critical field \n\\(B_P\\)\n over estimates its value. The strict derivation considering the Pauli magnetization and superconductivity condensation energy will give \n\\(\\displaystyle B_\\mathrm{P} = \\frac{\\Delta}{\\sqrt{2}\\mu_\\mathrm{B}} = \\sqrt{2}\\,\\frac{m_\\mathrm{e}\\Delta}{e\\hbar}\\)\n.\n\n\n\n\n\nC13\n\n\nMethod 1:\n\n\nSubstituting \n\\(\\displaystyle \\psi(x) = \\left(\\frac{2\\lambda}{\\pi}\\right)^{\\frac{1}{4}}\\mathrm{e}^{-\\lambda x^2}\\)\n into the \n\\(F(\\psi)\\)\n, we have\n\n\n\\(\\begin{aligned}\nF(\\psi) &= \\sqrt{\\frac{2\\lambda}{\\pi}}\\int\\limits_{-\\infty}^{+\\infty}\\mathrm{e}^{-\\lambda x^2}\\left[-\\alpha\\mathrm{e}^{-\\lambda x^2} - \\frac{\\hbar}{4m_\\mathrm{e}}\\left(-2\\lambda e^{-\\lambda x^2} + 4\\lambda^2x^2\\mathrm{e}^{-\\lambda x^2}\\right) + \\frac{e^2B_z^2x^2}{m_\\mathrm{e}}\\mathrm{e}^{-\\lambda x^2}\\right]\\mathrm{d}x \\\\\n&= \\sqrt{\\frac{2\\lambda}{\\pi}}\\int\\limits_{-\\infty}^{+\\infty}\\left[\\left(-\\alpha + \\frac{\\hbar^2\\lambda}{2m_\\mathrm{e}}\\right)\\mathrm{e}^{-2\\lambda x^2} + \\left(\\frac{e^2B_z^2}{m_e} - \\frac{\\hbar^2\\lambda^2}{m_e}\\right)x^2\\mathrm{e}^{-2\\lambda x^2}\\right]\\mathrm{d}x \\\\\n&= -\\alpha + \\frac{\\hbar^2\\lambda}{2m_\\mathrm{e}} + \\left(\\frac{e^2B_z^2}{m_\\mathrm{e}} - \\frac{\\hbar^2\\lambda^2}{m_\\mathrm{e}}\\right)\\cdot\\frac{1}{4\\lambda} \\\\\n&= -\\alpha + \\frac{\\hbar^2\\lambda}{4m_\\mathrm{e}} + \\frac{e^2B_z^2}{4\\lambda m_\\mathrm{e}}\n\\end{aligned}\\)\n\n\n(1.5 points for the correct expression of \n\\(F(\\psi)\\)\nas a function of \n\\(\\lambda\\)\n)\n\n\nWe can treat \n\\(F(\\psi)\\)\n as a function of \n\\(\\lambda\\)\n. Thus we have\n\n\n\\(\\displaystyle F(\\psi) = -\\alpha + \\frac{\\hbar^2\\lambda}{4m_\\mathrm{e}} + \\frac{e^2B_z^2}{4\\lambda m_\\mathrm{e}}\\)\n, and \n\\(\\displaystyle \\frac{\\mathrm{d}F}{\\mathrm{d}\\lambda} = \\frac{\\hbar^2}{4m_\\mathrm{e}} - \\frac{e^2B_z^2}{4m_\\mathrm{e}\\lambda^2}\\)\n.\n\n\n\\(F(\\psi)\\)\n takes the minimum value when \n\\(\\displaystyle \\frac{\\mathrm{d}F}{\\mathrm{d}\\lambda} = 0\\)\n and \n\\(\\displaystyle \\frac{\\mathrm{d}^2F}{\\mathrm{d}\\lambda^2} > 0\\)\n, thus\n\n\n\\(\\displaystyle \\frac{\\hbar^2}{4m_\\mathrm{e}} - \\frac{e^2B_z^2}{4m_\\mathrm{e}\\lambda^2} = 0\\)\n ( 0.5 point for the way to minimize \n\\(F(\\psi)\\)\n)\n\n\nFinally, we can get\n\n\n\\(\\displaystyle \\lambda = \\frac{eB_z}{\\hbar}\\)\n (1 point for the correct answer)\n\n\nWe can check that \n\\(\\displaystyle \\frac{d^2F}{d\\lambda^2} > 0\\)\n when \n\\(\\displaystyle \\lambda = \\frac{eB_z}{\\hbar}\\)\n, which guarantees that \n\\(F(\\psi)\\)\n takes the minimum value when \n\\(\\displaystyle \\lambda = \\frac{eB_z}{\\hbar}\\)\n.\n\n\nMethod 2:\n\n\n\\(\\begin{aligned}\nF(\\psi) &= \\int\\limits_{-\\infty}^{+\\infty}\\psi\\left(-\\alpha\\psi - \\frac{\\hbar^2}{4m_\\mathrm{e}}\\frac{\\mathrm{d}^2\\psi}{\\mathrm{d}x^2} + \\frac{e^2B_z^2x^2}{m_\\mathrm{e}}\\psi\\right)\\mathrm{d}x \\\\\n&= \\int\\limits_{-\\infty}^{+\\infty}\\psi\\left(-\\alpha - \\frac{\\hbar^2}{4m_\\mathrm{e}}\\frac{\\mathrm{d}^2}{\\mathrm{d}x^2} + \\frac{e^2B_z^2x^2}{m_\\mathrm{e}}\\right)\\psi\\mathrm{d}x \\\\\n&= \\int\\limits_{-\\infty}^{+\\infty}\\psi\\tilde{H}\\psi\\mathrm{d}x\n\\end{aligned}\\)\n (1 point)\n\n\nIn this way, for normalized wave function \n\\(\\psi\\)\n the \n\\(F(\\psi)\\)\n is simply the energy expectation \n\\(\\left\\langle\\tilde{H}\\right\\rangle\\)\n , the eigenvalue of the Hamiltonian\n\n\n\\(\\displaystyle \\tilde{H} = -\\frac{\\hbar^2}{4m_\\mathrm{e}}\\frac{\\mathrm{d}^2}{\\mathrm{d}x^2} + \\frac{e^2B_z^2}{m_\\mathrm{e}}x^2 - \\alpha\\)\n\n\nThe first two terms correspond to the quantum simple harmonic oscillator Hamiltonian. Thus the ground state energy should be\n\n\n\\(\\displaystyle F_\\mathrm{min} = \\frac{1}{2}\\hbar\\omega - \\alpha\\)\n\n\nHere \n\\(\\displaystyle \\omega = \\frac{eB_z}{m_\\mathrm{e}}\\)\n and ground state wave function becomes\n\n\n\\(\\begin{aligned}\n\\psi &= \\left(\\frac{2m_\\mathrm{e}\\omega}{\\pi\\hbar}\\right)^{\\frac{1}{4}}e^{-\\frac{m_\\mathrm{e}\\omega}{\\hbar}x^2} \\\\\n&= \\left(\\frac{2eB_z}{\\pi\\hbar}\\right)^{\\frac{1}{4}}e^{-\\frac{eB_z}{\\hbar}x^2}\n\\end{aligned}\\)\n (1 point)\n\n\nTherefore, we have\n\n\n\\(\\displaystyle \\lambda = \\frac{eB_z}{\\hbar}\\)\n  . (1 point)\n\n\n\n\n\nC22\n\n\nFrom Part (C1) we know \n\\(\\displaystyle F_\\mathrm{min}(\\psi) = \\frac{\\hbar eB_z}{2m_\\mathrm{e}} - \\alpha\\)\n . At the critical value for \n\\(B_z\\)\n , it makes the energy difference zero. It means that the critical value \n\\(B_z\\)\n satisfies\n\n\n\\(\\displaystyle \\frac{\\hbar eB_z}{2m_\\mathrm{e}} - \\alpha = 0\\)\n . (1 point for this equation)\n\n\nConsequently,\n\n\n\\(\\displaystyle B_z = \\frac{2m_e\\alpha}{e\\hbar}\\)\n  . (1 point for the correct answer)\n\n\n\n\n\nD11\n\n\n\\(\\displaystyle E_\\mathrm{I} = \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\Delta - \\frac{2\\mu_\\mathrm{B}S_{1z}B_z}{\\hbar} + \\frac{2\\mu_\\mathrm{B}S_{2z}B_z}{\\hbar}\\)\n\n\nHere \n\\(\\displaystyle S_{1z} = \\frac{1}{2}\\hbar\\)\n, \n\\(\\displaystyle S_{2z} = -\\frac{1}{2}\\hbar\\)\n\n\n\\(\\begin{aligned}\nE_\\mathrm{I} &= \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\Delta - \\frac{2\\mu_\\mathrm{B}S_{1z}B_z}{\\hbar} + \\frac{2\\mu_\\mathrm{B}S_{2z}B_z}{\\hbar} \\\\\n&= \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\Delta - \\frac{2\\mu_\\mathrm{B}B_z}{2} - \\frac{2\\mu_\\mathrm{B}B_z}{2} \\\\\n&= \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\Delta - 2\\mu_\\mathrm{B}B_z \\\\\n&= \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\Delta - \\frac{e\\hbar}{m_\\mathrm{e}}B_z\n\\end{aligned}\\)\n (1 point)\n\n\n\n\n\nD22\n\n\nIn the normal state, the electrons will align the magnetic moment parallel to the total magnetic field, thus\n\n\n\\(E_{||} = \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} + \\frac{2\\mu_\\mathrm{B}\\vec{S}_1\\cdot\\vec{B}_1}{\\hbar} + \\frac{2\\mu_\\mathrm{B}\\vec{S}_2\\cdot\\vec{B}_2}{\\hbar}\\)\n\n\nFor electron 1, \n\\(\\vec{B}_1 = \\left(B_x, 0, -B_z\\right)\\)\n\n\nFor electron 2, \n\\(\\vec{B}_2 = \\left(B_x, 0, B_z\\right)\\)\n\n\nTherefore, \n\\(\\displaystyle \\vec{S}_1 = -\\frac{1}{2}\\hbar\\left(\\frac{B_x}{\\sqrt{B_x^2 + B_z^2}}, 0, \\frac{-B_z}{\\sqrt{B_x^2 + B_z^2}}\\right)\\)\n and \n\\(\\displaystyle \\vec{S}_2 = -\\frac{1}{2}\\hbar\\left(\\frac{B_x}{\\sqrt{B_x^2 + B_z^2}}, 0, \\frac{B_z}{\\sqrt{B_x^2 + B_z^2}}\\right)\\)\n can make the their magnetic moments parallel to the total magnetic field respectively.\n\n\n(1 point for the correct expression of spins: 0.5 points for each respectively)\n\n\nFinally\n\n\n\\(E_{||} = \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - 2\\mu_\\mathrm{B}\\sqrt{B_x^2 + B_z^2} = \\frac{p_1^2}{2m} + \\frac{p_2^2}{2m} - \\frac{e\\hbar}{m_e}\\sqrt{B_x^2 + B_z^2}\\)\n (1 point for the answer)\n\n\n\n\n\nD31\n\n\n\\[E_{||} < E_\\mathrm{Ising} \\Rightarrow 2\\mu_\\mathrm{B}\\sqrt{B_x^2 + B_z^2} > 2\\Delta + 2\\mu_\\mathrm{B}B_z \\Rightarrow B_x > \\frac{\\sqrt{\\Delta^2 + 2\\Delta\\mu_\\mathrm{B}B_z}}{\\mu_\\mathrm{B}} \\quad \\text{(1 points)}\\]\n\n\nAnother correct expression is: \n\\(\\displaystyle B_I > \\frac{2m_e\\sqrt{\\Delta^2 + \\frac{e\\hbar}{m_e}\\Delta B_z}}{e\\hbar}\\)\n .\n\n\n\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

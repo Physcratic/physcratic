@@ -69,7 +69,7 @@ describe("problem pages", () => {
   it("indexes every archive page except those with too little text, and every other page", () => {
     assert.equal(ARCHIVE_INDEXABLE, true);
     for (const p of pages) assert.equal(p.indexable, p.kind !== "archive" || (ARCHIVE_INDEXABLE && !p.thin), p.id);
-    assert.deepEqual(pages.filter((p) => !p.indexable).map((p) => p.id), ["ipho-2017-t2", "ipho-2017-t3"]);
+    assert.deepEqual(pages.filter((p) => !p.indexable).map((p) => p.id), ["eupho-2025-t3", "eupho-2021-t1"]);
     assert.equal(pages.filter((p) => p.kind === "archive" && p.indexable).length, catalogProblems.length - pages.filter((p) => p.kind === "archive" && p.thin).length)
   });
   it("marks only pages with too little text as thin, and there are few of them", () => {

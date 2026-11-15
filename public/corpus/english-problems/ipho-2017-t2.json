@@ -1,1 +1,3345 @@
-{"id":"ipho-2017-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2017_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2017_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2017-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6],"initialPage":1,"shared":false,"text":"Theory\nEnglish (Official)\nT2\npage 1 of 6\nmm\nTm\nmw\nTw\n\nTheory\nEnglish (Official)\nT2\npage 2 of 6\n \n \ncVw\ncVm\nve\np\nm\nV\np m\nV\nκ\nMw\nP\nS\nP\nS\nP\n\nTheory\nEnglish (Official)\nT2\npage 3 of 6\n\nTheory\nEnglish (Official)\nT2\npage 4 of 6\n \nP\nP\nP\no\nP\nz\nv(z) =\n+ az\nv0\na\np = sin θ(z)/v(z)\nθ(z)\np\np v0\na\nT\nz\nvi\nδzi\nT\ni\nv1\nv2\nv3\np\nδz1\nδz2\nδz3\n\nTheory\nEnglish (Official)\nT2\npage 5 of 6\nλL/2\nL ≫λ\nh\n\nTheory\nEnglish (Official)\nT2\npage 6 of 6\nd\nρ\nd0\nA0\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2017-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8],"initialPage":1,"shared":false,"text":"Original English PDF supplied as scanned pages. Searchable text extraction is unavailable; consult the original PDF for all problem content, equations and diagrams. This notice is not a transcription.","textExtraction":"image-only"}}
+{
+  "id": "ipho-2017-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2017-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Earthquake, Volcano and Tsunami"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Indonesia is the supermarket of natural hazards. Almost all of the natural hazards have occurred in Indonesia, such as volcano eruptions, earthquakes and tsunami."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A. Merapi Volcano Eruption"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2017-t2/a3d38cfdb85aa201a881.jpg",
+                "alt": "ipho-2017-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "("
+              },
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 1"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": Pyroclastic cloud during Merapi eruption, Courtesy of Volcanological Office of Yogyakarta, BPPTKG)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Merapi volcano in Yogyakarta is one of the most active volcano in Java. Pyroclastic flows are well-known eruption characteristics of the volcano. The pyroclastic flow is a hot mixture of gas and rock which travels away from a volcano. In October 26th, 2010, Merapi showed his explosive character by producing an ash plume that reached 12 km altitude (Fig. 1) and pyroclastic currents displacing more than 20,000 people around the volcano."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let us look at the causes of the largest eruption of Merapi in 2010. It is known by geophysicists that the influence of the external water into the magma plays an important role to the explosive behavior of volcanic eruptions (hydro magmatic eruptions). Let’s assume that we dealt with a volcano as a system that consists of mixture of magmatic particles and water. The volcano vents structures and atmosphere are being boundary of the system. The explosive eruption is considered to be happening in two stages, (1) an instantaneous magma-water interaction, and (2) a system expansion. In the first stage, a mass of magma ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") at an absolute temperature ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") mixes with a mass of external water ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_w\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") at an absolute temperature ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_w\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). The thermal equilibrium is reached almost instantaneously. This interaction can be perceived as a nearly-constant volume process. Latent heat of evaporation of water and latent heat of melting of magma can be neglected."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1Find the equilibrium temperature at the first stage in terms of the masses and heat capacity per unit mass of water "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_{Vw}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and magma "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_{Vm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2Determine its equilibrium pressure at the first stage by assuming that the mixture can be modeled as ideal gas. Assume that the volume per unit mole of the mixture is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.3 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The system expansion (the second stage) can occur through several possibilities, one of which is thermal detonation. Although such process is quite complicated, we can empirically measure the relative velocity of the erupted mixture. The velocity of gas during the eruption depend on the pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the total mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the volume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the mixture in the conduit of a volcano."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.3Express the velocity of gas during the eruption in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " up to a proportional constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\kappa\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The observed pressure is around the order of 100 MPa. This makes the eruption (relative) velocity can be as large as ballistic velocity."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B. The Yogyakarta Earthquake"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The 2006 Yogyakarta earthquake of magnitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_w\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 6.4, which destroyed many buildings in the Bantul and Yogyakarta area, occured at 05:54:00.00 local time or 22:54:00.00 UTC. The earthquake was caused by a sudden displacement of the Opak fault segment (see Fig. 2). The hypocenter was located 15 km below the surface."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The seismic wave that propagates on the earth crust can be recorded using seismometer. The diagram from seismometer is called seismogram (Fig. 2 and 3, Lower graph). The seismograms represent the vertical ground velocity as a function of time recorded by the seismic station at Gamping Station Yogyakarta (YOGI) (Fig. 2) and Denpasar, Bali (DNP) (Fig. 3). In general, seismic wave consists of three wave types: the longitudinal or primary ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-wave), the transversal or secondary ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-wave), and the surface wave. The "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-wave and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-wave travel in the subsurface while the surface wave travels along the Earth surface. Seismic waves traveling through subsurfaces to the stations can be divided into those that propagate in a straight line, those that are reflected by a layer’s boundary, and those that are refracted into the next layer. The longitudinal wave or the primary wave has the highest velocity, while the surface wave has the lowest velocity, around 60% of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-wave."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2017-t2/fcad60258cc49789799f.png",
+                "alt": "ipho-2017-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "("
+              },
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 2"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": The maps location of YOGI)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2017-t2/e2945e4aeccf883b9471.png",
+                "alt": "ipho-2017-t2 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "("
+              },
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 3"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": The maps location of DNP (Denpasar))"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The distance between the epicenter (the projection of hypocenter on the Earth surface) and the YOGI and DNP stations respectively are 22.5 km and 500 km. The depth of the Earth crust layer in Java, Indonesia, is 30 km. Beneath the Earth’s crust is the Earth’s mantle layer. Just like other wave phenomena, seismic wave also satisfies the Snell’s law. The seismic wave can also be reflected by the mantle layer. In this problem we assume that the earth curvature is neglected."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1Fig. 2 shows the seismogram at the YOGI station. Use the data to find the velocity of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-wave in the Earth crust. 0.5 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2Find the travel time of the direct "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " wave and reflected wave due to the Yogyakarta earthquake that arrived at the DNP station in Denpasar. 0.6 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "By assuming that the Earth is composed of only two layers: the crust and the mantle, the primary wave propagates in the crust and in the mantle with different constant velocities. The velocity in the mantle is faster than in the crust. Note that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-wave refracted into the mantle at the right angle (90"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^o\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is being partly refracted back into the crust along its entire path of propagation along the crust-mantle boundary."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.3Find the velocity of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-wave in the mantle. 1.2 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For a more realistic Earth structure, the crust can be divided into a number of thin layers so that the velocity of the seismic wave is a function of the depth "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " according to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v(z) = v_0 + az\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a constant and the hypocenter is approximated on the surface. In this model, the wave ray is curving."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.4Let us define the ray parameter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p = \\sin\\theta(z)/v(z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta(z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the angle between the ray and the normal. Suppose a seismic wave arrives to the station with ray parameter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "; express the distance to the hypocenter in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Assume that the hypocenter is very close to the ground surface. 1.4 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.5Find the travel time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from hypocenter to any station, in form of integral over "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The earth consists of a stack of homogeneous layers with the velocity of each layer is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the thickness of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta z_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.6From the result of the previous problem, approximate the travel time ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") from the hypocenter to DNP station by assuming that the crust consists of only three discretized layers, ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 1, 2, 3), characterized by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 6.65 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{km/sec}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 6.97 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{km/sec}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 6.99 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{km/sec}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 0.143 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{sec/km}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta z_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 6.0 km, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta z_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 9.0 km, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta z_3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 15 km. 1.0 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2017-t2/3822a8e5de28e2e1d50a.png",
+                "alt": "ipho-2017-t2 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 4"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": A simplified model of earth’s layers."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C. Java Tsunami"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The 2006 Pangandaran earthquake and tsunami occurred on July 17 at 15:19:27 local time off the coast of west and central Java. During the earthquake where the epicenter fault is on the ocean floor, the fault may be displaced producing a remarkably large water wave called tsunami. In other words, a tsunami is a shallow-water wave which is initiated by a tiny amplitude, but with an extremely large wavelength. Consider a sudden fault causing a lifting of some ocean floor as shown in Fig. 5. Assume that the energy of the earthquake is transformed to the potential energy of this raised ocean water. For simple model we approximate that the raised water has a geometry of a box with its area of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda L/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L \\gg \\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and height of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2017-t2/72f307414f9f1570cbbd.png",
+                "alt": "ipho-2017-t2 original source figure 5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 5"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": Illustration for the tsunami wave "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(d\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " is the depth of the ocean."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.1Find the potential energy stored in the raised ocean water due to the earthquake with respect to ocean surface. Assume that the density of sea water is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.2Find the speed of tsunami wave up to dimensionless factor. 1.2 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.3Using energy argument, determine the amplitude of the tsunami wave as a function of the depth, assuming that the depth varies slowly and also knowing that at a depth of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the amplitude is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.3 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Earthquake, Volcano and Tsunami\n\n\nIndonesia is the supermarket of natural hazards. Almost all of the natural hazards have occurred in Indonesia, such as volcano eruptions, earthquakes and tsunami.\n\n\nA. Merapi Volcano Eruption\n\n\n\n\n\n\n\n\n\n\n\n(\nFig. 1\n: Pyroclastic cloud during Merapi eruption, Courtesy of Volcanological Office of Yogyakarta, BPPTKG)\n\n\n\n\nMerapi volcano in Yogyakarta is one of the most active volcano in Java. Pyroclastic flows are well-known eruption characteristics of the volcano. The pyroclastic flow is a hot mixture of gas and rock which travels away from a volcano. In October 26th, 2010, Merapi showed his explosive character by producing an ash plume that reached 12 km altitude (Fig. 1) and pyroclastic currents displacing more than 20,000 people around the volcano.\n\n\nLet us look at the causes of the largest eruption of Merapi in 2010. It is known by geophysicists that the influence of the external water into the magma plays an important role to the explosive behavior of volcanic eruptions (hydro magmatic eruptions). Let’s assume that we dealt with a volcano as a system that consists of mixture of magmatic particles and water. The volcano vents structures and atmosphere are being boundary of the system. The explosive eruption is considered to be happening in two stages, (1) an instantaneous magma-water interaction, and (2) a system expansion. In the first stage, a mass of magma (\n\\(m_m\\)\n) at an absolute temperature (\n\\(T_m\\)\n) mixes with a mass of external water (\n\\(m_w\\)\n) at an absolute temperature (\n\\(T_w\\)\n). The thermal equilibrium is reached almost instantaneously. This interaction can be perceived as a nearly-constant volume process. Latent heat of evaporation of water and latent heat of melting of magma can be neglected.\n\n\nA.1Find the equilibrium temperature at the first stage in terms of the masses and heat capacity per unit mass of water \n\\(c_{Vw}\\)\n and magma \n\\(c_{Vm}\\)\n. 0.5 pt.\n\n\nA.2Determine its equilibrium pressure at the first stage by assuming that the mixture can be modeled as ideal gas. Assume that the volume per unit mole of the mixture is \n\\(v_e\\)\n. 0.3 pt.\n\n\nThe system expansion (the second stage) can occur through several possibilities, one of which is thermal detonation. Although such process is quite complicated, we can empirically measure the relative velocity of the erupted mixture. The velocity of gas during the eruption depend on the pressure \n\\(p\\)\n, the total mass \n\\(m\\)\n and the volume \n\\(V\\)\n of the mixture in the conduit of a volcano.\n\n\nA.3Express the velocity of gas during the eruption in terms of \n\\(p\\)\n, \n\\(m\\)\n, and \n\\(V\\)\n up to a proportional constant \n\\(\\kappa\\)\n. 0.5 pt.\n\n\nThe observed pressure is around the order of 100 MPa. This makes the eruption (relative) velocity can be as large as ballistic velocity.\n\n\nB. The Yogyakarta Earthquake\n\n\nThe 2006 Yogyakarta earthquake of magnitude \n\\(M_w\\)\n = 6.4, which destroyed many buildings in the Bantul and Yogyakarta area, occured at 05:54:00.00 local time or 22:54:00.00 UTC. The earthquake was caused by a sudden displacement of the Opak fault segment (see Fig. 2). The hypocenter was located 15 km below the surface.\n\n\nThe seismic wave that propagates on the earth crust can be recorded using seismometer. The diagram from seismometer is called seismogram (Fig. 2 and 3, Lower graph). The seismograms represent the vertical ground velocity as a function of time recorded by the seismic station at Gamping Station Yogyakarta (YOGI) (Fig. 2) and Denpasar, Bali (DNP) (Fig. 3). In general, seismic wave consists of three wave types: the longitudinal or primary (\n\\(P\\)\n-wave), the transversal or secondary (\n\\(S\\)\n-wave), and the surface wave. The \n\\(P\\)\n-wave and \n\\(S\\)\n-wave travel in the subsurface while the surface wave travels along the Earth surface. Seismic waves traveling through subsurfaces to the stations can be divided into those that propagate in a straight line, those that are reflected by a layer’s boundary, and those that are refracted into the next layer. The longitudinal wave or the primary wave has the highest velocity, while the surface wave has the lowest velocity, around 60% of the \n\\(P\\)\n-wave.\n\n\n\n\n\n\n\n\n\n\n\n(\nFig. 2\n: The maps location of YOGI)\n\n\n\n\n\n\n\n\n\n\n\n\n\n(\nFig. 3\n: The maps location of DNP (Denpasar))\n\n\n\n\nThe distance between the epicenter (the projection of hypocenter on the Earth surface) and the YOGI and DNP stations respectively are 22.5 km and 500 km. The depth of the Earth crust layer in Java, Indonesia, is 30 km. Beneath the Earth’s crust is the Earth’s mantle layer. Just like other wave phenomena, seismic wave also satisfies the Snell’s law. The seismic wave can also be reflected by the mantle layer. In this problem we assume that the earth curvature is neglected.\n\n\nB.1Fig. 2 shows the seismogram at the YOGI station. Use the data to find the velocity of the \n\\(P\\)\n-wave in the Earth crust. 0.5 pt.\n\n\nB.2Find the travel time of the direct \n\\(P\\)\n wave and reflected wave due to the Yogyakarta earthquake that arrived at the DNP station in Denpasar. 0.6 pt.\n\n\nBy assuming that the Earth is composed of only two layers: the crust and the mantle, the primary wave propagates in the crust and in the mantle with different constant velocities. The velocity in the mantle is faster than in the crust. Note that \n\\(P\\)\n-wave refracted into the mantle at the right angle (90\n\\(^o\\)\n) is being partly refracted back into the crust along its entire path of propagation along the crust-mantle boundary.\n\n\nB.3Find the velocity of the \n\\(P\\)\n-wave in the mantle. 1.2 pt.\n\n\nFor a more realistic Earth structure, the crust can be divided into a number of thin layers so that the velocity of the seismic wave is a function of the depth \n\\(z\\)\n according to \n\\(v(z) = v_0 + az\\)\n where \n\\(a\\)\n is a constant and the hypocenter is approximated on the surface. In this model, the wave ray is curving.\n\n\nB.4Let us define the ray parameter \n\\(p = \\sin\\theta(z)/v(z)\\)\n, where \n\\(\\theta(z)\\)\n is the angle between the ray and the normal. Suppose a seismic wave arrives to the station with ray parameter \n\\(p\\)\n; express the distance to the hypocenter in terms of \n\\(p\\)\n, \n\\(v_0\\)\n, and \n\\(a\\)\n. Assume that the hypocenter is very close to the ground surface. 1.4 pt.\n\n\nB.5Find the travel time \n\\(T\\)\n from hypocenter to any station, in form of integral over \n\\(z\\)\n. 1.0 pt.\n\n\nThe earth consists of a stack of homogeneous layers with the velocity of each layer is \n\\(v_i\\)\n and the thickness of \n\\(\\delta z_i\\)\n.\n\n\nB.6From the result of the previous problem, approximate the travel time (\n\\(T\\)\n) from the hypocenter to DNP station by assuming that the crust consists of only three discretized layers, (\n\\(i\\)\n = 1, 2, 3), characterized by \n\\(v_1\\)\n = 6.65 \n\\(\\mathrm{km/sec}\\)\n, \n\\(v_2\\)\n = 6.97 \n\\(\\mathrm{km/sec}\\)\n, \n\\(v_3\\)\n = 6.99 \n\\(\\mathrm{km/sec}\\)\n, \n\\(p\\)\n = 0.143 \n\\(\\mathrm{sec/km}\\)\n, \n\\(\\delta z_1\\)\n = 6.0 km, \n\\(\\delta z_2\\)\n = 9.0 km, \n\\(\\delta z_3\\)\n = 15 km. 1.0 pt.\n\n\n\n\n\n\n\n\n\n\n\nFig. 4\n: A simplified model of earth’s layers.\n\n\n\n\nC. Java Tsunami\n\n\nThe 2006 Pangandaran earthquake and tsunami occurred on July 17 at 15:19:27 local time off the coast of west and central Java. During the earthquake where the epicenter fault is on the ocean floor, the fault may be displaced producing a remarkably large water wave called tsunami. In other words, a tsunami is a shallow-water wave which is initiated by a tiny amplitude, but with an extremely large wavelength. Consider a sudden fault causing a lifting of some ocean floor as shown in Fig. 5. Assume that the energy of the earthquake is transformed to the potential energy of this raised ocean water. For simple model we approximate that the raised water has a geometry of a box with its area of \n\\(\\lambda L/2\\)\n (where \n\\(L \\gg \\lambda\\)\n) and height of \n\\(h\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nFig. 5\n: Illustration for the tsunami wave \n\\(d\\)\n is the depth of the ocean.\n\n\n\n\nC.1Find the potential energy stored in the raised ocean water due to the earthquake with respect to ocean surface. Assume that the density of sea water is \n\\(\\rho\\)\n. 0.5 pt.\n\n\nC.2Find the speed of tsunami wave up to dimensionless factor. 1.2 pt.\n\n\nC.3Using energy argument, determine the amplitude of the tsunami wave as a function of the depth, assuming that the depth varies slowly and also knowing that at a depth of \n\\(d_0\\)\n the amplitude is \n\\(A_0\\)\n. 1.3 pt.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2017-t2/a3d38cfdb85aa201a881.jpg",
+      "/corpus/figures/native/bulk/ipho-2017-t2/fcad60258cc49789799f.png",
+      "/corpus/figures/native/bulk/ipho-2017-t2/e2945e4aeccf883b9471.png",
+      "/corpus/figures/native/bulk/ipho-2017-t2/3822a8e5de28e2e1d50a.png",
+      "/corpus/figures/native/bulk/ipho-2017-t2/72f307414f9f1570cbbd.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2017-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Earthquake, Volcano and Tsunami"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A. Merapi Volcano Eruption"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1 Using Black’s Principle the equilibrium temperature can be obtained 0.5 pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m_w c_{vw}(T_e - T_w) + m_m c_{vm}(T_e - T_m) = 0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_e = \\frac{m_w c_{vw} T_w + m_m c_{vm} T_m}{m_w c_{vw} + m_m c_{vm}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2 For ideal gas, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_e v_e = RT_e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", thus 0.3 pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p_e = \\frac{R}{v_e}\\,\\frac{m_w c_{vw} T_w + m_m c_{vm} T_m}{m_w c_{vw} + m_m c_{vm}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.3 The relative velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u_{rel}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be expressed as 0.5 pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[u_{rel} = \\kappa\\, p^{\\alpha} V^{\\beta} m^{\\gamma}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\kappa\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a dimensionless constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using dimensional analysis, one can obtain that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[LT^{-1} = M^{\\alpha+\\gamma} L^{-\\alpha+3\\beta} T^{-2\\alpha}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\alpha + \\gamma = 0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[-\\alpha + 3\\beta = 1\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[-2\\alpha = -1\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[u_{rel} = \\kappa\\, p^{1/2} V^{1/2} m^{-1/2}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total score 1.3 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B. The Yogyakarta Earthquake"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1 From the given seismogram, fig. 2 0.3 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2017-t2/4cab99f144eb64e439b4.png",
+                "alt": "ipho-2017-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "One can see that the P-wave arrived at 22:54:045 or (4.5 – 5.5) seconds after the earthquake occurred at the hypocenter."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since the horizontal distance from the epicenter to the seismic station in Gamping is 22.5 km, and the depth of the hypocenter is 15 km, the distance from the hypocenter to the station is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\sqrt{22.5^2 + 15^2}\\ \\mathrm{km} = 27.04\\ \\mathrm{km}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.1 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore, the P-wave velocity is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_P = \\frac{27.04\\ \\mathrm{Km}}{4.7\\ \\mathrm{s}} = 5.75\\ \\mathrm{Km/s}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.1 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "0.5 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2 Direct wave: 0.2 pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t_{\\mathrm{direct}} = \\frac{SR}{v_1} = \\frac{\\sqrt{500^2 + 15^2}}{v_1} = \\frac{502.021}{5.753}\\ \\mathrm{s} = 86.9\\ \\mathrm{s}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As in the case of an optical wave, the Snell’s law is also applicable to the seismic wave. 0.4 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2017-t2/4f3755cd134ffb8c65f4.png",
+                "alt": "ipho-2017-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Illustration for the traveling seismic Wave"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Reflected wave: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t_{\\mathrm{reflected}} = \\frac{SC}{v_1} + \\frac{CR}{v_1}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[SC\\cos\\varphi + CR\\cos\\varphi = 500 \\Rightarrow \\cot\\varphi = \\frac{500}{45}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t_{\\mathrm{reflected}} = \\frac{45}{v_1 \\sin\\varphi} = 87.3\\ \\mathrm{s}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "0.6 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.3 Velocity of P-wave on the mantle. The fastest wave crossing the mantle is that propagating along the upperpart of the mantle. From the figure on refracted wave, we obtain that 0.4 pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\sin\\theta}{v_1} = \\frac{1}{v_2};\\quad \\sin\\theta = \\frac{v_1}{v_2};\\quad \\cos\\theta = \\sqrt{1-\\left(\\frac{v_1}{v_2}\\right)^2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\cos\\theta = \\frac{15}{x_1};\\quad x_1 = \\frac{15}{\\cos\\theta}\\ \\mathrm{km};\\quad x_2 = \\frac{30}{\\cos\\theta}\\ \\mathrm{km}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_3 = 500 - (x_1 + x_2)\\sin\\theta = 500 - 45\\tan\\theta\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The total travel time: 0.5 pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t = \\frac{x_1 + x_2}{v_1} + \\frac{x_3}{v_2} = \\frac{45}{v_1\\cos\\theta} + \\frac{500}{v_2} - \\frac{45\\tan\\theta}{v_2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[t\\cos\\theta = 45u_1 + 500u_2\\cos\\theta - 45u_2\\sin\\theta\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u_1 = 1/v_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u_2 = 1/v_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Arranging the equation, we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(500^2 + 45^2\\right)u_2^2 - 2t\\,500u_2 + t^2 - 45^2\\,u_1 = 0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " whose solution is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_2 = \\frac{500tv_1^2 + 45v_1\\sqrt{(45^2 + 500^2) - t^2v_1^2}}{t^2v_1^2 - 45^2}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2017-t2/15da277336805d55c635.png",
+                "alt": "ipho-2017-t2 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "0.3 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From the seismogram, we know that the fastest wave arrived at Denpasar station at 22:55:15, which is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = 75\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " s from the origin time of the earthquake in Yogyakarta. Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_2 = 7.1\\ \\mathrm{km/s}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.4 By using Snell’s law and defining "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p = \\sin\\theta/v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u = 1/v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we obtain 0.2 pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p \\equiv u(0)\\sin\\theta_0 = u(z)\\sin\\theta; \\qquad \\sin\\theta = \\frac{p}{u(z)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(z) = 1/v(z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the initial angle of the seismic wave direction. 0.5 pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dx}{ds} = \\sin\\theta = \\frac{p}{u(z)}; \\qquad \\frac{dz}{ds} = \\cos\\theta = \\sqrt{1-\\left(\\frac{p}{u(z)}\\right)^2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dx}{dz} = \\frac{dx}{ds}\\,\\frac{ds}{dz} = \\frac{p}{u}\\,\\frac{u}{\\left(u^2-p^2\\right)^{1/2}} = p/\\left(u^2-p^2\\right)^{1/2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x = \\int_{z_1}^{z_2} \\frac{p}{\\left(u^2-p^2\\right)^{1/2}}\\,dz\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2017-t2/5cde4bfcb28c88f20539.png",
+                "alt": "ipho-2017-t2 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Illustration for the direction of wave"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is equal to twice the distance from epicenter to the turning point. The turning point is the point when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta=90^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus 0.7 pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p = u(z_t) = \\frac{1}{v_0 + az_t}; \\qquad z_t = \\frac{1 - pv_0}{ap}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[X = 2\\int_0^{z_t} \\frac{p(v_0 + az)}{\\left(1 - p^2(v_0 + az)^2\\right)^{1/2}}\\,dz = \\frac{2}{ap}\\left(\\sqrt{1-p^2(v_0 + az)^2} - \\sqrt{1-p^2v_0^2}\\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.5 For the travel time, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dt = \\frac{ds}{v(z)}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "; "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{dt}{ds} = u(z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0 pts pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dt}{dz} = \\frac{dt}{ds}\\,\\frac{ds}{dz} = \\frac{u^2}{\\left(u^2-p^2\\right)^{1/2}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and therefore "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T = 2\\int_0^{z_t} \\frac{u^2}{\\left(u^2-p^2\\right)^{1/2}}\\,dz = 2\\int_0^{z_t} \\frac{1}{(v_0 + az)}\\,\\frac{1}{\\left(1-p^2(v_0 + az)^2\\right)^{1/2}}\\,dz\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.6 The total travel time from the source to the Denpasar can be calculated using previous relation 0.6 pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T(p) = 2\\int_0^{z_t} \\frac{u^2(z)}{\\left(u^2(z)-p^2\\right)^{1/2}}\\,dz\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Which is valid for a continuous "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". For a simplified stacked of homogeneous layers (Figure F), the integral equation became a summation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T(p) = 2\\sum_{i}^{N} \\frac{u_i^2\\,\\Delta z_i}{\\left(u_i^2-p^2\\right)^{1/2}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "0.4 pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T(p) = 2\\,\\frac{u_1^2\\,\\Delta z_1}{\\left(u_1^2-p^2\\right)^{1/2}} + 2\\,\\frac{u_2^2\\,\\Delta z_2}{\\left(u_2^2-p^2\\right)^{1/2}} + 2\\,\\frac{u_3^2\\,\\Delta z_3}{\\left(u_3^2-p^2\\right)^{1/2}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[= \\frac{2 \\times (0.1504)^2 \\times 6}{\\left(0.1504^2-0.143^2\\right)^{1/2}} + \\frac{2 \\times (0.1435)^2 \\times 9}{\\left(0.1435^2-0.143^2\\right)^{1/2}} + \\frac{2 \\times (0.1431)^2 \\times 15}{\\left(0.1431^2-0.143^2\\right)^{1/2}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[= 151.64\\ \\text{second}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note that the actual travel time from the epicenter to Denpasar is 75 seconds. By varying the parameters of velocity and depth up to suitable value of observed travel time, physicist can know Earth structure."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.0 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total score 5.7 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C. Java Tsunami"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.1 The center of mass of the raised ocean water with respect to the ocean surface is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus 0.5 pts pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E_P = \\frac{h^2\\rho\\lambda L g}{4}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the ocean water density."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.2 Considering a shallow ocean wave in Fig. 5, the whole water (from the surface until the ocean floor) can be considered to be moving due to the wave motion. The potential energy is equal to the kinetic energy. 0.7 pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{1}{4}\\rho\\lambda h^2 L g = \\frac{1}{4}\\rho d L \\lambda U^2\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = \\lambda/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the horizontal speed of the water component."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The water component that was in the upper part "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(hL\\frac{\\lambda}{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " should be equal to the one that moves horizontally for a half of period of time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{\\tau}{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[hL\\lambda/2 = dLU\\tau/2.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[U = \\frac{h\\lambda}{\\tau d}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Accordingly, 0.5 pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau = \\frac{\\lambda}{\\sqrt{gd}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v = \\frac{\\lambda}{\\tau} = \\sqrt{gd}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.3 Using the argument that the wave energy density is proportional to its amplitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E = kA^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is amplitude and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a proportional constant Because the energy flux is conserve, then 1.3 pts pts "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[Eva = E_0 v_0 a\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for an area "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where the wave flow though. Then, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[kA^2\\sqrt{gd} = kA_0^2\\sqrt{gd_0}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[A = A_0\\left(\\frac{d_0}{d}\\right)^{\\frac{1}{4}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (Therefore the tsunami wave will increase its amplitude and become narrower as it approaches the beach)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total score 3.0 pts"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total Score for Problem T2:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Section A : 1.3 points"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nSection B : 5.7 points"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nSection C : 3.0 points"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nTotal : 10 points"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Earthquake, Volcano and Tsunami\n\n\nA. Merapi Volcano Eruption\n\n\nA.1 Using Black’s Principle the equilibrium temperature can be obtained 0.5 pts \n\\[m_w c_{vw}(T_e - T_w) + m_m c_{vm}(T_e - T_m) = 0\\]\n Thus, \n\\[T_e = \\frac{m_w c_{vw} T_w + m_m c_{vm} T_m}{m_w c_{vw} + m_m c_{vm}}\\]\n\n\nA.2 For ideal gas, \n\\(p_e v_e = RT_e\\)\n, thus 0.3 pts \n\\[p_e = \\frac{R}{v_e}\\,\\frac{m_w c_{vw} T_w + m_m c_{vm} T_m}{m_w c_{vw} + m_m c_{vm}}\\]\n\n\nA.3 The relative velocity \n\\(u_{rel}\\)\n can be expressed as 0.5 pts \n\\[u_{rel} = \\kappa\\, p^{\\alpha} V^{\\beta} m^{\\gamma}\\]\n where \n\\(\\kappa\\)\n is a dimensionless constant.\n\n\nUsing dimensional analysis, one can obtain that \n\\[LT^{-1} = M^{\\alpha+\\gamma} L^{-\\alpha+3\\beta} T^{-2\\alpha}\\]\n \n\\[\\alpha + \\gamma = 0\\]\n \n\\[-\\alpha + 3\\beta = 1\\]\n \n\\[-2\\alpha = -1\\]\n Therefore \n\\[u_{rel} = \\kappa\\, p^{1/2} V^{1/2} m^{-1/2}\\]\n\n\nTotal score 1.3 pts\n\n\nB. The Yogyakarta Earthquake\n\n\nB.1 From the given seismogram, fig. 2 0.3 pts\n\n\n\n\n\n\n\n\n\nOne can see that the P-wave arrived at 22:54:045 or (4.5 – 5.5) seconds after the earthquake occurred at the hypocenter.\n\n\nSince the horizontal distance from the epicenter to the seismic station in Gamping is 22.5 km, and the depth of the hypocenter is 15 km, the distance from the hypocenter to the station is \n\\[\\sqrt{22.5^2 + 15^2}\\ \\mathrm{km} = 27.04\\ \\mathrm{km}\\]\n 0.1 pts\n\n\nTherefore, the P-wave velocity is \n\\[v_P = \\frac{27.04\\ \\mathrm{Km}}{4.7\\ \\mathrm{s}} = 5.75\\ \\mathrm{Km/s}.\\]\n 0.1 pts\n\n\n0.5 pts\n\n\nB.2 Direct wave: 0.2 pts \n\\[t_{\\mathrm{direct}} = \\frac{SR}{v_1} = \\frac{\\sqrt{500^2 + 15^2}}{v_1} = \\frac{502.021}{5.753}\\ \\mathrm{s} = 86.9\\ \\mathrm{s}\\]\n\n\nAs in the case of an optical wave, the Snell’s law is also applicable to the seismic wave. 0.4 pts\n\n\n\n\n\n\n\n\n\nIllustration for the traveling seismic Wave\n\n\nReflected wave: \n\\[t_{\\mathrm{reflected}} = \\frac{SC}{v_1} + \\frac{CR}{v_1}\\]\n \n\\[SC\\cos\\varphi + CR\\cos\\varphi = 500 \\Rightarrow \\cot\\varphi = \\frac{500}{45}\\]\n \n\\[t_{\\mathrm{reflected}} = \\frac{45}{v_1 \\sin\\varphi} = 87.3\\ \\mathrm{s}\\]\n\n\n0.6 pts\n\n\nB.3 Velocity of P-wave on the mantle. The fastest wave crossing the mantle is that propagating along the upperpart of the mantle. From the figure on refracted wave, we obtain that 0.4 pts \n\\[\\frac{\\sin\\theta}{v_1} = \\frac{1}{v_2};\\quad \\sin\\theta = \\frac{v_1}{v_2};\\quad \\cos\\theta = \\sqrt{1-\\left(\\frac{v_1}{v_2}\\right)^2}\\]\n \n\\[\\cos\\theta = \\frac{15}{x_1};\\quad x_1 = \\frac{15}{\\cos\\theta}\\ \\mathrm{km};\\quad x_2 = \\frac{30}{\\cos\\theta}\\ \\mathrm{km}\\]\n \n\\[x_3 = 500 - (x_1 + x_2)\\sin\\theta = 500 - 45\\tan\\theta\\]\n\n\nThe total travel time: 0.5 pts \n\\[t = \\frac{x_1 + x_2}{v_1} + \\frac{x_3}{v_2} = \\frac{45}{v_1\\cos\\theta} + \\frac{500}{v_2} - \\frac{45\\tan\\theta}{v_2}\\]\n \n\\[t\\cos\\theta = 45u_1 + 500u_2\\cos\\theta - 45u_2\\sin\\theta\\]\n where \n\\(u_1 = 1/v_1\\)\n and \n\\(u_2 = 1/v_2\\)\n. Arranging the equation, we get \n\\[\\left(500^2 + 45^2\\right)u_2^2 - 2t\\,500u_2 + t^2 - 45^2\\,u_1 = 0\\]\n whose solution is \n\\[v_2 = \\frac{500tv_1^2 + 45v_1\\sqrt{(45^2 + 500^2) - t^2v_1^2}}{t^2v_1^2 - 45^2}\\]\n\n\n\n\n\n\n\n\n\n0.3 pts\n\n\nFrom the seismogram, we know that the fastest wave arrived at Denpasar station at 22:55:15, which is \n\\(t = 75\\)\n s from the origin time of the earthquake in Yogyakarta. Thus \n\\[v_2 = 7.1\\ \\mathrm{km/s}\\]\n\n\n1.2 pts\n\n\nB.4 By using Snell’s law and defining \n\\(p = \\sin\\theta/v\\)\n and \n\\(u = 1/v\\)\n, we obtain 0.2 pts \n\\[p \\equiv u(0)\\sin\\theta_0 = u(z)\\sin\\theta; \\qquad \\sin\\theta = \\frac{p}{u(z)}\\]\n where \n\\(u(z) = 1/v(z)\\)\n and \n\\(\\theta_0\\)\n is the initial angle of the seismic wave direction. 0.5 pts \n\\[\\frac{dx}{ds} = \\sin\\theta = \\frac{p}{u(z)}; \\qquad \\frac{dz}{ds} = \\cos\\theta = \\sqrt{1-\\left(\\frac{p}{u(z)}\\right)^2}\\]\n \n\\[\\frac{dx}{dz} = \\frac{dx}{ds}\\,\\frac{ds}{dz} = \\frac{p}{u}\\,\\frac{u}{\\left(u^2-p^2\\right)^{1/2}} = p/\\left(u^2-p^2\\right)^{1/2}\\]\n \n\\[x = \\int_{z_1}^{z_2} \\frac{p}{\\left(u^2-p^2\\right)^{1/2}}\\,dz\\]\n\n\n\n\n\n\n\n\n\nIllustration for the direction of wave\n\n\nThe distance \n\\(X\\)\n is equal to twice the distance from epicenter to the turning point. The turning point is the point when \n\\(\\theta=90^\\circ\\)\n. Thus 0.7 pts \n\\[p = u(z_t) = \\frac{1}{v_0 + az_t}; \\qquad z_t = \\frac{1 - pv_0}{ap}\\]\n \n\\[X = 2\\int_0^{z_t} \\frac{p(v_0 + az)}{\\left(1 - p^2(v_0 + az)^2\\right)^{1/2}}\\,dz = \\frac{2}{ap}\\left(\\sqrt{1-p^2(v_0 + az)^2} - \\sqrt{1-p^2v_0^2}\\right)\\]\n\n\n1.4 pts\n\n\nB.5 For the travel time, \n\\(dt = \\frac{ds}{v(z)}\\)\n; \n\\(\\frac{dt}{ds} = u(z)\\)\n. 1.0 pts pts\n\n\nThus \n\\[\\frac{dt}{dz} = \\frac{dt}{ds}\\,\\frac{ds}{dz} = \\frac{u^2}{\\left(u^2-p^2\\right)^{1/2}}\\]\n and therefore \n\\[T = 2\\int_0^{z_t} \\frac{u^2}{\\left(u^2-p^2\\right)^{1/2}}\\,dz = 2\\int_0^{z_t} \\frac{1}{(v_0 + az)}\\,\\frac{1}{\\left(1-p^2(v_0 + az)^2\\right)^{1/2}}\\,dz\\]\n\n\nB.6 The total travel time from the source to the Denpasar can be calculated using previous relation 0.6 pts \n\\[T(p) = 2\\int_0^{z_t} \\frac{u^2(z)}{\\left(u^2(z)-p^2\\right)^{1/2}}\\,dz\\]\n Which is valid for a continuous \n\\(u(z)\\)\n. For a simplified stacked of homogeneous layers (Figure F), the integral equation became a summation \n\\[T(p) = 2\\sum_{i}^{N} \\frac{u_i^2\\,\\Delta z_i}{\\left(u_i^2-p^2\\right)^{1/2}}\\]\n\n\n0.4 pts \n\\[T(p) = 2\\,\\frac{u_1^2\\,\\Delta z_1}{\\left(u_1^2-p^2\\right)^{1/2}} + 2\\,\\frac{u_2^2\\,\\Delta z_2}{\\left(u_2^2-p^2\\right)^{1/2}} + 2\\,\\frac{u_3^2\\,\\Delta z_3}{\\left(u_3^2-p^2\\right)^{1/2}}\\]\n \n\\[= \\frac{2 \\times (0.1504)^2 \\times 6}{\\left(0.1504^2-0.143^2\\right)^{1/2}} + \\frac{2 \\times (0.1435)^2 \\times 9}{\\left(0.1435^2-0.143^2\\right)^{1/2}} + \\frac{2 \\times (0.1431)^2 \\times 15}{\\left(0.1431^2-0.143^2\\right)^{1/2}}\\]\n \n\\[= 151.64\\ \\text{second}\\]\n\n\nNote that the actual travel time from the epicenter to Denpasar is 75 seconds. By varying the parameters of velocity and depth up to suitable value of observed travel time, physicist can know Earth structure.\n\n\n1.0 pts\n\n\nTotal score 5.7 pts\n\n\nC. Java Tsunami\n\n\nC.1 The center of mass of the raised ocean water with respect to the ocean surface is \n\\(h/2\\)\n. Thus 0.5 pts pts \n\\[E_P = \\frac{h^2\\rho\\lambda L g}{4}\\]\n where \n\\(\\rho\\)\n is the ocean water density.\n\n\nC.2 Considering a shallow ocean wave in Fig. 5, the whole water (from the surface until the ocean floor) can be considered to be moving due to the wave motion. The potential energy is equal to the kinetic energy. 0.7 pts \n\\[\\frac{1}{4}\\rho\\lambda h^2 L g = \\frac{1}{4}\\rho d L \\lambda U^2\\]\n Where \n\\(x = \\lambda/2\\)\n and \n\\(U\\)\n is the horizontal speed of the water component.\n\n\nThe water component that was in the upper part \n\\(hL\\frac{\\lambda}{2}\\)\n should be equal to the one that moves horizontally for a half of period of time \n\\(\\frac{\\tau}{2}\\)\n, i.e. \n\\[hL\\lambda/2 = dLU\\tau/2.\\]\n Thus we have \n\\[U = \\frac{h\\lambda}{\\tau d}\\]\n\n\nAccordingly, 0.5 pts \n\\[\\tau = \\frac{\\lambda}{\\sqrt{gd}}\\]\n Thus \n\\[v = \\frac{\\lambda}{\\tau} = \\sqrt{gd}\\]\n\n\n1.2 pts\n\n\nC.3 Using the argument that the wave energy density is proportional to its amplitude \n\\(E = kA^2\\)\n with \n\\(A\\)\n is amplitude and \n\\(k\\)\n is a proportional constant Because the energy flux is conserve, then 1.3 pts pts \n\\[Eva = E_0 v_0 a\\]\n for an area \n\\(a\\)\n where the wave flow though. Then, \n\\[kA^2\\sqrt{gd} = kA_0^2\\sqrt{gd_0}\\]\n \n\\[A = A_0\\left(\\frac{d_0}{d}\\right)^{\\frac{1}{4}}\\]\n (Therefore the tsunami wave will increase its amplitude and become narrower as it approaches the beach).\n\n\nTotal score 3.0 pts\n\n\nTotal Score for Problem T2:\n\n\nSection A : 1.3 points\n\n\nSection B : 5.7 points\n\n\nSection C : 3.0 points\n\n\nTotal : 10 points\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2017-t2/4cab99f144eb64e439b4.png",
+      "/corpus/figures/native/bulk/ipho-2017-t2/4f3755cd134ffb8c65f4.png",
+      "/corpus/figures/native/bulk/ipho-2017-t2/15da277336805d55c635.png",
+      "/corpus/figures/native/bulk/ipho-2017-t2/5cde4bfcb28c88f20539.png"
+    ],
+    "shared": false
+  }
+}

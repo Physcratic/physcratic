@@ -38,7 +38,7 @@ const shortHelp = 60;
  * An expression is typed in one maths field with a palette under it. A number is a plain box. A problem counts as
  * solved in this browser when every part with an answer box is correct.
  */
-type PanelProps = { problemId: string; onCorrect?: () => void; onSeeHint?: () => void; nextHref?: string; resetToken?: number; saveProgress?: boolean };
+type PanelProps = { problemId: string; onCorrect?: () => void; onSeeHint?: () => void; nextHref?: string; resetToken?: number; saveProgress?: boolean; onReviewSolution?: () => void };
 export function ArchiveAnswerPanel(props: PanelProps) {
   const { data, error, mutate } = useSWRImmutable(`/corpus/grading/${encodeURIComponent(props.problemId)}.json`, loadMetadata);
   const session = authClient.useSession();
@@ -56,7 +56,7 @@ export function ArchiveAnswerPanel(props: PanelProps) {
   return <ArchiveAnswerWorkspace key={`${boundary.current.epoch}:${data.problemId}:${data.version}`} {...props} data={data} account={account} saveAccount={saveAccount} resolving={session.isPending} refreshMetadata={() => { void mutate(); }} />;
 }
 
-function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, resetToken, saveProgress, data, account, saveAccount, resolving, refreshMetadata }: PanelProps & { data: ArchiveMetadata; account: string; saveAccount?: string; resolving: boolean; refreshMetadata: () => void }) {
+function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, resetToken, saveProgress, onReviewSolution, data, account, saveAccount, resolving, refreshMetadata }: PanelProps & { data: ArchiveMetadata; account: string; saveAccount?: string; resolving: boolean; refreshMetadata: () => void }) {
   const [journal, setJournal] = useState(() => new PracticeCheckJournal(account, problemId, data.version, practiceSessionStorage()));
   const [answers, setAnswers] = useState<Record<string, string>>(() => journal.book.answers);
   const currentAnswers = useRef(answers);
@@ -158,13 +158,14 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
   };
   const set = (partId: string, value: string) => { const next = { ...currentAnswers.current, [partId]: value }; currentAnswers.current = next; if (resolving) typedWhileResolving.current = true; setAnswers(next); if (!conflict) journal.edit(worthKeeping(next)); redraw(n => n + 1); setResult(null); setError(""); setSaveMessage(""); };
   const notes = data?.parts.filter((part) => part.kind !== "self-review" && part.help && !(part.kind === "numeric" && part.help.length <= shortHelp)) ?? [];
+  const hasAutomaticChecks = data.parts.some(part => part.kind !== "self-review");
 
   return <section id="step-answer" aria-labelledby="step-answer-title" className="flex min-w-0 scroll-mt-24 flex-col gap-6">
     <header className="flex flex-col gap-2">
       <StepHeading step={2} id="step-answer-title">Answer</StepHeading>
-      <p className="text-sm leading-relaxed text-muted-foreground">{saveAccount ? "When saving is available, checked answers are saved privately to your account. A confirmation appears after saving. Checks do not change your rating." : "Checks are not saved and do not change your rating."}</p>
+      <p className="text-sm leading-relaxed text-muted-foreground">{!hasAutomaticChecks ? "Compare these responses with the worked solution. They are not automatically graded or saved to account progress." : saveAccount ? "When saving is available, checked answers are saved privately to your account. A confirmation appears after saving. Checks do not change your rating." : "Checks are not saved and do not change your rating."}</p>
     </header>
-    {data?.problemId === problemId && <form onSubmit={(event) => { void checkAnswers(event); }} className="flex min-w-0 flex-col gap-6" onKeyDown={(event) => {
+    {data?.problemId === problemId && <form onSubmit={(event) => { event.preventDefault(); if (hasAutomaticChecks) void checkAnswers(event); }} className="flex min-w-0 flex-col gap-6" onKeyDown={(event) => {
       if (event.key === "Enter" && (event.nativeEvent.isComposing || event.keyCode === 229)) event.preventDefault();
     }}>
       <FieldGroup>
@@ -173,6 +174,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
           const feedback = result?.results.find((item) => item.partId === part.id);
           const invalid = feedback?.status === "invalid" || feedback?.status === "incorrect";
           const card = `min-w-0 rounded-lg border bg-card p-4 text-card-foreground ${partBorder}`;
+          if (part.kind === "self-review" && part.responseFormat) return <div key={part.id} style={partStyle(colors[position])} className={card}><Field><FieldLabel id={`${id}-label`} htmlFor={id} className="flex-wrap items-center"><PartChip index={colors[position]}>{part.sourcePart}</PartChip><span className="text-base font-medium">{part.label}</span></FieldLabel>{part.responseFormat === "math" ? <MathAnswerField id={id} labelId={`${id}-label`} value={answers[part.id] ?? ""} onChange={latex => set(part.id, latex)} symbols={[]} checkSymbols={false} upgradeOnBlur disabled={busy} describedBy={`${id}-help`} maxLength={archiveAnswerLimit} /> : <textarea id={id} className="min-h-28 w-full rounded-md border border-input bg-background p-3 text-base" value={answers[part.id] ?? ""} maxLength={archiveAnswerLimit} onChange={event => set(part.id, event.target.value)} disabled={busy} aria-describedby={`${id}-help`} />}<FieldDescription id={`${id}-help`}>Self-review. Compare with the worked solution.</FieldDescription></Field></div>;
           if (part.kind === "self-review") return <div key={part.id} style={partStyle(colors[position])} className={card}><Alert><AlertTitle className="flex flex-wrap items-center gap-2"><PartChip index={colors[position]}>{part.sourcePart}</PartChip>{part.label}</AlertTitle><AlertDescription>Check this one yourself. {part.help} Compare your reasoning with the worked solution. It is not graded.</AlertDescription></Alert>{saveProgress === false && <Field className="mt-4"><FieldLabel htmlFor={id}>Your reasoning for {part.sourcePart}</FieldLabel><textarea id={id} className="min-h-28 w-full rounded-md border border-input bg-background p-3 text-base" value={answers[part.id] ?? ""} maxLength={archiveAnswerLimit} onChange={event => set(part.id, event.target.value)} disabled={busy} /></Field>}</div>;
           const conditions = formatConditions(part.symbolConditions);
           return <div key={part.id} data-tour={position === 0 ? "answer-box" : undefined} style={partStyle(colors[position])} className={card}><Field data-invalid={invalid} data-disabled={busy}>
@@ -193,7 +195,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
       </FieldGroup>
       {notes.length > 0 && <details className="min-w-0 rounded-lg border p-4"><summary className="flex min-h-11 cursor-pointer items-center text-sm font-medium">Notes for each part</summary><ul className="flex flex-col gap-2 pt-3 text-sm leading-relaxed text-muted-foreground">{notes.map((part) => <li key={part.id}><strong className="font-medium text-foreground">{part.sourcePart} {part.label}.</strong> {part.help}</li>)}</ul></details>}
       <div className="flex min-w-0 flex-col gap-4">
-        <StepHeading step={3} as="h3" id="step-check">Check</StepHeading>
+        <StepHeading step={3} as="h3" id="step-check">{hasAutomaticChecks ? "Check" : "Review"}</StepHeading>
         {conflict && <Alert><AlertTitle>Choose your draft</AlertTitle><AlertDescription>Another recovery entry exists for this account. Choose the answer fields to keep. Pending saves stay unchanged. Until you choose, copy new edits before leaving or reloading.
           <div className="flex flex-wrap gap-3"><Button type="button" variant="outline" className="min-h-11" onClick={() => { journal.edit(currentAnswers.current); setConflict(false); redraw(n => n + 1); }}>Keep current draft</Button><Button type="button" variant="outline" className="min-h-11" onClick={() => { currentAnswers.current = journal.book.answers; setAnswers(journal.book.answers); setConflict(false); setResult(null); }}>Restore account draft</Button></div>
         </AlertDescription></Alert>}
@@ -202,7 +204,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
         {saveMessage && <p role="status" className="text-sm">{saveMessage}</p>}
         {error && <Alert variant="destructive"><AlertTitle>Could not check your answers</AlertTitle><AlertDescription>{error} Your input is unchanged. Copy your answers before refreshing if the problem changed. <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={refreshMetadata}>Refresh answer fields</Button></AlertDescription></Alert>}
         <div className="flex flex-wrap gap-3">
-          <Button type="submit" data-tour="check-button" className="min-h-11 px-6" disabled={busy || Boolean(saveAccount && (journal.book.pending || conflict || journal.account !== account))}>{busy && <Loader2 className="animate-spin" data-icon="inline-start" />}{busy ? "Checking…" : "Check answer"}</Button>
+          {hasAutomaticChecks ? <Button type="submit" data-tour="check-button" className="min-h-11 px-6" disabled={busy || Boolean(saveAccount && (journal.book.pending || conflict || journal.account !== account))}>{busy && <Loader2 className="animate-spin" data-icon="inline-start" />}{busy ? "Checking…" : "Check answer"}</Button> : onReviewSolution && <Button type="button" className="min-h-11 px-6" onClick={onReviewSolution}>Compare with worked solution</Button>}
           {journal.book.pending && <Button type="button" variant="outline" className="min-h-11" disabled={busy || !saveAccount || conflict} onClick={() => { void checkAnswers(undefined, false, true); }}>Retry pending save</Button>}
           {saveAccount && (journal.book.pending || journal.warning || error || conflict) && <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={() => { void checkAnswers(undefined, true); }}>Check without saving</Button>}
           <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={() => { currentAnswers.current = {}; setAnswers({}); if (!conflict) journal.edit({}); redraw(n => n + 1); setResult(null); setError(""); }}><RotateCcw data-icon="inline-start" />Clear answers</Button>

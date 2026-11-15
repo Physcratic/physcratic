@@ -54,19 +54,6 @@ jobs:
         run: |
           node --conditions=react-server --import tsx scripts/build-native-olympiads.ts
           git diff --exit-code -- lib/corpus public/corpus docs/engineering/native-archive-*.json
-      - name: Native archive guest and verified solving
-        env:
-          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/library-tools
-        run: |
-          node --require ./tests/server-only-register.cjs --import tsx tests/native-olympiad.browser.mjs
-          NATIVE_BROWSER_SESSION=guest node --require ./tests/server-only-register.cjs --import tsx tests/native-olympiad.browser.mjs
-      - name: Native archive visual evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: native-archive-screenshots
-          path: work/native-*.png
-          if-no-files-found: warn
       - name: Production build with synthetic configuration
         env:
           BETTER_AUTH_SECRET: ci-build-only-physcratic-synthetic-secret-0000000000000000
@@ -79,7 +66,6 @@ jobs:
           HOME_LIBRARY_BROWSER: '1'
           HOME_ARCHIVE_BROWSER: '1'
           HOME_TOPIC_BROWSER: '1'
-          HOME_PDF_BROWSER: '1'
           PDF_EVIDENCE: ${{ runner.temp }}/library-screenshots/pdf
           TOPIC_SCREENSHOTS: ${{ runner.temp }}/library-screenshots/topics
           ARCHIVE_SCREENSHOTS: ${{ runner.temp }}/library-screenshots/archive

@@ -1,1 +1,5530 @@
-{"id":"ipho-2025-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2025_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2025_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2025-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Theory\nQ3-1\nEnglish (Official)\nChampagne! (10 points)\nWarning: Excessive alcohol consumption is harmful to health and drinking alcohol below legal age is\nprohibited.\nChampagne is a French sparkling wine. Fermentation of sugars produces\ncarbon dioxide (CO2) in the bottle. The molar concentration of CO2 in the\nliquid phase 𝑐ℓand the partial pressure 𝑃CO2 in the gas phase are related\nby 𝑐ℓ= 𝑘H𝑃CO2, known as Henry's law and where 𝑘H is called Henry's con-\nstant.\nData\n• Surface tension of champagne 𝜎= 47×10−3 J⋅m−2\n• Density of the liquid 𝜌ℓ= 1.0×103 kg⋅m−3\n• Henry's constant at 𝑇0 = 20°C, 𝑘H(20°C) = 3.3×10−4 mol⋅m−3 ⋅Pa−1\n• Henry's constant at 𝑇0 = 6°C, 𝑘H(6°C) = 5.4×10−4 mol⋅m−3 ⋅Pa−1\n• Atmospheric pressure 𝑃0 = 1bar = 1.0×105 Pa\n• Gases are ideal with an adiabatic coefficient 𝛾= 1.3\nFig.\n1.\nA glass filled with\nchampagne.\nPart A. Nucleation, growth and rise of bubbles\nImmediately after opening a bottle of champagne at temperature 𝑇0 = 20°C , we fill a glass. The pressure\nin the liquid is 𝑃0 and its temperature stays constant at 𝑇0. The concentration 𝑐ℓof dissolved CO2 exceeds\nthe equilibrium concentration and we study the nucleation of a CO2 bubble. We note 𝑎its radius and 𝑃b\nits inner pressure.\nA.1\nExpress the pressure 𝑃b in terms of 𝑃0, 𝑎and 𝜎.\n0.2pt\nIn the liquid, the concentration of dissolved CO2 depends on the distance to the bubble. At long distance\nwe recover the value 𝑐ℓand we note 𝑐b the concentration close to the bubble surface. According to\nHenry's law, 𝑐b = 𝑘H𝑃b. We furthermore assume in all the problem that bubbles contain only CO2.\nSince 𝑐ℓ≠𝑐b, CO2 molecules diffuse from areas of high to low concentration. We assume also that any\nmolecule from the liquid phase reaching the bubble surface is transferred to the vapour.\nA.2\nExpress the critical radius 𝑎c above which a bubble is expected to grow in terms\nof 𝑃0,𝜎,𝑐ℓand 𝑐0 where 𝑐0 = 𝑘H𝑃0. Calculate numerically 𝑎c for 𝑐ℓ= 4𝑐0.\n0.5pt\nIn practice, bubbles mainly grow from pre-existing gas cavities. Consider then a bubble with initial radius\n𝑎0 ≈40µm. The number of moles of CO2 transferred at the bubble's surface per unit area and time is noted\n𝑗. Two models are possible for 𝑗.\n• model (1) 𝑗= 𝐷\n𝑎(𝑐ℓ−𝑐b) where 𝐷is the diffusion coefficient of CO2 in the liquid.\n• model (2) 𝑗= 𝐾(𝑐ℓ−𝑐b) where 𝐾is a constant here.\nExperimentally, the bubble radius 𝑎(𝑡) is found to depend on time as shown in Fig. 2. Here 𝑐ℓ≈4𝑐0, and\nsince bubbles are large enough to be visible, the excess pressure due to surface tension can be neglected\nand 𝑃b ≈𝑃0.\n\nTheory\nQ3-2\nEnglish (Official)\nA.3\nExpress the number of CO2 moles in the bubble 𝑛c in terms of 𝑎,𝑃0,𝑇0 and ideal\ngas constant 𝑅. Find 𝑎(𝑡) for both models. Indicate which model explains the\nexperimental results in Fig. 2. Depending on your answer, calculate numeri-\ncally 𝐾or 𝐷.\n1.2pt\nFig. 2. Time evolution of CO2 bubble radius in a glass of champagne (adapted from [1]).\nEventually bubbles detach from the bottom of the glass and continue to grow while rising. Fig. 3. shows\na train of bubbles. The bubbles of the train have the same initial radius and are emitted at a constant\nfrequency 𝑓b = 20Hz.\n𝑧\n⃗𝑢𝑧\n1 mm\n⃗𝑔0\nFig. 3. A train of bubbles. The photo is rotated horizontally for the page layout (adapted from\n[1]).\nFor the range of velocities studied here, the drag force 𝐹on a bubble of radius 𝑎moving at velocity 𝑣in a\nliquid of dynamic viscosity 𝜂is given by Stokes' law 𝐹= 6𝜋𝜂𝑎𝑣. Measurements show that at any moment\nin time, the bubble can be assumed to be travelling at its terminal velocity.\nA.4\nGive the expression of the main forces exerted on a vertically rising bubble.\nObtain the expression of 𝑣(𝑎). Give a numerical estimate of 𝜂using 𝜌ℓ, 𝑔0 and\nquantities measured on Fig. 3.\n0.8pt\nThe quasi-stationary growth of bubbles with rate 𝑞𝑎= d𝑎\nd𝑡still applies during bubble rise.\nA.5\nExpress the radius 𝑎𝐻ℓof a bubble reaching the free surface in terms of height\ntravelled 𝐻ℓ, growth rate 𝑞𝑎= d𝑎\nd𝑡, and any constants you may need. Assume\n𝑎𝐻ℓ≫𝑎0 and 𝑞𝑎constant, and give the numerical value of 𝑎𝐻ℓwith 𝐻ℓ= 10cm\nand 𝑞𝑎corresponding to Fig. 2.\n0.5pt\n\nTheory\nQ3-3\nEnglish (Official)\nThere are 𝑁b nucleation sites of bubbles. Assume that the bubbles are nucleated at a constant frequency\n𝑓b at the bottom of a glass of champagne (height 𝐻ℓfor a volume 𝑉ℓ), with 𝑎0 still negligible. Neglect\ndiffusion of CO2 at the free surface.\nA.6\nWrite the differential equation for 𝑐ℓ(𝑡). Obtain from this equation the charac-\nteristic time 𝜏for the decay of the concentration of dissolved CO2 in the liquid.\n1.1pt\nPart B. Acoustic emission of a bursting bubble\nSmall bubbles are nearly spherical as they reach the free surface. Once the liquid film separating the\nbubble from the air thins out sufficiently, a circular hole of radius 𝑟forms in the film and, driven by\nsurface tension, opens very quickly (Fig. 4. left). The hole opens at constant speed 𝑣f (Fig. 4. right). The\nfilm outside the rim remains still, with constant thickness ℎ.\n𝑟𝑐\n𝑎\n𝐴\n(1)\n(2)\n(3)\n(𝛼)\nℎ\n⃗𝑣f\n(𝛽)\n𝐴\n𝑟(𝑡)\n(𝛾)\n(𝛿)\n⃗𝑣f\n𝑣f d𝑡\n𝑅m\nℎ\n𝑟(𝑡)\n𝑧\n𝐴\n𝑣f d𝑡\n𝐴\n𝑟(𝑡)\nFig. 4. (Left) (𝛼) Bubble at the surface: (1) liquid, (2) air at pressure 𝑃0 and (3), CO2 at pressure\n𝑃b, (𝛽) and (𝛾) retraction of the liquid film, where the rim is in dark blue, (𝛿) bubble collapse.\n(Right) Retraction of the liquid film at time 𝑡. Top: sketch of the pierced film seen from above.\nBottom: cross-section of the rim and the retracting film. During d𝑡the rim accumulates nearby\nliquid (dotted).\nDue to dissipative processes, only half of the difference of the surface energy between 𝑡and 𝑡+d𝑡of the\nrim and the accumulated liquid is transformed into kinetic energy. We further assume that the variation\nof the surface of the rim is negligible compared to that of the film.\nB.1\nExpress 𝑣f in terms of 𝜌ℓ,𝜎and ℎ.\n1.1pt\n\nTheory\nQ3-4\nEnglish (Official)\n𝑚P\n𝑆\n𝑧\n𝑃(𝑡)\n𝑧\n0\n𝑃0\n𝑎\n2𝑟\nFig. 5. (Left) a Helmholtz resonator. (Right) a bubble as\nan oscillator.\nWhen the film bursts, it releases internal\npressure and emits a sound. We model\nthis acoustic emission by a Helmholtz res-\nonator: a cavity open to the atmosphere\nat 𝑃0 through a bottleneck aperture of\narea 𝑆(Fig. 5. left). In the neck, a mass\n𝑚p makes small amplitude position oscil-\nlations due to the pressure forces it expe-\nriences as the gas in the cavity expands\nor compresses adiabatically.\nThe grav-\nity force on 𝑚p is negligible compared to\npressure forces. Let 𝑉0 be the volume of\ngas under the mass 𝑚p for 𝑃= 𝑃0 as 𝑧= 0.\nB.2\nExpress the frequency of oscillation 𝑓0 of 𝑚p. Hint: for 𝜀≪1, (1+𝜀)𝛼≈1+𝛼𝜀.\n1.1pt\nThe Helmholtz model may be used for a bubble of radius 𝑎. 𝑉0 is the volume of the closed bubble. From\nlitterature, the mass of the equivalent of the piston is 𝑚𝑝= 8𝜌𝑔𝑟3/3 where 𝑟is the radius of the circular\naperture and 𝜌𝑔= 1.8kg⋅m−3 is the density of the gas (Fig. 5. right). During the bursting process, 𝑟goes\nfrom 0 to 𝑟c, given by 𝑟c = 2\n√3\n𝑎2\n𝜌ℓ𝑔0\n𝜎. At the same time, the frequency of emitted sound increases until\na maximum value of 40kHz and the bursting time is 𝑡𝑏= 3×10−2 ms.\nB.3\nFind the radius 𝑎and the thickness ℎof the champagne film separating the\nbubble from the atmosphere.\n1.1pt\nPart C. Popping champagne\nIn a bottle, the total quantity of CO2 is 𝑛T = 0.2mol, either dissolved in the volume 𝑉L = 750mL of liquid\nchampagne, or as a gas in the volume 𝑉G = 25mL under the cork (Fig. 6. left). 𝑉G contains only CO2.\nThe equilibrium between both CO2 phases follows Henry's Law. We suppose that the fast gaseous CO2\nexpansion when the bottle is opened, is adiabatic and reversible. Ambient temperature 𝑇0 and pressure\n𝑃0 = 1bar are constant.\n𝑑\n𝑃0\n𝑃i, 𝑉G\n𝑐ℓ= 𝑘H𝑃i\n𝑉L\nℓ0\n}(4)\n}(3)\n}\n(2)\n}\n(1)\n}\nFig. 6. Left: traditional bottleneck: (1) surrounding air, (2) cork stopper, (3) headspace, (4)\nliquid champagne. Right: Two phenomena observed while opening the bottle at two different\ntemperatures (adapted from [2]).\n\nTheory\nQ3-5\nEnglish (Official)\nC.1\nGive the numerical value of the pressure 𝑃i of gaseous CO2 in the bottle for\n𝑇0 = 6°C and 𝑇0 = 20°C.\n0.4pt\nAnother step of champagne production (not described here) leads to the following values of 𝑃𝑖that we\nwill use for the next questions: 𝑃i = 4.69bar at 𝑇0 = 6°C and 𝑃i = 7.45bar at 𝑇0 = 20°C.\nDuring bottle opening, two different phenomena can be observed, depending on 𝑇0 (Fig. 6. right).\n• either a blue fog appears, due to the formation of solid CO2 crystals (but water condensation is\ninhibited);\n• or a grey-white fog appears, due to water vapor condensation in the air surrounding the bottleneck.\nIn this latter case, there is no formation of CO2 solid crystals.\nThe saturated vapor pressure 𝑃CO2\nsat\nfor the CO2 solid/gas transition follows : log10 ⒧𝑃CO2\nsat\n𝑃0\n⒭= 𝐴−\n𝐵\n𝑇+𝐶with\n𝑇in K, 𝐴= 6.81, 𝐵= 1.30×103 K and 𝐶= −3.49K.\nC.2\nGive the numerical value 𝑇f of the CO2 gas at the end of the expansion, after\nopening a bottle, if 𝑇0 = 6°C and if 𝑇0 = 20°C, if no phase transition occured.\nChoose which statements are true (several statements possible):\n1. At 𝑇0 = 6°C a grey-white fog appears while opening the bottle.\n2. At 𝑇0 = 6°C a blue fog appears while opening the bottle.\n3. At 𝑇0 = 20°C a grey-white fog appears while opening the bottle.\n4. At 𝑇0 = 20°C a blue fog appears while opening the bottle.\n0.7pt\nDuring bottle opening, the cork stopper pops out. We now determine the maximum height 𝐻c it reaches.\nAssume that the friction force 𝐹due to the bottleneck on the cork stopper is 𝐹= 𝛼𝐴where 𝐴is the area\nof contact and 𝛼is a constant to determine. Initially, the pressure force slightly overcomes the friction\nforce. The cork's mass is 𝑚= 10g, its diameter 𝑑= 1.8cm and the length of the cylindrical part initially\nstuck in the bottleneck is ℓ0 = 2.5cm. Once the cork has left the bottleneck, you can neglect the net\npressure force.\nC.3\nGive the numerical value of 𝐻c if the external temperature is 𝑇0 = 6°C.\n1.3pt\n[1] Liger-Belair et al, Am. J. Enol. Vitic., Vol. 50, No. 3 (1999).\n[2] Liger-Belair et al., Sc. Reports 7, 10938 (2017).\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2025-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8,9,10,11,12,13],"initialPage":1,"shared":false,"text":"Theory\nQ3-1\nEnglish (Official)\nChampagne! (10 points)\n:::::::::\nWarning:::::::::::\nExcessive:::::::\nalcohol:::::::::::::\nconsumption::is:::::::::\nharmful ::\nto:::::::\nhealth::::\nand:::::::::\ndrinking :::::::\nalcohol::::::\nbelow:::::\nlegal:::::\nage ::\nis\n::::::::::\nprohibited.:\nChampagne is a French sparkling wine.\nAlcoholic fermentation\n:::::::::::::\nFermentation :of sugars produces carbon dioxide :::::\n(CO2):in the bottle.\nHenry's law relates the::::\nThe molar concentration of CO2 in the liquid phase\n𝑐ℓand the partial pressure 𝑃CO2 in the gas phase :::\nare:::::::\nrelated:::\nby 𝑐ℓ= 𝑘H𝑃CO2:,\n::::::\nknown:::\nas::::::::\nHenry's :::\nlaw::::\nand:::::::\nwhere :::\n𝑘H ::\nis ::::::\ncalled :::::::\nHenry's:::::::::\nconstant.\nData\n• Surface tension of champagne 𝜎= 47×10−3 J⋅m−2\n• Density of the liquid phase 𝜌ℓ= 1.0×103 kg⋅m−3\n• Henry's constant at 𝑇0 = 20°C, 𝑘H(20°C) = 3.3×10−4 mol⋅m−3 ⋅Pa−1\n• Henry's constant at 𝑇0 = 6°C, 𝑘H(6°C) = 5.4×10−4 mol⋅m−3 ⋅Pa−1\n• Atmospheric pressure 𝑃0 = 1.0×105 Pa ::::::::::::::::::::\n𝑃0 = 1bar = 1.0×105 Pa\n• Gases are ideal with an adiabatic coefficient 𝛾= 1.3\nFig.\n1.\nA glass filled with\nchampagne.\nPart A. Nucleation, growth and rise of bubbles\nImmediately after opening a bottle of champagne at temperature 𝑇0 = 20°C , we fill a glass. Assume that\nthe :::\nThe pressure in the liquid is 𝑃0 and that the temperature stay constant:::\nits ::::::::::::\ntemperature:::::\nstays:::::::::\nconstant\n::\nat::\n𝑇0. The concentration 𝑐ℓof dissolved CO2 exceeds the equilibrium concentration .\nFirst, ::::\nand:we study the nucleation of a bubble of radius ::::\nCO2 ::::::::\nbubble. ::::\nWe:::::\nnote:𝑎, inner pressure ::\nits\n::::::\nradius::::\nand 𝑃b , and where the concentration of dissolved CO2 at the bubble surface in the liquid phase is\n𝑐b = 𝑘H𝑃b ::\nits :::::\ninner:::::::::\npressure.\nA.1\nExpress the pressure 𝑃b in terms of 𝑃0, 𝑎and 𝜎.\n0.2pt\nSOLUTION:\nA.1. Laplace's law: 𝑃b = 𝑃0 + 2𝜎\n𝑎(all or nothing, as for all the\nanswers)\n0.2\n::\nIn:::\nthe:::::::\nliquid, :::\nthe::::::::::::::\nconcentration ::\nof:::::::::\ndissolved::::\nCO2:::::::::\ndepends:::\non :::\nthe:::::::::\ndistance ::\nto::::\nthe :::::::\nbubble.:::\nAt ::::\nlong:::::::::\ndistance\n:::\nwe :::::::\nrecover::::\nthe::::::\nvalue:::\n𝑐ℓ::::\nand:::\nwe:::::\nnote:::\n𝑐b::::\nthe::::::::::::::\nconcentration :::::\nclose:::\nto::::\nthe :::::::\nbubble::::::::\nsurface.:::::::::::\nAccording:::\nto\n:::::::\nHenry's::::\nlaw,::::::::::\n𝑐b = 𝑘H𝑃b.::::\nWe ::::::::::::\nfurthermore ::::::::\nassume ::\nin::\nall::::\nthe:::::::::\nproblem ::::\nthat::::::::\nbubbles::::::::\ncontain ::::\nonly:::::\nCO2.\nSince 𝑐ℓ≠𝑐b, CO2 molecules diffuse from areas of high to low concentration. :::\nWe::::::::\nassume::::\nalso:::::\nthat ::::\nany\n:::::::::\nmolecule :::::\nfrom :::\nthe::::::\nliquid::::::\nphase:::::::::\nreaching::::\nthe :::::::\nbubble :::::::\nsurface::is:::::::::::\ntransferred:::\nto :::\nthe::::::::\nvapour.:\nA.2\nExpress the critical radius 𝑎c above which a bubble is expected to grow in terms\nof 𝑃0,𝜎,𝑐ℓand 𝑐0 where 𝑐0 = 𝑘H𝑃0. Calculate numerically 𝑎c for 𝑐ℓ= 4𝑐0.\n0.5pt\nSOLUTION:\n\nTheory\nQ3-2\nEnglish (Official)\nA.2.1. 𝑎c is so 𝑐ℓ= 𝑐b\nA.2.2. 𝑐b = 𝑘H𝑃b = 𝑘H(𝑃0 + 2𝜎\n𝑎) and 𝑐0 = 𝑘H𝑃0 so 𝑎c =\n2𝜎\n𝑃0(𝑐ℓ/𝑐0 −1)\nA.2.3. 𝑎c = 0.3µm\nA.2.1. comparison (equality 𝑐b = 𝑐ℓor inequality 𝑐b ≤𝑐ℓ)\n0.1\nA.2.2. exact expression 𝑎c =\n2𝜎\n𝑃0(𝑐ℓ/𝑐0 −1)\n0.2\nA.2.3. numerical value 𝑎c = 0.3µm\n0.2\nAt low 𝑐ℓ, bubbles ::\nIn:::::::::\npractice, ::::::::\nbubbles:::::::\nmainly:grow from pre-existing gas cavities. First, we consider\na spherical bubble at rest with an ::::::::\nConsider:::::\nthen::a::::::::\nbubble ::::\nwith:initial radius 𝑎0 ≈40µm. The number\nof moles of CO2 transferred at the bubble's surface per unit area and time is noted 𝑗. Two models are\npossible for 𝑗.\n• model (1) 𝑗= 𝐷\n𝑎(𝑐ℓ−𝑐b) where 𝐷is the diffusion coefficient of CO2 in the liquid.\n• model (2) 𝑗= 𝐾(𝑐ℓ−𝑐b) where 𝐾depends on various thermodynamical parameters :is::a:::::::::\nconstant\n::::\nhere.\nExperimentally, the bubble radius 𝑎(𝑡) is found to depend on time as shown in Fig. 2. Here 𝑐ℓ≈4𝑐0, and\nsince bubbles are large enough to be visible,:::\nthe:::::::\nexcess:::::::::\npressure ::::\ndue ::\nto:::::::\nsurface::::::::\ntension :::\ncan:::\nbe::::::::::\nneglected\n::::\nand 𝑃b ≈𝑃0.\nA.3\nExpress the number of CO2 moles in the bubble 𝑛c in terms of 𝑎,𝑃0,𝑅and\n𝑇0 ::::::\n𝑎,𝑃0,𝑇0::::\nand:::::\nideal::::\ngas:::::::::\nconstant::𝑅. Find 𝑎(𝑡) for both models. Indicate which\nmodel explains the experimental results in Fig. 2. Depending on your answer,\ncalculate numerically 𝐾or 𝐷.\n1.2pt\nFig. 2. Time evolution of CO2 bubble radius in a glass of champagne (adapted from [1]).\nSOLUTION:\nA.3.1. The number of moles of CO2 (ideal gas) inside the bubble is 𝑛c = 4\n3𝜋𝑎3 𝑃0\n𝑅𝑇0\n\nTheory\nQ3-3\nEnglish (Official)\nA.3.2. Equation : balance of CO2 in the bubble\nA.3.3 d𝑛c\nd𝑡= 4𝜋𝑎2 d𝑎\nd𝑡\n𝑃0\n𝑅𝑇= 𝑗4𝜋𝑎2 ⇒d𝑎\nd𝑡= 𝑗𝑅𝑇\n𝑃0\nA.3.4. Model 1: d𝑎\nd𝑡= 𝐷𝑅𝑇\n𝑎𝑃0 (𝑐ℓ−𝑐0) so 𝑎2 = 𝑎2\n0 + 𝐷𝑅𝑇0\n𝑃0 (𝑐ℓ−𝑐0)𝑡::::::::::::::::::::\n𝑎2 = 𝑎2\n0 + 2𝐷𝑅𝑇0\n𝑃0\n(𝑐ℓ−𝑐0)𝑡:\nA.3.5. Model 2:::\nd𝑎\nd𝑡= 𝐾𝑅𝑇0\n𝑃0 (𝑐ℓ−𝑐0) so 𝑎= 𝑎0 + 𝐾𝑅𝑇0\n𝑃0 (𝑐ℓ−𝑐0)𝑡\nA.3.6. Experimental data : d𝑎\nd 𝑡= 𝑐𝑡𝑒:::\nd𝑎\nd 𝑡::\nis ::::::::\nconstant: model 2\nA.3.7 Slope of the experimental data :\ṅ𝑎≈150/0.62 ≈0.24mm⋅s−1\nA.3.8 𝐾= 1.0×10−4 m⋅s−1\nA.3.1. 𝑛c = 4\n3𝜋𝑎3 𝑃0\n𝑅𝑇0\n0.1\nA.3.2. any equation that that can be interpreted as a\nparticule balance\n0.1\nA.3.3. equation between ̇𝑎(or\ṅ𝑛c) and 𝑗\n0.2\nA.3.4. Model ::::::\nmodel:1 𝑎exact with 𝑎0 present\n0.2\nA.3.5. model 2 𝑎exact with 𝑎0 present\n0.2\nA.3.6. model 2\n0.1\nA.3.7. value of the slope: total mark only if d𝑎\nd𝑡is in range\n[210−250]µm⋅s−1\n0.1\nA.3.8. any value of 𝐾in range [0.9−1.1]m⋅s−1\n:::::::::::::::::::\n[0.9−1.1]×10−4m⋅s−1\n:\n0.2\nEventually bubbles detach from the bottom of the glass and continue to grow while rising.\nThe\nquasi-stationary growth of bubbles with rate 𝑘𝑎= d𝑎\nd𝑡still applies during bubble rise. Fig. 3. shows a\ntrain of bubblesformed at a frequency of .:::::\nThe ::::::::\nbubbles ::\nof::::\nthe :::::\ntrain :::::\nhave :::\nthe::::::\nsame::::::\ninitial ::::::\nradius::::\nand::::\nare\n:::::::\nemitted:::\nat :a:::::::::\nconstant::::::::::\nfrequency 𝑓b = 20Hz.\n𝑧\n⃗𝑢𝑧\n1 mm\n⃗𝑔0\nFig. 3. A train of bubbles. The photo is rotated horizontally for the page layout (adapted from\n[1]).\nFor the range of velocities studied here, the drag force 𝐹on a bubble of radius 𝑎moving at velocity 𝑣in\na liquid of dynamic viscosity 𝜂is given by Stokes' law 𝐹= 6𝜋𝜂𝑎𝑣. Measurements show that the change\nof momentum of the bubble is negligible compared to this drag force (quasi-stationary regime)::\nat ::::\nany\n::::::::\nmoment::in::::::\ntime, :::\nthe:::::::\nbubble::::\ncan:::\nbe:::::::::\nassumed::to:::\nbe::::::::::\ntravelling ::\nat:::\nits ::::::::\nterminal::::::::\nvelocity.\n\nTheory\nQ3-4\nEnglish (Official)\nA.4\nExpress ::::\nGive:::\nthe:::::::::::\nexpression:::\nof the main forces exerted on the bubble. Deduce\n:a:::::::::\nvertically::::::\nrising::::::::\nbubble. :::::::\nObtain the expression of 𝑣(𝑎). Give a numerical esti-\nmate of 𝜂using only ::\n𝜌ℓ,::𝑔0::::\nand::::::::::\nquantities::::::::::\nmeasured:::\non:Fig. 3::\n3. .\n0.8pt\nSOLUTION:\nA.4.1. Main forces: buoyancy ::::::::\n4\n3𝜋𝑎3𝜌ℓ𝑔0:, drag force ::::::\n6𝜋𝜂𝑎𝑣, weight is negligible:\n𝜌CO2\n𝜌ℓ\n=\n𝑃𝑒𝑀CO2\n𝑅𝑇𝜌ℓ\n≈10−3 :\n𝑚b ≪𝑚ℓ\nA.4.2.\nSimplified equation is a balance between buoyancy and drag force\n4\n3𝜋𝑎3𝜌ℓ𝑔= 6𝜋𝜂𝑎𝑣so\n𝑣= 2\n9𝜂𝑎2𝜌ℓ𝑔::::::::::::::::\n4\n3𝜋𝑎3𝜌ℓ𝑔0 = 6𝜋𝜂𝑎𝑣::\nso::::::::::::\n𝑣= 2\n9𝜂𝑎2𝜌ℓ𝑔0.\nA.4.3. Time between two bubbles: 𝛥𝑡= 1/𝑓b\nA.4.4. Using 𝜂= 2𝜌ℓ𝑔\n9\n× 𝑎2\n𝑣\n:::::::::::::\n𝜂= 2𝜌ℓ𝑔0\n9\n× 𝑎2\n𝑣for the penultimate bubble ( 𝑛−1 ) with 𝑎𝑛−1 ≈0.19mm\nA.4.5. 𝑣(𝑡𝑛−1) = 𝑧(𝑡𝑛)−𝑧(𝑡𝑛−2)\n2×𝑓−1\nb\n= 4.5cm⋅s−1\nA.4.6. 𝜂≈2×10−3 Pa⋅s\nA.4.1. Main forces (weight ::::::::::\nExpression::of::::::\nmain ::::::\nforces::::::::\n(gravity\n:::::\nforce present or absent): fullmark\n0.1\nA.4.2. expression 𝑣= 2\n9𝜂𝑎2𝜌ℓ𝑔:::::::::::\n𝑣= 2\n9𝜂𝑎2𝜌ℓ𝑔0 (full mark on this\npoint with or without the weight:::::::\ngravity :::::\nforce)\n0.2\nA.4.3. exact value ::::::\ntaking ::::::::\naccount of the time during two\npositions 𝛥𝑡= 1/𝑓b = 5×10−2 s\n0.1\nA.4.4. full mark for one coherent value of the radius\nmeasured on Fig.3.\nlast bubble in [0.22−0.28]mm ::::::::::::::\n[0.20−0.30]mm\npenultimate bubble : radius in [0.18−0.22]mm :::::::::::::\n[0.16−0.24]mm:\nantepenultimate bubble : radius in [0.16−0.20]mm\n::::::::::::::\n[0.14−0.22]mm\n0.1\nA.4.5. full mark for one coherent value of the velocity\nmeasured on Fig.3.\nlast bubble 𝑣∈[4.6,5.0]cm⋅s−1\n::::::::::::::::\n𝑣∈[4.3,4.8]cm⋅s−1\n:\npenultimate bubble 𝑣∈[4.3,4.6]cm⋅s−1\n::::::::::::::::\n𝑣∈[4.2,4.6]cm⋅s−1\n:\nantepenultimate bubble 𝑣∈[3.7−4.2]cm⋅s−1\n0.1\nA.4.6. full mark for any value or 𝜂in range [1.5−3.5]10−3 Pa⋅s\n::::::::::::::::\n[1.0−4.0]10−3 Pa⋅s:\n0.2\n:::\nThe::::::::::::::::\nquasi-stationary:::::::\ngrowth:::\nof::::::::\nbubbles::::\nwith:::::\nrate :::::::\n𝑞𝑎= d𝑎\nd𝑡:::\nstill::::::::\napplies ::::::\nduring:::::::\nbubble:::::\nrise.:\nA.5\nExpress the radius 𝑎𝐻ℓof a bubble reaching the free surface in terms of height\ntravelled 𝐻ℓand growth rate 𝑘𝑎:, :::::::\ngrowth:::::\nrate ::::::::\n𝑞𝑎= d𝑎\nd 𝑡,:and any constants you\nmay need. Assume 𝑎𝐻ℓ≫𝑎0 . Give :::\nand:::\n𝑞𝑎::::::::::\nconstant, ::::\nand:::::\ngive the numerical\nvalue of 𝑎𝐻ℓwith 𝐻ℓ= 10cm and 𝑘𝑎::\n𝑞𝑎corresponding to Fig. 2.\n0.5pt\n\nTheory\nQ3-5\nEnglish (Official)\nSOLUTION:\nA.5.1. 𝑣= d𝑧\nd𝑡= 2𝜌ℓ𝑔\n9𝜂𝑎2 and d𝑎\nd𝑡= 𝑘𝑎so d𝑧\nd𝑎= 2𝜌ℓ𝑔\n9𝑘𝑎𝜂𝑎2\n::::::::::::::\n𝑣= d𝑧\nd 𝑡= 2𝜌ℓ𝑔0\n9𝜂𝑎2\n::::\nand::::::::\nd𝑎\nd 𝑡= 𝑞𝑎:::\nso::::::::::::\nd𝑧\nd 𝑎= 2𝜌ℓ𝑔0\n9𝑞𝑎𝜂𝑎2\n:\nNeglecting 𝑎(𝑧= 0), 𝑧= 2𝜌ℓ𝑔\n27𝑘𝑎𝜂𝑎3 so 𝑎𝐻ℓ= ⒧27𝑘𝑎𝜂𝐻ℓ\n2𝜌ℓ𝑔\n⒭\n1/3\n:::::::::::\n𝑧= 2𝜌ℓ𝑔0\n27𝑞𝑎𝜂𝑎3\n:::\nso:::::::::::::::::\n𝑎𝐻ℓ= ⒧27𝑞𝑎𝜂𝐻ℓ\n2𝜌ℓ𝑔0\n⒭\n1/3\n:\nA.5.2. 𝑎𝐻ℓ= 3.9×10−4 m for 𝜂= 2.0×10−3 Pa⋅s\nA.5.1. 𝑎𝐻ℓ= ⒧27𝑘𝑎𝜂𝐻ℓ\n2𝜌ℓ𝑔\n⒭\n1/3\n:::::::::::::::::\n𝑎𝐻ℓ= ⒧27𝑞𝑎𝜂𝐻ℓ\n2𝜌ℓ𝑔0\n⒭\n1/3\n0.3\nA.5.2. full mark if 𝑎𝐻ℓ∈[0.36−0.49]mm\n0.2\nAssume that 𝑁b bubbles nucleate at a::::::\nThere :::\nare:::\n𝑁b::::::::::\nnucleation:::::\nsites::of:::::::::\nbubbles.::::::::\nAssume::::\nthat::::\nthe ::::::::\nbubbles\n:::\nare::::::::::\nnucleated::\nat::a ::::::::\nconstant:frequency 𝑓b at the bottom of a glass of champagne (height 𝐻ℓfor a volume\n𝑉ℓ),:::::\nwith ::\n𝑎0::::\nstill::::::::::\nnegligible. Neglect diffusion of CO2 at the free surface.\nA.6\nWrite the differential equation for 𝑐ℓ(𝑡).\nDeduce the characteristic bubble\nextinction ::::::\nObtain:::::\nfrom::::\nthis::::::::::\nequation :::\nthe:::::::::::::\ncharacteristic:time 𝜏:::\nfor::::\nthe::::::\ndecay::of\n:::\nthe::::::::::::::\nconcentration ::\nof:::::::::\ndissolved::::\nCO2:::\nin :::\nthe::::::\nliquid.\n1.1pt\nSOLUTION:\nA.6.1 The rate of bubbles reaching the free surface by unit time is 𝑁b𝑓b\nA.6.2. So the volume of CO2 released per unit time at the free surface is:\nd𝑉\nd𝑡= 4\n3𝜋𝑎3\n𝐻ℓ𝑁b𝑓b\nA.6.3. According to A.5, d𝑉\nd 𝑡= 18𝜋𝑁b𝑓b𝜂𝐻ℓ\n𝜌ℓ𝑔\n𝑘𝑎::::::::::::::::\nd𝑉\nd 𝑡= 18𝜋𝑁b𝑓b𝜂𝐻ℓ\n𝜌ℓ𝑔0\n𝑞𝑎:\nA.6.4. With 𝑘𝑎= d𝑎\nd𝑡= 𝑅𝑇0\n𝑃0 𝐾(𝑐ℓ−𝑐0) ::::::::::::::::::::\n𝑞𝑎= d𝑎\nd𝑡= 𝑅𝑇0\n𝑃0 𝐾(𝑐ℓ−𝑐0) according to A3.\nA.6.5. In the bubble, 𝑐b ≈𝑐0. Using the ideal gas law, the total number 𝑛of CO2 moles in 𝑉ℓverifies:\nd𝑛\nd𝑡= −𝑃0\n𝑅𝑇0\nd𝑉\nd𝑡= −18𝜋𝑁b𝑓b𝜂𝐾𝐻ℓ\n𝜌ℓ𝑔\n(𝑐ℓ−𝑐0):::::::::::::::::::::::::::::::\nd𝑛\nd𝑡= −𝑃0\n𝑅𝑇0\nd𝑉\nd𝑡= −18𝜋𝑁b𝑓b𝜂𝐾𝐻ℓ\n𝜌ℓ𝑔0\n(𝑐ℓ−𝑐0):\nWith 𝑐ℓ= 𝑛\n𝑉ℓ\n, we get a first order linear ODE d𝑐ℓ\nd𝑡= 1\n𝑉ℓ\nd𝑛\nd𝑡= −18𝜋𝑁b𝑓b𝜂𝐾𝐻ℓ\n𝜌ℓ𝑔𝑉ℓ\n(𝑐ℓ−𝑐0)\nA.6.6. Exponential decay with characteristic time: 𝜏=\n𝜌ℓ𝑔𝑉ℓ\n18𝜋𝑁b𝑓b𝜂𝐾𝐻ℓ\n\nTheory\nQ3-6\nEnglish (Official)\nA.6.1. Correct count of bubbles reaching the free surface by\nunit time: 𝑁b𝑓b\n0.1\nA.6.2. Balance at the free surface: d𝑉\nd𝑡= 4\n3𝜋𝑎𝐻ℓ\n3𝑁b𝑓b\n0.2\nA.6.3. Exact expression of d𝑉\nd 𝑡= 18𝜋𝑁b𝑓b𝜂𝐻ℓ\n𝜌ℓ𝑔\n𝑘𝑎\n::::::::::::::::\nd𝑉\nd 𝑡= 18𝜋𝑁b𝑓b𝜂𝐻ℓ\n𝜌ℓ𝑔0\n𝑞𝑎:using A.5.\n0.1\nA.6.4. 𝑘𝑎= d𝑎\nd𝑡= 𝑅𝑇0\n𝑃0 𝐾(𝑐ℓ−𝑐0) ::::::::::::::::::::\n𝑞𝑎= d𝑎\nd𝑡= 𝑅𝑇0\n𝑃0 𝐾(𝑐ℓ−𝑐0)\n0.2\nA.6.5. First order linear differential equation\nd𝑐ℓ\nd𝑡+ 18𝜋𝑁b𝑓b𝜂𝐾𝐻ℓ\n𝜌ℓ𝑔𝑉ℓ\n(𝑐ℓ−𝑐0) = 0 ::::::::::::::::::::::::::::\nd𝑐ℓ\nd𝑡+ 18𝜋𝑁b𝑓b𝜂𝐾𝐻ℓ\n𝜌ℓ𝑔0𝑉ℓ\n(𝑐ℓ−𝑐0) = 0.\n:If:::\nan::::::::::::::\nhomogeneous::::::::\nmistake::::\nhas:::::\nbeen::::::\nmade:::\nat :a:::::::::\nprevious\n::::\ntask,::::\nbut::::\nthe :::::::::::\ndifferential ::::::::\nequation::is:::::\nfirst :::::\norder::::\nand::::::::::\ncoherent,\n::::::::\nfullmark.:\n0.3\nA.6.6. Exponential decay with characteristic time:\n𝜏=\n𝜌ℓ𝑔𝑉ℓ\n18𝜋𝑁b𝑓b𝜂𝐾𝐻ℓ\n::::::::::::::::\n𝜏=\n𝜌ℓ𝑔0𝑉ℓ\n18𝜋𝑁b𝑓b𝜂𝐾𝐻ℓ\n:full mark if A.6.5 is just\nand if the numerical coefficient is absent or different of\n1/18𝜋(reasonable solution)\n0.2\nPart B. Acoustic emission of a bursting bubble\nSmall bubbles are nearly spherical as they reach the free surface. Once the liquid film separating the\nbubble from the air thins out sufficiently, a circular hole of radius 𝑟forms in the film and, driven by\nsurface tension, opens very quickly (Fig. 4. left). Experimental studies show that the liquid accumulates\nin a cylindrical rim around the hole, with nearly constant radius 𝑅m (Fig. 4. right). We consider 𝑟≫𝑅m.\nThe hole opens at constant speed 𝑣f:(::::\nFig. ::4. :::::\nright). The film outside the rim remains still, with constant\nthickness ℎ.\n𝑟𝑐\n𝑎\n𝐴\n(1)\n(2)\n(3)\n(𝛼)\nℎ\n⃗𝑣f\n(𝛽)\n𝐴\n𝑟(𝑡)\n(𝛾)\n(𝛿)\n⃗𝑣f\n𝑣f d𝑡\n𝑅m\nℎ\n𝑟(𝑡)\n𝑧\n𝐴\n𝑣f d𝑡\n𝐴\n𝑟(𝑡)\nFig. 4. (Left) (𝛼) Bubble at the surface: (1) liquid, (2) air at pressure 𝑃0 and (3), CO2 at pressure\n𝑃b, (𝛽) and (𝛾) retraction of the liquid film, where the rim is in dark blue, (𝛿) bubble collapse.\n(Right) Retraction of the liquid film at time 𝑡, top view and side view.:::::\nTop::::::::\nsketch ::\nof::::\nthe :::::::\npierced\n::::\nfilm :::::\nseen :::::\nfrom ::::::\nabove.:::::::::\nBottom: :::::::::::::\ncross-section ::\nof::::\nthe :::\nrim:::::\nand :::\nthe::::::::::\nretracting::::\nfilm. During d𝑡the\nrim accumulates nearby liquid (dotted).\nDue to dissipative processes, only half of the difference of the surface energy between 𝑡and 𝑡+d𝑡of the\n\nTheory\nQ3-7\nEnglish (Official)\nrim and the accumulated liquid is transformed into kinetic energy. :::\nWe:::::::\nfurther::::::::\nassume::::\nthat::::\nthe:::::::::\nvariation\n::\nof::::\nthe :::::::\nsurface::of::::\nthe::::\nrim ::\nis :::::::::\nnegligible:::::::::::\ncompared ::\nto::::\nthat:::\nof :::\nthe:::::\nfilm.:\nB.1\nExpress 𝑣f in terms of 𝜌ℓ,𝜎and ℎ.\n1.1pt\nSOLUTION:\nB.1.1.\n:::\nand::::\n1.2.::Variation of kinetic energy: system : the rim (length 2𝜋𝑟:::::::::\nperimeter::::::::\nℓ= 2𝜋𝑟) and the\nvolume 𝛿𝒱= ℎ2𝜋𝑟𝑣𝑓𝑑𝑡\n::::::::::::::::::::\n𝛿𝒱= ℎℓd𝑡= ℎ2𝜋𝑟𝑣𝑓d𝑡: during 𝑑𝑡the volume 𝛿𝒱get a kinetic energy 1\n2𝜌ℓ𝛿𝒱𝑣2\n𝑓\n::::::::::::::::::::::::::::::::::::\n𝑑𝐸𝑐= 1\n2𝜌ℓ𝛿𝒱𝑣2\n𝑓= 1\n2𝜌ℓℎℓ𝑣𝑓d𝑡= 𝜋𝑟𝜌ℓℎ𝑣𝑓d𝑡.\nB.1.2. Variation of ::\n.3.:surface tension energy: the surface energy varies only due to the disparition of the\nfilm (variation of the surface of the rim in negligible):::::::\n𝐸𝑠= 𝜎𝑆:::\nfor::a:::::::\nsurface::𝑆:\nB.1.3. 𝛿𝐸𝑠= −2𝜎2𝜋𝑟𝑣𝑓𝑑𝑡\n::\n.4.:::::::::::::::::::::::::::\n𝛿𝐸𝑠= −2𝜎ℓ𝑣𝑓d𝑡= −4𝜎𝜋𝑟𝑣𝑓d𝑡.\nB.1.4 :.5. Kinetic energy theorem: the lost energy is 𝛿𝐸𝑠/2 < 0 so d𝐸𝑐+𝛿𝐸𝑠= 𝛿𝐸𝑠/2\nB.1.5 :.6. 𝑣𝑓= √2𝜎/𝜌ℓℎ\nIf partial answer: 𝑣𝑓= √𝜎/𝜌ℓℎobtained only by dimensional analysis: 0.2 pt to the question\nB.1.1. Variation :::\nAny:::::::::::\nexpression:of kinetic energy\n0.3:::\n0.1\nB.1.2. Variation of surface energy ::::::\nkinetic:::::::\nenergy:::::::::::\n(differential\n::\nor:::::\nfinite:::::::::\nvariation::::::::::\naccepted)\n0.2\nB.1.3. full mark for exact:::::::::::\nExpression ::\nof::a :::::::\nsurface:::::::\nenergy:::\nor :a\n:::::::::\nvariation.:\n:::\n0.1\n:::::\nB.1.4.::::::\nExact expression of 𝛿𝐸𝑠\n0.2:::\n0.3\nB.1.4 :.5. Kinetic energy balance (without sign mistake):. ::\nIf :::\nthe\n:::::::::\ncandidate:::::::\nforget :::\nthe:::::::\nenergy:::::\nloss,::it ::\nis :::::::\ntreated:::\nas :a::::::\nsmall\n:::::::\nmistake::::::::\n(-0.1pt)\n0.2\nB.1.5 :.6. exact expression of 𝑣𝑓\n0.2\n𝑚P\n𝑆\n𝑧\n𝑃(𝑡)\n𝑧\n0\n𝑃0\n𝑎\n2𝑟\nFig. 5. (Left) a Helmholtz oscillator :::::::::\nresonator. (Right) a\nbubble as an oscillator.\nWhen the film bursts, it releases internal\npressure and emits a sound. We model\nthis acoustic emission by a Helmholtz res-\nonator: a cavity open to the atmosphere\nat 𝑃0 through a bottleneck aperture of\narea 𝑆(Fig.\n5.\nleft).\nIn the neck, a\nmass 𝑚p makes small amplitude position\noscillations due to the pressure forces it\nexperiences as the gas in the cavity ex-\npands or compresses adiabatically. The\nweight of ::::::\ngravity::::::\nforce:::\non:𝑚p is negligi-\nble\n:::::::::\ncompared:::\nto:::::::::\npressure::::::\nforces. Let 𝑉0\nbe the volume of gas under the mass 𝑚p\nfor 𝑃= 𝑃0 as 𝑧= 0.\n\nTheory\nQ3-8\nEnglish (Official)\nB.2\nExpress the frequency of oscillation 𝑓0 of 𝑚p. Hint: for 𝜀≪1, (1+𝜀)𝛼≈1+𝛼𝜀.\n1.1pt\nSOLUTION:\nB.2.1. Pressure forces on 𝑚𝑝: 𝐹𝑧= 𝑃(𝑡)𝑆−𝑃0𝑆\nB.2.2. Volume 𝑉(𝑡) = 𝑉0 +𝑆𝑧\nB.2.3. Adiabatic and reversible compression for an ideal gas: 𝑃𝑉(𝑡)𝛾= 𝑃0𝑉𝛾\n0 so 𝑃(𝑡) = 𝑃0 ⒧\n𝑉0\n𝑉0 +𝑆𝑧⒭\n𝛾\n= 𝑃0 ⒧\n1\n1+𝑆𝑧/𝑉0\n⒭\n𝛾\nB.2.4. Approximation: 𝑃(𝑡) ≈𝑃0(1−𝛾𝑆𝑧\n𝑉0 )\nB.2.5. Pressure force: 𝐹𝑧= −𝛾𝑆2𝑃0\n𝑧\n𝑉0\nB.2.6. Newton's 2nd law: 𝑚𝑝̈𝑧= −𝛾𝑆2𝑃0\n𝑧\n𝑉0\nso 𝑚𝑝̈𝑧+𝛾𝑆2𝑃0\n𝑧\n𝑉0 = 0\nB.2.7. Harmonic oscillator of angular frequency 𝜔2\n0 = 𝑆2 𝑃0𝛾\n𝑚𝑝𝑉0\nB.2.8. 𝑓0 = 1\n2𝜋\n\n\n⎷\n𝑆2𝑃0𝛾\n𝑚𝑝𝑉0\nB.2.1. Pressure force with 𝑃0\n0.1\nB.2.2. Expression of volume 𝑉(𝑡)\n0.1\nB.2.3. Expression of 𝑃(𝑡) with adiabatic reversible process for\nan ideal gas\n0.2\nB.2.4. Approximate pressure\n0.2\nB.2.5. Exact linearized pressure force\n0.1\nB.2.6. Law of motion\n0.1\nB.2.7. Harmonic oscillator, angular frequency\n0.2\nB.2.8. Expression of 𝑓0\n0.1\nThe Helmholtz model may be used for a bubble of radius 𝑎. Assume that 𝑉0 is the volume of the closed\nbubbleand .:::::::\nFrom ::::::::::\nlitterature,::::\nthe::::::\nmass ::\nof::::\nthe:::::::::::\nequivalent ::\nof::::\nthe:::::::\npiston ::\nis 𝑚𝑝= 8𝜌𝑔𝑟3/3 where 𝑟is the\nradius of the circular aperture and 𝜌𝑔= 1.8kg ⋅m−3 is the density of the gas (Fig. 5. right). During the\nbursting process, 𝑟goes from 0 to 𝑟c, given by 𝑟c = 2\n√3\n𝑎2\n𝜌ℓ𝑔\n𝜎::::::::::::::::\n𝑟c = 2\n√3\n𝑎2\n𝜌ℓ𝑔0\n𝜎. At the same time, the\nfrequency of emitted sound increases from 15kHz to ::::\nuntil::a::::::::::\nmaximum::::::\nvalue ::\nof:40kHz and the bursting\ntime is 𝑡𝑏= 3×10−2 ms.\nB.3\nFind the radius 𝑎and the thickness ℎof the water\n:::::::::::\nchampagne film separating\nthe bubble from the atmosphere.\n1.1pt\nSOLUTION:\nDetermination of 𝑎\n\nTheory\nQ3-9\nEnglish (Official)\nB.3.1. The maximal value of 𝑓0 is 𝑓0 = 40kHz with\n:is:::::::::\nobtained:::\nfor:𝑟= 𝑟𝑐\nB.3.2. Exact expression of 𝑓0 with 𝑚= 8𝑟3\n3 𝜌𝑔and 𝑆= 𝜋𝑟2\n𝑐: 𝑓0 = 1\n2𝜋\n\n\n⎷\n3𝑟𝑐𝜋2𝑃0𝛾\n8𝜌𝑔𝑉0\nso 𝑓0 = 1\n2𝜋\n𝛾𝑃0\n𝜌𝑔\n3√3𝜋\n16𝑎\n𝜌ℓ𝑔\n𝜎\nor 𝑎= 3√3\n64𝜋\n𝛾𝑃0\n𝜌𝑔𝑓2\n0\n\n𝜌ℓ𝑔\n𝜎\n:::::::::::::::::::::::::\n𝑓0 = 1\n2𝜋\n𝛾𝑃0\n𝜌𝑔\n3√3𝜋\n16𝑎\n𝜌ℓ𝑔0\n𝜎\n::\nor:::::::::::::::::::\n𝑎= 3√3\n64𝜋\n𝛾𝑃0\n𝜌𝑔𝑓2\n0\n\n𝜌ℓ𝑔0\n𝜎\nB.3.3. 𝑎= 0.53mm\nDetermination of ℎ\nB.3.4. 𝑟c = 2\n√3\n𝑎2\n𝜌ℓ𝑔\n𝜎\n:::::::::::::::\n𝑟c = 2\n√3\n𝑎2\n𝜌ℓ𝑔0\n𝜎\n:and 𝑟𝑐= 0.15mm so 𝑣𝑓= 𝑟𝑐\n𝑡𝑏\n= 5.0m⋅s−1\nB.3.5. ℎ= 2𝜎\n𝜌ℓ𝑣2\n𝑓\n= 3𝑡2\nb\n2𝑎4\n\n\n⎷\n𝜎3\n𝜌3\nℓ𝑔::::::::::::::::::::\nℎ= 2𝜎\n𝜌ℓ𝑣2\n𝑓\n= 3𝑡2\nb\n2𝑎4\n\n\n⎷\n𝜎3\n𝜌3\nℓ𝑔0\n:\nB.3.6. Numerical value ℎ= 3.7µm\nB.3.1. Use of max value of ::::\n𝑟𝑐for:𝑓0\n0.1\nB.3.2. Exact expression of 𝑓0 in terms of 𝑎,𝜌𝑔,𝜎,𝑔,𝜌ℓ,𝑃0\n::::::::::::::\n𝑎,𝜌𝑔,𝜎,𝑔0,𝜌ℓ,𝑃0 or expression of 𝑎\n0.3\nB.3.3. Exact numerical value between 0.5mm and 0.6mm\n0.2\nB.3.4. Relationship between 𝑡𝑏::::\n𝑡𝑏,𝑣f:and 𝑟𝑐or 𝑎\n0.2\nB.3.5. Expression of ℎin terms of 𝜎,𝜌ℓand 𝑣𝑓(or 𝑎and 𝑡b)\n0.1\nB.3.6. Numerical value ℎ= 3.7µm\n0.2\nPart C. Popping champagne\nChampagne fermentation\nproduces 𝑛T = 0.2mol ::\nIn::a::::::::\nbottle, ::::\nthe :::::\ntotal:::::::::\nquantity:of CO2 per bottle::\nis\n::::::::::\n𝑛T = 0.2mol, either dissolved in the volume 𝑉L = 75cL :::::::::::\n𝑉L = 750mL of liquid champagne, or as a gas in the\nvolume 𝑉G = 25mL under the cork (Fig. 6. left). 𝑉G contains only CO2. The equilibrium between both\nCO2 phases follows Henry's Law. We suppose that the fast gaseous CO2 expansion when the bottle is\nopened, is adiabatic and reversible. Ambient temperature 𝑇0 and pressure 𝑃0 = 1bar are constant.\n\nTheory\nQ3-10\nEnglish (Official)\n𝑑\n𝑃0\n𝑃i, 𝑉G\n𝑐ℓ= 𝑘H𝑃i\n𝑉L\nℓ0\n}(4)\n}(3)\n}\n(2)\n}\n(1)\n}\nFig. 6. Left: traditional bottleneck: (1) surrounding air, (2) cork stopper, (3) headspace, (4)\nliquid champagne. Right: Two phenomena observed while opening the bottle at two different\ntemperatures (adapted from [2]).\nC.1\nGive the numerical value of the pressure 𝑃i of gaseous CO2 in the bottle for\n𝑇0 = 6°C and 𝑇0 = 20°C.\n0.4pt\nSOLUTION:\nC.1.1. Conservation of CO2 molecules: 𝑛𝑇= 𝑛𝑉+𝑛𝐿= 𝑛𝑉+𝑘𝐻(𝑇0)𝑃𝑖𝑉𝐿\nC.1.2. Ideal gas law: 𝑛𝑉= 𝑃𝑖𝑉𝐺\n𝑅𝑇0\n𝑃𝑖=\n𝑛𝑇\n𝑉𝐿𝑘𝐻(𝑇0)+ 𝑉𝐺\n𝑅𝑇0\n=\n𝑛𝑇𝑅𝑇0\n𝑉𝐺\n1+𝑅𝑇0 𝑘𝐻(𝑇0) 𝑉𝐿\n𝑉𝐺\nC.1.3. For 𝑇0 = 6°C: 𝑃𝑖= 4.81bar\nC.1.4. For 𝑇0 = 20°C: 𝑃𝑖= 7.76bar\nC.1.1. Conservation of CO2 molecules\n0.1\nC.1.2. Litteral expression of 𝑃𝑖\n0.1\nC.1.3. For 𝑇0 = 6°C : 𝑃𝑖= 4.81bar\n0.1\nC.1.4. For 𝑇0 = 20°C : 𝑃𝑖= 7.76bar\n0.1\nAnother step of champagne production (not described here) leads to the following values of 𝑃𝑖that we\nwill use for the next questions:: 𝑃i = 4.69bar at 𝑇0 = 6°C and 𝑃i = 7.45bar at 𝑇0 = 20°C.\nDuring bottle opening, two different phenomena can be observed, depending on 𝑇0 (Fig. 6. right).\n• either a blue fog appears, due to the formation of solid CO2 crystals (but water condensation is\ninhibited);\n• or a grey-white fog appears, due to water vapor condensation in the air surrounding the bottleneck.\n::\nIn::::\nthis:::::\nlatter::::::\ncase, :::::\nthere::is:::\nno::::::::::\nformation::of:::::\nCO2 ::::\nsolid:::::::::\ncrystals.\n\nTheory\nQ3-11\nEnglish (Official)\nThe saturated vapor pressure 𝑃CO2\nsat\nof :::\nfor :::\nthe:CO2 ice ::::::::\nsolid/gas::::::::::\ntransition follows : log10 ⒧𝑃CO2\nsat\n𝑃0\n⒭= 𝐴−\n𝐵\n𝑇+𝐶\nwith 𝑇in K, 𝐴= 6.81, 𝐵= 1.30×103 K and 𝐶= −3.49K :::::::::::::\n𝐵= 1.30×103 K::::\nand::::::::::\n𝐶= −3.49K.\nC.2\nGive the numerical value 𝑇f of the CO2 gas at the end of the expansion, after\nopening a bottle, if 𝑇0 = 6°C and if 𝑇0 = 20°C, if no phase transition occured.\nChoose which statements are true (several statements possible):\n1. At 𝑇0 = 6°C a grey-white fog appears while opening the bottle.\n2. At 𝑇0 = 6°C a blue fog appears while opening the bottle.\n3. At 𝑇0 = 20°C a grey-white fog appears while opening the bottle.\n4. At 𝑇0 = 20°C a blue fog appears while opening the bottle.\n0.7pt\nSOLUTION:\nC.2.1. The adiabatic reversible expansion goes from 𝑃𝑖to 𝑃0.\nC.2.2. 𝑇𝑓= 𝑇0 ⒧𝑃𝑖\n𝑃0\n⒭\n(1/𝛾)−1\nC.2.3. For 𝑇0 = 6°C: 𝑃𝑖= 4.69bar and 𝑇𝑓= 195.3K = −77.8°C.\nC.2.4. For 𝑇0 = 20°C: 𝑃𝑖= 7.45bar and 𝑇𝑓= 184.3K = −88.8°C.\nC.2.5. First method: comparison 𝑃sat(𝑇𝑓) and 𝑃𝑓= 𝑃0.\nSecond method: evaluation of the transition temperature at 𝑃0 and comparison with 𝑇𝑓.\nC.2.6. First method: 𝑃CO2\nsat (𝑇𝑓= 6°C) = 1.07bar > 𝑃0 . As the solid-liquid frontier has a positive slope in 𝑃,𝑇\nstate-diagram, the final state of CO2 is gaseous. 𝑃CO2\nsat (𝑇𝑓= 20°C) = 0.41bar < 𝑃0 . As the solid-gas frontier\nhas a positive slope in 𝑃,𝑇state-diagram, the final gaseous state hypothesis is inconsistent and a phase\ntransition has occured in the latter case.\nSecond method: 𝑇𝑡𝑟𝑎𝑛𝑠=\n𝐵\n𝐴−log10 ⒧𝑃0\n𝑃0\n⒭\n−𝐶. 𝑇𝑡𝑟𝑎𝑛𝑠= 194.4K = −78.8°C. For 𝑇0 = 6°C: 𝑇𝑓= 195.3K > 𝑇𝑡𝑟𝑎𝑛𝑠; the\nfinal state of CO2 is gaseous. For 𝑇0 = 20°C: 𝑇𝑓= 184.3K < 𝑇𝑡𝑟𝑎𝑛𝑠; the final gaseous state hypothesis is\ninconsistent and a phase transition has occured.\nC.2.7. The true statements are: 1 and 4.\nC.2.1. Final pressure of the expansion.\n0.1\nC.2.2. Litteral expression of 𝑇𝑓.\n0.1\nC.2.3. For 𝑇0 = 6°C: 𝑃𝑖= 4.69bar and 𝑇𝑓= 195.3K ;\n0.1\nC.2.4. For 𝑇0 = 20°C: 𝑃𝑖= 7.45bar and 𝑇𝑓= 184.3K;\n0.1\nC.2.5. Idea of comparison between 𝑃sat and 𝑃0 or evaluation\nof the transition temperature at 𝑃0 and idea of comparison\nwith 𝑇𝑓.\n0.1\nC.2.6. Numerical comparison.\n0.1\nC.2.7. True statements (all or nothing).\n0.1\nDuring bottle opening, the cork stopper pops out. We now determine the maximum height 𝐻c it reaches.\n\nTheory\nQ3-12\nEnglish (Official)\nAssume that the friction force 𝐹due to the bottleneck on the cork stopper is 𝐹= 𝛼𝐴where 𝐴is the area\nof contact and 𝛼is a constant to determine. Initially, the pressure force slightly overcomes the friction\nforce. The cork's mass is 𝑚= 10g, its diameter 𝑑= 1.8cm :::::::::\n𝑑= 1.8cm and the length of the cylindrical part\ninitially stuck in the bottleneck is ℓ0 = 2.5cm. :::::\nOnce::::\nthe ::::\ncork::::\nhas::::\nleft::::\nthe :::::::::::\nbottleneck, ::::\nyou ::::\ncan :::::::\nneglect::::\nthe\n:::\nnet:::::::::\npressure::::::\nforce.\nC.3\nGive the numerical value of 𝐻c if the external temperature is 𝑇0 = 6°C.\n1.3pt\nSOLUTION:\nC.3.1. Let us evaluate the work of the friction force. −→\n𝐹= −𝛼.𝜋𝑑(𝑙0 −𝑧)−→\n𝑢𝑧. Initially, this force slightly com-\npensates the pressure force: 𝐹= 𝜋𝛼𝑑ℓ0 = 𝜋𝑑2\n4 (𝑃𝑖−𝑃0) so 𝛼= (𝑃𝑖−𝑃0) 𝑑\n4ℓ0\nC.3.2. −→\n𝐹= −(𝑃𝑖−𝑃0)𝜋𝑑2 (ℓ0 −𝑧)\n4ℓ0\n−→\n𝑢𝑧The total work is therefore: 𝑊𝑓= −𝛼𝜋𝑑ℓ2\n0\n2 = −(𝑃𝑖−𝑃0)𝜋𝑑2\n8\nℓ0\nC.3.3. and C.3.4. Work of the internal pressure force:\nFirst method: the variation of internal energy of the gas is:\n𝛥𝑈𝑔= 𝑛𝑉𝑅\n𝛾−1 (𝑇𝑓−𝑇0) = 𝑛𝑉𝑅\n𝛾−1 𝑇0\n⎛\n⎝\n1\n⒧1+ 𝜋𝑑2ℓ0\n4𝑉𝐺⒭\n𝛾−1 −1\n⎞\n⎠\n= 𝑃𝑖𝑉𝐺\n𝛾−1\n⎛\n⎝\n1\n⒧1+ 𝜋𝑑2ℓ0\n4𝑉𝐺⒭\n(𝛾−1) −1\n⎞\n⎠\nAs its expansion is adiabatic: 𝛥𝑈𝑔= 𝑊cork→CO2 = −𝑊CO2→cork The cork stopper receives therefore a work\nfrom this gas equals to −𝛥𝑈𝑔.\n𝑊CO2→cork = 𝑃𝑖𝑉𝐺\n𝛾−1\n⎛\n⎝\n1−\n1\n⒧1+ 𝜋𝑑2ℓ0\n4𝑉𝐺⒭\n(𝛾−1)\n⎞\n⎠\nSecond method: let us write 𝑃the internal pressure during the expansion. The work received by the cork\nis:\n𝑊CO2→cork = ∫\n𝑉𝐹\n𝑉𝐺𝑃𝑑𝑉, where 𝑉𝐹= 𝑉𝐺+ 𝜋𝑑2ℓ0\n4\nand 𝑃0𝑉𝛾\n𝐹= 𝑃𝑖𝑉𝛾\n𝐺.\nThe integration leads to the same result.\nC.3.5. The work due to the external pressure 𝑃0 is: 𝑊𝑒= −𝑃0.𝜋𝑑2\n4 ℓ0\nC.3.6. Energy balance. The cork stopper has an initial kinetic energy: 𝐸𝑐= −𝛥𝑈𝑔+𝑊𝑓+𝑊𝑒\n(The work of the weight is negligible and should not be taken into account).\nAt 𝑇0 = 6°C: 𝑃𝑖= 4.69bar . 𝑊𝑓= −1.17J; 𝑊𝑒= −0.64J; 𝛥𝑈𝑔= −2.57J; 𝐸𝑐= 0.76J\nC.3.7. The maximum height reached by the cork stopper is therefore: 𝐻𝑐= 𝐸𝑐\n𝑚𝑔=\n−𝛥𝑈𝑔+𝑊𝑓+𝑊𝑒\n𝑚𝑔\n:::::::::::::::::::::\n𝐻𝑐= 𝐸𝑐\n𝑚𝑔0\n=\n−𝛥𝑈𝑔+𝑊𝑓\n𝑚𝑔0\nC.3.8. 𝐻𝑐= 7.7m\n \nIf the candidates assumed a constant pressure 𝑃𝑖for the gaseous CO2 during its expansion, they would\nfind a work done by CO2on the cork equal to: 𝑃𝑖(𝜋ℓ0𝑑2/4) = 3 J instead of 2.56J and finally 𝐻𝑐= 12m. The\ndifference is not negligible!\n\nTheory\nQ3-13\nEnglish (Official)\nC.3.1. Correct expression of 𝛼(all or nothing).\nIf 𝛼is not correct (contribution of 𝑃0 forgotten for example),\n0 point but the following items are evaluated with this\nuncorrect 𝛼.\n0.2\nC.3.2. Expression of the friction work (all or nothing)\n \n0.2\nC.3.3. Consequences of the adiabatic reversible expansion\n(1st principle with 𝑄= 0 or 𝑃𝑉𝛾= 𝑃𝑖𝑉𝛾\n𝐺)\n0.1\nC.3.4. Exact expression of the work (all or nothing)\nPartial points : if 𝑃is considered constant during the\nexpansion, 0 point for C.3.4. but all points for the following\nitems if coherent with the incorrect work expression.\n0.3\nC.3.5. Work due to external pressure correct.\nIf this item is forgotten by the candidate, 0 point.\n0.1\nC.3.6. Correct 𝐸𝑐with the 3 contributions (even if errors in\nthe writing of the contributions).\nIf the candidate has forgotten the contribution of the\nexternal pressure, 0 point.\n0.1\nC.3.7. Correct energy balance during the free flight or use of\nNewton's second law.\n0.2\nC.3.8. Correct numerical value of 𝐻𝑐.\nIf the candidate has forgotten the contribution of the\nexternal pressure in C.3.5 but 𝐻𝑐is coherent, fullmark.\n0.2\n[1] Liger-Belair et al, Am. J. Enol. Vitic., Vol. 50, No. 3 (1999).\n[2] Liger-Belair et al., Sc. Reports 7, 10938 (2017).\n","textExtraction":"available"}}
+{
+  "id": "ipho-2025-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2025-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Champagne! (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Warning:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Excessive alcohol consumption is harmful to health and drinking alcohol below legal age is prohibited."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Champagne is a French sparkling wine. Fermentation of sugars produces carbon dioxide ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") in the bottle. The molar concentration of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the liquid phase "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the partial pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_{\\mathrm{CO_2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the gas phase are related by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\ell = k_\\mathrm{H}P_{\\mathrm{CO_2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", known as Henry’s law and where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_\\mathrm{H}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is called Henry’s constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Data"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Surface tension of champagne "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\sigma = 47 \\times 10^{-3}\\,\\mathrm{J\\cdot m^{-2}}\\)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Density of the liquid "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\rho_\\ell = 1.0 \\times 10^3\\,\\mathrm{kg\\cdot m^{-3}}\\)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Henry’s constant at "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(k_\\mathrm{H}(20\\,^\\circ\\mathrm{C}) = 3.3 \\times 10^{-4}\\,\\mathrm{mol\\cdot m^{-3}\\cdot Pa^{-1}}\\)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Henry’s constant at "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(k_\\mathrm{H}(6\\,^\\circ\\mathrm{C}) = 5.4 \\times 10^{-4}\\,\\mathrm{mol\\cdot m^{-3}\\cdot Pa^{-1}}\\)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Atmospheric pressure "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(P_0 = 1\\,\\mathrm{bar} = 1.0 \\times 10^5\\,\\mathrm{Pa}\\)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Gases are ideal with an adiabatic coefficient "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\gamma = 1.3\\)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2025-t3/87b0dc150ac7a887bf2c.jpg",
+                "alt": "ipho-2025-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 1"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ". A glass filled with champagne."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Nucleation, growth and rise of bubbles"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Immediately after opening a bottle of champagne at temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , we fill a glass. The pressure in the liquid is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and its temperature stays constant at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The concentration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of dissolved "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " exceeds the equilibrium concentration and we study the nucleation of a "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " bubble. We note "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " its radius and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " its inner pressure."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Express the pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the liquid, the concentration of dissolved "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " depends on the distance to the bubble. At long distance we recover the value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and we note "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the concentration close to the bubble surface. According to Henry’s law, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\mathrm{b} = k_\\mathrm{H}P_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We furthermore assume in all the problem that bubbles contain only "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\ell \\neq c_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " molecules diffuse from areas of high to low concentration. We assume also that any molecule from the liquid phase reaching the bubble surface is transferred to the vapour."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Express the critical radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " above which a bubble is expected to grow in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_0,\\sigma,c_\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_0 = k_\\mathrm{H}P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Calculate numerically "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\ell = 4c_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In practice, bubbles mainly grow from pre-existing gas cavities. Consider then a bubble with initial radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_0 \\approx 40\\,\\mu\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The number of moles of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " transferred at the bubble’s surface per unit area and time is noted "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(j\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Two models are possible for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(j\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "model (1) "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(j = \\dfrac{D}{a}(c_\\ell - c_\\mathrm{b})\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " where "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(D\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " is the diffusion coefficient of "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\mathrm{CO_2}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " in the liquid."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "model (2) "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(j = K(c_\\ell - c_\\mathrm{b})\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " where "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(K\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " is a constant here."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Experimentally, the bubble radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is found to depend on time as shown in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\ell \\approx 4c_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and since bubbles are large enough to be visible, the excess pressure due to surface tension can be neglected and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\mathrm{b} \\approx P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Express the number of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " moles in the bubble "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a, P_0, T_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and ideal gas constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for both models. Indicate which model explains the experimental results in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Depending on your answer, calculate numerically "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2025-t3/a7fd05ab95effc8c40f7.png",
+                "alt": "ipho-2025-t3 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 2."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " Time evolution of "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\mathrm{CO_2}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " bubble radius in a glass of champagne ("
+              },
+              {
+                "type": "element",
+                "tag": "em",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "adapted from [1]"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ")."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Eventually bubbles detach from the bottom of the glass and continue to grow while rising. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". shows a train of bubbles. The bubbles of the train have the same initial radius and are emitted at a constant frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_\\mathrm{b} = 20\\,\\mathrm{Hz}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2025-t3/25b59376d33110e09e64.png",
+                "alt": "ipho-2025-t3 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 3."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " A train of bubbles. The photo is rotated horizontally for the page layout "
+              },
+              {
+                "type": "element",
+                "tag": "em",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "(adapted from [1])."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For the range of velocities studied here, the drag force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on a bubble of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " moving at velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in a liquid of dynamic viscosity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by Stokes’ law "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F = 6\\pi\\eta av\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Measurements show that at any moment in time, the bubble can be assumed to be travelling at its terminal velocity."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Give the expression of the main forces exerted on a vertically rising bubble. Obtain the expression of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v(a)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Give a numerical estimate of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " using "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and quantities measured on "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 3."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The quasi-stationary growth of bubbles with rate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q_a = \\frac{\\mathrm{d}a}{\\mathrm{d}t}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " still applies during bubble rise."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Express the radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_{H_\\ell}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of a bubble reaching the free surface in terms of height travelled "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H_\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", growth rate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q_a = \\frac{\\mathrm{d}a}{\\mathrm{d}t}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and any constants you may need. Assume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_{H_\\ell} \\gg a_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " constant, and give the numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_{H_\\ell}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H_\\ell = 10\\,\\mathrm{cm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " corresponding to "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "There are "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " nucleation sites of bubbles. Assume that the bubbles are nucleated at a constant frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the bottom of a glass of champagne (height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H_\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for a volume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "), with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " still negligible. Neglect diffusion of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the free surface."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Write the differential equation for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\ell(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Obtain from this equation the characteristic time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the decay of the concentration of dissolved "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the liquid. 1.1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Acoustic emission of a bursting bubble"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Small bubbles are nearly spherical as they reach the free surface. Once the liquid film separating the bubble from the air thins out sufficiently, a circular hole of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " forms in the film and, driven by surface tension, opens very quickly ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 4."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " left). The hole opens at constant speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{f}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 4."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " right). The film outside the rim remains still, with constant thickness "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2025-t3/b3457951602bcd44eeac.png",
+                "alt": "ipho-2025-t3 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(Left)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\alpha)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Bubble at the surface: (1) liquid, (2) air at pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and (3), "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\beta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\gamma)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " retraction of the liquid film, where the rim is in dark blue, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\delta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " bubble collapse. "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(Right)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Retraction of the liquid film at time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Top: sketch of the pierced film seen from above. Bottom: cross-section of the rim and the retracting film. During "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{d}t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the rim accumulates nearby liquid (dotted)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Due to dissipative processes, only half of the difference of the surface energy between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t+\\mathrm{d}t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the rim and the accumulated liquid is transformed into kinetic energy. We further assume that the variation of the surface of the rim is negligible compared to that of the film."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{f}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_\\ell,\\sigma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2025-t3/fc255ea221abfeae11c3.png",
+                "alt": "ipho-2025-t3 original source figure 5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 5"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ". "
+              },
+              {
+                "type": "element",
+                "tag": "em",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "(Left)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " a Helmholtz resonator. "
+              },
+              {
+                "type": "element",
+                "tag": "em",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "(Right)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " a bubble as an oscillator."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When the film bursts, it releases internal pressure and emits a sound. We model this acoustic emission by a Helmholtz resonator: a cavity open to the atmosphere at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " through a bottleneck aperture of area "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". left). In the neck, a mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{p}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " makes small amplitude position oscillations due to the pressure forces it experiences as the gas in the cavity expands or compresses adiabatically. The gravity force on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{p}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is negligible compared to pressure forces. Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the volume of gas under the mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{p}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P = P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Express the frequency of oscillation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{p}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hint: for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((1 + \\varepsilon)^\\alpha \\approx 1 +\n\\alpha\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The Helmholtz model may be used for a bubble of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the volume of the closed bubble. From litterature, the mass of the equivalent of the piston is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_p = 8\\rho_g r^3/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the radius of the circular aperture and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_g = 1.8\\,\\mathrm{kg\\cdot m^{-3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the density of the gas ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". right). During the bursting process, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " goes from 0 to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_\\mathrm{c} = \\dfrac{2}{\\sqrt{3}}a^2\\sqrt{\\dfrac{\\rho_\\ell g_0}{\\sigma}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". At the same time, the frequency of emitted sound increases until a maximum value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(40\\,\\mathrm{kHz}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the bursting time is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_b = 3 \\times 10^{-2}\\,\\mathrm{ms}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the thickness "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the champagne film separating the bubble from the atmosphere. 1.1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C. Popping champagne"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In a bottle, the total quantity of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_\\mathrm{T} = 0.2\\,\\mathrm{mol}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", either dissolved in the volume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{L} = 750\\,\\mathrm{mL}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of liquid champagne, or as a gas in the volume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{G} = 25\\,\\mathrm{mL}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " under the cork ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 6."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " left). "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{G}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " contains only "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The equilibrium between both "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " phases follows Henry’s Law. We suppose that the fast gaseous "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " expansion when the bottle is opened, is adiabatic and reversible. Ambient temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_0 = 1\\,\\mathrm{bar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2025-t3/35a09c0135c95a7bc68f.png",
+                "alt": "ipho-2025-t3 original source figure 6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 6."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Left:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " traditional bottleneck: (1) surrounding air, (2) cork stopper, (3) headspace, (4) liquid champagne. "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Right"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": Two phenomena observed while opening the bottle at two different temperatures (adapted from "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "[2]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Give the numerical value of the pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\mathrm{i}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of gaseous "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the bottle for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Another step of champagne production (not described here) leads to the following values of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that we will use for the next questions: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\mathrm{i} = 4.69\\,\\mathrm{bar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\mathrm{i} = 7.45\\,\\mathrm{bar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "During bottle opening, two different phenomena can be observed, depending on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (Fig. 6. right)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "either a blue fog appears, due to the formation of solid "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\mathrm{CO_2}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " crystals (but water condensation is inhibited);"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "or a grey-white fog appears, due to water vapor condensation in the air surrounding the bottleneck. In this latter case, there is no formation of "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\mathrm{CO_2}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " solid crystals."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The saturated vapor pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\mathrm{sat}^{\\mathrm{CO_2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " solid/gas transition follows : "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\log_{10}\\left(\\dfrac{P_\\mathrm{sat}^{\\mathrm{CO_2}}}{P_0}\\right) = A -\n\\dfrac{B}{T + C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A = 6.81\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B = 1.30 \\times 10^3\\,\\mathrm{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C = -3.49\\,\\mathrm{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Give the numerical value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{f}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{CO_2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gas at the end of the expansion, after opening a bottle, if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", if no phase transition occured. Choose which statements are true (several statements possible):"
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n1. At "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a grey-white fog appears while opening the bottle."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n2. At "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a blue fog appears while opening the bottle."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n3. At "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a grey-white fog appears while opening the bottle."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n4. At "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a blue fog appears while opening the bottle. 0.7pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "During bottle opening, the cork stopper pops out. We now determine the maximum height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " it reaches. Assume that the friction force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " due to the bottleneck on the cork stopper is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F = \\alpha A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the area of contact and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a constant to determine. Initially, the pressure force slightly overcomes the friction force. The cork’s mass is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m = 10\\,\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", its diameter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d = 1.8\\,\\mathrm{cm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the length of the cylindrical part initially stuck in the bottleneck is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell_0 = 2.5\\,\\mathrm{cm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Once the cork has left the bottleneck, you can neglect the net pressure force."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Give the numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " if the external temperature is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.3pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "[1] Liger-Belair "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al,"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Am. J. Enol. Vitic., Vol. 50, No. 3 (1999)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "[2] Liger-Belair "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "et al."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Sc. Reports"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "7"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", 10938 (2017)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Champagne! (10 points)\n\n\nWarning:\n Excessive alcohol consumption is harmful to health and drinking alcohol below legal age is prohibited.\n\n\nChampagne is a French sparkling wine. Fermentation of sugars produces carbon dioxide (\n\\(\\mathrm{CO_2}\\)\n) in the bottle. The molar concentration of \n\\(\\mathrm{CO_2}\\)\n in the liquid phase \n\\(c_\\ell\\)\n and the partial pressure \n\\(P_{\\mathrm{CO_2}}\\)\n in the gas phase are related by \n\\(c_\\ell = k_\\mathrm{H}P_{\\mathrm{CO_2}}\\)\n, known as Henry’s law and where \n\\(k_\\mathrm{H}\\)\n is called Henry’s constant.\n\n\nData\n\n\n\n\nSurface tension of champagne \n\\(\\sigma = 47 \\times 10^{-3}\\,\\mathrm{J\\cdot m^{-2}}\\)\n\n\nDensity of the liquid \n\\(\\rho_\\ell = 1.0 \\times 10^3\\,\\mathrm{kg\\cdot m^{-3}}\\)\n\n\nHenry’s constant at \n\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)\n, \n\\(k_\\mathrm{H}(20\\,^\\circ\\mathrm{C}) = 3.3 \\times 10^{-4}\\,\\mathrm{mol\\cdot m^{-3}\\cdot Pa^{-1}}\\)\n\n\nHenry’s constant at \n\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)\n, \n\\(k_\\mathrm{H}(6\\,^\\circ\\mathrm{C}) = 5.4 \\times 10^{-4}\\,\\mathrm{mol\\cdot m^{-3}\\cdot Pa^{-1}}\\)\n\n\nAtmospheric pressure \n\\(P_0 = 1\\,\\mathrm{bar} = 1.0 \\times 10^5\\,\\mathrm{Pa}\\)\n\n\nGases are ideal with an adiabatic coefficient \n\\(\\gamma = 1.3\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\nFig. 1\n. A glass filled with champagne.\n\n\n\n\nPart A. Nucleation, growth and rise of bubbles\n\n\nImmediately after opening a bottle of champagne at temperature \n\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)\n , we fill a glass. The pressure in the liquid is \n\\(P_0\\)\n and its temperature stays constant at \n\\(T_0\\)\n. The concentration \n\\(c_\\ell\\)\n of dissolved \n\\(\\mathrm{CO_2}\\)\n exceeds the equilibrium concentration and we study the nucleation of a \n\\(\\mathrm{CO_2}\\)\n bubble. We note \n\\(a\\)\n its radius and \n\\(P_\\mathrm{b}\\)\n its inner pressure.\n\n\nA.1\nExpress the pressure \n\\(P_\\mathrm{b}\\)\n in terms of \n\\(P_0\\)\n, \n\\(a\\)\n and \n\\(\\sigma\\)\n. 0.2pt\n\n\nIn the liquid, the concentration of dissolved \n\\(\\mathrm{CO_2}\\)\n depends on the distance to the bubble. At long distance we recover the value \n\\(c_\\ell\\)\n and we note \n\\(c_\\mathrm{b}\\)\n the concentration close to the bubble surface. According to Henry’s law, \n\\(c_\\mathrm{b} = k_\\mathrm{H}P_\\mathrm{b}\\)\n. We furthermore assume in all the problem that bubbles contain only \n\\(\\mathrm{CO_2}\\)\n.\n\n\nSince \n\\(c_\\ell \\neq c_\\mathrm{b}\\)\n, \n\\(\\mathrm{CO_2}\\)\n molecules diffuse from areas of high to low concentration. We assume also that any molecule from the liquid phase reaching the bubble surface is transferred to the vapour.\n\n\nA.2\nExpress the critical radius \n\\(a_\\mathrm{c}\\)\n above which a bubble is expected to grow in terms of \n\\(P_0,\\sigma,c_\\ell\\)\n and \n\\(c_0\\)\n where \n\\(c_0 = k_\\mathrm{H}P_0\\)\n. Calculate numerically \n\\(a_\\mathrm{c}\\)\n for \n\\(c_\\ell = 4c_0\\)\n. 0.5pt\n\n\nIn practice, bubbles mainly grow from pre-existing gas cavities. Consider then a bubble with initial radius \n\\(a_0 \\approx 40\\,\\mu\\mathrm{m}\\)\n. The number of moles of \n\\(\\mathrm{CO_2}\\)\n transferred at the bubble’s surface per unit area and time is noted \n\\(j\\)\n. Two models are possible for \n\\(j\\)\n.\n\n\n\n\nmodel (1) \n\\(j = \\dfrac{D}{a}(c_\\ell - c_\\mathrm{b})\\)\n where \n\\(D\\)\n is the diffusion coefficient of \n\\(\\mathrm{CO_2}\\)\n in the liquid.\n\n\nmodel (2) \n\\(j = K(c_\\ell - c_\\mathrm{b})\\)\n where \n\\(K\\)\n is a constant here.\n\n\n\n\nExperimentally, the bubble radius \n\\(a(t)\\)\n is found to depend on time as shown in \nFig. 2\n. Here \n\\(c_\\ell \\approx 4c_0\\)\n, and since bubbles are large enough to be visible, the excess pressure due to surface tension can be neglected and \n\\(P_\\mathrm{b} \\approx P_0\\)\n.\n\n\nA.3\nExpress the number of \n\\(\\mathrm{CO_2}\\)\n moles in the bubble \n\\(n_\\mathrm{c}\\)\n in terms of \n\\(a, P_0, T_0\\)\n and ideal gas constant \n\\(R\\)\n. Find \n\\(a(t)\\)\n for both models. Indicate which model explains the experimental results in \nFig. 2\n. Depending on your answer, calculate numerically \n\\(K\\)\n or \n\\(D\\)\n. 1.2pt\n\n\n\n\n\n\n\n\n\n\n\nFig. 2.\n Time evolution of \n\\(\\mathrm{CO_2}\\)\n bubble radius in a glass of champagne (\nadapted from [1]\n).\n\n\n\n\nEventually bubbles detach from the bottom of the glass and continue to grow while rising. \nFig. 3\n. shows a train of bubbles. The bubbles of the train have the same initial radius and are emitted at a constant frequency \n\\(f_\\mathrm{b} = 20\\,\\mathrm{Hz}\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nFig. 3.\n A train of bubbles. The photo is rotated horizontally for the page layout \n(adapted from [1]).\n\n\n\n\nFor the range of velocities studied here, the drag force \n\\(F\\)\n on a bubble of radius \n\\(a\\)\n moving at velocity \n\\(v\\)\n in a liquid of dynamic viscosity \n\\(\\eta\\)\n is given by Stokes’ law \n\\(F = 6\\pi\\eta av\\)\n. Measurements show that at any moment in time, the bubble can be assumed to be travelling at its terminal velocity.\n\n\nA.4\nGive the expression of the main forces exerted on a vertically rising bubble. Obtain the expression of \n\\(v(a)\\)\n. Give a numerical estimate of \n\\(\\eta\\)\n using \n\\(\\rho_\\ell\\)\n, \n\\(g_0\\)\n and quantities measured on \nFig. 3.\n 0.8pt\n\n\nThe quasi-stationary growth of bubbles with rate \n\\(q_a = \\frac{\\mathrm{d}a}{\\mathrm{d}t}\\)\n still applies during bubble rise.\n\n\nA.5\nExpress the radius \n\\(a_{H_\\ell}\\)\n of a bubble reaching the free surface in terms of height travelled \n\\(H_\\ell\\)\n, growth rate \n\\(q_a = \\frac{\\mathrm{d}a}{\\mathrm{d}t}\\)\n, and any constants you may need. Assume \n\\(a_{H_\\ell} \\gg a_0\\)\n and \n\\(q_a\\)\n constant, and give the numerical value of \n\\(a_{H_\\ell}\\)\n with \n\\(H_\\ell = 10\\,\\mathrm{cm}\\)\n and \n\\(q_a\\)\n corresponding to \nFig. 2\n. 0.5pt\n\n\nThere are \n\\(N_\\mathrm{b}\\)\n nucleation sites of bubbles. Assume that the bubbles are nucleated at a constant frequency \n\\(f_\\mathrm{b}\\)\n at the bottom of a glass of champagne (height \n\\(H_\\ell\\)\n for a volume \n\\(V_\\ell\\)\n), with \n\\(a_0\\)\n still negligible. Neglect diffusion of \n\\(\\mathrm{CO_2}\\)\n at the free surface.\n\n\nA.6\nWrite the differential equation for \n\\(c_\\ell(t)\\)\n. Obtain from this equation the characteristic time \n\\(\\tau\\)\n for the decay of the concentration of dissolved \n\\(\\mathrm{CO_2}\\)\n in the liquid. 1.1pt\n\n\nPart B. Acoustic emission of a bursting bubble\n\n\nSmall bubbles are nearly spherical as they reach the free surface. Once the liquid film separating the bubble from the air thins out sufficiently, a circular hole of radius \n\\(r\\)\n forms in the film and, driven by surface tension, opens very quickly (\nFig. 4.\n left). The hole opens at constant speed \n\\(v_\\mathrm{f}\\)\n (\nFig. 4.\n right). The film outside the rim remains still, with constant thickness \n\\(h\\)\n.\n\n\n\n\n\n\n\n\n\nFig. 4\n. \n(Left)\n \n\\((\\alpha)\\)\n Bubble at the surface: (1) liquid, (2) air at pressure \n\\(P_0\\)\n and (3), \n\\(\\mathrm{CO_2}\\)\n at pressure \n\\(P_\\mathrm{b}\\)\n, \n\\((\\beta)\\)\n and \n\\((\\gamma)\\)\n retraction of the liquid film, where the rim is in dark blue, \n\\((\\delta)\\)\n bubble collapse. \n(Right)\n Retraction of the liquid film at time \n\\(t\\)\n. Top: sketch of the pierced film seen from above. Bottom: cross-section of the rim and the retracting film. During \n\\(\\mathrm{d}t\\)\n the rim accumulates nearby liquid (dotted).\n\n\nDue to dissipative processes, only half of the difference of the surface energy between \n\\(t\\)\n and \n\\(t+\\mathrm{d}t\\)\n of the rim and the accumulated liquid is transformed into kinetic energy. We further assume that the variation of the surface of the rim is negligible compared to that of the film.\n\n\nB.1\nExpress \n\\(v_\\mathrm{f}\\)\n in terms of \n\\(\\rho_\\ell,\\sigma\\)\n and \n\\(h\\)\n. 1.1pt\n\n\n\n\n\n\n\n\n\n\n\nFig. 5\n. \n(Left)\n a Helmholtz resonator. \n(Right)\n a bubble as an oscillator.\n\n\n\n\nWhen the film bursts, it releases internal pressure and emits a sound. We model this acoustic emission by a Helmholtz resonator: a cavity open to the atmosphere at \n\\(P_0\\)\n through a bottleneck aperture of area \n\\(S\\)\n (\nFig. 5\n. left). In the neck, a mass \n\\(m_\\mathrm{p}\\)\n makes small amplitude position oscillations due to the pressure forces it experiences as the gas in the cavity expands or compresses adiabatically. The gravity force on \n\\(m_\\mathrm{p}\\)\n is negligible compared to pressure forces. Let \n\\(V_0\\)\n be the volume of gas under the mass \n\\(m_\\mathrm{p}\\)\n for \n\\(P = P_0\\)\n as \n\\(z = 0\\)\n.\n\n\nB.2\nExpress the frequency of oscillation \n\\(f_0\\)\n of \n\\(m_\\mathrm{p}\\)\n. Hint: for \n\\(\\varepsilon \\ll 1\\)\n, \n\\((1 + \\varepsilon)^\\alpha \\approx 1 +\n\\alpha\\varepsilon\\)\n. 1.1pt\n\n\nThe Helmholtz model may be used for a bubble of radius \n\\(a\\)\n. \n\\(V_0\\)\n is the volume of the closed bubble. From litterature, the mass of the equivalent of the piston is \n\\(m_p = 8\\rho_g r^3/3\\)\n where \n\\(r\\)\n is the radius of the circular aperture and \n\\(\\rho_g = 1.8\\,\\mathrm{kg\\cdot m^{-3}}\\)\n is the density of the gas (\nFig. 5\n. right). During the bursting process, \n\\(r\\)\n goes from 0 to \n\\(r_\\mathrm{c}\\)\n, given by \n\\(r_\\mathrm{c} = \\dfrac{2}{\\sqrt{3}}a^2\\sqrt{\\dfrac{\\rho_\\ell g_0}{\\sigma}}\\)\n. At the same time, the frequency of emitted sound increases until a maximum value of \n\\(40\\,\\mathrm{kHz}\\)\n and the bursting time is \n\\(t_b = 3 \\times 10^{-2}\\,\\mathrm{ms}\\)\n.\n\n\nB.3\nFind the radius \n\\(a\\)\n and the thickness \n\\(h\\)\n of the champagne film separating the bubble from the atmosphere. 1.1pt\n\n\nPart C. Popping champagne\n\n\nIn a bottle, the total quantity of \n\\(\\mathrm{CO_2}\\)\n is \n\\(n_\\mathrm{T} = 0.2\\,\\mathrm{mol}\\)\n, either dissolved in the volume \n\\(V_\\mathrm{L} = 750\\,\\mathrm{mL}\\)\n of liquid champagne, or as a gas in the volume \n\\(V_\\mathrm{G} = 25\\,\\mathrm{mL}\\)\n under the cork (\nFig. 6.\n left). \n\\(V_\\mathrm{G}\\)\n contains only \n\\(\\mathrm{CO_2}\\)\n. The equilibrium between both \n\\(\\mathrm{CO_2}\\)\n phases follows Henry’s Law. We suppose that the fast gaseous \n\\(\\mathrm{CO_2}\\)\n expansion when the bottle is opened, is adiabatic and reversible. Ambient temperature \n\\(T_0\\)\n and pressure \n\\(P_0 = 1\\,\\mathrm{bar}\\)\n are constant.\n\n\n\n\n\n\n\n\n\nFig. 6.\n \nLeft:\n traditional bottleneck: (1) surrounding air, (2) cork stopper, (3) headspace, (4) liquid champagne. \nRight\n: Two phenomena observed while opening the bottle at two different temperatures (adapted from \n[2]\n).\n\n\nC.1\nGive the numerical value of the pressure \n\\(P_\\mathrm{i}\\)\n of gaseous \n\\(\\mathrm{CO_2}\\)\n in the bottle for \n\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)\n and \n\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)\n. 0.4pt\n\n\nAnother step of champagne production (not described here) leads to the following values of \n\\(P_i\\)\n that we will use for the next questions: \n\\(P_\\mathrm{i} = 4.69\\,\\mathrm{bar}\\)\n at \n\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)\n and \n\\(P_\\mathrm{i} = 7.45\\,\\mathrm{bar}\\)\n at \n\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)\n.\n\n\nDuring bottle opening, two different phenomena can be observed, depending on \n\\(T_0\\)\n (Fig. 6. right).\n\n\n\n\neither a blue fog appears, due to the formation of solid \n\\(\\mathrm{CO_2}\\)\n crystals (but water condensation is inhibited);\n\n\nor a grey-white fog appears, due to water vapor condensation in the air surrounding the bottleneck. In this latter case, there is no formation of \n\\(\\mathrm{CO_2}\\)\n solid crystals.\n\n\n\n\nThe saturated vapor pressure \n\\(P_\\mathrm{sat}^{\\mathrm{CO_2}}\\)\n for the \n\\(\\mathrm{CO_2}\\)\n solid/gas transition follows : \n\\(\\log_{10}\\left(\\dfrac{P_\\mathrm{sat}^{\\mathrm{CO_2}}}{P_0}\\right) = A -\n\\dfrac{B}{T + C}\\)\n with \n\\(T\\)\n in \n\\(\\mathrm{K}\\)\n, \n\\(A = 6.81\\)\n, \n\\(B = 1.30 \\times 10^3\\,\\mathrm{K}\\)\n and \n\\(C = -3.49\\,\\mathrm{K}\\)\n.\n\n\nC.2\nGive the numerical value \n\\(T_\\mathrm{f}\\)\n of the \n\\(\\mathrm{CO_2}\\)\n gas at the end of the expansion, after opening a bottle, if \n\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)\n and if \n\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)\n, if no phase transition occured. Choose which statements are true (several statements possible):\n\n\n1. At \n\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)\n a grey-white fog appears while opening the bottle.\n\n\n2. At \n\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)\n a blue fog appears while opening the bottle.\n\n\n3. At \n\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)\n a grey-white fog appears while opening the bottle.\n\n\n4. At \n\\(T_0 = 20\\,^\\circ\\mathrm{C}\\)\n a blue fog appears while opening the bottle. 0.7pt\n\n\nDuring bottle opening, the cork stopper pops out. We now determine the maximum height \n\\(H_\\mathrm{c}\\)\n it reaches. Assume that the friction force \n\\(F\\)\n due to the bottleneck on the cork stopper is \n\\(F = \\alpha A\\)\n where \n\\(A\\)\n is the area of contact and \n\\(\\alpha\\)\n is a constant to determine. Initially, the pressure force slightly overcomes the friction force. The cork’s mass is \n\\(m = 10\\,\\mathrm{g}\\)\n, its diameter \n\\(d = 1.8\\,\\mathrm{cm}\\)\n and the length of the cylindrical part initially stuck in the bottleneck is \n\\(\\ell_0 = 2.5\\,\\mathrm{cm}\\)\n. Once the cork has left the bottleneck, you can neglect the net pressure force.\n\n\nC.3\nGive the numerical value of \n\\(H_\\mathrm{c}\\)\n if the external temperature is \n\\(T_0 = 6\\,^\\circ\\mathrm{C}\\)\n. 1.3pt\n\n\n[1] Liger-Belair \net al,\n Am. J. Enol. Vitic., Vol. 50, No. 3 (1999).\n\n\n[2] Liger-Belair \net al.\n, \nSc. Reports\n \n7\n, 10938 (2017).\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2025-t3/87b0dc150ac7a887bf2c.jpg",
+      "/corpus/figures/native/bulk/ipho-2025-t3/a7fd05ab95effc8c40f7.png",
+      "/corpus/figures/native/bulk/ipho-2025-t3/25b59376d33110e09e64.png",
+      "/corpus/figures/native/bulk/ipho-2025-t3/b3457951602bcd44eeac.png",
+      "/corpus/figures/native/bulk/ipho-2025-t3/fc255ea221abfeae11c3.png",
+      "/corpus/figures/native/bulk/ipho-2025-t3/35a09c0135c95a7bc68f.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2025-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Champagne: worked solution"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This readable derivation follows the retained official solution, including its corrected factor of two in the diffusion growth law. Detailed examiner tables remain in the source PDF."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The Laplace pressure jump for a spherical gas-liquid interface is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_b-P_0=2\\sigma/a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_b=P_0+2\\sigma/a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Growth requires the concentration in the surrounding liquid to exceed that next to the interface. At the critical radius, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\ell=c_b=k_H(P_0+2\\sigma/a_c)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_0=k_HP_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a_c=\\frac{2\\sigma}{P_0(c_\\ell/c_0-1)}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\ell=4c_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", this gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_c\\simeq0.3\\,\\mu\\mathrm m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For visible bubbles, neglect the Laplace correction to the pressure. The ideal gas law and the molar inflow balance give "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[n_c=\\frac{4\\pi a^3P_0}{3RT_0},\\qquad \\frac{dn_c}{dt}=4\\pi a^2j,\\qquad \\frac{da}{dt}=\\frac{jRT_0}{P_0}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For model 1, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a^2=a_0^2+\\frac{2DRT_0}{P_0}(c_\\ell-c_0)t.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For model 2, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a=a_0+\\frac{KRT_0}{P_0}(c_\\ell-c_0)t.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The measured radius grows linearly, selecting model 2. A slope near "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.24\\,\\mathrm{mm/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K\\simeq1.0\\times10^{-4}\\,\\mathrm{m/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The source accepts slopes from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(210\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(250\\,\\mu\\mathrm{m/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.9\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1.1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " times "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(10^{-4}\\,\\mathrm{m/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Upward buoyancy is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(4\\pi a^3\\rho_\\ell g_0/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and downward Stokes drag is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(6\\pi\\eta av\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The gas weight is negligible compared with buoyancy. Terminal balance gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v(a)=\\frac{2\\rho_\\ell g_0a^2}{9\\eta}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Successive bubbles mark time steps "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1/f_b=0.05\\,\\mathrm s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Measuring radii and displacements in the photograph gives a speed near "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(4.5\\,\\mathrm{cm/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for a radius near "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.19\\,\\mathrm{mm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\simeq2\\times10^{-3}\\,\\mathrm{Pa\\,s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The official corrected acceptable viscosity interval is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\([1.0,4.0]\\times10^{-3}\\,\\mathrm{Pa\\,s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Write "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q_a=da/dt\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Combining the terminal speed with constant growth gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dz/da=2\\rho_\\ell g_0a^2/(9\\eta q_a)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Neglecting the initial radius, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[H_\\ell=\\frac{2\\rho_\\ell g_0a_{H_\\ell}^3}{27\\eta q_a},\\qquad a_{H_\\ell}=\\left(\\frac{27\\eta q_aH_\\ell}{2\\rho_\\ell g_0}\\right)^{1/3}\\simeq0.39\\,\\mathrm{mm}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The bubble count reaching the surface per unit time is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_bf_b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Their total gas volume per unit time is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(4\\pi a_{H_\\ell}^3N_bf_b/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Using A.5, model 2, and the ideal gas law yields "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dc_\\ell}{dt}=-\\frac{18\\pi N_bf_b\\eta KH_\\ell}{\\rho_\\ell g_0V_\\ell}(c_\\ell-c_0),\\qquad \\tau=\\frac{\\rho_\\ell g_0V_\\ell}{18\\pi N_bf_b\\eta KH_\\ell}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus the excess concentration decays exponentially toward equilibrium."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For rim perimeter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the newly collected liquid volume is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta V=hlv_fdt\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Its kinetic-energy gain is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_\\ell\\delta Vv_f^2/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Removing the film eliminates two liquid-air surfaces, reducing surface energy by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2\\sigma lv_fdt\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Only half becomes kinetic energy. Equating these gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_f=\\sqrt{\\frac{2\\sigma}{\\rho_\\ell h}}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The cavity volume is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(t)=V_0+Sz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the adiabatic law gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P(t)=P_0[V_0/(V_0+Sz)]^\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Linearization gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P-P_0\\simeq-\\gamma P_0Sz/V_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Newton’s law becomes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m_p\\ddot z+\\frac{\\gamma P_0S^2}{V_0}z=0,\\qquad f_0=\\frac1{2\\pi}\\sqrt{\\frac{\\gamma P_0S^2}{m_pV_0}}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S=\\pi r_c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_p=8\\rho_gr_c^3/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_0=4\\pi a^3/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_c=(2/\\sqrt3)a^2\\sqrt{\\rho_\\ell g_0/\\sigma}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the maximum frequency. Solving gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a=\\frac{3\\sqrt3}{64\\pi}\\frac{\\gamma P_0}{\\rho_gf_0^2}\\sqrt{\\frac{\\rho_\\ell g_0}{\\sigma}}\\simeq0.53\\,\\mathrm{mm}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The aperture reaches "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_c\\simeq0.15\\,\\mathrm{mm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " during "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_b=3\\times10^{-5}\\,\\mathrm s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_f=r_c/t_b\\simeq5.0\\,\\mathrm{m/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h=2\\sigma/(\\rho_\\ell v_f^2)\\simeq3.7\\,\\mu\\mathrm m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", with rounding as in the source."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Conserve total carbon dioxide in the gas and dissolved phases: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[n_T=\\frac{P_iV_G}{RT_0}+k_H(T_0)P_iV_L,\\qquad P_i=\\frac{n_T}{V_Lk_H(T_0)+V_G/(RT_0)}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The stated data give "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(4.81\\,\\mathrm{bar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(6^\\circ\\mathrm C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(7.76\\,\\mathrm{bar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(20^\\circ\\mathrm C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". As instructed, subsequent parts instead use the separately specified pressures "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(4.69\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(7.45\\,\\mathrm{bar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For reversible adiabatic expansion to atmospheric pressure, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_f=T_0(P_i/P_0)^{1/\\gamma-1}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(195.3\\,\\mathrm K\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the colder bottle and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(184.3\\,\\mathrm K\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the warmer one, before any phase transition. The sublimation relation at atmospheric pressure gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{\\rm trans}=B/A-C\\simeq194.4\\,\\mathrm K\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The colder bottle remains above this threshold and produces grey-white water fog. The warmer bottle crosses the carbon-dioxide solidification threshold and produces blue fog. Statements 1 and 4 are true. Equivalently, compare the saturation pressures "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1.07\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.41\\,\\mathrm{bar}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the two calculated final temperatures with atmospheric pressure."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Initially the net pressure force approximately balances friction, giving "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha=(P_i-P_0)d/(4l_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". As the contact length decreases, integrate the friction force to obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[W_f=-\\frac{(P_i-P_0)\\pi d^2l_0}{8},\\qquad W_e=-P_0\\frac{\\pi d^2l_0}{4}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For the adiabatically expanding internal gas, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[W_g=\\frac{P_iV_G}{\\gamma-1}\\left[1-\\left(1+\\frac{\\pi d^2l_0}{4V_G}\\right)^{1-\\gamma}\\right].\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This follows either by integrating "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\,dV\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or by the decrease in gas internal energy. The cork’s exit kinetic energy is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_c=W_g+W_f+W_e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The official numbers are approximately "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2.57-1.17-0.64=0.76\\,\\mathrm J\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Neglecting the small height gained while in the neck, the subsequent rise is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H_c=E_c/(mg_0)\\simeq7.7\\,\\mathrm m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The source’s final edited display drops the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W_e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " term, but its explicit energy ledger, numerical result and marking instructions all retain the external-pressure work. The expression here follows that consistent ledger. Treating the internal pressure as constant instead of adiabatic gives an incorrect result near "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(12\\,\\mathrm m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Champagne: worked solution\n\n\nThis readable derivation follows the retained official solution, including its corrected factor of two in the diffusion growth law. Detailed examiner tables remain in the source PDF.\n\n\nA.1\n\n\nThe Laplace pressure jump for a spherical gas-liquid interface is \n\\(P_b-P_0=2\\sigma/a\\)\n, so \n\\(P_b=P_0+2\\sigma/a\\)\n.\n\n\nA.2\n\n\nGrowth requires the concentration in the surrounding liquid to exceed that next to the interface. At the critical radius, \n\\(c_\\ell=c_b=k_H(P_0+2\\sigma/a_c)\\)\n. Since \n\\(c_0=k_HP_0\\)\n, \n\\[a_c=\\frac{2\\sigma}{P_0(c_\\ell/c_0-1)}.\\]\n For \n\\(c_\\ell=4c_0\\)\n, this gives \n\\(a_c\\simeq0.3\\,\\mu\\mathrm m\\)\n.\n\n\nA.3\n\n\nFor visible bubbles, neglect the Laplace correction to the pressure. The ideal gas law and the molar inflow balance give \n\\[n_c=\\frac{4\\pi a^3P_0}{3RT_0},\\qquad \\frac{dn_c}{dt}=4\\pi a^2j,\\qquad \\frac{da}{dt}=\\frac{jRT_0}{P_0}.\\]\n For model 1, \n\\[a^2=a_0^2+\\frac{2DRT_0}{P_0}(c_\\ell-c_0)t.\\]\n For model 2, \n\\[a=a_0+\\frac{KRT_0}{P_0}(c_\\ell-c_0)t.\\]\n The measured radius grows linearly, selecting model 2. A slope near \n\\(0.24\\,\\mathrm{mm/s}\\)\n gives \n\\(K\\simeq1.0\\times10^{-4}\\,\\mathrm{m/s}\\)\n. The source accepts slopes from \n\\(210\\)\n to \n\\(250\\,\\mu\\mathrm{m/s}\\)\n and \n\\(K\\)\n from \n\\(0.9\\)\n to \n\\(1.1\\)\n times \n\\(10^{-4}\\,\\mathrm{m/s}\\)\n.\n\n\nA.4\n\n\nUpward buoyancy is \n\\(4\\pi a^3\\rho_\\ell g_0/3\\)\n and downward Stokes drag is \n\\(6\\pi\\eta av\\)\n. The gas weight is negligible compared with buoyancy. Terminal balance gives \n\\[v(a)=\\frac{2\\rho_\\ell g_0a^2}{9\\eta}.\\]\n Successive bubbles mark time steps \n\\(1/f_b=0.05\\,\\mathrm s\\)\n. Measuring radii and displacements in the photograph gives a speed near \n\\(4.5\\,\\mathrm{cm/s}\\)\n for a radius near \n\\(0.19\\,\\mathrm{mm}\\)\n, hence \n\\(\\eta\\simeq2\\times10^{-3}\\,\\mathrm{Pa\\,s}\\)\n. The official corrected acceptable viscosity interval is \n\\([1.0,4.0]\\times10^{-3}\\,\\mathrm{Pa\\,s}\\)\n.\n\n\nA.5\n\n\nWrite \n\\(q_a=da/dt\\)\n. Combining the terminal speed with constant growth gives \n\\(dz/da=2\\rho_\\ell g_0a^2/(9\\eta q_a)\\)\n. Neglecting the initial radius, \n\\[H_\\ell=\\frac{2\\rho_\\ell g_0a_{H_\\ell}^3}{27\\eta q_a},\\qquad a_{H_\\ell}=\\left(\\frac{27\\eta q_aH_\\ell}{2\\rho_\\ell g_0}\\right)^{1/3}\\simeq0.39\\,\\mathrm{mm}.\\]\n\n\nA.6\n\n\nThe bubble count reaching the surface per unit time is \n\\(N_bf_b\\)\n. Their total gas volume per unit time is \n\\(4\\pi a_{H_\\ell}^3N_bf_b/3\\)\n. Using A.5, model 2, and the ideal gas law yields \n\\[\\frac{dc_\\ell}{dt}=-\\frac{18\\pi N_bf_b\\eta KH_\\ell}{\\rho_\\ell g_0V_\\ell}(c_\\ell-c_0),\\qquad \\tau=\\frac{\\rho_\\ell g_0V_\\ell}{18\\pi N_bf_b\\eta KH_\\ell}.\\]\n Thus the excess concentration decays exponentially toward equilibrium.\n\n\nB.1\n\n\nFor rim perimeter \n\\(l\\)\n, the newly collected liquid volume is \n\\(\\delta V=hlv_fdt\\)\n. Its kinetic-energy gain is \n\\(\\rho_\\ell\\delta Vv_f^2/2\\)\n. Removing the film eliminates two liquid-air surfaces, reducing surface energy by \n\\(2\\sigma lv_fdt\\)\n. Only half becomes kinetic energy. Equating these gives \n\\[v_f=\\sqrt{\\frac{2\\sigma}{\\rho_\\ell h}}.\\]\n\n\nB.2\n\n\nThe cavity volume is \n\\(V(t)=V_0+Sz\\)\n and the adiabatic law gives \n\\(P(t)=P_0[V_0/(V_0+Sz)]^\\gamma\\)\n. Linearization gives \n\\(P-P_0\\simeq-\\gamma P_0Sz/V_0\\)\n. Newton’s law becomes \n\\[m_p\\ddot z+\\frac{\\gamma P_0S^2}{V_0}z=0,\\qquad f_0=\\frac1{2\\pi}\\sqrt{\\frac{\\gamma P_0S^2}{m_pV_0}}.\\]\n\n\nB.3\n\n\nUse \n\\(S=\\pi r_c^2\\)\n, \n\\(m_p=8\\rho_gr_c^3/3\\)\n, \n\\(V_0=4\\pi a^3/3\\)\n, and \n\\(r_c=(2/\\sqrt3)a^2\\sqrt{\\rho_\\ell g_0/\\sigma}\\)\n at the maximum frequency. Solving gives \n\\[a=\\frac{3\\sqrt3}{64\\pi}\\frac{\\gamma P_0}{\\rho_gf_0^2}\\sqrt{\\frac{\\rho_\\ell g_0}{\\sigma}}\\simeq0.53\\,\\mathrm{mm}.\\]\n The aperture reaches \n\\(r_c\\simeq0.15\\,\\mathrm{mm}\\)\n during \n\\(t_b=3\\times10^{-5}\\,\\mathrm s\\)\n, so \n\\(v_f=r_c/t_b\\simeq5.0\\,\\mathrm{m/s}\\)\n. Then \n\\(h=2\\sigma/(\\rho_\\ell v_f^2)\\simeq3.7\\,\\mu\\mathrm m\\)\n, with rounding as in the source.\n\n\nC.1\n\n\nConserve total carbon dioxide in the gas and dissolved phases: \n\\[n_T=\\frac{P_iV_G}{RT_0}+k_H(T_0)P_iV_L,\\qquad P_i=\\frac{n_T}{V_Lk_H(T_0)+V_G/(RT_0)}.\\]\n The stated data give \n\\(4.81\\,\\mathrm{bar}\\)\n at \n\\(6^\\circ\\mathrm C\\)\n and \n\\(7.76\\,\\mathrm{bar}\\)\n at \n\\(20^\\circ\\mathrm C\\)\n. As instructed, subsequent parts instead use the separately specified pressures \n\\(4.69\\)\n and \n\\(7.45\\,\\mathrm{bar}\\)\n.\n\n\nC.2\n\n\nFor reversible adiabatic expansion to atmospheric pressure, \n\\[T_f=T_0(P_i/P_0)^{1/\\gamma-1}.\\]\n This gives \n\\(195.3\\,\\mathrm K\\)\n for the colder bottle and \n\\(184.3\\,\\mathrm K\\)\n for the warmer one, before any phase transition. The sublimation relation at atmospheric pressure gives \n\\(T_{\\rm trans}=B/A-C\\simeq194.4\\,\\mathrm K\\)\n. The colder bottle remains above this threshold and produces grey-white water fog. The warmer bottle crosses the carbon-dioxide solidification threshold and produces blue fog. Statements 1 and 4 are true. Equivalently, compare the saturation pressures \n\\(1.07\\)\n and \n\\(0.41\\,\\mathrm{bar}\\)\n at the two calculated final temperatures with atmospheric pressure.\n\n\nC.3\n\n\nInitially the net pressure force approximately balances friction, giving \n\\(\\alpha=(P_i-P_0)d/(4l_0)\\)\n. As the contact length decreases, integrate the friction force to obtain \n\\[W_f=-\\frac{(P_i-P_0)\\pi d^2l_0}{8},\\qquad W_e=-P_0\\frac{\\pi d^2l_0}{4}.\\]\n For the adiabatically expanding internal gas, \n\\[W_g=\\frac{P_iV_G}{\\gamma-1}\\left[1-\\left(1+\\frac{\\pi d^2l_0}{4V_G}\\right)^{1-\\gamma}\\right].\\]\n This follows either by integrating \n\\(P\\,dV\\)\n or by the decrease in gas internal energy. The cork’s exit kinetic energy is \n\\(E_c=W_g+W_f+W_e\\)\n. The official numbers are approximately \n\\(2.57-1.17-0.64=0.76\\,\\mathrm J\\)\n. Neglecting the small height gained while in the neck, the subsequent rise is \n\\(H_c=E_c/(mg_0)\\simeq7.7\\,\\mathrm m\\)\n. The source’s final edited display drops the \n\\(W_e\\)\n term, but its explicit energy ledger, numerical result and marking instructions all retain the external-pressure work. The expression here follows that consistent ledger. Treating the internal pressure as constant instead of adiabatic gives an incorrect result near \n\\(12\\,\\mathrm m\\)\n.\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

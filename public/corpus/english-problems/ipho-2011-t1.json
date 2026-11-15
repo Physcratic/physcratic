@@ -1,1 +1,3047 @@
-{"id":"ipho-2011-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2011_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2011_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2011-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":" \n \n \n \n     Theoretical Competition:    12 July 2011 \nQuestion 1         Page 1 of 3 \n \n \n  \n \n1.  A Three-body Problem and LISA \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nFIGURE 1 Coplanar orbits of three bodies. \n \n \n1.1 Two gravitating masses M  and m  are moving in circular orbits of radii R  and r , \nrespectively, about their common centre of mass.  Find the angular velocity \n0  of the line \njoining M  and m  in terms of \n, ,\n,\nR r M m  and the universal gravitational constant G .  \n \n[1.5 points] \n \n1.2 A third body of infinitesimal mass \nis placed in a coplanar circular orbit about the same \ncentre of mass so that \n remains stationary relative to both M  and m  as shown in Figure 1. \nAssume that the infinitesimal mass is not collinear with M  and m . Find the values of the \nfollowing parameters in terms of R  and r :  \n \n[3.5 points] \n1.2.1 distance from\n to M . \n1.2.2 distance from \n to m . \n1.2.3 distance from \n to the centre of mass. \n \nO \nM \nm \nR \nr \n \n\n \n \n \n \n     Theoretical Competition:    12 July 2011 \nQuestion 1         Page 2 of 3 \n \n \n  \n1.3 Consider the caseM\nm . If \n is now given a small radial perturbation (along O\n), what \nis the angular frequency of oscillation of \n about the unperturbed position in terms of \n0\n? \nAssume that the angular momentum of \n is conserved. \n[3.2 points] \n \nThe Laser Interferometry Space Antenna (LISA) is a group of three identical spacecrafts for \ndetecting low frequency gravitational waves. Each of the spacecrafts is placed at the corners of an \nequilateral triangle as shown in Figure 2 and Figure 3. The sides (or „arms‟) are about 5.0 million \nkilometres long. The LISA constellation is in an earth-like orbit around the Sun trailing the Earth by \n20 .  Each of them moves on a slightly inclined individual orbit around the Sun. Effectively, the \nthree spacecrafts appear to roll about their common centre one revolution per year.  \n \nThey are continuously transmitting and receiving laser signals between each other. Overall, they \ndetect the gravitational waves by measuring tiny changes in the arm lengths using interferometric \nmeans. A collision of massive objects, such as blackholes, in nearby galaxies is an example of the \nsources of gravitational waves. \n \n \n \nFIGURE 2  Illustration of the LISA orbit. The three spacecraft roll about their centre of mass with a \nperiod of 1 year.  Initially, they trail the Earth by 20 . (Picture from D.A. Shaddock, “An Overview \nof the Laser Interferometer Space Antenna”, Publications of the Astronomical Society of Australia, \n2009, 26, pp.128-132.). \n \n \nEarth \n\n \n \n \n \n     Theoretical Competition:    12 July 2011 \nQuestion 1         Page 3 of 3 \n \n \n  \n \nFIGURE 3  Enlarged view of the three spacecrafts trailing the Earth. A, B and \nC are the three spacecrafts at the corners of the equilateral triangle. \n \n \n \n1.4 In the plane containing the three spacecrafts, what is the relative speed of one spacecraft with \nrespect to another?    \n[1.8 point] \n \nEarth \nC \nB \nA \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2011-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"     Theoretical Competition:    Solution \nQuestion 1         Page 1 of 7 \n \n \n \n1 \n \nI. Solution \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n1.1   Let O be their centre of mass. Hence  \n \n \n \n0\nMR\nmr\n\n\n  \n \n \n \n………………………  (1) \n \n \n \n \n\n\n\n\n2\n0\n2\n2\n0\n2\nGMm\nm\nr\nR\nr\nGMm\nM\nR\nR\nr\n\n\n\n\n\n\n \n \n \n \n………………………  (2) \n \nFrom Eq. (2), or using reduced mass, \n\n\n\n\n2\n0\n3\nG M\nm\nR\nr\n\n\n\n\n \n \n \nHence, \n2\n0\n3\n2\n2\n(\n)\n(\n)\n(\n)\n(\n)\nG M\nm\nGM\nGm\nR\nr\nr R\nr\nR R\nr\n. \n………………………………  (3) \n \n \nO \nM \nm \nR \nr \n \n1 \n \nr2 \nr1 \n \n2 \n2 \n1 \n\n     Theoretical Competition:    Solution \nQuestion 1         Page 2 of 7 \n \n \n \n2 \n \n1.2   Since  is infinitesimal, it has no gravitational influences on the motion of neither M nor  \nm . For  to remain stationary relative to both M  and m  we must have: \n \n\n\n\n\n2\n1\n2\n0\n3\n2\n2\n1\n2\ncos\ncos\nG M\nm\nGM\nGm\nr\nr\nR\nr\n\n\n\n\n\n\n\n\n\n\n\n\n \n………………………  (4) \n \n \n \n \n1\n2\n2\n2\n1\n2\nsin\nsin\nGM\nGm\nr\nr\n\n\n\n\n\n  \n \n………………………  (5) \n \nSubstituting\n2\n1\nGM\nr\n from Eq. (5) into Eq. (4), and using the identity \n1\n2\n1\n2\n1\n2\nsin\ncos\ncos\nsin\nsin(\n)\n\n\n\n\n\n\n\n\n\n, we get \n \n \n \n\n\n\n\n1\n2\n1\n3\n2\n2\nsin(\n)\nsin\nM\nm\nm\nr\nR\nr\n\n\n\n\n\n\n\n\n \n \n \n………………………  (6) \nThe distances \n2r and , the angles \n1 and \n2\n are related by two Sine Rule equations  \n \n\n\n1\n1\n1\n2\n1\n2\nsin\nsin\nsin\nsin\nR\nr\nR\nr\n\n\n\n\n\n\n\n\n\n\n \n \n \n………………………  (7) \nSubstitute (7) into (6) \n \n\n\n\n\n4\n3\n2\n1\nM\nm\nR\nr\nm\nR\nr\n\n\n\n \n \n \n………………………  (10) \nSince \nm\nR\nM\nm\nR\nr\n\n\n\n,Eq. (10) gives \n \n2r\nR\nr\n\n \n \n \n \n………………………  (11) \nBy substituting \n2\n2\nGm\nr\n from Eq. (5) into Eq. (4), and repeat a similar procedure, we get\n \n1r\nR\nr\n\n\n \n \n \n \n………………………  (12) \n \nAlternatively,   \n\n\n1\n1\nsin\nsin 180\nr\nR\n\n\n\n\n and  \n2\n2\nsin\nsin\nr\nr\n\n\n\n \n \n \n \n1\n2\n2\n2\n1\n1\nsin\nsin\nr\nr\nR\nm\nr\nr\nM\nr\n\n\n\n\n\n\n  \n \n \n \n \nCombining with Eq. (5) gives 1\n2\nr\nr\n\n \n                                 \n\n     Theoretical Competition:    Solution \nQuestion 1         Page 3 of 7 \n \n \n \n3 \n \nHence, it is an equilateral triangle with  \n1\n2\n60\n60\n\n\n\n\n\n \n \n \n \n………………………  (13) \n \nThe distance  is calculated from the Cosine Rule. \n \n \n2\n2\n2\n2\n2\n(\n)\n2 (\n)cos60\nr\nR\nr\nr R\nr\nr\nrR\nR\n\n\n\n\n\n\n\n\n\n\n\n  \n \n………………………  (14) \nAlternative Solution to 1.2 \n \nSince  is infinitesimal, it has no gravitational influences on the motion of neither M  nor  \nm .For  to remain stationary relative to both M  and m  we must have: \n \n\n\n\n\n2\n1\n2\n3\n2\n2\n1\n2\ncos\ncos\nG M\nm\nGM\nGm\nr\nr\nR\nr\n\n\n\n\n\n\n\n\n\n\n\n\n \n………………………  (4) \n \n \n \n \n1\n2\n2\n2\n1\n2\nsin\nsin\nGM\nGm\nr\nr\n\n\n\n\n\n  \n \n………………………  (5) \n \nNote that  \n \n\n\n1\n1\nsin\nsin 180\nr\nR\n\n\n\n\n \n \n \n \n2\n2\nsin\nsin\nr\nr\n\n\n\n          (see figure) \n \n \n \n1\n2\n2\n2\n1\n1\nsin\nsin\nr\nr\nR\nm\nr\nr\nM\nr\n\n\n\n\n\n\n  \n \n………………………  (6) \n \n \nEquations (5) and (6):  \n \n1\n2\nr\nr\n\n \n \n \n………………………  (7) \n \n \n \n \n \n1\n2\nsin\nsin\nm\nM\n\n\n\n  \n \n………………………  (8) \n \n \n \n \n \n \n1\n2\n\n\n\n \n \n \n………………………  (9) \n \n \nThe equation (4) then becomes: \n \n \n \n\n\n\n\n2\n1\n2\n1\n3\ncos\ncos\nM\nm\nM\nm\nr\nR\nr\n\n\n\n\n\n\n\n  \n………………………  (10)  \nEquations (8) and (10):  \n\n\n\n\n2\n1\n1\n2\n2\n3\nsin\nsin\nr\nM\nm\nM\nR\nr\n\n\n\n\n\n\n\n\n \n………………………  (11)  \nNote that from figure,   \n2\n2\nsin\nsin\nr\n\n\n\n\n \n \n \n………………………  (12)  \n\n     Theoretical Competition:    Solution \nQuestion 1         Page 4 of 7 \n \n \n \n4 \n \n \n1.3 The energy of the mass \nis given by \n \n2\n2\n2\n1\n2\n1\n2\n((\n)\n)\nGM\nGm\nd\nE\nr\nr\ndt\n\n\n\n\n\n\n\n\n\n                     \n \n………………………..(15) \nSince the perturbation is in the radial direction, angular momentum is conserved \n( 1\n2\nr\nr\nand m\nM ), \n4\n2\n2\n0\n0\n1\n2\n2\n2\n(\n)\nGM\nd\nE\ndt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n \n \n \n………………………..(16) \nSince the energy is conserved,  \n0\ndE\ndt \n \n4\n2\n2\n0\n0\n2\n2\n3\n2\n0\ndE\nGM\nd\nd\nd\nd\ndt\ndt\ndt dt\ndt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n……………(17) \n \nd\nd\nd\nd\ndt\nd\ndt\ndt\n\n\n\n\n\n\n\n \n \n      …………….(18) \n4\n2\n2\n0\n0\n3\n2\n3\n2\n0\ndE\nGM\nd\nd\nd\nd\ndt\ndt\ndt dt\ndt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n …………….(19) \nEquations (11) and (12):  \n\n\n\n\n2\n1\n1\n2\n2\n3\nsin\nsin\nr r\nM\nm\nM\nR\nr\n\n\n\n\n\n\n\n \n………………………  (13) \nAlso from figure, \n \n \n\n\n\n\n\n\n2\n2\n2\n2\n2\n1 2\n1\n2\n1\n1\n1\n2\n2\ncos\n2\n1 cos\nR\nr\nr\nrr\nr\nr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n………………  (14) \nEquations (13) and (14):  \n\n\n\n\n2\n1\n2\n1\n2\nsin\nsin\n2 1 cos\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n………………………  (15) \n \n \n1\n2\n1\n2\n2\n180\n180\n2\n\n\n\n\n\n\n\n\n\n\n\n    (see figure) \n \n2\n2\n1\n1\ncos\n,\n60 ,\n60\n2\n\n\n\n\n\n\n\n \n \nHence M  and m  from an equilateral triangle of sides \n\nR\nr\n\n \nDistance  to M  is  R\nr\n \nDistance   to m  is R\nr\n \nDistance  to O is  \n\n\n2\n2\n2\n2\n3\n2\n2\nR\nr\nR\nR\nr\nR\nRr\nr\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n \n \nR \nR \n \n60o \nO \n\n     Theoretical Competition:    Solution \nQuestion 1         Page 5 of 7 \n \n \n \n5 \n \nSince \n0\nd\ndt\n\n, we have  \n4\n2\n2\n0\n0\n3\n2\n3\n2\n0\nGM\nd\ndt\n\n\n\n\n\n\n\n\n or \n4\n2\n2\n0\n0\n2\n3\n3\n2\nd\nGM\ndt\n\n\n\n\n\n\n\n. \n \n \n \n \n \n…………………………(20) \nThe perturbation from \n0\nand\n0\ngives \n0\n0\n1\n\n\n\n\n\n\n\n\n\n\nand\n0\n0\n1\n\n\n\n\n\n\n\n\n\n\n\n\n\n. \n \nThen  \n4\n2\n2\n2\n0\n0\n0\n0\n3\n3\n2\n2\n0\n3\n3\n0\n0\n0\n0\n2\n(\n)\n1\n1\n1\nd\nd\nGM\ndt\ndt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n………………(21) \n \nUsing binomial expansion (1\n)\n1\nn\nn\n\n\n\n\n, \n2\n2\n0\n0\n0\n2\n3\n0\n0\n0\n0\n2\n3\n3\n1\n1\n1\nd\nGM\ndt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.  \n  \n……………….(22) \nUsing \n\n\n\n\n\n, \n2\n2\n0\n0\n0\n0\n2\n3\n2\n0\n0\n0\n0\n3\n2\n3\n1\n1\nd\nGM\ndt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n. \n \n \n……………….(23) \nSince \n2\n0\n3\n0\n2GM\n\n\n, \n2\n2\n2\n0\n0\n0\n0\n0\n2\n2\n0\n0\n0\n3\n3\n1\n1\nd\ndt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n \n \n……………….(24) \n2\n2\n0\n0\n0\n2\n2\n0\n0\n3\n4\nd\ndt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n \n \n \n \n \n……………….(25) \n2\n2\n2\n0\n0\n2\n2\n0\n3\n4\nd\ndt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n \n \n \n \n \n \n……………….(26) \nFrom the figure, \n0\n0 cos30\n\nor \n2\n0\n2\n0\n3\n4\n\n\n\n, \n2\n2\n2\n0\n0\n2\n9\n7\n4\n4\n4\nd\ndt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.  \n \n \n \n \n…………….…(27) \n\n     Theoretical Competition:    Solution \nQuestion 1         Page 6 of 7 \n \n \n \n6 \n \nAngular frequency of oscillation is \n0\n7\n2 . \n \nAlternative solution: \nM\nm\n\n gives R\nr\n and \n2\n0\n3\n3\n(\n)\n(\n)\n4\nG M\nM\nGM\nR\nR\nR\n\n\n\n\n\n. The unperturbed radial distance of  is \n3R, so the perturbed radial distance can be represented by \n3R\n\n\n where \n3R\n\n as \nshown in the following figure.  \nUsing Newton’s 2nd law, \n2\n2\n2\n2\n2 3/2\n2\n( 3\n)\n( 3\n)\n( 3\n)\n{\n( 3\n) }\nGM\nd\nR\nR\nR\ndt\nR\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.    \n(1) \nThe conservation of angular momentum gives \n2\n2\n0( 3 )\n( 3\n)\nR\nR\n\n\n\n\n\n.                                          \n(2) \nManipulate (1) and (2) algebraically, applying \n2\n0\n\n\n and binomial approximation. \n2\n2\n0\n2\n2\n2 3/2\n3\n3\n2\n( 3\n)\n{\n( 3\n) }\n(1\n/\n3 )\nR\nGM\nd\nR\ndt\nR\nR\nR\n\n\n\n\n\n\n\n\n\n\n\n\n \n2\n2\n0\n2\n2\n3/2\n3\n3\n2\n( 3\n)\n{4\n2 3\n}\n(1\n/\n3 )\nR\nGM\nd\nR\ndt\nR\nR\nR\n\n\n\n\n\n\n\n\n\n\n\n \n2\n2\n0\n3\n2\n3/2\n3\n3\n(1\n/\n3 )\n3\n4\n(1\n3 / 2 )\n(1\n/\n3 )\nR\nGM\nR\nd\nR\nR\ndt\nR\nR\n\n\n\n\n\n\n\n\n\n\n\n \n2\n2\n2\n0\n0\n2\n3 3\n3\n3\n1\n1\n3\n1\n4\n3\n3\nd\nR\nR\nR\ndt\nR\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n2\n2\n0\n2\n7\n4\nd\ndt \n\n\n\n\n\n\n\n\n \n \n \n1.4 Relative velocity \n \nLet v  = speed of each spacecraft as it moves in circle around the centre O. \nThe relative velocities are denoted by the subscripts A, B and C. \nFor example, \nBA\nv\n is the velocity of B as observed by A. \n \nThe period of circular motion is 1 year \n365 24 60 60\nT \n\n\n\n s. \n \n \n………… (28) \nThe angular frequency \n2\nT\n\n\n \nThe speed \n575 m/s\n2cos30\nL\nv\n\n\n\n\n  \n \n \n \n \n \n………… (29) \n\n     Theoretical Competition:    Solution \nQuestion 1         Page 7 of 7 \n \n \n \n7 \n \n \nThe speed is much less than the speed light  Galilean transformation. \n \nIn Cartesian coordinates, the velocities of B and C (as observed by O) are  \n \n \nFor B, \nˆ\nˆ\ncos60\nsin60\nB\nv\nv\nv\n\n\n\ni\nj \n \nFor C, \nˆ\nˆ\ncos60\nsin60\nC\nv\nv\nv\n\n\n\ni\nj \n \nHence \nBC\nˆ\nˆ\n2 sin60\n3\nv\nv\nv\n\n\nj\nj \nThe speed of B as observed by C  is\n3\n996 m/s\nv \n  \n \n \n \n………… (30) \n \nNotice that the relative velocities for each pair are anti-parallel. \n \nAlternative solution for 1.4 \n \nOne can obtain \nBC\nv\n by considering the rotation about the axis at one of the spacecrafts. \n \n6\nBC\n2\n(5 10  km)\n996 m/s\n365 24 60 60 s\nv\nL\n\n\n\n\n\n\n\n\n\n \n \nC \nB \nA \nv\nv\nv\nO \nBC\nv\n \nBA\nv\n \nAC\nv\n \nCA\nv\n \nCB\nv\n \nAB\nv\n \nL  \nL  \nL  \nˆj \nˆi  \n","textExtraction":"available"}}
+{
+  "id": "ipho-2011-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2011_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2011_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2011-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1. A Three-body Problem and LISA"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2011-t1/9f768e85a5f9f5aa7198.png",
+                "alt": "ipho-2011-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "FIGURE 1 Coplanar orbits of three bodies."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Two gravitating masses "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are moving in circular orbits of radii "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", respectively, about their common centre of mass. Find the angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the line joining "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R, r, M, m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the universal gravitational constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[1.5 points]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "A third body of infinitesimal mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is placed in a coplanar circular orbit about the same centre of mass so that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " remains stationary relative to both "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as shown in Figure 1. Assume that the infinitesimal mass is not collinear with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Find the values of the following parameters in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[3.5 points]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2.1distance from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2.2distance from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2.3distance from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the centre of mass."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Consider the case "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M = m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". If "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is now given a small radial perturbation (along O"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "), what is the angular frequency of oscillation of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " about the unperturbed position in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? Assume that the angular momentum of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is conserved. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[3.2 points]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The Laser Interferometry Space Antenna (LISA) is a group of three identical spacecrafts for detecting low frequency gravitational waves. Each of the spacecrafts is placed at the corners of an equilateral triangle as shown in Figure 2 and Figure 3. The sides (or ‘arms’) are about 5.0 million kilometres long. The LISA constellation is in an earth-like orbit around the Sun trailing the Earth by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(20^{\\circ}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Each of them moves on a slightly inclined individual orbit around the Sun. Effectively, the three spacecrafts appear to roll about their common centre one revolution per year."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "They are continuously transmitting and receiving laser signals between each other. Overall, they detect the gravitational waves by measuring tiny changes in the arm lengths using interferometric means. A collision of massive objects, such as blackholes, in nearby galaxies is an example of the sources of gravitational waves."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2011-t1/593a5b59ac6a49bce5fe.png",
+                "alt": "ipho-2011-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "FIGURE 2 Illustration of the LISA orbit. The three spacecraft roll about their centre of mass with a period of 1 year. Initially, they trail the Earth by "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(20^{\\circ}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ". (Picture from D.A. Shaddock, “An Overview of the Laser Interferometer Space Antenna”, "
+              },
+              {
+                "type": "element",
+                "tag": "em",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Publications of the Astronomical Society of Australia"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ", 2009, "
+              },
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "26"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ", pp.128-132.)."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2011-t1/edcb75d311056c89d348.png",
+                "alt": "ipho-2011-t1 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "FIGURE 3 Enlarged view of the three spacecrafts trailing the Earth. A, B and C are the three spacecrafts at the corners of the equilateral triangle."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "In the plane containing the three spacecrafts, what is the relative speed of one spacecraft with respect to another? "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[1.8 point]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "1. A Three-body Problem and LISA\n\n\n\n\n\n\n\n\n\n\n\nFIGURE 1 Coplanar orbits of three bodies.\n\n\n\n\n1.1\nTwo gravitating masses \n\\(M\\)\n and \n\\(m\\)\n are moving in circular orbits of radii \n\\(R\\)\n and \n\\(r\\)\n, respectively, about their common centre of mass. Find the angular velocity \n\\(\\omega_0\\)\n of the line joining \n\\(M\\)\n and \n\\(m\\)\n in terms of \n\\(R, r, M, m\\)\n and the universal gravitational constant \n\\(G\\)\n. \n[1.5 points]\n\n\n1.2\nA third body of infinitesimal mass \n\\(\\mu\\)\n is placed in a coplanar circular orbit about the same centre of mass so that \n\\(\\mu\\)\n remains stationary relative to both \n\\(M\\)\n and \n\\(m\\)\n as shown in Figure 1. Assume that the infinitesimal mass is not collinear with \n\\(M\\)\n and \n\\(m\\)\n. Find the values of the following parameters in terms of \n\\(R\\)\n and \n\\(r\\)\n: \n[3.5 points]\n\n\n1.2.1distance from \n\\(\\mu\\)\n to \n\\(M\\)\n.\n\n\n1.2.2distance from \n\\(\\mu\\)\n to \n\\(m\\)\n.\n\n\n1.2.3distance from \n\\(\\mu\\)\n to the centre of mass.\n\n\n1.3\nConsider the case \n\\(M = m\\)\n. If \n\\(\\mu\\)\n is now given a small radial perturbation (along O\n\\(\\mu\\)\n), what is the angular frequency of oscillation of \n\\(\\mu\\)\n about the unperturbed position in terms of \n\\(\\omega_0\\)\n? Assume that the angular momentum of \n\\(\\mu\\)\n is conserved. \n[3.2 points]\n\n\nThe Laser Interferometry Space Antenna (LISA) is a group of three identical spacecrafts for detecting low frequency gravitational waves. Each of the spacecrafts is placed at the corners of an equilateral triangle as shown in Figure 2 and Figure 3. The sides (or ‘arms’) are about 5.0 million kilometres long. The LISA constellation is in an earth-like orbit around the Sun trailing the Earth by \n\\(20^{\\circ}\\)\n. Each of them moves on a slightly inclined individual orbit around the Sun. Effectively, the three spacecrafts appear to roll about their common centre one revolution per year.\n\n\nThey are continuously transmitting and receiving laser signals between each other. Overall, they detect the gravitational waves by measuring tiny changes in the arm lengths using interferometric means. A collision of massive objects, such as blackholes, in nearby galaxies is an example of the sources of gravitational waves.\n\n\n\n\n\n\n\n\n\n\n\nFIGURE 2 Illustration of the LISA orbit. The three spacecraft roll about their centre of mass with a period of 1 year. Initially, they trail the Earth by \n\\(20^{\\circ}\\)\n. (Picture from D.A. Shaddock, “An Overview of the Laser Interferometer Space Antenna”, \nPublications of the Astronomical Society of Australia\n, 2009, \n26\n, pp.128-132.).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFIGURE 3 Enlarged view of the three spacecrafts trailing the Earth. A, B and C are the three spacecrafts at the corners of the equilateral triangle.\n\n\n\n\n1.4\nIn the plane containing the three spacecrafts, what is the relative speed of one spacecraft with respect to another? \n[1.8 point]\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2011-t1/9f768e85a5f9f5aa7198.png",
+      "/corpus/figures/native/bulk/ipho-2011-t1/593a5b59ac6a49bce5fe.png",
+      "/corpus/figures/native/bulk/ipho-2011-t1/edcb75d311056c89d348.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2011-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "I. Solution"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2011-t1/1f6bd93c74674545491e.png",
+                "alt": "ipho-2011-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1 Let O be their centre of mass. Hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nMR-mr=0\n\\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\begin{split}\nm\\omega_0^2 r &= \\frac{GMm}{(R+r)^2}\\\\\nM\\omega_0^2 R &= \\frac{GMm}{(R+r)^2}\n\\end{split}\n\\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From Eq. (2), or using reduced mass, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\omega_0^2 = \\frac{G(M+m)}{(R+r)^3}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\text{Hence, }\\omega_0^2=\\frac{G(M+m)}{(R+r)^3}=\\frac{GM}{r(R+r)^2}=\\frac{Gm}{R(R+r)^2}.\n\\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2 Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is infinitesimal, it has no gravitational influences on the motion of neither "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " nor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " . For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to remain stationary relative to both "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we must have: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\begin{split}\n\\frac{GM\\mu}{r_1^2}\\cos\\theta_1+\\frac{Gm\\mu}{r_2^2}\\cos\\theta_2 &= \\mu\\omega_0^2\\rho = \\frac{G(M+m)\\mu}{(R+r)^3}\\rho\n\\end{split}\n\\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{GM\\mu}{r_1^2}\\sin\\theta_1 = \\frac{Gm\\mu}{r_2^2}\\sin\\theta_2\n\\tag{5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Substituting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{GM}{r_1^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from Eq. (5) into Eq. (4), and using the identity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin\\theta_1\\cos\\theta_2+\\cos\\theta_1\\sin\\theta_2=\\sin(\\theta_1+\\theta_2)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nm\\frac{\\sin(\\theta_1+\\theta_2)}{r_2^2} = \\frac{(M+m)}{(R+r)^3}\\rho\\sin\\theta_1\n\\tag{6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The distances "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , the angles "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are related by two Sine Rule equations "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\begin{split}\n\\frac{\\sin\\psi_1}{\\rho} &= \\frac{\\sin\\theta_1}{R}\\\\\n\\frac{\\sin\\psi_1}{r_2} &= \\frac{\\sin(\\theta_1+\\theta_2)}{R+r}\n\\end{split}\n\\tag{7}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Substitute (7) into (6) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{1}{r_2^3} = \\frac{R}{(R+r)^4}\\frac{(M+m)}{m}\n\\tag{10}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{m}{M+m}=\\frac{R}{R+r}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ",Eq. (10) gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nr_2 = R+r\n\\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " By substituting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{Gm}{r_2^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from Eq. (5) into Eq. (4), and repeat a similar procedure, we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nr_1 = R+r\n\\tag{12}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Alternatively, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{r_1}{\\sin\\left(180^\\circ-\\phi\\right)}=\\frac{R}{\\sin\\theta_1}\\quad\\text{and}\\quad\\frac{r_2}{\\sin\\phi}=\\frac{r}{\\sin\\theta_2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\sin\\theta_1}{\\sin\\theta_2}=\\frac{R}{r}\\times\\frac{r_2}{r_1}=\\frac{m}{M}\\times\\frac{r_2}{r_1}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Combining with Eq. (5) gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_1 = r_2\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hence, it is an equilateral triangle with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\begin{split}\n\\psi_1 &= 60^\\circ\\\\\n\\psi_2 &= 60^\\circ\n\\end{split}\n\\tag{13}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is calculated from the Cosine Rule. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\begin{split}\n\\rho^2 &= r^2+(R+r)^2-2r(R+r)\\cos 60^\\circ\\\\\n\\rho &= \\sqrt{r^2+rR+R^2}\n\\end{split}\n\\tag{14}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Alternative Solution to 1.2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is infinitesimal, it has no gravitational influences on the motion of neither "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " nor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " .For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to remain stationary relative to both "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we must have: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\begin{split}\n\\frac{GM\\mu}{r_1^2}\\cos\\theta_1+\\frac{Gm\\mu}{r_2^2}\\cos\\theta_2 &= \\mu\\omega^2\\rho = \\frac{G(M+m)\\mu}{(R+r)^3}\\rho\n\\end{split}\n\\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{GM\\mu}{r_1^2}\\sin\\theta_1 = \\frac{Gm\\mu}{r_2^2}\\sin\\theta_2\n\\tag{5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Note that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{r_1}{\\sin\\left(180^\\circ-\\phi\\right)}=\\frac{R}{\\sin\\theta_1}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{r_2}{\\sin\\phi}=\\frac{r}{\\sin\\theta_2}\\qquad\\text{(see figure)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\sin\\theta_1}{\\sin\\theta_2}=\\frac{R}{r}\\times\\frac{r_2}{r_1}=\\frac{m}{M}\\times\\frac{r_2}{r_1}\n\\tag{6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Equations (5) and (6): "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\nr_1 &= r_2 \\tag{7}\\\\\n\\frac{\\sin\\theta_1}{\\sin\\theta_2} &= \\frac{m}{M} \\tag{8}\\\\\n\\psi_1 &= \\psi_2 \\tag{9}\n\\end{align}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The equation (4) then becomes: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nM\\cos\\theta_1+m\\cos\\theta_2 = \\frac{(M+m)}{(R+r)^3}r_1^2\\rho\n\\tag{10}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Equations (8) and (10): "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\sin(\\theta_1+\\theta_2) = \\frac{M+m}{M}\\frac{r_1^2\\rho}{(R+r)^3}\\sin\\theta_2\n\\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Note that from figure, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\rho}{\\sin\\psi_2} = \\frac{r}{\\sin\\theta_2}\n\\tag{12}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Equations (11) and (12): "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\sin(\\theta_1+\\theta_2) = \\frac{M+m}{M}\\frac{r_1^2 r}{(R+r)^3}\\sin\\psi_2\n\\tag{13}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Also from figure, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n(R+r)^2 = r_2^2-2r_1r_2\\cos(\\theta_1+\\theta_2)+r_1^2 = 2r_1^2\\left[1-\\cos(\\theta_1+\\theta_2)\\right]\n\\tag{14}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Equations (13) and (14): "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\sin(\\theta_1+\\theta_2) = \\frac{\\sin\\psi_2}{2\\left[1-\\cos(\\theta_1+\\theta_2)\\right]}\n\\tag{15}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\theta_1+\\theta_2 = 180^\\circ-\\psi_1-\\psi_2 = 180^\\circ-2\\psi_2\\qquad\\text{(see figure)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\therefore \\cos\\psi_2 = \\frac{1}{2},\\ \\psi_2 = 60^\\circ,\\ \\psi_1 = 60^\\circ\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from an equilateral triangle of sides "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((R+r)\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R+r\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R+r\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to O is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\rho=\\sqrt{\\left(\\frac{R+r}{2}-R\\right)^2+\\left\\{\\left(R+r\\right)\\frac{\\sqrt{3}}{2}\\right\\}^2}=\\sqrt{R^2+Rr+r^2}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.3 The energy of the mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE = -\\frac{GM\\mu}{r_1}-\\frac{Gm\\mu}{r_2}+\\tfrac{1}{2}\\mu\\left(\\left(\\frac{d\\rho}{dt}\\right)^2+\\rho^2\\omega^2\\right)\n\\tag{15}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Since the perturbation is in the radial direction, angular momentum is conserved "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((r_1=r_2=\\mathfrak{R}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m=M)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE = -\\frac{2GM\\mu}{\\mathfrak{R}}+\\tfrac{1}{2}\\mu\\left(\\left(\\frac{d\\rho}{dt}\\right)^2+\\frac{\\rho_0^4\\omega_0^2}{\\rho^2}\\right)\n\\tag{16}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Since the energy is conserved, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dE}{dt}=0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{dE}{dt}=\\frac{2GM\\mu}{\\mathfrak{R}^2}\\frac{d\\mathfrak{R}}{dt}+\\mu\\frac{d\\rho}{dt}\\frac{d^2\\rho}{dt^2}-\\mu\\frac{\\rho_0^4\\omega_0^2}{\\rho^3}\\frac{d\\rho}{dt}=0\n\\tag{17}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{d\\mathfrak{R}}{dt}=\\frac{d\\mathfrak{R}}{d\\rho}\\frac{d\\rho}{dt}=\\frac{d\\rho}{dt}\\frac{\\rho}{\\mathfrak{R}}\n\\tag{18}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{dE}{dt}=\\frac{2GM\\mu}{\\mathfrak{R}^3}\\rho\\frac{d\\rho}{dt}+\\mu\\frac{d\\rho}{dt}\\frac{d^2\\rho}{dt^2}-\\mu\\frac{\\rho_0^4\\omega_0^2}{\\rho^3}\\frac{d\\rho}{dt}=0\n\\tag{19}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2011-t1/77c038f0249efcf6426b.png",
+                "alt": "ipho-2011-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{d\\rho}{dt}\\neq 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{2GM}{\\mathfrak{R}^3}\\rho+\\frac{d^2\\rho}{dt^2}-\\frac{\\rho_0^4\\omega_0^2}{\\rho^3}=0\\quad\\text{or}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{d^2\\rho}{dt^2}=-\\frac{2GM}{\\mathfrak{R}^3}\\rho+\\frac{\\rho_0^4\\omega_0^2}{\\rho^3} .\n\\tag{20}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The perturbation from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathfrak{R}_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathfrak{R}=\\mathfrak{R}_0\\left(1+\\frac{\\Delta\\mathfrak{R}}{\\mathfrak{R}_0}\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho=\\rho_0\\left(1+\\frac{\\Delta\\rho}{\\rho_0}\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{d^2\\rho}{dt^2}=\\frac{d^2}{dt^2}(\\rho_0+\\Delta\\rho)=-\\frac{2GM}{\\mathfrak{R}_0^3\\left(1+\\frac{\\Delta\\mathfrak{R}}{\\mathfrak{R}_0}\\right)^3}\\rho_0\\left(1+\\frac{\\Delta\\rho}{\\rho_0}\\right)+\\frac{\\rho_0^4\\omega_0^2}{\\rho_0^3\\left(1+\\frac{\\Delta\\rho}{\\rho_0}\\right)^3}\n\\tag{21}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using binomial expansion "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((1+\\varepsilon)^n \\approx 1+n\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{d^2\\Delta\\rho}{dt^2}=-\\frac{2GM}{\\mathfrak{R}_0^3}\\rho_0\\left(1+\\frac{\\Delta\\rho}{\\rho_0}\\right)\\left(1-\\frac{3\\Delta\\mathfrak{R}}{\\mathfrak{R}_0}\\right)+\\rho_0\\omega_0^2\\left(1-\\frac{3\\Delta\\rho}{\\rho_0}\\right) .\n\\tag{22}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\rho=\\frac{\\mathfrak{R}}{\\rho}\\Delta\\mathfrak{R}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{d^2\\Delta\\rho}{dt^2}=-\\frac{2GM}{\\mathfrak{R}_0^3}\\rho_0\\left(1+\\frac{\\Delta\\rho}{\\rho_0}-\\frac{3\\rho_0\\Delta\\rho}{\\mathfrak{R}_0^2}\\right)+\\rho_0\\omega_0^2\\left(1-\\frac{3\\Delta\\rho}{\\rho_0}\\right) .\n\\tag{23}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0^2=\\frac{2GM}{\\mathfrak{R}_0^3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{d^2\\Delta\\rho}{dt^2}=-\\omega_0^2\\rho_0\\left(1+\\frac{\\Delta\\rho}{\\rho_0}-\\frac{3\\rho_0\\Delta\\rho}{\\mathfrak{R}_0^2}\\right)+\\omega_0^2\\rho_0\\left(1-\\frac{3\\Delta\\rho}{\\rho_0}\\right)\n\\tag{24}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{d^2\\Delta\\rho}{dt^2}=-\\omega_0^2\\rho_0\\left(\\frac{4\\Delta\\rho}{\\rho_0}-\\frac{3\\rho_0\\Delta\\rho}{\\mathfrak{R}_0^2}\\right)\n\\tag{25}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{d^2\\Delta\\rho}{dt^2}=-\\omega_0^2\\Delta\\rho\\left(4-\\frac{3\\rho_0^2}{\\mathfrak{R}_0^2}\\right)\n\\tag{26}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From the figure, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_0=\\mathfrak{R}_0\\cos 30^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{\\rho_0^2}{\\mathfrak{R}_0^2}=\\frac{3}{4}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{d^2\\Delta\\rho}{dt^2}=-\\omega_0^2\\Delta\\rho\\left(4-\\frac{9}{4}\\right)=-\\frac{7}{4}\\omega_0^2\\Delta\\rho .\n\\tag{27}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Angular frequency of oscillation is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{\\sqrt{7}}{2}\\,\\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Alternative solution:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M = m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0^2=\\frac{G(M+M)}{(R+R)^3}=\\frac{GM}{4R^3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " . The unperturbed radial distance of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sqrt{3}R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , so the perturbed radial distance can be represented by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sqrt{3}R+\\zeta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\zeta << \\sqrt{3}R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as shown in the following figure."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using Newton’s "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2^{\\mathrm{nd}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " law, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n-\\frac{2GM\\mu}{\\left\\{R^2+(\\sqrt{3}R+\\zeta)^2\\right\\}^{3/2}}(\\sqrt{3}R+\\zeta)=\\mu\\frac{d^2}{dt^2}(\\sqrt{3}R+\\zeta)-\\mu\\omega^2(\\sqrt{3}R+\\zeta) .\n\\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The conservation of angular momentum gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\mu\\omega_0(\\sqrt{3}R)^2=\\mu\\omega(\\sqrt{3}R+\\zeta)^2 .\n\\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Manipulate (1) and (2) algebraically, applying "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\zeta^2 \\approx 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and binomial approximation. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[-\\frac{2GM}{\\left\\{R^2+(\\sqrt{3}R+\\zeta)^2\\right\\}^{3/2}}(\\sqrt{3}R+\\zeta)=\\frac{d^2\\zeta}{dt^2}-\\frac{\\omega_0^2\\sqrt{3}R}{(1+\\zeta/\\sqrt{3}R)^3}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[-\\frac{2GM}{\\left\\{4R^2+2\\sqrt{3}\\zeta R\\right\\}^{3/2}}(\\sqrt{3}R+\\zeta)\\approx\\frac{d^2\\zeta}{dt^2}-\\frac{\\omega_0^2\\sqrt{3}R}{(1+\\zeta/\\sqrt{3}R)^3}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[-\\frac{GM}{4R^3}\\sqrt{3}R\\frac{(1+\\zeta/\\sqrt{3}R)}{(1+\\sqrt{3}\\zeta/2R)^{3/2}}=\\frac{d^2\\zeta}{dt^2}-\\frac{\\omega_0^2\\sqrt{3}R}{(1+\\zeta/\\sqrt{3}R)^3}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[-\\omega_0^2\\sqrt{3}R\\left(1-\\frac{3\\sqrt{3}\\zeta}{4R}\\right)\\left(1+\\frac{\\zeta}{\\sqrt{3}R}\\right)\\approx\\frac{d^2\\zeta}{dt^2}-\\omega_0^2\\sqrt{3}R\\left(1-\\frac{3\\zeta}{\\sqrt{3}R}\\right)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d^2}{dt^2}\\zeta=-\\left(\\frac{7}{4}\\omega_0^2\\right)\\zeta\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4 Relative velocity"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = speed of each spacecraft as it moves in circle around the centre O. The relative velocities are denoted by the subscripts A, B and C. For example, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{\\mathrm{BA}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the velocity of B as observed by A."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The period of circular motion is 1 year "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nT = 365\\times 24\\times 60\\times 60\\ \\mathrm{s} .\n\\tag{28}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The angular frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega=\\frac{2\\pi}{T}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\text{The speed }v = \\omega\\frac{L}{2\\cos 30^\\circ} = 575\\ \\mathrm{m/s}\n\\tag{29}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The speed is much less than the speed light "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rightarrow\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Galilean transformation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In Cartesian coordinates, the velocities of B and C (as observed by O) are"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2011-t1/e825a5581aabfb069344.png",
+                "alt": "ipho-2011-t1 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For B, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{v}_{B}=v\\cos 60^\\circ\\hat{\\mathbf{i}}-v\\sin 60^\\circ\\hat{\\mathbf{j}}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For C, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{v}_{C}=v\\cos 60^\\circ\\hat{\\mathbf{i}}+v\\sin 60^\\circ\\hat{\\mathbf{j}}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{v}_{\\mathrm{BC}}=-2v\\sin 60^\\circ\\hat{\\mathbf{j}}=-\\sqrt{3}v\\hat{\\mathbf{j}}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\text{The speed of B as observed by C is }\\sqrt{3}v\\approx 996\\ \\mathrm{m/s} .\n\\tag{30}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Notice that the relative velocities for each pair are anti-parallel."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Alternative solution for 1.4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "One can obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{\\mathrm{BC}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " by considering the rotation about the axis at one of the spacecrafts."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_{\\mathrm{BC}}=\\omega L=\\frac{2\\pi}{365\\times 24\\times 60\\times 60\\ \\mathrm{s}}\\,(5\\times 10^{6}\\ \\mathrm{km})\\approx 996\\ \\mathrm{m/s}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "I. Solution\n\n\n\n\n\n\n\n\n\n1.1 Let O be their centre of mass. Hence \n\\[\\begin{equation}\nMR-mr=0\n\\tag{1}\n\\end{equation}\\]\n \n\\[\\begin{equation}\n\\begin{split}\nm\\omega_0^2 r &= \\frac{GMm}{(R+r)^2}\\\\\nM\\omega_0^2 R &= \\frac{GMm}{(R+r)^2}\n\\end{split}\n\\tag{2}\n\\end{equation}\\]\n From Eq. (2), or using reduced mass, \n\\[\\omega_0^2 = \\frac{G(M+m)}{(R+r)^3}\\]\n \n\\[\\begin{equation}\n\\text{Hence, }\\omega_0^2=\\frac{G(M+m)}{(R+r)^3}=\\frac{GM}{r(R+r)^2}=\\frac{Gm}{R(R+r)^2}.\n\\tag{3}\n\\end{equation}\\]\n\n\n1.2 Since \n\\(\\mu\\)\n is infinitesimal, it has no gravitational influences on the motion of neither \n\\(M\\)\n nor \n\\(m\\)\n . For \n\\(\\mu\\)\n to remain stationary relative to both \n\\(M\\)\n and \n\\(m\\)\n we must have: \n\\[\\begin{equation}\n\\begin{split}\n\\frac{GM\\mu}{r_1^2}\\cos\\theta_1+\\frac{Gm\\mu}{r_2^2}\\cos\\theta_2 &= \\mu\\omega_0^2\\rho = \\frac{G(M+m)\\mu}{(R+r)^3}\\rho\n\\end{split}\n\\tag{4}\n\\end{equation}\\]\n \n\\[\\begin{equation}\n\\frac{GM\\mu}{r_1^2}\\sin\\theta_1 = \\frac{Gm\\mu}{r_2^2}\\sin\\theta_2\n\\tag{5}\n\\end{equation}\\]\n Substituting \n\\(\\frac{GM}{r_1^2}\\)\n from Eq. (5) into Eq. (4), and using the identity \n\\(\\sin\\theta_1\\cos\\theta_2+\\cos\\theta_1\\sin\\theta_2=\\sin(\\theta_1+\\theta_2)\\)\n, we get \n\\[\\begin{equation}\nm\\frac{\\sin(\\theta_1+\\theta_2)}{r_2^2} = \\frac{(M+m)}{(R+r)^3}\\rho\\sin\\theta_1\n\\tag{6}\n\\end{equation}\\]\n The distances \n\\(r_2\\)\n and \n\\(\\rho\\)\n , the angles \n\\(\\theta_1\\)\n and \n\\(\\theta_2\\)\n are related by two Sine Rule equations \n\\[\\begin{equation}\n\\begin{split}\n\\frac{\\sin\\psi_1}{\\rho} &= \\frac{\\sin\\theta_1}{R}\\\\\n\\frac{\\sin\\psi_1}{r_2} &= \\frac{\\sin(\\theta_1+\\theta_2)}{R+r}\n\\end{split}\n\\tag{7}\n\\end{equation}\\]\n Substitute (7) into (6) \n\\[\\begin{equation}\n\\frac{1}{r_2^3} = \\frac{R}{(R+r)^4}\\frac{(M+m)}{m}\n\\tag{10}\n\\end{equation}\\]\n Since \n\\(\\frac{m}{M+m}=\\frac{R}{R+r}\\)\n,Eq. (10) gives \n\\[\\begin{equation}\nr_2 = R+r\n\\tag{11}\n\\end{equation}\\]\n By substituting \n\\(\\frac{Gm}{r_2^2}\\)\n from Eq. (5) into Eq. (4), and repeat a similar procedure, we get \n\\[\\begin{equation}\nr_1 = R+r\n\\tag{12}\n\\end{equation}\\]\n\n\nAlternatively, \n\\[\\frac{r_1}{\\sin\\left(180^\\circ-\\phi\\right)}=\\frac{R}{\\sin\\theta_1}\\quad\\text{and}\\quad\\frac{r_2}{\\sin\\phi}=\\frac{r}{\\sin\\theta_2}\\]\n \n\\[\\frac{\\sin\\theta_1}{\\sin\\theta_2}=\\frac{R}{r}\\times\\frac{r_2}{r_1}=\\frac{m}{M}\\times\\frac{r_2}{r_1}\\]\n\n\nCombining with Eq. (5) gives \n\\(r_1 = r_2\\)\n\n\nHence, it is an equilateral triangle with \n\\[\\begin{equation}\n\\begin{split}\n\\psi_1 &= 60^\\circ\\\\\n\\psi_2 &= 60^\\circ\n\\end{split}\n\\tag{13}\n\\end{equation}\\]\n\n\nThe distance \n\\(\\rho\\)\n is calculated from the Cosine Rule. \n\\[\\begin{equation}\n\\begin{split}\n\\rho^2 &= r^2+(R+r)^2-2r(R+r)\\cos 60^\\circ\\\\\n\\rho &= \\sqrt{r^2+rR+R^2}\n\\end{split}\n\\tag{14}\n\\end{equation}\\]\n\n\nAlternative Solution to 1.2\n\n\nSince \n\\(\\mu\\)\n is infinitesimal, it has no gravitational influences on the motion of neither \n\\(M\\)\n nor \n\\(m\\)\n .For \n\\(\\mu\\)\n to remain stationary relative to both \n\\(M\\)\n and \n\\(m\\)\n we must have: \n\\[\\begin{equation}\n\\begin{split}\n\\frac{GM\\mu}{r_1^2}\\cos\\theta_1+\\frac{Gm\\mu}{r_2^2}\\cos\\theta_2 &= \\mu\\omega^2\\rho = \\frac{G(M+m)\\mu}{(R+r)^3}\\rho\n\\end{split}\n\\tag{4}\n\\end{equation}\\]\n \n\\[\\begin{equation}\n\\frac{GM\\mu}{r_1^2}\\sin\\theta_1 = \\frac{Gm\\mu}{r_2^2}\\sin\\theta_2\n\\tag{5}\n\\end{equation}\\]\n Note that \n\\[\\frac{r_1}{\\sin\\left(180^\\circ-\\phi\\right)}=\\frac{R}{\\sin\\theta_1}\\]\n \n\\[\\frac{r_2}{\\sin\\phi}=\\frac{r}{\\sin\\theta_2}\\qquad\\text{(see figure)}\\]\n \n\\[\\begin{equation}\n\\frac{\\sin\\theta_1}{\\sin\\theta_2}=\\frac{R}{r}\\times\\frac{r_2}{r_1}=\\frac{m}{M}\\times\\frac{r_2}{r_1}\n\\tag{6}\n\\end{equation}\\]\n Equations (5) and (6): \n\\[\\begin{align}\nr_1 &= r_2 \\tag{7}\\\\\n\\frac{\\sin\\theta_1}{\\sin\\theta_2} &= \\frac{m}{M} \\tag{8}\\\\\n\\psi_1 &= \\psi_2 \\tag{9}\n\\end{align}\\]\n The equation (4) then becomes: \n\\[\\begin{equation}\nM\\cos\\theta_1+m\\cos\\theta_2 = \\frac{(M+m)}{(R+r)^3}r_1^2\\rho\n\\tag{10}\n\\end{equation}\\]\n Equations (8) and (10): \n\\[\\begin{equation}\n\\sin(\\theta_1+\\theta_2) = \\frac{M+m}{M}\\frac{r_1^2\\rho}{(R+r)^3}\\sin\\theta_2\n\\tag{11}\n\\end{equation}\\]\n Note that from figure, \n\\[\\begin{equation}\n\\frac{\\rho}{\\sin\\psi_2} = \\frac{r}{\\sin\\theta_2}\n\\tag{12}\n\\end{equation}\\]\n Equations (11) and (12): \n\\[\\begin{equation}\n\\sin(\\theta_1+\\theta_2) = \\frac{M+m}{M}\\frac{r_1^2 r}{(R+r)^3}\\sin\\psi_2\n\\tag{13}\n\\end{equation}\\]\n Also from figure, \n\\[\\begin{equation}\n(R+r)^2 = r_2^2-2r_1r_2\\cos(\\theta_1+\\theta_2)+r_1^2 = 2r_1^2\\left[1-\\cos(\\theta_1+\\theta_2)\\right]\n\\tag{14}\n\\end{equation}\\]\n Equations (13) and (14): \n\\[\\begin{equation}\n\\sin(\\theta_1+\\theta_2) = \\frac{\\sin\\psi_2}{2\\left[1-\\cos(\\theta_1+\\theta_2)\\right]}\n\\tag{15}\n\\end{equation}\\]\n \n\\[\\theta_1+\\theta_2 = 180^\\circ-\\psi_1-\\psi_2 = 180^\\circ-2\\psi_2\\qquad\\text{(see figure)}\\]\n \n\\(\\therefore \\cos\\psi_2 = \\frac{1}{2},\\ \\psi_2 = 60^\\circ,\\ \\psi_1 = 60^\\circ\\)\n\n\nHence \n\\(M\\)\n and \n\\(m\\)\n from an equilateral triangle of sides \n\\((R+r)\\)\n\n\nDistance \n\\(\\mu\\)\n to \n\\(M\\)\n is \n\\(R+r\\)\n\n\nDistance \n\\(\\mu\\)\n to \n\\(m\\)\n is \n\\(R+r\\)\n\n\nDistance \n\\(\\mu\\)\n to O is \n\\[\\rho=\\sqrt{\\left(\\frac{R+r}{2}-R\\right)^2+\\left\\{\\left(R+r\\right)\\frac{\\sqrt{3}}{2}\\right\\}^2}=\\sqrt{R^2+Rr+r^2}\\]\n\n\n1.3 The energy of the mass \n\\(\\mu\\)\n is given by \n\\[\\begin{equation}\nE = -\\frac{GM\\mu}{r_1}-\\frac{Gm\\mu}{r_2}+\\tfrac{1}{2}\\mu\\left(\\left(\\frac{d\\rho}{dt}\\right)^2+\\rho^2\\omega^2\\right)\n\\tag{15}\n\\end{equation}\\]\n Since the perturbation is in the radial direction, angular momentum is conserved \n\\((r_1=r_2=\\mathfrak{R}\\)\n and \n\\(m=M)\\)\n, \n\\[\\begin{equation}\nE = -\\frac{2GM\\mu}{\\mathfrak{R}}+\\tfrac{1}{2}\\mu\\left(\\left(\\frac{d\\rho}{dt}\\right)^2+\\frac{\\rho_0^4\\omega_0^2}{\\rho^2}\\right)\n\\tag{16}\n\\end{equation}\\]\n Since the energy is conserved, \n\\[\\frac{dE}{dt}=0\\]\n \n\\[\\begin{equation}\n\\frac{dE}{dt}=\\frac{2GM\\mu}{\\mathfrak{R}^2}\\frac{d\\mathfrak{R}}{dt}+\\mu\\frac{d\\rho}{dt}\\frac{d^2\\rho}{dt^2}-\\mu\\frac{\\rho_0^4\\omega_0^2}{\\rho^3}\\frac{d\\rho}{dt}=0\n\\tag{17}\n\\end{equation}\\]\n \n\\[\\begin{equation}\n\\frac{d\\mathfrak{R}}{dt}=\\frac{d\\mathfrak{R}}{d\\rho}\\frac{d\\rho}{dt}=\\frac{d\\rho}{dt}\\frac{\\rho}{\\mathfrak{R}}\n\\tag{18}\n\\end{equation}\\]\n \n\\[\\begin{equation}\n\\frac{dE}{dt}=\\frac{2GM\\mu}{\\mathfrak{R}^3}\\rho\\frac{d\\rho}{dt}+\\mu\\frac{d\\rho}{dt}\\frac{d^2\\rho}{dt^2}-\\mu\\frac{\\rho_0^4\\omega_0^2}{\\rho^3}\\frac{d\\rho}{dt}=0\n\\tag{19}\n\\end{equation}\\]\n\n\n\n\n\n\n\n\n\nSince \n\\(\\frac{d\\rho}{dt}\\neq 0\\)\n, we have \n\\[\\frac{2GM}{\\mathfrak{R}^3}\\rho+\\frac{d^2\\rho}{dt^2}-\\frac{\\rho_0^4\\omega_0^2}{\\rho^3}=0\\quad\\text{or}\\]\n \n\\[\\begin{equation}\n\\frac{d^2\\rho}{dt^2}=-\\frac{2GM}{\\mathfrak{R}^3}\\rho+\\frac{\\rho_0^4\\omega_0^2}{\\rho^3} .\n\\tag{20}\n\\end{equation}\\]\n The perturbation from \n\\(\\mathfrak{R}_0\\)\n and \n\\(\\rho_0\\)\n gives \n\\(\\mathfrak{R}=\\mathfrak{R}_0\\left(1+\\frac{\\Delta\\mathfrak{R}}{\\mathfrak{R}_0}\\right)\\)\n and \n\\(\\rho=\\rho_0\\left(1+\\frac{\\Delta\\rho}{\\rho_0}\\right)\\)\n.\n\n\nThen \n\\[\\begin{equation}\n\\frac{d^2\\rho}{dt^2}=\\frac{d^2}{dt^2}(\\rho_0+\\Delta\\rho)=-\\frac{2GM}{\\mathfrak{R}_0^3\\left(1+\\frac{\\Delta\\mathfrak{R}}{\\mathfrak{R}_0}\\right)^3}\\rho_0\\left(1+\\frac{\\Delta\\rho}{\\rho_0}\\right)+\\frac{\\rho_0^4\\omega_0^2}{\\rho_0^3\\left(1+\\frac{\\Delta\\rho}{\\rho_0}\\right)^3}\n\\tag{21}\n\\end{equation}\\]\n Using binomial expansion \n\\((1+\\varepsilon)^n \\approx 1+n\\varepsilon\\)\n , \n\\[\\begin{equation}\n\\frac{d^2\\Delta\\rho}{dt^2}=-\\frac{2GM}{\\mathfrak{R}_0^3}\\rho_0\\left(1+\\frac{\\Delta\\rho}{\\rho_0}\\right)\\left(1-\\frac{3\\Delta\\mathfrak{R}}{\\mathfrak{R}_0}\\right)+\\rho_0\\omega_0^2\\left(1-\\frac{3\\Delta\\rho}{\\rho_0}\\right) .\n\\tag{22}\n\\end{equation}\\]\n Using \n\\(\\Delta\\rho=\\frac{\\mathfrak{R}}{\\rho}\\Delta\\mathfrak{R}\\)\n , \n\\[\\begin{equation}\n\\frac{d^2\\Delta\\rho}{dt^2}=-\\frac{2GM}{\\mathfrak{R}_0^3}\\rho_0\\left(1+\\frac{\\Delta\\rho}{\\rho_0}-\\frac{3\\rho_0\\Delta\\rho}{\\mathfrak{R}_0^2}\\right)+\\rho_0\\omega_0^2\\left(1-\\frac{3\\Delta\\rho}{\\rho_0}\\right) .\n\\tag{23}\n\\end{equation}\\]\n Since \n\\(\\omega_0^2=\\frac{2GM}{\\mathfrak{R}_0^3}\\)\n , \n\\[\\begin{equation}\n\\frac{d^2\\Delta\\rho}{dt^2}=-\\omega_0^2\\rho_0\\left(1+\\frac{\\Delta\\rho}{\\rho_0}-\\frac{3\\rho_0\\Delta\\rho}{\\mathfrak{R}_0^2}\\right)+\\omega_0^2\\rho_0\\left(1-\\frac{3\\Delta\\rho}{\\rho_0}\\right)\n\\tag{24}\n\\end{equation}\\]\n \n\\[\\begin{equation}\n\\frac{d^2\\Delta\\rho}{dt^2}=-\\omega_0^2\\rho_0\\left(\\frac{4\\Delta\\rho}{\\rho_0}-\\frac{3\\rho_0\\Delta\\rho}{\\mathfrak{R}_0^2}\\right)\n\\tag{25}\n\\end{equation}\\]\n \n\\[\\begin{equation}\n\\frac{d^2\\Delta\\rho}{dt^2}=-\\omega_0^2\\Delta\\rho\\left(4-\\frac{3\\rho_0^2}{\\mathfrak{R}_0^2}\\right)\n\\tag{26}\n\\end{equation}\\]\n From the figure, \n\\(\\rho_0=\\mathfrak{R}_0\\cos 30^\\circ\\)\n or \n\\(\\frac{\\rho_0^2}{\\mathfrak{R}_0^2}=\\frac{3}{4}\\)\n, \n\\[\\begin{equation}\n\\frac{d^2\\Delta\\rho}{dt^2}=-\\omega_0^2\\Delta\\rho\\left(4-\\frac{9}{4}\\right)=-\\frac{7}{4}\\omega_0^2\\Delta\\rho .\n\\tag{27}\n\\end{equation}\\]\n\n\nAngular frequency of oscillation is \n\\(\\frac{\\sqrt{7}}{2}\\,\\omega_0\\)\n .\n\n\nAlternative solution:\n\n\n\\(M = m\\)\n gives \n\\(R = r\\)\n and \n\\(\\omega_0^2=\\frac{G(M+M)}{(R+R)^3}=\\frac{GM}{4R^3}\\)\n . The unperturbed radial distance of \n\\(\\mu\\)\n is \n\\(\\sqrt{3}R\\)\n , so the perturbed radial distance can be represented by \n\\(\\sqrt{3}R+\\zeta\\)\n where \n\\(\\zeta << \\sqrt{3}R\\)\n as shown in the following figure.\n\n\nUsing Newton’s \n\\(2^{\\mathrm{nd}}\\)\n law, \n\\[\\begin{equation}\n-\\frac{2GM\\mu}{\\left\\{R^2+(\\sqrt{3}R+\\zeta)^2\\right\\}^{3/2}}(\\sqrt{3}R+\\zeta)=\\mu\\frac{d^2}{dt^2}(\\sqrt{3}R+\\zeta)-\\mu\\omega^2(\\sqrt{3}R+\\zeta) .\n\\tag{1}\n\\end{equation}\\]\n The conservation of angular momentum gives \n\\[\\begin{equation}\n\\mu\\omega_0(\\sqrt{3}R)^2=\\mu\\omega(\\sqrt{3}R+\\zeta)^2 .\n\\tag{2}\n\\end{equation}\\]\n Manipulate (1) and (2) algebraically, applying \n\\(\\zeta^2 \\approx 0\\)\n and binomial approximation. \n\\[-\\frac{2GM}{\\left\\{R^2+(\\sqrt{3}R+\\zeta)^2\\right\\}^{3/2}}(\\sqrt{3}R+\\zeta)=\\frac{d^2\\zeta}{dt^2}-\\frac{\\omega_0^2\\sqrt{3}R}{(1+\\zeta/\\sqrt{3}R)^3}\\]\n \n\\[-\\frac{2GM}{\\left\\{4R^2+2\\sqrt{3}\\zeta R\\right\\}^{3/2}}(\\sqrt{3}R+\\zeta)\\approx\\frac{d^2\\zeta}{dt^2}-\\frac{\\omega_0^2\\sqrt{3}R}{(1+\\zeta/\\sqrt{3}R)^3}\\]\n \n\\[-\\frac{GM}{4R^3}\\sqrt{3}R\\frac{(1+\\zeta/\\sqrt{3}R)}{(1+\\sqrt{3}\\zeta/2R)^{3/2}}=\\frac{d^2\\zeta}{dt^2}-\\frac{\\omega_0^2\\sqrt{3}R}{(1+\\zeta/\\sqrt{3}R)^3}\\]\n \n\\[-\\omega_0^2\\sqrt{3}R\\left(1-\\frac{3\\sqrt{3}\\zeta}{4R}\\right)\\left(1+\\frac{\\zeta}{\\sqrt{3}R}\\right)\\approx\\frac{d^2\\zeta}{dt^2}-\\omega_0^2\\sqrt{3}R\\left(1-\\frac{3\\zeta}{\\sqrt{3}R}\\right)\\]\n \n\\[\\frac{d^2}{dt^2}\\zeta=-\\left(\\frac{7}{4}\\omega_0^2\\right)\\zeta\\]\n\n\n1.4 Relative velocity\n\n\nLet \n\\(v\\)\n = speed of each spacecraft as it moves in circle around the centre O. The relative velocities are denoted by the subscripts A, B and C. For example, \n\\(v_{\\mathrm{BA}}\\)\n is the velocity of B as observed by A.\n\n\nThe period of circular motion is 1 year \n\\[\\begin{equation}\nT = 365\\times 24\\times 60\\times 60\\ \\mathrm{s} .\n\\tag{28}\n\\end{equation}\\]\n The angular frequency \n\\(\\omega=\\frac{2\\pi}{T}\\)\n\n\n\\[\\begin{equation}\n\\text{The speed }v = \\omega\\frac{L}{2\\cos 30^\\circ} = 575\\ \\mathrm{m/s}\n\\tag{29}\n\\end{equation}\\]\n\n\nThe speed is much less than the speed light \n\\(\\rightarrow\\)\n Galilean transformation.\n\n\nIn Cartesian coordinates, the velocities of B and C (as observed by O) are\n\n\n\n\n\n\n\n\n\nFor B, \n\\(\\vec{v}_{B}=v\\cos 60^\\circ\\hat{\\mathbf{i}}-v\\sin 60^\\circ\\hat{\\mathbf{j}}\\)\n\n\nFor C, \n\\(\\vec{v}_{C}=v\\cos 60^\\circ\\hat{\\mathbf{i}}+v\\sin 60^\\circ\\hat{\\mathbf{j}}\\)\n\n\nHence \n\\(\\vec{v}_{\\mathrm{BC}}=-2v\\sin 60^\\circ\\hat{\\mathbf{j}}=-\\sqrt{3}v\\hat{\\mathbf{j}}\\)\n\n\n\\[\\begin{equation}\n\\text{The speed of B as observed by C is }\\sqrt{3}v\\approx 996\\ \\mathrm{m/s} .\n\\tag{30}\n\\end{equation}\\]\n\n\nNotice that the relative velocities for each pair are anti-parallel.\n\n\nAlternative solution for 1.4\n\n\nOne can obtain \n\\(v_{\\mathrm{BC}}\\)\n by considering the rotation about the axis at one of the spacecrafts.\n\n\n\\[v_{\\mathrm{BC}}=\\omega L=\\frac{2\\pi}{365\\times 24\\times 60\\times 60\\ \\mathrm{s}}\\,(5\\times 10^{6}\\ \\mathrm{km})\\approx 996\\ \\mathrm{m/s}\\]\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2011-t1/1f6bd93c74674545491e.png",
+      "/corpus/figures/native/bulk/ipho-2011-t1/77c038f0249efcf6426b.png",
+      "/corpus/figures/native/bulk/ipho-2011-t1/e825a5581aabfb069344.png"
+    ],
+    "shared": false
+  }
+}

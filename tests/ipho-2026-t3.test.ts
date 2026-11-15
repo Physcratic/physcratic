@@ -24,7 +24,7 @@ for (const kind of ["statement", "solution"] as const) {
     }
     for (const src of doc.figures) assert.ok(html.includes(`src="${src}"`), src)
     if (kind === "statement") {
-      assert.match(html, /<table><thead><tr><th>IDEAL GAS<\/th><th>PARAMAGNETIC TORUS<\/th><\/tr><\/thead><tbody>/)
+      assert.match(html, /<table[^>]*><thead><tr><th>IDEAL GAS<\/th><th>PARAMAGNETIC TORUS<\/th><\/tr><\/thead><tbody>/)
       assert.match(html, /Heat capacity at constant/)
       assert.match(html, /potassium chromate/)
     } else {

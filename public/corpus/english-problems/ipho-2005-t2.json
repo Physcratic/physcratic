@@ -1,1 +1,4310 @@
-{"id":"ipho-2005-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2005_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2005_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2005-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"36th International Physics Olympiad. Salamanca (España) 2005 \n \nTh 2   Page 1 of 3 \n \nR.S.E.F. \nTh 2     ABSOLUTE MEASUREMENTS OF ELECTRICAL QUANTITIES \n \nThe technological and scientific transformations underwent during the XIX century produced a compelling need of \nuniversally accepted standards for the electrical quantities. It was thought the new absolute units should only rely on the \nstandards of length, mass and time established after the French Revolution. An intensive experimental work to settle the \nvalues of these units was developed from 1861 until 1912. We propose here three case studies. \nMarks are indicated at the beginning of each subquestion, in parenthesis. \n \n \nDetermination of the ohm (Kelvin) \nA closed circular coil of N turns, radius a and total resistance R is rotated with \nuniform angular velocity ω about a vertical diameter in a horizontal magnetic \nfield\ni\nB\nB\nr\nr\n0\n0 =\n. \n1. (0.5+1.0) Compute the electromotive force ε induced in the coil, and also the \nmean power1 P  required for maintaining the coil in motion. Neglect the coil \nself inductance. \nA small magnetic needle is placed at the center of the coil, as shown in Figure F-1. It \nis free to turn slowly around the Z axis in a horizontal plane, but it cannot follow the rapid \nrotation of the coil. \n2. (2.0) Once the stationary regime is reached, the needle will set at a direction making a small angle θ with\n0\nB\nr\n. \nCompute the resistance R of the coil in terms of this angle and the other parameters of the system. \nLord Kelvin used this method in the 1860s to set the absolute standard for the ohm. To avoid the rotating coil, \nLorenz devised an alternative method used by Lord Rayleigh and Ms. Sidgwick, that we analyze in the next paragraphs. \n \nDetermination of the ohm (Rayleigh, Sidgwick). \nThe experimental setup is shown in Figure   \nF-2. It consists of two identical metal disks D and D' \nof radius b mounted on the conducting shaft SS'. A \nmotor rotates the set at an angular velocity ω , which \ncan be adjusted for measuring R. Two identical coils \nC and C' (of radius a and with N turns each) \nsurround the disks. They are connected in such a \nform that the current I flows through them in \nopposite directions. The whole apparatus serves to \nmeasure the resistance R.  \n \n                                                 \n1 The mean value X  of a quantity \n( )t\nX\n in a periodic system of period T is  \n( )\n∫\n=\nT\ndt\nt\nX\nT\nX\n0\n1\n \nYou may need one or more of these integrals: \n \n0\n2\n0\n2\n0\n2\n0\ncos\nsin\ncos\nsin\n=\n=\n=\n∫\n∫\n∫\nπ\nπ\nπ\ndx\nx\nx\ndx\nx\ndx\nx\n,   \nπ\nπ\nπ\n=\n=∫\n∫\n2\n0\n2\n2\n0\n2\ncos\nsin\ndx\nx\ndx\nx\n,   and later   \n1\n1\n1\nn\nn\nn\nx dx\nx +\n+\n=\n∫\n \n \nG \nD\n4 \nC\nC'\nS'\nS\nF-2 \nD'\n1 \n2 \nω \nR \nI \n3 \nX \nZ \nF-1\n0\nB\nr  \nθ\nω \n\n36th International Physics Olympiad. Salamanca (España) 2005 \n \nTh 2   Page 2 of 3 \n \nR.S.E.F. \n3.  (2.0) Assume that the current I flowing through the coils C and C' creates a uniform magnetic field B around D \nand D', equal to the one at the centre of the coil. Compute1 the electromotive force ε induced between the rims 1 \nand 4, assuming that the distance between the coils is much larger than the radius of the coils and that a >> b. \nThe disks are connected to the circuit by brush contacts at their rims 1 and 4. The galvanometer G detects the flow \nof current through the circuit 1-2-3-4. \n4.  (0.5) The resistance R is measured when G reads zero. Give R in terms of the physical parameters of the system.  \nDetermination of the ampere \nPassing a current through two conductors and measuring the force between them provides an absolute determination \nof the current itself. The “Current Balance” designed by Lord Kelvin in 1882 exploits this method. It consists of six \nidentical single turn coils C1… C6 of radius a, connected in series. As shown in Figure F-3, the fixed coils C1, C3, C4, and \nC6 are on two horizontal planes separated by a small distance 2h. The coils C2 and C5 are carried on balance arms of length \nd, and they are, in equilibrium, equidistant from both planes.  \nThe current I flows through the various coils in such a direction that the magnetic force on C2 is upwards while that \non C5 is downwards. A mass m at a distance x from the fulcrum O is required to restore the balance to the equilibrium \nposition described above when the current flows through the circuit. \n5. (1.0) Compute the force F on C2 due to the magnetic interaction with C1. For simplicity assume that the force per \nunit length is the one corresponding to two long, straight wires carrying parallel currents.  \n6. (1.0) The current I is measured when the balance is in equilibrium. Give the value of I in terms of the physical \nparameters of the system. The dimensions of the apparatus are such that we can neglect the mutual effects of the \ncoils on the left and on the right. \nLet M   be the mass of the balance (except for m and the hanging parts), G its centre of mass and l the distance \n.\nOG  \n7. (2.0) The balance equilibrium is stable against deviations producing small changes \nz\nδ\n in the height of C2 and \nz\nδ\n−\n in C5. Compute2 the maximum value \nmax\nz\nδ\n so that the balance still returns towards the equilibrium \nposition when it is released. \n \n                                                 \n2 Consider that the coils centres remain approximately aligned.  \nUse the approximations  \n2\n1\n1\n1\nβ\nβ\nβ\n+\n≈\n±\nm\n  or \n2\n2\n1\n1\n1\nβ\nβ\nm\n≈\n±\n  for  \n1\n<<\nβ\n, and \nθ\nθ\ntan\nsin\n≈\n for small θ. \nx \nm \nd \nC1 \nC2 \nC3 \nh \nh \nF\nF\nF \nF \nd \nO \nG \nC6 \nC5 \nC4 \nl \nF-3 \nI \n\n36th International Physics Olympiad. Salamanca (España) 2005 \n \nTh 2   Page 3 of 3 \n \nR.S.E.F. \nCOUNTRY CODE \nSTUDENT CODE \nPAGE NUMBER \nTOTAL No OF PAGES \n \n \n \n \n \n \nTh 2     ANSWER SHEET \n \n \nQuestion \nBasic formulas used \nAnalytical results \nMarking \nguideline \n \n1 \n \n \nε = \n=\nP\n \n \n1.5 \n \n2 \n \n \nR = \n \n2.0 \n \n3 \n \n \nε = \n \n2.0 \n \n4 \n \n \nR = \n \n0,5 \n \n5 \n \n \nF = \n \n1.0 \n \n6 \n \n \nI = \n \n1.0 \n \n7 \n  \n \n=\nmax\nz\nδ\n \n \n2.0 \n \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2005-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"36th International Physics Olympiad. Salamanca (España) 2005 \n \n \nSolution Th 2   Page 1 of 4 \nR.S.E.F. \nTh 2     ABSOLUTE MEASUREMENTS OF ELECTRICAL QUANTITIES  \nSOLUTION \n \n1. After some time t, the normal to the coil plane makes an angle ω t with the magnetic field \ni\nB\nB\nr\nr\n0\n0 =\n. Then, the \nmagnetic flux through the coil is \n \n \nS\nB\nN\nr\nr\n⋅\n=\n0\nφ\n \nwhere the vector surface S\nr\n is given by \n(\n)j\nt\nit\na\nS\nr\nr\nr\nω\nω\nπ\nsin\ncos\n2\n+\n=\n \nTherefore \nt\nB\na\nN\nω\nπ\nφ\ncos\n0\n2\n=\n \nThe induced electromotive force is  \n \n \n \ndt\ndφ\nε\n−\n=\n \n⇒ \n \nt\nB\na\nN\nω\nω\nπ\nε\nsin\n0\n2\n=\n \nThe instantaneous power is \n=\nP\nε 2 /R , therefore \n \n \n(\n)\nR\nB\na\nN\nP\n2\n2\n0\n2\nω\nπ\n=\n  \nwhere we used  \n2\n1\nsin\n1\nsin\n0\n2\n2\n=\n>=\n<\n∫\nT\ndt\nt\nT\nt\nω\nω\n \n \n2. The total field at the center the coil at the instant t is  \n \n \ni\nt\nB\nB\nB\nr\nr\nr\n+\n=\n0\n \nwhere \ni\nB\nr\n is the magnetic field due to the induced current \n(\n)j\nt\nit\nB\nB\ni\ni\nr\nr\nr\nω\nω\nsin\ncos\n+\n=\n \nwith  \na\nI\nN\nBi\n2\n0\nµ\n=\n \nand \nI = ε / R \nTherefore \nt\nR\nB\na\nN\nBi\nω\nω\nπ\nµ\nsin\n2\n0\n2\n0\n=\n \nThe mean values of its components are \n \n  \nR\nB\na\nN\nt\nR\nB\na\nN\nB\nt\nt\nR\nB\na\nN\nB\niy\nix\n4\nsin\n2\n0\ncos\nsin\n2\n0\n2\n0\n2\n0\n2\n0\n0\n2\n0\nω\nπ\nµ\nω\nω\nπ\nµ\nω\nω\nω\nπ\nµ\n=\n=\n=\n=\n \nAnd the mean value of the total magnetic field is  \n \n  \nj\nR\nB\na\nN\ni\nB\nBt\nr\nr\nr\n4\n0\n2\n0\n0\nω\nπ\nµ\n+\n=\n \nThe needle orients along the mean field, therefore  \n \n  \nR\na\nN\n4\ntan\n2\n0\nω\nπ\nµ\nθ =\n \n \n \n\n36th International Physics Olympiad. Salamanca (España) 2005 \n \n \nSolution Th 2   Page 2 of 4 \nR.S.E.F. \n \nFinally, the resistance of the coil measured by this procedure, in terms of θ , is \n \n  \nθ\nω\nπ\nµ\ntan\n4\n2\n0\na\nN\nR =\n \n3. The force on a unit positive charge in a disk is radial and its modulus is \n \n  \nB\nr\nB\nv\nB\nv\nω\n=\n=\n×\nr\nr\n  \nwhere B is the magnetic field at the center of the coil \n \n  \na\nI\nN\nB\n2\n0\nµ\n=\n \nThen, the electromotive force (e.m.f.) induced on each disk by the magnetic field B is \n \n \n \n∫\n=\n=\n=\nb\nD\nD\nb\nB\ndr\nr\nB\n0\n2\n'\n2\n1\nω\nω\nε\nε\n \n \n \nFinally, the induced e.m.f. between 1 and 4 is ε = εD + ε D'  \n \n  \na\nI\nb\nN\n2\n2\n0\nω\nµ\nε =\n \n \n4. When the reading of G vanishes, \n0\n=\nG\nI\n and Kirchoff laws give an immediate answer. Then we have  \n \n  \nR\nI\n=\nε\n  \n⇒ \na\nb\nN\nR\n2\n2\n0\nω\nµ\n=\n \n \n5. The force per unit length f between two indefinite parallel straight wires separated by a distance h is.  \n \n  \nh\nI\nI\nf\n2\n1\n0\n2π\nµ\n=\n \n \nfor  \nI\nI\nI\n=\n=\n2\n1\n  and length \na\nπ\n2\n, the force F induced on C2 by the neighbor coils C1 is \n \n  \n2\n0\nI\nh\na\nF\nµ\n=\n \n \n6. In equilibrium \n \n  \nd\nF\nx\ng\nm\n4\n=\n  \n \nThen \n \n  \n2\n0\n4\nI\nh\nd\na\nx\ng\nm\nµ\n=\n \n \n(1) \n \nso that \n \n \n  \n2\n1\n0\n4\n/\nd\na\nx\nh\ng\nm\nI\n⎟⎟\n⎠\n⎞\n⎜⎜\n⎝\n⎛\n=\nµ\n \n \n \n\n36th International Physics Olympiad. Salamanca (España) 2005 \n \n \nSolution Th 2   Page 3 of 4 \nR.S.E.F. \n \n7. The balance comes back towards the equilibrium position for a little angular deviation δϕ  if the gravity torques with \nrespect to the fulcrum O are greater than the magnetic torques. \n \n \n \nδϕ\nδ\nδ\nµ\nδϕ\nδϕ\ncos\n1\n1\n2\ncos\nsin\n2\n0\nd\nz\nh\nz\nh\nI\na\nx\ng\nm\nl\nMg\n⎟⎟\n⎠\n⎞\n⎜⎜\n⎝\n⎛\n+\n+\n−\n>\n+\n \nTherefore, using the suggested approximation \n \n \nδϕ\nδ\nµ\nδϕ\nδϕ\ncos\n1\n4\ncos\nsin\n2\n2\n2\n0\n⎟⎟\n⎠\n⎞\n⎜⎜\n⎝\n⎛\n+\n>\n+\nh\nz\nh\nI\nd\na\nx\ng\nm\nl\nMg\n \nTaking into account the equilibrium condition (1), one obtains \n \n \nδϕ\nδ\nδϕ\ncos\nh\nz\nx\ng\nm\nsin\nl\ng\nM\n2\n2\n>\n \n \nFinally, for \nd\nz\nδ\nϕ\nδ\nϕ\nδ\n=\n≈sin\ntan\n \n \n \nd\nx\nm\nh\nl\nM\nz\n2\n<\nδ\n \n⇒ \nd\nx\nm\nh\nl\nM\nz\n2\nmax =\nδ\n \nO \nl \nx \nδϕ\nδϕ\nδ z \nh + δ z \nh - δ z \nh + δ z \nh - δ z \nMg\nmg\nd \nG \n\n36th International Physics Olympiad. Salamanca (España) 2005 \n \n \nSolution Th 2   Page 4 of 4 \nR.S.E.F. \n \n \nTh 2     ANSWER SHEET \n \nQuestion \nBasic formulas and ideas used \nAnalytical results \nMarking \nguideline \n \n1 \n \nR\nP\ndt\nd\nS\nB\nN\n2\n0\nε\nε\nΦ\nΦ\n=\n−\n=\n⋅\n=\nr\nr\n \n(\n)\nR\nB\na\nN\nP\nt\nB\na\nN\n2\nsin\n2\n0\n2\n0\n2\nω\nπ\nω\nω\nπ\nε\n=\n=\n \n0.5 \n1.0 \n \n2 \n \nx\ny\ni\ni\nB\nB\nI\na\nN\nB\nB\nB\nB\n=\n=\n+\n=\nθ\nµ\ntan\n2\n0\n0\nr\nr\nr\n \n \nθ\nω\nπ\nµ\ntan\n4\n2\n0\na\nN\nR =\n \n \n2.0 \n \n3 \n \nr\nv\nB\nv\nE\nω\n=\n×\n=\nr\nr\nr\n \na\nI\nN\nB\n2\n0\nµ\n=\n \n∫\n=\nb\nr\nd\nE\n0\nr\nr\nε\n \n \na\nI\nb\nN\n2\n2\n0\nω\nµ\nε =\n \n \n2.0 \n4 \n \nI\nR\n=\nε\n \n \na\nb\nN\nR\n2\n2\n0\nω\nµ\n=\n \n0,5 \n5 \n \nh\nI\nI\nf\n′\n=\nπ\nµ\n2\n0\n \n \n2\n0\nI\nh\na\nF\nµ\n=\n \n1.0 \n6 \n \nd\nF\nx\ng\nm\n4\n=\n \n  \n2\n1\n0\n4\n/\nd\na\nx\nh\ng\nm\nI\n⎟⎟\n⎠\n⎞\n⎜⎜\n⎝\n⎛\n=\nµ\n \n \n1.0 \n7 \n \nmag\ngrav\nΓ\nΓ\n>\n \n  \nd\nx\nm\nh\nl\nM\nz\n2\nmax =\nδ\n \n \n2.0 \n \n  \n","textExtraction":"available"}}
+{
+  "id": "ipho-2005-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2005_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2005_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2005-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Th 2 ABSOLUTE MEASUREMENTS OF ELECTRICAL QUANTITIES"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The technological and scientific transformations underwent during the XIX century produced a compelling need of universally accepted standards for the electrical quantities. It was thought the new absolute units should only rely on the standards of length, mass and time established after the French Revolution. An intensive experimental work to settle the values of these units was developed from 1861 until 1912. We propose here three case studies."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Marks are indicated at the beginning of each subquestion, in parenthesis."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Determination of the ohm (Kelvin)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A closed circular coil of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " turns, radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and total resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is rotated with uniform angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " about a vertical diameter in a horizontal magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}_0 = B_0 \\vec{i}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2005-t2/96fbff8de0bd7f9529ba.png",
+                "alt": "ipho-2005-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "F-1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "(0.5+1.0) Compute the electromotive force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " induced in the coil, and also the mean power"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "sup",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\langle P \\rangle\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " required for maintaining the coil in motion. Neglect the coil self inductance."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A small magnetic needle is placed at the center of the coil, as shown in Figure F-1. It is free to turn slowly around the Z axis in a horizontal plane, but it cannot follow the rapid rotation of the coil."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "(2.0) Once the stationary regime is reached, the needle will set at a direction making a small angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Compute the resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the coil in terms of this angle and the other parameters of the system."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Lord Kelvin used this method in the 1860s to set the absolute standard for the ohm. To avoid the rotating coil, Lorenz devised an alternative method used by Lord Rayleigh and Ms. Sidgwick, that we analyze in the next paragraphs."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Determination of the ohm (Rayleigh, Sidgwick)."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The experimental setup is shown in Figure F-2. It consists of two identical metal disks D and D’ of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " mounted on the conducting shaft SS’. A motor rotates the set at an angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which can be adjusted for measuring "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Two identical coils C and C’ (of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and with "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "N"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " turns each) surround the disks. They are connected in such a form that the current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " flows through them in opposite directions. The whole apparatus serves to measure the resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2005-t2/6f6ed5d4fa14cdec09b2.png",
+                "alt": "ipho-2005-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "F-2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "You may need one or more of these integrals: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int_0^{2\\pi} \\sin x\\,dx = \\int_0^{2\\pi} \\cos x\\,dx = \\int_0^{2\\pi} \\sin x\\cos x\\,dx = 0\\,,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int_0^{2\\pi} \\sin^2 x\\,dx = \\int_0^{2\\pi} \\cos^2 x\\,dx = \\pi\\,, \\qquad \\text{and later} \\qquad \\int x^n\\,dx = \\frac{1}{n+1}x^{n+1}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "3."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "(2.0) Assume that the current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " flowing through the coils C and C’ creates a uniform magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " around D and D’, equal to the one at the centre of the coil. Compute the electromotive force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " induced between the rims 1 and 4, assuming that the distance between the coils is much larger than the radius of the coils and that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a >> b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The disks are connected to the circuit by brush contacts at their rims 1 and 4. The galvanometer G detects the flow of current through the circuit 1-2-3-4."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "4."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "(0.5) The resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is measured when G reads zero. Give "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of the physical parameters of the system."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Determination of the ampere"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Passing a current through two conductors and measuring the force between them provides an absolute determination of the current itself. The “Current Balance” designed by Lord Kelvin in 1882 exploits this method. It consists of six identical single turn coils "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_1\\ldots C_6\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", connected in series. As shown in Figure F-3, the fixed coils C"
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", C"
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", C"
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and C"
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are on two horizontal planes separated by a small distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The coils C"
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and C"
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are carried on balance arms of length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and they are, in equilibrium, equidistant from both planes."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " flows through the various coils in such a direction that the magnetic force on C"
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is upwards while that on C"
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is downwards. A mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the fulcrum O is required to restore the balance to the equilibrium position described above when the current flows through the circuit."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2005-t2/c2c26ab8aba78783c26a.png",
+                "alt": "ipho-2005-t2 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "F-3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "5."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "(1.0) Compute the force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on C"
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " due to the magnetic interaction with C"
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". For simplicity assume that the force per unit length is the one corresponding to two long, straight wires carrying parallel currents."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "6."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "(1.0) The current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is measured when the balance is in equilibrium. Give the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of the physical parameters of the system. The dimensions of the apparatus are such that we can neglect the mutual effects of the coils on the left and on the right."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the mass of the balance (except for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the hanging parts), G its centre of mass and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overline{\\mathrm{OG}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "7."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "(2.0) The balance equilibrium is stable against deviations producing small changes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the height of C"
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\delta z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in C"
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Compute"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "sup",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the maximum value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta z_{\\mathrm{max}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that the balance still returns towards the equilibrium position when it is released."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use the approximations "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{1}{1\\pm\\beta} \\approx 1 \\mp \\beta + \\beta^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{1}{1\\pm\\beta^2} \\approx 1 \\mp \\beta^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta << 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin\\theta \\approx \\tan\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for small "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "span",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "hr",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "ol",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "The mean value "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\langle X \\rangle\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " of a quantity "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(X(t)\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " in a periodic system of period "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(T\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": " is "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\langle X \\rangle = \\frac{1}{T}\\int_0^T X(t)\\,dt\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "↩︎"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Consider that the coils centres remain approximately aligned."
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "↩︎"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Th 2 ABSOLUTE MEASUREMENTS OF ELECTRICAL QUANTITIES\n\n\nThe technological and scientific transformations underwent during the XIX century produced a compelling need of universally accepted standards for the electrical quantities. It was thought the new absolute units should only rely on the standards of length, mass and time established after the French Revolution. An intensive experimental work to settle the values of these units was developed from 1861 until 1912. We propose here three case studies.\n\n\nMarks are indicated at the beginning of each subquestion, in parenthesis.\n\n\nDetermination of the ohm (Kelvin)\n\n\nA closed circular coil of \n\\(N\\)\n turns, radius \n\\(a\\)\n and total resistance \n\\(R\\)\n is rotated with uniform angular velocity \n\\(\\omega\\)\n about a vertical diameter in a horizontal magnetic field \n\\(\\vec{B}_0 = B_0 \\vec{i}\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nF-1\n\n\n\n\n1.\n(0.5+1.0) Compute the electromotive force \n\\(\\mathcal{E}\\)\n induced in the coil, and also the mean power\n1\n \n\\(\\langle P \\rangle\\)\n required for maintaining the coil in motion. Neglect the coil self inductance.\n\n\nA small magnetic needle is placed at the center of the coil, as shown in Figure F-1. It is free to turn slowly around the Z axis in a horizontal plane, but it cannot follow the rapid rotation of the coil.\n\n\n2.\n(2.0) Once the stationary regime is reached, the needle will set at a direction making a small angle \n\\(\\theta\\)\n with \n\\(\\vec{B}_0\\)\n. Compute the resistance \n\\(R\\)\n of the coil in terms of this angle and the other parameters of the system.\n\n\nLord Kelvin used this method in the 1860s to set the absolute standard for the ohm. To avoid the rotating coil, Lorenz devised an alternative method used by Lord Rayleigh and Ms. Sidgwick, that we analyze in the next paragraphs.\n\n\nDetermination of the ohm (Rayleigh, Sidgwick).\n\n\nThe experimental setup is shown in Figure F-2. It consists of two identical metal disks D and D’ of radius \n\\(b\\)\n mounted on the conducting shaft SS’. A motor rotates the set at an angular velocity \n\\(\\omega\\)\n, which can be adjusted for measuring \n\\(R\\)\n. Two identical coils C and C’ (of radius \n\\(a\\)\n and with \nN\n turns each) surround the disks. They are connected in such a form that the current \n\\(I\\)\n flows through them in opposite directions. The whole apparatus serves to measure the resistance \n\\(R\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nF-2\n\n\n\n\nYou may need one or more of these integrals: \n\\[\\int_0^{2\\pi} \\sin x\\,dx = \\int_0^{2\\pi} \\cos x\\,dx = \\int_0^{2\\pi} \\sin x\\cos x\\,dx = 0\\,,\\]\n \n\\[\\int_0^{2\\pi} \\sin^2 x\\,dx = \\int_0^{2\\pi} \\cos^2 x\\,dx = \\pi\\,, \\qquad \\text{and later} \\qquad \\int x^n\\,dx = \\frac{1}{n+1}x^{n+1}\\]\n\n\n3.\n(2.0) Assume that the current \n\\(I\\)\n flowing through the coils C and C’ creates a uniform magnetic field \n\\(B\\)\n around D and D’, equal to the one at the centre of the coil. Compute the electromotive force \n\\(\\mathcal{E}\\)\n induced between the rims 1 and 4, assuming that the distance between the coils is much larger than the radius of the coils and that \n\\(a >> b\\)\n.\n\n\nThe disks are connected to the circuit by brush contacts at their rims 1 and 4. The galvanometer G detects the flow of current through the circuit 1-2-3-4.\n\n\n4.\n(0.5) The resistance \n\\(R\\)\n is measured when G reads zero. Give \n\\(R\\)\n in terms of the physical parameters of the system.\n\n\nDetermination of the ampere\n\n\nPassing a current through two conductors and measuring the force between them provides an absolute determination of the current itself. The “Current Balance” designed by Lord Kelvin in 1882 exploits this method. It consists of six identical single turn coils \n\\(C_1\\ldots C_6\\)\n of radius \n\\(a\\)\n, connected in series. As shown in Figure F-3, the fixed coils C\n1\n, C\n3\n, C\n4\n, and C\n6\n are on two horizontal planes separated by a small distance \n\\(2h\\)\n. The coils C\n2\n and C\n5\n are carried on balance arms of length \n\\(d\\)\n, and they are, in equilibrium, equidistant from both planes.\n\n\nThe current \n\\(I\\)\n flows through the various coils in such a direction that the magnetic force on C\n2\n is upwards while that on C\n5\n is downwards. A mass \n\\(m\\)\n at a distance \n\\(x\\)\n from the fulcrum O is required to restore the balance to the equilibrium position described above when the current flows through the circuit.\n\n\n\n\n\n\n\n\n\n\n\nF-3\n\n\n\n\n5.\n(1.0) Compute the force \n\\(F\\)\n on C\n2\n due to the magnetic interaction with C\n1\n. For simplicity assume that the force per unit length is the one corresponding to two long, straight wires carrying parallel currents.\n\n\n6.\n(1.0) The current \n\\(I\\)\n is measured when the balance is in equilibrium. Give the value of \n\\(I\\)\n in terms of the physical parameters of the system. The dimensions of the apparatus are such that we can neglect the mutual effects of the coils on the left and on the right.\n\n\nLet \n\\(M\\)\n be the mass of the balance (except for \n\\(m\\)\n and the hanging parts), G its centre of mass and \n\\(l\\)\n the distance \n\\(\\overline{\\mathrm{OG}}\\)\n.\n\n\n7.\n(2.0) The balance equilibrium is stable against deviations producing small changes \n\\(\\delta z\\)\n in the height of C\n2\n and \n\\(-\\delta z\\)\n in C\n5\n. Compute\n2\n the maximum value \n\\(\\delta z_{\\mathrm{max}}\\)\n so that the balance still returns towards the equilibrium position when it is released.\n\n\nUse the approximations \n\\(\\frac{1}{1\\pm\\beta} \\approx 1 \\mp \\beta + \\beta^2\\)\n or \n\\(\\frac{1}{1\\pm\\beta^2} \\approx 1 \\mp \\beta^2\\)\n for \n\\(\\beta << 1\\)\n, and \n\\(\\sin\\theta \\approx \\tan\\theta\\)\n for small \n\\(\\theta\\)\n.\n\n\n\n\n\n\n\n\n\nThe mean value \n\\(\\langle X \\rangle\\)\n of a quantity \n\\(X(t)\\)\n in a periodic system of period \n\\(T\\)\n is \n\\(\\langle X \\rangle = \\frac{1}{T}\\int_0^T X(t)\\,dt\\)\n.\n↩︎\n\n\nConsider that the coils centres remain approximately aligned.\n↩︎\n\n\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2005-t2/96fbff8de0bd7f9529ba.png",
+      "/corpus/figures/native/bulk/ipho-2005-t2/6f6ed5d4fa14cdec09b2.png",
+      "/corpus/figures/native/bulk/ipho-2005-t2/c2c26ab8aba78783c26a.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2005-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Th 2 ABSOLUTE MEASUREMENTS OF ELECTRICAL QUANTITIES"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "SOLUTION"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1. After some time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the normal to the coil plane makes an angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with the magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}_0 = B_0 \\vec{i}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Then, the magnetic flux through the coil is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\phi = N\\,\\vec{B}_0\\cdot\\vec{S}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where the vector surface "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{S}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{S} = \\pi a^2\\left(\\cos\\omega t\\,\\vec{i} + \\sin\\omega t\\,\\vec{j}\\right)\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi = N\\pi a^2 B_0 \\cos\\omega t\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The induced electromotive force is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathcal{E} = -\\frac{d\\phi}{dt} \\quad\\Rightarrow\\quad \\mathcal{E} = N\\pi a^2 B_0 \\omega \\sin\\omega t\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The instantaneous power is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P = \\mathcal{E}^2/\\mathrm{R}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", therefore "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\langle P \\rangle = \\frac{\\left(N \\pi a^2 B_0 \\omega\\right)^2}{2R}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where we used "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(<\\sin^2\\omega t>=\\frac{1}{T}\\int_0^T \\sin^2\\omega t\\,dt = \\frac{1}{2}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2. The total field at the center the coil at the instant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\vec{B}_t = \\vec{B}_0 + \\vec{B}_i\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the magnetic field due to the induced current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}_i = B_i\\left(\\cos\\omega t\\,\\vec{i} + \\sin\\omega t\\,\\vec{j}\\right)\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_i = \\frac{\\mu_0 N I}{2a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I = \\mathcal{E}/R\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_i = \\frac{\\mu_0 N^2 \\pi a B_0 \\omega}{2R}\\sin\\omega t\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The mean values of its components are "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\langle B_{ix} \\rangle = \\frac{\\mu_0 N^2 \\pi a B_0 \\omega}{2R}\\langle \\sin\\omega t\\cos\\omega t \\rangle = 0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\langle B_{iy} \\rangle = \\frac{\\mu_0 N^2 \\pi a B_0 \\omega}{2R}\\langle \\sin^2\\omega t \\rangle = \\frac{\\mu_0 N^2 \\pi a B_0 \\omega}{4R}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "And the mean value of the total magnetic field is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\langle \\vec{B}_t \\rangle = B_0 \\vec{i} + \\frac{\\mu_0 N^2 \\pi a B_0 \\omega}{4R}\\,\\vec{j}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The needle orients along the mean field, therefore "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tan\\theta = \\frac{\\mu_0 N^2 \\pi a \\omega}{4R}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Finally, the resistance of the coil measured by this procedure, in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[R = \\frac{\\mu_0 N^2 \\pi a \\omega}{4\\tan\\theta}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3. The force on a unit positive charge in a disk is radial and its modulus is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left|\\vec{v} \\times \\vec{B}\\right| = vB = \\omega r B\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the magnetic field at the center of the coil "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[B = N\\frac{\\mu_0 I}{2a}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Then, the electromotive force (e.m.f.) induced on each disk by the magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathcal{E}_D = \\mathcal{E}_{D'} = B\\omega\\int_0^b r\\,dr = \\frac{1}{2} B\\omega b^2\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Finally, the induced e.m.f. between 1 and 4 is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{E} = \\mathcal{E}_D + \\mathcal{E}_{D'}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathcal{E} = N\\frac{\\mu_0 b^2 \\omega I}{2a}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4. When the reading of G vanishes, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_G = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and Kirchoff laws give an immediate answer. Then we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathcal{E} = IR \\quad\\Rightarrow\\quad R = N\\frac{\\mu_0 b^2 \\omega}{2a}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "5. The force per unit length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between two indefinite parallel straight wires separated by a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[f = \\frac{\\mu_0}{2\\pi}\\frac{I_1 I_2}{h}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_1 = I_2 = I\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2\\pi a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " induced on C"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " by the neighbor coils C"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F = \\frac{\\mu_0 a}{h} I^2\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "6. In equilibrium "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[mgx = 4Fd\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nmgx = \\frac{4\\mu_0 a d}{h} I^2 \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I = \\left(\\frac{mghx}{4\\mu_0 a d}\\right)^{1/2}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "7. The balance comes back towards the equilibrium position for a little angular deviation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " if the gravity torques with respect to the fulcrum O are greater than the magnetic torques. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[Mgl\\sin\\delta\\varphi + mgx\\cos\\delta\\varphi > 2\\mu_0 a I^2\\left(\\frac{1}{h-\\delta z} + \\frac{1}{h+\\delta z}\\right) d\\cos\\delta\\varphi\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2005-t2/0cdbd6c0495cecc4015b.png",
+                "alt": "ipho-2005-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore, using the suggested approximation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[Mgl\\sin\\delta\\varphi + mgx\\cos\\delta\\varphi > \\frac{4\\mu_0 a d I^2}{h}\\left(1 + \\frac{\\delta z^2}{h^2}\\right)\\cos\\delta\\varphi\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Taking into account the equilibrium condition (1), one obtains "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[Mgl\\sin\\delta\\varphi > mgx\\frac{\\delta z^2}{h^2}\\cos\\delta\\varphi\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Finally, for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tan\\delta\\varphi \\approx \\sin\\delta\\varphi = \\frac{\\delta z}{d}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\delta z < \\frac{Ml h^2}{mxd} \\quad\\Rightarrow\\quad \\delta z_{\\max} = \\frac{Ml h^2}{mxd}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Th 2 ANSWER SHEET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "table",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "thead",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "strong",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "Question"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "strong",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "Basic formulas and ideas used"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "strong",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "Analytical results"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "strong",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "Marking guideline"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tbody",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "strong",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "1"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "table",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              },
+                              {
+                                "type": "element",
+                                "tag": "tbody",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(\\Phi = N\\vec{B}_0\\cdot\\vec{S}\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(\\mathcal{E} = -\\dfrac{d\\Phi}{dt}\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(P = \\dfrac{\\mathcal{E}^2}{R}\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "table",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              },
+                              {
+                                "type": "element",
+                                "tag": "tbody",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(\\mathcal{E} = N\\pi a^2 B_0 \\omega \\sin\\omega t\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(\\langle P \\rangle = \\dfrac{\\left(N\\pi a^2 B_0\\omega\\right)^2}{2R}\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "table",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              },
+                              {
+                                "type": "element",
+                                "tag": "tbody",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "0.5"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "1.0"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "strong",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "2"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "table",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              },
+                              {
+                                "type": "element",
+                                "tag": "tbody",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(\\vec{B} = \\vec{B}_0 + \\vec{B}_i\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(B_i = \\dfrac{\\mu_0 N}{2a} I\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(\\tan\\theta = \\dfrac{\\langle B_y \\rangle}{\\langle B_x \\rangle}\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "span",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\\(R = \\dfrac{\\mu_0 N^2 \\pi a\\omega}{4\\tan\\theta}\\)"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "2.0"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "strong",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "3"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "table",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              },
+                              {
+                                "type": "element",
+                                "tag": "tbody",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(\\vec{E} = \\vec{v}\\times\\vec{B}\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(v = \\omega r\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(B = N\\dfrac{\\mu_0 I}{2a}\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(\\mathcal{E} = \\int_0^b \\vec{E}\\,d\\vec{r}\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "span",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\\(\\mathcal{E} = N\\dfrac{\\mu_0 b^2 \\omega I}{2a}\\)"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "2.0"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "strong",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "4"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "span",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\\(\\mathcal{E} = RI\\)"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "table",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              },
+                              {
+                                "type": "element",
+                                "tag": "tbody",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(R = N\\dfrac{\\mu_0 b^2 \\omega}{2a}\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "0,5"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "strong",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "5"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "table",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              },
+                              {
+                                "type": "element",
+                                "tag": "tbody",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(f = \\dfrac{\\mu_0}{2\\pi}\\dfrac{I\\,I'}{h}\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "table",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              },
+                              {
+                                "type": "element",
+                                "tag": "tbody",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(F = \\dfrac{\\mu_0 a}{h} I^2\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "1.0"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "strong",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "6"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "span",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\\(mgx = 4Fd\\)"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "table",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              },
+                              {
+                                "type": "element",
+                                "tag": "tbody",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(I = \\left(\\dfrac{mghx}{4\\mu_0 a d}\\right)^{1/2}\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "1.0"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "strong",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "7"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "span",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\\(\\Gamma_{grav} > \\Gamma_{mag}\\)"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "table",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              },
+                              {
+                                "type": "element",
+                                "tag": "tbody",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "tr",
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "td",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "\\(\\delta z_{\\max} = \\dfrac{Ml h^2}{mxd}\\)"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "\n"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "text",
+                                    "text": "\n"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "text": "\n"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "2.0"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Th 2 ABSOLUTE MEASUREMENTS OF ELECTRICAL QUANTITIES\n\n\nSOLUTION\n\n\n1. After some time \n\\(t\\)\n, the normal to the coil plane makes an angle \n\\(\\omega t\\)\n with the magnetic field \n\\(\\vec{B}_0 = B_0 \\vec{i}\\)\n. Then, the magnetic flux through the coil is \n\\[\\phi = N\\,\\vec{B}_0\\cdot\\vec{S}\\]\n where the vector surface \n\\(\\vec{S}\\)\n is given by \n\\(\\vec{S} = \\pi a^2\\left(\\cos\\omega t\\,\\vec{i} + \\sin\\omega t\\,\\vec{j}\\right)\\)\n\n\nTherefore \n\\(\\phi = N\\pi a^2 B_0 \\cos\\omega t\\)\n\n\nThe induced electromotive force is \n\\[\\mathcal{E} = -\\frac{d\\phi}{dt} \\quad\\Rightarrow\\quad \\mathcal{E} = N\\pi a^2 B_0 \\omega \\sin\\omega t\\]\n\n\nThe instantaneous power is \n\\(P = \\mathcal{E}^2/\\mathrm{R}\\)\n, therefore \n\\[\\langle P \\rangle = \\frac{\\left(N \\pi a^2 B_0 \\omega\\right)^2}{2R}\\]\n where we used \n\\(<\\sin^2\\omega t>=\\frac{1}{T}\\int_0^T \\sin^2\\omega t\\,dt = \\frac{1}{2}\\)\n\n\n2. The total field at the center the coil at the instant \n\\(t\\)\n is \n\\[\\vec{B}_t = \\vec{B}_0 + \\vec{B}_i\\]\n where \n\\(\\vec{B}_i\\)\n is the magnetic field due to the induced current \n\\(\\vec{B}_i = B_i\\left(\\cos\\omega t\\,\\vec{i} + \\sin\\omega t\\,\\vec{j}\\right)\\)\n\n\nwith \n\\(B_i = \\frac{\\mu_0 N I}{2a}\\)\n and \n\\(I = \\mathcal{E}/R\\)\n\n\nTherefore \n\\(B_i = \\frac{\\mu_0 N^2 \\pi a B_0 \\omega}{2R}\\sin\\omega t\\)\n\n\nThe mean values of its components are \n\\[\\langle B_{ix} \\rangle = \\frac{\\mu_0 N^2 \\pi a B_0 \\omega}{2R}\\langle \\sin\\omega t\\cos\\omega t \\rangle = 0\\]\n \n\\[\\langle B_{iy} \\rangle = \\frac{\\mu_0 N^2 \\pi a B_0 \\omega}{2R}\\langle \\sin^2\\omega t \\rangle = \\frac{\\mu_0 N^2 \\pi a B_0 \\omega}{4R}\\]\n\n\nAnd the mean value of the total magnetic field is \n\\[\\langle \\vec{B}_t \\rangle = B_0 \\vec{i} + \\frac{\\mu_0 N^2 \\pi a B_0 \\omega}{4R}\\,\\vec{j}\\]\n\n\nThe needle orients along the mean field, therefore \n\\[\\tan\\theta = \\frac{\\mu_0 N^2 \\pi a \\omega}{4R}\\]\n\n\nFinally, the resistance of the coil measured by this procedure, in terms of \n\\(\\theta\\)\n, is \n\\[R = \\frac{\\mu_0 N^2 \\pi a \\omega}{4\\tan\\theta}\\]\n\n\n3. The force on a unit positive charge in a disk is radial and its modulus is \n\\[\\left|\\vec{v} \\times \\vec{B}\\right| = vB = \\omega r B\\]\n where \n\\(B\\)\n is the magnetic field at the center of the coil \n\\[B = N\\frac{\\mu_0 I}{2a}\\]\n Then, the electromotive force (e.m.f.) induced on each disk by the magnetic field \n\\(B\\)\n is \n\\[\\mathcal{E}_D = \\mathcal{E}_{D'} = B\\omega\\int_0^b r\\,dr = \\frac{1}{2} B\\omega b^2\\]\n Finally, the induced e.m.f. between 1 and 4 is \n\\(\\mathcal{E} = \\mathcal{E}_D + \\mathcal{E}_{D'}\\)\n \n\\[\\mathcal{E} = N\\frac{\\mu_0 b^2 \\omega I}{2a}\\]\n\n\n4. When the reading of G vanishes, \n\\(I_G = 0\\)\n and Kirchoff laws give an immediate answer. Then we have \n\\[\\mathcal{E} = IR \\quad\\Rightarrow\\quad R = N\\frac{\\mu_0 b^2 \\omega}{2a}\\]\n\n\n5. The force per unit length \n\\(f\\)\n between two indefinite parallel straight wires separated by a distance \n\\(h\\)\n is. \n\\[f = \\frac{\\mu_0}{2\\pi}\\frac{I_1 I_2}{h}\\]\n for \n\\(I_1 = I_2 = I\\)\n and length \n\\(2\\pi a\\)\n, the force \n\\(F\\)\n induced on C\n\\(_2\\)\n by the neighbor coils C\n\\(_1\\)\n is \n\\[F = \\frac{\\mu_0 a}{h} I^2\\]\n\n\n6. In equilibrium \n\\[mgx = 4Fd\\]\n Then \n\\[\\begin{equation}\nmgx = \\frac{4\\mu_0 a d}{h} I^2 \\tag{1}\n\\end{equation}\\]\n so that \n\\[I = \\left(\\frac{mghx}{4\\mu_0 a d}\\right)^{1/2}\\]\n\n\n7. The balance comes back towards the equilibrium position for a little angular deviation \n\\(\\delta\\varphi\\)\n if the gravity torques with respect to the fulcrum O are greater than the magnetic torques. \n\\[Mgl\\sin\\delta\\varphi + mgx\\cos\\delta\\varphi > 2\\mu_0 a I^2\\left(\\frac{1}{h-\\delta z} + \\frac{1}{h+\\delta z}\\right) d\\cos\\delta\\varphi\\]\n\n\n\n\n\n\n\n\n\nTherefore, using the suggested approximation \n\\[Mgl\\sin\\delta\\varphi + mgx\\cos\\delta\\varphi > \\frac{4\\mu_0 a d I^2}{h}\\left(1 + \\frac{\\delta z^2}{h^2}\\right)\\cos\\delta\\varphi\\]\n Taking into account the equilibrium condition (1), one obtains \n\\[Mgl\\sin\\delta\\varphi > mgx\\frac{\\delta z^2}{h^2}\\cos\\delta\\varphi\\]\n Finally, for \n\\(\\tan\\delta\\varphi \\approx \\sin\\delta\\varphi = \\frac{\\delta z}{d}\\)\n \n\\[\\delta z < \\frac{Ml h^2}{mxd} \\quad\\Rightarrow\\quad \\delta z_{\\max} = \\frac{Ml h^2}{mxd}\\]\n\n\nTh 2 ANSWER SHEET\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\nBasic formulas and ideas used\n\n\nAnalytical results\n\n\nMarking guideline\n\n\n\n\n\n\n\n\n\n\n1\n\n\n\n\n\n\n\n\n\\(\\Phi = N\\vec{B}_0\\cdot\\vec{S}\\)\n\n\n\n\n\n\n\\(\\mathcal{E} = -\\dfrac{d\\Phi}{dt}\\)\n\n\n\n\n\n\n\\(P = \\dfrac{\\mathcal{E}^2}{R}\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\mathcal{E} = N\\pi a^2 B_0 \\omega \\sin\\omega t\\)\n\n\n\n\n\n\n\\(\\langle P \\rangle = \\dfrac{\\left(N\\pi a^2 B_0\\omega\\right)^2}{2R}\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n0.5\n\n\n\n\n\n\n1.0\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n\n\n\n\n\n\n\\(\\vec{B} = \\vec{B}_0 + \\vec{B}_i\\)\n\n\n\n\n\n\n\\(B_i = \\dfrac{\\mu_0 N}{2a} I\\)\n\n\n\n\n\n\n\\(\\tan\\theta = \\dfrac{\\langle B_y \\rangle}{\\langle B_x \\rangle}\\)\n\n\n\n\n\n\n\n\n\\(R = \\dfrac{\\mu_0 N^2 \\pi a\\omega}{4\\tan\\theta}\\)\n\n\n2.0\n\n\n\n\n\n\n3\n\n\n\n\n\n\n\n\n\\(\\vec{E} = \\vec{v}\\times\\vec{B}\\)\n\n\n\n\n\n\n\\(v = \\omega r\\)\n\n\n\n\n\n\n\\(B = N\\dfrac{\\mu_0 I}{2a}\\)\n\n\n\n\n\n\n\\(\\mathcal{E} = \\int_0^b \\vec{E}\\,d\\vec{r}\\)\n\n\n\n\n\n\n\n\n\\(\\mathcal{E} = N\\dfrac{\\mu_0 b^2 \\omega I}{2a}\\)\n\n\n2.0\n\n\n\n\n\n\n4\n\n\n\\(\\mathcal{E} = RI\\)\n\n\n\n\n\n\n\n\n\\(R = N\\dfrac{\\mu_0 b^2 \\omega}{2a}\\)\n\n\n\n\n\n\n\n\n0,5\n\n\n\n\n\n\n5\n\n\n\n\n\n\n\n\n\\(f = \\dfrac{\\mu_0}{2\\pi}\\dfrac{I\\,I'}{h}\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(F = \\dfrac{\\mu_0 a}{h} I^2\\)\n\n\n\n\n\n\n\n\n1.0\n\n\n\n\n\n\n6\n\n\n\\(mgx = 4Fd\\)\n\n\n\n\n\n\n\n\n\\(I = \\left(\\dfrac{mghx}{4\\mu_0 a d}\\right)^{1/2}\\)\n\n\n\n\n\n\n\n\n1.0\n\n\n\n\n\n\n7\n\n\n\\(\\Gamma_{grav} > \\Gamma_{mag}\\)\n\n\n\n\n\n\n\n\n\\(\\delta z_{\\max} = \\dfrac{Ml h^2}{mxd}\\)\n\n\n\n\n\n\n\n\n2.0\n\n\n\n\n\n\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2005-t2/0cdbd6c0495cecc4015b.png"
+    ],
+    "shared": false
+  }
+}

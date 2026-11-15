@@ -1,1 +1,4443 @@
-{"id":"ipho-2023-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2023_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2023_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2023-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Theory\nQ3-1\nEnglish (Official)\nWater and Objects (10 pt)\nIn this problem, we consider the phenomena caused by the interaction between water and objects, re-\nlated to surface tension. Part A treats motion, while Parts B and C are regarding static situations.\nIf necessary, you can use the fact that if the function 𝑦(𝑥) satisfies the differential equation 𝑦″(𝑥) = 𝑎𝑦(𝑥)\n(𝑎is a positive constant), then its general solution is 𝑦(𝑥) = 𝐴𝑒\n√𝑎𝑥+ 𝐵𝑒−√𝑎𝑥, where 𝐴and 𝐵are arbitrary\nconstants.\nPart A. Merger of water drops (2.0 points)\nAs shown in Fig.1, we consider two stationary, spherical water drops on the surface of a super-\nhydrophobic material, i.e., very strong repulsive force exists between material and water.\nInitially neighboring two identical spherical water drops are placed on the surface; then these two drops\nare merged after touching each other and form a larger spherical water drop, which suddenly jumps up.\nA.1\nThe radius 𝑎of both water drops before the merger is 100 𝜇m. The density of\nwater 𝜌is 1.00 × 103 kg/m3. The surface tension 𝛾is 7.27 × 10−2 J/m2.\nA portion 𝑘of the difference of the surface energy before and after the merger,\nΔE, is transformed into the kinetic energy of the jumped water drop. Then, de-\ntermine the initial jump-up velocity, 𝑣, of the merged water drop in two signifi-\ncant digits under the following assumptions:\n• 𝑘= 0.06\n• Before and after merger, the total volume of water is conserved.\n2.0pt\nFig. 1: Merger of two water drops and jump of the merged water drop.\nPart B. A vertically placed board (4.5 points)\nA flat board is immersed vertically in water. Figures 2(a) and 2(b) respectively show water surface forms\nfor the hydrophilic (attractive) and hydrophobic board materials. We neglect the thickness of the board.\nThe board surface is on the 𝑦𝑧plane, and the horizontal water surface far away from the board is on\nthe 𝑥𝑦plane with 𝑧= 0. The surface shape does not depend on the 𝑦-coordinate. Let 𝜃(𝑥) be the angle\nbetween the water surface and the horizontal plane at a point (𝑥, 𝑧) on the water surface in the 𝑥𝑧plane.\nHere 𝜃(𝑥) is measured with respect to the positive 𝑥axis and the counterclockwise rotation is taken as\npositive. Let 𝜃(𝑥) be 𝜃0 at the point of contact between the board and the water surface (𝑥= 0). In the\nfollowing, 𝜃0 is fixed by the properties of the board material.\nWater density 𝜌is constant and water surface tension 𝛾is uniform. The gravitational acceleration con-\nstant is given by 𝑔. The atmospheric pressure, 𝑃0, is assumed to be always uniform. Let us determine\nthe water surface form in the following steps. Note that the unit of surface tension is J/m2as well as N/m.\n\nTheory\nQ3-2\nEnglish (Official)\nFig. 2: Boards vertically immersed in the water. (a) hydrophilic board case;\n(b) hydrophobic board case.\nB.1\nWe consider a hydrophilic board case, as shown in Fig.2(a). We note that the\nwater pressure, 𝑃, satisfies the conditions 𝑃< 𝑃0 for 𝑧> 0 and 𝑃= 𝑃0 for\n𝑧= 0. Then, express 𝑃at 𝑧in terms of 𝜌, 𝑔, 𝑧, and 𝑃0.\n0.6pt\nB.2\nWe consider a water block whose cutout is shown as shaded in Fig.3(a). Its 𝑥𝑧\nplane cross-section is shown in a hatched area in Fig.3(b). Let 𝑧1 and 𝑧2 respec-\ntively be the left and right edge coordinates of the boundary (water surface)\nbetween the water block and the air.\nObtain a horizontal component (𝑥component) of the net force per unit length\nalong the 𝑦-axis, 𝑓𝑥, which is exerted on the water block due to the pressure, in\nterms of 𝜌, 𝑔, 𝑧1, and 𝑧2. Note that 𝑃0 results in no net horizontal force on the\nwater block.\n0.8pt\n\nTheory\nQ3-3\nEnglish (Official)\nFig. 3: Cutout form of water block on the water surface. (a) Bird's eye view and (b) cross-\nsectional view.\nB.3\nSurface tension acting on the water block is balanced with the force 𝑓𝑥discussed\nin B.2. We respectively define 𝜃1 and 𝜃2 as the angles between the water surface\nand the horizontal plane at the left and right edges. Express 𝑓𝑥in terms of 𝛾,\n𝜃1, and 𝜃2.\n0.8pt\nB.4\nThe following equation holds at an arbitrary point (𝑥, 𝑧) on the water surface,\n1\n2 (𝑧\nℓ)\n𝑎\n+ cos 𝜃(𝑥) = constant.\n(1)\nDetermine the exponent 𝑎and express the constant ℓin terms of 𝛾and 𝜌. Note\nthat this equation holds regardless of hydrophilic or hydrophobic board mate-\nrials.\n0.8pt\nB.5\nIn Eq. (1) in B.4, we assume that variation of the water surface is slow, i.e.,\n|𝑧′(𝑥)| ≪1, so that we can expand cos 𝜃(𝑥) with respect to 𝑧′(𝑥) up to the second\norder. Then, differentiating the resultant equation with respect to 𝑥, we obtain\nthe differential equation satisfied by 𝑧(𝑥). Solve this differential equation and\ndetermine 𝑧(𝑥) for 𝑥≥0 in terms of tan 𝜃0 and ℓ. Note that the vertical directions\nof Figs. 2 and 3 are exaggerated for better view and they do not satisfy the\ncondition, |𝑧′(𝑥)| ≪1.\n1.5pt\nPart C. Interaction between two rods (3.5 points)\nThe identical rods A and B made of the same material floating in parallel on the water surface are placed\nat the same distance away from the 𝑦-axis (Fig.4).\n\nTheory\nQ3-4\nEnglish (Official)\nFig. 4: Two rods A and B floating on the water surface.\nC.1\nAt the contact points of the rod B and the water surface, we define the 𝑧-\ncoordinates 𝑧a and 𝑧b, and the angles 𝜃a and 𝜃b, as shown in Fig.5. Determine\nthe horizontal force component, 𝐹𝑥, on the rod B per unit length along the 𝑦-axis\nin terms of 𝜃a, 𝜃b, 𝑧a, 𝑧b, 𝜌, 𝑔, and 𝛾.\n1.0pt\nFig. 5: Vertical cross-sectional view of two rods floating on the water surface.\nC.2\nWe define the 𝑧-coordinate of the water surface, 𝑧0, at the midpoint of two rods\nin the 𝑥𝑧plane. Express the force 𝐹𝑥obtained in C.1 without using 𝜃a, 𝜃b, 𝑧a, and\n𝑧b.\n1.5pt\nC.3\nLet 𝑥a be the 𝑥-coordinate of the contact point between the water surface and\nthe left side of the rod B. Using the differential equation obtained in B.5, express\nthe water level coordinate 𝑧0 of the midpoint of these two rods A and B in terms\nof 𝑥a and 𝑧a. You can use the constant ℓintroduced in B.4.\n1.0pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2023-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Solutions to Theory Problems\nS3‒1\nTheory Problem 3: Water and Objects (10 points)\nPart A. Merger of water drops (2.0 pt)\nA.1\nThe surface energy per drop before the merger is\n𝐸= 4𝜋𝑎2𝛾.\n(S3.1)\nTherefore, the surface energy difference becomes\nΔ𝐸= 4𝜋(2 −22/3) 𝑎2𝛾.\n(S3.2)\nThe transfer of surface energy to kinetic energy is represented by\n𝑀𝑣2/2 = 𝑘Δ𝐸,\n(S3.3)\nwhere 𝑘= 0.06 and 𝑀= 4𝜋𝑎3𝜌/3 × 2 = 8𝜋𝑎3𝜌/3 is the mass of the drop after the merger. The numerical\ncomputation gives\n𝑣= √2𝑘Δ𝐸\n𝑀\n= √3 (2 −22/3) 𝑘𝛾\n𝜌𝑎= √3 (2 −22/3) ×\n0.06 × (7.27 × 10−2)\n(1.0 × 103) × (100 × 10−6) = 0.23\u00012 m/s.\n(S3.4)\n▷Note: We point out an interesting phenomenon related to this question. On a superhydrophobic sur-\nface, when small droplets merge, they release surface energy, causing the surface area to shrink. This\nenergy release propels the merged droplet to jump up. This phenomenon mirrors the natural mecha-\nnism seen in cicadas. Cicadas' wings, which possess superhydrophobic surfaces, facilitate the removal\nof water droplets upon coalescence. This process serves as a natural self-cleaning system, converting\nsurface energy to kinetic energy, as reported in the following paper: Wisdom et. al., Proc. Natl. Acad. Sci.\nUSA 110, 7992−7997 (2013).\nA.1\n2.0 pt\n𝑣= 0.23 m/s\nPart B. A vertically placed board (4.5 pt)\nB.1\nFig. S3-1\nConsider a vertical upright column-shaped water block as shown in the\nhatched area of Fig. S3-1. The vertical force balance with respect to this\nblock per unit area leads to 𝑃+ 𝜌𝑔𝑧= 𝑃0.\nB.1\n0.6 pt\n𝑃= 𝑃0 −𝜌𝑔𝑧\nB.2\nBecause the atmospheric pressure 𝑃0 exerts no net horizontal force on the water block, we have\n𝑓𝑥= ∫\n𝑧1\n𝑧2\n(−𝜌𝑔𝑧)𝑑𝑧= 1\n2𝜌𝑔(𝑧2\n2 −𝑧2\n1) .\n(S3.5)\nThis force acts in the leftward direction.\n1\n\nSolutions to Theory Problems\nS3‒2\n▷Note:\nThe reason why 𝑃0 exerts no net horizontal force is understood as follows. Consider a small\narea (infinitesimally divided piece) near the surface, which is regarded as a right-angled triangle (see\nFig. S3-2).\nFig. S3‒2\nThe horizontal component of the combined force exerted on the right-angled triangle ABC per unit\nlength along the 𝑦-axis by atmospheric pressure is\n𝑃0 × AB −𝑃0 × AC × AB\nAC\n= 0\nIntegrating infinitesimal pieces over a finite domain yields a finite volume of water, while the net force\nremains zero.\nB.2\n0.8 pt\n𝑓𝑥= 1\n2𝜌𝑔(𝑧2\n2 −𝑧2\n1)\nB.3\nThe horizontal component of the surface tension acting on the water block is 𝛾cos 𝜃2 −𝛾cos 𝜃1. Thus,\nthe horizontal force balance is expressed as\n𝑓𝑥+ 𝛾cos 𝜃2 −𝛾cos 𝜃1 = 0.\n(S3.6)\nB.3\n0.8 pt\n𝑓𝑥= 𝛾cos 𝜃1 −𝛾cos 𝜃2\nB.4\nFrom the results of B.2 and B.3, we have\n1\n2𝜌𝑔𝑧2\n1 + 𝛾cos 𝜃1 = 1\n2𝜌𝑔𝑧2\n2 + 𝛾cos 𝜃2.\n(S3.7)\nSince this equation holds at an arbitrary point (𝑥, 𝑧) on the water surface, we conclude\n1\n2𝜌𝑔𝑧2 + 𝛾cos 𝜃= constant,\n(S3.8)\nwhich is written as\n1\n2 (𝑧\nℓ)\n𝑎\n+ cos 𝜃(𝑥) = constant,\n(S3.9)\nwith 𝑎= 2 and ℓ= √𝛾\n𝜌𝑔.\n▷Note: The equaiton (S3.9) is a kind of conservation law. The constant ℓis called the capillary length.\n2\n\nSolutions to Theory Problems\nS3‒3\nB.4\n0.8 pt\n𝑎= 2, ℓ= √𝛾\n𝜌𝑔\nB.5\nThe derivative of the water surface coordinate 𝑧, denoted by 𝑧′, is associated with the angle of\ninclination 𝜃, given by the equation: 𝑧′ = tan 𝜃. This relation yields\ncos 𝜃=\n1\n√1 + (𝑧′)2 ,\n(S3.10)\nwhich leads to\ncos 𝜃≃1 −1\n2(𝑧′)2.\n(S3.11)\nPlugging this into Eq. (S3.9), we obtain\n𝑧2\nℓ2 −𝑧′2 = const.\n(S3.12)\nTaking the derivative of both sides with respect to 𝑥, we have\n𝑧″ = 𝑧\nℓ2 ,\n(S3.13)\nwhich is the differential equation that determines the water surface form.\nIts general solution is\n𝑧= 𝐴𝑒𝑥/ℓ+ 𝐵𝑒−𝑥/ℓ.\n(S3.14)\nThe boundary condition, 𝑧(∞) = 0, leads to 𝐴= 0.\nThe boundary condition, 𝑧′(0) = tan 𝜃0, leads to 𝐵= −ℓtan 𝜃0.\nB.5\n1.5 pt\n𝑧(𝑥) = −ℓtan 𝜃0𝑒−𝑥/ℓ\nPart C. Interaction between two rods (3.5 pt)\nC.1\nThe horizontal component of the force due to the pressure is\n∫\n𝑧b\n𝑧a\n(𝜌𝑔𝑧) 𝑑𝑧= 1\n2𝜌𝑔(𝑧2\nb −𝑧2\na)\n(S3.15)\nLet 𝑧bottom be the 𝑧-coordinate at the bottom of the rod. Then, we have\n𝐹𝑥= ∫\n𝑧a\n𝑧bottom\n(−𝜌𝑔𝑧)𝑑𝑧+ (−∫\n𝑧b\n𝑧bottom\n(−𝜌𝑔𝑧)𝑑𝑧) = ∫\n𝑧b\n𝑧a\n(𝜌𝑔𝑧)𝑑𝑧\n(S3.16)\n▷Note: The fact that the contribution due to the pressure does not depend on the shape of the cross-\nsection can be demonstrated as follows. The pressure at the point 𝑠on the contour 𝐶along the cross-\nsectional boundary is\n−𝑃̂𝑛𝑑𝑠= (−𝑃0+𝜌𝑔𝑧) ̂𝑛𝑑𝑠.\n(S3.17)\n3\n\nSolutions to Theory Problems\nS3‒4\nLet\n̂𝑥be the unit vector pointing the positive 𝑥-direction and noting\n̂𝑥⋅̂𝑛𝑑𝑠= 𝑑𝑧(see Fig. S3-3), we obtain\nits horizontal component as\n−𝑃̂𝑛⋅\n̂𝑥𝑑𝑠= −𝑃0𝑑𝑧+𝜌𝑔𝑧𝑑𝑧.\n(S3.18)\nIntegrating along the contour 𝐶.1 We obtain\n∫\n𝑧b\n𝑧a\n(𝜌𝑔𝑧)𝑑𝑧= 1\n2𝜌𝑔(𝑧2\nb −𝑧2\na)\n(S3.19)\nFig. S3‒3\nC.1\n1.0 pt\n𝐹𝑥= 1\n2𝜌𝑔(𝑧2\nb −𝑧2\na) + 𝛾(cos 𝜃b −cos 𝜃a)\nC.2\nBy applying the boundary conditions to Eq. (S3.8), we obtain\n1\n2𝜌𝑔𝑧2a + 𝛾cos 𝜃a\n⏟⏟⏟⏟⏟⏟⏟\n𝑥=𝑥a\n= 1\n2𝜌𝑔𝑧2\n0 + 𝛾\n⏟⏟⏟⏟⏟\n𝑥=0\n(S3.20)\n1\n2𝜌𝑔𝑧2\nb + 𝛾cos 𝜃b\n⏟⏟⏟⏟⏟⏟⏟\n𝑥=𝑥b\n=\n𝛾⏟\n𝑥→∞\n(S3.21)\nThen, 𝐹𝑥= −1\n2𝜌𝑔𝑧2\n0 is obtained by subtracting (S3.20) from (S3.21).\n▷Note: The physical background of this problem is as follows. When a single rod is placed on the water\nsurface, the shape of the water surface on both sides of the rod remains the same. In other words, the\nrod is placed in an environment that exhibits the left-right symmetry. Then, there is no force acting on\nthe rod. On the other hand, when two rods are placed on the water surface, the left-right symmetry of\nthe water surface is broken from the perspective of each rod. As a result, an attractive force is generated.\nThe displacement of the water surface at the midpoint between the two rods differs from that of a hori-\nzontal water surface. This deviation is represented by 𝑧0. That is to say, 𝑧0 plays the role of a symmetry-\nbreaking parameter (see Fig. S3-4).\nThe fact that the attractive force between the two rods is determined solely by this parameter suggests\nthat the symmetry breaking directly becomes the origin of the force. This corresponds to the fundamen-\ntal principle in physics that relates symmetry breaking to force generation.\n1This integral is symbolically written as ∮\n𝐶\n(−𝑃̂𝑛⋅\n̂𝑥𝑑𝑠).\n4\n\nSolutions to Theory Problems\nS3‒5\nFig. S3‒4\nC.2\n1.5 pt\n𝐹𝑥= −1\n2𝜌𝑔𝑧2\n0\nC.3\nThe general solution for the water surface height is given by the equation\n𝑧(𝑥) = 𝐴𝑒𝑥/ℓ+ 𝐵𝑒−𝑥/ℓ.\n(S3.22)\nBy considering the left-right symmetry, we find\n𝐴= 𝐵.\n(S3.23)\nApplying the boundary condition 𝑧(0) = 𝑧0, we obtain\n𝐴+ 𝐵= 𝑧0.\n(S3.24)\nWe thus have\n𝐴= 𝑧0/2, 𝐵= 𝑧0/2.\n(S3.25)\nC.3\n1.0 pt\n𝑧0 =\n2𝑧a\n𝑒𝑥a/ℓ+ 𝑒−𝑥a/ℓ\n5\n","textExtraction":"available"}}
+{
+  "id": "ipho-2023-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2023-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Water and Objects (10 pt)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this problem, we consider the phenomena caused by the interaction between water and objects, related to surface tension. Part A treats motion, while Parts B and C are regarding static situations."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If necessary, you can use the fact that if the function "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " satisfies the differential equation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y''(x) = ay(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a positive constant), then its general solution is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y(x) = Ae^{\\sqrt{a}x} + Be^{-\\sqrt{a}x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are arbitrary constants."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Merger of water drops (2.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As shown in Fig.1, we consider two stationary, spherical water drops on the surface of a superhydrophobic material, i.e., very strong repulsive force exists between material and water."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Initially neighboring two identical spherical water drops are placed on the surface; then these two drops are merged after touching each other and form a larger spherical water drop, which suddenly jumps up."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of both water drops before the merger is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(100\\,\\mu\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The density of water "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1.00\\times 10^{3}\\,\\mathrm{kg/m^{3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The surface tension "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(7.27\\times 10^{-2}\\,\\mathrm{J/m^{2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". A portion "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the difference of the surface energy before and after the merger, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\mathrm{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is transformed into the kinetic energy of the jumped water drop. Then, determine the initial jump-up velocity, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of the merged water drop in two significant digits under the following assumptions: 2.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(k = 0.06\\)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Before and after merger, the total volume of water is conserved."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t3/15f5efcdbcf4a6d6976b.png",
+                "alt": "ipho-2023-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig. 1: Merger of two water drops and jump of the merged water drop."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. A vertically placed board (4.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A flat board is immersed vertically in water. Figures 2(a) and 2(b) respectively show water surface forms for the hydrophilic (attractive) and hydrophobic board materials. We neglect the thickness of the board."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The board surface is on the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(yz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane, and the horizontal water surface far away from the board is on the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xy\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The surface shape does not depend on the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-coordinate. Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the angle between the water surface and the horizontal plane at a point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x, z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the water surface in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane. Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is measured with respect to the positive "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis and the counterclockwise rotation is taken as positive. Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the point of contact between the board and the water surface ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). In the following, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is fixed by the properties of the board material."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Water density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is constant and water surface tension "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is uniform. The gravitational acceleration constant is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The atmospheric pressure, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is assumed to be always uniform. Let us determine the water surface form in the following steps. Note that the unit of surface tension is J/m"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "as well as N/m."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t3/4bac9380dd7fca45bc20.png",
+                "alt": "ipho-2023-t3 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig. 2: Boards vertically immersed in the water. (a) hydrophilic board case; (b) hydrophobic board case."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "We consider a hydrophilic board case, as shown in Fig.2(a). We note that the water pressure, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", satisfies the conditions "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P < P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P = P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Then, express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.6pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "We consider a water block whose cutout is shown as shaded in Fig.3(a). Its "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane cross-section is shown in a hatched area in Fig.3(b). Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " respectively be the left and right edge coordinates of the boundary (water surface) between the water block and the air."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Obtain a horizontal component ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " component) of the net force per unit length along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which is exerted on the water block due to the pressure, in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Note that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " results in no net horizontal force on the water block. 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t3/f453462c0474de994728.png",
+                "alt": "ipho-2023-t3 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig. 3: Cutout form of water block on the water surface. (a) Bird’s eye view and (b) cross-sectional view."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Surface tension acting on the water block is balanced with the force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " discussed in B.2. We respectively define "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as the angles between the water surface and the horizontal plane at the left and right edges. Express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The following equation holds at an arbitrary point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x, z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the water surface, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{1}{2}\\left(\\frac{z}{\\ell}\\right)^{a} + \\cos\\theta(x) = \\text{constant}.\n\\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Determine the exponent "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and express the constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Note that this equation holds regardless of hydrophilic or hydrophobic board materials. 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "In Eq. (1) in B.4, we assume that variation of the water surface is slow, i.e., "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|z'(x)| \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so that we can expand "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cos\\theta(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with respect to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z'(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " up to the second order. Then, differentiating the resultant equation with respect to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we obtain the differential equation satisfied by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Solve this differential equation and determine "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x \\geq 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tan\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Note that the vertical directions of Figs. 2 and 3 are exaggerated for better view and they do not satisfy the condition, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|z'(x)| \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C. Interaction between two rods (3.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The identical rods A and B made of the same material floating in parallel on the water surface are placed at the same distance away from the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis (Fig.4)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t3/fa8fbfd7d855afa73e6b.png",
+                "alt": "ipho-2023-t3 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig. 4: Two rods A and B floating on the water surface."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "At the contact points of the rod B and the water surface, we define the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-coordinates "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_\\mathrm{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the angles "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_\\mathrm{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", as shown in Fig.5. Determine the horizontal force component, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", on the rod B per unit length along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_\\mathrm{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_\\mathrm{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t3/569d59e6855f447f18ff.png",
+                "alt": "ipho-2023-t3 original source figure 5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig. 5: Vertical cross-sectional view of two rods floating on the water surface."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "We define the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-coordinate of the water surface, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", at the midpoint of two rods in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane. Express the force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " obtained in C.1 without using "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_\\mathrm{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_\\mathrm{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-coordinate of the contact point between the water surface and the left side of the rod B. Using the differential equation obtained in B.5, express the water level coordinate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the midpoint of these two rods A and B in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_\\mathrm{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". You can use the constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " introduced in B.4. 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Water and Objects (10 pt)\n\n\nIn this problem, we consider the phenomena caused by the interaction between water and objects, related to surface tension. Part A treats motion, while Parts B and C are regarding static situations.\n\n\nIf necessary, you can use the fact that if the function \n\\(y(x)\\)\n satisfies the differential equation \n\\(y''(x) = ay(x)\\)\n (\n\\(a\\)\n is a positive constant), then its general solution is \n\\(y(x) = Ae^{\\sqrt{a}x} + Be^{-\\sqrt{a}x}\\)\n, where \n\\(A\\)\n and \n\\(B\\)\n are arbitrary constants.\n\n\nPart A. Merger of water drops (2.0 points)\n\n\nAs shown in Fig.1, we consider two stationary, spherical water drops on the surface of a superhydrophobic material, i.e., very strong repulsive force exists between material and water.\n\n\nInitially neighboring two identical spherical water drops are placed on the surface; then these two drops are merged after touching each other and form a larger spherical water drop, which suddenly jumps up.\n\n\nA.1\nThe radius \n\\(a\\)\n of both water drops before the merger is \n\\(100\\,\\mu\\mathrm{m}\\)\n. The density of water \n\\(\\rho\\)\n is \n\\(1.00\\times 10^{3}\\,\\mathrm{kg/m^{3}}\\)\n. The surface tension \n\\(\\gamma\\)\n is \n\\(7.27\\times 10^{-2}\\,\\mathrm{J/m^{2}}\\)\n. A portion \n\\(k\\)\n of the difference of the surface energy before and after the merger, \n\\(\\Delta\\mathrm{E}\\)\n, is transformed into the kinetic energy of the jumped water drop. Then, determine the initial jump-up velocity, \n\\(v\\)\n, of the merged water drop in two significant digits under the following assumptions: 2.0pt\n\n\n\n\n\\(k = 0.06\\)\n\n\nBefore and after merger, the total volume of water is conserved.\n\n\n\n\n\n\n\n\n\n\n\nFig. 1: Merger of two water drops and jump of the merged water drop.\n\n\nPart B. A vertically placed board (4.5 points)\n\n\nA flat board is immersed vertically in water. Figures 2(a) and 2(b) respectively show water surface forms for the hydrophilic (attractive) and hydrophobic board materials. We neglect the thickness of the board.\n\n\nThe board surface is on the \n\\(yz\\)\n plane, and the horizontal water surface far away from the board is on the \n\\(xy\\)\n plane with \n\\(z = 0\\)\n. The surface shape does not depend on the \n\\(y\\)\n-coordinate. Let \n\\(\\theta(x)\\)\n be the angle between the water surface and the horizontal plane at a point \n\\((x, z)\\)\n on the water surface in the \n\\(xz\\)\n plane. Here \n\\(\\theta(x)\\)\n is measured with respect to the positive \n\\(x\\)\n axis and the counterclockwise rotation is taken as positive. Let \n\\(\\theta(x)\\)\n be \n\\(\\theta_0\\)\n at the point of contact between the board and the water surface (\n\\(x = 0\\)\n). In the following, \n\\(\\theta_0\\)\n is fixed by the properties of the board material.\n\n\nWater density \n\\(\\rho\\)\n is constant and water surface tension \n\\(\\gamma\\)\n is uniform. The gravitational acceleration constant is given by \n\\(g\\)\n. The atmospheric pressure, \n\\(P_0\\)\n, is assumed to be always uniform. Let us determine the water surface form in the following steps. Note that the unit of surface tension is J/m\n\\(^2\\)\nas well as N/m.\n\n\n\n\n\n\n\n\n\nFig. 2: Boards vertically immersed in the water. (a) hydrophilic board case; (b) hydrophobic board case.\n\n\nB.1\nWe consider a hydrophilic board case, as shown in Fig.2(a). We note that the water pressure, \n\\(P\\)\n, satisfies the conditions \n\\(P < P_0\\)\n for \n\\(z > 0\\)\n and \n\\(P = P_0\\)\n for \n\\(z = 0\\)\n. Then, express \n\\(P\\)\n at \n\\(z\\)\n in terms of \n\\(\\rho\\)\n, \n\\(g\\)\n, \n\\(z\\)\n, and \n\\(P_0\\)\n. 0.6pt\n\n\nB.2\nWe consider a water block whose cutout is shown as shaded in Fig.3(a). Its \n\\(xz\\)\n plane cross-section is shown in a hatched area in Fig.3(b). Let \n\\(z_1\\)\n and \n\\(z_2\\)\n respectively be the left and right edge coordinates of the boundary (water surface) between the water block and the air.\n\n\nObtain a horizontal component (\n\\(x\\)\n component) of the net force per unit length along the \n\\(y\\)\n-axis, \n\\(f_x\\)\n, which is exerted on the water block due to the pressure, in terms of \n\\(\\rho\\)\n, \n\\(g\\)\n, \n\\(z_1\\)\n, and \n\\(z_2\\)\n. Note that \n\\(P_0\\)\n results in no net horizontal force on the water block. 0.8pt\n\n\n\n\n\n\n\n\n\nFig. 3: Cutout form of water block on the water surface. (a) Bird’s eye view and (b) cross-sectional view.\n\n\nB.3\nSurface tension acting on the water block is balanced with the force \n\\(f_x\\)\n discussed in B.2. We respectively define \n\\(\\theta_1\\)\n and \n\\(\\theta_2\\)\n as the angles between the water surface and the horizontal plane at the left and right edges. Express \n\\(f_x\\)\n in terms of \n\\(\\gamma\\)\n, \n\\(\\theta_1\\)\n, and \n\\(\\theta_2\\)\n. 0.8pt\n\n\nB.4\nThe following equation holds at an arbitrary point \n\\((x, z)\\)\n on the water surface, \n\\[\\begin{equation}\n\\frac{1}{2}\\left(\\frac{z}{\\ell}\\right)^{a} + \\cos\\theta(x) = \\text{constant}.\n\\tag{1}\n\\end{equation}\\]\n Determine the exponent \n\\(a\\)\n and express the constant \n\\(\\ell\\)\n in terms of \n\\(\\gamma\\)\n and \n\\(\\rho\\)\n. Note that this equation holds regardless of hydrophilic or hydrophobic board materials. 0.8pt\n\n\nB.5\nIn Eq. (1) in B.4, we assume that variation of the water surface is slow, i.e., \n\\(|z'(x)| \\ll 1\\)\n, so that we can expand \n\\(\\cos\\theta(x)\\)\n with respect to \n\\(z'(x)\\)\n up to the second order. Then, differentiating the resultant equation with respect to \n\\(x\\)\n, we obtain the differential equation satisfied by \n\\(z(x)\\)\n. Solve this differential equation and determine \n\\(z(x)\\)\n for \n\\(x \\geq 0\\)\n in terms of \n\\(\\tan\\theta_0\\)\n and \n\\(\\ell\\)\n. Note that the vertical directions of Figs. 2 and 3 are exaggerated for better view and they do not satisfy the condition, \n\\(|z'(x)| \\ll 1\\)\n. 1.5pt\n\n\nPart C. Interaction between two rods (3.5 points)\n\n\nThe identical rods A and B made of the same material floating in parallel on the water surface are placed at the same distance away from the \n\\(y\\)\n-axis (Fig.4).\n\n\n\n\n\n\n\n\n\nFig. 4: Two rods A and B floating on the water surface.\n\n\nC.1\nAt the contact points of the rod B and the water surface, we define the \n\\(z\\)\n-coordinates \n\\(z_\\mathrm{a}\\)\n and \n\\(z_\\mathrm{b}\\)\n, and the angles \n\\(\\theta_\\mathrm{a}\\)\n and \n\\(\\theta_\\mathrm{b}\\)\n, as shown in Fig.5. Determine the horizontal force component, \n\\(F_x\\)\n, on the rod B per unit length along the \n\\(y\\)\n-axis in terms of \n\\(\\theta_\\mathrm{a}\\)\n, \n\\(\\theta_\\mathrm{b}\\)\n, \n\\(z_\\mathrm{a}\\)\n, \n\\(z_\\mathrm{b}\\)\n, \n\\(\\rho\\)\n, \n\\(g\\)\n, and \n\\(\\gamma\\)\n. 1.0pt\n\n\n\n\n\n\n\n\n\nFig. 5: Vertical cross-sectional view of two rods floating on the water surface.\n\n\nC.2\nWe define the \n\\(z\\)\n-coordinate of the water surface, \n\\(z_0\\)\n, at the midpoint of two rods in the \n\\(xz\\)\n plane. Express the force \n\\(F_x\\)\n obtained in C.1 without using \n\\(\\theta_\\mathrm{a}\\)\n, \n\\(\\theta_\\mathrm{b}\\)\n, \n\\(z_\\mathrm{a}\\)\n, and \n\\(z_\\mathrm{b}\\)\n. 1.5pt\n\n\nC.3\nLet \n\\(x_\\mathrm{a}\\)\n be the \n\\(x\\)\n-coordinate of the contact point between the water surface and the left side of the rod B. Using the differential equation obtained in B.5, express the water level coordinate \n\\(z_0\\)\n of the midpoint of these two rods A and B in terms of \n\\(x_\\mathrm{a}\\)\n and \n\\(z_\\mathrm{a}\\)\n. You can use the constant \n\\(\\ell\\)\n introduced in B.4. 1.0pt\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2023-t3/15f5efcdbcf4a6d6976b.png",
+      "/corpus/figures/native/bulk/ipho-2023-t3/4bac9380dd7fca45bc20.png",
+      "/corpus/figures/native/bulk/ipho-2023-t3/f453462c0474de994728.png",
+      "/corpus/figures/native/bulk/ipho-2023-t3/fa8fbfd7d855afa73e6b.png",
+      "/corpus/figures/native/bulk/ipho-2023-t3/569d59e6855f447f18ff.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2023-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Theory Problem 3: Water and Objects (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Merger of water drops (2.0 pt)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The surface energy per drop before the merger is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE = 4\\pi a^2\\gamma.\n\\tag{S3.1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore, the surface energy difference becomes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta E = 4\\pi \\left(2 - 2^{2/3}\\right) a^2\\gamma.\n\\tag{S3.2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The transfer of surface energy to kinetic energy is represented by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nMv^2/2 = k\\Delta E,\n\\tag{S3.3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 0.06\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M = 4\\pi a^3\\rho/3 \\times 2 = 8\\pi a^3\\rho/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the mass of the drop after the merger. The numerical computation gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nv = \\sqrt{\\frac{2k\\Delta E}{M}} = \\sqrt{3\\left(2 - 2^{2/3}\\right)\\frac{k\\gamma}{\\rho a}} = \\sqrt{3\\left(2 - 2^{2/3}\\right) \\times \\frac{0.06 \\times (7.27 \\times 10^{-2})}{(1.0 \\times 10^{3}) \\times (100 \\times 10^{-6})}} = 0.23\\not{2}\\,\\mathrm{m/s}.\n\\tag{S3.4}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\triangleright\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " Note: We point out an interesting phenomenon related to this question. On a superhydrophobic surface, when small droplets merge, they release surface energy, causing the surface area to shrink. This energy release propels the merged droplet to jump up. This phenomenon mirrors the natural mechanism seen in cicadas. Cicadas’ wings, which possess superhydrophobic surfaces, facilitate the removal of water droplets upon coalescence. This process serves as a natural self-cleaning system, converting surface energy to kinetic energy, as reported in the following paper: Wisdom "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "em",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "et. al."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", Proc. Natl. Acad. Sci. USA 110, 7992"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(-\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "7997 (2013)."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "2.0 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v = 0.23\\,\\mathrm{m/s}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. A vertically placed board (4.5 pt)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Consider a vertical upright column-shaped water block as shown in the hatched area of Fig. S3-1. The vertical force balance with respect to this block per unit area leads to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P + \\rho gz = P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t3/358c42b7164e9acc9017.png",
+                "alt": "ipho-2023-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. S3-1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.6 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[P = P_0 - \\rho gz\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Because the atmospheric pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " exerts no net horizontal force on the water block, we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nf_x = \\int_{z_2}^{z_1}(-\\rho gz)dz = \\frac{1}{2}\\rho g\\left(z_2^2 - z_1^2\\right).\n\\tag{S3.5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This force acts in the leftward direction."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\triangleright\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " Note: The reason why "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(P_0\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " exerts no net horizontal force is understood as follows. Consider a small area (infinitesimally divided piece) near the surface, which is regarded as a right-angled triangle (see Fig. S3-2)."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t3/a86469c0b847d485cfd3.png",
+                "alt": "ipho-2023-t3 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. S3-2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The horizontal component of the combined force exerted on the right-angled triangle ABC per unit length along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis by atmospheric pressure is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[P_0 \\times \\overline{\\mathrm{AB}} - P_0 \\times \\overline{\\mathrm{AC}} \\times \\frac{\\overline{\\mathrm{AB}}}{\\overline{\\mathrm{AC}}} = 0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Integrating infinitesimal pieces over a finite domain yields a finite volume of water, while the net force remains zero."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.8 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[f_x = \\frac{1}{2}\\rho g\\left(z_2^2 - z_1^2\\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The horizontal component of the surface tension acting on the water block is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\cos\\theta_2 - \\gamma\\cos\\theta_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus, the horizontal force balance is expressed as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nf_x + \\gamma\\cos\\theta_2 - \\gamma\\cos\\theta_1 = 0.\n\\tag{S3.6}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.8 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[f_x = \\gamma\\cos\\theta_1 - \\gamma\\cos\\theta_2\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From the results of B.2 and B.3, we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{1}{2}\\rho gz_1^2 + \\gamma\\cos\\theta_1 = \\frac{1}{2}\\rho gz_2^2 + \\gamma\\cos\\theta_2.\n\\tag{S3.7}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Since this equation holds at an arbitrary point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x,z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the water surface, we conclude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{1}{2}\\rho gz^2 + \\gamma\\cos\\theta = \\mathrm{constant},\n\\tag{S3.8}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which is written as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{1}{2}\\left(\\frac{z}{\\ell}\\right)^a + \\cos\\theta(x) = \\mathrm{constant},\n\\tag{S3.9}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a = 2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell = \\sqrt{\\gamma/\\rho g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\triangleright\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " Note: The equaiton (S3.9) is a kind of conservation law. The constant "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\ell\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " is called the capillary length."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.8 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a = 2, \\quad \\ell = \\sqrt{\\frac{\\gamma}{\\rho g}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The derivative of the water surface coordinate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", denoted by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is associated with the angle of inclination "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", given by the equation: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z' = \\tan\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This relation yields "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\cos\\theta = \\frac{1}{\\sqrt{1+(z')^2}},\n\\tag{S3.10}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which leads to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\cos\\theta \\simeq 1 - \\frac{1}{2}(z')^2.\n\\tag{S3.11}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Plugging this into Eq. (S3.9), we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{z^2}{\\ell^2} - z'^2 = \\mathrm{const.}\n\\tag{S3.12}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Taking the derivative of both sides with respect to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nz'' = \\frac{z}{\\ell^2},\n\\tag{S3.13}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which is the differential equation that determines the water surface form."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Its general solution is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nz = Ae^{x/\\ell} + Be^{-x/\\ell}.\n\\tag{S3.14}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The boundary condition, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z(\\infty) = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", leads to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The boundary condition, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z'(0) = \\tan\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", leads to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B = -\\ell\\tan\\theta_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.5 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[z(x) = -\\ell \\tan\\theta_0 e^{-x/\\ell}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C. Interaction between two rods (3.5 pt)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The horizontal component of the force due to the pressure is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\int_{z_\\mathrm{a}}^{z_\\mathrm{b}}(\\rho gz)\\,dz = \\frac{1}{2}\\rho g\\left(z_\\mathrm{b}^2 - z_\\mathrm{a}^2\\right)\n\\tag{S3.15}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_{\\mathrm{bottom}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-coordinate at the bottom of the rod. Then, we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nF_x = \\int_{z_{\\mathrm{bottom}}}^{z_\\mathrm{a}}(-\\rho gz)dz + \\left(-\\int_{z_{\\mathrm{bottom}}}^{z_\\mathrm{b}}(-\\rho gz)dz\\right) = \\int_{z_\\mathrm{a}}^{z_\\mathrm{b}}(\\rho gz)dz.\n\\tag{S3.16}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\triangleright\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " Note: The fact that the contribution due to the pressure does not depend on the shape of the cross-section can be demonstrated as follows. The pressure at the point "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(s\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " on the contour "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(C\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " along the cross-sectional boundary is "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\[\\begin{equation}\n-P\\hat{n}\\,ds = (-P_0+\\rho gz)\\hat{n}\\,ds.\n\\tag{S3.17}\n\\end{equation}\\]"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " Let "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\hat{x}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " be the unit vector pointing the positive "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(x\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "-direction and noting "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\hat{x}\\cdot\\hat{n}\\,ds = dz\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " (see Fig. S3-3), we obtain its horizontal component as "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\[\\begin{equation}\n-P\\hat{n}\\cdot\\hat{x}\\,ds = -P_0\\,dz+\\rho gz\\,dz.\n\\tag{S3.18}\n\\end{equation}\\]"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " Integrating along the contour "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(C\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "sup",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " We obtain "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\[\\begin{equation}\n\\int_{z_\\mathrm{a}}^{z_\\mathrm{b}}(\\rho gz)dz = \\frac{1}{2}\\rho g\\left(z_\\mathrm{b}^2 - z_\\mathrm{a}^2\\right).\n\\tag{S3.19}\n\\end{equation}\\]"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t3/0a3f5350073fae315737.png",
+                "alt": "ipho-2023-t3 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. S3-3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_x = \\frac{1}{2}\\rho g\\left(z_\\mathrm{b}^2 - z_\\mathrm{a}^2\\right) + \\gamma\\left(\\cos\\theta_\\mathrm{b} - \\cos\\theta_\\mathrm{a}\\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " By applying the boundary conditions to Eq. (S3.8), we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\underbrace{\\frac{1}{2}\\rho gz_\\mathrm{a}^2 + \\gamma\\cos\\theta_\\mathrm{a}}_{x=x_\\mathrm{a}} = \\underbrace{\\frac{1}{2}\\rho gz_0^2 + \\gamma}_{x=0}\n\\tag{S3.20}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\underbrace{\\frac{1}{2}\\rho gz_\\mathrm{b}^2 + \\gamma\\cos\\theta_\\mathrm{b}}_{x=x_\\mathrm{b}} = \\underbrace{\\gamma}_{x\\to\\infty}\n\\tag{S3.21}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Then, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_x = -\\frac{1}{2}\\rho gz_0^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is obtained by subtracting (S3.20) from (S3.21)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\triangleright\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " Note: The physical background of this problem is as follows. When a single rod is placed on the water surface, the shape of the water surface on both sides of the rod remains the same. In other words, the rod is placed in an environment that exhibits the left-right symmetry. Then, there is no force acting on the rod. On the other hand, when two rods are placed on the water surface, the left-right symmetry of the water surface is broken from the perspective of each rod. As a result, an attractive force is generated."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The displacement of the water surface at the midpoint between the two rods differs from that of a horizontal water surface. This deviation is represented by "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(z_0\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ". That is to say, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(z_0\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " plays the role of a symmetry-breaking parameter (see Fig. S3-4)."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The fact that the attractive force between the two rods is determined solely by this parameter suggests that the symmetry breaking directly becomes the origin of the force. This corresponds to the fundamental principle in physics that relates symmetry breaking to force generation."
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2023-t3/5bcaec0ae3908f3d35df.png",
+                "alt": "ipho-2023-t3 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. S3-4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.5 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_x = -\\frac{1}{2}\\rho gz_0^2\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The general solution for the water surface height is given by the equation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nz(x) = Ae^{x/\\ell} + Be^{-x/\\ell}.\n\\tag{S3.22}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " By considering the left-right symmetry, we find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nA = B.\n\\tag{S3.23}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Applying the boundary condition "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z(0) = z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nA + B = z_0.\n\\tag{S3.24}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " We thus have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nA = z_0/2, \\quad B = z_0/2.\n\\tag{S3.25}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[z_0 = \\frac{2z_\\mathrm{a}}{e^{x_\\mathrm{a}/\\ell} + e^{-x_\\mathrm{a}/\\ell}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "span",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "hr",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "ol",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "This integral is symbolically written as "
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(\\oint_C(-P\\hat{n}\\cdot\\hat{x}\\,ds)\\)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "↩︎"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Theory Problem 3: Water and Objects (10 points)\n\n\nPart A. Merger of water drops (2.0 pt)\n\n\nA.1\n The surface energy per drop before the merger is \n\\[\\begin{equation}\nE = 4\\pi a^2\\gamma.\n\\tag{S3.1}\n\\end{equation}\\]\n Therefore, the surface energy difference becomes \n\\[\\begin{equation}\n\\Delta E = 4\\pi \\left(2 - 2^{2/3}\\right) a^2\\gamma.\n\\tag{S3.2}\n\\end{equation}\\]\n The transfer of surface energy to kinetic energy is represented by \n\\[\\begin{equation}\nMv^2/2 = k\\Delta E,\n\\tag{S3.3}\n\\end{equation}\\]\n where \n\\(k = 0.06\\)\n and \n\\(M = 4\\pi a^3\\rho/3 \\times 2 = 8\\pi a^3\\rho/3\\)\n is the mass of the drop after the merger. The numerical computation gives \n\\[\\begin{equation}\nv = \\sqrt{\\frac{2k\\Delta E}{M}} = \\sqrt{3\\left(2 - 2^{2/3}\\right)\\frac{k\\gamma}{\\rho a}} = \\sqrt{3\\left(2 - 2^{2/3}\\right) \\times \\frac{0.06 \\times (7.27 \\times 10^{-2})}{(1.0 \\times 10^{3}) \\times (100 \\times 10^{-6})}} = 0.23\\not{2}\\,\\mathrm{m/s}.\n\\tag{S3.4}\n\\end{equation}\\]\n\n\n\n\n\n\n\\(\\triangleright\\)\n Note: We point out an interesting phenomenon related to this question. On a superhydrophobic surface, when small droplets merge, they release surface energy, causing the surface area to shrink. This energy release propels the merged droplet to jump up. This phenomenon mirrors the natural mechanism seen in cicadas. Cicadas’ wings, which possess superhydrophobic surfaces, facilitate the removal of water droplets upon coalescence. This process serves as a natural self-cleaning system, converting surface energy to kinetic energy, as reported in the following paper: Wisdom \net. al.\n, Proc. Natl. Acad. Sci. USA 110, 7992\n\\(-\\)\n7997 (2013).\n\n\n\n\n\n\nA.1\n2.0 pt\n\n\n\\[v = 0.23\\,\\mathrm{m/s}\\]\n\n\nPart B. A vertically placed board (4.5 pt)\n\n\nB.1\n Consider a vertical upright column-shaped water block as shown in the hatched area of Fig. S3-1. The vertical force balance with respect to this block per unit area leads to \n\\(P + \\rho gz = P_0\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nFig. S3-1\n\n\n\n\nB.1\n0.6 pt\n\n\n\\[P = P_0 - \\rho gz\\]\n\n\nB.2\n Because the atmospheric pressure \n\\(P_0\\)\n exerts no net horizontal force on the water block, we have \n\\[\\begin{equation}\nf_x = \\int_{z_2}^{z_1}(-\\rho gz)dz = \\frac{1}{2}\\rho g\\left(z_2^2 - z_1^2\\right).\n\\tag{S3.5}\n\\end{equation}\\]\n This force acts in the leftward direction.\n\n\n\n\n\n\n\\(\\triangleright\\)\n Note: The reason why \n\\(P_0\\)\n exerts no net horizontal force is understood as follows. Consider a small area (infinitesimally divided piece) near the surface, which is regarded as a right-angled triangle (see Fig. S3-2).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFig. S3-2\n\n\n\n\nThe horizontal component of the combined force exerted on the right-angled triangle ABC per unit length along the \n\\(y\\)\n-axis by atmospheric pressure is \n\\[P_0 \\times \\overline{\\mathrm{AB}} - P_0 \\times \\overline{\\mathrm{AC}} \\times \\frac{\\overline{\\mathrm{AB}}}{\\overline{\\mathrm{AC}}} = 0\\]\n Integrating infinitesimal pieces over a finite domain yields a finite volume of water, while the net force remains zero.\n\n\nB.2\n0.8 pt\n\n\n\\[f_x = \\frac{1}{2}\\rho g\\left(z_2^2 - z_1^2\\right)\\]\n\n\nB.3\n The horizontal component of the surface tension acting on the water block is \n\\(\\gamma\\cos\\theta_2 - \\gamma\\cos\\theta_1\\)\n. Thus, the horizontal force balance is expressed as \n\\[\\begin{equation}\nf_x + \\gamma\\cos\\theta_2 - \\gamma\\cos\\theta_1 = 0.\n\\tag{S3.6}\n\\end{equation}\\]\n\n\nB.3\n0.8 pt\n\n\n\\[f_x = \\gamma\\cos\\theta_1 - \\gamma\\cos\\theta_2\\]\n\n\nB.4\n From the results of B.2 and B.3, we have \n\\[\\begin{equation}\n\\frac{1}{2}\\rho gz_1^2 + \\gamma\\cos\\theta_1 = \\frac{1}{2}\\rho gz_2^2 + \\gamma\\cos\\theta_2.\n\\tag{S3.7}\n\\end{equation}\\]\n Since this equation holds at an arbitrary point \n\\((x,z)\\)\n on the water surface, we conclude \n\\[\\begin{equation}\n\\frac{1}{2}\\rho gz^2 + \\gamma\\cos\\theta = \\mathrm{constant},\n\\tag{S3.8}\n\\end{equation}\\]\n which is written as \n\\[\\begin{equation}\n\\frac{1}{2}\\left(\\frac{z}{\\ell}\\right)^a + \\cos\\theta(x) = \\mathrm{constant},\n\\tag{S3.9}\n\\end{equation}\\]\n with \n\\(a = 2\\)\n and \n\\(\\ell = \\sqrt{\\gamma/\\rho g}\\)\n.\n\n\n\n\n\n\n\\(\\triangleright\\)\n Note: The equaiton (S3.9) is a kind of conservation law. The constant \n\\(\\ell\\)\n is called the capillary length.\n\n\n\n\n\n\nB.4\n0.8 pt\n\n\n\\[a = 2, \\quad \\ell = \\sqrt{\\frac{\\gamma}{\\rho g}}\\]\n\n\nB.5\n The derivative of the water surface coordinate \n\\(z\\)\n, denoted by \n\\(z'\\)\n, is associated with the angle of inclination \n\\(\\theta\\)\n, given by the equation: \n\\(z' = \\tan\\theta\\)\n. This relation yields \n\\[\\begin{equation}\n\\cos\\theta = \\frac{1}{\\sqrt{1+(z')^2}},\n\\tag{S3.10}\n\\end{equation}\\]\n which leads to \n\\[\\begin{equation}\n\\cos\\theta \\simeq 1 - \\frac{1}{2}(z')^2.\n\\tag{S3.11}\n\\end{equation}\\]\n Plugging this into Eq. (S3.9), we obtain \n\\[\\begin{equation}\n\\frac{z^2}{\\ell^2} - z'^2 = \\mathrm{const.}\n\\tag{S3.12}\n\\end{equation}\\]\n Taking the derivative of both sides with respect to \n\\(x\\)\n, we have \n\\[\\begin{equation}\nz'' = \\frac{z}{\\ell^2},\n\\tag{S3.13}\n\\end{equation}\\]\n which is the differential equation that determines the water surface form.\n\n\nIts general solution is \n\\[\\begin{equation}\nz = Ae^{x/\\ell} + Be^{-x/\\ell}.\n\\tag{S3.14}\n\\end{equation}\\]\n\n\nThe boundary condition, \n\\(z(\\infty) = 0\\)\n, leads to \n\\(A = 0\\)\n.\n\n\nThe boundary condition, \n\\(z'(0) = \\tan\\theta_0\\)\n, leads to \n\\(B = -\\ell\\tan\\theta_0\\)\n.\n\n\nB.5\n1.5 pt\n\n\n\\[z(x) = -\\ell \\tan\\theta_0 e^{-x/\\ell}\\]\n\n\nPart C. Interaction between two rods (3.5 pt)\n\n\nC.1\n The horizontal component of the force due to the pressure is \n\\[\\begin{equation}\n\\int_{z_\\mathrm{a}}^{z_\\mathrm{b}}(\\rho gz)\\,dz = \\frac{1}{2}\\rho g\\left(z_\\mathrm{b}^2 - z_\\mathrm{a}^2\\right)\n\\tag{S3.15}\n\\end{equation}\\]\n Let \n\\(z_{\\mathrm{bottom}}\\)\n be the \n\\(z\\)\n-coordinate at the bottom of the rod. Then, we have \n\\[\\begin{equation}\nF_x = \\int_{z_{\\mathrm{bottom}}}^{z_\\mathrm{a}}(-\\rho gz)dz + \\left(-\\int_{z_{\\mathrm{bottom}}}^{z_\\mathrm{b}}(-\\rho gz)dz\\right) = \\int_{z_\\mathrm{a}}^{z_\\mathrm{b}}(\\rho gz)dz.\n\\tag{S3.16}\n\\end{equation}\\]\n\n\n\n\n\n\n\\(\\triangleright\\)\n Note: The fact that the contribution due to the pressure does not depend on the shape of the cross-section can be demonstrated as follows. The pressure at the point \n\\(s\\)\n on the contour \n\\(C\\)\n along the cross-sectional boundary is \n\\[\\begin{equation}\n-P\\hat{n}\\,ds = (-P_0+\\rho gz)\\hat{n}\\,ds.\n\\tag{S3.17}\n\\end{equation}\\]\n Let \n\\(\\hat{x}\\)\n be the unit vector pointing the positive \n\\(x\\)\n-direction and noting \n\\(\\hat{x}\\cdot\\hat{n}\\,ds = dz\\)\n (see Fig. S3-3), we obtain its horizontal component as \n\\[\\begin{equation}\n-P\\hat{n}\\cdot\\hat{x}\\,ds = -P_0\\,dz+\\rho gz\\,dz.\n\\tag{S3.18}\n\\end{equation}\\]\n Integrating along the contour \n\\(C\\)\n.\n1\n We obtain \n\\[\\begin{equation}\n\\int_{z_\\mathrm{a}}^{z_\\mathrm{b}}(\\rho gz)dz = \\frac{1}{2}\\rho g\\left(z_\\mathrm{b}^2 - z_\\mathrm{a}^2\\right).\n\\tag{S3.19}\n\\end{equation}\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFig. S3-3\n\n\n\n\nC.1\n1.0 pt\n\n\n\\[F_x = \\frac{1}{2}\\rho g\\left(z_\\mathrm{b}^2 - z_\\mathrm{a}^2\\right) + \\gamma\\left(\\cos\\theta_\\mathrm{b} - \\cos\\theta_\\mathrm{a}\\right)\\]\n\n\nC.2\n By applying the boundary conditions to Eq. (S3.8), we obtain \n\\[\\begin{equation}\n\\underbrace{\\frac{1}{2}\\rho gz_\\mathrm{a}^2 + \\gamma\\cos\\theta_\\mathrm{a}}_{x=x_\\mathrm{a}} = \\underbrace{\\frac{1}{2}\\rho gz_0^2 + \\gamma}_{x=0}\n\\tag{S3.20}\n\\end{equation}\\]\n \n\\[\\begin{equation}\n\\underbrace{\\frac{1}{2}\\rho gz_\\mathrm{b}^2 + \\gamma\\cos\\theta_\\mathrm{b}}_{x=x_\\mathrm{b}} = \\underbrace{\\gamma}_{x\\to\\infty}\n\\tag{S3.21}\n\\end{equation}\\]\n Then, \n\\(F_x = -\\frac{1}{2}\\rho gz_0^2\\)\n is obtained by subtracting (S3.20) from (S3.21).\n\n\n\n\n\n\n\\(\\triangleright\\)\n Note: The physical background of this problem is as follows. When a single rod is placed on the water surface, the shape of the water surface on both sides of the rod remains the same. In other words, the rod is placed in an environment that exhibits the left-right symmetry. Then, there is no force acting on the rod. On the other hand, when two rods are placed on the water surface, the left-right symmetry of the water surface is broken from the perspective of each rod. As a result, an attractive force is generated.\n\n\nThe displacement of the water surface at the midpoint between the two rods differs from that of a horizontal water surface. This deviation is represented by \n\\(z_0\\)\n. That is to say, \n\\(z_0\\)\n plays the role of a symmetry-breaking parameter (see Fig. S3-4).\n\n\nThe fact that the attractive force between the two rods is determined solely by this parameter suggests that the symmetry breaking directly becomes the origin of the force. This corresponds to the fundamental principle in physics that relates symmetry breaking to force generation.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFig. S3-4\n\n\n\n\nC.2\n1.5 pt\n\n\n\\[F_x = -\\frac{1}{2}\\rho gz_0^2\\]\n\n\nC.3\n The general solution for the water surface height is given by the equation \n\\[\\begin{equation}\nz(x) = Ae^{x/\\ell} + Be^{-x/\\ell}.\n\\tag{S3.22}\n\\end{equation}\\]\n By considering the left-right symmetry, we find \n\\[\\begin{equation}\nA = B.\n\\tag{S3.23}\n\\end{equation}\\]\n Applying the boundary condition \n\\(z(0) = z_0\\)\n, we obtain \n\\[\\begin{equation}\nA + B = z_0.\n\\tag{S3.24}\n\\end{equation}\\]\n We thus have \n\\[\\begin{equation}\nA = z_0/2, \\quad B = z_0/2.\n\\tag{S3.25}\n\\end{equation}\\]\n\n\nC.3\n1.0 pt\n\n\n\\[z_0 = \\frac{2z_\\mathrm{a}}{e^{x_\\mathrm{a}/\\ell} + e^{-x_\\mathrm{a}/\\ell}}\\]\n\n\n\n\n\n\n\n\n\nThis integral is symbolically written as \n\\(\\oint_C(-P\\hat{n}\\cdot\\hat{x}\\,ds)\\)\n.\n↩︎\n\n\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2023-t3/358c42b7164e9acc9017.png",
+      "/corpus/figures/native/bulk/ipho-2023-t3/a86469c0b847d485cfd3.png",
+      "/corpus/figures/native/bulk/ipho-2023-t3/0a3f5350073fae315737.png",
+      "/corpus/figures/native/bulk/ipho-2023-t3/5bcaec0ae3908f3d35df.png"
+    ],
+    "shared": false
+  }
+}

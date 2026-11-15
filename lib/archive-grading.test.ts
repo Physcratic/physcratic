@@ -67,7 +67,7 @@ test("public generator output uses an explicit allowlist and contains no structu
     const published = JSON.parse(readFileSync(join(process.cwd(), `public/corpus/grading/${definition.problemId}.json`), "utf8"));
     assert.deepEqual(archiveMetadataSchema.parse(published), metadata);
     assert.deepEqual(Object.keys(metadata).sort(), ["parts", "problemId", "version"]);
-    for (const part of metadata.parts) assert.deepEqual(Object.keys(part).sort(), ["help", "id", "kind", "label", "sourcePart", "symbolConditions", "symbols", "unit"]);
+    for (const part of metadata.parts) assert.deepEqual(Object.keys(part).sort(), ["help", "id", "kind", "label", ...(part.responseFormat ? ["responseFormat"] : []), "sourcePart", "symbolConditions", "symbols", "unit"].sort());
     assert.doesNotMatch(JSON.stringify(metadata), /"(?:target|canonical|alternatives|wrong|absTol|relTol|policy|exclusions)"/);
     assert.notEqual(archiveVersion({ ...definition, keyVersion: definition.keyVersion + 1 }), metadata.version);
     assert.notEqual(archiveVersion({ ...definition, content: `${definition.content} changed` }), metadata.version);

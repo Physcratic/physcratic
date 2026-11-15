@@ -1,4 +1,5 @@
 import type { ImportedNode } from "../imported-corpus-schema";
+import bulkContent from "./native-bulk.json";
 
 const node = (tag: "p" | "h2" | "h3" | "figcaption", text: string): ImportedNode => ({ type: "element", tag, children: [{ type: "text", text }] });
 const p = (text: string) => node("p", text);
@@ -97,3 +98,4 @@ export const nativeOlympiadContent: Record<string, NativeContent> = {
 };
 
 export { p, h, sub, eq, fig };
+Object.assign(nativeOlympiadContent, bulkContent);

@@ -1,1 +1,3562 @@
-{"id":"ipho-2024-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2024_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2024_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2024-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"The Greenhouse E ect\nIn 2021, Syukuro Manabe and Klaus Hasselmann were awarded half of the Nobel Prize in Physics for their\nwork in modeling Earth's climate and accurately predicting the global warming caused by human\nindustrial activities. In this problem, we will examine a simple model of global warming due to the\ngreenhouse e ect. The greenhouse gases alter the optical properties of the Earth's atmosphere in\ntransmitting or absorbing Earth's infrared radiation, resulting in a rise in the average temperature of the\nplanet.\nAll objects, at di erent temperatures, emit thermal radiation. The quantity \n indicates the\nthermal radiative power per unit area of an object at temperature \n between the wavelengths \nand \n. According to Planck’s theory of blackbody radiation, we have\n,      (1)\nin which \n and\n. The wavelength corresponding\nto the maximum of \n  comes from the relation \n  (Wien’s displacement law).\nIndeed, using equation (1), it can be shown that \n, where the dimensionless quantity \n is\nthe non-trivial root of an equation of the form \n; you are asked to nd the function \n in\none of the following tasks. Total radiative power per unit area of a blackbody in all wavelengths is\ngiven by the Stephan-Boltzmann\nlaw as \n  where \n.\nMoreover, according to Kirchho ’s law of radiation, at thermal equilibrium a body absorbing a\ncertain fraction of the incident radiation at a speci c wavelength, will radiate the same fraction of\nthe blackbody radiation at that same wavelength.\nThroughout this problem assume that the Sun is a blackbody at its average surface temperature\nof \n. The Sun’s radius is \n and the average distance between\nthe Earth and the Sun is \n. We denote by \n, the spectral solar power\nradiated into a unit area of the Earth normal to the direction of radiation. The integral of this\nquantity over all wavelengths, i.e. \n, is called the solar constant.\nIn this problem assume that the Earth is in thermal equilibrium and has the same temperature at\nall points on its surface. In all parts of the problem, express the desired quantity in parametric\nform in terms of the data given in the problem and then nd its numerical value accurate to three\nsigni cant gures. The required units are indicated on the answer sheet.\n     A. Earth as a Blackbody\nu(λ, T)dλ\nT\nλ\nλ + dλ\nu(λ, T) = 2πhc2\nλ5\n1\nexp(\nhc\nλkBT ) −1\nhc = 1. 24 × 103 eV ⋅nm\nkB = 8. 62 × 10−5  eV /K\nu(λ, T)\nλmaxT = b\nb =\nhc\nxmkB\nxm\nf(x) = 0\nf(x)\nU(T) = σT 4\nσ = 5. 67 × 10−8 W/m2K4\nTS = 5. 77 × 103 K\nRS = 6. 96 × 108 m\nd = 1. 50 × 1011 m\n˜uS(λ)\nS0 = ∫˜uS(λ)dλ\nPoints: 30\nTime: 5.0 Hours\nIPhO 2024\nTheory, English (Official)\nPage 1 of 16\n\nIn this part, consider the Earth’s surface as a blackbody and neglect the Earth's atmosphere.\nA-1\nFind the solar constant, \n.\n0.6 pt\nA-2\nFind the Earth’s temperature, \n.\n0.6 pt\nA-3\nFind the function \n.\n0.4 pt\nA-4\nCalculate the numerical value of \n , and from this value \n , nd the\nvalue of  .\n0.4 pt\nA-5\nFind \n for the Sun and the Earth.\n0.2 pt\nIn gure 1 the functions \nand \n are plotted versus , where  is a dimensionless\ncoe\ncient to rescale \n such that the values of the two peaks coincide.\nA-6\nDetermine .\n0.8 pt\nS0\nTE \nf(x)\nxm\nxm\nb\nλmax\nγ˜uS(λ)\nu(λ, TE)\nλ\nγ\n˜uS(λ)\nγ\nPoints: 30\nTime: 5.0 Hours\nIPhO 2024\nTheory, English (Official)\nPage 2 of 16\n\nFigure 1 - The plot of \n (red) and\n(blue) versus \n   B. The Greenhouse E ect\nIn this part, we introduce a simple model in which the Earth’s atmosphere is modeled as a thin\nlayer at a small distance above the Earth’s surface so that the di erence between the area of the\natmosphere’s layer and the area of the Earth's surface can be neglected (see gure 2).   In what\nfollows assume that the major part of the thermal radiation from the Earth and the Sun are\nemitted at wavelengths near the \n for each one. Also assume that the “atmosphere layer”\nre ects a fraction \nof the visible-ultraviolet radiation incident from above or below, and\ncompletely transmits the rest. Assume that the atmosphere does not re ect any part of the\ninfrared radiation, however, it absorbs a fraction \nof the infrared radiation and transmits the rest.\nThis behavior, known as the greenhouse e ect, changes the average temperature of the Earth. The\nEarth’s surface, on the other hand, re ects a fraction \nof the visible-ultraviolet radiation and\nabsorbs the rest of this radiation and all the infrared radiation.\nu(λ, TE)\nγ˜uS(λ)\nλ\nλmax\nrA = 0. 255\nε\nrE\nPoints: 30\nTime: 5.0 Hours\nIPhO 2024\nTheory, English (Official)\nPage 3 of 16\n\nFigure 2 - Thermal ows between the Earth and the atmosphere\nB-1\nAssume that \n and\n, and calculate the Earth’s temperature \n and the atmosphere’s temperature \n. \n1.0 pt\nNow assume that \n. In this case, the combined system of “Earth + atmosphere” re ects a\ndi erent fraction of the solar radiation, called “albedo” and denoted by \n.\nB-2\nDetermine the albedo, \n, in terms of \nand \n. Then calculate its\nnumerical value assuming \n(and \n).\n1.6 pt\nε = 1\nrE = 0\nTE\nTA\nrE ≠0\nα\nα\nrE\nrA\nrE = 0. 102\nrA = 0. 255\nPoints: 30\nTime: 5.0 Hours\nIPhO 2024\nTheory, English (Official)\nPage 4 of 16\n\nB-3\na) Express the Earth’s temperature in terms of  , \n, \n, and .\nb) Using the given data and the calculated albedo, nd the numerical\nvalue of \nwhich leads to the current average temperature of \nfor the Earth.\n1.0 pt\nB-4\nFind \n and determine by how much the Earth’s temperature increases\nif \nincreases by one percent.\n0.8 pt\nAssume \n and \n. These values come from real data and may di er from the\nresults which you have obtained in the previous tasks. Now suppose that a non-radiative (e. g.\nconvective) thermal \now \nis maintained from the Earth to the atmosphere,\nwhere \nis a constant. The quantity, \n, is the transmitted power per unit area.\nB-5\nCalculate \nand \nin terms of \n, \n, , \n, and \n.\n1.6 pt\nB-6\na) Di erentiating the equations obtained in part B-5 with respect to , nd\nthe two algebraic equations satis ed by \nand \n.\nb) Use these equations to nd the numerical value of change in the Earth’s\ntemperature as a result of a one percent increase in the value of  .\n1.0 pt\nσ α S0\nε\nε\nTE = 288 K\ndTE\ndε\nε\nTA = 245 K\nTE = 288 K\nJNR = k(TE −TA)\nk\nJNR\nε\nk\nTE TA σ α\nS0\nε\ndTA\ndε\ndTE\ndε\nε\nPoints: 30\nTime: 5.0 Hours\nIPhO 2024\nTheory, English (Official)\nPage 5 of 16\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2024-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":" \n \n \nS1-1 \n \n \nA. Earth as a blackbody \n \nA-1. All the energy emitted from the surface of the Sun, will reach a sphere of radius 𝑑 , therefore: \n \n𝜎𝑇S\n4. (4𝜋𝑅S\n2) = (4𝜋𝑑2). 𝑆0 \n𝑆0 = 𝜎𝑇S\n4. (𝑅S\n𝑑)\n2\n= 5.67 × 10−8\n W\nm2K4 × (5.77 × 103 K)4 × (6.96 × 108 m\n1.5 × 1011 m)\n2\n= 1.35 × 103 W\nm2 \n \nA-1 (0.6 pt) \n \n𝑆0 = 𝜎𝑇S\n4. (\n𝑅S\n𝑑)\n2\n                                                   , Numerical value of 𝑆0 = 1.35 × 103 W/m2 \n \nA-2. It is assumed that the Earth is in thermal equilibrium. Therefore, the energy it receives per unit \ntime should be equal to the energy it radiates per unit time. The Earth’s cross-section intercepting \nthe solar radiation at this distance has an area of 𝜋𝑅E\n2 , but the Earth radiates heat from all points \non its surface with an area of  4𝜋𝑅E\n2, so:  \n𝜋𝑅E\n2. 𝑆0 = 4𝜋𝑅E\n2𝜎𝑇E\n4   →𝑇E = (𝑆0\n4𝜎)\n1\n4\n= 278 K \n \nA-2 (0.6 pt) \n \n𝑇E = (\n𝑆0\n4𝜎)\n1\n4 = √\n𝑅S\n2𝑑𝑇S                                                          , Numerical value of 𝑇E = 278 K \n \nA-3. The radiation is maximum at the wavelength for which the derivative of  𝑢 with respect to 𝜆 is \nzero: \n𝑑𝑢\n𝑑𝜆= 2𝜋ℎ𝑐2\n𝜆6\n.\n1\n𝑒𝑥𝑝( ℎ𝑐\n𝜆𝑘B𝑇) −1\n. [−5 +\nℎ𝑐\n𝜆𝑘B𝑇 \n𝑒𝑥𝑝( ℎ𝑐\n𝜆𝑘B𝑇)\n𝑒𝑥𝑝( ℎ𝑐\n𝜆𝑘B𝑇) −1\n] \n \n𝑑𝑢\n𝑑𝜆|𝜆=𝜆m = 0     ⇒       \nℎ𝑐\n𝜆m𝑘𝐵𝑇 \n𝑒𝑥𝑝(\nℎ𝑐\n𝜆m𝑘B𝑇)\n𝑒𝑥𝑝(\nℎ𝑐\n𝜆m𝐾B𝑇) −1\n= 5 \n \nDefining  𝑥m ≡\nℎ𝑐\n𝜆m𝑘B𝑇   we obtain the following transcendental equation: \n \n5(1 −𝑒−𝑥m) −𝑥m = 0 \n \n\n \n \n \nS1-2 \n \n \nA-3 (0.4 pt) \n \n𝑓(𝑥) = 5(1 −𝑒−𝑥) −𝑥                                                                       \n \nA-4. The first guess is  𝑥m\n(1) = 5 . Substituting repeatedly for 𝑥m we can continue as follows: \n𝑥m\n(2) = 5(1 −𝑒−5) = 4.97 \n𝑥m\n(3) = 5(1 −𝑒−4.97) = 4.97 \n \nFurther iterations do not change the value of 𝑥m to three significant figures, so: \n \n𝜆m𝑇=\nℎ𝑐\n𝑥m𝑘B\n= 𝑏= 1240 eV ∙nm ×\n1\n4.97 × 8.62 × 10−5 eVK−1 = 2.89 × 106 nm ∙K \n \nA-4 (0.4 pt) \n \n𝑥m = {4.96,4.97}                                   , Numerical value of 𝑏=  [2.89,2.90] × 106 nm ∙K \n \n \nA-5. Using Wien’s displacement law and the constant 𝑏 obtained in the previous part, we can calculate \nthe wavelength at which the radiation from the Sun and the Earth reaches its maximum: \n \n𝜆max\nSun = 𝑏\n𝑇S\n= 2.89 × 106 nm ∙K\n5.77 × 103 K\n= [5.01, 5.02] × 102 nm \n \n𝜆max\nEarth = 𝑏\n𝑇E\n= 2.89 × 106 nm ∙K\n278 K\n= 1.04 × 104 nm \n \nA-5 (0.2 pt) \n \n𝜆max\nSun = [5.01, 5.02] × 102 nm                             , 𝜆max\nEarth = 1.04 × 104 nm \n \nA-6. From the diagram, it can clearly be seen that  𝛾𝑢̃S(𝜆max\nS\n) = 𝑢(𝜆max\nEarth, 𝑇E) , so we have: \n𝑢̃S(𝜆max\nSun ) = (𝑅S\n𝑑)\n2 2𝜋ℎ𝑐2\n(𝜆max\nSun )\n5\n1\n𝑒𝑥𝑝(\nℎ𝑐\n𝜆max\nSun 𝑘B𝑇S\n) −1\n= (𝑅S\n𝑑)\n2 2𝜋ℎ𝑐2\n(𝜆max\nSun )\n5\n1\n𝑒𝑥𝑝( ℎ𝑐\n𝑘B𝑏) −1\n \n \n𝑢(𝜆max\nEarth, 𝑇E) =\n2𝜋ℎ𝑐2\n(𝜆max\nEarth)\n5\n1\n𝑒𝑥𝑝(\nℎ𝑐\n𝜆max\nEarth𝑘B𝑇E\n) −1\n=\n2𝜋ℎ𝑐2\n(𝜆max\nEarth)\n5\n1\n𝑒𝑥𝑝( ℎ𝑐\n𝑘B𝑏) −1\n \nDividing these two quantities we’ll find: \n \n\n \n \n \nS1-3 \n \n \n𝛾= ( 𝑑\n𝑅S\n)\n2\n× (𝑇E\n𝑇S\n)\n5\n= [1.20,1.21] × 10−2 \n \nA-6 (0.8 pt) \n \n𝛾= (\n𝑑\n𝑅S)\n2\n× (\n𝑇E\n𝑇S)\n5\n= (\n𝑑\n𝑅S)\n2\n× (\n𝜆max\nSun\n𝜆max\nEarth)\n5\n               , Numerical value of 𝛾= [1.20,1.21] × 10−2 \n \n \n \nB. The Greenhouse Effect \n \nB-1. Both the Earth and its atmosphere are in thermal equilibrium, so one can write an equation that \nbalances the input and output powers. For the Earth we have: \n (𝜋𝑅E\n2)(1 −𝑟A)𝑆0 + (4𝜋𝑅E\n2)𝜎𝑇A\n4 = (4𝜋𝑅E\n2)𝜎𝑇E\n4, \n \nand for the atmosphere: \n \n(4𝜋𝑅E\n2)𝜎𝑇E\n4 = 2(4𝜋𝑅E\n2)𝜎𝑇A\n4. \n \nNote that the coefficient 2 on the right-hand side of the equation is due to the atmosphere \nradiating heat on both sides (above and below). Eliminating 𝑇𝐸 from the two relations we \nobtain: \n \n𝑇A = (\n(1 −𝑟A) 𝑆0\n4\n𝜎\n)\n1\n4\n= 2.58 × 102 K       ⇒    𝑇E = (2𝑇A\n4)\n1\n4 = 3.07 × 102 K \n \nB-1 (1.0 pt) \n \n𝑇A = (\n(1−𝑟A)𝑆0\n4\n𝜎\n)\n1\n4\n                                                    , Numerical value of 𝑇𝐴=  2.58 × 102 K \n \n𝑇E = (\n(1−𝑟A)𝑆0\n2\n𝜎\n)\n1\n4\n                                                    , Numerical value of 𝑇E = 3.07 × 102 K \n \nB-2. As can be seen in the figure, a fraction (1 −𝑟A) of the solar radiation reaches the Earth’s surface \nafter traversing the atmosphere. A fraction 𝑟E of this light is reflected back and reaches the \natmosphere, where a fraction  𝑟A is reflected and returns to the Earth’s surface. This process \nrepeats ad infinitum and the sum of the powers transmitted at all these instances, determines the \nalbedo. Denoting the power returned to space after 𝑛 reflections by 𝑆̃𝑛, we’ll have  𝑆̃0 = 𝑟A𝑆0 and \n\n \n \n \nS1-4 \n \n \nthe remaining power i.e. (1 −𝑟A)𝑆0 , reaches the Earth’s surface. From this power, (1 −𝑟A)𝑟E𝑆0  \nis reflected, and a fraction 1 −𝑟A of it is transmitted through the atmosphere to the space, hence:  \n𝑆̃1 = (1 −𝑟A)2𝑟E𝑆0 = (1 −𝑟A)2\n𝑟A\n 𝑟E𝑆̃0 \nThe power that is reflected back to the Earth by the atmosphere after (𝑛−1) reflections is \n𝑆̃𝑛−1 (\n𝑟A\n1−rA), of which a fraction 𝑟E is again sent back towards the atmosphere on the 𝑛’th \nreflection, and the atmosphere allows a fraction 1 −𝑟A of this reflected power to escape into the \nspace, thus:  \n𝑆̃𝑛= 𝑆̃𝑛−1\n1 −𝑟A\n𝑟A𝑟E × (1 −𝑟A) = 𝑟A𝑟E𝑆̃𝑛−1 = (𝑟A𝑟E)𝑛−1𝑆̃1 \nBy adding all these terms, one obtains the power returned per unit area from the Earth-atmosphere \nsystem: \n𝑆̃ = ∑𝑆̃𝑛\n∞\n𝑛=0\n= 𝑆̃0 + 𝑆̃1 ∑(𝑟A𝑟E)𝑛−1\n∞\n𝑛=1\n= 𝑟A𝑆0 + (1 −𝑟A)2𝑟E𝑆0 ×\n1\n1 −𝑟A𝑟E\n= [𝑟A + (1 −𝑟A)2𝑟E\n1 −𝑟A𝑟E\n] × 𝑆0 \nDividing by the solar constant we get the value for albedo: \n𝛼= 𝑆̃\n𝑆0\n= 𝑟A + (1 −𝑟A)2𝑟E\n1 −𝑟A𝑟E\n= 3.13 × 10−1 \n \nB-2 (1.6 pt) \n \n𝛼= 𝑟A +\n(1−𝑟A)2𝑟E\n1−𝑟A𝑟E                                                                     , Numerical value of 𝛼= 3.13 × 10−1 \n \nB-3. Again, thermal equilibrium requires the input and output powers to be equal both for the Earth \nand for the atmosphere, the only difference being that the Earth absorbs now a fraction 1 −𝛼 of \nthe Sun’s radiation. Thus, for Earth we have: \n(4𝜋𝑅E\n2)𝜖𝜎𝑇A\n4 + (𝜋𝑅E\n2)(1 −𝛼)𝑆0 = (4𝜋𝑅E\n2)𝜎𝑇E\n4, \nand for the atmosphere: \n(4𝜋𝑅E\n2)𝜖𝜎𝑇E\n4 = 2(4𝜋𝑅E\n2)𝜖𝜎𝑇A\n4 \n𝑇E = [ (1 −𝛼)\n2𝜎(2 −𝜖) 𝑆0]\n1\n4\n                 ,                     𝑇A = (𝑇E\n4\n2 )\n1\n4\n \n \n\n \n \n \nS1-5 \n \n \n𝜖=\n[𝜎𝑇E\n4 −(1 −𝛼)\n4\n𝑆0]\n𝜎𝑇A\n4\n= 2\n[𝜎𝑇E\n4 −(1 −𝛼)\n4\n𝑆0]\n𝜎𝑇E\n4\n= [8.07, 8.11] × 10−1 \n \nB-3 (1.0 pt) \n \n𝑇E = [\n(1−𝛼)\n2𝜎(2−𝜖) 𝑆0]\n1\n4                                                               , Numerical value of 𝜖= [8.07 , 8.11] × 10−1 \n \n \nB-4. \n𝑑𝑇E\n𝑑𝜖= 1\n4 [(1 −𝛼)𝑆0\n2𝜎(2 −𝜖)]\n1\n4\n1\n(2 −𝜖)   \n \n𝑑𝑇E = 𝑑𝑇E\n𝑑𝜖𝜖𝑑𝜖\n𝜖= [\n4𝜎𝑇E\n4\n(1 −𝛼)𝑆0\n−1] 𝑇E\n4 × 0.01 = [4.87,4.92] × 10−1                      \n \nB-4 (0.8pt) \n \n𝑑𝑇E\n𝑑𝜖= \n1\n4 [\n(1−𝛼)𝑆0\n2𝜎(2−𝜖)]\n1\n4\n1\n(2−𝜖)                                      , Numerical value of 𝛿𝑇E = [4.87,4.92] × 10−1 K \n \nB-5. The equations for thermal equilibrium are similar to those for Part B.3, only a non-radiative \nthermal current needs to be added. For the Earth:  \n \n(𝜋𝑅E\n2)(1 −𝛼)𝑆0 + (4𝜋𝑅E\n2)𝜖𝜎𝑇A\n4 = (4𝜋𝑅E\n2)𝜎𝑇E\n4 + (4𝜋𝑅E\n2)𝑘(𝑇E −𝑇A), \n \nand for the atmosphere: \n \n(4𝜋𝑅E\n2)𝜖𝜎𝑇E\n4 + (4𝜋𝑅E\n2)𝑘(𝑇E −𝑇A) = 2(4𝜋𝑅E\n2)𝜖𝜎𝑇A\n4. \n \nAfter completing the calculations, we will have: \n \n𝜖=\n𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4  \n𝜎(𝑇E\n4 −𝑇A\n4)\n= [8.47,8.52] × 10−1 \n \n \n𝑘= 𝜖𝜎(2𝑇A\n4 −𝑇E\n4)\n𝑇E −𝑇A\n=\n(2𝑇A\n4 −𝑇E\n4) × [𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4  ]\n(𝑇E\n4 −𝑇A\n4) × (𝑇E −𝑇A)\n= [3.57,3.66] × 10−1 W/m2K \n\n \n \n \nS1-6 \n \n \n \n \nB-5 (1.6pt) \n \n𝜖= \n𝜎𝑇E\n4−(1−𝛼)𝑆0\n4  \n𝜎(𝑇E\n4−𝑇A\n4)                                      , Numerical value of 𝜖= [8.47,8.52] × 10−1 \n \n \n \n𝑘=\n(2𝑇A\n4−𝑇E\n4)×[𝜎𝑇E\n4−(1−𝛼)𝑆0\n4  ]\n(𝑇E\n4−𝑇A\n4)×(𝑇E−𝑇A)\n                  , Numerical value of 𝑘= [3.57,3.66] × 10−1   W/m2K \n \n \n \nB-6. In order to find the change in the temperatures of the Earth and the atmosphere in terms of 𝜖 and \n𝑘, we take the logarithm of both sides of the relations before taking the derivative: \n \n𝑙𝑛𝜖= 𝑙𝑛[𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4 ] −𝑙𝑛𝜎−𝑙𝑛 (𝑇E\n4 −𝑇A\n4) \n \n𝑙𝑛𝑘= 𝑙𝑛𝜖+ 𝑙𝑛𝜎+ 𝑙𝑛(2𝑇A\n4 −𝑇E\n4) −𝑙𝑛(𝑇E −𝑇A) \n \n \n1\n𝜖= \n4𝜎𝑇E\n3 𝑑𝑇E\n𝑑𝜖\n𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4\n−\n4𝑇E\n3 𝑑𝑇E\n𝑑𝜖−4𝑇A\n3 𝑑𝑇A\n𝑑𝜖\n𝑇E\n4 −𝑇A\n4\n  \n \n0 = 1\n𝜖+\n8𝑇A\n3 𝑑𝑇A\n𝑑𝜖−4𝑇E\n3 𝑑𝑇E\n𝑑𝜖\n2𝑇A\n4 −𝑇E\n4\n−\n𝑑𝑇E\n𝑑𝜖−𝑑𝑇A\n𝑑𝜖\n𝑇E −𝑇A\n \n \n𝜖[\n1\n𝑇E −𝑇A\n+\n4𝑇E\n3\n2𝑇A\n4 −𝑇E\n4] 𝑑𝑇E\n𝑑𝜖 = 1 + 𝜖[\n8𝑇A\n3\n2𝑇A\n4 −𝑇E\n4 +\n1\n𝑇E −𝑇A\n] 𝑑𝑇A\n𝑑𝜖 \n \n \n1 + 𝜖[\n4𝑇E\n3\n𝑇E\n4 −𝑇A\n4 −\n4𝜎𝑇E\n3\n𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4\n] 𝑑𝑇E\n𝑑𝜖 =\n4𝑇A\n3\n𝑇E\n4 −𝑇A\n4 𝜖𝑑𝑇A\n𝑑𝜖 \n \nSolving this set of linear equations and substituting 𝜖 in B-5, we find: \n \n \n\n \n \n \nS1-7 \n \n \n𝑑𝑇E\n𝑑𝜖=\n[\n𝜎(𝑇E\n4 −𝑇A\n4)\n𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4  \n] [1 + (𝑇E\n4 −𝑇A\n4\n4𝑇A\n3\n) [\n8𝑇A\n3\n2𝑇A\n4 −𝑇E\n4 +\n1\n𝑇E −𝑇A]]\n[\n1\n𝑇E −𝑇A +\n4𝑇E\n3\n2𝑇A\n4 −𝑇E\n4] −(\n𝜎𝑇A\n4 −(1 −𝛼) 𝑆0\n4\n𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4\n) (𝑇E\n𝑇A)\n3\n[\n8𝑇A\n3\n2𝑇A\n4 −𝑇E\n4 +\n1\n𝑇E −𝑇A]\n \n \n𝜖𝑑𝑇E\n𝑑𝜖=\n1 + (𝑇E\n4 −𝑇A\n4\n4𝑇A\n3\n) [\n8𝑇A\n3\n2𝑇A\n4 −𝑇E\n4 +\n1\n𝑇E −𝑇𝐴]\n[\n1\n𝑇E −𝑇A +\n4𝑇E\n3\n2𝑇A\n4 −𝑇E\n4] −(\n𝜎𝑇A\n4 −(1 −𝛼) 𝑆0\n4\n𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4\n) (𝑇E\n𝑇A)\n3\n[\n8𝑇A\n3\n2𝑇A\n4 −𝑇E\n4 +\n1\n𝑇E −𝑇A]\n \n \n𝑑𝑇E = 𝜖𝑑𝑇E\n𝑑𝜖\n𝑑𝜖\n𝜖= [5.21 , 5.28] × 10−1 K  \n \n \nB-6 (1.0pt) \n \n \n(a)       \n{  \n  𝜖[\n1\n𝑇E−𝑇A +\n4𝑇E\n3\n2𝑇A\n4−𝑇E\n4] 𝑑𝑇E\n𝑑𝜖 = 1 + 𝜖[\n8𝑇A\n3\n2𝑇A\n4−𝑇E\n4 +\n1\n𝑇E−𝑇A] 𝑑𝑇A\n𝑑𝜖\n1 + 𝜖[ 4𝑇E\n3\n𝑇E\n4−𝑇A\n4 −\n4𝜎𝑇E\n3\n𝜎𝑇E\n4−(1−𝛼)𝑆0\n4\n] 𝑑𝑇E\n𝑑𝜖 =\n4𝑇A\n3\n𝑇E\n4−𝑇A\n4 𝜖𝑑𝑇A\n𝑑𝜖\n \n   \n \n \n \n (b) 𝛿𝑇E = [5.21 , 5.28] × 10−1 K \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2024-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2024-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "The Greenhouse Effect"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "In 2021, Syukuro Manabe and Klaus Hasselmann were awarded half of the Nobel Prize in Physics for their work in modeling Earth’s climate and accurately predicting the global warming caused by human industrial activities. In this problem, we will examine a simple model of global warming due to the greenhouse effect. The greenhouse gases alter the optical properties of the Earth’s atmosphere in transmitting or absorbing Earth’s infrared radiation, resulting in a rise in the average temperature of the planet."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "All objects, at different temperatures, emit thermal radiation. The quantity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(\\lambda, T)d\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " indicates the thermal radiative power per unit area of an object at temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between the wavelengths "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda + d\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". According to Planck’s theory of blackbody radiation, we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nu(\\lambda, T) = \\frac{2\\pi hc^2}{\\lambda^5}\\,\\frac{1}{\\exp(\\,\\frac{hc}{\\lambda k_\\mathrm{B}T}\\,)\\ -1}\\,, \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in which "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(hc = 1.\\,24 \\times 10^3\\,\\mathrm{eV\\cdot nm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_\\mathrm{B} = 8.\\,62 \\times 10^{-5}\\ \\mathrm{eV\\,/K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The wavelength corresponding to the maximum of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(\\lambda, T)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " comes from the relation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_\\mathrm{max}T = b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (Wien’s displacement law). Indeed, using equation (1), it can be shown that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b = \\frac{hc}{x_\\mathrm{m}k_\\mathrm{B}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where the dimensionless quantity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the non-trivial root of an equation of the form "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f(x) = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "; you are asked to find the function "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in one of the following tasks. Total radiative power per unit area of a blackbody in all wavelengths is given by the Stephan-Boltzmann law as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U(T) = \\sigma T^4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma = 5.\\,67 \\times 10^{-8}\\,\\mathrm{W/m^2K^4}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Moreover, according to Kirchhoff’s law of radiation, at thermal equilibrium a body absorbing a certain fraction of the incident radiation at a specific wavelength, will radiate the same fraction of the blackbody radiation at that same wavelength."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Throughout this problem assume that the Sun is a blackbody at its average surface temperature of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{S} = 5.\\,77 \\times 10^3\\,\\mathrm{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The Sun’s radius is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{S} = 6.\\,96 \\times 10^8\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the average distance between the Earth and the Sun is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d = 1.\\,50 \\times 10^{11}\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We denote by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tilde{u}_\\mathrm{S}(\\lambda)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the spectral solar power radiated into a unit area of the Earth normal to the direction of radiation. The integral of this quantity over all wavelengths, i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_0 = \\int\\,\\tilde{u}_\\mathrm{S}(\\lambda)d\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is called the solar constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this problem assume that the Earth is in thermal equilibrium and has the same temperature at all points on its surface. In all parts of the problem, express the desired quantity in parametric form in terms of the data given in the problem and then find its numerical value accurate to three significant figures. The required units are indicated on the answer sheet."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A. Earth as a Blackbody"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this part, consider the Earth’s surface as a blackbody and neglect the Earth’s atmosphere."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-1Find the solar constant, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.6 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-2Find the Earth’s temperature, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " . 0.6 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-3Find the function "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-4Calculate the numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , and from this value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , find the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-5Find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_\\mathrm{max}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the Sun and the Earth. 0.2 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In figure 1 the functions "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\tilde{u}_\\mathrm{S}(\\lambda)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(\\lambda, T_\\mathrm{E})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are plotted versus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a dimensionless coefficient to rescale "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tilde{u}_\\mathrm{S}(\\lambda)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " such that the values of the two peaks coincide."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-6Determine "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.8 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2024-t1/d811b7228bb5a7329de0.png",
+                "alt": "ipho-2024-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "em",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Figure 1 - The plot of "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(u(\\lambda, T_\\mathrm{E})\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " (red) and "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\gamma\\tilde{u}_\\mathrm{S}(\\lambda)\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " (blue) versus "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\lambda\\)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B. The Greenhouse Effect"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this part, we introduce a simple model in which the Earth’s atmosphere is modeled as a thin layer at a small distance above the Earth’s surface so that the difference between the area of the atmosphere’s layer and the area of the Earth’s surface can be neglected (see figure 2). In what follows assume that the major part of the thermal radiation from the Earth and the Sun are emitted at wavelengths near the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_\\mathrm{max}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for each one. Also assume that the “atmosphere layer” reflects a fraction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_\\mathrm{A} = 0.\\,255\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "visible-ultraviolet"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " radiation incident from above or below, and completely transmits the rest. Assume that the atmosphere does not reflect any part of the "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "infrared"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " radiation, however, it absorbs a fraction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "infrared"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " radiation and transmits the rest. This behavior, known as the greenhouse effect, changes the average temperature of the Earth. The Earth’s surface, on the other hand, reflects a fraction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_\\mathrm{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "visible-ultraviolet"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " radiation and absorbs the rest of this radiation and all the "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "infrared"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " radiation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2024-t1/e22aa367648c1f7d77c3.png",
+                "alt": "ipho-2024-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "em",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Figure 2 - Thermal flows between the Earth and the atmosphere"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-1Assume that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_\\mathrm{E} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and calculate the Earth’s temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the atmosphere’s temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{A}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now assume that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_\\mathrm{E} \\neq 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In this case, the combined system of “Earth + atmosphere” reflects a different fraction of the solar radiation, called “albedo” and denoted by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-2Determine the albedo, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_\\mathrm{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_\\mathrm{A}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Then calculate its numerical value assuming "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_\\mathrm{E} = 0.\\,102\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_\\mathrm{A} = 0.\\,255\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). 1.6 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-3a) Express the Earth’s temperature in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) Using the given data and the calculated albedo, find the numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which leads to the current average temperature of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{E} = 288\\,\\mathrm{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the Earth. 1.0 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-4Find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{dT_\\mathrm{E}}{d\\varepsilon}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and determine by how much the Earth’s temperature increases if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " increases by one percent. 0.8 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Assume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{A} = 245\\ \\mathrm{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{E} = 288\\ \\mathrm{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". These values come from real data and may differ from the results which you have obtained in the previous tasks. Now suppose that a non-radiative (e. g. convective) thermal flow "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(J_\\mathrm{NR} = k(T_\\mathrm{E} - T_\\mathrm{A})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is maintained from the Earth to the atmosphere, where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a constant. The quantity, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(J_\\mathrm{NR}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is the transmitted power per unit area."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-5Calculate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{A}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sigma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.6 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-6a) Differentiating the equations obtained in part B-5 with respect to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", find the two algebraic equations satisfied by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{dT_\\mathrm{A}}{d\\varepsilon}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{dT_\\mathrm{E}}{d\\varepsilon}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) Use these equations to find the numerical value of change in the Earth’s temperature as a result of a one percent increase in the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0 pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "\n\nThe Greenhouse Effect\n\n\n\n\nIn 2021, Syukuro Manabe and Klaus Hasselmann were awarded half of the Nobel Prize in Physics for their work in modeling Earth’s climate and accurately predicting the global warming caused by human industrial activities. In this problem, we will examine a simple model of global warming due to the greenhouse effect. The greenhouse gases alter the optical properties of the Earth’s atmosphere in transmitting or absorbing Earth’s infrared radiation, resulting in a rise in the average temperature of the planet.\n\n\nAll objects, at different temperatures, emit thermal radiation. The quantity \n\\(u(\\lambda, T)d\\lambda\\)\n indicates the thermal radiative power per unit area of an object at temperature \n\\(T\\)\n between the wavelengths \n\\(\\lambda\\)\n and \n\\(\\lambda + d\\lambda\\)\n. According to Planck’s theory of blackbody radiation, we have \n\\[\\begin{equation}\nu(\\lambda, T) = \\frac{2\\pi hc^2}{\\lambda^5}\\,\\frac{1}{\\exp(\\,\\frac{hc}{\\lambda k_\\mathrm{B}T}\\,)\\ -1}\\,, \\tag{1}\n\\end{equation}\\]\n in which \n\\(hc = 1.\\,24 \\times 10^3\\,\\mathrm{eV\\cdot nm}\\)\n and \n\\(k_\\mathrm{B} = 8.\\,62 \\times 10^{-5}\\ \\mathrm{eV\\,/K}\\)\n. The wavelength corresponding to the maximum of \n\\(u(\\lambda, T)\\)\n comes from the relation \n\\(\\lambda_\\mathrm{max}T = b\\)\n (Wien’s displacement law). Indeed, using equation (1), it can be shown that \n\\(b = \\frac{hc}{x_\\mathrm{m}k_\\mathrm{B}}\\)\n, where the dimensionless quantity \n\\(x_\\mathrm{m}\\)\n is the non-trivial root of an equation of the form \n\\(f(x) = 0\\)\n; you are asked to find the function \n\\(f(x)\\)\n in one of the following tasks. Total radiative power per unit area of a blackbody in all wavelengths is given by the Stephan-Boltzmann law as \n\\(U(T) = \\sigma T^4\\)\n where \n\\(\\sigma = 5.\\,67 \\times 10^{-8}\\,\\mathrm{W/m^2K^4}\\)\n. Moreover, according to Kirchhoff’s law of radiation, at thermal equilibrium a body absorbing a certain fraction of the incident radiation at a specific wavelength, will radiate the same fraction of the blackbody radiation at that same wavelength.\n\n\nThroughout this problem assume that the Sun is a blackbody at its average surface temperature of \n\\(T_\\mathrm{S} = 5.\\,77 \\times 10^3\\,\\mathrm{K}\\)\n. The Sun’s radius is \n\\(R_\\mathrm{S} = 6.\\,96 \\times 10^8\\,\\mathrm{m}\\)\n and the average distance between the Earth and the Sun is \n\\(d = 1.\\,50 \\times 10^{11}\\,\\mathrm{m}\\)\n. We denote by \n\\(\\tilde{u}_\\mathrm{S}(\\lambda)\\)\n, the spectral solar power radiated into a unit area of the Earth normal to the direction of radiation. The integral of this quantity over all wavelengths, i.e. \n\\(S_0 = \\int\\,\\tilde{u}_\\mathrm{S}(\\lambda)d\\lambda\\)\n, is called the solar constant.\n\n\nIn this problem assume that the Earth is in thermal equilibrium and has the same temperature at all points on its surface. In all parts of the problem, express the desired quantity in parametric form in terms of the data given in the problem and then find its numerical value accurate to three significant figures. The required units are indicated on the answer sheet.\n\n\nA. Earth as a Blackbody\n\n\nIn this part, consider the Earth’s surface as a blackbody and neglect the Earth’s atmosphere.\n\n\nA-1Find the solar constant, \n\\(S_0\\)\n. 0.6 pt\n\n\nA-2Find the Earth’s temperature, \n\\(T_\\mathrm{E}\\)\n . 0.6 pt\n\n\nA-3Find the function \n\\(f(x)\\)\n. 0.4 pt\n\n\nA-4Calculate the numerical value of \n\\(x_\\mathrm{m}\\)\n , and from this value \n\\(x_\\mathrm{m}\\)\n , find the value of \n\\(b\\)\n. 0.4 pt\n\n\nA-5Find \n\\(\\lambda_\\mathrm{max}\\)\n for the Sun and the Earth. 0.2 pt\n\n\nIn figure 1 the functions \n\\(\\gamma\\tilde{u}_\\mathrm{S}(\\lambda)\\)\n and \n\\(u(\\lambda, T_\\mathrm{E})\\)\n are plotted versus \n\\(\\lambda\\)\n, where \n\\(\\gamma\\)\n is a dimensionless coefficient to rescale \n\\(\\tilde{u}_\\mathrm{S}(\\lambda)\\)\n such that the values of the two peaks coincide.\n\n\nA-6Determine \n\\(\\gamma\\)\n. 0.8 pt\n\n\n\n\n\n\n\n\n\n\n\nFigure 1 - The plot of \n\\(u(\\lambda, T_\\mathrm{E})\\)\n (red) and \n\\(\\gamma\\tilde{u}_\\mathrm{S}(\\lambda)\\)\n (blue) versus \n\\(\\lambda\\)\n\n\n\n\nB. The Greenhouse Effect\n\n\nIn this part, we introduce a simple model in which the Earth’s atmosphere is modeled as a thin layer at a small distance above the Earth’s surface so that the difference between the area of the atmosphere’s layer and the area of the Earth’s surface can be neglected (see figure 2). In what follows assume that the major part of the thermal radiation from the Earth and the Sun are emitted at wavelengths near the \n\\(\\lambda_\\mathrm{max}\\)\n for each one. Also assume that the “atmosphere layer” reflects a fraction \n\\(r_\\mathrm{A} = 0.\\,255\\)\n of the \nvisible-ultraviolet\n radiation incident from above or below, and completely transmits the rest. Assume that the atmosphere does not reflect any part of the \ninfrared\n radiation, however, it absorbs a fraction \n\\(\\varepsilon\\)\n of the \ninfrared\n radiation and transmits the rest. This behavior, known as the greenhouse effect, changes the average temperature of the Earth. The Earth’s surface, on the other hand, reflects a fraction \n\\(r_\\mathrm{E}\\)\n of the \nvisible-ultraviolet\n radiation and absorbs the rest of this radiation and all the \ninfrared\n radiation.\n\n\n\n\n\n\n\n\n\n\n\nFigure 2 - Thermal flows between the Earth and the atmosphere\n\n\n\n\nB-1Assume that \n\\(\\varepsilon = 1\\)\n and \n\\(r_\\mathrm{E} = 0\\)\n, and calculate the Earth’s temperature \n\\(T_\\mathrm{E}\\)\n and the atmosphere’s temperature \n\\(T_\\mathrm{A}\\)\n. 1.0 pt\n\n\nNow assume that \n\\(r_\\mathrm{E} \\neq 0\\)\n. In this case, the combined system of “Earth + atmosphere” reflects a different fraction of the solar radiation, called “albedo” and denoted by \n\\(\\alpha\\)\n.\n\n\nB-2Determine the albedo, \n\\(\\alpha\\)\n, in terms of \n\\(r_\\mathrm{E}\\)\n and \n\\(r_\\mathrm{A}\\)\n. Then calculate its numerical value assuming \n\\(r_\\mathrm{E} = 0.\\,102\\)\n (and \n\\(r_\\mathrm{A} = 0.\\,255\\)\n). 1.6 pt\n\n\nB-3a) Express the Earth’s temperature in terms of \n\\(\\sigma\\)\n, \n\\(\\alpha\\)\n, \n\\(S_0\\)\n, and \n\\(\\varepsilon\\)\n.\n\n\nb) Using the given data and the calculated albedo, find the numerical value of \n\\(\\varepsilon\\)\n which leads to the current average temperature of \n\\(T_\\mathrm{E} = 288\\,\\mathrm{K}\\)\n for the Earth. 1.0 pt\n\n\nB-4Find \n\\(\\dfrac{dT_\\mathrm{E}}{d\\varepsilon}\\)\n and determine by how much the Earth’s temperature increases if \n\\(\\varepsilon\\)\n increases by one percent. 0.8 pt\n\n\nAssume \n\\(T_\\mathrm{A} = 245\\ \\mathrm{K}\\)\n and \n\\(T_\\mathrm{E} = 288\\ \\mathrm{K}\\)\n. These values come from real data and may differ from the results which you have obtained in the previous tasks. Now suppose that a non-radiative (e. g. convective) thermal flow \n\\(J_\\mathrm{NR} = k(T_\\mathrm{E} - T_\\mathrm{A})\\)\n is maintained from the Earth to the atmosphere, where \n\\(k\\)\n is a constant. The quantity, \n\\(J_\\mathrm{NR}\\)\n, is the transmitted power per unit area.\n\n\nB-5Calculate \n\\(\\varepsilon\\)\n and \n\\(k\\)\n in terms of \n\\(T_\\mathrm{E}\\)\n, \n\\(T_\\mathrm{A}\\)\n, \n\\(\\sigma\\)\n, \n\\(\\alpha\\)\n, and \n\\(S_0\\)\n. 1.6 pt\n\n\nB-6a) Differentiating the equations obtained in part B-5 with respect to \n\\(\\varepsilon\\)\n, find the two algebraic equations satisfied by \n\\(\\frac{dT_\\mathrm{A}}{d\\varepsilon}\\)\n and \n\\(\\frac{dT_\\mathrm{E}}{d\\varepsilon}\\)\n.\n\n\nb) Use these equations to find the numerical value of change in the Earth’s temperature as a result of a one percent increase in the value of \n\\(\\varepsilon\\)\n. 1.0 pt\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2024-t1/d811b7228bb5a7329de0.png",
+      "/corpus/figures/native/bulk/ipho-2024-t1/e22aa367648c1f7d77c3.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2024-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A. Earth as a blackbody"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-1. All the energy emitted from the surface of the Sun, will reach a sphere of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , therefore: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\sigma T_\\mathrm{S}^4.(4\\pi R_\\mathrm{S}^2) = (4\\pi d^2). S_0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[S_0 = \\sigma T_\\mathrm{S}^4.\\left(\\frac{R_\\mathrm{S}}{d}\\right)^2 = 5.67\\times10^{-8}\\,\\frac{\\mathrm{W}}{\\mathrm{m^2K^4}}\\times(5.77\\times10^3\\,\\mathrm{K})^4\\times\\left(\\frac{6.96\\times10^8\\,\\mathrm{m}}{1.5\\times10^{11}\\,\\mathrm{m}}\\right)^2 = 1.35\\times10^3\\,\\frac{\\mathrm{W}}{\\mathrm{m}^2}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-1 (0.6 pt)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[S_0 = \\sigma T_\\mathrm{S}^4.\\left(\\frac{R_\\mathrm{S}}{d}\\right)^2\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , Numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_0 = 1.35\\times10^3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " W/m"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^2\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-2. It is assumed that the Earth is in thermal equilibrium. Therefore, the energy it receives per unit time should be equal to the energy it radiates per unit time. The Earth’s cross-section intercepting the solar radiation at this distance has an area of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\pi R_\\mathrm{E}^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , but the Earth radiates heat from all points on its surface with an area of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(4\\pi R_\\mathrm{E}^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , so: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\pi R_\\mathrm{E}^2. S_0 = 4\\pi R_\\mathrm{E}^2\\sigma T_\\mathrm{E}^4 \\rightarrow T_\\mathrm{E} = \\left(\\frac{S_0}{4\\sigma}\\right)^{\\frac14} = 278\\,\\mathrm{K}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-2 (0.6 pt)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_\\mathrm{E} = \\left(\\frac{S_0}{4\\sigma}\\right)^{\\frac14} = \\sqrt{\\frac{R_\\mathrm{S}}{2d}}\\,T_\\mathrm{S}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , Numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{E} = 278\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " K"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-3. The radiation is maximum at the wavelength for which the derivative of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with respect to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is zero: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{du}{d\\lambda} = \\frac{2\\pi hc^2}{\\lambda^6}.\\frac{1}{\\exp\\left(\\frac{hc}{\\lambda k_\\mathrm{B}T}\\right)-1}.\\left[-5+\\frac{hc}{\\lambda k_\\mathrm{B}T}\\,\\frac{\\exp\\left(\\frac{hc}{\\lambda k_\\mathrm{B}T}\\right)}{\\exp\\left(\\frac{hc}{\\lambda k_\\mathrm{B}T}\\right)-1}\\right]\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left.\\frac{du}{d\\lambda}\\right|_{\\lambda=\\lambda_\\mathrm{m}} = 0 \\quad\\Rightarrow\\quad \\frac{\\frac{hc}{\\lambda_\\mathrm{m}k_BT}\\,\\exp\\left(\\frac{hc}{\\lambda_\\mathrm{m}k_\\mathrm{B}T}\\right)}{\\exp\\left(\\frac{hc}{\\lambda_\\mathrm{m}K_\\mathrm{B}T}\\right)-1} = 5\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Defining "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{m} \\equiv \\frac{hc}{\\lambda_\\mathrm{m}k_\\mathrm{B}T}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we obtain the following transcendental equation: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[5\\left(1-e^{-x_\\mathrm{m}}\\right)-x_\\mathrm{m} = 0\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-3 (0.4 pt)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[f(x) = 5\\left(1-e^{-x}\\right)-x\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-4. The first guess is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{m}^{(1)} = 5\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " . Substituting repeatedly for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we can continue as follows: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_\\mathrm{m}^{(2)} = 5\\left(1-e^{-5}\\right) = 4.97\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_\\mathrm{m}^{(3)} = 5\\left(1-e^{-4.97}\\right) = 4.97\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Further iterations do not change the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to three significant figures, so: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\lambda_\\mathrm{m}T = \\frac{hc}{x_\\mathrm{m}k_\\mathrm{B}} = b = 1240\\,\\mathrm{eV\\cdot nm}\\times\\frac{1}{4.97\\times8.62\\times10^{-5}\\,\\mathrm{eVK^{-1}}} = 2.89\\times10^6\\,\\mathrm{nm\\cdot K}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-4 (0.4 pt)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{m} = \\{4.96,4.97\\}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , Numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b = [2.89,2.90]\\times10^6\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " nm"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cdot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "K"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-5. Using Wien’s displacement law and the constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " obtained in the previous part, we can calculate the wavelength at which the radiation from the Sun and the Earth reaches its maximum: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\lambda_\\mathrm{max}^\\mathrm{Sun} = \\frac{b}{T_\\mathrm{S}} = \\frac{2.89\\times10^6\\,\\mathrm{nm\\cdot K}}{5.77\\times10^3\\,\\mathrm{K}} = [5.01,5.02]\\times10^2\\,\\mathrm{nm}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\lambda_\\mathrm{max}^\\mathrm{Earth} = \\frac{b}{T_\\mathrm{E}} = \\frac{2.89\\times10^6\\,\\mathrm{nm\\cdot K}}{278\\,\\mathrm{K}} = 1.04\\times10^4\\,\\mathrm{nm}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-5 (0.2 pt)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_\\mathrm{max}^\\mathrm{Sun} = [5.01,5.02]\\times10^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " nm , "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_\\mathrm{max}^\\mathrm{Earth} = 1.04\\times10^4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " nm"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-6. From the diagram, it can clearly be seen that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\tilde{u}_\\mathrm{S}(\\lambda_\\mathrm{max}^\\mathrm{S}) = u(\\lambda_\\mathrm{max}^\\mathrm{Earth},T_\\mathrm{E})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , so we have: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tilde{u}_\\mathrm{S}(\\lambda_\\mathrm{max}^\\mathrm{Sun}) = \\left(\\frac{R_\\mathrm{S}}{d}\\right)^2\\frac{2\\pi hc^2}{\\left(\\lambda_\\mathrm{max}^\\mathrm{Sun}\\right)^5}\\frac{1}{\\exp\\left(\\frac{hc}{\\lambda_\\mathrm{max}^\\mathrm{Sun}k_\\mathrm{B}T_\\mathrm{S}}\\right)-1} = \\left(\\frac{R_\\mathrm{S}}{d}\\right)^2\\frac{2\\pi hc^2}{\\left(\\lambda_\\mathrm{max}^\\mathrm{Sun}\\right)^5}\\frac{1}{\\exp\\left(\\frac{hc}{k_\\mathrm{B}b}\\right)-1}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[u\\left(\\lambda_\\mathrm{max}^\\mathrm{Earth},T_\\mathrm{E}\\right) = \\frac{2\\pi hc^2}{\\left(\\lambda_\\mathrm{max}^\\mathrm{Earth}\\right)^5}\\frac{1}{\\exp\\left(\\frac{hc}{\\lambda_\\mathrm{max}^\\mathrm{Earth}k_\\mathrm{B}T_\\mathrm{E}}\\right)-1} = \\frac{2\\pi hc^2}{\\left(\\lambda_\\mathrm{max}^\\mathrm{Earth}\\right)^5}\\frac{1}{\\exp\\left(\\frac{hc}{k_\\mathrm{B}b}\\right)-1}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Dividing these two quantities we’ll find: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\gamma = \\left(\\frac{d}{R_\\mathrm{S}}\\right)^2\\times\\left(\\frac{T_\\mathrm{E}}{T_\\mathrm{S}}\\right)^5 = [1.20,1.21]\\times10^{-2}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A-6 (0.8 pt)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\gamma = \\left(\\frac{d}{R_\\mathrm{S}}\\right)^2\\times\\left(\\frac{T_\\mathrm{E}}{T_\\mathrm{S}}\\right)^5 = \\left(\\frac{d}{R_\\mathrm{S}}\\right)^2\\times\\left(\\frac{\\lambda_\\mathrm{max}^\\mathrm{Sun}}{\\lambda_\\mathrm{max}^\\mathrm{Earth}}\\right)^5\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , Numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma = [1.20,1.21]\\times10^{-2}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B. The Greenhouse Effect"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-1. Both the Earth and its atmosphere are in thermal equilibrium, so one can write an equation that balances the input and output powers. For the Earth we have: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(\\pi R_\\mathrm{E}^2\\right)\\left(1-r_\\mathrm{A}\\right)S_0 + \\left(4\\pi R_\\mathrm{E}^2\\right)\\sigma T_\\mathrm{A}^4 = \\left(4\\pi R_\\mathrm{E}^2\\right)\\sigma T_\\mathrm{E}^4,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and for the atmosphere: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(4\\pi R_\\mathrm{E}^2\\right)\\sigma T_\\mathrm{E}^4 = 2\\left(4\\pi R_\\mathrm{E}^2\\right)\\sigma T_\\mathrm{A}^4.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Note that the coefficient 2 on the right-hand side of the equation is due to the atmosphere radiating heat on both sides (above and below). Eliminating "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the two relations we obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_\\mathrm{A} = \\left(\\frac{(1-r_\\mathrm{A})\\frac{S_0}{4}}{\\sigma}\\right)^{\\frac14} = 2.58\\times10^2\\,\\mathrm{K} \\quad\\Rightarrow\\quad T_\\mathrm{E} = \\left(2T_\\mathrm{A}^4\\right)^{\\frac14} = 3.07\\times10^2\\,\\mathrm{K}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-1 (1.0 pt)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_A = \\left(\\frac{(1-r_\\mathrm{A})\\frac{S_0}{4}}{\\sigma}\\right)^{\\frac14}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , Numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_A = 2.58\\times10^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " K"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_\\mathrm{E} = \\left(\\frac{(1-r_\\mathrm{A})\\frac{S_0}{2}}{\\sigma}\\right)^{\\frac14}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , Numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{E} = 3.07\\times10^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " K"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-2. As can be seen in the figure, a fraction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((1-r_\\mathrm{A})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the solar radiation reaches the Earth’s surface after traversing the atmosphere. A fraction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_\\mathrm{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of this light is reflected back and reaches the atmosphere, where a fraction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_\\mathrm{A}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is reflected and returns to the Earth’s surface. This process repeats "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "ad infinitum"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the sum of the powers transmitted at all these instances, determines the albedo. Denoting the power returned to space after "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " reflections by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tilde{S}_n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we’ll have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tilde{S}_0 = r_\\mathrm{A}S_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the remaining power i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((1-r_\\mathrm{A})S_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , reaches the Earth’s surface. From this power, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((1-r_\\mathrm{A})r_\\mathrm{E}S_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is reflected, and a fraction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1-r_\\mathrm{A}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of it is transmitted through the atmosphere to the space, hence: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tilde{S}_1 = (1-r_\\mathrm{A})^2r_\\mathrm{E}S_0 = \\frac{(1-r_\\mathrm{A})^2}{r_\\mathrm{A}}\\,r_\\mathrm{E}\\tilde{S}_0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The power that is reflected back to the Earth by the atmosphere after "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((n-1)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " reflections is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tilde{S}_{n-1}\\left(\\frac{r_\\mathrm{A}}{1-r_\\mathrm{A}}\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of which a fraction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_\\mathrm{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is again sent back towards the atmosphere on the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "’th reflection, and the atmosphere allows a fraction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1-r_\\mathrm{A}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of this reflected power to escape into the space, thus: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tilde{S}_n = \\frac{\\tilde{S}_{n-1}}{1-r_\\mathrm{A}}\\,r_\\mathrm{A}\\,r_\\mathrm{E}\\times(1-r_\\mathrm{A}) = r_\\mathrm{A}r_\\mathrm{E}\\tilde{S}_{n-1} = \\left(r_\\mathrm{A}r_\\mathrm{E}\\right)^{n-1}\\tilde{S}_1\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " By adding all these terms, one obtains the power returned per unit area from the Earth-atmosphere system: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{aligned}\n\\tilde{S} &= \\sum_{n=0}^{\\infty}\\tilde{S}_n = \\tilde{S}_0 + \\tilde{S}_1\\sum_{n=1}^{\\infty}\\left(r_\\mathrm{A}r_\\mathrm{E}\\right)^{n-1} = r_\\mathrm{A}S_0 + (1-r_\\mathrm{A})^2r_\\mathrm{E}S_0\\times\\frac{1}{1-r_\\mathrm{A}r_\\mathrm{E}} \\\\\n&= \\left[r_\\mathrm{A}+\\frac{(1-r_\\mathrm{A})^2r_\\mathrm{E}}{1-r_\\mathrm{A}r_\\mathrm{E}}\\right]\\times S_0\n\\end{aligned}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Dividing by the solar constant we get the value for albedo: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\alpha = \\frac{\\tilde{S}}{S_0} = r_\\mathrm{A}+\\frac{(1-r_\\mathrm{A})^2r_\\mathrm{E}}{1-r_\\mathrm{A}r_\\mathrm{E}} = 3.13\\times10^{-1}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-2 (1.6 pt)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\alpha = r_\\mathrm{A}+\\frac{(1-r_\\mathrm{A})^2r_\\mathrm{E}}{1-r_\\mathrm{A}r_\\mathrm{E}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , Numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha = 3.13\\times10^{-1}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-3. Again, thermal equilibrium requires the input and output powers to be equal both for the Earth and for the atmosphere, the only difference being that the Earth absorbs now a fraction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1-\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the Sun’s radiation. Thus, for Earth we have: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(4\\pi R_\\mathrm{E}^2\\right)\\epsilon\\sigma T_\\mathrm{A}^4 + \\left(\\pi R_\\mathrm{E}^2\\right)(1-\\alpha)S_0 = \\left(4\\pi R_\\mathrm{E}^2\\right)\\sigma T_\\mathrm{E}^4,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and for the atmosphere: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(4\\pi R_\\mathrm{E}^2\\right)\\epsilon\\sigma T_\\mathrm{E}^4 = 2\\left(4\\pi R_\\mathrm{E}^2\\right)\\epsilon\\sigma T_\\mathrm{A}^4\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_\\mathrm{E} = \\left[\\frac{(1-\\alpha)}{2\\sigma(2-\\epsilon)}S_0\\right]^{\\frac14}, \\qquad T_\\mathrm{A} = \\left(\\frac{T_\\mathrm{E}^4}{2}\\right)^{\\frac14}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\epsilon = \\frac{\\left[\\sigma T_\\mathrm{E}^4-\\frac{(1-\\alpha)}{4}S_0\\right]}{\\sigma T_\\mathrm{A}^4} = 2\\,\\frac{\\left[\\sigma T_\\mathrm{E}^4-\\frac{(1-\\alpha)}{4}S_0\\right]}{\\sigma T_\\mathrm{E}^4} = [8.07,8.11]\\times10^{-1}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-3 (1.0 pt)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_\\mathrm{E} = \\left[\\frac{(1-\\alpha)}{2\\sigma(2-\\epsilon)}S_0\\right]^{\\frac14}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , Numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon = [8.07,8.11]\\times10^{-1}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-4. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dT_\\mathrm{E}}{d\\epsilon} = \\frac14\\left[\\frac{(1-\\alpha)S_0}{2\\sigma(2-\\epsilon)}\\right]^{\\frac14}\\frac{1}{(2-\\epsilon)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[dT_\\mathrm{E} = \\frac{dT_\\mathrm{E}}{d\\epsilon}\\,\\epsilon\\,\\frac{d\\epsilon}{\\epsilon} = \\left[\\frac{4\\sigma T_\\mathrm{E}^4}{(1-\\alpha)S_0}-1\\right]\\frac{T_\\mathrm{E}}{4}\\times0.01 = [4.87,4.92]\\times10^{-1}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-4 (0.8pt)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dT_\\mathrm{E}}{d\\epsilon} = \\frac14\\left[\\frac{(1-\\alpha)S_0}{2\\sigma(2-\\epsilon)}\\right]^{\\frac14}\\frac{1}{(2-\\epsilon)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , Numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta T_\\mathrm{E} = [4.87,4.92]\\times10^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " K"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-5. The equations for thermal equilibrium are similar to those for Part B.3, only a non-radiative thermal current needs to be added. For the Earth: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(\\pi R_\\mathrm{E}^2\\right)(1-\\alpha)S_0 + \\left(4\\pi R_\\mathrm{E}^2\\right)\\epsilon\\sigma T_\\mathrm{A}^4 = \\left(4\\pi R_\\mathrm{E}^2\\right)\\sigma T_\\mathrm{E}^4 + \\left(4\\pi R_\\mathrm{E}^2\\right)k\\left(T_\\mathrm{E}-T_\\mathrm{A}\\right),\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and for the atmosphere: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(4\\pi R_\\mathrm{E}^2\\right)\\epsilon\\sigma T_\\mathrm{E}^4 + \\left(4\\pi R_\\mathrm{E}^2\\right)k\\left(T_\\mathrm{E}-T_\\mathrm{A}\\right) = 2\\left(4\\pi R_\\mathrm{E}^2\\right)\\epsilon\\sigma T_\\mathrm{A}^4.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " After completing the calculations, we will have: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\epsilon = \\frac{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}{\\sigma\\left(T_\\mathrm{E}^4-T_\\mathrm{A}^4\\right)} = [8.47,8.52]\\times10^{-1}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[k = \\frac{\\epsilon\\sigma\\left(2T_\\mathrm{A}^4-T_\\mathrm{E}^4\\right)}{T_\\mathrm{E}-T_\\mathrm{A}} = \\frac{\\left(2T_\\mathrm{A}^4-T_\\mathrm{E}^4\\right)\\times\\left[\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}\\right]}{\\left(T_\\mathrm{E}^4-T_\\mathrm{A}^4\\right)\\times\\left(T_\\mathrm{E}-T_\\mathrm{A}\\right)} = [3.57,3.66]\\times10^{-1}\\,\\mathrm{W/m^2K}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-5 (1.6pt)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\epsilon = \\frac{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}{\\sigma\\left(T_\\mathrm{E}^4-T_\\mathrm{A}^4\\right)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , Numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon = [8.47,8.52]\\times10^{-1}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[k = \\frac{\\left(2T_\\mathrm{A}^4-T_\\mathrm{E}^4\\right)\\times\\left[\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}\\right]}{\\left(T_\\mathrm{E}^4-T_\\mathrm{A}^4\\right)\\times\\left(T_\\mathrm{E}-T_\\mathrm{A}\\right)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , Numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = [3.57,3.66]\\times10^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " W/m"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "K"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-6. In order to find the change in the temperatures of the Earth and the atmosphere in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we take the logarithm of both sides of the relations before taking the derivative: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\ln \\epsilon = \\ln\\left[\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}\\right]-\\ln\\sigma-\\ln\\left(T_\\mathrm{E}^4-T_\\mathrm{A}^4\\right)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\ln k = \\ln\\epsilon+\\ln\\sigma+\\ln\\left(2T_\\mathrm{A}^4-T_\\mathrm{E}^4\\right)-\\ln\\left(T_\\mathrm{E}-T_\\mathrm{A}\\right)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{1}{\\epsilon} = \\frac{4\\sigma T_\\mathrm{E}^3\\frac{dT_\\mathrm{E}}{d\\epsilon}}{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}} - \\frac{4T_\\mathrm{E}^3\\frac{dT_\\mathrm{E}}{d\\epsilon}-4T_\\mathrm{A}^3\\frac{dT_\\mathrm{A}}{d\\epsilon}}{T_\\mathrm{E}^4-T_\\mathrm{A}^4}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[0 = \\frac{1}{\\epsilon}+\\frac{8T_\\mathrm{A}^3\\frac{dT_\\mathrm{A}}{d\\epsilon}-4T_\\mathrm{E}^3\\frac{dT_\\mathrm{E}}{d\\epsilon}}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}-\\frac{\\frac{dT_\\mathrm{E}}{d\\epsilon}-\\frac{dT_\\mathrm{A}}{d\\epsilon}}{T_\\mathrm{E}-T_\\mathrm{A}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\epsilon\\left[\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}+\\frac{4T_\\mathrm{E}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}\\right]\\frac{dT_\\mathrm{E}}{d\\epsilon} = 1+\\epsilon\\left[\\frac{8T_\\mathrm{A}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}+\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}\\right]\\frac{dT_\\mathrm{A}}{d\\epsilon}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[1+\\epsilon\\left[\\frac{4T_\\mathrm{E}^3}{T_\\mathrm{E}^4-T_\\mathrm{A}^4}-\\frac{4\\sigma T_\\mathrm{E}^3}{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}\\right]\\frac{dT_\\mathrm{E}}{d\\epsilon} = \\frac{4T_\\mathrm{A}^3}{T_\\mathrm{E}^4-T_\\mathrm{A}^4}\\,\\epsilon\\,\\frac{dT_\\mathrm{A}}{d\\epsilon}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Solving this set of linear equations and substituting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in B-5, we find: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dT_\\mathrm{E}}{d\\epsilon} = \\frac{\\left[\\frac{\\sigma(T_\\mathrm{E}^4-T_\\mathrm{A}^4)}{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}\\right]\\left[1+\\left(\\frac{T_\\mathrm{E}^4-T_\\mathrm{A}^4}{4T_\\mathrm{A}^3}\\right)\\left[\\frac{8T_\\mathrm{A}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}+\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}\\right]\\right]}{\\left[\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}+\\frac{4T_\\mathrm{E}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}\\right]-\\left(\\frac{\\sigma T_\\mathrm{A}^4-(1-\\alpha)\\frac{S_0}{4}}{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}\\right)\\left(\\frac{T_\\mathrm{E}}{T_\\mathrm{A}}\\right)^3\\left[\\frac{8T_\\mathrm{A}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}+\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}\\right]}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\epsilon\\frac{dT_\\mathrm{E}}{d\\epsilon} = \\frac{1+\\left(\\frac{T_\\mathrm{E}^4-T_\\mathrm{A}^4}{4T_\\mathrm{A}^3}\\right)\\left[\\frac{8T_\\mathrm{A}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}+\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}\\right]}{\\left[\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}+\\frac{4T_\\mathrm{E}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}\\right]-\\left(\\frac{\\sigma T_\\mathrm{A}^4-(1-\\alpha)\\frac{S_0}{4}}{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}\\right)\\left(\\frac{T_\\mathrm{E}}{T_\\mathrm{A}}\\right)^3\\left[\\frac{8T_\\mathrm{A}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}+\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}\\right]}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[dT_\\mathrm{E} = \\epsilon\\frac{dT_\\mathrm{E}}{d\\epsilon}\\frac{d\\epsilon}{\\epsilon} = [5.21,5.28]\\times10^{-1}\\,\\mathrm{K}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B-6 (1.0pt)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(a) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left\\{\\begin{aligned}\n&\\epsilon\\left[\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}+\\frac{4T_\\mathrm{E}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}\\right]\\frac{dT_\\mathrm{E}}{d\\epsilon} = 1+\\epsilon\\left[\\frac{8T_\\mathrm{A}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}+\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}\\right]\\frac{dT_\\mathrm{A}}{d\\epsilon} \\\\\n&1+\\epsilon\\left[\\frac{4T_\\mathrm{E}^3}{T_\\mathrm{E}^4-T_\\mathrm{A}^4}-\\frac{4\\sigma T_\\mathrm{E}^3}{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}\\right]\\frac{dT_\\mathrm{E}}{d\\epsilon} = \\frac{4T_\\mathrm{A}^3}{T_\\mathrm{E}^4-T_\\mathrm{A}^4}\\,\\epsilon\\,\\frac{dT_\\mathrm{A}}{d\\epsilon}\n\\end{aligned}\\right.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(b) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta T_\\mathrm{E} = [5.21,5.28]\\times10^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " K"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "A. Earth as a blackbody\n\n\nA-1. All the energy emitted from the surface of the Sun, will reach a sphere of radius \n\\(d\\)\n , therefore: \n\\[\\sigma T_\\mathrm{S}^4.(4\\pi R_\\mathrm{S}^2) = (4\\pi d^2). S_0\\]\n \n\\[S_0 = \\sigma T_\\mathrm{S}^4.\\left(\\frac{R_\\mathrm{S}}{d}\\right)^2 = 5.67\\times10^{-8}\\,\\frac{\\mathrm{W}}{\\mathrm{m^2K^4}}\\times(5.77\\times10^3\\,\\mathrm{K})^4\\times\\left(\\frac{6.96\\times10^8\\,\\mathrm{m}}{1.5\\times10^{11}\\,\\mathrm{m}}\\right)^2 = 1.35\\times10^3\\,\\frac{\\mathrm{W}}{\\mathrm{m}^2}\\]\n\n\nA-1 (0.6 pt)\n\n\n\\[S_0 = \\sigma T_\\mathrm{S}^4.\\left(\\frac{R_\\mathrm{S}}{d}\\right)^2\\]\n , Numerical value of \n\\(S_0 = 1.35\\times10^3\\)\n W/m\n\\(^2\\)\n\n\nA-2. It is assumed that the Earth is in thermal equilibrium. Therefore, the energy it receives per unit time should be equal to the energy it radiates per unit time. The Earth’s cross-section intercepting the solar radiation at this distance has an area of \n\\(\\pi R_\\mathrm{E}^2\\)\n , but the Earth radiates heat from all points on its surface with an area of \n\\(4\\pi R_\\mathrm{E}^2\\)\n , so: \n\\[\\pi R_\\mathrm{E}^2. S_0 = 4\\pi R_\\mathrm{E}^2\\sigma T_\\mathrm{E}^4 \\rightarrow T_\\mathrm{E} = \\left(\\frac{S_0}{4\\sigma}\\right)^{\\frac14} = 278\\,\\mathrm{K}\\]\n\n\nA-2 (0.6 pt)\n\n\n\\[T_\\mathrm{E} = \\left(\\frac{S_0}{4\\sigma}\\right)^{\\frac14} = \\sqrt{\\frac{R_\\mathrm{S}}{2d}}\\,T_\\mathrm{S}\\]\n , Numerical value of \n\\(T_\\mathrm{E} = 278\\)\n K\n\n\nA-3. The radiation is maximum at the wavelength for which the derivative of \n\\(u\\)\n with respect to \n\\(\\lambda\\)\n is zero: \n\\[\\frac{du}{d\\lambda} = \\frac{2\\pi hc^2}{\\lambda^6}.\\frac{1}{\\exp\\left(\\frac{hc}{\\lambda k_\\mathrm{B}T}\\right)-1}.\\left[-5+\\frac{hc}{\\lambda k_\\mathrm{B}T}\\,\\frac{\\exp\\left(\\frac{hc}{\\lambda k_\\mathrm{B}T}\\right)}{\\exp\\left(\\frac{hc}{\\lambda k_\\mathrm{B}T}\\right)-1}\\right]\\]\n \n\\[\\left.\\frac{du}{d\\lambda}\\right|_{\\lambda=\\lambda_\\mathrm{m}} = 0 \\quad\\Rightarrow\\quad \\frac{\\frac{hc}{\\lambda_\\mathrm{m}k_BT}\\,\\exp\\left(\\frac{hc}{\\lambda_\\mathrm{m}k_\\mathrm{B}T}\\right)}{\\exp\\left(\\frac{hc}{\\lambda_\\mathrm{m}K_\\mathrm{B}T}\\right)-1} = 5\\]\n Defining \n\\(x_\\mathrm{m} \\equiv \\frac{hc}{\\lambda_\\mathrm{m}k_\\mathrm{B}T}\\)\n we obtain the following transcendental equation: \n\\[5\\left(1-e^{-x_\\mathrm{m}}\\right)-x_\\mathrm{m} = 0\\]\n\n\nA-3 (0.4 pt)\n\n\n\\[f(x) = 5\\left(1-e^{-x}\\right)-x\\]\n\n\nA-4. The first guess is \n\\(x_\\mathrm{m}^{(1)} = 5\\)\n . Substituting repeatedly for \n\\(x_\\mathrm{m}\\)\n we can continue as follows: \n\\[x_\\mathrm{m}^{(2)} = 5\\left(1-e^{-5}\\right) = 4.97\\]\n \n\\[x_\\mathrm{m}^{(3)} = 5\\left(1-e^{-4.97}\\right) = 4.97\\]\n Further iterations do not change the value of \n\\(x_\\mathrm{m}\\)\n to three significant figures, so: \n\\[\\lambda_\\mathrm{m}T = \\frac{hc}{x_\\mathrm{m}k_\\mathrm{B}} = b = 1240\\,\\mathrm{eV\\cdot nm}\\times\\frac{1}{4.97\\times8.62\\times10^{-5}\\,\\mathrm{eVK^{-1}}} = 2.89\\times10^6\\,\\mathrm{nm\\cdot K}\\]\n\n\nA-4 (0.4 pt)\n\n\n\\(x_\\mathrm{m} = \\{4.96,4.97\\}\\)\n , Numerical value of \n\\(b = [2.89,2.90]\\times10^6\\)\n nm\n\\(\\cdot\\)\nK\n\n\nA-5. Using Wien’s displacement law and the constant \n\\(b\\)\n obtained in the previous part, we can calculate the wavelength at which the radiation from the Sun and the Earth reaches its maximum: \n\\[\\lambda_\\mathrm{max}^\\mathrm{Sun} = \\frac{b}{T_\\mathrm{S}} = \\frac{2.89\\times10^6\\,\\mathrm{nm\\cdot K}}{5.77\\times10^3\\,\\mathrm{K}} = [5.01,5.02]\\times10^2\\,\\mathrm{nm}\\]\n \n\\[\\lambda_\\mathrm{max}^\\mathrm{Earth} = \\frac{b}{T_\\mathrm{E}} = \\frac{2.89\\times10^6\\,\\mathrm{nm\\cdot K}}{278\\,\\mathrm{K}} = 1.04\\times10^4\\,\\mathrm{nm}\\]\n\n\nA-5 (0.2 pt)\n\n\n\\(\\lambda_\\mathrm{max}^\\mathrm{Sun} = [5.01,5.02]\\times10^2\\)\n nm , \n\\(\\lambda_\\mathrm{max}^\\mathrm{Earth} = 1.04\\times10^4\\)\n nm\n\n\nA-6. From the diagram, it can clearly be seen that \n\\(\\gamma\\tilde{u}_\\mathrm{S}(\\lambda_\\mathrm{max}^\\mathrm{S}) = u(\\lambda_\\mathrm{max}^\\mathrm{Earth},T_\\mathrm{E})\\)\n , so we have: \n\\[\\tilde{u}_\\mathrm{S}(\\lambda_\\mathrm{max}^\\mathrm{Sun}) = \\left(\\frac{R_\\mathrm{S}}{d}\\right)^2\\frac{2\\pi hc^2}{\\left(\\lambda_\\mathrm{max}^\\mathrm{Sun}\\right)^5}\\frac{1}{\\exp\\left(\\frac{hc}{\\lambda_\\mathrm{max}^\\mathrm{Sun}k_\\mathrm{B}T_\\mathrm{S}}\\right)-1} = \\left(\\frac{R_\\mathrm{S}}{d}\\right)^2\\frac{2\\pi hc^2}{\\left(\\lambda_\\mathrm{max}^\\mathrm{Sun}\\right)^5}\\frac{1}{\\exp\\left(\\frac{hc}{k_\\mathrm{B}b}\\right)-1}\\]\n \n\\[u\\left(\\lambda_\\mathrm{max}^\\mathrm{Earth},T_\\mathrm{E}\\right) = \\frac{2\\pi hc^2}{\\left(\\lambda_\\mathrm{max}^\\mathrm{Earth}\\right)^5}\\frac{1}{\\exp\\left(\\frac{hc}{\\lambda_\\mathrm{max}^\\mathrm{Earth}k_\\mathrm{B}T_\\mathrm{E}}\\right)-1} = \\frac{2\\pi hc^2}{\\left(\\lambda_\\mathrm{max}^\\mathrm{Earth}\\right)^5}\\frac{1}{\\exp\\left(\\frac{hc}{k_\\mathrm{B}b}\\right)-1}\\]\n Dividing these two quantities we’ll find: \n\\[\\gamma = \\left(\\frac{d}{R_\\mathrm{S}}\\right)^2\\times\\left(\\frac{T_\\mathrm{E}}{T_\\mathrm{S}}\\right)^5 = [1.20,1.21]\\times10^{-2}\\]\n\n\nA-6 (0.8 pt)\n\n\n\\[\\gamma = \\left(\\frac{d}{R_\\mathrm{S}}\\right)^2\\times\\left(\\frac{T_\\mathrm{E}}{T_\\mathrm{S}}\\right)^5 = \\left(\\frac{d}{R_\\mathrm{S}}\\right)^2\\times\\left(\\frac{\\lambda_\\mathrm{max}^\\mathrm{Sun}}{\\lambda_\\mathrm{max}^\\mathrm{Earth}}\\right)^5\\]\n , Numerical value of \n\\(\\gamma = [1.20,1.21]\\times10^{-2}\\)\n\n\nB. The Greenhouse Effect\n\n\nB-1. Both the Earth and its atmosphere are in thermal equilibrium, so one can write an equation that balances the input and output powers. For the Earth we have: \n\\[\\left(\\pi R_\\mathrm{E}^2\\right)\\left(1-r_\\mathrm{A}\\right)S_0 + \\left(4\\pi R_\\mathrm{E}^2\\right)\\sigma T_\\mathrm{A}^4 = \\left(4\\pi R_\\mathrm{E}^2\\right)\\sigma T_\\mathrm{E}^4,\\]\n and for the atmosphere: \n\\[\\left(4\\pi R_\\mathrm{E}^2\\right)\\sigma T_\\mathrm{E}^4 = 2\\left(4\\pi R_\\mathrm{E}^2\\right)\\sigma T_\\mathrm{A}^4.\\]\n Note that the coefficient 2 on the right-hand side of the equation is due to the atmosphere radiating heat on both sides (above and below). Eliminating \n\\(T_E\\)\n from the two relations we obtain: \n\\[T_\\mathrm{A} = \\left(\\frac{(1-r_\\mathrm{A})\\frac{S_0}{4}}{\\sigma}\\right)^{\\frac14} = 2.58\\times10^2\\,\\mathrm{K} \\quad\\Rightarrow\\quad T_\\mathrm{E} = \\left(2T_\\mathrm{A}^4\\right)^{\\frac14} = 3.07\\times10^2\\,\\mathrm{K}\\]\n\n\nB-1 (1.0 pt)\n\n\n\\[T_A = \\left(\\frac{(1-r_\\mathrm{A})\\frac{S_0}{4}}{\\sigma}\\right)^{\\frac14}\\]\n , Numerical value of \n\\(T_A = 2.58\\times10^2\\)\n K\n\n\n\\[T_\\mathrm{E} = \\left(\\frac{(1-r_\\mathrm{A})\\frac{S_0}{2}}{\\sigma}\\right)^{\\frac14}\\]\n , Numerical value of \n\\(T_\\mathrm{E} = 3.07\\times10^2\\)\n K\n\n\nB-2. As can be seen in the figure, a fraction \n\\((1-r_\\mathrm{A})\\)\n of the solar radiation reaches the Earth’s surface after traversing the atmosphere. A fraction \n\\(r_\\mathrm{E}\\)\n of this light is reflected back and reaches the atmosphere, where a fraction \n\\(r_\\mathrm{A}\\)\n is reflected and returns to the Earth’s surface. This process repeats \nad infinitum\n and the sum of the powers transmitted at all these instances, determines the albedo. Denoting the power returned to space after \n\\(n\\)\n reflections by \n\\(\\tilde{S}_n\\)\n, we’ll have \n\\(\\tilde{S}_0 = r_\\mathrm{A}S_0\\)\n and the remaining power i.e. \n\\((1-r_\\mathrm{A})S_0\\)\n , reaches the Earth’s surface. From this power, \n\\((1-r_\\mathrm{A})r_\\mathrm{E}S_0\\)\n is reflected, and a fraction \n\\(1-r_\\mathrm{A}\\)\n of it is transmitted through the atmosphere to the space, hence: \n\\[\\tilde{S}_1 = (1-r_\\mathrm{A})^2r_\\mathrm{E}S_0 = \\frac{(1-r_\\mathrm{A})^2}{r_\\mathrm{A}}\\,r_\\mathrm{E}\\tilde{S}_0\\]\n The power that is reflected back to the Earth by the atmosphere after \n\\((n-1)\\)\n reflections is \n\\(\\tilde{S}_{n-1}\\left(\\frac{r_\\mathrm{A}}{1-r_\\mathrm{A}}\\right)\\)\n, of which a fraction \n\\(r_\\mathrm{E}\\)\n is again sent back towards the atmosphere on the \n\\(n\\)\n’th reflection, and the atmosphere allows a fraction \n\\(1-r_\\mathrm{A}\\)\n of this reflected power to escape into the space, thus: \n\\[\\tilde{S}_n = \\frac{\\tilde{S}_{n-1}}{1-r_\\mathrm{A}}\\,r_\\mathrm{A}\\,r_\\mathrm{E}\\times(1-r_\\mathrm{A}) = r_\\mathrm{A}r_\\mathrm{E}\\tilde{S}_{n-1} = \\left(r_\\mathrm{A}r_\\mathrm{E}\\right)^{n-1}\\tilde{S}_1\\]\n By adding all these terms, one obtains the power returned per unit area from the Earth-atmosphere system: \n\\[\\begin{aligned}\n\\tilde{S} &= \\sum_{n=0}^{\\infty}\\tilde{S}_n = \\tilde{S}_0 + \\tilde{S}_1\\sum_{n=1}^{\\infty}\\left(r_\\mathrm{A}r_\\mathrm{E}\\right)^{n-1} = r_\\mathrm{A}S_0 + (1-r_\\mathrm{A})^2r_\\mathrm{E}S_0\\times\\frac{1}{1-r_\\mathrm{A}r_\\mathrm{E}} \\\\\n&= \\left[r_\\mathrm{A}+\\frac{(1-r_\\mathrm{A})^2r_\\mathrm{E}}{1-r_\\mathrm{A}r_\\mathrm{E}}\\right]\\times S_0\n\\end{aligned}\\]\n Dividing by the solar constant we get the value for albedo: \n\\[\\alpha = \\frac{\\tilde{S}}{S_0} = r_\\mathrm{A}+\\frac{(1-r_\\mathrm{A})^2r_\\mathrm{E}}{1-r_\\mathrm{A}r_\\mathrm{E}} = 3.13\\times10^{-1}\\]\n\n\nB-2 (1.6 pt)\n\n\n\\[\\alpha = r_\\mathrm{A}+\\frac{(1-r_\\mathrm{A})^2r_\\mathrm{E}}{1-r_\\mathrm{A}r_\\mathrm{E}}\\]\n , Numerical value of \n\\(\\alpha = 3.13\\times10^{-1}\\)\n\n\nB-3. Again, thermal equilibrium requires the input and output powers to be equal both for the Earth and for the atmosphere, the only difference being that the Earth absorbs now a fraction \n\\(1-\\alpha\\)\n of the Sun’s radiation. Thus, for Earth we have: \n\\[\\left(4\\pi R_\\mathrm{E}^2\\right)\\epsilon\\sigma T_\\mathrm{A}^4 + \\left(\\pi R_\\mathrm{E}^2\\right)(1-\\alpha)S_0 = \\left(4\\pi R_\\mathrm{E}^2\\right)\\sigma T_\\mathrm{E}^4,\\]\n and for the atmosphere: \n\\[\\left(4\\pi R_\\mathrm{E}^2\\right)\\epsilon\\sigma T_\\mathrm{E}^4 = 2\\left(4\\pi R_\\mathrm{E}^2\\right)\\epsilon\\sigma T_\\mathrm{A}^4\\]\n \n\\[T_\\mathrm{E} = \\left[\\frac{(1-\\alpha)}{2\\sigma(2-\\epsilon)}S_0\\right]^{\\frac14}, \\qquad T_\\mathrm{A} = \\left(\\frac{T_\\mathrm{E}^4}{2}\\right)^{\\frac14}\\]\n \n\\[\\epsilon = \\frac{\\left[\\sigma T_\\mathrm{E}^4-\\frac{(1-\\alpha)}{4}S_0\\right]}{\\sigma T_\\mathrm{A}^4} = 2\\,\\frac{\\left[\\sigma T_\\mathrm{E}^4-\\frac{(1-\\alpha)}{4}S_0\\right]}{\\sigma T_\\mathrm{E}^4} = [8.07,8.11]\\times10^{-1}\\]\n\n\nB-3 (1.0 pt)\n\n\n\\[T_\\mathrm{E} = \\left[\\frac{(1-\\alpha)}{2\\sigma(2-\\epsilon)}S_0\\right]^{\\frac14}\\]\n , Numerical value of \n\\(\\epsilon = [8.07,8.11]\\times10^{-1}\\)\n\n\nB-4. \n\\[\\frac{dT_\\mathrm{E}}{d\\epsilon} = \\frac14\\left[\\frac{(1-\\alpha)S_0}{2\\sigma(2-\\epsilon)}\\right]^{\\frac14}\\frac{1}{(2-\\epsilon)}\\]\n \n\\[dT_\\mathrm{E} = \\frac{dT_\\mathrm{E}}{d\\epsilon}\\,\\epsilon\\,\\frac{d\\epsilon}{\\epsilon} = \\left[\\frac{4\\sigma T_\\mathrm{E}^4}{(1-\\alpha)S_0}-1\\right]\\frac{T_\\mathrm{E}}{4}\\times0.01 = [4.87,4.92]\\times10^{-1}\\]\n\n\nB-4 (0.8pt)\n\n\n\\[\\frac{dT_\\mathrm{E}}{d\\epsilon} = \\frac14\\left[\\frac{(1-\\alpha)S_0}{2\\sigma(2-\\epsilon)}\\right]^{\\frac14}\\frac{1}{(2-\\epsilon)}\\]\n , Numerical value of \n\\(\\delta T_\\mathrm{E} = [4.87,4.92]\\times10^{-1}\\)\n K\n\n\nB-5. The equations for thermal equilibrium are similar to those for Part B.3, only a non-radiative thermal current needs to be added. For the Earth: \n\\[\\left(\\pi R_\\mathrm{E}^2\\right)(1-\\alpha)S_0 + \\left(4\\pi R_\\mathrm{E}^2\\right)\\epsilon\\sigma T_\\mathrm{A}^4 = \\left(4\\pi R_\\mathrm{E}^2\\right)\\sigma T_\\mathrm{E}^4 + \\left(4\\pi R_\\mathrm{E}^2\\right)k\\left(T_\\mathrm{E}-T_\\mathrm{A}\\right),\\]\n and for the atmosphere: \n\\[\\left(4\\pi R_\\mathrm{E}^2\\right)\\epsilon\\sigma T_\\mathrm{E}^4 + \\left(4\\pi R_\\mathrm{E}^2\\right)k\\left(T_\\mathrm{E}-T_\\mathrm{A}\\right) = 2\\left(4\\pi R_\\mathrm{E}^2\\right)\\epsilon\\sigma T_\\mathrm{A}^4.\\]\n After completing the calculations, we will have: \n\\[\\epsilon = \\frac{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}{\\sigma\\left(T_\\mathrm{E}^4-T_\\mathrm{A}^4\\right)} = [8.47,8.52]\\times10^{-1}\\]\n \n\\[k = \\frac{\\epsilon\\sigma\\left(2T_\\mathrm{A}^4-T_\\mathrm{E}^4\\right)}{T_\\mathrm{E}-T_\\mathrm{A}} = \\frac{\\left(2T_\\mathrm{A}^4-T_\\mathrm{E}^4\\right)\\times\\left[\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}\\right]}{\\left(T_\\mathrm{E}^4-T_\\mathrm{A}^4\\right)\\times\\left(T_\\mathrm{E}-T_\\mathrm{A}\\right)} = [3.57,3.66]\\times10^{-1}\\,\\mathrm{W/m^2K}\\]\n\n\nB-5 (1.6pt)\n\n\n\\[\\epsilon = \\frac{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}{\\sigma\\left(T_\\mathrm{E}^4-T_\\mathrm{A}^4\\right)}\\]\n , Numerical value of \n\\(\\epsilon = [8.47,8.52]\\times10^{-1}\\)\n\n\n\\[k = \\frac{\\left(2T_\\mathrm{A}^4-T_\\mathrm{E}^4\\right)\\times\\left[\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}\\right]}{\\left(T_\\mathrm{E}^4-T_\\mathrm{A}^4\\right)\\times\\left(T_\\mathrm{E}-T_\\mathrm{A}\\right)}\\]\n , Numerical value of \n\\(k = [3.57,3.66]\\times10^{-1}\\)\n W/m\n\\(^2\\)\nK\n\n\nB-6. In order to find the change in the temperatures of the Earth and the atmosphere in terms of \n\\(\\epsilon\\)\n and \n\\(k\\)\n, we take the logarithm of both sides of the relations before taking the derivative: \n\\[\\ln \\epsilon = \\ln\\left[\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}\\right]-\\ln\\sigma-\\ln\\left(T_\\mathrm{E}^4-T_\\mathrm{A}^4\\right)\\]\n \n\\[\\ln k = \\ln\\epsilon+\\ln\\sigma+\\ln\\left(2T_\\mathrm{A}^4-T_\\mathrm{E}^4\\right)-\\ln\\left(T_\\mathrm{E}-T_\\mathrm{A}\\right)\\]\n \n\\[\\frac{1}{\\epsilon} = \\frac{4\\sigma T_\\mathrm{E}^3\\frac{dT_\\mathrm{E}}{d\\epsilon}}{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}} - \\frac{4T_\\mathrm{E}^3\\frac{dT_\\mathrm{E}}{d\\epsilon}-4T_\\mathrm{A}^3\\frac{dT_\\mathrm{A}}{d\\epsilon}}{T_\\mathrm{E}^4-T_\\mathrm{A}^4}\\]\n \n\\[0 = \\frac{1}{\\epsilon}+\\frac{8T_\\mathrm{A}^3\\frac{dT_\\mathrm{A}}{d\\epsilon}-4T_\\mathrm{E}^3\\frac{dT_\\mathrm{E}}{d\\epsilon}}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}-\\frac{\\frac{dT_\\mathrm{E}}{d\\epsilon}-\\frac{dT_\\mathrm{A}}{d\\epsilon}}{T_\\mathrm{E}-T_\\mathrm{A}}\\]\n \n\\[\\epsilon\\left[\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}+\\frac{4T_\\mathrm{E}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}\\right]\\frac{dT_\\mathrm{E}}{d\\epsilon} = 1+\\epsilon\\left[\\frac{8T_\\mathrm{A}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}+\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}\\right]\\frac{dT_\\mathrm{A}}{d\\epsilon}\\]\n \n\\[1+\\epsilon\\left[\\frac{4T_\\mathrm{E}^3}{T_\\mathrm{E}^4-T_\\mathrm{A}^4}-\\frac{4\\sigma T_\\mathrm{E}^3}{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}\\right]\\frac{dT_\\mathrm{E}}{d\\epsilon} = \\frac{4T_\\mathrm{A}^3}{T_\\mathrm{E}^4-T_\\mathrm{A}^4}\\,\\epsilon\\,\\frac{dT_\\mathrm{A}}{d\\epsilon}\\]\n Solving this set of linear equations and substituting \n\\(\\epsilon\\)\n in B-5, we find: \n\\[\\frac{dT_\\mathrm{E}}{d\\epsilon} = \\frac{\\left[\\frac{\\sigma(T_\\mathrm{E}^4-T_\\mathrm{A}^4)}{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}\\right]\\left[1+\\left(\\frac{T_\\mathrm{E}^4-T_\\mathrm{A}^4}{4T_\\mathrm{A}^3}\\right)\\left[\\frac{8T_\\mathrm{A}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}+\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}\\right]\\right]}{\\left[\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}+\\frac{4T_\\mathrm{E}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}\\right]-\\left(\\frac{\\sigma T_\\mathrm{A}^4-(1-\\alpha)\\frac{S_0}{4}}{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}\\right)\\left(\\frac{T_\\mathrm{E}}{T_\\mathrm{A}}\\right)^3\\left[\\frac{8T_\\mathrm{A}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}+\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}\\right]}\\]\n \n\\[\\epsilon\\frac{dT_\\mathrm{E}}{d\\epsilon} = \\frac{1+\\left(\\frac{T_\\mathrm{E}^4-T_\\mathrm{A}^4}{4T_\\mathrm{A}^3}\\right)\\left[\\frac{8T_\\mathrm{A}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}+\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}\\right]}{\\left[\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}+\\frac{4T_\\mathrm{E}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}\\right]-\\left(\\frac{\\sigma T_\\mathrm{A}^4-(1-\\alpha)\\frac{S_0}{4}}{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}\\right)\\left(\\frac{T_\\mathrm{E}}{T_\\mathrm{A}}\\right)^3\\left[\\frac{8T_\\mathrm{A}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}+\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}\\right]}\\]\n \n\\[dT_\\mathrm{E} = \\epsilon\\frac{dT_\\mathrm{E}}{d\\epsilon}\\frac{d\\epsilon}{\\epsilon} = [5.21,5.28]\\times10^{-1}\\,\\mathrm{K}\\]\n\n\nB-6 (1.0pt)\n\n\n(a) \n\\[\\left\\{\\begin{aligned}\n&\\epsilon\\left[\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}+\\frac{4T_\\mathrm{E}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}\\right]\\frac{dT_\\mathrm{E}}{d\\epsilon} = 1+\\epsilon\\left[\\frac{8T_\\mathrm{A}^3}{2T_\\mathrm{A}^4-T_\\mathrm{E}^4}+\\frac{1}{T_\\mathrm{E}-T_\\mathrm{A}}\\right]\\frac{dT_\\mathrm{A}}{d\\epsilon} \\\\\n&1+\\epsilon\\left[\\frac{4T_\\mathrm{E}^3}{T_\\mathrm{E}^4-T_\\mathrm{A}^4}-\\frac{4\\sigma T_\\mathrm{E}^3}{\\sigma T_\\mathrm{E}^4-(1-\\alpha)\\frac{S_0}{4}}\\right]\\frac{dT_\\mathrm{E}}{d\\epsilon} = \\frac{4T_\\mathrm{A}^3}{T_\\mathrm{E}^4-T_\\mathrm{A}^4}\\,\\epsilon\\,\\frac{dT_\\mathrm{A}}{d\\epsilon}\n\\end{aligned}\\right.\\]\n\n\n(b) \n\\(\\delta T_\\mathrm{E} = [5.21,5.28]\\times10^{-1}\\)\n K\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

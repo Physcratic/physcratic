@@ -1,1 +1,3474 @@
-{"id":"apho-2024-t2","importedOn":"2026-11-14","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2024_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2024_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2024-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Snell's Law\nIntroduction\nWhen light is incident upon a dielectric interface, it will be reflected and refracted, depending on the incident angle of\nthe light and the refractive indices of the dielectric media as shown in Fig. 1. The refraction of light is governed by the\nSnell’s law,\n \n(1)\nwhere n and n are the refractive indices of the lower and upper parts of the boundary, \n and \n are the angles that\nthe light ray makes with the normal of the boundary.\nFig. 1: Refraction of light from a dielectric medium with refractive index, n , to a second dielectric\nmedium with refractive index, n .\nn1 sin ϕ1 = n2 sin ϕ2\n1\n2\nϕ1\nϕ2\n1\n2\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 7 of 18\n\nPart A: Light Propagation Through a Semi-Sphere (1.5 points)\nFig. 2 illustrates how light that consists of two rays with different colour, a and b, is incident along the\nradius of a semi-sphere with refractive index n , in air, before being refracted at the bottom at an angle\nof \n and \n, respectively.\nFig. 2: Light propagation through a semi-sphere.\nA.1\nWhich ray (a or b) propagates faster in the semi-sphere? Please provide\njustification.\n0.5pt\nA.2\nWhen the incident angle, \n, is slowly increased to 45 , ray b no longer exits the\nbottom of the semi-sphere. When \n is further increased to 50 , the same happens\nto ray a. What is the difference between the refractive index of ray a and b in the\nsemi-sphere?\n1.0pt\nx\nθa\nθb\nθi\no\nθi\no\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 8 of 18\n\nPart B: Light Propagation Through a Cylindrical Rod (3.5 points)\nA cylindrical rod has a refractive index of n = 1.50. The rod is placed in air, with one end coated with a polymer with\nrefractive index n = 1.40, as shown in Fig. 3 below. Light is incident from the polymer into the rod at an angle, .\nWhen  is changed, there is an instance when light is totally reflected back to the polymer.\nFig. 3: A cylindrical rod with one end coated with a polymer with refractive index n , where n < n <\nn .\nB.1\nDetermine the range of incident angle, , for this condition to happen.\n2.0pt\nB.2\n\n\nHow does the condition in B.1 change,\n(i)\nif the other, open end of the rod is now coated with a thick layer of oil with\nrefractive index of 1.60?\n0.6pt\n(ii)\nif the setup is placed in water with refractive index of 1.33?\n0.9pt\n1\n3\nθ\nθ\n3\n2 \n3 \n1\nθ\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 9 of 18\n\nPart C: Light Propagation Through an Optical Fibre (5.0 points)\nOptical fibre is formed by surrounding the medium with refractive index, n with a lower refractive\nindex medium, n , as shown in Fig. 4 below. The medium with refractive index, \n is known as the\nfibre core, and the medium with refractive index, \n  is known as the fibre cladding. The refractive\nindex, n , is typically the refractive index of air (n  = 1).\nFig. 4: A schematic of an optical fibre and its cross section.\nC.1\nIn order for light to propagate inside the optical fiber, it first needs to be coupled\ninto the optical fiber. The maximum angle of the light incident at the end of the\nfiber, \n so that the light can be guided inside the fiber without being refracted out\nis related to the refractive indices of the fiber core and cladding. Consider a ray\nthat propagates along the meridional plane (plane that cuts across the fibre axis),\nformulate the relationship between the angle, \n and the refractive indices.\n2.0pt\nC.2\nOptical fibers are not always aligned in a straight line but need to be bent to go\nthrough different spaces. Given the fiber core diameter of 50 \n, if the minimum\nbending radius on the optical fiber is 1.0 \n, how much will \nchange?\n2.6pt\nC.3\nGiven the refractive index of the fiber core and cladding is 1.45 and 1.44,\nrespectively, what are the maximum angle of light incident for case C.1 and C.2\nabove, when the fiber is placed in air?\n0.4pt\n1\n2\nn1\nn2\n3\n3\nθa­\nθa­\nμm\ncm\nθa­ \nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 10 of 18\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2024-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8,9,10,11],"initialPage":1,"shared":false,"text":"Snell's Law\nPart A: Light Propagation Through a Semi-Sphere\nA.1\n[0.5pt]\nUsing Snell’s law, larger angle of refraction corresponds to larger\nrefractive index that the light sees in the semi-sphere (n ).\n[0.2pt]\nThis means that the colour with a smaller angle of refraction propagates\nfaster in the semi-sphere, which is colour a.\n[0.3pt]\nA.2\n[1.0pt]\nThe light rays no longer exit the bottom of semi-sphere when the ray is\nrefracted by 90 with respect to the normal.\n[0.2pt]\nUsing Snell’s law,\n[0.2pt]\nReplace “x” with “a” and “b” for the condition of ray a and ray b, respectively. \n[0.2pt]\n[0.2pt]\nDifference in refractive index, Δn = 0.109\n[0.2pt]\n1\no\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 11 of 31\n\nPart B: Light Propagation Through a Cylindrical Rod\nB.1\n[2.0pt]\nGiven n = 1.5, n = 1.0, n = 1.4,\n[0.0pt]\nIdentify 2 conditions that need to be obeyed:\n \n[0.2pt]\n#1: Light incident at point A should be totally reflected.\n[0.0pt]\n[0.3pt]\nThe condition for angle θ < 90 – 41.81 = 48.19\n[0.2pt]\nUsing Snell’s law,\n[0.2pt]\n1\n2\n3\n1\no\no\no\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 12 of 31\n\nB.1\n[cont.]\n#2: Light incident at point B should be totally reflected.\n[0.0pt]\n[0.3pt]\nThe condition for angle q > 41.81\n[0.2pt]\nUsing Snell's Law\n[0.2pt]\nTherefore, the incident angle, q, where light is totally reflected back to\nthe polymer is 45.58 < q < 53 .\n[0.4pt]\n1\no\no\no\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 13 of 31\n\nB.2\n(i)\n[0.6pt]\nWhen right end of rod is coated with oil with n = 1.6, condition #2 changes.\n \n[0.2pt]\nLight incident on point B will always be refracted.\n[0.2pt]\nLight CANNOT be totally reflected back to the polymer.\n[0.2pt]\n4\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 14 of 31\n\nB.2\n(ii)\n[0.9pt]\nWhen the setup is placed in water, n = 1.33. Both condition #1 and #2 change.\n[0.2pt]\n#1:\n[0.2pt]\nθ < 90 – 62.46 = 27.54\n[0.0pt]\nUsing Snell’s law,\n[0.0pt]\n[0.0pt]\n#2:\n[0.0pt]\nUsing Snell’s law,\n[0.0pt]\n[0.2pt]\nAs conditions #1 and #2 does not overlap.\n[0.1pt]\nAgain, light CANNOT be totally reflected back to the polymer.\n[0.2pt]\n2\n1\no\no\no\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 15 of 31\n\nPart C: Light Propagation Through an Optical Fibre\nC.1\n[2.0pt]\nIn order for light to not refractive out from the fiber, the angle of refraction that the\nlight makes with the normal of the fiber core/cladding boundary needs to be 90 .\nUsing Snell’s law,\n[0.0pt]\n[0.4pt]\nTaking the square of eq. (1), we have, \nUsing the trigonometry identity, we have,\n[0.2pt]\nRearranging, we got,\n[0.0pt]\no\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 16 of 31\n\nC.1\n[cont.]\nOr,\n[0.2pt]\nTaking the square root of eq. (2), we have, \n[0.0pt]\n[0.4pt]\nWith this, we can use Snell’s law to calculate the maximum angle of light\nincident,\n[0.0pt]\n[0.4pt]\nor \n[0.4pt]\nθa = sin−1 √n12 −n22\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 17 of 31\n\nC.2\n[2.6pt]\n- Identifying the correct relationship between \nand \n[0.4pt]\n- Find the relationship between \n and \n’:\n[0.0pt]\n- Using the Law of Sine,\n[0.0pt]\n[0.4pt]\n- For light guiding at point A,\n[0.0pt]\n[0.4pt]\nCB = 10000-25 = 9975 \nCA = 10000+25 = 10025 \n[0.4pt]\nϕc\nϕ′c\nϕc\nϕc\nsin ϕc = n2\nn1\nμm\nμm\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 18 of 31\n\nC.2\n[cont.]\n[0.0pt]\nTherefore, \n[0.0pt]\n[0.4pt]\nRearrange into eq.(1) and derive following part (a):\n[0.0pt]\n[0.4pt]\nTo calculate the new angle of acceptance,\n[0.0pt]\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 19 of 31\n\n[0.2pt]\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 20 of 31\n\nC.3\n[0.4pt]\nFor case C.1: State that n = 1;\n \n[0.1pt]\n[0.1pt]\nFor case C.2: Substitute,\n[0.0pt]\n[0.1pt]\n[0.1pt]\n3\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 21 of 31\n","textExtraction":"available"}}
+{
+  "id": "apho-2024-t2",
+  "importedOn": "2026-11-14",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2024_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2024_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2024-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "Snell's Law"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "Introduction"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When light is incident upon a dielectric interface, it will be reflected and refracted, depending on the incident angle of the light and the refractive indices of the dielectric media as shown in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The refraction of light is governed by the Snell’s law, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nn_1 \\sin\\phi_1 = n_2 \\sin\\phi_2 \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are the refractive indices of the lower and upper parts of the boundary, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are the angles that the light ray makes with the normal of the boundary."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2024-t2/671cb76cb3d1a2406c55.png",
+                "alt": "apho-2024-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 1"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": Refraction of light from a dielectric medium with refractive index, "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(n_1\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ", to a second dielectric medium with refractive index, "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(n_2\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A: Light Propagation Through a Semi-Sphere (1.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " illustrates how light that consists of two rays with different colour, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is incident along the radius of a semi-sphere with refractive index "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", in air, before being refracted at the bottom at an angle of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", respectively."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2024-t2/44b6c55d5c8cb571b328.png",
+                "alt": "apho-2024-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 2"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": Light propagation through a semi-sphere."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Which ray ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") propagates faster in the semi-sphere? Please provide justification. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "When the incident angle, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is slowly increased to 45"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{\\mathrm{o}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", ray "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " no longer exits the bottom of the semi-sphere. When "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is further increased to 50"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{\\mathrm{o}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the same happens to ray "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". What is the difference between the refractive index of ray "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the semi-sphere? "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.0pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B: Light Propagation Through a Cylindrical Rod (3.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A cylindrical rod has a refractive index of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 1.50. The rod is placed in air, with one end coated with a polymer with refractive index "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 1.40, as shown in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " below. Light is incident from the polymer into the rod at an angle, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". When "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is changed, there is an instance when light is totally reflected back to the polymer."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2024-t2/3ac8c48e429aba476139.png",
+                "alt": "apho-2024-t2 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 3"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": A cylindrical rod with one end coated with a polymer with refractive index "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(n_3\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ", where "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(n_2\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " < "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(n_3\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " < "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(n_1\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Determine the range of incident angle, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", for this condition to happen. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2.0pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "How does the condition in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " change,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(i)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "if the other, open end of the rod is now coated with a thick layer of oil with refractive index of 1.60? "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.6pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(ii)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "if the setup is placed in water with refractive index of 1.33? "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.9pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C: Light Propagation Through an Optical Fibre (5.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Optical fibre is formed by surrounding the medium with refractive index, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with a lower refractive index medium, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", as shown in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " below. The medium with refractive index, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is known as the fibre core, and the medium with refractive index, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is known as the fibre cladding. The refractive index, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is typically the refractive index of air ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 1)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2024-t2/605c80f908a7ae26cf98.png",
+                "alt": "apho-2024-t2 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 4"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": A schematic of an optical fibre and its cross section."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "In order for light to propagate inside the optical fiber, it first needs to be coupled into the optical fiber. The maximum angle of the light incident at the end of the fiber, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that the light can be guided inside the fiber without being refracted out is related to the refractive indices of the fiber core and cladding. Consider a ray that propagates along the meridional plane (plane that cuts across the fibre axis), formulate the relationship between the angle, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the refractive indices. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2.0pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Optical fibers are not always aligned in a straight line but need to be bent to go through different spaces. Given the fiber core diameter of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(50\\ \\mu\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", if the minimum bending radius on the optical fiber is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1.0\\ \\mathrm{cm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", how much will "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " change? "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2.6pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Given the refractive index of the fiber core and cladding is 1.45 and 1.44, respectively, what are the maximum angle of light incident for case "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " above, when the fiber is placed in air? "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.4pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Snell's Law\n\n\nIntroduction\n\n\nWhen light is incident upon a dielectric interface, it will be reflected and refracted, depending on the incident angle of the light and the refractive indices of the dielectric media as shown in \nFig. 1\n. The refraction of light is governed by the Snell’s law, \n\\[\\begin{equation}\nn_1 \\sin\\phi_1 = n_2 \\sin\\phi_2 \\tag{1}\n\\end{equation}\\]\n where \n\\(n_1\\)\n and \n\\(n_2\\)\n are the refractive indices of the lower and upper parts of the boundary, \n\\(\\phi_1\\)\n and \n\\(\\phi_2\\)\n are the angles that the light ray makes with the normal of the boundary.\n\n\n\n\n\n\n\n\n\n\n\nFig. 1\n: Refraction of light from a dielectric medium with refractive index, \n\\(n_1\\)\n, to a second dielectric medium with refractive index, \n\\(n_2\\)\n.\n\n\n\n\nPart A: Light Propagation Through a Semi-Sphere (1.5 points)\n\n\nFig. 2\n illustrates how light that consists of two rays with different colour, \n\\(a\\)\n and \n\\(b\\)\n, is incident along the radius of a semi-sphere with refractive index \n\\(n_x\\)\n, in air, before being refracted at the bottom at an angle of \n\\(\\theta_a\\)\n and \n\\(\\theta_b\\)\n, respectively.\n\n\n\n\n\n\n\n\n\n\n\nFig. 2\n: Light propagation through a semi-sphere.\n\n\n\n\nA.1\nWhich ray (\n\\(a\\)\n or \n\\(b\\)\n) propagates faster in the semi-sphere? Please provide justification. \n0.5pt\n\n\nA.2\nWhen the incident angle, \n\\(\\theta_i\\)\n, is slowly increased to 45\n\\(^{\\mathrm{o}}\\)\n, ray \n\\(b\\)\n no longer exits the bottom of the semi-sphere. When \n\\(\\theta_i\\)\n is further increased to 50\n\\(^{\\mathrm{o}}\\)\n, the same happens to ray \n\\(a\\)\n. What is the difference between the refractive index of ray \n\\(a\\)\n and \n\\(b\\)\n in the semi-sphere? \n1.0pt\n\n\nPart B: Light Propagation Through a Cylindrical Rod (3.5 points)\n\n\nA cylindrical rod has a refractive index of \n\\(n_1\\)\n = 1.50. The rod is placed in air, with one end coated with a polymer with refractive index \n\\(n_3\\)\n = 1.40, as shown in \nFig. 3\n below. Light is incident from the polymer into the rod at an angle, \n\\(\\theta\\)\n. When \n\\(\\theta\\)\n is changed, there is an instance when light is totally reflected back to the polymer.\n\n\n\n\n\n\n\n\n\n\n\nFig. 3\n: A cylindrical rod with one end coated with a polymer with refractive index \n\\(n_3\\)\n, where \n\\(n_2\\)\n < \n\\(n_3\\)\n < \n\\(n_1\\)\n.\n\n\n\n\nB.1\nDetermine the range of incident angle, \n\\(\\theta\\)\n, for this condition to happen. \n2.0pt\n\n\nB.2\nHow does the condition in \nB.1\n change,\n\n\n(i)\nif the other, open end of the rod is now coated with a thick layer of oil with refractive index of 1.60? \n0.6pt\n\n\n(ii)\nif the setup is placed in water with refractive index of 1.33? \n0.9pt\n\n\nPart C: Light Propagation Through an Optical Fibre (5.0 points)\n\n\nOptical fibre is formed by surrounding the medium with refractive index, \n\\(n_1\\)\n with a lower refractive index medium, \n\\(n_2\\)\n, as shown in \nFig. 4\n below. The medium with refractive index, \n\\(n_1\\)\n is known as the fibre core, and the medium with refractive index, \n\\(n_2\\)\n is known as the fibre cladding. The refractive index, \n\\(n_3\\)\n, is typically the refractive index of air (\n\\(n_3\\)\n = 1).\n\n\n\n\n\n\n\n\n\n\n\nFig. 4\n: A schematic of an optical fibre and its cross section.\n\n\n\n\nC.1\nIn order for light to propagate inside the optical fiber, it first needs to be coupled into the optical fiber. The maximum angle of the light incident at the end of the fiber, \n\\(\\theta_a\\)\n so that the light can be guided inside the fiber without being refracted out is related to the refractive indices of the fiber core and cladding. Consider a ray that propagates along the meridional plane (plane that cuts across the fibre axis), formulate the relationship between the angle, \n\\(\\theta_a\\)\n and the refractive indices. \n2.0pt\n\n\nC.2\nOptical fibers are not always aligned in a straight line but need to be bent to go through different spaces. Given the fiber core diameter of \n\\(50\\ \\mu\\mathrm{m}\\)\n, if the minimum bending radius on the optical fiber is \n\\(1.0\\ \\mathrm{cm}\\)\n, how much will \n\\(\\theta_a\\)\n change? \n2.6pt\n\n\nC.3\nGiven the refractive index of the fiber core and cladding is 1.45 and 1.44, respectively, what are the maximum angle of light incident for case \nC.1\n and \nC.2\n above, when the fiber is placed in air? \n0.4pt\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2024-t2/671cb76cb3d1a2406c55.png",
+      "/corpus/figures/native/bulk/apho-2024-t2/44b6c55d5c8cb571b328.png",
+      "/corpus/figures/native/bulk/apho-2024-t2/3ac8c48e429aba476139.png",
+      "/corpus/figures/native/bulk/apho-2024-t2/605c80f908a7ae26cf98.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2024-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "Snell's Law"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A: Light Propagation Through a Semi-Sphere"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Using Snell’s law, larger angle of refraction corresponds to larger refractive index that the light sees in the semi-sphere (n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This means that the colour with a smaller angle of refraction propagates faster in the semi-sphere, which is colour "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "a"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [0.3pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[1.0pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The light rays no longer exit the bottom of semi-sphere when the ray is refracted by 90"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "o"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with respect to the normal. [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using Snell’s law, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nn_x\\mathit{sin}\\theta_i = n_2\\sin\\,(90°) \\tag*{[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Replace “x” with “a” and “b” for the condition of ray a and ray b, respectively. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{gather}\n\\text{For ray a,}\\qquad n_a\\mathit{sin}(50°) = 1.0\\sin\\,(90°) \\notag\\\\\nn_a = 1.305 \\tag*{[0.2pt]}\n\\end{gather}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{gather}\n\\text{For ray b,}\\qquad n_b\\mathit{sin}(45°) = 1.0\\sin\\,(90°) \\notag\\\\\nn_b = 1.414 \\tag*{[0.2pt]}\n\\end{gather}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Difference in refractive index, Δn = "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.109"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B: Light Propagation Through a Cylindrical Rod"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[2.0pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Given n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 1.5, n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 1.0, n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(_3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 1.4,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2024-t2/71a77fcd3d860ee09109.png",
+                "alt": "apho-2024-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Identify 2 conditions that need to be obeyed: [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "#1: Light incident at point A should be totally reflected."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{gather}\nn_1\\mathit{sin}\\phi_1 > n_2\\sin\\,(90°) \\notag\\\\\n\\phi_1 > \\mathit{sin}^{-1}\\frac{1.0}{1.5} = 41.81° \\tag*{[0.3pt]}\n\\end{gather}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The condition for angle θ"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(<\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 90"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "o"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 41.81"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "o"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 48.19"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "o"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using Snell’s law, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\theta < \\mathit{sin}^{-1}\\frac{1.5}{1.4}\\sin\\,(48.19°) = 53° \\tag*{[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[cont.]#2: Light incident at point B should be totally reflected."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{gather}\nn_1\\mathit{sin}\\theta_2 > n_2\\sin\\,(90°) \\notag\\\\\n\\theta_2 > \\mathit{sin}^{-1}\\frac{1.0}{1.5} = 41.81° \\tag*{[0.3pt]}\n\\end{gather}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The condition for angle q"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(>\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 41.81"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "o"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using Snell's Law "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\theta > \\mathit{sin}^{-1}\\frac{1.5}{1.4}\\sin\\,(41.81°) = 45.58° \\tag*{[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore, the incident angle, q, where light is totally reflected back to the polymer is 45.58"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "o"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(<\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " q "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(<\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 53"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "o"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [0.4pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(i)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.6pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "When right end of rod is coated with oil with n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(_4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 1.6, condition #2 changes. [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Light incident on point B will always be refracted. [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Light CANNOT be totally reflected back to the polymer. [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(ii)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.9pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "When the setup is placed in water, "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "n"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(_\\mathbf{2}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " = 1.33"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Both condition #1 and #2 change. [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "#1: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\phi_1 > \\mathit{sin}^{-1}\\frac{1.33}{1.5} = 62.46° \\tag*{[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "θ"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(<\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 90"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "o"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 62.46"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "o"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 27.54"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "o"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using Snell’s law, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\theta < \\mathit{sin}^{-1}\\frac{1.5}{1.4}\\sin\\,(27.54°) = 29.7°\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "#2: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\theta_2 > \\mathit{sin}^{-1}\\frac{1.33}{1.5} = 62.46°\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using Snell’s law, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\theta > \\mathit{sin}^{-1}\\frac{1.5}{1.4}\\sin\\,(62.46°) = 71.81° \\tag*{[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As conditions #1 and #2 does not overlap. [0.1pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Again, light CANNOT be totally reflected back to the polymer. [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C: Light Propagation Through an Optical Fibre"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[2.0pt]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2024-t2/5c4c108e085ef7d431a5.png",
+                "alt": "apho-2024-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In order for light to not refractive out from the fiber, the angle of refraction that the light makes with the normal of the fiber core/cladding boundary needs to be 90"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "o"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Using Snell’s law, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nn_1\\mathit{sin}\\phi_c = n_2\\sin\\,(90°)\\quad\\text{.....\\,(1)} \\tag*{[0.4pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Taking the square of eq. (1), we have, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[n_1^2\\mathit{sin}^2\\phi_c = n_2^2\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using the trigonometry identity, we have, [0.2pt] "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[n_1^2(1 - \\mathit{cos}^2\\phi_c) = n_2^2\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Rearranging, we got,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[cont.]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[n_1^2\\mathit{cos}^2\\phi_c = n_1^2 - n_2^2\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Or, [0.2pt] "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[n_1^2\\mathit{sin}^2\\theta_c = n_1^2 - n_2^2\\quad\\text{.......(2)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Taking the square root of eq. (2), we have, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nn_1\\mathit{sin}\\theta_c = \\sqrt{n_1^2 - n_2^2} \\tag*{[0.4pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "With this, we can use Snell’s law to calculate the maximum angle of light incident, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nn_3\\mathit{sin}\\theta_a = n_1\\mathit{sin}\\theta_c = \\sqrt{n_1^2 - n_2^2} \\tag*{[0.4pt]}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\theta_a = \\mathit{sin}^{-1}\\frac{\\sqrt{n_1^2-n_2^2}}{n_3} \\tag*{[0.4pt]}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "or"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_a = \\sin^{-1}\\sqrt{{n_1}^2 - {n_2}^2}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[2.6pt]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2024-t2/fd4e14b22ed5bf0354c4.png",
+                "alt": "apho-2024-t2 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "- Identifying the correct relationship between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi'_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " [0.4pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "- Find the relationship between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi_{\\mathrm{c}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi_{\\mathrm{c}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "’:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "- Using the Law of Sine, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\mathit{sin}\\phi_c = \\frac{\\mathit{CB}}{\\mathit{CA}}\\mathit{sin}(\\pi - \\phi_c{}') \\tag*{[0.4pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "- For light guiding at point A,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin\\phi_c = \\frac{n_2}{n_1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " [0.4pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "CB = 10000"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "25 = 9975"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "m"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "CA = 10000+25 = 10025"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "m [0.4pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[cont.]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathit{sin}(\\pi - \\phi_c{}') = \\sin(\\phi'_c)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\sin(\\phi'_c) = \\frac{10025n_2}{9975n_1} \\tag*{[0.4pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Rearrange into eq.(1) and derive following part (a): "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{gather}\na.n_1\\sin(\\phi'_c) = n_2,\\qquad \\mathit{where}\\ a = \\frac{9975}{10025} \\notag\\\\\na^2\\,n_1^2\\sin^2(\\phi'_c) = n_2^2 \\notag\\\\\na^2n_1^2(1 - \\mathit{cos}^2\\phi'{}_c) = n_2^2 \\tag*{[0.4pt]}\\\\\na^2n_1^2\\mathit{cos}^2\\phi'{}_c = a^2n_1^2 - n_2^2 \\notag\\\\\na^2n_1^2\\mathit{sin}^2\\theta'{}_c = a^2n_1^2 - n_2^2 \\notag\\\\\nn_1\\mathit{sin}\\theta'{}_c = \\frac{1}{a}\\sqrt{a^2n_1^2 - n_2^2} \\notag\n\\end{gather}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "To calculate the new angle of acceptance, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{gather}\nn_3\\mathit{sin}\\theta'{}_a = n_1\\mathit{sin}\\theta'{}_c = \\tfrac{1}{a}\\sqrt{a^2n_1^2 - n_2^2} \\notag\\\\\n\\theta'{}_a = \\mathit{sin}^{-1}\\left(\\tfrac{10025}{9975n_3}\\sqrt{a^2n_1^2 - n_2^2}\\right) \\tag*{[0.2pt]}\n\\end{gather}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "For case C.1: State that n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(_3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 1; "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\sqrt{n_1^2 - n_2^2} = \\sqrt{1.45^2 - 1.44^2} = 0.17 \\tag*{[0.1pt]}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\theta_a = \\mathit{sin}^{-1}0.17 = 9.79^0 \\tag*{[0.1pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For case C.2: Substitute, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\theta'{}_a &= \\mathit{sin}^{-1}\\left(\\frac{10025}{9975}\\sqrt{\\left(\\tfrac{9975}{10025}\\right)^2 1.45^2 - 1.44^2\\ }\\right) \\tag*{[0.1pt]}\\\\\n&= 5.15° \\tag*{[0.1pt]}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Snell's Law\n\n\nPart A: Light Propagation Through a Semi-Sphere\n\n\nA.1\n \n[0.5pt]\nUsing Snell’s law, larger angle of refraction corresponds to larger refractive index that the light sees in the semi-sphere (n\n\\(_1\\)\n). [0.2pt]\n\n\nThis means that the colour with a smaller angle of refraction propagates faster in the semi-sphere, which is colour \na\n. [0.3pt]\n\n\nA.2\n \n[1.0pt]\nThe light rays no longer exit the bottom of semi-sphere when the ray is refracted by 90\no\n with respect to the normal. [0.2pt]\n\n\nUsing Snell’s law, \n\\[\\begin{equation}\nn_x\\mathit{sin}\\theta_i = n_2\\sin\\,(90°) \\tag*{[0.2pt]}\n\\end{equation}\\]\n\n\nReplace “x” with “a” and “b” for the condition of ray a and ray b, respectively. \n\\[\\begin{gather}\n\\text{For ray a,}\\qquad n_a\\mathit{sin}(50°) = 1.0\\sin\\,(90°) \\notag\\\\\nn_a = 1.305 \\tag*{[0.2pt]}\n\\end{gather}\\]\n \n\\[\\begin{gather}\n\\text{For ray b,}\\qquad n_b\\mathit{sin}(45°) = 1.0\\sin\\,(90°) \\notag\\\\\nn_b = 1.414 \\tag*{[0.2pt]}\n\\end{gather}\\]\n\n\nDifference in refractive index, Δn = \n0.109\n [0.2pt]\n\n\nPart B: Light Propagation Through a Cylindrical Rod\n\n\nB.1\n \n[2.0pt]\nGiven n\n\\(_1\\)\n = 1.5, n\n\\(_2\\)\n = 1.0, n\n\\(_3\\)\n = 1.4,\n\n\n\n\n\n\n\n\n\nIdentify 2 conditions that need to be obeyed: [0.2pt]\n\n\n#1: Light incident at point A should be totally reflected.\n \n\\[\\begin{gather}\nn_1\\mathit{sin}\\phi_1 > n_2\\sin\\,(90°) \\notag\\\\\n\\phi_1 > \\mathit{sin}^{-1}\\frac{1.0}{1.5} = 41.81° \\tag*{[0.3pt]}\n\\end{gather}\\]\n\n\nThe condition for angle θ\n\\(_1\\)\n \n\\(<\\)\n 90\no\n \n\\(-\\)\n 41.81\no\n = 48.19\no\n [0.2pt]\n\n\nUsing Snell’s law, \n\\[\\begin{equation}\n\\theta < \\mathit{sin}^{-1}\\frac{1.5}{1.4}\\sin\\,(48.19°) = 53° \\tag*{[0.2pt]}\n\\end{equation}\\]\n\n\nB.1\n \n[cont.]#2: Light incident at point B should be totally reflected.\n \n\\[\\begin{gather}\nn_1\\mathit{sin}\\theta_2 > n_2\\sin\\,(90°) \\notag\\\\\n\\theta_2 > \\mathit{sin}^{-1}\\frac{1.0}{1.5} = 41.81° \\tag*{[0.3pt]}\n\\end{gather}\\]\n\n\nThe condition for angle q\n\\(_1\\)\n \n\\(>\\)\n 41.81\no\n [0.2pt]\n\n\nUsing Snell's Law \n\\[\\begin{equation}\n\\theta > \\mathit{sin}^{-1}\\frac{1.5}{1.4}\\sin\\,(41.81°) = 45.58° \\tag*{[0.2pt]}\n\\end{equation}\\]\n\n\nTherefore, the incident angle, q, where light is totally reflected back to the polymer is 45.58\no\n \n\\(<\\)\n q \n\\(<\\)\n 53\no\n. [0.4pt]\n\n\nB.2\n \n(i)\n \n[0.6pt]\nWhen right end of rod is coated with oil with n\n\\(_4\\)\n = 1.6, condition #2 changes. [0.2pt]\n\n\nLight incident on point B will always be refracted. [0.2pt]\n\n\nLight CANNOT be totally reflected back to the polymer. [0.2pt]\n\n\nB.2\n \n(ii)\n \n[0.9pt]\nWhen the setup is placed in water, \nn\n\\(_\\mathbf{2}\\)\n = 1.33\n. Both condition #1 and #2 change. [0.2pt]\n\n\n#1: \n\\[\\begin{equation}\n\\phi_1 > \\mathit{sin}^{-1}\\frac{1.33}{1.5} = 62.46° \\tag*{[0.2pt]}\n\\end{equation}\\]\n\n\nθ\n\\(_1\\)\n \n\\(<\\)\n 90\no\n \n\\(-\\)\n 62.46\no\n = 27.54\no\n\n\nUsing Snell’s law, \n\\[\\theta < \\mathit{sin}^{-1}\\frac{1.5}{1.4}\\sin\\,(27.54°) = 29.7°\\]\n\n\n#2: \n\\[\\theta_2 > \\mathit{sin}^{-1}\\frac{1.33}{1.5} = 62.46°\\]\n\n\nUsing Snell’s law, \n\\[\\begin{equation}\n\\theta > \\mathit{sin}^{-1}\\frac{1.5}{1.4}\\sin\\,(62.46°) = 71.81° \\tag*{[0.2pt]}\n\\end{equation}\\]\n\n\nAs conditions #1 and #2 does not overlap. [0.1pt]\n\n\nAgain, light CANNOT be totally reflected back to the polymer. [0.2pt]\n\n\nPart C: Light Propagation Through an Optical Fibre\n\n\nC.1\n \n[2.0pt]\n\n\n\n\n\n\n\n\n\nIn order for light to not refractive out from the fiber, the angle of refraction that the light makes with the normal of the fiber core/cladding boundary needs to be 90\no\n. Using Snell’s law, \n\\[\\begin{equation}\nn_1\\mathit{sin}\\phi_c = n_2\\sin\\,(90°)\\quad\\text{.....\\,(1)} \\tag*{[0.4pt]}\n\\end{equation}\\]\n\n\nTaking the square of eq. (1), we have, \n\\[n_1^2\\mathit{sin}^2\\phi_c = n_2^2\\]\n\n\nUsing the trigonometry identity, we have, [0.2pt] \n\\[n_1^2(1 - \\mathit{cos}^2\\phi_c) = n_2^2\\]\n\n\nRearranging, we got,\n\n\nC.1\n \n[cont.]\n \n\\[n_1^2\\mathit{cos}^2\\phi_c = n_1^2 - n_2^2\\]\n\n\nOr, [0.2pt] \n\\[n_1^2\\mathit{sin}^2\\theta_c = n_1^2 - n_2^2\\quad\\text{.......(2)}\\]\n\n\nTaking the square root of eq. (2), we have, \n\\[\\begin{equation}\nn_1\\mathit{sin}\\theta_c = \\sqrt{n_1^2 - n_2^2} \\tag*{[0.4pt]}\n\\end{equation}\\]\n\n\nWith this, we can use Snell’s law to calculate the maximum angle of light incident, \n\\[\\begin{equation}\nn_3\\mathit{sin}\\theta_a = n_1\\mathit{sin}\\theta_c = \\sqrt{n_1^2 - n_2^2} \\tag*{[0.4pt]}\n\\end{equation}\\]\n \n\\[\\begin{equation}\n\\theta_a = \\mathit{sin}^{-1}\\frac{\\sqrt{n_1^2-n_2^2}}{n_3} \\tag*{[0.4pt]}\n\\end{equation}\\]\n \nor\n \n\\(\\theta_a = \\sin^{-1}\\sqrt{{n_1}^2 - {n_2}^2}\\)\n\n\nC.2\n \n[2.6pt]\n\n\n\n\n\n\n\n\n\n- Identifying the correct relationship between \n\\(\\phi_c\\)\nand \n\\(\\phi'_c\\)\n [0.4pt]\n\n\n- Find the relationship between \n\\(\\phi_{\\mathrm{c}}\\)\n and \n\\(\\phi_{\\mathrm{c}}\\)\n’:\n\n\n- Using the Law of Sine, \n\\[\\begin{equation}\n\\mathit{sin}\\phi_c = \\frac{\\mathit{CB}}{\\mathit{CA}}\\mathit{sin}(\\pi - \\phi_c{}') \\tag*{[0.4pt]}\n\\end{equation}\\]\n\n\n- For light guiding at point A,\n\n\n\\(\\sin\\phi_c = \\frac{n_2}{n_1}\\)\n [0.4pt]\n\n\nCB = 10000\n\\(-\\)\n25 = 9975\n \n\\(\\mu\\)\nm\n\n\nCA = 10000+25 = 10025\n \n\\(\\mu\\)\nm [0.4pt]\n\n\nC.2\n \n[cont.]\n \n\\[\\mathit{sin}(\\pi - \\phi_c{}') = \\sin(\\phi'_c)\\]\n\n\nTherefore, \n\\[\\begin{equation}\n\\sin(\\phi'_c) = \\frac{10025n_2}{9975n_1} \\tag*{[0.4pt]}\n\\end{equation}\\]\n\n\nRearrange into eq.(1) and derive following part (a): \n\\[\\begin{gather}\na.n_1\\sin(\\phi'_c) = n_2,\\qquad \\mathit{where}\\ a = \\frac{9975}{10025} \\notag\\\\\na^2\\,n_1^2\\sin^2(\\phi'_c) = n_2^2 \\notag\\\\\na^2n_1^2(1 - \\mathit{cos}^2\\phi'{}_c) = n_2^2 \\tag*{[0.4pt]}\\\\\na^2n_1^2\\mathit{cos}^2\\phi'{}_c = a^2n_1^2 - n_2^2 \\notag\\\\\na^2n_1^2\\mathit{sin}^2\\theta'{}_c = a^2n_1^2 - n_2^2 \\notag\\\\\nn_1\\mathit{sin}\\theta'{}_c = \\frac{1}{a}\\sqrt{a^2n_1^2 - n_2^2} \\notag\n\\end{gather}\\]\n\n\nTo calculate the new angle of acceptance, \n\\[\\begin{gather}\nn_3\\mathit{sin}\\theta'{}_a = n_1\\mathit{sin}\\theta'{}_c = \\tfrac{1}{a}\\sqrt{a^2n_1^2 - n_2^2} \\notag\\\\\n\\theta'{}_a = \\mathit{sin}^{-1}\\left(\\tfrac{10025}{9975n_3}\\sqrt{a^2n_1^2 - n_2^2}\\right) \\tag*{[0.2pt]}\n\\end{gather}\\]\n\n\nC.3\n \n[0.4pt]\nFor case C.1: State that n\n\\(_3\\)\n = 1; \n\\[\\begin{equation}\n\\sqrt{n_1^2 - n_2^2} = \\sqrt{1.45^2 - 1.44^2} = 0.17 \\tag*{[0.1pt]}\n\\end{equation}\\]\n \n\\[\\begin{equation}\n\\theta_a = \\mathit{sin}^{-1}0.17 = 9.79^0 \\tag*{[0.1pt]}\n\\end{equation}\\]\n\n\nFor case C.2: Substitute, \n\\[\\begin{align}\n\\theta'{}_a &= \\mathit{sin}^{-1}\\left(\\frac{10025}{9975}\\sqrt{\\left(\\tfrac{9975}{10025}\\right)^2 1.45^2 - 1.44^2\\ }\\right) \\tag*{[0.1pt]}\\\\\n&= 5.15° \\tag*{[0.1pt]}\n\\end{align}\\]\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2024-t2/71a77fcd3d860ee09109.png",
+      "/corpus/figures/native/bulk/apho-2024-t2/5c4c108e085ef7d431a5.png",
+      "/corpus/figures/native/bulk/apho-2024-t2/fd4e14b22ed5bf0354c4.png"
+    ],
+    "shared": false
+  }
+}

@@ -1,1 +1,4432 @@
-{"id":"apho-2019-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2019_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2019_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2019-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Theory\nQ3-1\nEnglish (Oﬃcial)\nTippe top\nPart A (10.0 points)\nA Tippe top is a special kind of top that can spontaneously invert once it has been set spinning. One\ncan model a Tippe top as a sphere of radius 𝑅that is truncated, with a stem added. It has rotational\nsymmetry about an axis through the stem, which is at angle 𝜃from the vertical. As shown in Figure 1(a),\nits centre of mass 𝐶is offset from its geometric centre 𝑂by 𝛼𝑅along its symmetry axis. The Tippe top\nmakes contact with the surface it rests on at point 𝐴; we assume this surface is planar, and refer to it as\nthe ﬂoor. Given certain geometrical constraints and if spun fast enough initially, the Tippe top will tip so\nthat the stem points increasingly downwards, until it starts to spin on in its stem, and eventually comes\nto a stop.\nFigure 1. Views of the Tippe top (a) from the side and (b) from above\nLet 𝑥𝑦𝑧be the rotating reference frame deﬁned such that\n̂z is stationary and upwards, and the top's\nsymmetry axis is within the 𝑥𝑧-plane. Two views of the Tippe top are shown in Figure 1: from the side,\nand from above. As shown in Figure 1(b), the top's symmetry axis is aligned with the 𝑥-axis when viewed\nfrom above.\nFigure 2 shows the top's motion at several phases after it is started spinning:\n(a) phase I: immediately after it is initially set spinning, with 𝜃∼0\n(b) phase II: soon after, having tipped to angle 0 < 𝜃< 𝜋\n2\n(c) phase III: when the stem ﬁrst touches the ﬂoor, with 𝜃> 𝜋\n2\n(d) phase IV: after inversion, when the top is spinning on its stem, with 𝜃∼𝜋\n(e) phase V: in its ﬁnal state, at rest on its stem 𝜃= 𝜋.\n\nTheory\nQ3-2\nEnglish (Oﬃcial)\nFigure 2. Phases I to V of the Tippe top's motion, shown in the 𝑥𝑧-plane\nLet 𝑋𝑌𝑍be the inertial frame, where the surface the top is on is wholly in the 𝑋𝑌-plane. The frame 𝑥𝑦𝑧\nis deﬁned as above, and reached from 𝑋𝑌𝑍via rotation around the 𝑍axis by 𝜙. The transformation\nfrom the 𝑋𝑌𝑍frame to frame 𝑥𝑦𝑧is shown in Figure 3(a). In particular, ̂z =\n̂Z.\nFigure 3. Transformations between reference frames: (a) to 𝑥𝑦𝑧from 𝑋𝑌𝑍, and (b) to 123\nfrom 𝑥𝑦𝑧\nAny rotational motion in 3-dimensional space can be described by the three Euler angles (𝜃, 𝜙, 𝜓). The\ntransformations between the inertial frame 𝑋𝑌𝑍, the intermediate frame 𝑥𝑦𝑧, and the top's frame 123\ncan be understood in terms of these Euler angles.\nIn our description of the Tippe top's motion, the angles 𝜃and 𝜙are the standard zenith and azimuthal\nangles respectively, in spherical polar coordinates. In the 𝑋𝑌𝑍frame they are deﬁned as follows: 𝜃is\nthe angle of the top's symmetry axis from the vertical 𝑍-axis, representing how far from vertical its stem\nis, while 𝜙represents the top's angular position about the 𝑍-axis, and is deﬁned as the angle between\nthe 𝑋𝑍-plane and the plane through points 𝑂, 𝐴, 𝐶(i.e. the vertical projection of the top's symmetry\naxis).\nThe third Euler angle 𝜓describes the rotation of the top about its own symmetry axis, i.e. its 'spin', which\nhas angular velocity\ṅ𝜓.\nThe reference frame of the spinning top is deﬁned as a new rotating frame 123, which is reached by rotat-\ning 𝑥𝑦𝑧by 𝜃around ̂y: 'tilting' the ̂z-axis down by 𝜃to meet the top's symmetry axis ̂3. The transformation\nfrom the 𝑥𝑦𝑧frame to the 123 frame is shown in Figure 3(b). In particular,\n̂2 =\n̂y.\n\nTheory\nQ3-3\nEnglish (Oﬃcial)\nNOTE: For a reference frame ̃K rotating in inertial frame K with angular velocity 𝜔, the time deriva-\ntives of a vector A within both frames K and ̃K are related via:\n(𝜕A\n𝜕𝑡)\nK\n= (𝜕A\n𝜕𝑡)\ñK\n+ 𝜔× A\n(1)\nThe motion that a Tippe top undergoes is complex, involving the time evolution of the three Euler angles,\nas well the translational velocities (or positions) and the motion of the top's symmetry axis. All of these\nparameters are coupled. To solve for the motion of a Tippe top, one would use standard tools including\nNewton's laws to prepare the system of equations, then program a computer to solve them numerically\nvia simulation.\nIn this question, you will perform the ﬁrst part of this process, investigating the physics of the Tippe top\nto set up the system of equations.\nFriction between the Tippe top and the surface it is moving on drives the motion of the Tippe top. Assume\nthat the top remains in contact with the ﬂoor at point 𝐴, until such time as the stem contacts the ﬂoor. It\nis in motion at point 𝐴with velocity v𝐴relative to the ﬂoor. The frictional coeﬃcient 𝜇𝑘between the top\nand ﬂoor is kinetic, with |Ff| = 𝜇𝑘𝑁, where F𝑓= 𝐹𝑓,𝑥̂x+𝐹𝑓,𝑦̂y is the frictional force, and 𝑁is the magnitude\nof the normal force. Assume that the top is initially set spinning only, i.e. there is no translational impulse\ngiven to the top.\nLet the mass of the Tippe top be 𝑚. Its moments of inertia are: 𝐼3 about the axis of symmetry is, and\n𝐼1 = 𝐼2 about the mutually perpendicular principal axes. Let s be the position vector of the centre of\nmass, and a = ⃗⃗⃗⃗⃗⃗⃗⃗⃗⃗⃗⃗\n𝐶𝐴be the vector from the centre of mass to the point of contact.\nUnless otherwise speciﬁed, give your answers in the 𝑥𝑦𝑧reference frame for full marks. All torques and\nangular momentum are considered about the centre of mass 𝐶, unless otherwise speciﬁed. You may\ngive your answers in terms of 𝑁. Except for part A.8, you need only consider the top where 𝜃< 𝜋\n2 , and\nthe stem is not in contact with the ﬂoor.\nA.1\nFind the total external force Fext on the Tippe top. Draw a free body diagram of\nthe top, projected onto each of the 𝑥𝑧- and 𝑥𝑦-planes. Indicate the direction of\nv𝐴in the space provided, on your diagram in the 𝑥𝑦-plane.\n1pt\nA.2\nFind the total external torque 𝜏ext on the Tippe top about the centre of mass.\n0.8pt\nA.3\nGiven the contact condition, i.e. (s + a) ⋅\n̂𝑧= 0, show that the velocity at 𝐴has\nno component in the 𝑧-direction, i.e. we can write v𝐴= 𝑣𝑥̂x + 𝑣𝑦̂y.\n0.4pt\nA.4\nFind the total angular velocity 𝜔of the rotating top about its centre of mass 𝐶\nin terms of the time derivatives of the Euler angles:\ṅ𝜃= 𝑑𝜃\n𝑑𝑡,\ṅ𝜙= 𝑑𝜙\n𝑑𝑡, and\ṅ𝜓= 𝑑𝜓\n𝑑𝑡.\nUse Figure 3 if this is helpful. Give your answer in the 𝑥𝑦𝑧frame, and in the 123\nframe.\n0.8pt\nA.5\nFind the total energy of a spinning Tippe top, in terms of time derivatives of the\nEuler angles, 𝑣𝑥, and 𝑣𝑦. For partial marks, you may leave your answer in terms\nof ̇s = 𝑑s\n𝑑𝑡.\n1pt\n\nTheory\nQ3-4\nEnglish (Oﬃcial)\nA.6\nFind the rate of change of the angular momentum about the 𝑧-axis.\n0.4pt\nA.7\nWhich force(s) do work against gravity? Find an expression for the instanta-\nneous rate of change of the top's energy - you may leave your answer in terms\nof v𝐴. Identify and identify the components of the force and the torque that\ncause the change(s) in energy terms in A.5.\n1.4pt\nA.8\nQualitatively sketch the following energy terms in the answer sheet as a func-\ntion of time, over the top's motion through the ﬁve phases I to V shown in Figure\n2: the total energy 𝐸𝑇, gravitational potential energy 𝑈𝐺, translational kinetic\nenergy 𝐾𝑇, and rotational kinetic energy 𝐾𝑅. The energy axes of your sketches\nare not required to be to scale.\n2pt\nA.9\nShow that the components of the angular momentum L and angular velocity 𝜔\nthat are perpendicular to the ̂3 direction are proportional, i.e.\nL × ̂3 = 𝑘(𝜔× ̂3),\n(2)\nand ﬁnd the proportionality constant 𝑘.\n0.5pt\nCombining your answers to A.1 and A.2 with subsequent results will give you the magnitude 𝑁of the\nnormal force, as well as a system of equations, relating the Euler angles, the components 𝑣𝑥and 𝑣𝑦of\nthe velocity at 𝐴, the unit vector for the axis of symmetry ̂3, and their time derivatives. This system is not\nintegrable, but instead could be solved numerically.\nIntegrals of motion are quantities which remain constant, and can reduce the dimensionality of the sys-\ntem (i.e. number of simultaneous equations to solve, whether analytically or numerically). Typically\nquantities such as energy, momentum, and angular momentum are conserved in closed systems, and\nsigniﬁcantly simplify the problem.\nA.10\nAs you have seen, neither the energy nor the angular momentum are conserved\nfor a Tippe top, due to a dissipative force and external torque. However, there is\na related quantity known as Jellett's integral 𝜆, which represents a component of\nthe angular momentum that is conserved, i.e. some vector v. such that 𝜆= L⋅v\nis constant in time.\n \nUse your understanding of the Tippe top and results found to far, to give an\nexpression for such a vector v. Show that the time derivative of 𝜆is zero.\n1.7pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2019-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Theory\nQuestion 3: Tippe Top\nSolutions\nReference sheet for markers\nNote: some results below were used for the previous version of part A.10, and are no longer needed.\nCoordinate systems for convenience (note: use of matrices not needed) xyz from XY Z\n\n\nˆx\nˆy\nˆz\n\n=\n\n\ncos φ\nsin φ\n0\n−sin φ\ncos φ\n0\n0\n0\n1\n\n\n\n\nˆX\nˆY\nˆZ\n\n\n123 from xyz\n\n\nˆ1\nˆ2\nˆ3\n\n=\n\n\ncos θ\n0\n−sin θ\n0\n1\n0\nsin θ\n0\ncos θ\n\n\n\n\nˆx\nˆy\nˆz\n\n\nPosition of point A from centre of mass, in xyz and 123 frames:\na = αRˆ3 −Rˆz\n(1)\n= αR sin θˆx + R(α cos θ −1)ˆz\n= R sin θˆ1 + R(α −cos θ)ˆ3\nUseful products:\nˆz × ˆ3 = sin θˆy\n(2)\n(3)\nNote (given in question):\n\u0012∂A\n∂t\n\u0013\nK\n=\n\u0012∂A\n∂t\n\u0013\ne\nK\n+ ω × A\n(4)\nTime derivatives:\n˙ˆ3 = ω × ˆ3\n(5)\n˙ˆx = ˙φˆy\n(6)\n˙ˆy = −˙φˆx\n(7)\n1\n\nSolutions: Tippe Top\n1. (1.0 marks)\nFree body diagrams:\nx\nz\nmg\nFfr\nN\nmg\nN\nFfr\nvA\nx\ny\nNote: the direction of Ff must be opposite to the direction of vA, but is otherwise unimportant. Sum of\nforces:\nFext = (N −mg)ˆz + Ff\n(suﬃcient for full marks)\n(8)\n= (N −mg)ˆz −µkN\n|vA| vA\nSketched vA must be in opposite direction to Ff on xy diagram.\n2. (0.8 marks)\nSum of torques:\nτ ext = a × (Nˆz + Ff)\n(9)\n= (αRˆ3 −Rˆz) × (Nˆz + Ff,xˆx + Ff,yˆy)\n= αRNˆ3 × ˆz + αR(sin θˆx + cos θˆz) × (Ff,xˆx + Ff,yˆy) −Rˆz × (Ff,xˆx + Ff,yˆy)\n= −αRN sin θˆy + αR sin θFf,yˆz + αR cos θFf,xˆy −αR cos θFf,yˆx −RFf,xˆy + RFf,xˆx\n= RFf,y(1 −α cos θ)ˆx + [RFf,x(α cos θ −1) −αRN sin θ] ˆy + αR sin θFf,yˆz\n(10)\n3. (0.4 marks)\nMotion at A satisﬁes\nvA = ˙s + ω × a\n(11)\nwhere ω is the total angular velocity of the top in the centre of mass frame (this is deteremined in the\nnext part). Want to show that vA · ˆz = 0.\nTo show this, take time derivative of contact condition in XY Z or xyz frame (note: either is suitable, as\n2\n\nwe only need the ˆz component, and ˆz = ˆZ).\nContact condition:\n(s + a) · ˆz = 0\nat all times\n(12)\n⇒d\ndt (s + a) · ˆz = 0\nat all times\nNote we only care about the z-component, and (ω × ˆz) · ˆz = 0. Then, using 11, 1, and 5,\nvA · ˆz = (˙s + ω × a) · ˆz\n=\n\u0000˙s + αRω × ˆ3\n\u0001\n· ˆz\n=\n \n˙s + αRdˆ3\ndt\n!\n· ˆz\n= (˙s + ˙a) · ˆz = 0\n(13)\n4. (0.8 marks)\nTotal angular velocity ω of top is the sum of three distinct rotations:\nω = ˙θˆ2 + ˙φˆz + ˙ψˆ3\nUse transformations shown in ﬁgure 3 or otherwise to transform into xyz or 123 frame:\nω = ˙ψ sin θˆx + ˙θˆy + ( ˙ψ cos θ + ˙φ)ˆz\n(14)\nω = −˙φ sin θˆ1 + ˙θˆ2 + ( ˙ψ + ˙φ cos θ)ˆ3\n(15)\n5. (1.0 marks)\nWhere I is the inertia tensor\n\n\nI1\n0\n0\n0\nI1\n0\n0\n0\nI3,\n\n\nwe have\nET = KT + KR + UG\n= 1\n2ω · Iω + 1\n2m˙s2 + mgR(1 −α cos θ)\nFrom 11,\n˙s = vA −ω × a\n= vA −( ˙θˆ2 + ˙φˆz + ˙ψˆ3) × (αRˆ3 −Rˆz)\n= vxˆx + vyˆy −\n\u0010\n˙θαRˆ1 −˙θRˆz + ˙φαRˆz × ˆ3 −˙ψRˆ3 × ˆz\n\u0011\n=\n\u0010\nvx + ˙θR(1 −α cos θ)\n\u0011\nˆx +\n\u0010\nvy −R sin θ(α ˙φ + ˙ψ)\n\u0011\nˆy + ˙θαR sin θˆz\nusing 2. Thus\nET = 1\n2\nh\nI1( ˙φ2 sin2 θ + ˙θ2) + I3( ˙ψ + ˙φ cos θ)2i\n+ m\n2\n\u0014\u0010\nvx + ˙θR(1 −α cos θ)\n\u00112\n+\n\u0010\nvy −R sin θ(α ˙φ + ˙ψ)\n\u00112\n+ ˙θ2α2R2 sin2 θ\n\u0015\n+ mgR(1 −α cos θ)\n3\n\n6. (0.4 marks)\nFrom 10,\ndL\ndt · ˆz =\nX\nτ · ˆz = αR sin θFf,y\n(16)\n7. (1.4 marks)\nChanges in energy: h = s · ˆz increases, so\n˙\nUG > 0.\nAt start and end (phases I and V) there is little translation so KT ∼0 at I and V. Thus, energy\ntransfer is from KR to UG.\nNormal force does no work. Frictional force does work at point A. Direction is −vA:\nW =\nZ\nFf · vA dt < 0\n⇒d\ndtET = −µkN|vA|\nThus Ff decreases the total energy monotonically.\n16 implies only the Ff.ˆy acts to decrease L · ˆz.\nEnergy transfer from KR to UG, caused by compo-\nnent of frictional force in ˆy direction, so component of resultant torque is in the a × ˆy direction.\n8. (2.0 marks)\nExpectation (see ﬁgure):\n• ET : monotonically decreasing\n• KR:\nmonotonically decreasing;\nzero at V\n• KT: zero at I and V; higher be-\ntween; close to zero at IV\n• UG: ﬂat at start and ﬁnish; higher\nat end; increases from I to IV then\nﬂat;\nincrease roughly at same\ntime that Krot decreases\nt\n(I)\n(II)\n(III) (IV)\n(V)\nET\nt\n(I)\n(II)\n(III) (IV)\n(V)\nUG\nt\n(I)\n(II)\n(III) (IV)\n(V)\nKT\nt\n(I)\n(II)\n(III) (IV)\n(V)\nKR\nmonotonically decreasing\nconstant, =UG\non stem\nrising\nnon-zero\nat rest\nspinning slows\nspinning upright,\nso KT is small\n4\n\n9. (0.5 marks)\nFrom 15,\nL = Iω = I1\n\u0010\n−˙φ sin θˆ1 + ˙θˆ2\n\u0011\n+ I3( ˙ψ + ˙φ cos θ)ˆ3\n(17)\nTaking cross product with ˆ3:\nL × ˆ3 = I1\n\u0010\n˙φ sin θˆ2 + ˙θˆ1\n\u0011\n= I1(ω × ˆ3)\n(18)\n10. (1.7 marks)\nAbout any axis through the centre of mass,\ndL\ndt ̸= 0 ⇔τext ̸= 0\nExternal torque given by 9,\nτ ext = a × (Nˆz + Ff)\n⇒τext · a = 0\ndL\ndt · a = 0\nThus, angular momentum in the direction of a must be constant, so v = a.\nTo demonstrate this mathematically, 5, 10, 18 allow\n−˙λ = dL\ndt · a + αRL · dˆ3\ndt\n= (a × (Nˆz + Ff)) · a + αR\nI1\nL · (ω × L)\n= 0\n5\n","textExtraction":"available"}}
+{
+  "id": "apho-2019-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2019_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2019_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2019-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Tippe top"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A (10.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A Tippe top is a special kind of top that can spontaneously invert once it has been set spinning. One can model a Tippe top as a sphere of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that is truncated, with a stem added. It has rotational symmetry about an axis through the stem, which is at angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the vertical. As shown in Figure 1(a), its centre of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is offset from its geometric centre "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(O\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " along its symmetry axis. The Tippe top makes contact with the surface it rests on at point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "; we assume this surface is planar, and refer to it as the floor. Given certain geometrical constraints and if spun fast enough initially, the Tippe top will tip so that the stem points increasingly downwards, until it starts to spin on in its stem, and eventually comes to a stop."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2019-t3/8288f01308ed43a7c520.png",
+                "alt": "apho-2019-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1. Views of the Tippe top (a) from the side and (b) from above"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xyz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the rotating reference frame defined such that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\mathbf{z}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is stationary and upwards, and the top’s symmetry axis is within the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-plane. Two views of the Tippe top are shown in Figure 1: from the side, and from above. As shown in Figure 1(b), the top’s symmetry axis is aligned with the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis when viewed from above."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 2 shows the top’s motion at several phases after it is started spinning:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(a) "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "phase I:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " immediately after it is initially set spinning, with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta \\sim 0\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(b) "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "phase II:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " soon after, having tipped to angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0 < \\theta < \\frac{\\pi}{2}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(c) "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "phase III:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " when the stem first touches the floor, with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta > \\frac{\\pi}{2}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(d) "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "phase IV:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " after inversion, when the top is spinning on its stem, with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta \\sim \\pi\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(e) "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "phase V:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in its final state, at rest on its stem "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta = \\pi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2019-t3/ae35ce92792c980d15ed.png",
+                "alt": "apho-2019-t3 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 2. Phases "
+              },
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "I"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " to "
+              },
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "V"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " of the Tippe top’s motion, shown in the "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(xz\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "-plane"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(XYZ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the inertial frame, where the surface the top is on is wholly in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(XY\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-plane. The frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xyz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is defined as above, and reached from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(XYZ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " via rotation around the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " . The transformation from the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(XYZ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " frame to frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xyz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is shown in Figure 3(a). In particular, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\mathbf{z}} = \\hat{\\mathbf{Z}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2019-t3/48326af7bfd13b77804a.png",
+                "alt": "apho-2019-t3 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 3. Transformations between reference frames: (a) to "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(xyz\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " from "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(XYZ\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " , and (b) to "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(123\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " from "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(xyz\\)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Any rotational motion in 3-dimensional space can be described by the three Euler angles "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\theta, \\phi, \\psi)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The transformations between the inertial frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(XYZ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the intermediate frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xyz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the top’s frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(123\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be understood in terms of these Euler angles."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In our description of the Tippe top’s motion, the angles "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are the standard zenith and azimuthal angles respectively, in spherical polar coordinates. In the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(XYZ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " frame they are defined as follows: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the angle of the top’s symmetry axis from the vertical "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis, representing how far from vertical its stem is, while "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " represents the top’s angular position about the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis, and is defined as the angle between the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(XZ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-plane and the plane through points "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(O,\\ A,\\ C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (i.e. the vertical projection of the top’s symmetry axis)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The third Euler angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\psi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " describes the rotation of the top about its own symmetry axis, i.e. its ’spin’, which has angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{\\psi}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The reference frame of the spinning top is defined as a new rotating frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(123\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which is reached by rotating "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xyz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " around "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\mathbf{y}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": ’tilting’ the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\mathbf{z}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis down by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to meet the top’s symmetry axis "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\mathbf{3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The transformation from the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xyz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " frame to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(123\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " frame is shown in Figure 3(b). In particular, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\mathbf{2}} = \\hat{\\mathbf{y}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "NOTE:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For a reference frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\widetilde{\\mathbf{K}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " rotating in inertial frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\omega}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , the time derivatives of a vector "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{A}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " within both frames "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\widetilde{\\mathbf{K}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are related via: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\left(\\frac{\\partial\\mathbf{A}}{\\partial t}\\right)_\\mathbf{K} = \\left(\\frac{\\partial\\mathbf{A}}{\\partial t}\\right)_{\\widetilde{\\mathbf{K}}} + \\boldsymbol{\\omega} \\times \\mathbf{A} \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The motion that a Tippe top undergoes is complex, involving the time evolution of the three Euler angles, as well the translational velocities (or positions) and the motion of the top’s symmetry axis. All of these parameters are coupled. To solve for the motion of a Tippe top, one would use standard tools including Newton’s laws to prepare the system of equations, then program a computer to solve them numerically via simulation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this question, you will perform the first part of this process, investigating the physics of the Tippe top to set up the system of equations."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Friction between the Tippe top and the surface it is moving on drives the motion of the Tippe top. Assume that the top remains in contact with the floor at point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", until such time as the stem contacts the floor. It is in motion at point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{v}_A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " relative to the floor. The frictional coefficient "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between the top and floor is kinetic, with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\mathbf{F}_\\mathbf{f}| = \\mu_k N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{F}_f = F_{f,x}\\hat{\\mathbf{x}}{+}F_{f,y}\\hat{\\mathbf{y}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the frictional force, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the magnitude of the normal force. Assume that the top is initially set spinning only, i.e. there is no translational impulse given to the top."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let the mass of the Tippe top be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Its moments of inertia are: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " about the axis of symmetry is, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_1 = I_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " about the mutually perpendicular principal axes. Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the position vector of the centre of mass, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{a} = \\overrightarrow{CA}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the vector from the centre of mass to the point of contact."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Unless otherwise specified, give your answers in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xyz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " reference frame for full marks. All torques and angular momentum are considered about the centre of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", unless otherwise specified. You may give your answers in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Except for part "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.8"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", you need only consider the top where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta < \\frac{\\pi}{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the stem is not in contact with the floor."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the total external force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{F}_\\text{ext}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the Tippe top. Draw a free body diagram of the top, projected onto each of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "- and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xy\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-planes. Indicate the direction of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{v}_A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the space provided, on your diagram in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xy\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-plane. 1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the total external torque "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\tau}_\\text{ext}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the Tippe top about the centre of mass. 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Given the contact condition, i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\mathbf{s} + \\mathbf{a}) \\cdot \\hat{z} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", show that the velocity at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " has no component in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-direction, i.e. we can write "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{v}_A = v_x\\hat{\\mathbf{x}} + v_y\\hat{\\mathbf{y}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the total angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the rotating top about its centre of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of the time derivatives of the Euler angles: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{\\theta} = \\frac{d\\theta}{dt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{\\phi} = \\frac{d\\phi}{dt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{\\psi} = \\frac{d\\psi}{dt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Use Figure 3 if this is helpful. Give your answer in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xyz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " frame, and in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(123\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " frame. 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the total energy of a spinning Tippe top, in terms of time derivatives of the Euler angles, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". For partial marks, you may leave your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{\\mathbf{s}} = \\frac{d\\mathbf{s}}{dt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the rate of change of the angular momentum about the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis. 0.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.7"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Which force(s) do work against gravity? Find an expression for the instantaneous rate of change of the top’s energy - you may leave your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{v}_A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Identify and identify the components of the force and the torque that cause the change(s) in energy terms in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.8"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Qualitatively sketch the following energy terms in the answer sheet as a function of time, over the top’s motion through the five phases "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "I"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "V"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " shown in Figure 2: the total energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", gravitational potential energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U_G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", translational kinetic energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K_T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and rotational kinetic energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K_R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The energy axes of your sketches are not required to be to scale. 2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.9"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Show that the components of the angular momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{L}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\omega}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that are perpendicular to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\mathbf{3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction are proportional, i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\mathbf{L} \\times \\hat{\\mathbf{3}} = k(\\boldsymbol{\\omega} \\times \\hat{\\mathbf{3}}), \\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and find the proportionality constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Combining your answers to "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with subsequent results will give you the magnitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the normal force, as well as a system of equations, relating the Euler angles, the components "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the velocity at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the unit vector for the axis of symmetry "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\mathbf{3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and their time derivatives. This system is not integrable, but instead could be solved numerically."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Integrals of motion are quantities which remain constant, and can reduce the dimensionality of the system (i.e. number of simultaneous equations to solve, whether analytically or numerically). Typically quantities such as energy, momentum, and angular momentum are conserved in closed systems, and significantly simplify the problem."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.10"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "As you have seen, neither the energy nor the angular momentum are conserved for a Tippe top, due to a dissipative force and external torque. However, there is a related quantity known as Jellett’s integral "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which represents a component of the angular momentum that is conserved, i.e. some vector "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{v}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". such that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda = \\mathbf{L} \\cdot \\mathbf{v}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is constant in time. 1.7pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use your understanding of the Tippe top and results found to far, to give an expression for such a vector "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{v}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Show that the time derivative of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is zero."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Tippe top\n\n\nPart A (10.0 points)\n\n\nA Tippe top is a special kind of top that can spontaneously invert once it has been set spinning. One can model a Tippe top as a sphere of radius \n\\(R\\)\n that is truncated, with a stem added. It has rotational symmetry about an axis through the stem, which is at angle \n\\(\\theta\\)\n from the vertical. As shown in Figure 1(a), its centre of mass \n\\(C\\)\n is offset from its geometric centre \n\\(O\\)\n by \n\\(\\alpha R\\)\n along its symmetry axis. The Tippe top makes contact with the surface it rests on at point \n\\(A\\)\n; we assume this surface is planar, and refer to it as the floor. Given certain geometrical constraints and if spun fast enough initially, the Tippe top will tip so that the stem points increasingly downwards, until it starts to spin on in its stem, and eventually comes to a stop.\n\n\n\n\n\n\n\n\n\n\n\nFigure 1. Views of the Tippe top (a) from the side and (b) from above\n\n\n\n\nLet \n\\(xyz\\)\n be the rotating reference frame defined such that \n\\(\\hat{\\mathbf{z}}\\)\n is stationary and upwards, and the top’s symmetry axis is within the \n\\(xz\\)\n-plane. Two views of the Tippe top are shown in Figure 1: from the side, and from above. As shown in Figure 1(b), the top’s symmetry axis is aligned with the \n\\(x\\)\n-axis when viewed from above.\n\n\nFigure 2 shows the top’s motion at several phases after it is started spinning:\n\n\n(a) \nphase I:\n immediately after it is initially set spinning, with \n\\(\\theta \\sim 0\\)\n\n\n(b) \nphase II:\n soon after, having tipped to angle \n\\(0 < \\theta < \\frac{\\pi}{2}\\)\n\n\n(c) \nphase III:\n when the stem first touches the floor, with \n\\(\\theta > \\frac{\\pi}{2}\\)\n\n\n(d) \nphase IV:\n after inversion, when the top is spinning on its stem, with \n\\(\\theta \\sim \\pi\\)\n\n\n(e) \nphase V:\n in its final state, at rest on its stem \n\\(\\theta = \\pi\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nFigure 2. Phases \nI\n to \nV\n of the Tippe top’s motion, shown in the \n\\(xz\\)\n-plane\n\n\n\n\nLet \n\\(XYZ\\)\n be the inertial frame, where the surface the top is on is wholly in the \n\\(XY\\)\n-plane. The frame \n\\(xyz\\)\n is defined as above, and reached from \n\\(XYZ\\)\n via rotation around the \n\\(Z\\)\n axis by \n\\(\\phi\\)\n . The transformation from the \n\\(XYZ\\)\n frame to frame \n\\(xyz\\)\n is shown in Figure 3(a). In particular, \n\\(\\hat{\\mathbf{z}} = \\hat{\\mathbf{Z}}\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nFigure 3. Transformations between reference frames: (a) to \n\\(xyz\\)\n from \n\\(XYZ\\)\n , and (b) to \n\\(123\\)\n from \n\\(xyz\\)\n\n\n\n\nAny rotational motion in 3-dimensional space can be described by the three Euler angles \n\\((\\theta, \\phi, \\psi)\\)\n. The transformations between the inertial frame \n\\(XYZ\\)\n, the intermediate frame \n\\(xyz\\)\n, and the top’s frame \n\\(123\\)\n can be understood in terms of these Euler angles.\n\n\nIn our description of the Tippe top’s motion, the angles \n\\(\\theta\\)\n and \n\\(\\phi\\)\n are the standard zenith and azimuthal angles respectively, in spherical polar coordinates. In the \n\\(XYZ\\)\n frame they are defined as follows: \n\\(\\theta\\)\n is the angle of the top’s symmetry axis from the vertical \n\\(Z\\)\n-axis, representing how far from vertical its stem is, while \n\\(\\phi\\)\n represents the top’s angular position about the \n\\(Z\\)\n-axis, and is defined as the angle between the \n\\(XZ\\)\n-plane and the plane through points \n\\(O,\\ A,\\ C\\)\n (i.e. the vertical projection of the top’s symmetry axis).\n\n\nThe third Euler angle \n\\(\\psi\\)\n describes the rotation of the top about its own symmetry axis, i.e. its ’spin’, which has angular velocity \n\\(\\dot{\\psi}\\)\n.\n\n\nThe reference frame of the spinning top is defined as a new rotating frame \n\\(123\\)\n, which is reached by rotating \n\\(xyz\\)\n by \n\\(\\theta\\)\n around \n\\(\\hat{\\mathbf{y}}\\)\n: ’tilting’ the \n\\(\\hat{\\mathbf{z}}\\)\n-axis down by \n\\(\\theta\\)\n to meet the top’s symmetry axis \n\\(\\hat{\\mathbf{3}}\\)\n. The transformation from the \n\\(xyz\\)\n frame to the \n\\(123\\)\n frame is shown in Figure 3(b). In particular, \n\\(\\hat{\\mathbf{2}} = \\hat{\\mathbf{y}}\\)\n.\n\n\nNOTE:\n For a reference frame \n\\(\\widetilde{\\mathbf{K}}\\)\n rotating in inertial frame \n\\(\\mathbf{K}\\)\n with angular velocity \n\\(\\boldsymbol{\\omega}\\)\n , the time derivatives of a vector \n\\(\\mathbf{A}\\)\n within both frames \n\\(\\mathbf{K}\\)\n and \n\\(\\widetilde{\\mathbf{K}}\\)\n are related via: \n\\[\\begin{equation}\n\\left(\\frac{\\partial\\mathbf{A}}{\\partial t}\\right)_\\mathbf{K} = \\left(\\frac{\\partial\\mathbf{A}}{\\partial t}\\right)_{\\widetilde{\\mathbf{K}}} + \\boldsymbol{\\omega} \\times \\mathbf{A} \\tag{1}\n\\end{equation}\\]\n\n\nThe motion that a Tippe top undergoes is complex, involving the time evolution of the three Euler angles, as well the translational velocities (or positions) and the motion of the top’s symmetry axis. All of these parameters are coupled. To solve for the motion of a Tippe top, one would use standard tools including Newton’s laws to prepare the system of equations, then program a computer to solve them numerically via simulation.\n\n\nIn this question, you will perform the first part of this process, investigating the physics of the Tippe top to set up the system of equations.\n\n\nFriction between the Tippe top and the surface it is moving on drives the motion of the Tippe top. Assume that the top remains in contact with the floor at point \n\\(A\\)\n, until such time as the stem contacts the floor. It is in motion at point \n\\(A\\)\n with velocity \n\\(\\mathbf{v}_A\\)\n relative to the floor. The frictional coefficient \n\\(\\mu_k\\)\n between the top and floor is kinetic, with \n\\(|\\mathbf{F}_\\mathbf{f}| = \\mu_k N\\)\n, where \n\\(\\mathbf{F}_f = F_{f,x}\\hat{\\mathbf{x}}{+}F_{f,y}\\hat{\\mathbf{y}}\\)\n is the frictional force, and \n\\(N\\)\n is the magnitude of the normal force. Assume that the top is initially set spinning only, i.e. there is no translational impulse given to the top.\n\n\nLet the mass of the Tippe top be \n\\(m\\)\n. Its moments of inertia are: \n\\(I_3\\)\n about the axis of symmetry is, and \n\\(I_1 = I_2\\)\n about the mutually perpendicular principal axes. Let \n\\(\\mathbf{s}\\)\n be the position vector of the centre of mass, and \n\\(\\mathbf{a} = \\overrightarrow{CA}\\)\n be the vector from the centre of mass to the point of contact.\n\n\nUnless otherwise specified, give your answers in the \n\\(xyz\\)\n reference frame for full marks. All torques and angular momentum are considered about the centre of mass \n\\(C\\)\n, unless otherwise specified. You may give your answers in terms of \n\\(N\\)\n. Except for part \nA.8\n, you need only consider the top where \n\\(\\theta < \\frac{\\pi}{2}\\)\n, and the stem is not in contact with the floor.\n\n\nA.1\nFind the total external force \n\\(\\mathbf{F}_\\text{ext}\\)\n on the Tippe top. Draw a free body diagram of the top, projected onto each of the \n\\(xz\\)\n- and \n\\(xy\\)\n-planes. Indicate the direction of \n\\(\\mathbf{v}_A\\)\n in the space provided, on your diagram in the \n\\(xy\\)\n-plane. 1pt\n\n\nA.2\nFind the total external torque \n\\(\\boldsymbol{\\tau}_\\text{ext}\\)\n on the Tippe top about the centre of mass. 0.8pt\n\n\nA.3\nGiven the contact condition, i.e. \n\\((\\mathbf{s} + \\mathbf{a}) \\cdot \\hat{z} = 0\\)\n, show that the velocity at \n\\(A\\)\n has no component in the \n\\(z\\)\n-direction, i.e. we can write \n\\(\\mathbf{v}_A = v_x\\hat{\\mathbf{x}} + v_y\\hat{\\mathbf{y}}\\)\n. 0.4pt\n\n\nA.4\nFind the total angular velocity \n\\(\\omega\\)\n of the rotating top about its centre of mass \n\\(C\\)\n in terms of the time derivatives of the Euler angles: \n\\(\\dot{\\theta} = \\frac{d\\theta}{dt}\\)\n, \n\\(\\dot{\\phi} = \\frac{d\\phi}{dt}\\)\n, and \n\\(\\dot{\\psi} = \\frac{d\\psi}{dt}\\)\n. Use Figure 3 if this is helpful. Give your answer in the \n\\(xyz\\)\n frame, and in the \n\\(123\\)\n frame. 0.8pt\n\n\nA.5\nFind the total energy of a spinning Tippe top, in terms of time derivatives of the Euler angles, \n\\(v_x\\)\n, and \n\\(v_y\\)\n. For partial marks, you may leave your answer in terms of \n\\(\\dot{\\mathbf{s}} = \\frac{d\\mathbf{s}}{dt}\\)\n. 1pt\n\n\nA.6\nFind the rate of change of the angular momentum about the \n\\(z\\)\n-axis. 0.4pt\n\n\nA.7\nWhich force(s) do work against gravity? Find an expression for the instantaneous rate of change of the top’s energy - you may leave your answer in terms of \n\\(\\mathbf{v}_A\\)\n. Identify and identify the components of the force and the torque that cause the change(s) in energy terms in \nA.5\n. 1.4pt\n\n\nA.8\nQualitatively sketch the following energy terms in the answer sheet as a function of time, over the top’s motion through the five phases \nI\n to \nV\n shown in Figure 2: the total energy \n\\(E_T\\)\n, gravitational potential energy \n\\(U_G\\)\n, translational kinetic energy \n\\(K_T\\)\n, and rotational kinetic energy \n\\(K_R\\)\n. The energy axes of your sketches are not required to be to scale. 2pt\n\n\nA.9\nShow that the components of the angular momentum \n\\(\\mathbf{L}\\)\n and angular velocity \n\\(\\boldsymbol{\\omega}\\)\n that are perpendicular to the \n\\(\\hat{\\mathbf{3}}\\)\n direction are proportional, i.e. \n\\[\\begin{equation}\n\\mathbf{L} \\times \\hat{\\mathbf{3}} = k(\\boldsymbol{\\omega} \\times \\hat{\\mathbf{3}}), \\tag{2}\n\\end{equation}\\]\n and find the proportionality constant \n\\(k\\)\n. 0.5pt\n\n\nCombining your answers to \nA.1\n and \nA.2\n with subsequent results will give you the magnitude \n\\(N\\)\n of the normal force, as well as a system of equations, relating the Euler angles, the components \n\\(v_x\\)\n and \n\\(v_y\\)\n of the velocity at \n\\(A\\)\n, the unit vector for the axis of symmetry \n\\(\\hat{\\mathbf{3}}\\)\n, and their time derivatives. This system is not integrable, but instead could be solved numerically.\n\n\nIntegrals of motion are quantities which remain constant, and can reduce the dimensionality of the system (i.e. number of simultaneous equations to solve, whether analytically or numerically). Typically quantities such as energy, momentum, and angular momentum are conserved in closed systems, and significantly simplify the problem.\n\n\nA.10\nAs you have seen, neither the energy nor the angular momentum are conserved for a Tippe top, due to a dissipative force and external torque. However, there is a related quantity known as Jellett’s integral \n\\(\\lambda\\)\n, which represents a component of the angular momentum that is conserved, i.e. some vector \n\\(\\mathbf{v}\\)\n. such that \n\\(\\lambda = \\mathbf{L} \\cdot \\mathbf{v}\\)\n is constant in time. 1.7pt\n\n\nUse your understanding of the Tippe top and results found to far, to give an expression for such a vector \n\\(\\mathbf{v}\\)\n. Show that the time derivative of \n\\(\\lambda\\)\n is zero.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2019-t3/8288f01308ed43a7c520.png",
+      "/corpus/figures/native/bulk/apho-2019-t3/ae35ce92792c980d15ed.png",
+      "/corpus/figures/native/bulk/apho-2019-t3/48326af7bfd13b77804a.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2019-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "Theory"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "Question 3: Tippe Top"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solutions"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Reference sheet for markers"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note: some results below were used for the previous version of part "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.10"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and are no longer needed."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Coordinate systems for convenience (note: use of matrices not needed) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xyz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(XYZ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{bmatrix}\\hat{\\mathbf{x}}\\\\ \\hat{\\mathbf{y}}\\\\ \\hat{\\mathbf{z}}\\end{bmatrix} = \\begin{bmatrix}\\cos\\phi & \\sin\\phi & 0\\\\ -\\sin\\phi & \\cos\\phi & 0\\\\ 0 & 0 & 1\\end{bmatrix}\\begin{bmatrix}\\hat{\\mathbf{X}}\\\\ \\hat{\\mathbf{Y}}\\\\ \\hat{\\mathbf{Z}}\\end{bmatrix}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 123 from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xyz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{bmatrix}\\hat{\\mathbf{1}}\\\\ \\hat{\\mathbf{2}}\\\\ \\hat{\\mathbf{3}}\\end{bmatrix} = \\begin{bmatrix}\\cos\\theta & 0 & -\\sin\\theta\\\\ 0 & 1 & 0\\\\ \\sin\\theta & 0 & \\cos\\theta\\end{bmatrix}\\begin{bmatrix}\\hat{\\mathbf{x}}\\\\ \\hat{\\mathbf{y}}\\\\ \\hat{\\mathbf{z}}\\end{bmatrix}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Position of point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from centre of mass, in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xyz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and 123 frames: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\mathbf{a} &= \\alpha R\\hat{\\mathbf{3}} - R\\hat{\\mathbf{z}}\n\\tag{1}\\\\\n&= \\alpha R\\sin\\theta\\hat{\\mathbf{x}} + R(\\alpha\\cos\\theta - 1)\\hat{\\mathbf{z}}\n\\notag\\\\\n&= R\\sin\\theta\\hat{\\mathbf{1}} + R(\\alpha - \\cos\\theta)\\hat{\\mathbf{3}}\n\\notag\n\\end{align}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Useful products: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\hat{\\mathbf{z}} \\times \\hat{\\mathbf{3}} = \\sin\\theta\\hat{\\mathbf{y}}\n\\tag{2}\\\\\n\\tag{3}\n\\end{align}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Note (given in question): "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\left(\\frac{\\partial\\mathbf{A}}{\\partial t}\\right)_\\mathbf{K} = \\left(\\frac{\\partial\\mathbf{A}}{\\partial t}\\right)_{\\widetilde{\\mathbf{K}}} + \\boldsymbol{\\omega} \\times \\mathbf{A}\n\\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Time derivatives: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\dot{\\hat{\\mathbf{3}}} &= \\boldsymbol{\\omega} \\times \\hat{\\mathbf{3}}\n\\tag{5}\\\\\n\\dot{\\hat{\\mathbf{x}}} &= \\dot{\\phi}\\hat{\\mathbf{y}}\n\\tag{6}\\\\\n\\dot{\\hat{\\mathbf{y}}} &= -\\dot{\\phi}\\hat{\\mathbf{x}}\n\\tag{7}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solutions: Tippe Top"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1. ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.0 marks"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Free body diagrams:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2019-t3/a9c03f5b7c51c38ffde0.png",
+                "alt": "apho-2019-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note: the direction of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{F}_f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " must be opposite to the direction of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{v}_A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", but is otherwise unimportant. Sum of forces: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\mathbf{F}_\\mathrm{ext} &= (N - mg)\\hat{z} + \\mathbf{F}_f \\quad \\text{(sufficient for full marks)}\n\\tag{8}\\\\\n&= (N - mg)\\hat{z} - \\frac{\\mu_kN}{|v_A|}\\mathbf{v_A}\n\\notag\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Sketched "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{v_A}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " must be in opposite direction to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{F}_f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xy\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " diagram."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2. ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.8 marks"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Sum of torques: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\boldsymbol{\\tau}_\\mathrm{ext} &= \\mathbf{a} \\times (N\\hat{\\mathbf{z}} + \\mathbf{F}_f)\n\\tag{9}\\\\\n&= (\\alpha R\\hat{\\mathbf{3}} - R\\hat{\\mathbf{z}}) \\times (N\\hat{\\mathbf{z}} + F_{f,x}\\hat{\\mathbf{x}} + F_{f,y}\\hat{\\mathbf{y}})\n\\notag\\\\\n&= \\alpha RN\\hat{\\mathbf{3}} \\times \\hat{\\mathbf{z}} + \\alpha R(\\sin\\theta\\hat{\\mathbf{x}} + \\cos\\theta\\hat{\\mathbf{z}}) \\times (F_{f,x}\\hat{\\mathbf{x}} + F_{f,y}\\hat{\\mathbf{y}}) - R\\hat{\\mathbf{z}} \\times (F_{f,x}\\hat{\\mathbf{x}} + F_{f,y}\\hat{\\mathbf{y}})\n\\notag\\\\\n&= -\\alpha RN\\sin\\theta\\hat{\\mathbf{y}} + \\alpha R\\sin\\theta F_{f,y}\\hat{\\mathbf{z}} + \\alpha R\\cos\\theta F_{f,x}\\hat{\\mathbf{y}} - \\alpha R\\cos\\theta F_{f,y}\\hat{\\mathbf{x}} - RF_{f,x}\\hat{\\mathbf{y}} + RF_{f,x}\\hat{\\mathbf{x}}\n\\notag\\\\\n&= RF_{f,y}(1 - \\alpha\\cos\\theta)\\hat{\\mathbf{x}} + \\left[RF_{f,x}(\\alpha\\cos\\theta - 1) - \\alpha RN\\sin\\theta\\right]\\hat{\\mathbf{y}} + \\alpha R\\sin\\theta F_{f,y}\\hat{\\mathbf{z}}\n\\tag{10}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3. ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.4 marks"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Motion at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " satisfies "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\mathbf{v_A} = \\dot{\\mathbf{s}} + \\boldsymbol{\\omega} \\times \\mathbf{a}\n\\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\omega}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the total angular velocity of the top in the centre of mass frame (this is deteremined in the next part). Want to show that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{v_A} \\cdot \\hat{\\mathbf{z}} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "To show this, take time derivative of contact condition in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(XYZ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xyz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " frame (note: either is suitable, as we only need the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\mathbf{z}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " component, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\mathbf{z}} = \\hat{\\mathbf{Z}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Contact condition: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n(\\mathbf{s} + \\mathbf{a}) \\cdot \\hat{\\mathbf{z}} = 0 \\quad \\text{at all times}\n\\tag{12}\\\\\n\\Rightarrow \\frac{d}{dt}(\\mathbf{s} + \\mathbf{a}) \\cdot \\hat{\\mathbf{z}} = 0 \\quad \\text{at all times}\n\\notag\n\\end{align}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Note we only care about the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-component, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\boldsymbol{\\omega} \\times \\hat{\\mathbf{z}}) \\cdot \\hat{\\mathbf{z}} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Then, using 11, 1, and 5, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\mathbf{v_A} \\cdot \\hat{\\mathbf{z}} &= (\\dot{\\mathbf{s}} + \\boldsymbol{\\omega} \\times \\mathbf{a}) \\cdot \\hat{\\mathbf{z}}\n\\notag\\\\\n&= \\big(\\dot{\\mathbf{s}} + \\alpha R\\boldsymbol{\\omega} \\times \\hat{\\mathbf{3}}\\big) \\cdot \\hat{\\mathbf{z}}\n\\notag\\\\\n&= \\left(\\dot{\\mathbf{s}} + \\alpha R\\frac{d\\hat{\\mathbf{3}}}{dt}\\right) \\cdot \\hat{\\mathbf{z}}\n\\notag\\\\\n&= (\\dot{\\mathbf{s}} + \\dot{\\mathbf{a}}) \\cdot \\hat{\\mathbf{z}} = 0\n\\tag{13}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4. ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.8 marks"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\omega}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of top is the sum of three distinct rotations: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\boldsymbol{\\omega} = \\dot{\\theta}\\hat{\\mathbf{2}} + \\dot{\\phi}\\hat{\\mathbf{z}} + \\dot{\\psi}\\hat{\\mathbf{3}}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Use transformations shown in figure 3 or otherwise to transform into "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xyz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or 123 frame: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\boldsymbol{\\omega} &= \\dot{\\psi}\\sin\\theta\\hat{\\mathbf{x}} + \\dot{\\theta}\\hat{\\mathbf{y}} + (\\dot{\\psi}\\cos\\theta + \\dot{\\phi})\\hat{\\mathbf{z}}\n\\tag{14}\\\\\n\\boldsymbol{\\omega} &= -\\dot{\\phi}\\sin\\theta\\hat{\\mathbf{1}} + \\dot{\\theta}\\hat{\\mathbf{2}} + (\\dot{\\psi} + \\dot{\\phi}\\cos\\theta)\\hat{\\mathbf{3}}\n\\tag{15}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "5. ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.0 marks"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{I}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the inertia tensor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{bmatrix}I_1 & 0 & 0\\\\ 0 & I_1 & 0\\\\ 0 & 0 & I_3,\\end{bmatrix}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nE_T &= K_T + K_R + U_G\\\\\n&= \\frac{1}{2}\\boldsymbol{\\omega} \\cdot \\mathbf{I}\\boldsymbol{\\omega} + \\frac{1}{2}m\\dot{\\mathbf{s}}^2 + mgR(1 - \\alpha\\cos\\theta)\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From 11, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\dot{\\mathbf{s}} &= \\mathbf{v_A} - \\boldsymbol{\\omega} \\times \\mathbf{a}\\\\\n&= \\mathbf{v_A} - (\\dot{\\theta}\\hat{\\mathbf{2}} + \\dot{\\phi}\\hat{\\mathbf{z}} + \\dot{\\psi}\\hat{\\mathbf{3}}) \\times (\\alpha R\\hat{\\mathbf{3}} - R\\hat{\\mathbf{z}})\\\\\n&= v_x\\hat{\\mathbf{x}} + v_y\\hat{\\mathbf{y}} - \\left(\\dot{\\theta}\\alpha R\\hat{\\mathbf{1}} - \\dot{\\theta}R\\hat{\\mathbf{z}} + \\dot{\\phi}\\alpha R\\hat{\\mathbf{z}} \\times \\hat{\\mathbf{3}} - \\dot{\\psi}R\\hat{\\mathbf{3}} \\times \\hat{\\mathbf{z}}\\right)\\\\\n&= \\left(v_x + \\dot{\\theta}R(1 - \\alpha\\cos\\theta)\\right)\\hat{\\mathbf{x}} + \\left(v_y - R\\sin\\theta(\\alpha\\dot{\\phi} + \\dot{\\psi})\\right)\\hat{\\mathbf{y}} + \\dot{\\theta}\\alpha R\\sin\\theta\\hat{\\mathbf{z}}\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " using 2. Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nE_T = {}&\\frac{1}{2}\\left[I_1(\\dot{\\phi}^2\\sin^2\\theta + \\dot{\\theta}^2) + I_3(\\dot{\\psi} + \\dot{\\phi}\\cos\\theta)^2\\right]\\\\\n&+ \\frac{m}{2}\\left[\\left(v_x + \\dot{\\theta}R(1 - \\alpha\\cos\\theta)\\right)^2 + \\left(v_y - R\\sin\\theta(\\alpha\\dot{\\phi} + \\dot{\\psi})\\right)^2 + \\dot{\\theta}^2\\alpha^2R^2\\sin^2\\theta\\right] + mgR(1 - \\alpha\\cos\\theta)\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "6. ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.4 marks"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From 10, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{d\\mathbf{L}}{dt} \\cdot \\hat{\\mathbf{z}} = \\sum\\boldsymbol{\\tau} \\cdot \\hat{\\mathbf{z}} = \\alpha R\\sin\\theta F_{f,y}\n\\tag{16}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "7. ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.4 marks"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Changes in energy: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h = \\mathbf{s} \\cdot \\hat{\\mathbf{z}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " increases, so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{U}_G > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At start and end (phases "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "I"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "V"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") there is little translation so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K_T \\sim 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "I"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "V"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus, energy transfer is from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K_R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U_G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Normal force does no work. Frictional force does work at point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Direction is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\mathbf{v_A}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nW = \\int \\mathbf{F}_f \\cdot \\mathbf{v_A}\\ dt < 0\\\\\n\\Rightarrow \\frac{d}{dt}E_T = -\\mu_kN|\\mathbf{v_A}|\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{F}_f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " decreases the total energy monotonically."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "16 implies only the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{F}_f.\\hat{\\mathbf{y}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " acts to decrease "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{L} \\cdot \\hat{\\mathbf{z}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Energy transfer from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K_R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U_G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", caused by component of frictional force in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\mathbf{y}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction, so component of resultant torque is in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{a} \\times \\hat{\\mathbf{y}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "8. ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2.0 marks"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Expectation (see figure):"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(E_T\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ": monotonically decreasing"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(K_R\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ": monotonically decreasing; zero at V"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(K_T\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ": zero at I and V; higher between; close to zero at IV"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(U_G\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ": flat at start and finish; higher at end; increases from I to IV then flat; increase roughly at same time that "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(K_\\mathrm{rot}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " decreases"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2019-t3/a46c9b2db089dac31b44.png",
+                "alt": "apho-2019-t3 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "9. ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5 marks"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From 15, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\mathbf{L} = \\mathbf{I}\\boldsymbol{\\omega} = I_1\\left(-\\dot{\\phi}\\sin\\theta\\hat{\\mathbf{1}} + \\dot{\\theta}\\hat{\\mathbf{2}}\\right) + I_3(\\dot{\\psi} + \\dot{\\phi}\\cos\\theta)\\hat{\\mathbf{3}}\n\\tag{17}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Taking cross product with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\mathbf{3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\mathbf{L} \\times \\hat{\\mathbf{3}} &= I_1\\left(\\dot{\\phi}\\sin\\theta\\hat{\\mathbf{2}} + \\dot{\\theta}\\hat{\\mathbf{1}}\\right)\n\\notag\\\\\n&= I_1(\\boldsymbol{\\omega} \\times \\hat{\\mathbf{3}})\n\\tag{18}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "10. ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.7 marks"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "About any axis through the centre of mass, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d\\mathbf{L}}{dt} \\neq 0 \\Leftrightarrow \\tau_\\mathrm{ext} \\neq 0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " External torque given by 9, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\boldsymbol{\\tau}_\\mathrm{ext} = \\mathbf{a} \\times (N\\hat{\\mathbf{z}} + \\mathbf{F}_f)\\\\\n\\Rightarrow \\tau_\\mathrm{ext} \\cdot \\mathbf{a} = 0\\\\\n\\frac{d\\mathbf{L}}{dt} \\cdot \\mathbf{a} = 0\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus, angular momentum in the direction of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " must be constant, so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{v} = \\mathbf{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "To demonstrate this mathematically, 5, 10, 18 allow "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n-\\dot{\\lambda} &= \\frac{d\\mathbf{L}}{dt} \\cdot \\mathbf{a} + \\alpha R\\mathbf{L} \\cdot \\frac{d\\hat{3}}{dt}\\\\\n&= (\\mathbf{a} \\times (N\\hat{\\mathbf{z}} + \\mathbf{F_f})) \\cdot \\mathbf{a} + \\frac{\\alpha R}{I_1}\\mathbf{L} \\cdot (\\boldsymbol{\\omega} \\times \\mathbf{L})\\\\\n&= 0\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Theory\n\n\n\nQuestion 3: Tippe Top\n\n\n\nSolutions\n\n\nReference sheet for markers\n\n\nNote: some results below were used for the previous version of part \nA.10\n, and are no longer needed.\n\n\nCoordinate systems for convenience (note: use of matrices not needed) \n\\(xyz\\)\n from \n\\(XYZ\\)\n \n\\[\\begin{bmatrix}\\hat{\\mathbf{x}}\\\\ \\hat{\\mathbf{y}}\\\\ \\hat{\\mathbf{z}}\\end{bmatrix} = \\begin{bmatrix}\\cos\\phi & \\sin\\phi & 0\\\\ -\\sin\\phi & \\cos\\phi & 0\\\\ 0 & 0 & 1\\end{bmatrix}\\begin{bmatrix}\\hat{\\mathbf{X}}\\\\ \\hat{\\mathbf{Y}}\\\\ \\hat{\\mathbf{Z}}\\end{bmatrix}\\]\n 123 from \n\\(xyz\\)\n \n\\[\\begin{bmatrix}\\hat{\\mathbf{1}}\\\\ \\hat{\\mathbf{2}}\\\\ \\hat{\\mathbf{3}}\\end{bmatrix} = \\begin{bmatrix}\\cos\\theta & 0 & -\\sin\\theta\\\\ 0 & 1 & 0\\\\ \\sin\\theta & 0 & \\cos\\theta\\end{bmatrix}\\begin{bmatrix}\\hat{\\mathbf{x}}\\\\ \\hat{\\mathbf{y}}\\\\ \\hat{\\mathbf{z}}\\end{bmatrix}\\]\n Position of point \n\\(A\\)\n from centre of mass, in \n\\(xyz\\)\n and 123 frames: \n\\[\\begin{align}\n\\mathbf{a} &= \\alpha R\\hat{\\mathbf{3}} - R\\hat{\\mathbf{z}}\n\\tag{1}\\\\\n&= \\alpha R\\sin\\theta\\hat{\\mathbf{x}} + R(\\alpha\\cos\\theta - 1)\\hat{\\mathbf{z}}\n\\notag\\\\\n&= R\\sin\\theta\\hat{\\mathbf{1}} + R(\\alpha - \\cos\\theta)\\hat{\\mathbf{3}}\n\\notag\n\\end{align}\\]\n Useful products: \n\\[\\begin{align}\n\\hat{\\mathbf{z}} \\times \\hat{\\mathbf{3}} = \\sin\\theta\\hat{\\mathbf{y}}\n\\tag{2}\\\\\n\\tag{3}\n\\end{align}\\]\n Note (given in question): \n\\[\\begin{equation}\n\\left(\\frac{\\partial\\mathbf{A}}{\\partial t}\\right)_\\mathbf{K} = \\left(\\frac{\\partial\\mathbf{A}}{\\partial t}\\right)_{\\widetilde{\\mathbf{K}}} + \\boldsymbol{\\omega} \\times \\mathbf{A}\n\\tag{4}\n\\end{equation}\\]\n Time derivatives: \n\\[\\begin{align}\n\\dot{\\hat{\\mathbf{3}}} &= \\boldsymbol{\\omega} \\times \\hat{\\mathbf{3}}\n\\tag{5}\\\\\n\\dot{\\hat{\\mathbf{x}}} &= \\dot{\\phi}\\hat{\\mathbf{y}}\n\\tag{6}\\\\\n\\dot{\\hat{\\mathbf{y}}} &= -\\dot{\\phi}\\hat{\\mathbf{x}}\n\\tag{7}\n\\end{align}\\]\n\n\nSolutions: Tippe Top\n\n\n1. (\n1.0 marks\n)\n\n\nFree body diagrams:\n\n\n\n\n\n\n\n\n\nNote: the direction of \n\\(\\mathbf{F}_f\\)\n must be opposite to the direction of \n\\(\\mathbf{v}_A\\)\n, but is otherwise unimportant. Sum of forces: \n\\[\\begin{align}\n\\mathbf{F}_\\mathrm{ext} &= (N - mg)\\hat{z} + \\mathbf{F}_f \\quad \\text{(sufficient for full marks)}\n\\tag{8}\\\\\n&= (N - mg)\\hat{z} - \\frac{\\mu_kN}{|v_A|}\\mathbf{v_A}\n\\notag\n\\end{align}\\]\n\n\nSketched \n\\(\\mathbf{v_A}\\)\n must be in opposite direction to \n\\(\\mathbf{F}_f\\)\n on \n\\(xy\\)\n diagram.\n\n\n2. (\n0.8 marks\n)\n\n\nSum of torques: \n\\[\\begin{align}\n\\boldsymbol{\\tau}_\\mathrm{ext} &= \\mathbf{a} \\times (N\\hat{\\mathbf{z}} + \\mathbf{F}_f)\n\\tag{9}\\\\\n&= (\\alpha R\\hat{\\mathbf{3}} - R\\hat{\\mathbf{z}}) \\times (N\\hat{\\mathbf{z}} + F_{f,x}\\hat{\\mathbf{x}} + F_{f,y}\\hat{\\mathbf{y}})\n\\notag\\\\\n&= \\alpha RN\\hat{\\mathbf{3}} \\times \\hat{\\mathbf{z}} + \\alpha R(\\sin\\theta\\hat{\\mathbf{x}} + \\cos\\theta\\hat{\\mathbf{z}}) \\times (F_{f,x}\\hat{\\mathbf{x}} + F_{f,y}\\hat{\\mathbf{y}}) - R\\hat{\\mathbf{z}} \\times (F_{f,x}\\hat{\\mathbf{x}} + F_{f,y}\\hat{\\mathbf{y}})\n\\notag\\\\\n&= -\\alpha RN\\sin\\theta\\hat{\\mathbf{y}} + \\alpha R\\sin\\theta F_{f,y}\\hat{\\mathbf{z}} + \\alpha R\\cos\\theta F_{f,x}\\hat{\\mathbf{y}} - \\alpha R\\cos\\theta F_{f,y}\\hat{\\mathbf{x}} - RF_{f,x}\\hat{\\mathbf{y}} + RF_{f,x}\\hat{\\mathbf{x}}\n\\notag\\\\\n&= RF_{f,y}(1 - \\alpha\\cos\\theta)\\hat{\\mathbf{x}} + \\left[RF_{f,x}(\\alpha\\cos\\theta - 1) - \\alpha RN\\sin\\theta\\right]\\hat{\\mathbf{y}} + \\alpha R\\sin\\theta F_{f,y}\\hat{\\mathbf{z}}\n\\tag{10}\n\\end{align}\\]\n\n\n3. (\n0.4 marks\n)\n\n\nMotion at \n\\(A\\)\n satisfies \n\\[\\begin{equation}\n\\mathbf{v_A} = \\dot{\\mathbf{s}} + \\boldsymbol{\\omega} \\times \\mathbf{a}\n\\tag{11}\n\\end{equation}\\]\n where \n\\(\\boldsymbol{\\omega}\\)\n is the total angular velocity of the top in the centre of mass frame (this is deteremined in the next part). Want to show that \n\\(\\mathbf{v_A} \\cdot \\hat{\\mathbf{z}} = 0\\)\n.\n\n\nTo show this, take time derivative of contact condition in \n\\(XYZ\\)\n or \n\\(xyz\\)\n frame (note: either is suitable, as we only need the \n\\(\\hat{\\mathbf{z}}\\)\n component, and \n\\(\\hat{\\mathbf{z}} = \\hat{\\mathbf{Z}}\\)\n).\n\n\nContact condition: \n\\[\\begin{align}\n(\\mathbf{s} + \\mathbf{a}) \\cdot \\hat{\\mathbf{z}} = 0 \\quad \\text{at all times}\n\\tag{12}\\\\\n\\Rightarrow \\frac{d}{dt}(\\mathbf{s} + \\mathbf{a}) \\cdot \\hat{\\mathbf{z}} = 0 \\quad \\text{at all times}\n\\notag\n\\end{align}\\]\n Note we only care about the \n\\(z\\)\n-component, and \n\\((\\boldsymbol{\\omega} \\times \\hat{\\mathbf{z}}) \\cdot \\hat{\\mathbf{z}} = 0\\)\n. Then, using 11, 1, and 5, \n\\[\\begin{align}\n\\mathbf{v_A} \\cdot \\hat{\\mathbf{z}} &= (\\dot{\\mathbf{s}} + \\boldsymbol{\\omega} \\times \\mathbf{a}) \\cdot \\hat{\\mathbf{z}}\n\\notag\\\\\n&= \\big(\\dot{\\mathbf{s}} + \\alpha R\\boldsymbol{\\omega} \\times \\hat{\\mathbf{3}}\\big) \\cdot \\hat{\\mathbf{z}}\n\\notag\\\\\n&= \\left(\\dot{\\mathbf{s}} + \\alpha R\\frac{d\\hat{\\mathbf{3}}}{dt}\\right) \\cdot \\hat{\\mathbf{z}}\n\\notag\\\\\n&= (\\dot{\\mathbf{s}} + \\dot{\\mathbf{a}}) \\cdot \\hat{\\mathbf{z}} = 0\n\\tag{13}\n\\end{align}\\]\n\n\n4. (\n0.8 marks\n)\n\n\nTotal angular velocity \n\\(\\boldsymbol{\\omega}\\)\n of top is the sum of three distinct rotations: \n\\[\\boldsymbol{\\omega} = \\dot{\\theta}\\hat{\\mathbf{2}} + \\dot{\\phi}\\hat{\\mathbf{z}} + \\dot{\\psi}\\hat{\\mathbf{3}}\\]\n Use transformations shown in figure 3 or otherwise to transform into \n\\(xyz\\)\n or 123 frame: \n\\[\\begin{align}\n\\boldsymbol{\\omega} &= \\dot{\\psi}\\sin\\theta\\hat{\\mathbf{x}} + \\dot{\\theta}\\hat{\\mathbf{y}} + (\\dot{\\psi}\\cos\\theta + \\dot{\\phi})\\hat{\\mathbf{z}}\n\\tag{14}\\\\\n\\boldsymbol{\\omega} &= -\\dot{\\phi}\\sin\\theta\\hat{\\mathbf{1}} + \\dot{\\theta}\\hat{\\mathbf{2}} + (\\dot{\\psi} + \\dot{\\phi}\\cos\\theta)\\hat{\\mathbf{3}}\n\\tag{15}\n\\end{align}\\]\n\n\n5. (\n1.0 marks\n)\n\n\nWhere \n\\(\\mathbf{I}\\)\n is the inertia tensor \n\\[\\begin{bmatrix}I_1 & 0 & 0\\\\ 0 & I_1 & 0\\\\ 0 & 0 & I_3,\\end{bmatrix}\\]\n we have \n\\[\\begin{align*}\nE_T &= K_T + K_R + U_G\\\\\n&= \\frac{1}{2}\\boldsymbol{\\omega} \\cdot \\mathbf{I}\\boldsymbol{\\omega} + \\frac{1}{2}m\\dot{\\mathbf{s}}^2 + mgR(1 - \\alpha\\cos\\theta)\n\\end{align*}\\]\n\n\nFrom 11, \n\\[\\begin{align*}\n\\dot{\\mathbf{s}} &= \\mathbf{v_A} - \\boldsymbol{\\omega} \\times \\mathbf{a}\\\\\n&= \\mathbf{v_A} - (\\dot{\\theta}\\hat{\\mathbf{2}} + \\dot{\\phi}\\hat{\\mathbf{z}} + \\dot{\\psi}\\hat{\\mathbf{3}}) \\times (\\alpha R\\hat{\\mathbf{3}} - R\\hat{\\mathbf{z}})\\\\\n&= v_x\\hat{\\mathbf{x}} + v_y\\hat{\\mathbf{y}} - \\left(\\dot{\\theta}\\alpha R\\hat{\\mathbf{1}} - \\dot{\\theta}R\\hat{\\mathbf{z}} + \\dot{\\phi}\\alpha R\\hat{\\mathbf{z}} \\times \\hat{\\mathbf{3}} - \\dot{\\psi}R\\hat{\\mathbf{3}} \\times \\hat{\\mathbf{z}}\\right)\\\\\n&= \\left(v_x + \\dot{\\theta}R(1 - \\alpha\\cos\\theta)\\right)\\hat{\\mathbf{x}} + \\left(v_y - R\\sin\\theta(\\alpha\\dot{\\phi} + \\dot{\\psi})\\right)\\hat{\\mathbf{y}} + \\dot{\\theta}\\alpha R\\sin\\theta\\hat{\\mathbf{z}}\n\\end{align*}\\]\n using 2. Thus \n\\[\\begin{align*}\nE_T = {}&\\frac{1}{2}\\left[I_1(\\dot{\\phi}^2\\sin^2\\theta + \\dot{\\theta}^2) + I_3(\\dot{\\psi} + \\dot{\\phi}\\cos\\theta)^2\\right]\\\\\n&+ \\frac{m}{2}\\left[\\left(v_x + \\dot{\\theta}R(1 - \\alpha\\cos\\theta)\\right)^2 + \\left(v_y - R\\sin\\theta(\\alpha\\dot{\\phi} + \\dot{\\psi})\\right)^2 + \\dot{\\theta}^2\\alpha^2R^2\\sin^2\\theta\\right] + mgR(1 - \\alpha\\cos\\theta)\n\\end{align*}\\]\n\n\n6. (\n0.4 marks\n)\n\n\nFrom 10, \n\\[\\begin{equation}\n\\frac{d\\mathbf{L}}{dt} \\cdot \\hat{\\mathbf{z}} = \\sum\\boldsymbol{\\tau} \\cdot \\hat{\\mathbf{z}} = \\alpha R\\sin\\theta F_{f,y}\n\\tag{16}\n\\end{equation}\\]\n\n\n7. (\n1.4 marks\n)\n\n\nChanges in energy: \n\\(h = \\mathbf{s} \\cdot \\hat{\\mathbf{z}}\\)\n increases, so \n\\(\\dot{U}_G > 0\\)\n.\n\n\nAt start and end (phases \nI\n and \nV\n) there is little translation so \n\\(K_T \\sim 0\\)\n at \nI\n and \nV\n. Thus, energy transfer is from \n\\(K_R\\)\n to \n\\(U_G\\)\n.\n\n\nNormal force does no work. Frictional force does work at point \n\\(A\\)\n. Direction is \n\\(-\\mathbf{v_A}\\)\n: \n\\[\\begin{align*}\nW = \\int \\mathbf{F}_f \\cdot \\mathbf{v_A}\\ dt < 0\\\\\n\\Rightarrow \\frac{d}{dt}E_T = -\\mu_kN|\\mathbf{v_A}|\n\\end{align*}\\]\n\n\nThus \n\\(\\mathbf{F}_f\\)\n decreases the total energy monotonically.\n\n\n16 implies only the \n\\(\\mathbf{F}_f.\\hat{\\mathbf{y}}\\)\n acts to decrease \n\\(\\mathbf{L} \\cdot \\hat{\\mathbf{z}}\\)\n. Energy transfer from \n\\(K_R\\)\n to \n\\(U_G\\)\n, caused by component of frictional force in \n\\(\\hat{\\mathbf{y}}\\)\n direction, so component of resultant torque is in the \n\\(\\mathbf{a} \\times \\hat{\\mathbf{y}}\\)\n direction.\n\n\n8. (\n2.0 marks\n)\n\n\nExpectation (see figure):\n\n\n\n\n\\(E_T\\)\n: monotonically decreasing\n\n\n\\(K_R\\)\n: monotonically decreasing; zero at V\n\n\n\\(K_T\\)\n: zero at I and V; higher between; close to zero at IV\n\n\n\\(U_G\\)\n: flat at start and finish; higher at end; increases from I to IV then flat; increase roughly at same time that \n\\(K_\\mathrm{rot}\\)\n decreases\n\n\n\n\n\n\n\n\n\n\n\n9. (\n0.5 marks\n)\n\n\nFrom 15, \n\\[\\begin{equation}\n\\mathbf{L} = \\mathbf{I}\\boldsymbol{\\omega} = I_1\\left(-\\dot{\\phi}\\sin\\theta\\hat{\\mathbf{1}} + \\dot{\\theta}\\hat{\\mathbf{2}}\\right) + I_3(\\dot{\\psi} + \\dot{\\phi}\\cos\\theta)\\hat{\\mathbf{3}}\n\\tag{17}\n\\end{equation}\\]\n Taking cross product with \n\\(\\hat{\\mathbf{3}}\\)\n: \n\\[\\begin{align}\n\\mathbf{L} \\times \\hat{\\mathbf{3}} &= I_1\\left(\\dot{\\phi}\\sin\\theta\\hat{\\mathbf{2}} + \\dot{\\theta}\\hat{\\mathbf{1}}\\right)\n\\notag\\\\\n&= I_1(\\boldsymbol{\\omega} \\times \\hat{\\mathbf{3}})\n\\tag{18}\n\\end{align}\\]\n\n\n10. (\n1.7 marks\n)\n\n\nAbout any axis through the centre of mass, \n\\[\\frac{d\\mathbf{L}}{dt} \\neq 0 \\Leftrightarrow \\tau_\\mathrm{ext} \\neq 0\\]\n External torque given by 9, \n\\[\\begin{align*}\n\\boldsymbol{\\tau}_\\mathrm{ext} = \\mathbf{a} \\times (N\\hat{\\mathbf{z}} + \\mathbf{F}_f)\\\\\n\\Rightarrow \\tau_\\mathrm{ext} \\cdot \\mathbf{a} = 0\\\\\n\\frac{d\\mathbf{L}}{dt} \\cdot \\mathbf{a} = 0\n\\end{align*}\\]\n Thus, angular momentum in the direction of \n\\(\\mathbf{a}\\)\n must be constant, so \n\\(\\mathbf{v} = \\mathbf{a}\\)\n.\n\n\nTo demonstrate this mathematically, 5, 10, 18 allow \n\\[\\begin{align*}\n-\\dot{\\lambda} &= \\frac{d\\mathbf{L}}{dt} \\cdot \\mathbf{a} + \\alpha R\\mathbf{L} \\cdot \\frac{d\\hat{3}}{dt}\\\\\n&= (\\mathbf{a} \\times (N\\hat{\\mathbf{z}} + \\mathbf{F_f})) \\cdot \\mathbf{a} + \\frac{\\alpha R}{I_1}\\mathbf{L} \\cdot (\\boldsymbol{\\omega} \\times \\mathbf{L})\\\\\n&= 0\n\\end{align*}\\]\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2019-t3/a9c03f5b7c51c38ffde0.png",
+      "/corpus/figures/native/bulk/apho-2019-t3/a46c9b2db089dac31b44.png"
+    ],
+    "shared": false
+  }
+}

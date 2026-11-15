@@ -1,1 +1,2921 @@
-{"id":"apho-2009-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2009_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2009_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2009-t1-statement/document.pdf","pages":[],"sourcePages":[1,2],"initialPage":1,"shared":false,"text":"Theoretical competition \n \nQuestion  1 \n \n26 April 2009 \n \nPage 1 of 2 \n------------------------------------------------------------------------------------------------------------------------- \nRolling Cylinders \nA thin-walled cylinder of mass M  and rough inner surface of radius R  can rotate about its fixed \ncentral horizontal axis OZ.  The Z-axis is perpendicular to and out of the page. Another smaller \nuniform solid cylinder of mass m  and radius r  rolls without slipping (except for question 1.8) on \nthe inner surface of M  about its own central axis which is parallel to OZ.  \n \n \n \n \n \n \n \n \n \n \n \n1.1)  The rotation of M  is to be started from rest at the instant \n0\nt =\n when m  is resting at the lowest \npoint.  At a later time t  the angular position of the centre of mass of m  is θ  and by then M  \nhas turned through an angle φ  radians.  How many radians (designated  ψ ) would have mass \nm  turned through about its central axis relative to a fixed line (for example, the negative Y-\naxis)?  Give your answer in terms of , , R\nθ φ\n and r . \n(0.8 point) \n \n1.2)   What is the angular acceleration of m , \n2\n2\nd\ndt ψ , about its own axis through its centre of mass? \nGive your answer in terms of \n, ,\nR r  and derivatives of θ  and φ .  \n(0.2 point) \n \n1.3)   Derive an equation for the angular acceleration of the centre of mass of m , \n2\n2\nd\ndt θ , in terms of  \n2\n2\n, , , , , d\nm g R r\ndt\nθ\nφ , and the moment of inertia \nCM\nI\nof m  about its central axis.  \n(1.8 points) \nM\nm\nR\nX\nY\nO\nθ\n g = acceleration due to \ngravity \n\nTheoretical competition \n \nQuestion  1 \n \n26 April 2009 \n \nPage 2 of 2 \n------------------------------------------------------------------------------------------------------------------------- \n \n1.4)  What is the period of small amplitude oscillation of m  when M  is constrained to rotate at a \nconstant angular velocity?  Give your answer only in terms of , ,\nR r  and g . \n(1.3 point) \n \n1.5)   What is the value of θ  for the equilibrium position of m  in question 1.4?  \n(0.2 point) \n \n1.6)  What is the equilibrium position of m  when M  is rotating with a constant angular acceleration \nα ?  Give your answer in terms of \n, ,\nR g  and α . \n(0.7 point) \n \n1.7)   Now M  is allowed to rotate (oscillate) freely, without constraint, about its central axis OZ \nwhile m  is executing a small-amplitude oscillation by pure rolling on the inner surface of  M .  \nFind the period of this oscillation.  \n(2.5 points) \n \n1.8)   Consider the situation in which M  is rotating steadily at an angular velocity Ω  and m  is \nrotating (rolling) about its stationary centre of mass, at the equilibrium position found in \nquestion 1.5.  M  is then brought abruptly to a halt.  What must be the lowest value of Ω  such \nthat m  will roll up and reach the highest point of the cylindrical surface of  M ?  The \ncoefficient of friction between m  and M  is assumed to be sufficiently high that m  begins to \nroll without slipping soon after a short skidding right after M  is stopped.  \n(2.5 points) \n  \n \n********************* \n \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2009-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"Theoretical competition \n \nSolution: Question  1 \n \n26 April 2009 \n \nPage 1 of 7 \n------------------------------------------------------------------------------------------------------------------------- \nSOLUTION:   Rolling Cylinders \n \n \n \n \n \n \n \n \n \n \n1.1)  The point P which is fixed on the surface of M  was at the position directly below O at time  \n0\nt =\n.  Hence m  must have rolled through an angle R\nR\nr\nφ\nθ\n−\n radians relative to surface of M  \nin time t  during which the line OC has also turned anti-clockwise through an angle θ .  \nTherefore the total angular displacement of m  about its centre of mass relative to any fixed \nreference line in time t  is  \n \n \nR\nR\nR\nR\nr\nr\nr\nr\nφ\nθ\nψ\nθ\nφ\nθ\n−\n−\n⎛\n⎞\n=\n+\n=\n−⎜\n⎟\n⎝\n⎠\n \n………..(i) \n \n1.2)   By differentiating the equation (i) twice with respect to time, we get \n \n \n2\n2\n2\n2\n2\n2\nd\nR d\nR\nr\nd\ndt\nr dt\nr\ndt\nψ\nφ\nθ\n−\n⎛\n⎞\n=\n−⎜\n⎟\n⎝\n⎠\n \n………..(ii)  \n1.3)    \n \n \n \n \n \n \n \n \ng\nM\nm\nR\nX\nY\nO\nθ\nN\nC\nmg\nf \ng\nM\nm\nR\nX\nY\nO\nθ φ\nφ\nψ \nP \nC\n\nTheoretical competition \n \nSolution: Question  1 \n \n26 April 2009 \n \nPage 2 of 7 \n------------------------------------------------------------------------------------------------------------------------- \n \nThe equations of motion of centre of mass of m  are: \n \n \n(\n)\n2\n2\nsin\nd\nm R\nr\nf\nmg\ndt θ\nθ\n−\n=\n−\n \n…………..(iii)  \n \n \n(\n)\n2\ncos\nd\nm\nR\nr\nN\nmg\ndt θ\nθ\n⎛\n⎞\n−\n=\n−\n⎜\n⎟\n⎝\n⎠\n \n…………..(iv) \n \nThe equation for the rotation of m  about its centre of mass is: \n \n \n2\n2\n2\nCM\nCM\n2\n2\n2\nd\nR d\nR\nr\nd\nI\nI\nfr\ndt\nr dt\nr\ndt\nψ\nφ\nθ\n⎡\n⎤\n−\n⎛\n⎞\n=\n−\n=\n⎜\n⎟\n⎢\n⎥\n⎝\n⎠\n⎣\n⎦\n \n………..(v)  \n \nwhere \n2\nCM\n1\n2\nI\nmr\n=\n. \n \nEquations (iii) and (v) yield: \n \n \n(\n)\n2\n2\nCM\nCM\n2\n2\n2\n2\nsin\nI\nI\nR\nd\nd\nm\nR\nr\nmg\nr\ndt\nr\ndt\nθ\nθ\nφ\n⎛\n⎞\n+\n−\n=\n−\n+\n⎜\n⎟\n⎝\n⎠\n \n………..(vi)  \n \n1.4)   Here, \n2\n2\n0\nd\ndt φ =\n, sinθ\nθ\n≈\n and also \n2\nCM\n1\n2\nI\nmr\n=\n, the equation (vi) is reduced to: \n \n \n2\n2\n2\n3(\n)\nd\ng\ndt\nR\nr\nθ\nθ\n=\n−\n−\n \n………..(vii)  \n \nThis gives a period  \n3(\n)\n2\n2\nR\nr\nT\ng\nπ\n−\n=\n \n………..(viii)  \n \n1.5)   The equilibrium position of m  in question 1.4) is \n0\nθ = . \n \n \n1.6)  But the equilibrium position for the case where M  is rotating with a constant angular \nacceleration α  is by considering the equation (vi), namely,  \n \n \n \n(\n)\n2\n2\n3\nsin\n2\n2\nd\nR\nR\nr\ng\ndt θ\nθ\nα\n−\n=\n−\n+\n \n………..(ix)  \n \n \nLet \neq\nθ  be the equilibrium position; this implies that m  remains stationary at this position if it \ndoes not oscillate.  Hence\n2\neq\n2\n0\nd\ndt θ\n=\n, and  \n \n\nTheoretical competition \n \nSolution: Question  1 \n \n26 April 2009 \n \nPage 3 of 7 \n------------------------------------------------------------------------------------------------------------------------- \n \n \neq\narcsin\n2\nR\ng\nα\nθ\n⎛\n⎞\n=\n⎜\n⎟\n⎝\n⎠\n \n…………..(x)  \n \n1.7)    \n \n \n \n \n \n \n \n \n \nFrom the equation (i) we get, after changing the directions of ψ  and φ , \n \n \nd\nR d\nR\nr\nd\ndt\nr dt\nr\ndt\nψ\nφ\nθ\n−\n⎛\n⎞\n=\n+⎜\n⎟\n⎝\n⎠\n \n…………..(xi)  \n \n \nThe equations of motion of m  and M  are: \n \n \n2\n2\n2\n1\n2\nd\nmr\nfr\ndt ψ\n=\n−\n \n…………..(xii)  \n \n \n \n2\n2\n2\nd\nMR\nfR\ndt φ\n=\n+\n \n…………..(xiii)  \n \nMethod 1: (Angular Momentum) \n \nThe effect of gravity on the system as a whole is to change its angular momentum:  \n \n(\n)\n(\n)\n2\n2\n2\n1\nsin\n2\nd\nd\nd\nd\nMR\nmr\nm R\nr\nmg R\nr\ndt\ndt\ndt\ndt\nφ\nψ\nθ\nθ\n⎡\n⎤\n+\n−\n−\n=\n+\n−\n⎢\n⎥\n⎣\n⎦\n ……..(xiv.1)  \n \nHence  \n(\n)\n(\n)\n2\n2\n2\n2\n2\nm R\nr\nd\nd\ndt\nM\nm R dt\nφ\nθ\n−\n=\n−\n+\n \n  …………..(xv.1) \n \nand    \n(\n)\n(\n)\n2\n2\n2\n2\n1\n3\nsin\n2\n2\nd\nd\nMR\nmr R\nm R\nr\nR\nr\nmg R\nr\ndt\ndt\nφ\nθ\nθ\n⎛\n⎞\n⎛\n⎞\n+\n−\n−\n−\n=\n−\n⎜\n⎟\n⎜\n⎟\n⎝\n⎠\n⎝\n⎠\n \n ……..(xvi.1)   \n \nCombining the last two equations: \n \n \n \n \n(\n)\n(\n)\n(\n)\n2\n2\n2\nsin\n3\nM\nm\nd\ng\ndt\nR\nr\nM\nm\nθ\nθ\n+\n=\n−\n−\n+\n    \n     ………..(xvii.1) \n \nFor a small-amplitude oscillation we put sinθ\nθ\n≈\n and equation (xvii) is reduced to: \ng \nM\nm\nR\nX\nY\nO\nθ\nN\nψ\nmg\nf \nφ \nshowing forces acting on m \n\nTheoretical competition \n \nSolution: Question  1 \n \n26 April 2009 \n \nPage 4 of 7 \n------------------------------------------------------------------------------------------------------------------------- \n \n \n \n \n(\n)\n(\n)\n(\n)\n2\n2\n2\n3\nM\nm\nd\ng\ndt\nR\nr\nM\nm\nθ\nθ\n+\n=\n−\n−\n+\n \n   \n    ………..(xviii.1)  \n \nThe period of this oscillation is, therefore, \n \n \n3\n2\n2\nR\nr\nM\nm\nT\ng\nM\nm\nπ\n⎛\n⎞\n−\n+\n⎛\n⎞\n=\n⎜\n⎟⎜\n⎟\n+\n⎝\n⎠\n⎝\n⎠\n  \n \nMethod 2: (Newton’s law)  \nFrom Newton’s law: \n \nsinθ −\n=\nmg\nf\nma  \n \n(\n)\n2\n2\nsin\nθ\nθ −\n= −\n−\nd\nmg\nf\nm R\nr dt\n \n……..(xiv.2) \n \n \nFrom equation (xiii): \n2\n2\nφ\n=\nd\nf\nMR dt\n \n \nBy substituting this into equation (xiv.2) we have \n \n(\n)\n2\n2\n2\n2\nsin\nφ\nθ\nθ =\n−\n−\nd\nd\nmg\nMR\nm R\nr\ndt\ndt\n \n……..(xv.2) \n \nFrom equations (xi) (xii) and (xiii), we then have \n \n2\n2\n2\n2\n2\nφ\nθ\n−\n⎛\n⎞\n= −\n⎜\n⎟\n+\n⎝\n⎠\nd\nm\nR\nr\nd\ndt\nM\nm\nR\ndt\n \n……..(xvi.2)  \n \n \nThen (xv.2) becomes \n(\n)\n(\n)\n2\n2\n2\n2\nsin\n2\nθ\nθ\nθ = −\n−\n−\n−\n+\nMm\nd\nd\nmg\nR\nr\nm R\nr\nM\nm\ndt\ndt\n \n \n(\n)\n2\n2\n2\nsin\n3\nθ\nθ\n+\n= −\n−\n+\nd\ng\nM\nm\ndt\nR\nr\nM\nm\n   \n……..(xvii.2) \n \nFor a small-amplitude oscillation we put sinθ\nθ\n≈\n and equation (xvii) is reduced to: \n \n \n \n \n(\n)\n(\n)\n(\n)\n2\n2\n2\n3\nM\nm\nd\ng\ndt\nR\nr\nM\nm\nθ\nθ\n+\n=\n−\n−\n+\n \n   \n    ……..(xviii.2)  \n \n \nThe period of this oscillation is, therefore, \n \n \n3\n2\n2\nR\nr\nM\nm\nT\ng\nM\nm\nπ\n⎛\n⎞\n−\n+\n⎛\n⎞\n=\n⎜\n⎟⎜\n⎟\n+\n⎝\n⎠\n⎝\n⎠\n  \n \n \nMethod 3: (Conservation of Energy)  \n \nThe total mechanical energy of the system is given by \n\nTheoretical competition \n \nSolution: Question  1 \n \n26 April 2009 \n \nPage 5 of 7 \n------------------------------------------------------------------------------------------------------------------------- \n(\n)\n(\n)(\n)\n2\n2\n2\n2\n2\n2\n1\n1 1\n1\n1 cos\n2\n2 2\n2\nd\nd\nd\nE\nMR\nmr\nm\nR\nr\nmg R\nr\ndt\ndt\ndt\nφ\nψ\nθ\nθ\n⎛\n⎞\n⎛\n⎞⎛\n⎞\n⎛\n⎞\n=\n+\n+\n−\n+\n−\n−\n⎜\n⎟\n⎜\n⎟⎜\n⎟\n⎜\n⎟\n⎝\n⎠\n⎝\n⎠⎝\n⎠\n⎝\n⎠\n. \n……..(xiv.3) \n \nWe now use conservation of mechanical energy, \n(\n)\n(\n)\n2\n2\n2\n2\n2\n2\n2\n2\n2\n1\nsin\n0\n2\ndE\nd\nd\nd\nd\nd\nd\nd\nMR\nmr\nm\nR\nr\nmg R\nr\ndt\ndt\ndt\ndt\ndt\ndt\ndt\ndt\nφ\nφ\nψ\nψ\nθ\nθ\nθ\nθ\n⎛\n⎞\n⎛\n⎞\n⎛\n⎞\n⎛\n⎞\n⎛\n⎞⎛\n⎞\n⎛\n⎞\n⎛\n⎞\n=\n+\n+\n−\n+\n−\n=\n⎜\n⎟\n⎜\n⎟\n⎜\n⎟\n⎜\n⎟\n⎜\n⎟⎜\n⎟\n⎜\n⎟\n⎜\n⎟\n⎝\n⎠\n⎝\n⎠⎝\n⎠\n⎝\n⎠\n⎝\n⎠\n⎝\n⎠\n⎝\n⎠\n⎝\n⎠\n \n……..(xv.3) \n \nBy applying the equations (xi), (xii), and (xiii), we have \n2\n2\n2\n2\n2\nd\nR\nr\nm\nd\ndt\nR\nM\nm dt\nφ\nθ\n−\n= −\n+\n    and   \n2\n2\n2\n2\n2\n2\nd\nR\nr\nM\nd\ndt\nr\nM\nm dt\nψ\nθ\n−\n=\n+\n.            ……..(xvi.3) \n \nWithout loss of generality, we can integrate both equations and obtain \n2\nd\nR\nr\nm\nd\ndt\nR\nM\nm dt\nφ\nθ\n−\n= −\n+\n  and  \n2\n2\nd\nR\nr\nM\nd\ndt\nr\nM\nm dt\nψ\nθ\n−\n=\n+\n                  ……..(xvii.3) \nby imposing the condition that all bodies have zero linear and angular velocities at the same \nparticular instant.  And by substituting these relations into the equation above from conservation \nof energy, we have \n2\n2\n2\n2\n2\n2\n2\n1\n(\n)\n(\n)\nsin\n(2\n)\n(2\n)\nMm\nM\nd\nd\nd\nR\nr\ng R\nr\nM\nm\nM\nm\ndt\ndt\ndt\nθ\nθ\nθ\nθ\n⎡\n⎤\n⎛\n⎞\n⎛\n⎞\n⎛\n⎞\n+\n+\n−\n= −\n−\n⎜\n⎟\n⎢\n⎥⎜\n⎟\n⎜\n⎟\n+\n+\n⎝\n⎠\n⎝\n⎠\n⎣\n⎦\n⎝\n⎠\n.      ……..(xviii.3) \n \nThis equation must hold at all time, so we can divide d\ndt\nθ  on both sides. After some \nsimplifications, we have \n(\n)\n(\n)\n(\n)\n2\n2\n2\nsin\n3\nM\nm\nd\ng\ndt\nR\nr\nM\nm\nθ\nθ\n+\n=\n−\n−\n+\n                         ……..(xix.3) \n \nFor a small-amplitude oscillation we putsinθ\nθ\n≈\n, and the above expression is reduced to: \n(\n)\n(\n)\n(\n)\n2\n2\n2\n3\nM\nm\nd\ng\ndt\nR\nr\nM\nm\nθ\nθ\n+\n=\n−\n−\n+\n                              ……..(xx.3) \n \nThe period of this oscillation is, therefore, \n3\n2\n2\nR\nr\nM\nm\nT\ng\nM\nm\nπ\n⎛\n⎞\n−\n+\n⎛\n⎞\n=\n⎜\n⎟⎜\n⎟\n+\n⎝\n⎠\n⎝\n⎠\n \n\nTheoretical competition \n \nSolution: Question  1 \n \n26 April 2009 \n \nPage 6 of 7 \n------------------------------------------------------------------------------------------------------------------------- \nNote that,  although it seems like we have more than one degree of freedom, there exists only one \nmode of oscillations because the coupling to the potential energy is only through the angleθ . \nHowever, we have a freedom to impose any constant angular velocity d\ndt\nφ  and d\ndt\nψ (and the \ncondition for rolling without slipping), and this will not alter the period of the oscillations. This \ncorresponds to a freedom in choosing different initial conditions of the motion of the system. \n \n1.8)   When M  is made to rotate steadily at an angular velocity Ω  the equation (vi) becomes \n \n \n \n \n(\n)\n2\n2\n3\nsin\n2\nd\nR\nr\ng\ndt θ\nθ\n−\n=\n−\n  \n          …………..(xix) \n \nwhich implies that m  remains at \n0\nθ =\n if m  does not oscillate. \n \nHence the equation (i) is reduced to \n \n \n \n \nR\nr\nψ\nφ\n=\n \n \nand  \nd\nR d\nR\ndt\nr dt\nr\nφ\nψ\n=\n=\nΩ  \n…………..(xx)  \n \n \nThis means that m  is rotating at a constant angular velocity R\nr Ω prior to the instant when M  \nis stopped. \n \n \nAfter that instant m  will accelerate itself by way of frictional impulse.  This acceleration \nprocess lasts for only a short time due to the high value of frictional coefficient ( )\nμ .  To \nsimplify the calculation we will take to lower surface of M  to be flat. \n \n \n \n \n \n \n \nm\nd\nm\nv\nf\ndt\n=\n+\n \n…………..(xxi) \n \n \n \n \n2\nCM\nCM\n1\n,\n2\nm\nd\nI\nf r\nI\nmr\ndt ω\n=\n−\n=\n \n        …………..(xxii) \ng \nm\n• \nv \nm is skidding forwards \nω\nfm = μmg \n\nTheoretical competition \n \nSolution: Question  1 \n \n26 April 2009 \n \nPage 7 of 7 \n------------------------------------------------------------------------------------------------------------------------- \n \nBy solving these last two equations for ( )\nv t  and \n( )t\nω\n with initial conditions ( )\n0\n0\nv\n=  and \n( )\n0\nR\nr\nω\n=\nΩ , and imposing the condition \n( )\n( )\nv t\nt r\nω\n′\n′\n=\n for the onset of pure rolling we get \n \n \n1\n1\n,\n3\n3\nR\nv\nR\nr\nω\n′\n′\n=\nΩ\n=\nΩ  \n…………..(xxiii)  \n \nFrom now on, the cylinder m  will roll up the side of the cylindrical wall.  And since frictional \nforce does not do work in pure rolling we can use the principle of conservation of energy. \n \n \n(\n)\n2\n2\n2\n2\nCM\nCM\n1\n1\n1\n1\n2\n2\n2\n2\n2\nmv\nI\nmg R\nr\nmv\nI\nω\nω\n′\n′\n+\n+\n−\n=\n+\n  …………..(xxiv)  \n \n \nWe have also  \n2v\nN\nm\nmg\nR\nr\n=\n−\n−\n \n …………..(xxv)  \n \n \n∴ \n2\n11\n3\n3\nm\nR\nN\nmg\nR\nr\nΩ\n⎛\n⎞⎛\n⎞\n=\n−\n⎜\n⎟⎜\n⎟\n−\n⎝\n⎠⎝\n⎠\n \n …………..(xxvi)  \n \n \nm  will reach the top if \n0\nN ≥\n. \n \nHence      \n2\n33\nR\nr\ng\nR\n−\n⎛\n⎞\nΩ ≥\n⎜\n⎟\n⎝\n⎠\n                         …………..(xxvii) \n \n \n \n********************* \n \n","textExtraction":"available"}}
+{
+  "id": "apho-2009-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2009_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2009_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2009-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "u",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Rolling Cylinders"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A thin-walled cylinder of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and rough inner surface of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can rotate about its fixed central horizontal axis OZ. The Z-axis is perpendicular to and out of the page. Another smaller uniform solid cylinder of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " rolls without slipping (except for question 1.8) on the inner surface of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " about its own central axis which is parallel to OZ."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2009-t1/fca12de57d465f84cdc2.png",
+                "alt": "apho-2009-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1)The rotation of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is to be started from rest at the instant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t=0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is resting at the lowest point. At a later time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the angular position of the centre of mass of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and by then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " has turned through an angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " radians. How many radians (designated "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\psi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") would have mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " turned through about its central axis relative to a fixed line (for example, the negative Y-axis)? Give your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta,\\phi,R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". (0.8 point)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2)What is the angular acceleration of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{d^2}{dt^2}\\psi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", about its own axis through its centre of mass? Give your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R,r,\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and derivatives of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". (0.2 point)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.3)Derive an equation for the angular acceleration of the centre of mass of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{d^2}{dt^2}\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m,g,R,r,\\theta,\\dfrac{d^2}{dt^2}\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the moment of inertia "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_\\mathrm{CM}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " about its central axis. (1.8 points)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4)What is the period of small amplitude oscillation of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is constrained to rotate at a constant angular velocity? Give your answer only in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R,r,\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". (1.3 point)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.5)What is the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the equilibrium position of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in question 1.4? (0.2 point)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6)What is the equilibrium position of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is rotating with a constant angular acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? Give your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R,g,\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". (0.7 point)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.7)Now "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is allowed to rotate (oscillate) freely, without constraint, about its central axis OZ while "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is executing a small-amplitude oscillation by pure rolling on the inner surface of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Find the period of this oscillation. (2.5 points)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.8)Consider the situation in which "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is rotating steadily at an angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is rotating (rolling) about its stationary centre of mass, at the equilibrium position found in question 1.5. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is then brought abruptly to a halt. What must be the lowest value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " such that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will roll up and reach the highest point of the cylindrical surface of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? The coefficient of friction between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is assumed to be sufficiently high that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " begins to roll without slipping soon after a short skidding right after "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is stopped. (2.5 points)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "*********************"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "\n\nRolling Cylinders\n\n\n\n\nA thin-walled cylinder of mass \n\\(M\\)\n and rough inner surface of radius \n\\(R\\)\n can rotate about its fixed central horizontal axis OZ. The Z-axis is perpendicular to and out of the page. Another smaller uniform solid cylinder of mass \n\\(m\\)\n and radius \n\\(r\\)\n rolls without slipping (except for question 1.8) on the inner surface of \n\\(M\\)\n about its own central axis which is parallel to OZ.\n\n\n\n\n\n\n\n\n\n1.1)The rotation of \n\\(M\\)\n is to be started from rest at the instant \n\\(t=0\\)\n when \n\\(m\\)\n is resting at the lowest point. At a later time \n\\(t\\)\n the angular position of the centre of mass of \n\\(m\\)\n is \n\\(\\theta\\)\n and by then \n\\(M\\)\n has turned through an angle \n\\(\\phi\\)\n radians. How many radians (designated \n\\(\\psi\\)\n) would have mass \n\\(m\\)\n turned through about its central axis relative to a fixed line (for example, the negative Y-axis)? Give your answer in terms of \n\\(\\theta,\\phi,R\\)\n and \n\\(r\\)\n. (0.8 point)\n\n\n1.2)What is the angular acceleration of \n\\(m\\)\n, \n\\(\\dfrac{d^2}{dt^2}\\psi\\)\n, about its own axis through its centre of mass? Give your answer in terms of \n\\(R,r,\\)\n and derivatives of \n\\(\\theta\\)\n and \n\\(\\phi\\)\n. (0.2 point)\n\n\n1.3)Derive an equation for the angular acceleration of the centre of mass of \n\\(m\\)\n, \n\\(\\dfrac{d^2}{dt^2}\\theta\\)\n, in terms of \n\\(m,g,R,r,\\theta,\\dfrac{d^2}{dt^2}\\phi\\)\n, and the moment of inertia \n\\(I_\\mathrm{CM}\\)\n of \n\\(m\\)\n about its central axis. (1.8 points)\n\n\n1.4)What is the period of small amplitude oscillation of \n\\(m\\)\n when \n\\(M\\)\n is constrained to rotate at a constant angular velocity? Give your answer only in terms of \n\\(R,r,\\)\n and \n\\(g\\)\n. (1.3 point)\n\n\n1.5)What is the value of \n\\(\\theta\\)\n for the equilibrium position of \n\\(m\\)\n in question 1.4? (0.2 point)\n\n\n1.6)What is the equilibrium position of \n\\(m\\)\n when \n\\(M\\)\n is rotating with a constant angular acceleration \n\\(\\alpha\\)\n? Give your answer in terms of \n\\(R,g,\\)\n and \n\\(\\alpha\\)\n. (0.7 point)\n\n\n1.7)Now \n\\(M\\)\n is allowed to rotate (oscillate) freely, without constraint, about its central axis OZ while \n\\(m\\)\n is executing a small-amplitude oscillation by pure rolling on the inner surface of \n\\(M\\)\n. Find the period of this oscillation. (2.5 points)\n\n\n1.8)Consider the situation in which \n\\(M\\)\n is rotating steadily at an angular velocity \n\\(\\Omega\\)\n and \n\\(m\\)\n is rotating (rolling) about its stationary centre of mass, at the equilibrium position found in question 1.5. \n\\(M\\)\n is then brought abruptly to a halt. What must be the lowest value of \n\\(\\Omega\\)\n such that \n\\(m\\)\n will roll up and reach the highest point of the cylindrical surface of \n\\(M\\)\n? The coefficient of friction between \n\\(m\\)\n and \n\\(M\\)\n is assumed to be sufficiently high that \n\\(m\\)\n begins to roll without slipping soon after a short skidding right after \n\\(M\\)\n is stopped. (2.5 points)\n\n\n\n\n*********************\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2009-t1/fca12de57d465f84cdc2.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2009-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "u",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "SOLUTION:  Rolling Cylinders"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2009-t1/3cf5f5b64107048e33cf.png",
+                "alt": "apho-2009-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1)The point P which is fixed on the surface of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " was at the position directly below O at time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t=0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " must have rolled through an angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{\\phi R-\\theta R}{r}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " radians relative to surface of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " during which the line OC has also turned anti-clockwise through an angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Therefore the total angular displacement of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " about its centre of mass relative to any fixed reference line in time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\psi \\quad = \\quad \\frac{\\phi R-\\theta R}{r}+\\theta \\quad = \\quad \\frac{R}{r}\\phi-\\left(\\frac{R-r}{r}\\right)\\theta \\tag*{………..(i)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2)By differentiating the equation (i) twice with respect to time, we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d^2}{dt^2}\\psi \\quad = \\quad \\frac{R}{r}\\frac{d^2}{dt^2}\\phi-\\left(\\frac{R-r}{r}\\right)\\frac{d^2}{dt^2}\\theta \\tag*{………..(ii)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.3)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2009-t1/7a1f104f8d5197c5015d.png",
+                "alt": "apho-2009-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The equations of motion of centre of mass of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m\\left(R-r\\right)\\frac{d^2}{dt^2}\\theta \\quad = \\quad f-mg\\sin\\theta \\tag*{…………..(iii)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m\\left(\\frac{d}{dt}\\theta\\right)^2\\left(R-r\\right) \\quad = \\quad N-mg\\cos\\theta \\tag*{…………..(iv)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The equation for the rotation of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " about its centre of mass is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I_\\mathrm{CM}\\frac{d^2}{dt^2}\\psi \\quad = \\quad I_\\mathrm{CM}\\left[\\frac{R}{r}\\frac{d^2}{dt^2}\\phi-\\left(\\frac{R-r}{r}\\right)\\frac{d^2}{dt^2}\\theta\\right] \\quad = \\quad fr \\tag*{………..(v)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_\\mathrm{CM}=\\dfrac{1}{2}mr^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Equations (iii) and (v) yield: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(m+\\frac{I_\\mathrm{CM}}{r^2}\\right)\\left(R-r\\right)\\frac{d^2}{dt^2}\\theta \\quad = \\quad -mg\\sin\\theta+\\frac{I_\\mathrm{CM}R}{r^2}\\frac{d^2}{dt^2}\\phi \\tag*{………..(vi)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4)Here, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{d^2}{dt^2}\\phi=0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin\\theta\\approx\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and also "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_\\mathrm{CM}=\\dfrac{1}{2}mr^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the equation (vi) is reduced to: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d^2}{dt^2}\\theta \\quad = \\quad -\\frac{2g}{3(R-r)}\\theta \\tag*{………..(vii)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\text{This gives a period}\\qquad T \\quad = \\quad 2\\pi\\sqrt{\\frac{3(R-r)}{2g}} \\tag*{………..(viii)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.5)The equilibrium position of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in question 1.4) is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta=0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6)But the equilibrium position for the case where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is rotating with a constant angular acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is by considering the equation (vi), namely, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{3}{2}\\left(R-r\\right)\\frac{d^2}{dt^2}\\theta \\quad = \\quad -g\\sin\\theta+\\frac{R}{2}\\alpha \\tag*{………..(ix)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_\\mathrm{eq}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the equilibrium position; this implies that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " remains stationary at this position if it does not oscillate. Hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{d^2}{dt^2}\\theta_\\mathrm{eq}=0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\theta_\\mathrm{eq} \\quad = \\quad \\arcsin\\left(\\frac{R\\alpha}{2g}\\right) \\tag*{…………..(x)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.7)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2009-t1/feaee4c644c93b9806ec.png",
+                "alt": "apho-2009-t1 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From the equation (i) we get, after changing the directions of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\psi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d}{dt}\\psi \\quad = \\quad \\frac{R}{r}\\frac{d}{dt}\\phi+\\left(\\frac{R-r}{r}\\right)\\frac{d}{dt}\\theta \\tag*{…………..(xi)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The equations of motion of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{1}{2}mr^2\\frac{d^2}{dt^2}\\psi \\quad = \\quad -fr \\tag*{…………..(xii)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[MR^2\\frac{d^2}{dt^2}\\phi \\quad = \\quad +fR \\tag*{…………..(xiii)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Method 1: (Angular Momentum)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The effect of gravity on the system as a whole is to change its angular momentum: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d}{dt}\\left[MR^2\\frac{d}{dt}\\phi+\\frac{1}{2}mr^2\\frac{d}{dt}\\psi-m\\left(R-r\\right)^2\\frac{d}{dt}\\theta\\right] \\quad = \\quad +mg\\left(R-r\\right)\\sin\\theta \\tag*{……..(xiv.1)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\text{Hence}\\qquad \\frac{d^2}{dt^2}\\phi \\quad = \\quad -\\frac{m\\left(R-r\\right)}{\\left(2M+m\\right)R}\\frac{d^2}{dt^2}\\theta \\tag*{…………..(xv.1)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\text{and}\\quad \\left(MR+\\frac{1}{2}mr\\right)R\\frac{d^2}{dt^2}\\phi-m\\left(R-r\\right)\\left(R-\\frac{3}{2}r\\right)\\frac{d^2}{dt^2}\\theta \\quad = \\quad mg\\left(R-r\\right)\\sin\\theta \\tag*{……..(xvi.1)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Combining the last two equations: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d^2}{dt^2}\\theta \\quad = \\quad -\\frac{g}{\\left(R-r\\right)}\\frac{\\left(2M+m\\right)}{\\left(3M+m\\right)}\\sin\\theta \\tag*{………..(xvii.1)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For a small-amplitude oscillation we put "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin\\theta\\approx\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and equation (xvii) is reduced to: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d^2}{dt^2}\\theta \\quad = \\quad -\\frac{g}{\\left(R-r\\right)}\\frac{\\left(2M+m\\right)}{\\left(3M+m\\right)}\\theta \\tag*{………..(xviii.1)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The period of this oscillation is, therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T \\quad = \\quad 2\\pi\\sqrt{\\left(\\frac{R-r}{g}\\right)\\left(\\frac{3M+m}{2M+m}\\right)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Method 2: (Newton’s law)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\text{From Newton's law:}\\qquad\\qquad mg\\sin\\theta-f=ma\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[mg\\sin\\theta-f=-m\\left(R-r\\right)\\frac{d^2\\theta}{dt^2} \\tag*{……..(xiv.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\text{From equation (xiii):}\\qquad f=MR\\frac{d^2\\phi}{dt^2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " By substituting this into equation (xiv.2) we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[mg\\sin\\theta=MR\\frac{d^2\\phi}{dt^2}-m\\left(R-r\\right)\\frac{d^2\\theta}{dt^2} \\tag*{……..(xv.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From equations (xi) (xii) and (xiii), we then have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d^2\\phi}{dt^2}=-\\frac{m}{2M+m}\\left(\\frac{R-r}{R}\\right)\\frac{d^2\\theta}{dt^2} \\tag*{……..(xvi.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\text{Then (xv.2) becomes}\\qquad mg\\sin\\theta=-\\frac{Mm}{2M+m}\\left(R-r\\right)\\frac{d^2\\theta}{dt^2}-m\\left(R-r\\right)\\frac{d^2\\theta}{dt^2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d^2\\theta}{dt^2}=-\\frac{g}{\\left(R-r\\right)}\\frac{2M+m}{3M+m}\\sin\\theta \\tag*{……..(xvii.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For a small-amplitude oscillation we put "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin\\theta\\approx\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and equation (xvii) is reduced to: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d^2}{dt^2}\\theta \\quad = \\quad -\\frac{g}{\\left(R-r\\right)}\\frac{\\left(2M+m\\right)}{\\left(3M+m\\right)}\\theta \\tag*{……..(xviii.2)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The period of this oscillation is, therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T \\quad = \\quad 2\\pi\\sqrt{\\left(\\frac{R-r}{g}\\right)\\left(\\frac{3M+m}{2M+m}\\right)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Method 3: (Conservation of Energy)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The total mechanical energy of the system is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E=\\frac{1}{2}MR^2\\left(\\frac{d\\phi}{dt}\\right)^2+\\frac{1}{2}\\left(\\frac{1}{2}mr^2\\right)\\left(\\frac{d\\psi}{dt}\\right)^2+\\frac{1}{2}m\\left(\\frac{d\\theta}{dt}\\right)^2\\left(R-r\\right)^2+mg\\left(R-r\\right)\\left(1-\\cos\\theta\\right).\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "……..(xiv.3)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We now use conservation of mechanical energy,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "=MR^2()()+(mr^2)()()+m()()(R-r)^2"
+              },
+              {
+                "type": "element",
+                "tag": "br",
+                "children": []
+              },
+              {
+                "type": "text",
+                "text": "\n+mg(R-r)()"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "……..(xv.3)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "By applying the equations (xi), (xii), and (xiii), we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d^2\\phi}{dt^2}=-\\frac{R-r}{R}\\frac{m}{2M+m}\\frac{d^2\\theta}{dt^2} \\quad\\text{and}\\quad \\frac{d^2\\psi}{dt^2}=\\frac{R-r}{r}\\frac{2M}{2M+m}\\frac{d^2\\theta}{dt^2}. \\tag*{……..(xvi.3)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Without loss of generality, we can integrate both equations and obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d\\phi}{dt}=-\\frac{R-r}{R}\\frac{m}{2M+m}\\frac{d\\theta}{dt} \\quad\\text{and}\\quad \\frac{d\\psi}{dt}=\\frac{R-r}{r}\\frac{2M}{2M+m}\\frac{d\\theta}{dt} \\tag*{……..(xvii.3)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " by imposing the condition that all bodies have zero linear and angular velocities at the same particular instant. And by substituting these relations into the equation above from conservation of energy, we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left[\\frac{Mm}{(2M+m)^2}+\\frac{2M^2}{(2M+m)^2}+1\\right]\\left(\\frac{d\\theta}{dt}\\right)\\left(\\frac{d^2\\theta}{dt^2}\\right)(R-r)^2=-g(R-r)\\left(\\frac{d\\theta}{dt}\\right)\\sin\\theta. \\tag*{……..(xviii.3)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This equation must hold at all time, so we can divide "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{d\\theta}{dt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on both sides. After some simplifications, we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d^2}{dt^2}\\theta \\quad = \\quad -\\frac{g}{\\left(R-r\\right)}\\frac{\\left(2M+m\\right)}{\\left(3M+m\\right)}\\sin\\theta \\tag*{……..(xix.3)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For a small-amplitude oscillation we put "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin\\theta\\approx\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the above expression is reduced to: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d^2}{dt^2}\\theta \\quad = \\quad -\\frac{g}{\\left(R-r\\right)}\\frac{\\left(2M+m\\right)}{\\left(3M+m\\right)}\\theta \\tag*{……..(xx.3)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The period of this oscillation is, therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T \\quad = \\quad 2\\pi\\sqrt{\\left(\\frac{R-r}{g}\\right)\\left(\\frac{3M+m}{2M+m}\\right)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note that, although it seems like we have more than one degree of freedom, there exists only one mode of oscillations because the coupling to the potential energy is only through the angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". However, we have a freedom to impose any constant angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{d\\phi}{dt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{d\\psi}{dt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (and the condition for rolling without slipping), and this will not alter the period of the oscillations. This corresponds to a freedom in choosing different initial conditions of the motion of the system."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.8)When "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is made to rotate steadily at an angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the equation (vi) becomes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{3}{2}\\left(R-r\\right)\\frac{d^2}{dt^2}\\theta \\quad = \\quad -g\\sin\\theta \\tag*{…………..(xix)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which implies that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " remains at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta=0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " does not oscillate."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hence the equation (i) is reduced to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\psi \\quad = \\quad \\frac{R}{r}\\phi\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\text{and}\\qquad\\qquad \\frac{d}{dt}\\psi \\quad = \\quad \\frac{R}{r}\\frac{d\\phi}{dt} \\quad = \\quad \\frac{R}{r}\\Omega \\tag*{…………..(xx)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This means that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is rotating at a constant angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{R}{r}\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " prior to the instant when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is stopped."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "After that instant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will accelerate itself by way of frictional impulse. This acceleration process lasts for only a short time due to the high value of frictional coefficient "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\left(\\mu\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". To simplify the calculation we will take to lower surface of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to be flat."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2009-t1/27a98a150bf0a4157c8b.png",
+                "alt": "apho-2009-t1 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m\\frac{d}{dt}v \\quad = \\quad +f_m \\tag*{…………..(xxi)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I_\\mathrm{CM}\\frac{d}{dt}\\omega \\quad = \\quad -f_mr,\\quad I_\\mathrm{CM}=\\frac{1}{2}mr^2 \\tag*{…………..(xxii)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " By solving these last two equations for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\left(t\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\left(t\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with initial conditions "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\left(0\\right)=0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\left(0\\right)=\\dfrac{R}{r}\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and imposing the condition "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v'\\left(t\\right)=\\omega'\\left(t\\right)r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the onset of pure rolling we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v' \\quad = \\quad \\frac{1}{3}R\\Omega,\\quad \\omega' \\quad = \\quad \\frac{1}{3}\\frac{R}{r}\\Omega \\tag*{…………..(xxiii)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From now on, the cylinder "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will roll up the side of the cylindrical wall. And since frictional force does not do work in pure rolling we can use the principle of conservation of energy. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{1}{2}mv^2+\\frac{1}{2}I_\\mathrm{CM}\\omega^2+2mg\\left(R-r\\right) \\quad = \\quad \\frac{1}{2}mv'^2+\\frac{1}{2}I_\\mathrm{CM}\\omega'^2 \\tag*{…………..(xxiv)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\text{We have also}\\qquad\\qquad N \\quad = \\quad m\\frac{v^2}{R-r}-mg \\tag*{…………..(xxv)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\therefore\\qquad\\qquad N \\quad = \\quad \\left(\\frac{m}{R-r}\\right)\\left(\\frac{R\\Omega}{3}\\right)^2-\\frac{11}{3}mg \\tag*{…………..(xxvi)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will reach the top if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\geq 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\text{Hence}\\qquad\\qquad \\Omega \\quad \\geq \\quad \\sqrt{33g\\left(\\frac{R-r}{R^2}\\right)} \\tag*{…………..(xxvii)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "*********************"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "\n\nSOLUTION:  Rolling Cylinders\n\n\n\n\n\n\n\n\n\n\n\n1.1)The point P which is fixed on the surface of \n\\(M\\)\n was at the position directly below O at time \n\\(t=0\\)\n. Hence \n\\(m\\)\n must have rolled through an angle \n\\(\\dfrac{\\phi R-\\theta R}{r}\\)\n radians relative to surface of \n\\(M\\)\n in time \n\\(t\\)\n during which the line OC has also turned anti-clockwise through an angle \n\\(\\theta\\)\n. Therefore the total angular displacement of \n\\(m\\)\n about its centre of mass relative to any fixed reference line in time \n\\(t\\)\n is \n\\[\\psi \\quad = \\quad \\frac{\\phi R-\\theta R}{r}+\\theta \\quad = \\quad \\frac{R}{r}\\phi-\\left(\\frac{R-r}{r}\\right)\\theta \\tag*{………..(i)}\\]\n\n\n1.2)By differentiating the equation (i) twice with respect to time, we get \n\\[\\frac{d^2}{dt^2}\\psi \\quad = \\quad \\frac{R}{r}\\frac{d^2}{dt^2}\\phi-\\left(\\frac{R-r}{r}\\right)\\frac{d^2}{dt^2}\\theta \\tag*{………..(ii)}\\]\n\n\n1.3)\n\n\n\n\n\n\n\n\n\nThe equations of motion of centre of mass of \n\\(m\\)\n are: \n\\[m\\left(R-r\\right)\\frac{d^2}{dt^2}\\theta \\quad = \\quad f-mg\\sin\\theta \\tag*{…………..(iii)}\\]\n \n\\[m\\left(\\frac{d}{dt}\\theta\\right)^2\\left(R-r\\right) \\quad = \\quad N-mg\\cos\\theta \\tag*{…………..(iv)}\\]\n The equation for the rotation of \n\\(m\\)\n about its centre of mass is: \n\\[I_\\mathrm{CM}\\frac{d^2}{dt^2}\\psi \\quad = \\quad I_\\mathrm{CM}\\left[\\frac{R}{r}\\frac{d^2}{dt^2}\\phi-\\left(\\frac{R-r}{r}\\right)\\frac{d^2}{dt^2}\\theta\\right] \\quad = \\quad fr \\tag*{………..(v)}\\]\n where \n\\(I_\\mathrm{CM}=\\dfrac{1}{2}mr^2\\)\n.\n\n\nEquations (iii) and (v) yield: \n\\[\\left(m+\\frac{I_\\mathrm{CM}}{r^2}\\right)\\left(R-r\\right)\\frac{d^2}{dt^2}\\theta \\quad = \\quad -mg\\sin\\theta+\\frac{I_\\mathrm{CM}R}{r^2}\\frac{d^2}{dt^2}\\phi \\tag*{………..(vi)}\\]\n\n\n1.4)Here, \n\\(\\dfrac{d^2}{dt^2}\\phi=0\\)\n, \n\\(\\sin\\theta\\approx\\theta\\)\n and also \n\\(I_\\mathrm{CM}=\\dfrac{1}{2}mr^2\\)\n, the equation (vi) is reduced to: \n\\[\\frac{d^2}{dt^2}\\theta \\quad = \\quad -\\frac{2g}{3(R-r)}\\theta \\tag*{………..(vii)}\\]\n \n\\[\\text{This gives a period}\\qquad T \\quad = \\quad 2\\pi\\sqrt{\\frac{3(R-r)}{2g}} \\tag*{………..(viii)}\\]\n\n\n1.5)The equilibrium position of \n\\(m\\)\n in question 1.4) is \n\\(\\theta=0\\)\n.\n\n\n1.6)But the equilibrium position for the case where \n\\(M\\)\n is rotating with a constant angular acceleration \n\\(\\alpha\\)\n is by considering the equation (vi), namely, \n\\[\\frac{3}{2}\\left(R-r\\right)\\frac{d^2}{dt^2}\\theta \\quad = \\quad -g\\sin\\theta+\\frac{R}{2}\\alpha \\tag*{………..(ix)}\\]\n Let \n\\(\\theta_\\mathrm{eq}\\)\n be the equilibrium position; this implies that \n\\(m\\)\n remains stationary at this position if it does not oscillate. Hence \n\\(\\dfrac{d^2}{dt^2}\\theta_\\mathrm{eq}=0\\)\n, and \n\\[\\theta_\\mathrm{eq} \\quad = \\quad \\arcsin\\left(\\frac{R\\alpha}{2g}\\right) \\tag*{…………..(x)}\\]\n\n\n1.7)\n\n\n\n\n\n\n\n\n\nFrom the equation (i) we get, after changing the directions of \n\\(\\psi\\)\n and \n\\(\\phi\\)\n, \n\\[\\frac{d}{dt}\\psi \\quad = \\quad \\frac{R}{r}\\frac{d}{dt}\\phi+\\left(\\frac{R-r}{r}\\right)\\frac{d}{dt}\\theta \\tag*{…………..(xi)}\\]\n The equations of motion of \n\\(m\\)\n and \n\\(M\\)\n are: \n\\[\\frac{1}{2}mr^2\\frac{d^2}{dt^2}\\psi \\quad = \\quad -fr \\tag*{…………..(xii)}\\]\n \n\\[MR^2\\frac{d^2}{dt^2}\\phi \\quad = \\quad +fR \\tag*{…………..(xiii)}\\]\n\n\nMethod 1: (Angular Momentum)\n\n\nThe effect of gravity on the system as a whole is to change its angular momentum: \n\\[\\frac{d}{dt}\\left[MR^2\\frac{d}{dt}\\phi+\\frac{1}{2}mr^2\\frac{d}{dt}\\psi-m\\left(R-r\\right)^2\\frac{d}{dt}\\theta\\right] \\quad = \\quad +mg\\left(R-r\\right)\\sin\\theta \\tag*{……..(xiv.1)}\\]\n \n\\[\\text{Hence}\\qquad \\frac{d^2}{dt^2}\\phi \\quad = \\quad -\\frac{m\\left(R-r\\right)}{\\left(2M+m\\right)R}\\frac{d^2}{dt^2}\\theta \\tag*{…………..(xv.1)}\\]\n \n\\[\\text{and}\\quad \\left(MR+\\frac{1}{2}mr\\right)R\\frac{d^2}{dt^2}\\phi-m\\left(R-r\\right)\\left(R-\\frac{3}{2}r\\right)\\frac{d^2}{dt^2}\\theta \\quad = \\quad mg\\left(R-r\\right)\\sin\\theta \\tag*{……..(xvi.1)}\\]\n Combining the last two equations: \n\\[\\frac{d^2}{dt^2}\\theta \\quad = \\quad -\\frac{g}{\\left(R-r\\right)}\\frac{\\left(2M+m\\right)}{\\left(3M+m\\right)}\\sin\\theta \\tag*{………..(xvii.1)}\\]\n For a small-amplitude oscillation we put \n\\(\\sin\\theta\\approx\\theta\\)\n and equation (xvii) is reduced to: \n\\[\\frac{d^2}{dt^2}\\theta \\quad = \\quad -\\frac{g}{\\left(R-r\\right)}\\frac{\\left(2M+m\\right)}{\\left(3M+m\\right)}\\theta \\tag*{………..(xviii.1)}\\]\n The period of this oscillation is, therefore, \n\\[T \\quad = \\quad 2\\pi\\sqrt{\\left(\\frac{R-r}{g}\\right)\\left(\\frac{3M+m}{2M+m}\\right)}\\]\n\n\nMethod 2: (Newton’s law)\n\n\n\\[\\text{From Newton's law:}\\qquad\\qquad mg\\sin\\theta-f=ma\\]\n \n\\[mg\\sin\\theta-f=-m\\left(R-r\\right)\\frac{d^2\\theta}{dt^2} \\tag*{……..(xiv.2)}\\]\n \n\\[\\text{From equation (xiii):}\\qquad f=MR\\frac{d^2\\phi}{dt^2}\\]\n By substituting this into equation (xiv.2) we have \n\\[mg\\sin\\theta=MR\\frac{d^2\\phi}{dt^2}-m\\left(R-r\\right)\\frac{d^2\\theta}{dt^2} \\tag*{……..(xv.2)}\\]\n From equations (xi) (xii) and (xiii), we then have \n\\[\\frac{d^2\\phi}{dt^2}=-\\frac{m}{2M+m}\\left(\\frac{R-r}{R}\\right)\\frac{d^2\\theta}{dt^2} \\tag*{……..(xvi.2)}\\]\n \n\\[\\text{Then (xv.2) becomes}\\qquad mg\\sin\\theta=-\\frac{Mm}{2M+m}\\left(R-r\\right)\\frac{d^2\\theta}{dt^2}-m\\left(R-r\\right)\\frac{d^2\\theta}{dt^2}\\]\n \n\\[\\frac{d^2\\theta}{dt^2}=-\\frac{g}{\\left(R-r\\right)}\\frac{2M+m}{3M+m}\\sin\\theta \\tag*{……..(xvii.2)}\\]\n For a small-amplitude oscillation we put \n\\(\\sin\\theta\\approx\\theta\\)\n and equation (xvii) is reduced to: \n\\[\\frac{d^2}{dt^2}\\theta \\quad = \\quad -\\frac{g}{\\left(R-r\\right)}\\frac{\\left(2M+m\\right)}{\\left(3M+m\\right)}\\theta \\tag*{……..(xviii.2)}\\]\n The period of this oscillation is, therefore, \n\\[T \\quad = \\quad 2\\pi\\sqrt{\\left(\\frac{R-r}{g}\\right)\\left(\\frac{3M+m}{2M+m}\\right)}\\]\n\n\nMethod 3: (Conservation of Energy)\n\n\nThe total mechanical energy of the system is given by \n\\[E=\\frac{1}{2}MR^2\\left(\\frac{d\\phi}{dt}\\right)^2+\\frac{1}{2}\\left(\\frac{1}{2}mr^2\\right)\\left(\\frac{d\\psi}{dt}\\right)^2+\\frac{1}{2}m\\left(\\frac{d\\theta}{dt}\\right)^2\\left(R-r\\right)^2+mg\\left(R-r\\right)\\left(1-\\cos\\theta\\right).\\]\n\n\n\n\n……..(xiv.3)\n\n\n\n\nWe now use conservation of mechanical energy,\n\n\n\n\n=MR^2()()+(mr^2)()()+m()()(R-r)^2\n\n\n+mg(R-r)()\n\n\n\n\n\n\n……..(xv.3)\n\n\n\n\nBy applying the equations (xi), (xii), and (xiii), we have \n\\[\\frac{d^2\\phi}{dt^2}=-\\frac{R-r}{R}\\frac{m}{2M+m}\\frac{d^2\\theta}{dt^2} \\quad\\text{and}\\quad \\frac{d^2\\psi}{dt^2}=\\frac{R-r}{r}\\frac{2M}{2M+m}\\frac{d^2\\theta}{dt^2}. \\tag*{……..(xvi.3)}\\]\n Without loss of generality, we can integrate both equations and obtain \n\\[\\frac{d\\phi}{dt}=-\\frac{R-r}{R}\\frac{m}{2M+m}\\frac{d\\theta}{dt} \\quad\\text{and}\\quad \\frac{d\\psi}{dt}=\\frac{R-r}{r}\\frac{2M}{2M+m}\\frac{d\\theta}{dt} \\tag*{……..(xvii.3)}\\]\n by imposing the condition that all bodies have zero linear and angular velocities at the same particular instant. And by substituting these relations into the equation above from conservation of energy, we have \n\\[\\left[\\frac{Mm}{(2M+m)^2}+\\frac{2M^2}{(2M+m)^2}+1\\right]\\left(\\frac{d\\theta}{dt}\\right)\\left(\\frac{d^2\\theta}{dt^2}\\right)(R-r)^2=-g(R-r)\\left(\\frac{d\\theta}{dt}\\right)\\sin\\theta. \\tag*{……..(xviii.3)}\\]\n This equation must hold at all time, so we can divide \n\\(\\dfrac{d\\theta}{dt}\\)\n on both sides. After some simplifications, we have \n\\[\\frac{d^2}{dt^2}\\theta \\quad = \\quad -\\frac{g}{\\left(R-r\\right)}\\frac{\\left(2M+m\\right)}{\\left(3M+m\\right)}\\sin\\theta \\tag*{……..(xix.3)}\\]\n For a small-amplitude oscillation we put \n\\(\\sin\\theta\\approx\\theta\\)\n, and the above expression is reduced to: \n\\[\\frac{d^2}{dt^2}\\theta \\quad = \\quad -\\frac{g}{\\left(R-r\\right)}\\frac{\\left(2M+m\\right)}{\\left(3M+m\\right)}\\theta \\tag*{……..(xx.3)}\\]\n The period of this oscillation is, therefore, \n\\[T \\quad = \\quad 2\\pi\\sqrt{\\left(\\frac{R-r}{g}\\right)\\left(\\frac{3M+m}{2M+m}\\right)}\\]\n\n\nNote that, although it seems like we have more than one degree of freedom, there exists only one mode of oscillations because the coupling to the potential energy is only through the angle \n\\(\\theta\\)\n. However, we have a freedom to impose any constant angular velocity \n\\(\\dfrac{d\\phi}{dt}\\)\n and \n\\(\\dfrac{d\\psi}{dt}\\)\n (and the condition for rolling without slipping), and this will not alter the period of the oscillations. This corresponds to a freedom in choosing different initial conditions of the motion of the system.\n\n\n1.8)When \n\\(M\\)\n is made to rotate steadily at an angular velocity \n\\(\\Omega\\)\n the equation (vi) becomes \n\\[\\frac{3}{2}\\left(R-r\\right)\\frac{d^2}{dt^2}\\theta \\quad = \\quad -g\\sin\\theta \\tag*{…………..(xix)}\\]\n which implies that \n\\(m\\)\n remains at \n\\(\\theta=0\\)\n if \n\\(m\\)\n does not oscillate.\n\n\nHence the equation (i) is reduced to \n\\[\\psi \\quad = \\quad \\frac{R}{r}\\phi\\]\n \n\\[\\text{and}\\qquad\\qquad \\frac{d}{dt}\\psi \\quad = \\quad \\frac{R}{r}\\frac{d\\phi}{dt} \\quad = \\quad \\frac{R}{r}\\Omega \\tag*{…………..(xx)}\\]\n This means that \n\\(m\\)\n is rotating at a constant angular velocity \n\\(\\dfrac{R}{r}\\Omega\\)\n prior to the instant when \n\\(M\\)\n is stopped.\n\n\nAfter that instant \n\\(m\\)\n will accelerate itself by way of frictional impulse. This acceleration process lasts for only a short time due to the high value of frictional coefficient \n\\(\\left(\\mu\\right)\\)\n. To simplify the calculation we will take to lower surface of \n\\(M\\)\n to be flat.\n\n\n\n\n\n\n\n\n\n\\[m\\frac{d}{dt}v \\quad = \\quad +f_m \\tag*{…………..(xxi)}\\]\n \n\\[I_\\mathrm{CM}\\frac{d}{dt}\\omega \\quad = \\quad -f_mr,\\quad I_\\mathrm{CM}=\\frac{1}{2}mr^2 \\tag*{…………..(xxii)}\\]\n By solving these last two equations for \n\\(v\\left(t\\right)\\)\n and \n\\(\\omega\\left(t\\right)\\)\n with initial conditions \n\\(v\\left(0\\right)=0\\)\n and \n\\(\\omega\\left(0\\right)=\\dfrac{R}{r}\\Omega\\)\n, and imposing the condition \n\\(v'\\left(t\\right)=\\omega'\\left(t\\right)r\\)\n for the onset of pure rolling we get \n\\[v' \\quad = \\quad \\frac{1}{3}R\\Omega,\\quad \\omega' \\quad = \\quad \\frac{1}{3}\\frac{R}{r}\\Omega \\tag*{…………..(xxiii)}\\]\n From now on, the cylinder \n\\(m\\)\n will roll up the side of the cylindrical wall. And since frictional force does not do work in pure rolling we can use the principle of conservation of energy. \n\\[\\frac{1}{2}mv^2+\\frac{1}{2}I_\\mathrm{CM}\\omega^2+2mg\\left(R-r\\right) \\quad = \\quad \\frac{1}{2}mv'^2+\\frac{1}{2}I_\\mathrm{CM}\\omega'^2 \\tag*{…………..(xxiv)}\\]\n \n\\[\\text{We have also}\\qquad\\qquad N \\quad = \\quad m\\frac{v^2}{R-r}-mg \\tag*{…………..(xxv)}\\]\n \n\\[\\therefore\\qquad\\qquad N \\quad = \\quad \\left(\\frac{m}{R-r}\\right)\\left(\\frac{R\\Omega}{3}\\right)^2-\\frac{11}{3}mg \\tag*{…………..(xxvi)}\\]\n \n\\(m\\)\n will reach the top if \n\\(N\\geq 0\\)\n. \n\\[\\text{Hence}\\qquad\\qquad \\Omega \\quad \\geq \\quad \\sqrt{33g\\left(\\frac{R-r}{R^2}\\right)} \\tag*{…………..(xxvii)}\\]\n\n\n\n\n*********************\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2009-t1/3cf5f5b64107048e33cf.png",
+      "/corpus/figures/native/bulk/apho-2009-t1/7a1f104f8d5197c5015d.png",
+      "/corpus/figures/native/bulk/apho-2009-t1/feaee4c644c93b9806ec.png",
+      "/corpus/figures/native/bulk/apho-2009-t1/27a98a150bf0a4157c8b.png"
+    ],
+    "shared": false
+  }
+}

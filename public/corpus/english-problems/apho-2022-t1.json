@@ -1,1 +1,4269 @@
-{"id":"apho-2022-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2022_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2022_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2022-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Theory\nQ1-1\nOﬃcial (English)\nThe Stern-Gerlach Experiment1\nThe Stern-Gerlach experiment was performed in 1922 and it eventually led to the determination of\nthe magnetic moment of the electron. In this experiment a beam of silver atoms each of mass 𝑚=\n1.80 × 10−25 kg emerges from an oven kept at temperature T=1.20 × 103 K (see Figure 1). Assume that\non emerging from the oven all the atoms have the same momentum along the direction of the beam\n(𝑧-direction). Ignore gravity.\nFigure 1: Schematic diagram of the Stern-Gerlach setup.\nA.1\nSpeed of the Silver Atoms: The speed 𝑣𝑧of the silver atoms emerging from\nthe oven can be estimated to be √3𝑘𝐵𝑇/𝑚using the equipartition theorem.\nCalculate this value.\n0.5pt\n1H. S. Mani (former Director, HRI, Prayagraj) and Gautam Datta (DAIICT, Gandhinagar) were the principal authors of this prob-\nlem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully\nacknowledged.\n\nTheory\nQ1-2\nOﬃcial (English)\nB.1\nThe Basic Expression: After emerging from the oven the silver atoms move\nalong the 𝑧- direction over a distance 𝑙1 = 0.25 m. Next, the silver atoms pass\nbetween two magnets over a distance 𝑙2 = 0.5 m. The magnets produce inho-\nmogeneous magnetic ﬁeld 𝐵in the 𝑥-direction with constant gradient 𝑑𝐵/𝑑𝑥.\nAssume that the silver atom has a magnetic moment pointing either in + 𝑥-\ndirection or - 𝑥-direction, i.e.\n⃗𝜇𝑠= ±𝜇𝑠̂𝚤. After passing through the magnets\nthe silver atoms pass through a further distance 𝑙3 = 0.25 m before striking the\nscreen 𝑃𝑃′. The distance between the two striking beams on the screen is Δ𝑥.\nDerive the expression for the splitting distance Δ𝑥on the screen.\n2pt\nThe Inhomogeneous Magnetic Field:\nThis part is concerned with the setup to create the inhomogenous magnetic ﬁeld (𝑑𝐵/𝑑𝑥≠0). It consists\nof a number of sub-parts. Two very long wires parallel to the 𝑧-axis carry currents of magnitude 𝐼0 and\nare located at 𝐴1 (0, −𝑎, 𝑧) and 𝐴2 (0, 𝑎, 𝑧) (see ﬁgure below). The direction of the current passing through\n𝑦= −𝑎is −̂𝑘and for the one passing through 𝑦= 𝑎is ̂𝑘. The entire system is inside a medium of high\nrelative magnetic permeability 𝜇𝑟. We take 𝜇= 𝜇0𝜇𝑟. The wires are insulated and no current leaks into\nthe medium.\n \n⃗𝐼= 𝐼0 ̂𝑘\n⃗𝐼= −𝐼0 ̂𝑘\nx\ny\n𝑃0\n(𝑥𝑐, 𝑦𝑐)\nC D\n𝐴2\nO\nR\nQ\n𝑃1(𝑥, 𝑦)\nAir\nP\n𝐴1\nFigure 2: The arrangement for the inhomogeneous magnetic ﬁeld\n\nTheory\nQ1-3\nOﬃcial (English)\nC.1\nDerive the expression for the magnetic ﬁeld vector at a point 𝑃1 (𝑥, 𝑦, 0) in the\n𝑥-𝑦plane (see Fig. 2).\n1.5pt\nC.2\nConsider a circle with its centre C on the 𝑥-axis (𝑥𝑐, 0) and with radius equal to\nthe distance 𝐴𝐶(see Figure 2). Obtain the direction of the magnetic ﬁeld at\ncircumferential points 𝑅(on the 𝑥axis) and at 𝑃0 (𝐶𝑃0 is parallel to the 𝑦axis).\n0.5pt\nC.3\nNow a small slice of the high magnetic permeability medium between the circles\nwith radii AC and AD is removed and replaced with air at very low pressure (see\nFig. 2). One can show from continuity considerations that the magnetic ﬁeld\nin this gap region is given by the same expression as if the magnetic medium\nwere not removed. (We shall assume this and you are not required to prove\nthis). Hence state the expression for the magnetic ﬁeld at the point (𝑥, 0) in the\nair gap region.\n0.5pt\nD.1\nThe Force: As mentioned earlier the silver atoms are travelling in the (𝑥, 0, 𝑧)\nplane with their velocities parallel to the z-axis and given by ⃗𝑣= 𝑣𝑧̂𝑘. Recall also\nthat the magnetic dipole of the silver atom is\n⃗𝜇𝑠= ±𝜇𝑠̂𝚤. Obtain the expression\nfor the magnitude of the force 𝐹𝑥acting on a silver atom along the x-direction\nin terms of 𝜇𝑠, 𝐼0 , 𝑎𝜇and relevant coordinates.\n0.5pt\nE.1\nThe Magnetic Field and its Gradient: We assume that this same force 𝐹𝑥acts\nover a small distance 𝑙2 along the 𝑧axis (Figure 1). Assume also that the silver\natoms pass through the mid-point 𝑃of 𝑅𝑄(Figure 2). The following experimen-\ntal values are given:\n𝜇\n𝜇0\n= 104 ;\n𝑎= 0.60 𝑐𝑚;\n𝑂𝐶= 0.60𝑐𝑚;\n𝑂𝐷= 0.80 𝑐𝑚; 𝐼0 = 2.00𝐴\nHere 𝜇𝑜is the magnetic permeability of free space. Obtain the numerical value\nof the magnitudes of the magnetic ﬁeld 𝐵𝑃and its gradient 𝑑𝐵𝑃/𝑑𝑥at this mid-\npoint in S.I. units.\n2.0pt\nF.1\nThe Magnetic Moment of the Silver Atom: If 𝑣𝑧= 500 m⋅s−1 and magnetic\nﬁeld is calculates as above, the Stern-Gerlach experiment yields a split of Δ𝑥=\n0.20 cm. Obtain the value of the magnetic moment of the silver atom 𝜇𝑠in S.I.\nunits.\n1.5pt\n\nTheory\nQ1-4\nOﬃcial (English)\nG.1\nThe spread of the line: The silver atoms may not all have the same speed. Let\nthere be a spread of 20 % in the beam speed. What would be the consequent\nspread of the dot 𝛿𝑥on the screen?\n0.5pt\nH.1\nThe error in the magnetic moment: What is the consequent error bar on the\nevaluation of the magnetic moment 𝛿𝜇𝑠?\n0.5pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2022-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"Solutions\nA1-1\nOﬃcial (English)\nGeneral Grading Guidelines\n \nWhen student’s solutions are correct and s/he also show how solutions were obtained, the stduent\ngets full credit. The scheme oulined below is helpful if the student’s answers are partially correct.\nAttention will be paid to the detailed solution so, if the ﬁnal answer is correct but it is obtained by\nincorrect method(s) then no credit will be given. Alternative solutions may exist and will be given\ndue credit.\n \nPartial or full outcomes obtained for later sections in the problem which are incorrect solely because\nof errors being carried forward from previous sections, but are otherwise reasonable, will not be\nfurther penalized. For example a dimensioanlly wrong answer when carried forward will not get\nany credit in the subsequent sections. A numerically wrong evaluation when carried forward will get\ncredit in subsequent sections unless the numerical answer is patently wrong (e.g. the value of g is\n981 m/sec2! )\n \nIncorrect or no labeling of an axis is penalized by -0.1 points\n \nThe numerical answer (i) must be correct to +/- 10% AND (ii) must respect signiﬁcant ﬁgures.\n \nIt maybe noted that NO micro-marking scheme takes care of all contingencies. A certain\namount of discretion rests with and a certain level of judgement is invested in the academic\ncommittee.\nThe Stern-Gerlach Experiment: THE SOLUTION1\nA.1\nSpeed of the Silver Atoms:\nWe employ the equipartition theorem. Let 𝑣2 be the mean square speed of the\nsilver atoms in the oven kept at 1200 K. Then\n𝑚𝑣2\n2\n= 3𝑘𝐵𝑇\n2\nwhere 𝑘𝐵is the Boltzmann constant. This yields the root mean square speed\nto be 5.255×102 m⋅s−1.\n[0.5]\n0.5pt\n1H. S. Mani (former Director, HRI, Prayagraj) and Gautam Datta (DAIICT, Gandhinagar) were the principal authors of this prob-\nlem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully\nacknowledged.\n\nSolutions\nA1-2\nOﬃcial (English)\nB.1\nThe Basic Expression\nThe length 𝑙1 is irrelevant and will not be part of the expression.\nThe magnitude of the acceleration 𝑎of the silver atoms in the region deﬁned\nby 𝑙2 is\n𝑎= 𝜇𝑠\n𝑚\n𝑑𝐵\n𝑑𝑥\n[0.4]\nand it will be either in the +𝑥or -𝑥direction. At the same time it has a con-\nstant horizontal velocity 𝑣𝑧. It traverses the region 𝑙2 in time 𝑙2/𝑣𝑧. Thus after\ntraversing the inhomogeneous region the deﬂection in say the +𝑥direction is\n𝛿1 = 1\n2\n𝜇𝑠\n𝑚\n𝑑𝐵\n𝑑𝑥\n𝑙2\n2\n𝑣2𝑧\n[0.6]\nFor the remaining part of the ﬂight the atom will have a constant hoirzontal\nspeed 𝑣𝑧and a constant vertical speed 𝑣𝑥0 = (𝜇𝑠𝑑𝐵/𝑑𝑥) (𝑙2/𝑚𝑣𝑧). On account of\nthe 𝑣𝑥component the atom will acquire an additional deﬂection\n𝛿2 = 𝑙3𝑣𝑥0/𝑣𝑧\nThis yields\n𝛿2 = 𝑙3𝑙2\n𝜇𝑠\n𝑚𝑣2𝑧\n𝑑𝐵\n𝑑𝑥\n[0.4]\nThe total deﬂection in the +𝑥direction is 𝛿1+𝛿2. The splitting seen on the screen\nin this idealized case is twice this amount, e.g. 2 (𝛿1 + 𝛿2) . Thus we obtain\nΔ𝑥= 2𝜇𝑠\n𝑚\n𝑑𝐵\n𝑑𝑥\n𝑙2\n𝑣2𝑧\n(𝑙2/2 + 𝑙3)\n \n-0.3 if factor of 2 is missing.\n[0.6]\n2pt\n\nSolutions\nA1-3\nOﬃcial (English)\nC.1\nThe Inhomogeneous Magnetic Field:\n(0,a)\n(0,-a)\n(x,y)\nA1\nA2\nP\nLet\n⃗\n𝐴1𝑃=\n⃗𝑟1 = 𝑥̂𝑖+ (𝑦−𝑎) ̂𝑗and\n⃗\n𝐴2𝑃=\n⃗𝑟2 = 𝑥̂𝑖+ (𝑦+ 𝑎) ̂𝑗. This gives for\n⃗𝐵(𝑥, 𝑦)\n𝜇𝐼0\n2𝜋[\n̂𝑘× (𝑥̂𝑖+ (𝑦−𝑎) ̂𝑗\n𝑟2\n1\n−\n̂𝑘× (𝑥̂𝑖+ (𝑦+ 𝑎) ̂𝑗\n𝑟2\n2\n]\n(1)\n[0.4+0.4]\n=\n𝜇𝐼0\n2𝜋𝑟2\n1𝑟2\n2\n[(𝑥̂𝑗−(𝑦−𝑎) ̂𝑖)(𝑥2 + (𝑦+ 𝑎)2) −(𝑥̂𝑗−(𝑦+ 𝑎) ̂𝑖)(𝑥2 + (𝑦−𝑎)2)]\n= 𝜇𝐼0 𝑎\n𝜋𝑟2\n1𝑟2\n2\n[2𝑥𝑦̂𝑗+ (𝑥2 −𝑦2 + 𝑎2) ̂𝑖]\n(2)\n[0.7]\n⃗𝐼= 𝐼0 ̂𝑘\n⃗𝐼= −𝐼0 ̂𝑘\nx\ny\n𝑃0\n(𝑥𝑐, 𝑦𝑐)\nC D\nA\nO\nR\nQ\n𝑃1(𝑥, 𝑦)\nAir\nP\nB\n \nWriting the ﬁnal expression as any correct function of x and y will get full marks.\nIf collecting all the terms component-wise not done, then penalize by -0.1. If an\nerror has been made in simpliﬁcation then penalize by -0.1.\n \n1.5pt\n\nSolutions\nA1-4\nOﬃcial (English)\nC.2\nDirection at point 𝑅: Field at the point 𝑅((𝑥𝑐+ √𝑥2𝑐+ 𝑎2, 0) is given by substi-\ntuting 𝑦= 0. On simple inspection the\n̂𝑗component vanishes. Thus\n⃗𝐵(𝑥, 0) ∝\n̂𝑖\n[0.2]\nDirection at point 𝑃0: Field at 𝑃0 ((𝑥𝑐, 𝑦𝑐= (𝑥2\n𝑐+ 𝑎2)1/2)) is given, using Eq.(2)\n𝜇𝐼0\n𝜋𝑟2\n1𝑟2\n2\n(2𝑥𝑐(𝑥2\n𝑐+ 𝑎2)1/2 ̂𝑗+ (𝑥2\n𝑐−𝑥2\n𝑐−𝑎2 + 𝑎2) ̂𝑖)\nThe ̂𝑖component is zero. Thus\n⃗𝐵(𝑥𝑐, (𝑥2\n𝑐+ 𝑎2)1/2) ∝\n̂𝑗\n[0.3]\nFirst Alternative Solution\nWe can show in general that the ﬁeld at any point on the circle will be radial\n(i.e. normal to the circle). We will conﬁne our discussion to the z=0 plane.\nConsider a point (𝑥𝑐, 𝑦) with radius √𝑥2𝑐+ 𝑎2. The equation of a circle with\n(𝑥𝑐, 0) as centre and √𝑥2𝑐+ 𝑎2 as radius is\n(𝑥−𝑥𝑐)2 + 𝑦2 = 𝑥2\n𝑐+ 𝑎2\nor\n𝑥2 −2 𝑥𝑥𝑐+ 𝑦2 = 𝑎2\n(3)\nIf at the point (𝑥𝑐, 𝑦𝑐) the magnetic ﬁeld is along\n̂𝑗then the component along\n̂𝑖is zero. (𝑥𝑐, 0) is identiﬁed with the point C on the ﬁgure. The point 𝑦𝑐is\nthen,\n𝑥2\n𝑐−𝑦2\n𝑐+ 𝑎2 = 0\nor\n𝑦2\n𝑐= 𝑥2\n𝑐+ 𝑎2\n(4)\nNow consider a line joining C (𝑥𝑐, 0) to any point 𝑃𝐶(𝑥, 𝑦) lying on the circle\ngiven by eq.(3). The radial vector is\n⃗\n𝐶𝑃𝐶= (𝑥−𝑥𝑐) ̂𝑖+ 𝑦̂𝑗. The magnetic\nﬁeld at 𝑃𝐶is\n∝\n⃗𝐵(𝑥, 𝑦, 0) = (𝜇𝐼0\n𝜋) (2𝑥𝑦̂𝑗+ (𝑥2 −𝑦2 + 𝑎2) ̂𝑖)\nTo show that they are in the same direction, we evaluate the cross product,\n⃗\n𝐶𝑃𝐶×\n⃗𝐵. The cross product is proportional to ̂𝑛which is a unit vector along\nthe direction which is normal to both 𝐶𝑃𝐶and\n⃗𝐵and is along ̂𝑘\n⃗\n𝐶𝑃𝐶×\n⃗𝐵∝(2 𝑥𝑦(𝑥−𝑥𝑐) −𝑦(𝑥2 −𝑦2 + 𝑎2)) ̂𝑘\nwhich simpliﬁes to\n𝑦(𝑥2 −2𝑥𝑥𝑐+ 𝑦2 −𝑎2) ̂𝑘\nUsing eq.(3), this is zero, proving the result.\n \n0.5pt\n\nSolutions\nA1-5\nOﬃcial (English)\nC.2 (cont.)\nSecond Alternative Solution\nTo show that the ﬁeld lines are radial over the circe one may merely show the proportionality of\nthe components of the ﬁeld and the radius vector. The radius vector is (𝑥−𝑥𝑐) ̂𝑖+ 𝑦̂𝑗while the\nmagnetic ﬁeld is proportional to (𝑥2 −𝑦2 + 𝑎2) ̂𝑖+ 2𝑥𝑦̂𝑗. Thus\n𝑦\n2𝑥𝑦\n=\n1\n2𝑥\nand\n𝑥−𝑥𝑐\n𝑥2 −𝑦2 + 𝑎2\n=\n1\n2𝑥\nThe last step is obtained by observing that the equation of the circle is (𝑥−𝑥𝑐)2 + 𝑦2 = 𝑥2\n𝑐+ 𝑎2.\nC.3\nField in the airgap because of the argument presented in the problem continues\nto be given by Eq.(2). So the ﬁeld ( 𝑦= 0 ), is again\n⃗𝐵=\n𝜇𝐼0 𝑎\n𝜋(𝑥2 + 𝑎2)\n̂𝑖\n[0.5]\n0.5pt\nD.1\nThe force 𝐹𝑥on a magnetic dipole along the 𝑥- direction is\n𝐹𝑥= −𝜇𝑠\n𝜕𝐵𝑥\n𝜕𝑥\n= 𝜇𝑠𝜇𝐼0\n𝜋\n×\n2 𝑎𝑥\n(𝑥2 + 𝑎2)2\n(5)\n[0.5]\n0.5pt\n\nSolutions\nA1-6\nOﬃcial (English)\nE.1\n𝜇\n𝜇0\n= 104;\n𝑎= 6.00×10−3𝑚;\n𝑂𝐶= 6.00×10−3𝑚;\n𝑂𝐷= 8.00×10−3𝑚;\nand\n𝐼0 = 2.00 𝐴\nand so at the midpoint P,\n𝑦= 0;\n𝑥𝑃= 𝑂𝑃= ((1 +\n√\n2) × .6 + 1.8)/2 = 1.624 × 10−2𝑚\n[0.5]\nwhere we have used 𝑂𝐷= .8×10−2𝑚and 𝐷𝐴= 10−2𝑚. This gives for 𝐵𝑥(𝑥𝑃, 0)\n𝜇\n𝜇0\n𝜇0\n𝜋\n𝐼0 𝑎\n(𝑥2\n𝑃+ 𝑎2) = 104 × 4 × 10−7 × 2 × .6 × 10−2\n(1.6242 + .62) × 10−4\n= 0.16 𝑇\n[1]\nWe also have\n(𝜕𝐵𝑥\n𝜕𝑥)\n𝑥𝑃\n=\n2 × 𝑥𝑝\n𝑥2𝑝+ 𝑎2 × 𝐵𝑥(𝑥𝑃, 0) =\n2 × 1.624 × 10−2\n(1.6242 + .62) × 10−4 × .16 = 17.34 𝑇⋅𝑚−1\n[0.5]\n2.0pt\nF.1\nThe magnetic moment of the silver atom:\nWe use\nΔ𝑥= 2𝜇𝑠\n𝑚(𝜕𝐵\n𝜕𝑥)\n𝑥𝑃\n𝑙2\n𝑣2𝑧\n(𝑙2\n2 + 𝑙3)\nto rewrite\n𝜇𝑠=\n𝑚Δ𝑥\n2( 𝜕𝐵𝑥\n𝜕𝑥)𝑥𝑃\n×\n1\n[ 𝑙2\n𝑣2𝑧( 𝑙2\n2 + 𝑙3)]\n[0.5]\n= 1.8 × 10−25 × 2 × 10−3\n2 × 17.34\n× 106 = 1.04 × 10−23𝐽⋅𝑇−1\n[1]\n1.5pt\n\nSolutions\nA1-7\nOﬃcial (English)\nG.1\nThe spread in the line: The two lines on the screen are separated symmetrically\nabout the centre by Δ𝑥. So the upper (lower) line is at Δ𝑥/2 from the centre.\nFrom Part (2)\nΔ𝑥/2 = 𝜇𝑠\n𝑚\n𝑑𝐵\n𝑑𝑥\n𝑙2\n𝑣2𝑧\n(𝑙2/2 + 𝑙3)\nThis depends on the beam speed 𝑣𝑧. The spread in this speed leads to a conse-\nquent spread in the splitting.\n𝛿(Δ𝑥/2)\n=\n|𝜕Δ𝑥/2\n𝜕𝑣𝑧\n|𝛿𝑣𝑧\n=\n2(Δ𝑥/2)𝛿𝑣𝑧\n𝑣𝑧\n=\n2(Δ𝑥/2) × 0.2\n=\n0.04𝑐𝑚\n[0.3]\nHence the spread in the line from the centre is 0.1 - 0.04 = 0.06 cm to 0.1 + 0.04\n= 0.14 cm.\n1. Credit will also be given if 20% is interpreted as 10% on each side\n2. Answer reported in terms of percentages receive full credit\n[0.2]\n0.5pt\nH.1\nError in the evaluation of the magnetic moment:\nFrom the previous part we have that the splitting ranges from 0.12 cm to 0.28\ncm whereas earlier it was 0.2 cm. The relationship between the splitting and the\nmagnetic moment is linear. So the magnetic moment ranges from (0.12/0.2) to\n(0.28/0.2) the original value. This yields 0.62 × 10−23 J⋅T−1 to 1.46 × 10−23 J⋅T−1.\nThe total spread is 0.84 × 10−23 J⋅T−1 about the mean value of 1.04 × 10−23 J⋅T−1\n[0.3]\nor in other words\n𝜇𝑠= 1.04 ± 0.42 J⋅T−1\n[0.2]\n0.5pt\n","textExtraction":"available"}}
+{
+  "id": "apho-2022-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2022_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2022_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2022-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The Stern-Gerlach Experiment"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "sup",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "The Stern-Gerlach experiment"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " was performed in 1922 and it eventually led to the determination of the magnetic moment of the electron. In this experiment a beam of silver atoms each of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m = 1.80 \\times 10^{-25}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg emerges from an oven kept at temperature T=1.20 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\times\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 10"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " K (see Figure 1). Assume that on emerging from the oven all the atoms have the same momentum along the direction of the beam ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-direction). Ignore gravity."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t1/808b5baa57612109421c.png",
+                "alt": "apho-2022-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1: Schematic diagram of the Stern-Gerlach setup."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1Speed of the Silver Atoms:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the silver atoms emerging from the oven can be estimated to be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sqrt{3k_BT/m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " using the equipartition theorem. Calculate this value. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1The Basic Expression:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " After emerging from the oven the silver atoms move along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "- direction over a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_1 = 0.25\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m. Next, the silver atoms pass between two magnets over a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_2 = 0.5\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m. The magnets produce inhomogeneous magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-direction with constant gradient "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dB/dx\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Assume that the silver atom has a magnetic moment pointing either in + "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-direction or - "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-direction, i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{\\mu}_s = \\pm\\mu_s\\hat{\\imath}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". After passing through the magnets the silver atoms pass through a further distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_3 = 0.25\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m before striking the screen "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(PP'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The distance between the two striking beams on the screen is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Derive the expression for the splitting distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the screen. 2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "The Inhomogeneous Magnetic Field:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This part is concerned with the setup to create the inhomogenous magnetic field ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dB/dx \\neq 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). It consists of a number of sub-parts. Two very long wires parallel to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis carry currents of magnitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and are located at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_1\\,(0, -a, z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_2\\,(0, a, z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (see figure below). The direction of the current passing through "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y = -a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\hat{k}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and for the one passing through "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y = a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{k}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The entire system is inside a medium of high relative magnetic permeability "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We take "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_0\\mu_r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The wires are insulated and no current leaks into the medium."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t1/476a0e6ec47280e7b95c.png",
+                "alt": "apho-2022-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 2: The arrangement for the inhomogeneous magnetic field"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Derive the expression for the magnetic field vector at a point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_1\\,(x, y, 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane (see Fig. 2). 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Consider a circle with its centre C on the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x_c, 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and with radius equal to the distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(AC\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (see Figure 2). Obtain the direction of the magnetic field at circumferential points "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (on the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis) and at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(CP_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is parallel to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis). 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Now a small slice of the high magnetic permeability medium between the circles with radii AC and AD is removed and replaced with air at very low pressure (see Fig. 2). One can show from continuity considerations that the magnetic field in this gap region is given by the same expression as if the magnetic medium were not removed. (We shall assume this and you are not required to prove this). Hence state the expression for the magnetic field at the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x, 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the air gap region. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.1The Force:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " As mentioned earlier the silver atoms are travelling in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x, 0, z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane with their velocities parallel to the z-axis and given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{v} = v_z\\hat{k}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Recall also that the magnetic dipole of the silver atom is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{\\mu}_s = \\pm\\mu_s\\hat{\\imath}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Obtain the expression for the magnitude of the force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " acting on a silver atom along the x-direction in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and relevant coordinates. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.1The Magnetic Field and its Gradient:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " We assume that this same force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " acts over a small distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis (Figure 1). Assume also that the silver atoms pass through the mid-point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(RQ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (Figure 2). The following experimental values are given: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\mu}{\\mu_0} = 10^4\\,;\\quad a = 0.60\\,cm\\,;\\quad OC = 0.60cm\\,;\\quad\nOD = 0.80\\,cm\\,; I_0 = 2.00A\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_o\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the magnetic permeability of free space. Obtain the numerical value of the magnitudes of the magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and its gradient "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dB_P/dx\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at this mid-point in S.I. units. 2.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "F.1The Magnetic Moment of the Silver Atom:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " If "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_z = 500\\,\\mathrm{m{\\cdot}s^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and magnetic field is calculates as above, the Stern-Gerlach experiment yields a split of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta x = 0.20\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " cm. Obtain the value of the magnetic moment of the silver atom "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in S.I. units. 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "G.1The spread of the line:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The silver atoms may not all have the same speed. Let there be a spread of 20 % in the beam speed. What would be the consequent spread of the dot "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the screen? 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "H.1The error in the magnetic moment:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " What is the consequent error bar on the evaluation of the magnetic moment "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\mu_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "span",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "hr",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "ol",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "H. S. Mani (former Director, HRI, Prayagraj) and Gautam Datta (DAIICT, Gandhinagar) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully acknowledged."
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "↩︎"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "The Stern-Gerlach Experiment\n1\n\n\nThe Stern-Gerlach experiment\n was performed in 1922 and it eventually led to the determination of the magnetic moment of the electron. In this experiment a beam of silver atoms each of mass \n\\(m = 1.80 \\times 10^{-25}\\)\n kg emerges from an oven kept at temperature T=1.20 \n\\(\\times\\)\n 10\n\\(^{3}\\)\n K (see Figure 1). Assume that on emerging from the oven all the atoms have the same momentum along the direction of the beam (\n\\(z\\)\n-direction). Ignore gravity.\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Schematic diagram of the Stern-Gerlach setup.\n\n\n\n\nA.1Speed of the Silver Atoms:\n The speed \n\\(v_z\\)\n of the silver atoms emerging from the oven can be estimated to be \n\\(\\sqrt{3k_BT/m}\\)\n using the equipartition theorem. Calculate this value. 0.5pt\n\n\nB.1The Basic Expression:\n After emerging from the oven the silver atoms move along the \n\\(z\\)\n- direction over a distance \n\\(l_1 = 0.25\\)\n m. Next, the silver atoms pass between two magnets over a distance \n\\(l_2 = 0.5\\)\n m. The magnets produce inhomogeneous magnetic field \n\\(B\\)\n in the \n\\(x\\)\n-direction with constant gradient \n\\(dB/dx\\)\n. Assume that the silver atom has a magnetic moment pointing either in + \n\\(x\\)\n-direction or - \n\\(x\\)\n-direction, i.e. \n\\(\\vec{\\mu}_s = \\pm\\mu_s\\hat{\\imath}\\)\n. After passing through the magnets the silver atoms pass through a further distance \n\\(l_3 = 0.25\\)\n m before striking the screen \n\\(PP'\\)\n. The distance between the two striking beams on the screen is \n\\(\\Delta x\\)\n. Derive the expression for the splitting distance \n\\(\\Delta x\\)\n on the screen. 2pt\n\n\nThe Inhomogeneous Magnetic Field:\n\n\nThis part is concerned with the setup to create the inhomogenous magnetic field (\n\\(dB/dx \\neq 0\\)\n). It consists of a number of sub-parts. Two very long wires parallel to the \n\\(z\\)\n-axis carry currents of magnitude \n\\(I_0\\)\n and are located at \n\\(A_1\\,(0, -a, z)\\)\n and \n\\(A_2\\,(0, a, z)\\)\n (see figure below). The direction of the current passing through \n\\(y = -a\\)\n is \n\\(-\\hat{k}\\)\n and for the one passing through \n\\(y = a\\)\n is \n\\(\\hat{k}\\)\n. The entire system is inside a medium of high relative magnetic permeability \n\\(\\mu_r\\)\n. We take \n\\(\\mu\\)\n = \n\\(\\mu_0\\mu_r\\)\n. The wires are insulated and no current leaks into the medium.\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: The arrangement for the inhomogeneous magnetic field\n\n\n\n\nC.1\nDerive the expression for the magnetic field vector at a point \n\\(P_1\\,(x, y, 0)\\)\n in the \n\\(x\\)\n-\n\\(y\\)\n plane (see Fig. 2). 1.5pt\n\n\nC.2\nConsider a circle with its centre C on the \n\\(x\\)\n-axis \n\\((x_c, 0)\\)\n and with radius equal to the distance \n\\(AC\\)\n (see Figure 2). Obtain the direction of the magnetic field at circumferential points \n\\(R\\)\n (on the \n\\(x\\)\n axis) and at \n\\(P_0\\)\n (\n\\(CP_0\\)\n is parallel to the \n\\(y\\)\n axis). 0.5pt\n\n\nC.3\nNow a small slice of the high magnetic permeability medium between the circles with radii AC and AD is removed and replaced with air at very low pressure (see Fig. 2). One can show from continuity considerations that the magnetic field in this gap region is given by the same expression as if the magnetic medium were not removed. (We shall assume this and you are not required to prove this). Hence state the expression for the magnetic field at the point \n\\((x, 0)\\)\n in the air gap region. 0.5pt\n\n\nD.1The Force:\n As mentioned earlier the silver atoms are travelling in the \n\\((x, 0, z)\\)\n plane with their velocities parallel to the z-axis and given by \n\\(\\vec{v} = v_z\\hat{k}\\)\n. Recall also that the magnetic dipole of the silver atom is \n\\(\\vec{\\mu}_s = \\pm\\mu_s\\hat{\\imath}\\)\n. Obtain the expression for the magnitude of the force \n\\(F_x\\)\n acting on a silver atom along the x-direction in terms of \n\\(\\mu_s\\)\n , \n\\(I_0\\)\n , \n\\(a\\)\n \n\\(\\mu\\)\n and relevant coordinates. 0.5pt\n\n\nE.1The Magnetic Field and its Gradient:\n We assume that this same force \n\\(F_x\\)\n acts over a small distance \n\\(l_2\\)\n along the \n\\(z\\)\n axis (Figure 1). Assume also that the silver atoms pass through the mid-point \n\\(P\\)\n of \n\\(RQ\\)\n (Figure 2). The following experimental values are given: \n\\[\\frac{\\mu}{\\mu_0} = 10^4\\,;\\quad a = 0.60\\,cm\\,;\\quad OC = 0.60cm\\,;\\quad\nOD = 0.80\\,cm\\,; I_0 = 2.00A\\]\n Here \n\\(\\mu_o\\)\n is the magnetic permeability of free space. Obtain the numerical value of the magnitudes of the magnetic field \n\\(B_P\\)\n and its gradient \n\\(dB_P/dx\\)\n at this mid-point in S.I. units. 2.0pt\n\n\nF.1The Magnetic Moment of the Silver Atom:\n If \n\\(v_z = 500\\,\\mathrm{m{\\cdot}s^{-1}}\\)\n and magnetic field is calculates as above, the Stern-Gerlach experiment yields a split of \n\\(\\Delta x = 0.20\\)\n cm. Obtain the value of the magnetic moment of the silver atom \n\\(\\mu_s\\)\n in S.I. units. 1.5pt\n\n\nG.1The spread of the line:\n The silver atoms may not all have the same speed. Let there be a spread of 20 % in the beam speed. What would be the consequent spread of the dot \n\\(\\delta x\\)\n on the screen? 0.5pt\n\n\nH.1The error in the magnetic moment:\n What is the consequent error bar on the evaluation of the magnetic moment \n\\(\\delta\\mu_s\\)\n? 0.5pt\n\n\n\n\n\n\n\n\n\nH. S. Mani (former Director, HRI, Prayagraj) and Gautam Datta (DAIICT, Gandhinagar) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully acknowledged.\n↩︎\n\n\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2022-t1/808b5baa57612109421c.png",
+      "/corpus/figures/native/bulk/apho-2022-t1/476a0e6ec47280e7b95c.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2022-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "General Grading Guidelines"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When student’s solutions are correct and s/he also show how solutions were obtained, the stduent gets full credit. The scheme oulined below is helpful if the student’s answers are partially correct. Attention will be paid to the detailed solution so, if the final answer is correct but it is obtained by incorrect method(s) then no credit will be given. Alternative solutions may exist and will be given due credit."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Partial or full outcomes obtained for later sections in the problem which are incorrect solely because of errors being carried forward from previous sections, but are otherwise reasonable, will not be further penalized. For example a dimensioanlly wrong answer when carried forward will not get any credit in the subsequent sections. A numerically wrong evaluation when carried forward will get credit in subsequent sections unless the numerical answer is patently wrong (e.g. the value of g is 981 m/sec"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "! )"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Incorrect or no labeling of an axis is penalized by -0.1 points"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The numerical answer (i) must be correct to +/- 10% AND (ii) must respect significant figures."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "It maybe noted that NO micro-marking scheme takes care of all contingencies. A certain amount of discretion rests with and a certain level of judgement is invested in the academic committee."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The Stern-Gerlach Experiment: THE SOLUTION"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "sup",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1Speed of the Silver Atoms:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We employ the equipartition theorem. Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overline{v^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the mean square speed of the silver atoms in the oven kept at 1200 K. Then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{m\\overline{v^2}}{2} = \\frac{3k_BT}{2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the Boltzmann constant. This yields the root mean square speed to be 5.255"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\times\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "10"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cdot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "s"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1The Basic Expression"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is irrelevant and will not be part of the expression."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The magnitude of the acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the silver atoms in the region defined by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a = \\frac{\\mu_s}{m}\\frac{dB}{dx}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "and it will be either in the +"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or -"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction. At the same time it has a constant horizontal velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". It traverses the region "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_2/v_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus after traversing the inhomogeneous region the deflection in say the +"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\delta_1 = \\frac{1}{2}\\frac{\\mu_s}{m}\\frac{dB}{dx}\\frac{l_2^2}{v_z^2}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.6]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For the remaining part of the flight the atom will have a constant hoirzontal speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and a constant vertical speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{x0} = (\\mu_s dB/dx)\\,(l_2/mv_z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". On account of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " component the atom will acquire an additional deflection "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\delta_2 = l_3 v_{x0}/v_z\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This yields "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\delta_2 = l_3 l_2\\frac{\\mu_s}{mv_z^2}\\frac{dB}{dx}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The total deflection in the +"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta_1+\\delta_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The splitting seen on the screen in this idealized case is twice this amount, e.g. 2 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\delta_1 + \\delta_2)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " . Thus we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta x = 2\\frac{\\mu_s}{m}\\frac{dB}{dx}\\frac{l_2}{v_z^2}(l_2/2 + l_3)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " -0.3 if factor of 2 is missing."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.6]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1The Inhomogeneous Magnetic Field:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t1/fc283cd21af2334fbd89.png",
+                "alt": "apho-2022-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{A_1P} = \\vec{r}_1 = x\\hat{\\imath} + (y - a)\\hat{\\jmath}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{A_2P} = \\vec{r}_2 = x\\hat{\\imath} + (y + a)\\hat{\\jmath}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This gives for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}(x,y)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\mu I_0}{2\\pi}\\left[\\frac{\\hat{k}\\times(x\\hat{\\imath} + (y-a)\\hat{\\jmath}}{r_1^2} - \\frac{\\hat{k}\\times(x\\hat{\\imath} + (y+a)\\hat{\\jmath}}{r_2^2}\\right] \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4+0.4]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[= \\frac{\\mu I_0}{2\\pi r_1^2 r_2^2}\\left[(x\\hat{\\jmath} - (y-a)\\hat{\\imath})(x^2 + (y+a)^2) - (x\\hat{\\jmath} - (y+a)\\hat{\\imath})(x^2 + (y-a)^2)\\right]\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n= \\frac{\\mu I_0\\, a}{\\pi r_1^2 r_2^2}\\left[2xy\\hat{\\jmath} + (x^2 - y^2 + a^2)\\hat{\\imath}\\right] \\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.7]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t1/b239ec78a0e0d7ca5be0.png",
+                "alt": "apho-2022-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Writing the final expression as any correct function of x and y will get full marks. If collecting all the terms component-wise not done, then penalize by -0.1. If an error has been made in simplification then penalize by -0.1."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2Direction at point "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(R\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ":"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Field at the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x_c + \\sqrt{x_c^2 + a^2}, 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by substituting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". On simple inspection the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\jmath}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " component vanishes. Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}(x,0) \\propto \\hat{\\imath}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Direction at point "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(P_0\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ":"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Field at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x_c, y_c = (x_c^2 + a^2)^{1/2})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is given, using Eq.(2) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\mu I_0}{\\pi r_1^2 r_2^2}(2x_c(x_c^2 + a^2)^{1/2}\\hat{\\jmath} + (x_c^2 - x_c^2 - a^2 + a^2)\\hat{\\imath})\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\imath}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " component is zero. Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}(x_c, (x_c^2 + a^2)^{1/2}) \\propto \\hat{\\jmath}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "First Alternative Solution"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We can show in general that the field at "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "any"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " point on the circle will be radial (i.e. normal to the circle). We will confine our discussion to the z=0 plane. Consider a point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x_c, y)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sqrt{x_c^2 + a^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The equation of a circle with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x_c, 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as centre and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sqrt{x_c^2 + a^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as radius is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[(x - x_c)^2 + y^2 = x_c^2 + a^2\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nx^2 - 2\\,x\\,x_c + y^2 = a^2 \\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " If at the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x_c, y_c)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the magnetic field is along "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\jmath}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " then the component along "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{\\imath}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is zero. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x_c, 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is identified with the point C on the figure. The point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is then, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_c^2 - y_c^2 + a^2 = 0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ny_c^2 = x_c^2 + a^2 \\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Now consider a line joining C "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x_c, 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to any point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_C(x,y)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " lying on the circle given by eq.(3). The radial vector is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{CP}_C = (x - x_c)\\hat{\\imath} + y\\hat{\\jmath}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The magnetic field at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\propto \\vec{B}(x,y,0) = \\left(\\frac{\\mu I_0}{\\pi}\\right)\\left(2xy\\hat{\\jmath} + (x^2 - y^2 + a^2)\\hat{\\imath}\\right)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " To show that they are in the same direction, we evaluate the cross product, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{CP}_C \\times \\vec{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The cross product is proportional to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{n}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which is a unit vector along the direction which is normal to both "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(CP_C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and is along "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{k}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\vec{CP}_C \\times \\vec{B} \\propto (2\\,x\\,y(x - x_c) - y(x^2 - y^2 + a^2))\\,\\hat{k}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which simplifies to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[y(x^2 - 2x\\,x_c + y^2 - a^2)\\hat{k}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using eq.(3), this is zero, proving the result."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2 (cont.)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Second Alternative Solution"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "To show that the field lines are radial over the circe one may merely show the proportionality of the components of the field and the radius vector. The radius vector is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x - x_c)\\hat{\\imath} + y\\hat{\\jmath}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " while the magnetic field is proportional to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x^2 - y^2 + a^2)\\hat{\\imath} + 2xy\\hat{\\jmath}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\frac{y}{2xy} &= \\frac{1}{2x}\\\\\n&\\text{and}\\\\\n\\frac{x - x_c}{x^2 - y^2 + a^2} &= \\frac{1}{2x}\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The last step is obtained by observing that the equation of the circle is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((x - x_c)^2 + y^2 = x_c^2 + a^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Field in the airgap because of the argument presented in the problem continues to be given by Eq.(2). So the field ( "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ), is again 0.5pt "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\vec{B} = \\frac{\\mu I_0\\, a}{\\pi(x^2 + a^2)}\\hat{\\imath}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on a magnetic dipole along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "- direction is 0.5pt "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nF_x = -\\mu_s\\frac{\\partial B_x}{\\partial x} = \\frac{\\mu_s\\mu\\, I_0}{\\pi}\\times\\frac{2\\,a\\,x}{(x^2 + a^2)^2} \\tag{5}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 2.0pt "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\mu}{\\mu_0} = 10^4; \\qquad a = 6.00{\\times}10^{-3}m; \\qquad OC = 6.00{\\times}10^{-3}m; \\qquad OD = 8.00{\\times}10^{-3}m;\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[I_0 = 2.00\\,A\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and so at the midpoint P, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[y = 0;\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_P = OP = ((1 + \\sqrt{2})\\times .6 + 1.8)/2 = 1.624\\times 10^{-2}m\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where we have used "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(OD = .8{\\times}10^{-2}m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(DA = 10^{-2}m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This gives for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_x(x_P,0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\frac{\\mu}{\\mu_0}\\frac{\\mu_0}{\\pi}\\frac{I_0\\, a}{(x_P^2 + a^2)} &= \\frac{10^4\\times 4\\times 10^{-7}\\times 2\\times .6\\times 10^{-2}}{(1.624^2 + .6^2)\\times 10^{-4}}\\\\\n&= 0.16\\,T\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We also have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(\\frac{\\partial B_x}{\\partial x}\\right)_{x_P} = \\frac{2\\times x_p}{x_p^2 + a^2}\\times B_x(x_P,0) = \\frac{2\\times 1.624\\times 10^{-2}}{(1.624^2 + .6^2)\\times 10^{-4}}\\times .16 = 17.34\\,T\\cdot m^{-1}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "F.1The magnetic moment of the silver atom:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We use "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta x = \\frac{2\\mu_s}{m}\\left(\\frac{\\partial B}{\\partial x}\\right)_{x_P}\\frac{l_2}{v_z^2}\\left(\\frac{l_2}{2} + l_3\\right)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to rewrite "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mu_s = \\frac{m\\Delta x}{2(\\frac{\\partial B_x}{\\partial x})_{x_P}}\\times\\frac{1}{[\\frac{l_2}{v_z^2}(\\frac{l_2}{2} + l_3)]}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[= \\frac{1.8\\times 10^{-25}\\times 2\\times 10^{-3}}{2\\times 17.34}\\times 10^6 = 1.04\\times 10^{-23}J\\cdot T^{-1}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "G.1The spread in the line:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The two lines on the screen are separated symmetrically about the centre by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". So the upper (lower) line is at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta x/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the centre. From Part (2) 0.5pt "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta x/2 = \\frac{\\mu_s}{m}\\frac{dB}{dx}\\frac{l_2}{v_z^2}(l_2/2 + l_3)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This depends on the beam speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The spread in this speed leads to a consequent spread in the splitting. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\delta(\\Delta x/2) \\quad &= \\quad |\\frac{\\partial\\Delta x/2}{\\partial v_z}|\\delta v_z\\\\\n&= \\quad 2(\\Delta x/2)\\frac{\\delta v_z}{v_z}\\\\\n&= \\quad 2(\\Delta x/2)\\times 0.2\\\\\n&= \\quad 0.04cm\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hence the spread in the line from the centre is 0.1 - 0.04 = 0.06 cm to 0.1 + 0.04 = 0.14 cm."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1. Credit will also be given if 20% is interpreted as 10% on each side"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2. Answer reported in terms of percentages receive full credit"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "H.1Error in the evaluation of the magnetic moment:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From the previous part we have that the splitting ranges from 0.12 cm to 0.28 cm whereas earlier it was 0.2 cm. The relationship between the splitting and the magnetic moment is linear. So the magnetic moment ranges from (0.12/0.2) to (0.28/0.2) the original value. This yields 0.62 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\times\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 10"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-23}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " J"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cdot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "T"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to 1.46 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\times\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 10"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-23}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " J"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cdot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "T"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The total spread is 0.84 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\times\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 10"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-23}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " J"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cdot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "T"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " about the mean value of 1.04 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\times\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 10"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-23}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " J"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cdot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "T"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-1}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "or in other words "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mu_s = 1.04 \\pm 0.42\\,\\text{J$\\cdot$T}^{-1}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "span",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "hr",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "ol",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "H. S. Mani (former Director, HRI, Prayagraj) and Gautam Datta (DAIICT, Gandhinagar) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully acknowledged."
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "↩︎"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "General Grading Guidelines\n\n\nWhen student’s solutions are correct and s/he also show how solutions were obtained, the stduent gets full credit. The scheme oulined below is helpful if the student’s answers are partially correct. Attention will be paid to the detailed solution so, if the final answer is correct but it is obtained by incorrect method(s) then no credit will be given. Alternative solutions may exist and will be given due credit.\n\n\nPartial or full outcomes obtained for later sections in the problem which are incorrect solely because of errors being carried forward from previous sections, but are otherwise reasonable, will not be further penalized. For example a dimensioanlly wrong answer when carried forward will not get any credit in the subsequent sections. A numerically wrong evaluation when carried forward will get credit in subsequent sections unless the numerical answer is patently wrong (e.g. the value of g is 981 m/sec\n\\(^{2}\\)\n! )\n\n\nIncorrect or no labeling of an axis is penalized by -0.1 points\n\n\nThe numerical answer (i) must be correct to +/- 10% AND (ii) must respect significant figures.\n\n\nIt maybe noted that NO micro-marking scheme takes care of all contingencies. A certain amount of discretion rests with and a certain level of judgement is invested in the academic committee.\n\n\nThe Stern-Gerlach Experiment: THE SOLUTION\n1\n\n\nA.1Speed of the Silver Atoms:\n 0.5pt\n\n\nWe employ the equipartition theorem. Let \n\\(\\overline{v^2}\\)\n be the mean square speed of the silver atoms in the oven kept at 1200 K. Then \n\\[\\frac{m\\overline{v^2}}{2} = \\frac{3k_BT}{2}\\]\n where \n\\(k_B\\)\n is the Boltzmann constant. This yields the root mean square speed to be 5.255\n\\(\\times\\)\n10\n\\(^{2}\\)\n m\n\\(\\cdot\\)\ns\n\\(^{-1}\\)\n.\n\n\n[0.5]\n\n\nB.1The Basic Expression\n 2pt\n\n\nThe length \n\\(l_1\\)\n is irrelevant and will not be part of the expression.\n\n\nThe magnitude of the acceleration \n\\(a\\)\n of the silver atoms in the region defined by \n\\(l_2\\)\n is \n\\[a = \\frac{\\mu_s}{m}\\frac{dB}{dx}\\]\n\n\n[0.4]\n\n\nand it will be either in the +\n\\(x\\)\n or -\n\\(x\\)\n direction. At the same time it has a constant horizontal velocity \n\\(v_z\\)\n. It traverses the region \n\\(l_2\\)\n in time \n\\(l_2/v_z\\)\n. Thus after traversing the inhomogeneous region the deflection in say the +\n\\(x\\)\n direction is \n\\[\\delta_1 = \\frac{1}{2}\\frac{\\mu_s}{m}\\frac{dB}{dx}\\frac{l_2^2}{v_z^2}\\]\n\n\n[0.6]\n\n\nFor the remaining part of the flight the atom will have a constant hoirzontal speed \n\\(v_z\\)\n and a constant vertical speed \n\\(v_{x0} = (\\mu_s dB/dx)\\,(l_2/mv_z)\\)\n. On account of the \n\\(v_x\\)\n component the atom will acquire an additional deflection \n\\[\\delta_2 = l_3 v_{x0}/v_z\\]\n This yields \n\\[\\delta_2 = l_3 l_2\\frac{\\mu_s}{mv_z^2}\\frac{dB}{dx}\\]\n\n\n[0.4]\n\n\nThe total deflection in the +\n\\(x\\)\n direction is \n\\(\\delta_1+\\delta_2\\)\n. The splitting seen on the screen in this idealized case is twice this amount, e.g. 2 \n\\((\\delta_1 + \\delta_2)\\)\n . Thus we obtain \n\\[\\Delta x = 2\\frac{\\mu_s}{m}\\frac{dB}{dx}\\frac{l_2}{v_z^2}(l_2/2 + l_3)\\]\n -0.3 if factor of 2 is missing.\n\n\n[0.6]\n\n\nC.1The Inhomogeneous Magnetic Field:\n 1.5pt\n\n\n\n\n\n\n\n\n\nLet \n\\(\\vec{A_1P} = \\vec{r}_1 = x\\hat{\\imath} + (y - a)\\hat{\\jmath}\\)\n and \n\\(\\vec{A_2P} = \\vec{r}_2 = x\\hat{\\imath} + (y + a)\\hat{\\jmath}\\)\n. This gives for \n\\(\\vec{B}(x,y)\\)\n \n\\[\\begin{equation}\n\\frac{\\mu I_0}{2\\pi}\\left[\\frac{\\hat{k}\\times(x\\hat{\\imath} + (y-a)\\hat{\\jmath}}{r_1^2} - \\frac{\\hat{k}\\times(x\\hat{\\imath} + (y+a)\\hat{\\jmath}}{r_2^2}\\right] \\tag{1}\n\\end{equation}\\]\n\n\n[0.4+0.4]\n \n\\[= \\frac{\\mu I_0}{2\\pi r_1^2 r_2^2}\\left[(x\\hat{\\jmath} - (y-a)\\hat{\\imath})(x^2 + (y+a)^2) - (x\\hat{\\jmath} - (y+a)\\hat{\\imath})(x^2 + (y-a)^2)\\right]\\]\n \n\\[\\begin{equation}\n= \\frac{\\mu I_0\\, a}{\\pi r_1^2 r_2^2}\\left[2xy\\hat{\\jmath} + (x^2 - y^2 + a^2)\\hat{\\imath}\\right] \\tag{2}\n\\end{equation}\\]\n\n\n[0.7]\n\n\n\n\n\n\n\n\n\nWriting the final expression as any correct function of x and y will get full marks. If collecting all the terms component-wise not done, then penalize by -0.1. If an error has been made in simplification then penalize by -0.1.\n\n\nC.2Direction at point \n\\(R\\)\n:\n Field at the point \n\\(R\\)\n (\n\\((x_c + \\sqrt{x_c^2 + a^2}, 0)\\)\n is given by substituting \n\\(y = 0\\)\n. On simple inspection the \n\\(\\hat{\\jmath}\\)\n component vanishes. Thus \n\\(\\vec{B}(x,0) \\propto \\hat{\\imath}\\)\n 0.5pt\n\n\n[0.2]\n\n\nDirection at point \n\\(P_0\\)\n:\n Field at \n\\(P_0\\)\n (\n\\((x_c, y_c = (x_c^2 + a^2)^{1/2})\\)\n) is given, using Eq.(2) \n\\[\\frac{\\mu I_0}{\\pi r_1^2 r_2^2}(2x_c(x_c^2 + a^2)^{1/2}\\hat{\\jmath} + (x_c^2 - x_c^2 - a^2 + a^2)\\hat{\\imath})\\]\n The \n\\(\\hat{\\imath}\\)\n component is zero. Thus \n\\(\\vec{B}(x_c, (x_c^2 + a^2)^{1/2}) \\propto \\hat{\\jmath}\\)\n\n\n[0.3]\n\n\nFirst Alternative Solution\n\n\nWe can show in general that the field at \nany\n point on the circle will be radial (i.e. normal to the circle). We will confine our discussion to the z=0 plane. Consider a point \n\\((x_c, y)\\)\n with radius \n\\(\\sqrt{x_c^2 + a^2}\\)\n. The equation of a circle with \n\\((x_c, 0)\\)\n as centre and \n\\(\\sqrt{x_c^2 + a^2}\\)\n as radius is \n\\[(x - x_c)^2 + y^2 = x_c^2 + a^2\\]\n or \n\\[\\begin{equation}\nx^2 - 2\\,x\\,x_c + y^2 = a^2 \\tag{3}\n\\end{equation}\\]\n If at the point \n\\((x_c, y_c)\\)\n the magnetic field is along \n\\(\\hat{\\jmath}\\)\n then the component along \n\\(\\hat{\\imath}\\)\n is zero. \n\\((x_c, 0)\\)\n is identified with the point C on the figure. The point \n\\(y_c\\)\n is then, \n\\[x_c^2 - y_c^2 + a^2 = 0\\]\n or \n\\[\\begin{equation}\ny_c^2 = x_c^2 + a^2 \\tag{4}\n\\end{equation}\\]\n Now consider a line joining C \n\\((x_c, 0)\\)\n to any point \n\\(P_C(x,y)\\)\n lying on the circle given by eq.(3). The radial vector is \n\\(\\vec{CP}_C = (x - x_c)\\hat{\\imath} + y\\hat{\\jmath}\\)\n. The magnetic field at \n\\(P_C\\)\n is \n\\[\\propto \\vec{B}(x,y,0) = \\left(\\frac{\\mu I_0}{\\pi}\\right)\\left(2xy\\hat{\\jmath} + (x^2 - y^2 + a^2)\\hat{\\imath}\\right)\\]\n To show that they are in the same direction, we evaluate the cross product, \n\\(\\vec{CP}_C \\times \\vec{B}\\)\n. The cross product is proportional to \n\\(\\hat{n}\\)\n which is a unit vector along the direction which is normal to both \n\\(CP_C\\)\n and \n\\(\\vec{B}\\)\n and is along \n\\(\\hat{k}\\)\n \n\\[\\vec{CP}_C \\times \\vec{B} \\propto (2\\,x\\,y(x - x_c) - y(x^2 - y^2 + a^2))\\,\\hat{k}\\]\n which simplifies to \n\\[y(x^2 - 2x\\,x_c + y^2 - a^2)\\hat{k}\\]\n Using eq.(3), this is zero, proving the result.\n\n\nC.2 (cont.)\n\n\nSecond Alternative Solution\n\n\nTo show that the field lines are radial over the circe one may merely show the proportionality of the components of the field and the radius vector. The radius vector is \n\\((x - x_c)\\hat{\\imath} + y\\hat{\\jmath}\\)\n while the magnetic field is proportional to \n\\((x^2 - y^2 + a^2)\\hat{\\imath} + 2xy\\hat{\\jmath}\\)\n. Thus \n\\[\\begin{align*}\n\\frac{y}{2xy} &= \\frac{1}{2x}\\\\\n&\\text{and}\\\\\n\\frac{x - x_c}{x^2 - y^2 + a^2} &= \\frac{1}{2x}\n\\end{align*}\\]\n The last step is obtained by observing that the equation of the circle is \n\\((x - x_c)^2 + y^2 = x_c^2 + a^2\\)\n.\n\n\nC.3\nField in the airgap because of the argument presented in the problem continues to be given by Eq.(2). So the field ( \n\\(y = 0\\)\n ), is again 0.5pt \n\\[\\vec{B} = \\frac{\\mu I_0\\, a}{\\pi(x^2 + a^2)}\\hat{\\imath}\\]\n\n\n[0.5]\n\n\nD.1\nThe force \n\\(F_x\\)\n on a magnetic dipole along the \n\\(x\\)\n- direction is 0.5pt \n\\[\\begin{equation}\nF_x = -\\mu_s\\frac{\\partial B_x}{\\partial x} = \\frac{\\mu_s\\mu\\, I_0}{\\pi}\\times\\frac{2\\,a\\,x}{(x^2 + a^2)^2} \\tag{5}\n\\end{equation}\\]\n\n\n[0.5]\n\n\nE.1\n 2.0pt \n\\[\\frac{\\mu}{\\mu_0} = 10^4; \\qquad a = 6.00{\\times}10^{-3}m; \\qquad OC = 6.00{\\times}10^{-3}m; \\qquad OD = 8.00{\\times}10^{-3}m;\\]\n and \n\\[I_0 = 2.00\\,A\\]\n and so at the midpoint P, \n\\[y = 0;\\]\n \n\\[x_P = OP = ((1 + \\sqrt{2})\\times .6 + 1.8)/2 = 1.624\\times 10^{-2}m\\]\n\n\n[0.5]\n\n\nwhere we have used \n\\(OD = .8{\\times}10^{-2}m\\)\n and \n\\(DA = 10^{-2}m\\)\n. This gives for \n\\(B_x(x_P,0)\\)\n \n\\[\\begin{align*}\n\\frac{\\mu}{\\mu_0}\\frac{\\mu_0}{\\pi}\\frac{I_0\\, a}{(x_P^2 + a^2)} &= \\frac{10^4\\times 4\\times 10^{-7}\\times 2\\times .6\\times 10^{-2}}{(1.624^2 + .6^2)\\times 10^{-4}}\\\\\n&= 0.16\\,T\n\\end{align*}\\]\n\n\n[1]\n\n\nWe also have \n\\[\\left(\\frac{\\partial B_x}{\\partial x}\\right)_{x_P} = \\frac{2\\times x_p}{x_p^2 + a^2}\\times B_x(x_P,0) = \\frac{2\\times 1.624\\times 10^{-2}}{(1.624^2 + .6^2)\\times 10^{-4}}\\times .16 = 17.34\\,T\\cdot m^{-1}\\]\n\n\n[0.5]\n\n\nF.1The magnetic moment of the silver atom:\n 1.5pt\n\n\nWe use \n\\[\\Delta x = \\frac{2\\mu_s}{m}\\left(\\frac{\\partial B}{\\partial x}\\right)_{x_P}\\frac{l_2}{v_z^2}\\left(\\frac{l_2}{2} + l_3\\right)\\]\n to rewrite \n\\[\\mu_s = \\frac{m\\Delta x}{2(\\frac{\\partial B_x}{\\partial x})_{x_P}}\\times\\frac{1}{[\\frac{l_2}{v_z^2}(\\frac{l_2}{2} + l_3)]}\\]\n\n\n[0.5]\n \n\\[= \\frac{1.8\\times 10^{-25}\\times 2\\times 10^{-3}}{2\\times 17.34}\\times 10^6 = 1.04\\times 10^{-23}J\\cdot T^{-1}\\]\n\n\n[1]\n\n\nG.1The spread in the line:\n The two lines on the screen are separated symmetrically about the centre by \n\\(\\Delta x\\)\n. So the upper (lower) line is at \n\\(\\Delta x/2\\)\n from the centre. From Part (2) 0.5pt \n\\[\\Delta x/2 = \\frac{\\mu_s}{m}\\frac{dB}{dx}\\frac{l_2}{v_z^2}(l_2/2 + l_3)\\]\n This depends on the beam speed \n\\(v_z\\)\n. The spread in this speed leads to a consequent spread in the splitting. \n\\[\\begin{align*}\n\\delta(\\Delta x/2) \\quad &= \\quad |\\frac{\\partial\\Delta x/2}{\\partial v_z}|\\delta v_z\\\\\n&= \\quad 2(\\Delta x/2)\\frac{\\delta v_z}{v_z}\\\\\n&= \\quad 2(\\Delta x/2)\\times 0.2\\\\\n&= \\quad 0.04cm\n\\end{align*}\\]\n\n\n[0.3]\n\n\nHence the spread in the line from the centre is 0.1 - 0.04 = 0.06 cm to 0.1 + 0.04 = 0.14 cm.\n\n\n1. Credit will also be given if 20% is interpreted as 10% on each side\n\n\n2. Answer reported in terms of percentages receive full credit\n\n\n[0.2]\n\n\nH.1Error in the evaluation of the magnetic moment:\n 0.5pt\n\n\nFrom the previous part we have that the splitting ranges from 0.12 cm to 0.28 cm whereas earlier it was 0.2 cm. The relationship between the splitting and the magnetic moment is linear. So the magnetic moment ranges from (0.12/0.2) to (0.28/0.2) the original value. This yields 0.62 \n\\(\\times\\)\n 10\n\\(^{-23}\\)\n J\n\\(\\cdot\\)\nT\n\\(^{-1}\\)\n to 1.46 \n\\(\\times\\)\n 10\n\\(^{-23}\\)\n J\n\\(\\cdot\\)\nT\n\\(^{-1}\\)\n. The total spread is 0.84 \n\\(\\times\\)\n 10\n\\(^{-23}\\)\n J\n\\(\\cdot\\)\nT\n\\(^{-1}\\)\n about the mean value of 1.04 \n\\(\\times\\)\n 10\n\\(^{-23}\\)\n J\n\\(\\cdot\\)\nT\n\\(^{-1}\\)\n\n\n[0.3]\n\n\nor in other words \n\\[\\mu_s = 1.04 \\pm 0.42\\,\\text{J$\\cdot$T}^{-1}\\]\n\n\n[0.2]\n\n\n\n\n\n\n\n\n\nH. S. Mani (former Director, HRI, Prayagraj) and Gautam Datta (DAIICT, Gandhinagar) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully acknowledged.\n↩︎\n\n\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2022-t1/fc283cd21af2334fbd89.png",
+      "/corpus/figures/native/bulk/apho-2022-t1/b239ec78a0e0d7ca5be0.png"
+    ],
+    "shared": false
+  }
+}

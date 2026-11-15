@@ -1,1 +1,5389 @@
-{"id":"ipho-2025-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2025_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2025_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2025-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6],"initialPage":1,"shared":false,"text":"Theory\nQ1-1\nEnglish (Official)\nHydrogen and galaxies (10 points)\nThis problem aims to study the peculiar physics of galaxies, such as their dynamics and structure. In\nparticular, we explain how to measure the mass distribution of our galaxy from the inside. For this we\nwill focus on hydrogen, its main constituent.\nThroughout this problem we will only use ħ, defined as ħ = ℎ/2𝜋.\nPart A - Introduction\nBohr model\nWe assume that the hydrogen atom consists of a non-relativistic electron, with mass 𝑚𝑒, orbiting a fixed\nproton. Throughout this part, we assume its motion is on a circular orbit.\nA.1\nDetermine the electron's velocity 𝑣in a circular orbit of radius 𝑟.\n0.2pt\nIn the Bohr model, we assume the magnitude of the electron's angular momentum 𝐿is quantized, 𝐿= 𝑛ħ\nwhere 𝑛> 0 is an integer. We define 𝛼=\n𝑒2\n4𝜋𝜀0ħ𝑐≈7.27×10−3.\nA.2\nShow that the radius of each orbit is given by 𝑟𝑛= 𝑛2𝑟1, where 𝑟1 is called the\nBohr radius. Express 𝑟1 in terms of 𝛼, 𝑚𝑒, 𝑐and ħ and calculate its numerical\nvalue with 3 digits. Express 𝑣1, the velocity on the orbit of radius 𝑟1, in terms of\n𝛼and 𝑐.\n0.5pt\nA.3\nDetermine the electron's mechanical energy 𝐸𝑛on an orbit of radius 𝑟𝑛in terms\nof 𝑒, 𝜀0, 𝑟1 and 𝑛. Determine 𝐸1 in the ground state in terms of 𝛼, 𝑚𝑒and 𝑐.\nCompute its numerical value in eV.\n0.5pt\nHydrogen fine and hyperfine structures\nThe rare spontaneous inversion of the electron's spin causes a photon to be emitted on average once\nper 10 million years per hydrogen atom. This emission serves as a hydrogen tracer in the universe and is\nthus fundamental in astrophysics. We will study the transition responsible for this emission in two steps.\nFirst, consider the interaction between the electron spin and the relative motion of the electron and the\nproton. Working in the electron's frame of reference, the proton orbits the electron at a distance 𝑟1. This\nproduces a magnetic field −→\n𝐵1.\nA.4\nDetermine the magnitude 𝐵1 of −→\n𝐵1 at the position of the electron in terms of 𝜇0,\n𝑒, 𝛼, 𝑐and 𝑟1.\n0.5pt\nSecond, the electron spin creates a magnetic moment −→\nℳ𝑠. Its magnitude is roughly ℳ𝑠=\n𝑒\n𝑚𝑒ħ. The fine\n(F) structure is related to the energy difference 𝛥𝐸F between an electron with a magnetic moment −→\nℳ𝑠\nparallel to −→\n𝐵1 and that of an electron with −→\nℳ𝑠anti-parallel to −→\n𝐵1. Similarly, the hyperfine (HF) structure is\nrelated to the energy difference 𝛥𝐸HF, due to the interaction between parallel and anti-parallel magnetic\nmoments of the electron and the proton. It is known to be approximately 𝛥𝐸HF ≃3.72 𝑚𝑒\n𝑚𝑝𝛥𝐸F where 𝑚𝑝is\nthe proton mass.\n\nTheory\nQ1-2\nEnglish (Official)\nA.5\nExpress 𝛥𝐸F as a function of 𝛼and 𝐸1.\nExpress the wavelength 𝜆HF of a photon emitted during a transition between\nthe two states of the hyperfine structure and give its numerical value with two\ndigits.\n0.5pt\nPart B - Rotation curves of galaxies\nData\n• Kiloparsec: 1kpc = 3.09×1019 m\n• Solar mass : 1M⊙= 1.99×1030 kg\nWe consider a spherical galaxy centered around a fixed point 𝑂. At any point 𝑃, let 𝜌= 𝜌(𝑃) be the\nvolumetric mass density and 𝜑= 𝜑(𝑃) the associated gravitational potential (i.e. potential energy per\nunit mass). Both 𝜌and 𝜑depend only on 𝑟= ‖\n−−→\n𝑂𝑃‖. The motion of a mass 𝑚located at 𝑃, due to the field\n𝜑, is restricted to a plane containing 𝑂.\nB.1\nIn the case of a circular orbit, determine the velocity 𝑣𝑐of an object on a circular\norbit passing through 𝑃in terms of 𝑟and 𝑑𝜑\n𝑑𝑟.\n0.2pt\nFig. 1(A) is a picture of the spiral galaxy NGC 6946 in the visible band (from the 0.8m Schulman Telescope\nat the Mount Lemmon Sky Center in Arizona). The little ellipses in Fig. 1(B) show experimental measure-\nments of 𝑣𝑐for this galaxy. The central region (𝑟< 1kpc) is named the bulge. In this region, the mass\ndistribution is roughly homogeneous. The red curve is a prediction for 𝑣𝑐if the system were homoge-\nneous in the bulge and keplerian (𝜑(𝑟) = −𝛽/𝑟with 𝛽> 0) outside it, i.e. considering that the total mass\nof the galaxy is concentrated in the bulge.\nFig. 1: NGC 6946 galaxy: Picture (A) and rotation curve (B).\nB.2\nDeduce the mass 𝑀𝑏of the bulge of NGC 6946 from the red rotation curve in\nFig. 1(B), in solar mass units.\n0.5pt\nComparing the keplerian model and the experimental data makes astronomers confident that part of\nthe mass is invisible in the picture. They thus suppose that the galaxy's actual mass density is given by\n\nTheory\nQ1-3\nEnglish (Official)\n𝜌𝑚(𝑟) =\n𝐶𝑚\n𝑟2𝑚+𝑟2\n(1)\nwhere 𝐶𝑚> 0 and 𝑟𝑚> 0 are constants.\nB.3\nShow that the velocity profile 𝑣𝑐,𝑚(𝑟), corresponding to the mass density in Eq.\n1, can be written 𝑣𝑐,𝑚(𝑟) = 𝑘1 −\n𝑘2⋅arctan( 𝑟\n𝑟𝑚)\n𝑟\n. Express 𝑘1 and 𝑘2 in terms of 𝐶𝑚, 𝑟𝑚\nand 𝐺.\n( Hints: \n𝑟\n0\n𝑥2\n𝑎2 +𝑥2 𝑑𝑥= 𝑟−𝑎arctan(𝑟/𝑎), and: arctan(𝑥) ≃𝑥−𝑥3/3 for 𝑥≪1. )\n \nSimplify 𝑣𝑐,𝑚(𝑟) when 𝑟≪𝑟𝑚and when 𝑟≫𝑟𝑚.\nShow that if 𝑟≫𝑟𝑚, the mass 𝑀𝑚(𝑟) embedded in a sphere of radius 𝑟with the\nmass density given by Eq. 1 simplifies and depends only on 𝐶𝑚and 𝑟.\nEstimate the mass of the galaxy NGC 6946 actually present in the picture in Fig.\n1(A).\n1.8pt\nPart C - Mass distribution in our galaxy\nFor a spiral galaxy, the model for Eq. 1 is modified and one usually considers the gravitational potential\nis given by 𝜑𝐺(𝑟,𝑧) = 𝜑0 ln⒧𝑟\n𝑟0\n⒭exp⎡\n⎣\n−⒧𝑧\n𝑧0\n⒭\n2⎤\n⎦\n, where 𝑧is the distance to the galactic plane (defined by 𝑧= 0\n), and 𝑟< 𝑟0 is now the axial radius and 𝜑0 > 0 a constant to be determined. 𝑟0 and 𝑧0 are constant values.\nC.1\nFind the equation of motion on 𝑧for the vertical motion of a point mass 𝑚\nin such a potential, assuming 𝑟is constant. Show that, if 𝑟< 𝑟0, the galactic\nplane is a stable equilibrium state by giving the angular frequency 𝜔0 of small\noscillations around it.\n0.5pt\nFrom here on, we set 𝑧= 0.\nC.2\nIdentify the regime, either 𝑟≫𝑟𝑚or 𝑟≪𝑟𝑚, in which the model of Eq. 1 recovers\na potential of the form 𝜑𝐺(𝑟,0) with a suitable definition of 𝜑0.\nUnder this condition 𝑣𝑐(𝑟) no longer depends on 𝑟. Express it in terms of 𝜑0.\n0.6pt\nTherefore, outside the bulge the velocity modulus 𝑣𝑐does not depend on the distance to the galactic\ncenter. We will use this fact, as astronomers do, to measure the galaxy's mass distribution from the\ninside.\nAll galactic objects considered here for astronomical observations, such as stars or nebulae, are primarily\ncomposed of hydrogen. Outside the bulge, we assume that they rotate on circular orbits around the\ngalactic center 𝐶. 𝑆is the sun's position and 𝐸that of a given galactic object emitting in the hydrogen\nspectrum. In the galactic plane, we consider a line of sight 𝑆𝐸corresponding to the orientation of an\nobservation, on the unit vector 𝑢𝑣(see Fig. 2).\n\nTheory\nQ1-4\nEnglish (Official)\nFig. 2: Geometry of the measurement\nLet ℓbe the galactic longitude, measuring the angle between 𝑆𝐶and the 𝑆𝐸. The sun's velocity on its\ncircular orbit of radius 𝑅⊙= 8.00kpc is denoted −→\n𝑣⊙. A galactic object in 𝐸orbits on another circle of radius\n𝑅at velocity −→\n𝑣𝐸. Using a Doppler effect on the previously studied 21cm line, one can obtain the relative\nradial velocity 𝑣𝑟𝐸/𝑆of the emitter 𝐸with respect to the sun 𝑆: it is the projection of\n⃗𝑣𝐸−⃗𝑣⊙on the line of\nsight.\nC.3\nDetermine 𝑣𝑟𝐸/𝑆in terms of ℓ, 𝑅, 𝑅⊙and 𝑣⊙. Then, express 𝑅in terms of 𝑅⊙, 𝑣⊙,\nℓand 𝑣𝑟𝐸/𝑆.\n0.7pt\nUsing a radio telescope, we make observations in the plane of our galaxy toward a longitude ℓ= 30°. The\nfrequency band used contains the 21cm line, whose frequency is 𝑓0 = 1.42GHz. The results are reported\nin Fig. 3.\nFig. 3: Electromagnetic signal as a function of the frequency shift, measured in the radio\nfrequency band at ℓ= 30° using EU-HOU RadioAstronomy\n\nTheory\nQ1-5\nEnglish (Official)\nC.4\nIn our galaxy, 𝑣⊙= 220km ⋅s−1. Determine the values of the relative radial ve-\nlocity (with 3 significant digits) and the distance from the galactic center (with\n2 significant digits) of the 3 sources observed in Fig. 3. Distances should be\nexpressed as multiples of 𝑅⊙.\n0.6pt\nC.5\nOn the top view of our galaxy (in the answer box), indicate the positions of the\nsources observed in Fig. 3.\nWhat could be deduced from repeated measurements changing ℓ?\n0.6pt\nPart D - Tully-Fisher relation and MOND theory\nThe flat external velocity curve of NGC 6946 in Fig. 1 is a common property of spiral galaxies, as can\nbe seen in Fig. 4 (left). Plotting the external constant velocity value 𝑣𝑐,∞as a function of the measured\ntotal mass 𝑀tot of each galaxy gives an interesting correlation called the Tully-Fischer relation, see Fig. 4\n(right).\nNGC 3621\nNGC 5055\nNGC 2903\nNGC 7321\nNGC 3521\nNGC 2841\nlog    ( M    / M   )\ntot\nlog   ( v     / 1 km/s )\nc,1\nv     \nc,1\nSpiral galaxies\nfrom diﬀerent surveys\nTully Fischer Relation\n¯\n10\n10\nFig. 4. Left: Rotation curves for typical spiral galaxies - Right: log10(𝑀tot) as a function of\nlog10(𝑣𝑐,∞) on linear scales. Colored dots correspond to different galaxies and different sur-\nveys. The green line is the Tully-Fischer relation which is in very good agreement with the best\nfit line of the data (in black).\nD.1\nAssuming that the radius 𝑅of a galaxy doesn't depend on its mass, show that\nthe model of Eq. 1 (part B) gives a relation of the form 𝑀tot = 𝜂𝑣𝛾\n𝑐,∞where 𝛾and\n𝜂should be specified.\nCompare this expression to the Tully-Fischer relation by computing 𝛾𝑇𝐹.\n0.4pt\nIn the extremely low acceleration regime, of the order of 𝑎0 = 10−10 m ⋅s−2, the MOdified Newtonian Dy-\nnamics (MOND) theory suggests that one can modify Newton's second law using −→\n𝐹= 𝑚𝜇⒧𝑎\n𝑎0\n⒭−→\n𝑎where\n𝑎= ‖−→\n𝑎‖ is the modulus of the acceleration and the 𝜇function is defined by 𝜇(𝑥) =\n𝑥\n1+𝑥.\n\nTheory\nQ1-6\nEnglish (Official)\nD.2\nUsing data for NGC 6946 in Fig. 1, estimate, within Newton's theory, the mod-\nulus of the acceleration 𝑎𝑚of a mass in the outer regions of NGC 6946.\n0.2pt\nD.3\nLet 𝑚be a mass on a circular orbit of radius 𝑟with velocity 𝑣𝑐,∞in the gravity\nfield of a fixed mass 𝑀.\nWithin the MOND theory, with 𝑎≪𝑎0, determine the Tully-Fischer exponent.\nUsing data for NGC 6946 and/or Tully-Fischer law, calculate 𝑎0 to show that\nMOND operates in the correct regime.\n0.8pt\nD.4\nConsidering relevant cases, determine 𝑣𝑐(𝑟) for all values of 𝑟in the MOND the-\nory in the case of a gravitational field due to a homogeneously distributed mass\n𝑀with radius 𝑅𝑏.\n0.9pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2025-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],"initialPage":1,"shared":false,"text":"Theory\nQ1-1\nEnglish (Official)\nHydrogen and galaxies (10 points)\nThis problem aims to study the peculiar physics of galaxies, such as their dynamics and structure. In\nparticular, we explain how to measure the mass distribution of our galaxy from the inside. For this we\nwill focus on hydrogen, its main constituent.\nThroughout this problem we will only use ħ, defined as ħ = ℎ/2𝜋.\nPart A - Introduction\nBohr model\nWe assume that the hydrogen atom consists of a non-relativistic electron, with mass 𝑚𝑒, orbiting a fixed\nproton. Throughout this part, we assume its motion is on a circular orbit.\nA.1\nDetermine the electron's velocity 𝑣in a circular orbit of radius 𝑟.\n0.2pt\nSOLUTION:\nNewton's second law on the electron in the electrical field of the proton for a circular orbit and projected\non −→\n𝑢𝑟: −𝑚𝑒\n𝑣2\n𝑟= −\n𝑒2\n4𝜋𝜀0𝑟2 hence 𝑣= \n𝑒2\n4𝜋𝜀0𝑚𝑒𝑟\nMarking Scheme\nA.1.1 : Using Newton's second law\n0.1\nA.1.2 : Expression of the velocity\n0.1\nIn the Bohr model, we assume the magnitude of the electron's angular momentum 𝐿is quantized, 𝐿= 𝑛ħ\nwhere 𝑛> 0 is an integer. We define 𝛼=\n𝑒2\n4𝜋𝜀0ħ𝑐≈7.27×10−3.\nA.2\nShow that the radius of each orbit is given by 𝑟𝑛= 𝑛2𝑟1, where 𝑟1 is called the\nBohr radius. Express 𝑟1 in terms of 𝛼, 𝑚𝑒, 𝑐and ħ and calculate its numerical\nvalue with 3 digits. Express 𝑣1, the velocity on the orbit of radius 𝑟1, in terms of\n𝛼and 𝑐.\n0.5pt\nSOLUTION:\nIf the norm 𝐿of the angular momentum is quantified, for a circular orbit of radius 𝑟𝑛it is 𝐿= 𝑚𝑒𝑟𝑛𝑣𝑛= 𝑛ħ.\nIn the previous question, we have already obtained a relation between 𝑟and 𝑣that can be used for 𝑟𝑛\nand 𝑣𝑛and gives 𝑣𝑛= \n𝑒2\n4𝜋𝜖0𝑚𝑒𝑟𝑛= \n𝛼ħ𝑐\n𝑚𝑒𝑟𝑛. Then using the quantifed expression we get 𝑟𝑛=\n𝑛ħ\n𝑚𝑒𝑣𝑛= 𝑛ħ\n𝑚𝑒\n𝑚𝑒𝑟𝑛\n𝛼ħ𝑐\nthus 𝑟𝑛=\nħ𝑛2\n𝛼𝑚𝑒𝑐and then 𝑟1 =\nħ\n𝛼𝑚𝑒𝑐. For the numerical value we previously compute 𝛼= 7.27 × 10−3 and\nthen 𝑟1 = 5.31×10−11 m . For the velocity, we get 𝑚𝑒𝑣2\n1 =\n𝑒2\n4𝜋𝜀0𝑟1 = 𝑒2𝑚𝑒𝑣1\n4𝜋𝜀0ħ and then 𝑣1 =\n𝑒2\n4𝜋𝜀0ħ = 𝛼𝑐.\nMarker Scheme\n\nTheory\nQ1-2\nEnglish (Official)\nA.2.1 : Expression of 𝑟𝑛\n0.1\nA.2.2 : Expression of 𝑟1\n0.1\nA.2.3 : Numerical value for 𝑟1\n0.1\nA.2.4 : Expression of 𝑣1\n0.2\nA.3\nDetermine the electron's mechanical energy 𝐸𝑛on an orbit of radius 𝑟𝑛in terms\nof 𝑒, 𝜀0, 𝑟1 and 𝑛. Determine 𝐸1 in the ground state in terms of 𝛼, 𝑚𝑒and 𝑐.\nCompute its numerical value in eV.\n0.5pt\nSOLUTION:\nThe mechanical energy is 𝐸𝑛= 1\n2𝑚𝑒𝑣2\n𝑛−\n𝑒2\n4𝜋𝜀0𝑟𝑛= −\n𝑒2\n8𝜋𝜀0𝑟𝑛, hence 𝐸𝑛= −\n𝑒2\n8𝜋𝜀0𝑛2𝑟1\nthen for the ground state\n𝐸1 = −\n𝑒2\n8𝜋𝜀0𝑟1 . Using the expression of 𝛼, we get the beautiful formula 𝐸1 = −1\n2𝛼2𝑚𝑒𝑐2 . The numerical\nvalue is 𝐸1 = −2.17×10−18 J which corresponds to 𝐸1 = −13.6 eV .\nMarker Scheme\nA.3.1 : Expression for 𝐸𝑛\n0.2\nA.3.2 : Expression for 𝐸1 with 𝛼\n0.2\nA.3.3 : Numerical value for 𝐸1\n0.1\nHydrogen fine and hyperfine structures\nThe rare spontaneous inversion of the electron's spin causes a photon to be emitted on average once\nper 10 million years per hydrogen atom. This emission serves as a hydrogen tracer in the universe and is\nthus fundamental in astrophysics. We will study the transition responsible for this emission in two steps.\nFirst, consider the interaction between the electron spin and the relative motion of the electron and the\nproton. Working in the electron's frame of reference, the proton orbits the electron at a distance 𝑟1. This\nproduces a magnetic field −→\n𝐵1.\nA.4\nDetermine the magnitude 𝐵1 of −→\n𝐵1 at the position of the electron in terms of 𝜇0,\n𝑒, 𝛼, 𝑐and 𝑟1.\n0.5pt\nSOLUTION:\nThe period of the motion is : 𝑇= 2𝜋𝑟1\n𝑣1\n.\nThe current 𝑖corresponding to the orbit of the proton is 𝑖= 𝑒\n𝑇hence 𝑖= 𝑒𝑣1\n2𝜋𝑟1 =\n𝑒𝛼𝑐\n2𝜋𝑟1 .\nThe magnetic field created by a loop with current 𝑖and radius 𝑅is : 𝐵= 𝜇0𝑖\n2𝑅, which here gives 𝐵1 = 𝜇0𝑒𝛼𝑐\n4𝜋𝑟2\n1\n.\nMarker Scheme\n\nTheory\nQ1-3\nEnglish (Official)\nA.4.1 : Expression for the period\n0.1\nA.4.2 : Expression for the current\n0.2\nA.4.3 : General expression for 𝐵\n0.1\nA.4.4 : Inject 𝑖into 𝐵\n0.1\nSecond, the electron spin creates a magnetic moment −→\nℳ𝑠. Its magnitude is roughly ℳ𝑠=\n𝑒\n𝑚𝑒ħ. The fine\n(F) structure is related to the energy difference 𝛥𝐸F between an electron with a magnetic moment −→\nℳ𝑠\nparallel to −→\n𝐵1 and that of an electron with −→\nℳ𝑠anti-parallel to −→\n𝐵1. Similarly, the hyperfine (HF) structure is\nrelated to the energy difference 𝛥𝐸HF, due to the interaction between parallel and anti-parallel magnetic\nmoments of the electron and the proton. It is known to be approximately 𝛥𝐸HF ≃3.72 𝑚𝑒\n𝑚𝑝𝛥𝐸F where 𝑚𝑝is\nthe proton mass.\nA.5\nExpress 𝛥𝐸F as a function of 𝛼and 𝐸1.\nExpress the wavelength 𝜆HF of a photon emitted during a transition between\nthe two states of the hyperfine structure and give its numerical value with two\ndigits.\n0.5pt\nSOLUTION:\nThe potential energy corresponding to the interaction between the spin magnetic moment −→\nℳ𝑠and the\nnuclear magnetic field : 𝐸𝑝= −−→\nℳ𝑠⋅−→\n𝐵1\nThe difference 𝛥𝐸F between the energy of two electrons with a spin parallel and antiparallel to −→\n𝐵1\nis then 𝛥𝐸F = 2ℳ𝑠𝐵1 . Using previous expressions one finds: 𝛥𝐸F = 2 𝑒\n𝑚𝑒ħ𝐵1 = 2 𝑒\n𝑚𝑒ħ 𝜇0𝑒𝛼𝑐\n4𝜋𝑟2\n1\nwhich writes\n𝛥𝐸F = −4𝛼2𝐸1 hence 𝛥𝐸HF = −3.72 𝑚𝑒\n𝑚𝑝4𝛼2𝐸1.\nThe wavelength of the photon corresponding to this transition is then ℎ𝑐\n𝜆HF = 𝛥𝐸HF = −3.72. 𝑚𝑒\n𝑚𝑝4𝛼2𝐸1 hence\n𝜆HF = −\nℎ𝑐\n3.72. 𝑚𝑒\n𝑚𝑝4𝛼2𝐸1 whose value is 𝜆HF = 21 cm .\nMarker Sheme\nA.5.1 : Expression for the potential energy\n0.1\nA.5.2 : Expression for 𝛥𝐸F\n0.1\nA.5.3 : Expression for 𝛥𝐸HF in term of 𝛼\n0.1\nA.5.4 : Expression for 𝜆HF\n0.1\nA.5.5 : Numerical value for 𝜆HF\n0.1\nPart B - Rotation curves of galaxies\nData\n• Kiloparsec: 1kpc = 3.09×1019 m\n• Solar mass : 1M⊙= 1.99×1030 kg\n\nTheory\nQ1-4\nEnglish (Official)\nWe consider a spherical galaxy centered around a fixed point 𝑂. At any point 𝑃, let 𝜌= 𝜌(𝑃) be the\nvolumetric mass density and 𝜑= 𝜑(𝑃) the associated gravitational potential (i.e. potential energy per\nunit mass). Both 𝜌and 𝜑depend only on 𝑟= ‖\n−−→\n𝑂𝑃‖. The motion of a mass 𝑚located at 𝑃, due to the field\n𝜑, is restricted to a plane containing 𝑂.\nB.1\nIn the case of a circular orbit, determine the velocity 𝑣𝑐of an object on a circular\norbit passing through 𝑃in terms of 𝑟and 𝑑𝜑\n𝑑𝑟.\n0.2pt\nSOLUTION:\nThe force created by the potential is −→\n𝐹= −−→\n∇(𝑚𝜑(𝑟)) = −𝑚𝑑𝜑\n𝑑𝑟\n−→\n𝑢𝑟. Newton's second law for a circular orbit\nthen gives 𝑚𝑣2𝑐\n𝑟= 𝑚𝑑𝜑\n𝑑𝑟hence 𝑣𝑐= 𝑟𝑑𝜑\n𝑑𝑟.\nSOLUTION:\nB.1.1 : Using Newton's second law\n0.1\nB.1.2 : Expression for the velocity.\n0.1\nFig. 1(A) is a picture of the spiral galaxy NGC 6946 in the visible band (from the 0.8m Schulman Telescope\nat the Mount Lemmon Sky Center in Arizona). The little ellipses in Fig. 1(B) show experimental measure-\nments of 𝑣𝑐for this galaxy. The central region (𝑟< 1kpc) is named the bulge. In this region, the mass\ndistribution is roughly homogeneous. The red curve is a prediction for 𝑣𝑐if the system were homoge-\nneous in the bulge and keplerian (𝜑(𝑟) = −𝛽/𝑟with 𝛽> 0) outside it, i.e. considering that the total mass\nof the galaxy is concentrated in the bulge.\nFig. 1: NGC 6946 galaxy: Picture (A) and rotation curve (B).\nB.2\nDeduce the mass 𝑀𝑏of the bulge of NGC 6946 from the red rotation curve in\nFig. 1(B), in solar mass units.\n0.5pt\nSOLUTION:\nEither by Gauss's theorem 4𝜋𝑟2𝑔(𝑟) = −4𝜋𝐺𝑀int(𝑟) , then one gets 𝑔(𝑟) = 𝐺𝑀int(𝑟)/𝑟2. or one knows the\nlaw 𝑔(𝑟) = 𝐺𝑀/𝑟2 and intuits that one can use the interior mass 𝑔(𝑟) = 𝐺𝑀int(𝑟)/𝑟2\n\nTheory\nQ1-5\nEnglish (Official)\nIf there is almost no more mass after the bulge radius 𝑟𝑏\nthen if 𝑟> 𝑟𝑏, 𝑀int(𝑟) = 𝑀𝑏and\n⃗𝑔(𝑟> 𝑟𝑏) = −𝐺𝑀𝑏\n𝑟2\n⃗𝑢𝑟. But ⃗𝑔= −𝑑𝜑\n𝑑𝑟\n⃗𝑢𝑟.\nThis gives 𝑣𝑐(𝑟> 𝑟𝑏) = \n𝐺𝑀𝑏\n𝑟.\nOne can then deduce that if the velocity is given only by the bulge, at a given distance 𝑅we\nmust have\n𝑀𝑏= 𝑣2\n𝑐𝑅/𝐺.\nOn the red curve we can read 𝑣𝑐= 20 km ⋅s−1 at 𝑅= 10 kpc hence\n𝑀𝑏= 𝑣2𝑐𝑅\n𝐺≃4.108×3.1020\n6,7.10−11\n≃1,8.1039 kg so that 𝑀𝑏≃9.108𝑀⊙.\nMarker Scheme\nB.2.1 : 𝑔(𝑟) = 𝐺𝑀int(𝑟)/𝑟2 via Gauss' Theorem or another\nmethod resulting in an equivalent result.\n0.1\nB.2.2 : Expression for ⃗𝑔(𝑟> 𝑟𝑏)\n0.1\nB.2.3 : Expression for 𝑀𝑏\n0.1\nB.2.4 : Taking the right value of 𝑣𝑐in the figure\n0.1\nB.2.5 : Numerical value for 𝑀𝑏with a tolerance of ±25%\n0.1\nComparing the keplerian model and the experimental data makes astronomers confident that part of\nthe mass is invisible in the picture. They thus suppose that the galaxy's actual mass density is given by\n𝜌𝑚(𝑟) =\n𝐶𝑚\n𝑟2𝑚+𝑟2\n(1)\nwhere 𝐶𝑚> 0 and 𝑟𝑚> 0 are constants.\nB.3\nShow that the velocity profile 𝑣𝑐,𝑚(𝑟), corresponding to the mass density in Eq.\n1, can be written 𝑣𝑐,𝑚(𝑟) = 𝑘1 −\n𝑘2⋅arctan( 𝑟\n𝑟𝑚)\n𝑟\n. Express 𝑘1 and 𝑘2 in terms of 𝐶𝑚, 𝑟𝑚\nand 𝐺.\n( Hints: \n𝑟\n0\n𝑥2\n𝑎2 +𝑥2 𝑑𝑥= 𝑟−𝑎arctan(𝑟/𝑎), and: arctan(𝑥) ≃𝑥−𝑥3/3 for 𝑥≪1. )\n \nSimplify 𝑣𝑐,𝑚(𝑟) when 𝑟≪𝑟𝑚and when 𝑟≫𝑟𝑚.\nShow that if 𝑟≫𝑟𝑚, the mass 𝑀𝑚(𝑟) embedded in a sphere of radius 𝑟with the\nmass density given by Eq. 1 simplifies and depends only on 𝐶𝑚and 𝑟.\nEstimate the mass of the galaxy NGC 6946 actually present in the picture in Fig.\n1(A).\n1.8pt\nSOLUTION:\nOn the one hand, writing Gauss' theorem on a sphere of radius 𝑟gives ∫−→\n𝑔(𝑟)⋅−→\n𝑑𝑆= 4𝜋𝑟2𝑔(𝑟) = −4𝜋𝐺𝑀int\nand thus 𝑔(𝑟) = 𝐺𝑀int(𝑟)/𝑟2. As long as this final formula is given it doesn't matter the method.\nBut, on the other hand 𝑀int = ∫\n𝑟\n0 4𝜋𝑥2𝜌(𝑥)𝑑𝑥= 4𝜋𝐶𝑚𝑟−𝑟𝑚arctan⒧𝑟\n𝑟𝑚⒭hence\n𝑔𝑚(𝑟) = −\n4𝜋𝐶𝑚𝐺𝑟−𝑟𝑚arctan⒧𝑟\n𝑟𝑚⒭\n𝑟2\n(2)\n\nTheory\nQ1-6\nEnglish (Official)\nBut as −𝑚\n𝑣2𝑐,𝑚\n𝑟\n= −𝑚𝑔𝑚(𝑟) we finally get 𝑣𝑐,𝑚= √𝑟𝑔𝑚(𝑟) wich writes\n𝑣𝑐,𝑚=\n\n\n\n⎷\n4𝜋𝐶𝑚𝐺𝑟−𝑟𝑚arctan⒧𝑟\n𝑟𝑚⒭\n𝑟\n(3)\nOne can then read 𝑘1 = 4𝜋𝐶𝑚𝐺and 𝑘2 = 4𝜋𝐶𝑚𝐺𝑟𝑚\nTwo regime could be considered:\n• if 𝑟≪𝑟𝑚, a third order Taylor expansion of arctan gives 𝑣𝑐,𝑚≃\n4𝜋𝐶𝑚𝐺𝑟2\n3𝑟2𝑚\n,\n• and if 𝑟≫𝑟𝑚then arctan⒧𝑟\n𝑟𝑚⒭≃𝜋/2 and 𝑣𝑐,𝑚≃√4𝜋𝐶𝑚𝐺.\nThe function 𝑣𝑐,𝑚(𝑟) is vanishing when 𝑟→0 and is asymptotically constant with value √4𝜋𝐶𝑚𝐺when\n𝑟→+∞: this corresponds to the observational curve for the galaxy considered (black circles on the right\npart of figure 1(B). A natural interpretation for 𝑟𝑚is the typical radius beyond which the circular velocity\nis constant. On this picture one can read 𝑣𝑐≃160km⋅s−1 for the constant value of 𝑣𝑐,𝑚after 𝑟𝑚, then one\ncan deduce 𝐶𝑚=\n𝑣2𝑐\n4𝜋𝐺≃\n(1,6.105)2\n4𝜋×6.67.10−11 ≃3.1019 kg⋅m−1. The mass embedded in a sphere of radius 𝑟is given by\n𝑀int = ∫\n𝑟\n0 4𝜋𝑥2𝜌𝑚(𝑥)𝑑𝑥= 4𝜋𝐶𝑚𝑟−𝑟𝑚arctan⒧𝑟\n𝑟𝑚⒭which reduces to 𝑀int ≃4𝜋𝐶𝑚𝑟if 𝑟≫𝑟𝑚. In the picture we\nhave a radius 𝑅= 9kpc = 2.27 × 1020 m of the galaxy, then a mass 𝑀inthefigure ≃4𝜋𝐶𝑚𝑅≃1041 kg ≃1011 M⊙.\nThis mass corresponds to more than ten times the value of the mass actually visible in this picture : this\nis the dark matter concept.\nMarker Scheme\nB.3.1 : 𝑔(𝑟) = 𝐺𝑀int(𝑟)/𝑟2 via Gauss' Theorem or another\nmethod resulting in an equivalent result.\n0.2\nB.3.2 : Interior mass\n0.3\nB.3.3. : Expression for 𝑔(𝑟)\n0.1\nB.3.4 : Using Newton's second law\n0.1\nB.3.5 : Expression for 𝑘1\n0.1\nB.3.6 : Expression for 𝑘2\n0.1\nB.3.7 : Simplification for 𝑣𝑐in the case 𝑟≪𝑟𝑚\n0.2\nB.3.8 : Simplification for 𝑣𝑐in the case 𝑟≫𝑟𝑚\n0.2\nB.3.9 : Value of 𝐶𝑚\n0.2\nB.3.10 : Expression for 𝑀𝑚in the case 𝑟≫𝑟𝑚\n0.2\nB.3.11 : Mass in the figure (good if nearest power of ten)\n0.1\nPart C - Mass distribution in our galaxy\nFor a spiral galaxy, the model for Eq. 1 is modified and one usually considers the gravitational potential\nis given by 𝜑𝐺(𝑟,𝑧) = 𝜑0 ln⒧𝑟\n𝑟0\n⒭exp⎡\n⎣\n−⒧𝑧\n𝑧0\n⒭\n2⎤\n⎦\n, where 𝑧is the distance to the galactic plane (defined by 𝑧= 0\n), and 𝑟< 𝑟0 is now the axial radius and 𝜑0 > 0 a constant to be determined. 𝑟0 and 𝑧0 are constant values.\n\nTheory\nQ1-7\nEnglish (Official)\nC.1\nFind the equation of motion on 𝑧for the vertical motion of a point mass 𝑚\nin such a potential, assuming 𝑟is constant. Show that, if 𝑟< 𝑟0, the galactic\nplane is a stable equilibrium state by giving the angular frequency 𝜔0 of small\noscillations around it.\n0.5pt\nSOLUTION:\nThe equation of motion is given by Newton's second law 𝑚−→\n𝑎= −→\n𝐹= −𝑚−→\n∇𝜑, projected on −→\n𝑢𝑧, it gives\n𝑚̈𝑧= −𝑚𝜕𝜑\n𝜕𝑧. Using the given potential we have\n̈𝑧= 2𝑧\n𝑧2\n0 𝜑0 ln⒧𝑟\n𝑟0 ⒭exp−⒧𝑧\n𝑧0 ⒭\n2\n. Near the galactic plane (\n𝑧= 0 ) the exponential is equal to 1 and can be simplified to give\n̈𝑧≃2𝑧\n𝑧2\n0 𝜑0 ln⒧𝑟\n𝑟0 ⒭. If 𝑟< 𝑟0 the ln is negative\nand the equation of motion is of the form ̈𝑧≃−𝜔2\n0𝑧with 𝜔0 = \n2𝜑0\n𝑧2\n0\n|ln⒧𝑟\n𝑟0 ⒭| . This proves that 𝑧is oscillating\naround 𝑧= 0 and that the motion is stable.\nMarker Scheme\nC.1.1 : Newton's second law, or equivalent method\n0.1\nC.1.2 : Projection on the z axis\n0.1\nC.1.3 : Equation of motion\n0.1\nC.1.4 : Equation near the galactic plane\n0.1\nC.1.5 : Expression for 𝜔0\n0.1\nFrom here on, we set 𝑧= 0.\nC.2\nIdentify the regime, either 𝑟≫𝑟𝑚or 𝑟≪𝑟𝑚, in which the model of Eq. 1 recovers\na potential of the form 𝜑𝐺(𝑟,0) with a suitable definition of 𝜑0.\nUnder this condition 𝑣𝑐(𝑟) no longer depends on 𝑟. Express it in terms of 𝜑0.\n0.6pt\nSOLUTION:\nUsing the density given by equation (1) in part B, we have obtained\n𝑔𝑚(𝑟) = −\n4𝜋𝐶𝑚𝐺𝑟−𝑟𝑚arctan⒧𝑟\n𝑟𝑚⒭\n𝑟2\n(4)\nHence, considering 𝑟≫𝑟𝑚, one can simplify this relation to 𝑔𝑚(𝑟) ≃−4𝜋𝐶𝑚𝐺\n𝑟\n. The gravitational potential\ncan be obtained by integration, we then have : 𝜑(𝑟) = +4𝜋𝐶𝑚𝐺ln(𝑟)+cst . The constant can be found by\ncorrectly choosing the origin of the potential. This potential corresponds to: 𝜑𝐺(𝑟,𝑧= 0) = 𝜑0 ln⒧𝑟\n𝑟0 ⒭with\n𝜑0 = +4𝜋𝐶𝑚𝐺. In that case, the equation of motion in the galactic plane gives −𝑚𝑣2𝑐\n𝑟= −𝑚𝑔𝑚(𝑟) which\nwrites 𝑣𝑐= √𝑟𝑔𝑚(𝑟) = √4𝜋𝐶𝑚𝐺, so that 𝑣𝑐= √𝜑0 .\nMarker Scheme\n\nTheory\nQ1-8\nEnglish (Official)\nC2.1 : Condition for simplication 𝑟≫𝑟𝑚\n0.1\nC2.2 : Expression for 𝜑(𝑟)\n0.2\nC2.3 : Identification of 𝜑0\n0.1\nC2.4 : Newton's second law\n0.1\nC2.5 : Expression for 𝑣𝑐\n0.1\nTherefore, outside the bulge the velocity modulus 𝑣𝑐does not depend on the distance to the galactic\ncenter. We will use this fact, as astronomers do, to measure the galaxy's mass distribution from the\ninside.\nAll galactic objects considered here for astronomical observations, such as stars or nebulae, are primarily\ncomposed of hydrogen. Outside the bulge, we assume that they rotate on circular orbits around the\ngalactic center 𝐶. 𝑆is the sun's position and 𝐸that of a given galactic object emitting in the hydrogen\nspectrum. In the galactic plane, we consider a line of sight 𝑆𝐸corresponding to the orientation of an\nobservation, on the unit vector 𝑢𝑣(see Fig. 2).\nFig. 2: Geometry of the measurement\nLet ℓbe the galactic longitude, measuring the angle between 𝑆𝐶and the 𝑆𝐸. The sun's velocity on its\ncircular orbit of radius 𝑅⊙= 8.00kpc is denoted −→\n𝑣⊙. A galactic object in 𝐸orbits on another circle of radius\n𝑅at velocity −→\n𝑣𝐸. Using a Doppler effect on the previously studied 21cm line, one can obtain the relative\nradial velocity 𝑣𝑟𝐸/𝑆of the emitter 𝐸with respect to the sun 𝑆: it is the projection of\n⃗𝑣𝐸−⃗𝑣⊙on the line of\nsight.\nC.3\nDetermine 𝑣𝑟𝐸/𝑆in terms of ℓ, 𝑅, 𝑅⊙and 𝑣⊙. Then, express 𝑅in terms of 𝑅⊙, 𝑣⊙,\nℓand 𝑣𝑟𝐸/𝑆.\n0.7pt\nSOLUTION:\nWe have −→\n𝑆𝑠= 𝑣⊙sin(𝛼) 𝑢𝑣\nand −→\n𝐸𝑒= 𝑣𝐸cos(𝛽) 𝑢𝑣.\nIn the right triangle 𝑆𝑠𝑆𝑣the sum of angles gives\n\nTheory\nQ1-9\nEnglish (Official)\n\n⒧−→\n𝑆𝑠,−−→\n𝑆𝑆𝑣⒭= 𝜋\n2 −𝛼, but, as\n⃗𝑣⊙is perpendicular to the radius 𝐶𝑆, we also have\n\n⒧−→\n𝑆𝑠,−−→\n𝑆𝑆𝑣⒭= 𝜋\n2 −ℓ: then 𝛼= ℓ.\nOn the other side, we have 𝐶𝑇= 𝑅⊙sin(ℓ) = 𝑅sin( 𝜋\n2 −𝛽), which gives cos(𝛽) = 𝑅⊙\n𝑅sin(ℓ) . Merging all of\nthese results and taking into account that 𝑣𝐸= 𝑣⊙and that ⃗𝑣𝑟𝐸/𝑆= −→\n𝐸𝑒−−→\n𝑆𝑠we have 𝑣𝑟𝐸/𝑆= 𝑣⊙⒧𝑅⊙\n𝑅−1⒭sin(ℓ)\nand finally 𝑅=\n𝑅⊙\n1+\n𝑣𝑟𝐸/𝑆\n𝑣⊙sin(ℓ)\n.\nMarker Scheme\nC3.1 : Expression for −→\n𝑆𝑠\n0.1\nC3.2 : Expression for −→\n𝐸𝑒\n0.1\nC3.3 : 𝛼= ℓ\n0.1\nC3.4 : Expression for cos(𝛽)\n0.1\nC3.5 : Expression for 𝑣𝑟,𝐸/𝑆\n0.2\nC3.6 : Expression for 𝑅\n0.1\nUsing a radio telescope, we make observations in the plane of our galaxy toward a longitude ℓ= 30°. The\nfrequency band used contains the 21cm line, whose frequency is 𝑓0 = 1.42GHz. The results are reported\nin Fig. 3.\nFig. 3: Electromagnetic signal as a function of the frequency shift, measured in the radio\nfrequency band at ℓ= 30° using EU-HOU RadioAstronomy\nC.4\nIn our galaxy, 𝑣⊙= 220km ⋅s−1. Determine the values of the relative radial ve-\nlocity (with 3 significant digits) and the distance from the galactic center (with\n2 significant digits) of the 3 sources observed in Fig. 3. Distances should be\nexpressed as multiples of 𝑅⊙.\n0.6pt\nSOLUTION:\nIn Fig. 3 one can measure the 3 frequency shifts ( 𝑓−𝑓0 ) corresponding to each peak : 𝛥𝑓1 = 0.03 MHz ,\n𝛥𝑓2 = 0.15 MHz and 𝑓3 = 0.26 MHz. One can then compute the relative Doppler velocity using 𝑣𝑟,𝑖= 𝑐𝛥𝑓𝑖/𝑓0\n, with 𝑓0 = 1420 MHz one gets\n\nTheory\nQ1-10\nEnglish (Official)\n•\n𝑣𝑟,1 = 6.33 km⋅s−1\n•\n𝑣𝑟,2 = 31.7 km⋅s−1\n•\n𝑣𝑟,3 = 54.9 km⋅s−1\nAs peaks are placed on grid points, the tolerance in the value is due to fact that candidates could use\n𝑐= 3.00×108 m/s in the place of the 9 digits given in the formulary.\nThe corresponding distances from the galactic center are then obtained using the relation 𝑅𝑖=\n𝑅⊙\n1+\n𝑣𝑟,𝑖\n𝑣⊙sinℓ\n,\nwith ℓ= 30° we obtain :\n•\n𝑅1 = 0.95𝑅⊙\n•\n𝑅2 = 0.78𝑅⊙\n•\n𝑅3 = 0.67𝑅⊙\nMarker Scheme\nC4.1 : Doppler formula for 𝑣𝑟\n0.1\nC4.2 : Getting the 3 numerical values for 𝛥𝑓\n0.2\nC4.3 : Numerical values of the 3 velocities (±0.01 km⋅s−1)\n0.2\nC4.4 : Numerical values of the 3 distances (±0.01𝑅⊙)\n0.1\nC.5\nOn the top view of our galaxy (in the answer box), indicate the positions of the\nsources observed in Fig. 3.\nWhat could be deduced from repeated measurements changing ℓ?\n0.6pt\nSOLUTION:\nAs indicated on the figure below, the right line of sight could be obtained geometrically (i.e. without\nprotractor) : using the 15° grid graduation one can going back from 30° from the perpendicular line to\nCS, we then obtain a radius which perpendicular to the line of sight, in other words as sin(30°)=0.5 the\nline of sight is passing by S and is tangenting the circle of radius CS/2.\nDrawing the circles or radius , and , the line of sight with from we get 2 possible intersection for each\npeak : a near one and a far one. We plot only the nearest for each source on the answer figure.\n\nTheory\nQ1-11\nEnglish (Official)\n.\n.\nR3\nR2\n.\nR1\n.\n`=30°\n.\n30°\nThe far intersections for each source is much further away and hence is likely less intense. Astronomers\ncould also use the variation in the radio signal when they slowly vary the longitude to determine the\nright position of the actual source. A continuous variation of ℓin the interval [0,2𝜋] makes hydrogen\nsources appear in the galaxy, as the galaxy is essentially composed of hydrogen, one can trace its mass\ndistribution : i.e. the spiral structure.\nMarker Scheme\nC5.1 : Getting the right line of sight\n0.1\nC5.2 : Drawing for the 3 circles\n0.2\nC5.3 : Drawing for the 3 points\n0.2\nC5.4 : Deduction\n0.1\nPart D - Tully-Fisher relation and MOND theory\nThe flat external velocity curve of NGC 6946 in Fig. 1 is a common property of spiral galaxies, as can\nbe seen in Fig. 4 (left). Plotting the external constant velocity value 𝑣𝑐,∞as a function of the measured\ntotal mass 𝑀tot of each galaxy gives an interesting correlation called the Tully-Fischer relation, see Fig. 4\n(right).\n\nTheory\nQ1-12\nEnglish (Official)\nNGC 3621\nNGC 5055\nNGC 2903\nNGC 7321\nNGC 3521\nNGC 2841\nlog    ( M    / M   )\ntot\nlog   ( v     / 1 km/s )\nc,1\nv     \nc,1\nSpiral galaxies\nfrom diﬀerent surveys\nTully Fischer Relation\n¯\n10\n10\nFig. 4. Left: Rotation curves for typical spiral galaxies - Right: log10(𝑀tot) as a function of\nlog10(𝑣𝑐,∞) on linear scales. Colored dots correspond to different galaxies and different sur-\nveys. The green line is the Tully-Fischer relation which is in very good agreement with the best\nfit line of the data (in black).\nD.1\nAssuming that the radius 𝑅of a galaxy doesn't depend on its mass, show that\nthe model of Eq. 1 (part B) gives a relation of the form 𝑀tot = 𝜂𝑣𝛾\n𝑐,∞where 𝛾and\n𝜂should be specified.\nCompare this expression to the Tully-Fischer relation by computing 𝛾𝑇𝐹.\n0.4pt\nSOLUTION:\nWe have obtained 𝑣2\n𝑐,∞= 4𝜋𝐶𝑚𝐺and for a galaxy of radius 𝑅, we have 𝑀tot ≃4𝜋𝐶𝑚𝑅. This gives 𝐶𝑚= 𝑀tot\n4𝜋𝑅\nand 𝑣2\n𝑐,∞= 4𝜋𝑀tot\n4𝜋𝑅𝐺. This relation is of the expected form 𝑀tot = 𝜂𝑣𝛾\n𝑐,∞with 𝛾= 2 and 𝜂= 𝑅/𝐺. Analysing\nthe data we get the power law exponent of the Tully-Fisher relation as 𝛾𝑇𝐹≃\n12−9\n2.6−1.8 = 3.75 : the dark\nmatter model from part B is not able to reproduce this law.\nMarker Scheme\nD1.1 : Recall for 𝑣𝑐,∞\n0.1\nD1.2 : Expression for 𝜂\n0.1\nD1.3 : Expression for 𝛾\n0.1\nD1.4 : Numerical value for 𝛾𝑇𝐹(correct if it is between 3.5\nand 4)\n0.1\nIn the extremely low acceleration regime, of the order of 𝑎0 = 10−10 m ⋅s−2, the MOdified Newtonian Dy-\nnamics (MOND) theory suggests that one can modify Newton's second law using −→\n𝐹= 𝑚𝜇⒧𝑎\n𝑎0\n⒭−→\n𝑎where\n𝑎= ‖−→\n𝑎‖ is the modulus of the acceleration and the 𝜇function is defined by 𝜇(𝑥) =\n𝑥\n1+𝑥.\n\nTheory\nQ1-13\nEnglish (Official)\nD.2\nUsing data for NGC 6946 in Fig. 1, estimate, within Newton's theory, the mod-\nulus of the acceleration 𝑎𝑚of a mass in the outer regions of NGC 6946.\n0.2pt\nSOLUTION:\nConsidering that outer orbits are circular, the corresponding acceleration for a test mass 𝑚is radial and\ngiven in newtonian theory by 𝑎𝑚≃𝑣2\n𝑐/𝑅. In the case of NGC 6946, the value of the velocity is roughly\nconstant and equal to 𝑣𝑐= 160km ⋅s−1 as far 𝑅> 5 kpc. For this smallest distance from the center, the\nacceleration is 𝑎𝑚= (1.6.105)2\n5.3.1019 ≃1.5×10−10 m⋅s−2 , this value is the maximal acceleration to which as star is\nsubmitted in the outer regions of this galaxy. It corresponds to the MOND regime.\nMarker Scheme\nD2.1 : Expression for 𝑎𝑚\n0.1\nD2.2 : Numerical value for 𝑎𝑚(good nearest power of ten)\n0.1\nD.3\nLet 𝑚be a mass on a circular orbit of radius 𝑟with velocity 𝑣𝑐,∞in the gravity\nfield of a fixed mass 𝑀.\nWithin the MOND theory, with 𝑎≪𝑎0, determine the Tully-Fischer exponent.\nUsing data for NGC 6946 and/or Tully-Fischer law, calculate 𝑎0 to show that\nMOND operates in the correct regime.\n0.8pt\nSOLUTION:\nIf 𝑥= 𝑎/𝑎0 ≪1, then 𝜇(𝑥≪1) ≃𝑥and MOND theory gives −→\n𝐹= 𝑚𝑎\n𝑎0\n−→\n𝑎. Considering a gravitational inter-\naction between 𝑀and 𝑚we then have for the radial component of the modified Newton's second Law\n𝐺𝑀\n𝑟2 𝑚= 𝑚𝑎2\n𝑎0 . The radial acceleration on a circular orbit of radius 𝑟is always given by 𝑎= 𝑣2\n𝑐,∞/𝑟, the mod-\nified second law writes now 𝐺𝑀\n𝑟2 =\n𝑣4𝑐,∞\n𝑟2𝑎0 which gives 𝑣𝑐,∞= (𝑎0𝐺𝑀)1/4 , and thus 𝑀=\n1\n𝑎0𝐺𝑣4\n𝑐,∞. Considering\nthe notation from D.1, this is a power law relation with 𝛾MOND = 4 in accordance with the Tully-Fischer\nrelation.\nFor the NGC 6946 galaxy, we read 𝑣𝑐,∞= 160km⋅s−1 thus log10 ⒧\n𝑣𝑐,∞\n1km⋅s−1 ⒭= 2.2 and one can read the corre-\nsponding total mass by the Tully-Fischer relation as log(𝑀tot/𝑀⊙) = 10.5 thus 𝑀tot = 2.1040,5 kg. One can\nobtain similar numbers using experimental data on the curve of Fig. 4. Introducing these values in the\nrelation 𝑎0 =\n𝑣4𝑐,∞\n𝐺𝑀tot it gives 𝑎0 = 1.5×10−10 m⋅s−2 as expected.\nMarker Scheme\n\nTheory\nQ1-14\nEnglish (Official)\nD3.1 : Considering the hypothesis 𝑎≪𝑎0\n0.1\nD3.2 : Newton's second law\n0.1\nD3.3 : Expression for 𝑣𝑐,∞\n0.1\nD3.4 : Numerical value for 𝛾𝑀𝑂𝑁𝐷\n0.1\nD3.5 : Numerical value for log10(𝑣𝑐,∞/1km/s)\n0.1\nD3.6 : Numerical value for log10(𝑀)\n0.1\nD3.7 : Expression for 𝑎0\n0.1\nD3.8 : Numerical value for 𝑎0 (good if nearest power of ten)\n0.1\nD.4\nConsidering relevant cases, determine 𝑣𝑐(𝑟) for all values of 𝑟in the MOND the-\nory in the case of a gravitational field due to a homogeneously distributed mass\n𝑀with radius 𝑅𝑏.\n0.9pt\nSOLUTION:\nTaking the full formula for 𝜇, the modified second law with circular velocity 𝑣𝑐at radius 𝑟writes now\n𝒢(𝑟)𝑚= −𝑚\n𝑣2\n𝑓\n𝑎0𝑟\n1+\n𝑣2\n𝑓\n𝑎0𝑟\n𝑣2\n𝑓\n𝑟where 𝒢(𝑟) is the gravitational field of the homogeneous ball of mass 𝑀and with\nradius 𝑅𝑏. This field can be deduced from Gauss' theorem it is\n𝒢(𝑟) =\n⎧\n⎨\n⎩\n−𝐺𝑀/𝑟2\nif\n𝑟> 𝑅𝑏\n−𝐺𝑀𝑟/𝑅3\n𝑏\nif\n𝑟≤𝑅𝑏\n(5)\nOutside the ball : 𝑟> 𝑅𝑏. After a small reorganisation, 𝑣𝑐appears to be solution of the biquadratic equa-\ntion 𝑣4\n𝑐−𝐺𝑀\n𝑟𝑣2\n𝑐−𝑎0𝐺𝑀= 0 . The positive root of this equation is\n𝑣𝑐(𝑟) =\n\n\n\n⎷\n𝐺𝑀\n2𝑟\n⎛\n⎝\n1+1+ 4𝑎0𝑟2\n𝐺𝑀\n⎞\n⎠\nwhich is valid only if 𝑟> 𝑅𝑏\n(6)\nWhen 𝑟→∞, 𝑣𝑐is asymptotically constant and 𝑀→\n𝑣4𝑐,∞\n𝑎0𝐺\nwhich is the Tully-Fisher relation. Inside the ball\n: 𝑟≤𝑅𝑏. With a similar reorganisation, 𝑣𝑐appears now to be solution of another biquadratic equation\nwhich is 𝑣4\n𝑐−𝐺𝑀\n𝑟⒧𝑟\n𝑅𝑏⒭\n3 𝑣2\n𝑐−𝑎0𝐺𝑀⒧𝑟\n𝑅𝑏⒭\n3 = 0 . The positive solution is now\n𝑣𝑐(𝑟) =\n\n\n\n⎷\n𝐺𝑀\n2𝑟⒧𝑟\n𝑅𝑏\n⒭\n3 ⎡\n⎣\n1+1+ 4𝑎0𝑟2\n𝐺𝑀⒧𝑅𝑏\n𝑟⒭\n3⎤\n⎦\nwhich is valid only if 𝑟≤𝑅𝑏\n(7)\nWhen 𝑟→0, we recover 𝑣𝑐→0 as in the experimental data.\nMarker Scheme\n\nTheory\nQ1-15\nEnglish (Official)\nD4.1 : Modified second law\n0.1\nD4.2 : Gravitational field in the case 𝑟> 𝑅𝑏\n0.1\nD4.3 : Gravitational field in the case 𝑟< 𝑅𝑏\n0.1\nD4.4 : Bi-quadratic equation in the case 𝑟> 𝑅𝑏\n0.1\nD4.5 : Expression for 𝑣𝑐in the case 𝑟> 𝑅𝑏\n0.1\nD4.6 : Behaviour in the limit 𝑟→∞\n0.1\nD4.7 : Bi-quadractic equation for 𝑟< 𝑅𝑏\n0.1\nD4.8 : Expression for 𝑣𝑐when 𝑟< 𝑅𝑏\n0.1\nD4.9 : Behaviour when 𝑟→0\n0.1\n","textExtraction":"available"}}
+{
+  "id": "ipho-2025-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2025-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Hydrogen and galaxies (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This problem aims to study the peculiar physics of galaxies, such as their dynamics and structure. In particular, we explain how to measure the mass distribution of our galaxy from the inside. For this we will focus on hydrogen, its main constituent."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Throughout this problem we will only use "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", defined as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hbar = h/2\\pi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A - Introduction"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Bohr model"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We assume that the hydrogen atom consists of a non-relativistic electron, with mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", orbiting a fixed proton. Throughout this part, we assume its motion is on a circular orbit."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Determine the electron’s velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in a circular orbit of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the Bohr model, we assume the magnitude of the electron’s angular momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is quantized, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L = n\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is an integer. We define "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha = \\frac{e^2}{4\\pi\\varepsilon_0\\hbar c} \\approx 7.27 \\times 10^{-3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Show that the radius of each orbit is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_n = n^2 r_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is called the Bohr radius. Express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and calculate its numerical value with 3 digits. Express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the velocity on the orbit of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Determine the electron’s mechanical energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on an orbit of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Determine "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the ground state in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Compute its numerical value in eV. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Hydrogen fine and hyperfine structures"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The rare spontaneous inversion of the electron’s spin causes a photon to be emitted on average once per 10 million years per hydrogen atom. This emission serves as a hydrogen tracer in the universe and is thus fundamental in astrophysics. We will study the transition responsible for this emission in two steps."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "First, consider the interaction between the electron spin and the relative motion of the electron and the proton. Working in the electron’s frame of reference, the proton orbits the electron at a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This produces a magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overrightarrow{B}_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Determine the magnitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overrightarrow{B}_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the position of the electron in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Second, the electron spin creates a magnetic moment "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overrightarrow{\\mathcal{M}}_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Its magnitude is roughly "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{M}_s = \\frac{e}{m_e}\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "fine"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (F) structure is related to the energy difference "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varDelta E_\\mathrm{F}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between an electron with a magnetic moment "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overrightarrow{\\mathcal{M}}_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " parallel to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overrightarrow{B}_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and that of an electron with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overrightarrow{\\mathcal{M}}_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " anti-parallel to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overrightarrow{B}_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Similarly, the "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "hyperfine"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (HF) structure is related to the energy difference "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varDelta E_\\mathrm{HF}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", due to the interaction between parallel and anti-parallel magnetic moments of the electron and the proton. It is known to be approximately "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varDelta E_\\mathrm{HF} \\simeq 3.72\\frac{m_e}{m_p}\\varDelta E_\\mathrm{F}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the proton mass."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varDelta E_\\mathrm{F}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nExpress the wavelength "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_\\mathrm{HF}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of a photon emitted during a transition between the two states of the hyperfine structure and give its numerical value with two digits. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B - Rotation curves of galaxies"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Data"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Kiloparsec: "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(1\\,\\mathrm{kpc} = 3.09 \\times 10^{19}\\,\\mathrm{m}\\)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Solar mass : "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(1\\,\\mathrm{M}_\\odot = 1.99 \\times 10^{30}\\,\\mathrm{kg}\\)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We consider a spherical galaxy centered around a fixed point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(O\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". At any point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho = \\rho(P)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the volumetric mass density and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi = \\varphi(P)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the associated gravitational potential (i.e. potential energy per unit mass). Both "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " depend only on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r = \\left\\|\\overrightarrow{OP}\\right\\|\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The motion of a mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " located at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", due to the field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is restricted to a plane containing "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(O\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "In the case of a circular orbit, determine the velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of an object on a circular orbit passing through "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{d\\varphi}{dr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig. 1(A) is a picture of the spiral galaxy NGC 6946 in the visible band (from the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.8\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Schulman Telescope at the Mount Lemmon Sky Center in Arizona). The little ellipses in Fig. 1(B) show experimental measurements of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for this galaxy. The central region ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r < 1\\,\\mathrm{kpc}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is named the bulge. In this region, the mass distribution is roughly homogeneous. The red curve is a prediction for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " if the system were homogeneous in the bulge and keplerian ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi(r) = -\\beta/r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") outside it, i.e. considering that the total mass of the galaxy is concentrated in the bulge."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2025-t1/160baabef51b9d828f0a.png",
+                "alt": "ipho-2025-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 1"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": NGC 6946 galaxy: Picture (A) and rotation curve (B)."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Deduce the mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the bulge of NGC 6946 from the red rotation curve in Fig. 1(B), in solar mass units. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Comparing the keplerian model and the experimental data makes astronomers confident that part of the mass is invisible in the picture. They thus suppose that the galaxy’s actual mass density is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\rho_m(r) = \\frac{C_m}{r_m^2 + r^2} \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_m > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_m > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are constants."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Show that the velocity profile "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{c,m}(r)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", corresponding to the mass density in Eq. 1, can be written "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{c,m}(r) = \\sqrt{k_1 - \\frac{k_2\\cdot\\arctan(\\frac{r}{r_m})}{r}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n( Hints: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle\\int_0^r \\frac{x^2}{a^2 + x^2} dx = r - a\\arctan(r/a)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\arctan(x) \\simeq x - x^3/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". )"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Simplify "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{c,m}(r)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r \\ll r_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r \\gg r_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nShow that if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r \\gg r_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_m(r)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " embedded in a sphere of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with the mass density given by Eq. 1 simplifies and depends only on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nEstimate the mass of the galaxy NGC 6946 actually present in the picture in Fig. 1(A). 1.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C - Mass distribution in our galaxy"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For a spiral galaxy, the model for Eq. 1 is modified and one usually considers the gravitational potential is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi_G(r,z) = \\varphi_0 \\ln\\left(\\dfrac{r}{r_0}\\right)\n\\exp\\left[-\\left(\\dfrac{z}{z_0}\\right)^2\\right]\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the distance to the galactic plane (defined by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ), and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r < r_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is now the axial radius and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi_0 > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a constant to be determined. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are constant values."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the equation of motion on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the vertical motion of a point mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in such a potential, assuming "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is constant. Show that, if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r < r_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the galactic plane is a stable equilibrium state by giving the angular frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of small oscillations around it. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From here on, we set "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Identify the regime, either "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r \\gg r_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r \\ll r_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", in which the model of Eq. 1 recovers a potential of the form "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi_G(r,0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with a suitable definition of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nUnder this condition "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_c(r)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " no longer depends on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Express it in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.6pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore, outside the bulge the velocity modulus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " does not depend on the distance to the galactic center. We will use this fact, as astronomers do, to measure the galaxy’s mass distribution from the inside."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "All galactic objects considered here for astronomical observations, such as stars or nebulae, are primarily composed of hydrogen. Outside the bulge, we assume that they rotate on circular orbits around the galactic center "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the sun’s position and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that of a given galactic object emitting in the hydrogen spectrum. In the galactic plane, we consider a line of sight "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(SE\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " corresponding to the orientation of an observation, on the unit vector "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hat{u}_v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (see Fig. 2)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2025-t1/eda02206d087537ca0b7.png",
+                "alt": "ipho-2025-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 2"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": Geometry of the measurement"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the galactic longitude, measuring the angle between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(SC\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(SE\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The sun’s velocity on its circular orbit of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot = 8.00\\,\\mathrm{kpc}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is denoted "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overrightarrow{v}_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". A galactic object in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " orbits on another circle of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overrightarrow{v}_E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Using a Doppler effect on the previously studied "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(21\\,\\mathrm{cm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " line, one can obtain the relative radial velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{rE/S}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the emitter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with respect to the sun "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " : it is the projection of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{v}_E - \\vec{v}_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the line of sight."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Determine "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{rE/S}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Then, express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{rE/S}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.7pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using a radio telescope, we make observations in the plane of our galaxy toward a longitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell = 30^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The frequency band used contains the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(21\\,\\mathrm{cm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " line, whose frequency is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_0 = 1.42\\,\\mathrm{GHz}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The results are reported in Fig. 3."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2025-t1/979418f8d4c1afea2f08.png",
+                "alt": "ipho-2025-t1 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": Electromagnetic signal as a function of the frequency shift, measured in the radio frequency band at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell = 30^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " using EU-HOU RadioAstronomy"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "In our galaxy, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\odot = 220\\,\\mathrm{km\\cdot s^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Determine the values of the relative radial velocity (with 3 significant digits) and the distance from the galactic center (with 2 significant digits) of the 3 sources observed in Fig. 3. Distances should be expressed as multiples of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.6pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "On the top view of our galaxy (in the answer box), indicate the positions of the sources observed in Fig. 3."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nWhat could be deduced from repeated measurements changing "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? 0.6pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part D - Tully-Fisher relation and MOND theory"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The flat external velocity curve of NGC 6946 in Fig. 1 is a common property of spiral galaxies, as can be seen in Fig. 4 (left). Plotting the external constant velocity value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{c,\\infty}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of the measured total mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\mathrm{tot}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of each galaxy gives an interesting correlation called the Tully-Fischer relation, see Fig. 4 (right)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2025-t1/6d1907fa0f10aaa56f95.png",
+                "alt": "ipho-2025-t1 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Left: Rotation curves for typical spiral galaxies - Right: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\log_{10}(M_\\mathrm{tot})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\log_{10}(v_{c,\\infty})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on linear scales. Colored dots correspond to different galaxies and different surveys. The green line is the Tully-Fischer relation which is in very good agreement with the best fit line of the data (in black)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Assuming that the radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of a galaxy doesn’t depend on its mass, show that the model of Eq. 1 (part B) gives a relation of the form "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\mathrm{tot} = \\eta v_{c,\\infty}^\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " should be specified."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nCompare this expression to the Tully-Fischer relation by computing "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma_{TF}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the extremely low acceleration regime, of the order of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_0 = 10^{-10}\\,\\mathrm{m\\cdot s^{-2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the MOdified Newtonian Dynamics (MOND) theory suggests that one can modify Newton’s second law using "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overrightarrow{F} = m\\mu\\left(\\dfrac{a}{a_0}\\right)\\overrightarrow{a}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a = \\left\\|\\overrightarrow{a}\\right\\|\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the modulus of the acceleration and the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " function is defined by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu(x) = \\dfrac{x}{1 + x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Using data for NGC 6946 in Fig. 1, estimate, within Newton’s theory, the modulus of the acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of a mass in the outer regions of NGC 6946. 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be a mass on a circular orbit of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{c,\\infty}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the gravity field of a fixed mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nWithin the MOND theory, with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a \\ll a_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", determine the Tully-Fischer exponent."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nUsing data for NGC 6946 and/or Tully-Fischer law, calculate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to show that MOND operates in the correct regime. 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Considering relevant cases, determine "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_c(r)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for all values of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the MOND theory in the case of a gravitational field due to a homogeneously distributed mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.9pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Hydrogen and galaxies (10 points)\n\n\nThis problem aims to study the peculiar physics of galaxies, such as their dynamics and structure. In particular, we explain how to measure the mass distribution of our galaxy from the inside. For this we will focus on hydrogen, its main constituent.\n\n\nThroughout this problem we will only use \n\\(\\hbar\\)\n, defined as \n\\(\\hbar = h/2\\pi\\)\n.\n\n\nPart A - Introduction\n\n\nBohr model\n\n\nWe assume that the hydrogen atom consists of a non-relativistic electron, with mass \n\\(m_e\\)\n, orbiting a fixed proton. Throughout this part, we assume its motion is on a circular orbit.\n\n\nA.1\nDetermine the electron’s velocity \n\\(v\\)\n in a circular orbit of radius \n\\(r\\)\n. 0.2pt\n\n\nIn the Bohr model, we assume the magnitude of the electron’s angular momentum \n\\(L\\)\n is quantized, \n\\(L = n\\hbar\\)\n where \n\\(n > 0\\)\n is an integer. We define \n\\(\\alpha = \\frac{e^2}{4\\pi\\varepsilon_0\\hbar c} \\approx 7.27 \\times 10^{-3}\\)\n.\n\n\nA.2\nShow that the radius of each orbit is given by \n\\(r_n = n^2 r_1\\)\n, where \n\\(r_1\\)\n is called the Bohr radius. Express \n\\(r_1\\)\n in terms of \n\\(\\alpha\\)\n, \n\\(m_e\\)\n, \n\\(c\\)\n and \n\\(\\hbar\\)\n and calculate its numerical value with 3 digits. Express \n\\(v_1\\)\n, the velocity on the orbit of radius \n\\(r_1\\)\n, in terms of \n\\(\\alpha\\)\n and \n\\(c\\)\n. 0.5pt\n\n\nA.3\nDetermine the electron’s mechanical energy \n\\(E_n\\)\n on an orbit of radius \n\\(r_n\\)\n in terms of \n\\(e\\)\n, \n\\(\\varepsilon_0\\)\n, \n\\(r_1\\)\n and \n\\(n\\)\n. Determine \n\\(E_1\\)\n in the ground state in terms of \n\\(\\alpha\\)\n, \n\\(m_e\\)\n and \n\\(c\\)\n. Compute its numerical value in eV. 0.5pt\n\n\nHydrogen fine and hyperfine structures\n\n\nThe rare spontaneous inversion of the electron’s spin causes a photon to be emitted on average once per 10 million years per hydrogen atom. This emission serves as a hydrogen tracer in the universe and is thus fundamental in astrophysics. We will study the transition responsible for this emission in two steps.\n\n\nFirst, consider the interaction between the electron spin and the relative motion of the electron and the proton. Working in the electron’s frame of reference, the proton orbits the electron at a distance \n\\(r_1\\)\n. This produces a magnetic field \n\\(\\overrightarrow{B}_1\\)\n.\n\n\nA.4\nDetermine the magnitude \n\\(B_1\\)\n of \n\\(\\overrightarrow{B}_1\\)\n at the position of the electron in terms of \n\\(\\mu_0\\)\n, \n\\(e\\)\n, \n\\(\\alpha\\)\n, \n\\(c\\)\n and \n\\(r_1\\)\n. 0.5pt\n\n\nSecond, the electron spin creates a magnetic moment \n\\(\\overrightarrow{\\mathcal{M}}_s\\)\n. Its magnitude is roughly \n\\(\\mathcal{M}_s = \\frac{e}{m_e}\\hbar\\)\n. The \nfine\n (F) structure is related to the energy difference \n\\(\\varDelta E_\\mathrm{F}\\)\n between an electron with a magnetic moment \n\\(\\overrightarrow{\\mathcal{M}}_s\\)\n parallel to \n\\(\\overrightarrow{B}_1\\)\n and that of an electron with \n\\(\\overrightarrow{\\mathcal{M}}_s\\)\n anti-parallel to \n\\(\\overrightarrow{B}_1\\)\n. Similarly, the \nhyperfine\n (HF) structure is related to the energy difference \n\\(\\varDelta E_\\mathrm{HF}\\)\n, due to the interaction between parallel and anti-parallel magnetic moments of the electron and the proton. It is known to be approximately \n\\(\\varDelta E_\\mathrm{HF} \\simeq 3.72\\frac{m_e}{m_p}\\varDelta E_\\mathrm{F}\\)\n where \n\\(m_p\\)\n is the proton mass.\n\n\nA.5\nExpress \n\\(\\varDelta E_\\mathrm{F}\\)\n as a function of \n\\(\\alpha\\)\n and \n\\(E_1\\)\n.\n\n\nExpress the wavelength \n\\(\\lambda_\\mathrm{HF}\\)\n of a photon emitted during a transition between the two states of the hyperfine structure and give its numerical value with two digits. 0.5pt\n\n\nPart B - Rotation curves of galaxies\n\n\nData\n\n\n\n\nKiloparsec: \n\\(1\\,\\mathrm{kpc} = 3.09 \\times 10^{19}\\,\\mathrm{m}\\)\n\n\nSolar mass : \n\\(1\\,\\mathrm{M}_\\odot = 1.99 \\times 10^{30}\\,\\mathrm{kg}\\)\n\n\n\n\nWe consider a spherical galaxy centered around a fixed point \n\\(O\\)\n. At any point \n\\(P\\)\n, let \n\\(\\rho = \\rho(P)\\)\n be the volumetric mass density and \n\\(\\varphi = \\varphi(P)\\)\n the associated gravitational potential (i.e. potential energy per unit mass). Both \n\\(\\rho\\)\n and \n\\(\\varphi\\)\n depend only on \n\\(r = \\left\\|\\overrightarrow{OP}\\right\\|\\)\n. The motion of a mass \n\\(m\\)\n located at \n\\(P\\)\n, due to the field \n\\(\\varphi\\)\n, is restricted to a plane containing \n\\(O\\)\n.\n\n\nB.1\nIn the case of a circular orbit, determine the velocity \n\\(v_c\\)\n of an object on a circular orbit passing through \n\\(P\\)\n in terms of \n\\(r\\)\n and \n\\(\\dfrac{d\\varphi}{dr}\\)\n. 0.2pt\n\n\nFig. 1(A) is a picture of the spiral galaxy NGC 6946 in the visible band (from the \n\\(0.8\\,\\mathrm{m}\\)\n Schulman Telescope at the Mount Lemmon Sky Center in Arizona). The little ellipses in Fig. 1(B) show experimental measurements of \n\\(v_c\\)\n for this galaxy. The central region (\n\\(r < 1\\,\\mathrm{kpc}\\)\n) is named the bulge. In this region, the mass distribution is roughly homogeneous. The red curve is a prediction for \n\\(v_c\\)\n if the system were homogeneous in the bulge and keplerian (\n\\(\\varphi(r) = -\\beta/r\\)\n with \n\\(\\beta > 0\\)\n) outside it, i.e. considering that the total mass of the galaxy is concentrated in the bulge.\n\n\n\n\n\n\n\n\n\n\n\nFig. 1\n: NGC 6946 galaxy: Picture (A) and rotation curve (B).\n\n\n\n\nB.2\nDeduce the mass \n\\(M_b\\)\n of the bulge of NGC 6946 from the red rotation curve in Fig. 1(B), in solar mass units. 0.5pt\n\n\nComparing the keplerian model and the experimental data makes astronomers confident that part of the mass is invisible in the picture. They thus suppose that the galaxy’s actual mass density is given by \n\\[\\begin{equation}\n\\rho_m(r) = \\frac{C_m}{r_m^2 + r^2} \\tag{1}\n\\end{equation}\\]\n where \n\\(C_m > 0\\)\n and \n\\(r_m > 0\\)\n are constants.\n\n\nB.3\nShow that the velocity profile \n\\(v_{c,m}(r)\\)\n, corresponding to the mass density in Eq. 1, can be written \n\\(v_{c,m}(r) = \\sqrt{k_1 - \\frac{k_2\\cdot\\arctan(\\frac{r}{r_m})}{r}}\\)\n. Express \n\\(k_1\\)\n and \n\\(k_2\\)\n in terms of \n\\(C_m\\)\n, \n\\(r_m\\)\n and \n\\(G\\)\n.\n\n\n( Hints: \n\\(\\displaystyle\\int_0^r \\frac{x^2}{a^2 + x^2} dx = r - a\\arctan(r/a)\\)\n, and: \n\\(\\arctan(x) \\simeq x - x^3/3\\)\n for \n\\(x \\ll 1\\)\n. )\n\n\nSimplify \n\\(v_{c,m}(r)\\)\n when \n\\(r \\ll r_m\\)\n and when \n\\(r \\gg r_m\\)\n.\n\n\nShow that if \n\\(r \\gg r_m\\)\n, the mass \n\\(M_m(r)\\)\n embedded in a sphere of radius \n\\(r\\)\n with the mass density given by Eq. 1 simplifies and depends only on \n\\(C_m\\)\n and \n\\(r\\)\n.\n\n\nEstimate the mass of the galaxy NGC 6946 actually present in the picture in Fig. 1(A). 1.8pt\n\n\nPart C - Mass distribution in our galaxy\n\n\nFor a spiral galaxy, the model for Eq. 1 is modified and one usually considers the gravitational potential is given by \n\\(\\varphi_G(r,z) = \\varphi_0 \\ln\\left(\\dfrac{r}{r_0}\\right)\n\\exp\\left[-\\left(\\dfrac{z}{z_0}\\right)^2\\right]\\)\n, where \n\\(z\\)\n is the distance to the galactic plane (defined by \n\\(z = 0\\)\n ), and \n\\(r < r_0\\)\n is now the axial radius and \n\\(\\varphi_0 > 0\\)\n a constant to be determined. \n\\(r_0\\)\n and \n\\(z_0\\)\n are constant values.\n\n\nC.1\nFind the equation of motion on \n\\(z\\)\n for the vertical motion of a point mass \n\\(m\\)\n in such a potential, assuming \n\\(r\\)\n is constant. Show that, if \n\\(r < r_0\\)\n, the galactic plane is a stable equilibrium state by giving the angular frequency \n\\(\\omega_0\\)\n of small oscillations around it. 0.5pt\n\n\nFrom here on, we set \n\\(z = 0\\)\n.\n\n\nC.2\nIdentify the regime, either \n\\(r \\gg r_m\\)\n or \n\\(r \\ll r_m\\)\n, in which the model of Eq. 1 recovers a potential of the form \n\\(\\varphi_G(r,0)\\)\n with a suitable definition of \n\\(\\varphi_0\\)\n.\n\n\nUnder this condition \n\\(v_c(r)\\)\n no longer depends on \n\\(r\\)\n. Express it in terms of \n\\(\\varphi_0\\)\n. 0.6pt\n\n\nTherefore, outside the bulge the velocity modulus \n\\(v_c\\)\n does not depend on the distance to the galactic center. We will use this fact, as astronomers do, to measure the galaxy’s mass distribution from the inside.\n\n\nAll galactic objects considered here for astronomical observations, such as stars or nebulae, are primarily composed of hydrogen. Outside the bulge, we assume that they rotate on circular orbits around the galactic center \n\\(C\\)\n. \n\\(S\\)\n is the sun’s position and \n\\(E\\)\n that of a given galactic object emitting in the hydrogen spectrum. In the galactic plane, we consider a line of sight \n\\(SE\\)\n corresponding to the orientation of an observation, on the unit vector \n\\(\\hat{u}_v\\)\n (see Fig. 2).\n\n\n\n\n\n\n\n\n\n\n\nFig. 2\n: Geometry of the measurement\n\n\n\n\nLet \n\\(\\ell\\)\n be the galactic longitude, measuring the angle between \n\\(SC\\)\n and the \n\\(SE\\)\n. The sun’s velocity on its circular orbit of radius \n\\(R_\\odot = 8.00\\,\\mathrm{kpc}\\)\n is denoted \n\\(\\overrightarrow{v}_\\odot\\)\n. A galactic object in \n\\(E\\)\n orbits on another circle of radius \n\\(R\\)\n at velocity \n\\(\\overrightarrow{v}_E\\)\n. Using a Doppler effect on the previously studied \n\\(21\\,\\mathrm{cm}\\)\n line, one can obtain the relative radial velocity \n\\(v_{rE/S}\\)\n of the emitter \n\\(E\\)\n with respect to the sun \n\\(S\\)\n : it is the projection of \n\\(\\vec{v}_E - \\vec{v}_\\odot\\)\n on the line of sight.\n\n\nC.3\nDetermine \n\\(v_{rE/S}\\)\n in terms of \n\\(\\ell\\)\n, \n\\(R\\)\n, \n\\(R_\\odot\\)\n and \n\\(v_\\odot\\)\n. Then, express \n\\(R\\)\n in terms of \n\\(R_\\odot\\)\n, \n\\(v_\\odot\\)\n, \n\\(\\ell\\)\n and \n\\(v_{rE/S}\\)\n. 0.7pt\n\n\nUsing a radio telescope, we make observations in the plane of our galaxy toward a longitude \n\\(\\ell = 30^\\circ\\)\n. The frequency band used contains the \n\\(21\\,\\mathrm{cm}\\)\n line, whose frequency is \n\\(f_0 = 1.42\\,\\mathrm{GHz}\\)\n. The results are reported in Fig. 3.\n\n\n\n\n\n\n\n\n\nFig. 3\n: Electromagnetic signal as a function of the frequency shift, measured in the radio frequency band at \n\\(\\ell = 30^\\circ\\)\n using EU-HOU RadioAstronomy\n\n\nC.4\nIn our galaxy, \n\\(v_\\odot = 220\\,\\mathrm{km\\cdot s^{-1}}\\)\n. Determine the values of the relative radial velocity (with 3 significant digits) and the distance from the galactic center (with 2 significant digits) of the 3 sources observed in Fig. 3. Distances should be expressed as multiples of \n\\(R_\\odot\\)\n. 0.6pt\n\n\nC.5\nOn the top view of our galaxy (in the answer box), indicate the positions of the sources observed in Fig. 3.\n\n\nWhat could be deduced from repeated measurements changing \n\\(\\ell\\)\n? 0.6pt\n\n\nPart D - Tully-Fisher relation and MOND theory\n\n\nThe flat external velocity curve of NGC 6946 in Fig. 1 is a common property of spiral galaxies, as can be seen in Fig. 4 (left). Plotting the external constant velocity value \n\\(v_{c,\\infty}\\)\n as a function of the measured total mass \n\\(M_\\mathrm{tot}\\)\n of each galaxy gives an interesting correlation called the Tully-Fischer relation, see Fig. 4 (right).\n\n\n\n\n\n\n\n\n\nFig. 4\n. Left: Rotation curves for typical spiral galaxies - Right: \n\\(\\log_{10}(M_\\mathrm{tot})\\)\n as a function of \n\\(\\log_{10}(v_{c,\\infty})\\)\n on linear scales. Colored dots correspond to different galaxies and different surveys. The green line is the Tully-Fischer relation which is in very good agreement with the best fit line of the data (in black).\n\n\nD.1\nAssuming that the radius \n\\(R\\)\n of a galaxy doesn’t depend on its mass, show that the model of Eq. 1 (part B) gives a relation of the form \n\\(M_\\mathrm{tot} = \\eta v_{c,\\infty}^\\gamma\\)\n where \n\\(\\gamma\\)\n and \n\\(\\eta\\)\n should be specified.\n\n\nCompare this expression to the Tully-Fischer relation by computing \n\\(\\gamma_{TF}\\)\n. 0.4pt\n\n\nIn the extremely low acceleration regime, of the order of \n\\(a_0 = 10^{-10}\\,\\mathrm{m\\cdot s^{-2}}\\)\n, the MOdified Newtonian Dynamics (MOND) theory suggests that one can modify Newton’s second law using \n\\(\\overrightarrow{F} = m\\mu\\left(\\dfrac{a}{a_0}\\right)\\overrightarrow{a}\\)\n where \n\\(a = \\left\\|\\overrightarrow{a}\\right\\|\\)\n is the modulus of the acceleration and the \n\\(\\mu\\)\n function is defined by \n\\(\\mu(x) = \\dfrac{x}{1 + x}\\)\n.\n\n\nD.2\nUsing data for NGC 6946 in Fig. 1, estimate, within Newton’s theory, the modulus of the acceleration \n\\(a_m\\)\n of a mass in the outer regions of NGC 6946. 0.2pt\n\n\nD.3\nLet \n\\(m\\)\n be a mass on a circular orbit of radius \n\\(r\\)\n with velocity \n\\(v_{c,\\infty}\\)\n in the gravity field of a fixed mass \n\\(M\\)\n.\n\n\nWithin the MOND theory, with \n\\(a \\ll a_0\\)\n, determine the Tully-Fischer exponent.\n\n\nUsing data for NGC 6946 and/or Tully-Fischer law, calculate \n\\(a_0\\)\n to show that MOND operates in the correct regime. 0.8pt\n\n\nD.4\nConsidering relevant cases, determine \n\\(v_c(r)\\)\n for all values of \n\\(r\\)\n in the MOND theory in the case of a gravitational field due to a homogeneously distributed mass \n\\(M\\)\n with radius \n\\(R_b\\)\n. 0.9pt\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2025-t1/160baabef51b9d828f0a.png",
+      "/corpus/figures/native/bulk/ipho-2025-t1/eda02206d087537ca0b7.png",
+      "/corpus/figures/native/bulk/ipho-2025-t1/979418f8d4c1afea2f08.png",
+      "/corpus/figures/native/bulk/ipho-2025-t1/6d1907fa0f10aaa56f95.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2025-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hydrogen and galaxies: worked solution"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This readable derivation follows the retained official solution. Its detailed examiner marking tables remain available in the original PDF."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The Coulomb force supplies centripetal acceleration: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m_e v^2/r=e^2/(4\\pi\\varepsilon_0r^2),\\qquad v=\\sqrt{e^2/(4\\pi\\varepsilon_0m_er)}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Combining "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_e r_n v_n=n\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with the previous force balance gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[r_n=\\frac{n^2\\hbar}{\\alpha m_ec}=n^2r_1,\\quad r_1=\\frac{\\hbar}{\\alpha m_ec}=5.31\\times10^{-11}\\,\\mathrm m,\\quad v_1=\\alpha c.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Add kinetic and Coulomb potential energies: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E_n=\\frac12m_ev_n^2-\\frac{e^2}{4\\pi\\varepsilon_0r_n}=-\\frac{e^2}{8\\pi\\varepsilon_0n^2r_1},\\qquad E_1=-\\frac12\\alpha^2m_ec^2=-13.6\\,\\mathrm{eV}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the electron frame, the proton’s period is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2\\pi r_1/v_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and its equivalent current is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(i=e\\alpha c/(2\\pi r_1)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The centre field of a circular current loop is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[B_1=\\frac{\\mu_0i}{2r_1}=\\frac{\\mu_0e\\alpha c}{4\\pi r_1^2}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The interaction energy is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\mathbf M_s\\cdot\\mathbf B_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Reversing the moment changes it by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2M_sB_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta E_{\\mathrm F}=-4\\alpha^2E_1,\\quad \\Delta E_{\\mathrm{HF}}=3.72\\frac{m_e}{m_p}\\Delta E_{\\mathrm F},\\quad \\lambda_{\\mathrm{HF}}=\\frac{2\\pi\\hbar c}{\\Delta E_{\\mathrm{HF}}}\\simeq21\\,\\mathrm{cm}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The radial gravitational force is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-m\\,d\\varphi/dr\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Equating its magnitude to the circular-orbit centripetal force gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_c=\\sqrt{r\\,d\\varphi/dr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Spherical symmetry gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g=GM_{\\mathrm{int}}/r^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Outside the bulge, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_{\\mathrm{int}}=M_b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_b=v_c^2r/G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Reading the red curve at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r=10\\,\\mathrm{kpc}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_c\\simeq20\\,\\mathrm{km/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_b\\simeq9\\times10^8M_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The official marking scheme allows 25 percent graph-reading uncertainty."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Integrate the density over spherical shells: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[M_m(r)=4\\pi C_m\\left[r-r_m\\arctan(r/r_m)\\right],\\quad v_{c,m}^2=4\\pi GC_m\\left[1-\\frac{r_m}{r}\\arctan(r/r_m)\\right].\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_1=4\\pi GC_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_2=4\\pi GC_mr_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Expanding the arctangent for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\ll r_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{c,m}\\simeq r\\sqrt{4\\pi GC_m/(3r_m^2)}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\gg r_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{c,m}\\simeq\\sqrt{4\\pi GC_m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_m(r)\\simeq4\\pi C_mr\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The outer speed near "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(160\\,\\mathrm{km/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_m\\simeq3\\times10^{19}\\,\\mathrm{kg/m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Using the pictured radius near "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(9\\,\\mathrm{kpc}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gives a mass of order "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(10^{11}M_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", much greater than the bulge estimate."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Differentiate the stated potential at fixed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\ddot z=\\frac{2z\\varphi_0}{z_0^2}\\ln(r/r_0)\\exp[-(z/z_0)^2].\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For small "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the exponential is approximately one. Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r<r_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the logarithm is negative and the motion is stable, with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0=\\sqrt{2\\varphi_0|\\ln(r/r_0)|/z_0^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\gg r_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the density model gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g_m=-4\\pi GC_m/r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Integration gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi_G(r,0)=4\\pi GC_m\\ln(r/r_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " after choosing the additive constant. Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi_0=4\\pi GC_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_c=\\sqrt{\\varphi_0}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Project both orbital velocities along the line of sight. Similar triangles give "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cos\\beta=R_\\odot\\sin\\ell/R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", while the Sun’s projection is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\odot\\sin\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Because the circular speeds have equal magnitudes, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_{rE/S}=v_\\odot(R_\\odot/R-1)\\sin\\ell,\\qquad R=\\frac{R_\\odot}{1+v_{rE/S}/(v_\\odot\\sin\\ell)}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The three measured frequency shifts are approximately "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.03\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.15\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.26\\,\\mathrm{MHz}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Using the official solution’s Doppler sign convention and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f_0=1420\\,\\mathrm{MHz}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gives the reported radial velocities "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(6.33\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(31.7\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(54.9\\,\\mathrm{km/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The corresponding galactocentric radii are "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.95R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.78R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.67R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Draw the line of sight from the Sun at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell=30^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", tangent to the circle of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Draw the three circles centred on the galactic centre with radii from C.4. Each intersects the sight line at a near and a far point. The official answer draws the nearer intersections. Measurements at varying longitude can distinguish structures and trace the galaxy’s spiral mass distribution."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2025-t1/5e6d23b9aa5b62e8db0e.png",
+                "alt": "ipho-2025-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Eliminating "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_{\\mathrm{tot}}\\simeq4\\pi C_mR\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{c,\\infty}^2=4\\pi GC_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_{\\mathrm{tot}}=(R/G)v_{c,\\infty}^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta=R/G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma=2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The plotted Tully-Fisher slope is about "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((12-9)/(2.6-1.8)=3.75\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", rather than two."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At an outer radius near "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(5\\,\\mathrm{kpc}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and speed near "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(160\\,\\mathrm{km/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_m=v_c^2/r\\simeq1.5\\times10^{-10}\\,\\mathrm{m/s^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of the scale at which MOND is proposed to apply."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\ll a_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the modified force law becomes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(GM/r^2=a^2/a_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Circular acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a=v_c^2/r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " therefore gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{c,\\infty}^4=a_0GM\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so the mass-velocity exponent is four. Reading the plotted mass at the measured velocity gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_0=v_{c,\\infty}^4/(GM)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of order "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1.5\\times10^{-10}\\,\\mathrm{m/s^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_i(r)=M(r/R_b)^3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " inside the homogeneous sphere and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_i(r)=M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " outside. With "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu(x)=x/(1+x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the circular-orbit equation becomes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_c^4-\\frac{GM_i(r)}r v_c^2-a_0GM_i(r)=0.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The nonnegative speed is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_c(r)=\\sqrt{\\frac{GM_i(r)}{2r}\\left(1+\\sqrt{1+\\frac{4a_0r^2}{GM_i(r)}}\\right)}\\quad(r>0).\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Substituting the appropriate interior or exterior mass gives both requested branches. They meet at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The interior speed tends to zero at the centre. The exterior speed tends to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((a_0GM)^{1/4}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at infinity."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Hydrogen and galaxies: worked solution\n\n\nThis readable derivation follows the retained official solution. Its detailed examiner marking tables remain available in the original PDF.\n\n\nA.1\n\n\nThe Coulomb force supplies centripetal acceleration: \n\\[m_e v^2/r=e^2/(4\\pi\\varepsilon_0r^2),\\qquad v=\\sqrt{e^2/(4\\pi\\varepsilon_0m_er)}.\\]\n\n\nA.2\n\n\nCombining \n\\(m_e r_n v_n=n\\hbar\\)\n with the previous force balance gives \n\\[r_n=\\frac{n^2\\hbar}{\\alpha m_ec}=n^2r_1,\\quad r_1=\\frac{\\hbar}{\\alpha m_ec}=5.31\\times10^{-11}\\,\\mathrm m,\\quad v_1=\\alpha c.\\]\n\n\nA.3\n\n\nAdd kinetic and Coulomb potential energies: \n\\[E_n=\\frac12m_ev_n^2-\\frac{e^2}{4\\pi\\varepsilon_0r_n}=-\\frac{e^2}{8\\pi\\varepsilon_0n^2r_1},\\qquad E_1=-\\frac12\\alpha^2m_ec^2=-13.6\\,\\mathrm{eV}.\\]\n\n\nA.4\n\n\nIn the electron frame, the proton’s period is \n\\(2\\pi r_1/v_1\\)\n and its equivalent current is \n\\(i=e\\alpha c/(2\\pi r_1)\\)\n. The centre field of a circular current loop is \n\\[B_1=\\frac{\\mu_0i}{2r_1}=\\frac{\\mu_0e\\alpha c}{4\\pi r_1^2}.\\]\n\n\nA.5\n\n\nThe interaction energy is \n\\(-\\mathbf M_s\\cdot\\mathbf B_1\\)\n. Reversing the moment changes it by \n\\(2M_sB_1\\)\n. Hence \n\\[\\Delta E_{\\mathrm F}=-4\\alpha^2E_1,\\quad \\Delta E_{\\mathrm{HF}}=3.72\\frac{m_e}{m_p}\\Delta E_{\\mathrm F},\\quad \\lambda_{\\mathrm{HF}}=\\frac{2\\pi\\hbar c}{\\Delta E_{\\mathrm{HF}}}\\simeq21\\,\\mathrm{cm}.\\]\n\n\nB.1\n\n\nThe radial gravitational force is \n\\(-m\\,d\\varphi/dr\\)\n. Equating its magnitude to the circular-orbit centripetal force gives \n\\(v_c=\\sqrt{r\\,d\\varphi/dr}\\)\n.\n\n\nB.2\n\n\nSpherical symmetry gives \n\\(g=GM_{\\mathrm{int}}/r^2\\)\n. Outside the bulge, \n\\(M_{\\mathrm{int}}=M_b\\)\n, so \n\\(M_b=v_c^2r/G\\)\n. Reading the red curve at \n\\(r=10\\,\\mathrm{kpc}\\)\n gives \n\\(v_c\\simeq20\\,\\mathrm{km/s}\\)\n and \n\\(M_b\\simeq9\\times10^8M_\\odot\\)\n. The official marking scheme allows 25 percent graph-reading uncertainty.\n\n\nB.3\n\n\nIntegrate the density over spherical shells: \n\\[M_m(r)=4\\pi C_m\\left[r-r_m\\arctan(r/r_m)\\right],\\quad v_{c,m}^2=4\\pi GC_m\\left[1-\\frac{r_m}{r}\\arctan(r/r_m)\\right].\\]\n Thus \n\\(k_1=4\\pi GC_m\\)\n and \n\\(k_2=4\\pi GC_mr_m\\)\n. Expanding the arctangent for \n\\(r\\ll r_m\\)\n gives \n\\(v_{c,m}\\simeq r\\sqrt{4\\pi GC_m/(3r_m^2)}\\)\n. For \n\\(r\\gg r_m\\)\n, \n\\(v_{c,m}\\simeq\\sqrt{4\\pi GC_m}\\)\n and \n\\(M_m(r)\\simeq4\\pi C_mr\\)\n. The outer speed near \n\\(160\\,\\mathrm{km/s}\\)\n gives \n\\(C_m\\simeq3\\times10^{19}\\,\\mathrm{kg/m}\\)\n. Using the pictured radius near \n\\(9\\,\\mathrm{kpc}\\)\n gives a mass of order \n\\(10^{11}M_\\odot\\)\n, much greater than the bulge estimate.\n\n\nC.1\n\n\nDifferentiate the stated potential at fixed \n\\(r\\)\n: \n\\[\\ddot z=\\frac{2z\\varphi_0}{z_0^2}\\ln(r/r_0)\\exp[-(z/z_0)^2].\\]\n For small \n\\(z\\)\n, the exponential is approximately one. Since \n\\(r<r_0\\)\n, the logarithm is negative and the motion is stable, with \n\\(\\omega_0=\\sqrt{2\\varphi_0|\\ln(r/r_0)|/z_0^2}\\)\n.\n\n\nC.2\n\n\nFor \n\\(r\\gg r_m\\)\n, the density model gives \n\\(g_m=-4\\pi GC_m/r\\)\n. Integration gives \n\\(\\varphi_G(r,0)=4\\pi GC_m\\ln(r/r_0)\\)\n after choosing the additive constant. Thus \n\\(\\varphi_0=4\\pi GC_m\\)\n and \n\\(v_c=\\sqrt{\\varphi_0}\\)\n.\n\n\nC.3\n\n\nProject both orbital velocities along the line of sight. Similar triangles give \n\\(\\cos\\beta=R_\\odot\\sin\\ell/R\\)\n, while the Sun’s projection is \n\\(v_\\odot\\sin\\ell\\)\n. Because the circular speeds have equal magnitudes, \n\\[v_{rE/S}=v_\\odot(R_\\odot/R-1)\\sin\\ell,\\qquad R=\\frac{R_\\odot}{1+v_{rE/S}/(v_\\odot\\sin\\ell)}.\\]\n\n\nC.4\n\n\nThe three measured frequency shifts are approximately \n\\(0.03\\)\n, \n\\(0.15\\)\n and \n\\(0.26\\,\\mathrm{MHz}\\)\n. Using the official solution’s Doppler sign convention and \n\\(f_0=1420\\,\\mathrm{MHz}\\)\n gives the reported radial velocities \n\\(6.33\\)\n, \n\\(31.7\\)\n and \n\\(54.9\\,\\mathrm{km/s}\\)\n. The corresponding galactocentric radii are \n\\(0.95R_\\odot\\)\n, \n\\(0.78R_\\odot\\)\n and \n\\(0.67R_\\odot\\)\n.\n\n\nC.5\n\n\nDraw the line of sight from the Sun at \n\\(\\ell=30^\\circ\\)\n, tangent to the circle of radius \n\\(R_\\odot/2\\)\n. Draw the three circles centred on the galactic centre with radii from C.4. Each intersects the sight line at a near and a far point. The official answer draws the nearer intersections. Measurements at varying longitude can distinguish structures and trace the galaxy’s spiral mass distribution.\n\n\n\n\n\n\n\n\n\nD.1\n\n\nEliminating \n\\(C_m\\)\n between \n\\(M_{\\mathrm{tot}}\\simeq4\\pi C_mR\\)\n and \n\\(v_{c,\\infty}^2=4\\pi GC_m\\)\n gives \n\\(M_{\\mathrm{tot}}=(R/G)v_{c,\\infty}^2\\)\n. Thus \n\\(\\eta=R/G\\)\n and \n\\(\\gamma=2\\)\n. The plotted Tully-Fisher slope is about \n\\((12-9)/(2.6-1.8)=3.75\\)\n, rather than two.\n\n\nD.2\n\n\nAt an outer radius near \n\\(5\\,\\mathrm{kpc}\\)\n and speed near \n\\(160\\,\\mathrm{km/s}\\)\n, \n\\(a_m=v_c^2/r\\simeq1.5\\times10^{-10}\\,\\mathrm{m/s^2}\\)\n, of the scale at which MOND is proposed to apply.\n\n\nD.3\n\n\nFor \n\\(a\\ll a_0\\)\n, the modified force law becomes \n\\(GM/r^2=a^2/a_0\\)\n. Circular acceleration \n\\(a=v_c^2/r\\)\n therefore gives \n\\(v_{c,\\infty}^4=a_0GM\\)\n, so the mass-velocity exponent is four. Reading the plotted mass at the measured velocity gives \n\\(a_0=v_{c,\\infty}^4/(GM)\\)\n of order \n\\(1.5\\times10^{-10}\\,\\mathrm{m/s^2}\\)\n.\n\n\nD.4\n\n\nLet \n\\(M_i(r)=M(r/R_b)^3\\)\n inside the homogeneous sphere and \n\\(M_i(r)=M\\)\n outside. With \n\\(\\mu(x)=x/(1+x)\\)\n, the circular-orbit equation becomes \n\\[v_c^4-\\frac{GM_i(r)}r v_c^2-a_0GM_i(r)=0.\\]\n The nonnegative speed is \n\\[v_c(r)=\\sqrt{\\frac{GM_i(r)}{2r}\\left(1+\\sqrt{1+\\frac{4a_0r^2}{GM_i(r)}}\\right)}\\quad(r>0).\\]\n Substituting the appropriate interior or exterior mass gives both requested branches. They meet at \n\\(R_b\\)\n. The interior speed tends to zero at the centre. The exterior speed tends to \n\\((a_0GM)^{1/4}\\)\n at infinity.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2025-t1/5e6d23b9aa5b62e8db0e.png"
+    ],
+    "shared": false
+  }
+}

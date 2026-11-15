@@ -1,1 +1,3691 @@
-{"id":"apho-2013-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2013_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2013_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2013-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"\t\r  \t\r  \t\r  \t\r  \t\r  \t\r  \t\r  \t\r  Problem\t\r  \nPhysics\t\r  of\t\r  Spin\t\r  \n\t\r  \n\t\r  \nTheory\t\r  \nQuestion\t\r  \n3\t\r  \r  \npage\t\r  1\t\r  of\t\r  4\t\r  \nAll\t\r  matters\t\r  in\t\r  the\t\r  universe\t\r  have\t\r  fundamental\t\r  properties\t\r  called\t\r  spin,\t\r  besides\t\r  \ntheir\t\r  mass\t\r  and\t\r  charge.\t\r  Spin\t\r  is\t\r  an\t\r  intrinsic\t\r  form\t\r  of\t\r  angular\t\r  momentum\t\r  carried\t\r  by\t\r  \nparticles.\t\r  Despite\t\r  the\t\r  fact\t\r  that\t\r  quantum\t\r  mechanics\t\r  is\t\r  needed\t\r  for\t\r  a\t\r  full\t\r  treatment\t\r  \nof\t\r  spin,\t\r  we\t\r  can\t\r  still\t\r  study\t\r  the\t\r  physics\t\r  of\t\r  spin\t\r  using\t\r  the\t\r  usual\t\r  classical\t\r  formalism.\t\r  \nIn\t\r  this\t\r  problem,\t\r  we\t\r  are\t\r  investigating\t\r  the\t\r  influence\t\r  of\t\r  magnetic\t\r  field\t\r  on\t\r  spin\t\r  using\t\r  \nits\t\r  classical\t\r  analogue.\t\r  \nThe\t\r  classical\t\r  torque\t\r  equation\t\r  of\t\r  spin\t\r  is\t\r  given\t\r  by\t\r  \t\r  \n𝝉= 𝑑𝑳\n𝑑𝑡= 𝝁×𝑩.\t\r  \nIn\t\r   this\t\r   case,\t\r   the\t\r   angular\t\r   momentum\t\r  𝑳\t\r  represents\t\r   the\t\r   “intrinsic”\t\r   spin\t\r   of\t\r   the\t\r  \nparticles,\t\r  𝝁\t\r  is\t\r  the\t\r  magnetic\t\r  moment\t\r  of\t\r  the\t\r  particles,\t\r  and\t\r  𝑩\t\r  is\t\r  magnetic\t\r  field.\t\r  The\t\r  \nspin\t\r  of\t\r  a\t\r  particle\t\r  is\t\r  associated\t\r  with\t\r  a\t\r  magnetic\t\r  moment\t\r  via\t\r  the\t\r  equation\t\r  \n𝝁= −𝛾𝑳\t\r  \nwhere\t\r  𝛾\t\r  is\t\r  the\t\r  gyromagnetic\t\r  ratio.\t\r  \nIn\t\r  this\t\r  problem,\t\r  the\t\r  term\t\r  “frequency”\t\r  means\t\r  angular\t\r  frequency\t\r  (rad/s),\t\r  which\t\r  \nis\t\r   a\t\r   scalar\t\r   quantity.\t\r   All\t\r   bold\t\r   letters\t\r   represent\t\r   vectors;\t\r   otherwise\t\r   they\t\r   represent\t\r  \nscalars.\t\r  \n\t\r  \nPart\t\r  A.\t\r  Larmor\t\r  precession\t\r  (1.6\t\r  points)\t\r  \n1. (0.8\t\r  pts)\t\r  Prove\t\r  that\t\r  the\t\r  magnitude\t\r  of\t\r  magnetic\t\r  moment\t\r  𝜇\t\r  is\t\r  always\t\r  constant\t\r  \nunder\t\r   the\t\r   influence\t\r   of\t\r   a\t\r   magnetic\t\r   field\t\r  𝑩.\t\r   For\t\r   a\t\r   special\t\r   case\t\r   of\t\r   stationary\t\r  \n(constant)\t\r   magnetic\t\r   field,\t\r   also\t\r   show\t\r   that\t\r   the\t\r   angle\t\r   between\t\r  𝝁\t\r  and\t\r  𝑩\t\r  is\t\r  \nconstant.\t\r  \t\r  \n(Hint:\t\r  You\t\r  can\t\r  use\t\r  properties\t\r  of\t\r  vector\t\r  products.)\t\r  \n2. (0.8\t\r   pts)\t\r  A\t\r  uniform\t\r  magnetic\t\r  field\t\r  𝑩\t\r  exists\t\r  and\t\r  it\t\r  makes\t\r  an\t\r  angle\t\r  𝜙  with\t\r  a\t\r  \nparticle's\t\r  magnetic\t\r  moment\t\r  𝝁.\t\r  Due\t\r  to\t\r  the\t\r  torque\t\r  by\t\r  the\t\r  magnetic\t\r  field,\t\r  the\t\r  \nmagnetic\t\r   moment\t\r  𝝁\t\r  rotates\t\r   around\t\r   the\t\r   field\t\r  𝑩,\t\r   which\t\r   is\t\r   also\t\r   known\t\r   as\t\r  \nLarmor\t\r   precession.\t\r   Determine\t\r   the\t\r   Larmor\t\r   precession\t\r   frequency\t\r  𝜔!\t\r  of\t\r   the\t\r  \nmagnetic\t\r  moment\t\r  with\t\r  respect\t\r  to\t\r  𝑩= 𝐵!𝒌.\t\r  \t\r  \t\r  \n\t\r  \nPart\t\r  B.\t\r  Rotating\t\r  frame\t\r  (3.4\t\r  points)\t\r  \nIn\t\r  this\t\r  section,\t\r  we\t\r  choose\t\r  a\t\r  rotating\t\r  frame\t\r  𝑆′\t\r  as\t\r  our\t\r  frame\t\r  of\t\r  reference.\t\r  The\t\r  \nrotating\t\r  frame\t\r  𝑆! = (𝑥!, 𝑦!, 𝑧′)\t\r  rotates\t\r  with\t\r  an\t\r  angular\t\r  velocity\t\r  𝜔𝒌\t\r  as\t\r  seen\t\r  by\t\r  an\t\r  \nobserver\t\r   in\t\r   the\t\r   laboratory\t\r   frame\t\r  𝑆= (𝑥, 𝑦, 𝑧),\t\r   where\t\r   the\t\r   axes\t\r  𝑥′, 𝑦′, 𝑧′\t\r  intersect\t\r  \nwith\t\r  𝑥, 𝑦, 𝑧\t\r  at\t\r  time\t\r  𝑡= 0.\t\r  Any\t\r  vector\t\r  𝑨= 𝐴!𝒊+ 𝐴!𝒋+ 𝐴!𝒌\t\r  in\t\r  a\t\r  lab\t\r  frame\t\r  can\t\r  be\t\r  \nwritten\t\r  as\t\r  𝑨= 𝐴!′𝒊′ + 𝐴!′𝒋′ + 𝐴!′𝒌′\t\r  in\t\r  the\t\r  rotating\t\r  frame\t\r  𝑆′.\t\r  The\t\r  time\t\r  derivative\t\r  \nof\t\r  the\t\r  vector\t\r  becomes\t\r  \n𝑑𝑨\n𝑑𝑡=\n𝑑𝐴!′\n𝑑𝑡𝒊! + 𝑑𝐴!′\n𝑑𝑡𝒋! + 𝑑𝐴!′\n𝑑𝑡𝒌!\n+ 𝐴!′ 𝑑𝒊!\n𝑑𝑡+ 𝐴!′ 𝑑𝒋!\n𝑑𝑡+ 𝐴!′ 𝑑𝒌!\n𝑑𝑡\n  \n\n\t\r  \t\r  \t\r  \t\r  \t\r  \t\r  \t\r  \t\r  Problem\t\r  \nPhysics\t\r  of\t\r  Spin\t\r  \n\t\r  \n\t\r  \nTheory\t\r  \nQuestion\t\r  \n3\t\r  \r  \npage\t\r  2\t\r  of\t\r  4\t\r  \n𝑑𝑨\n𝑑𝑡\n!\"#\n= 𝑑𝑨\n𝑑𝑡\n!\"#\n+ 𝜔𝐤×𝑨,\t\r  \nwhere\t\r  \n!𝑨\n!\"\n!\"#is\t\r  the\t\r  time\t\r  derivative\t\r  of\t\r  vector\t\r  𝑨\t\r  \t\r  seen\t\r  by\t\r  an\t\r  observer\t\r  in\t\r  the\t\r  lab\t\r  \nframe,\t\r   and\t\r  \n!𝑨\n!\"\n!\"#is\t\r   the\t\r   time\t\r   derivative\t\r   seen\t\r   by\t\r   an\t\r   observer\t\r   in\t\r   the\t\r   rotating\t\r  \nframe.\t\r  For\t\r  all\t\r  the\t\r  following\t\r  problems\t\r  in\t\r  this\t\r  part,\t\r  the\t\r  answers\t\r  are\t\r  referred\t\r  to\t\r  the\t\r  \nrotating\t\r  frame\t\r  S’.\t\r  \n1. (0.8\t\r  pts)\t\r  Show\t\r  that\t\r  the\t\r  time\t\r  evolution\t\r  of\t\r  the\t\r  magnetic\t\r  moment\t\r  follows\t\r  the\t\r  \nequation\t\r  \n𝑑𝝁\n𝑑𝑡\n!\"#\n= −𝛾  𝝁  ×  𝑩!\"\",\t\r  \nwhere\t\r  𝑩!\"\" = 𝑩−\n!\n! 𝒌′\t\r  \t\r  is\t\r  the\t\r  effective\t\r  magnetic\t\r  field.\t\r  \n2. (0.4\t\r  pts)\t\r  For\t\r  𝑩= 𝐵!𝒌,\t\r  what\t\r  is\t\r  the\t\r  new\t\r  precession\t\r  frequency\t\r  𝛥\t\r  in\t\r  terms\t\r  of\t\r  \n𝜔!\t\r  and\t\r  𝜔?\t\r  \n3. (1.2\t\r   pts)\t\r   Now,\t\r   let\t\r   us\t\r   consider\t\r   the\t\r   case\t\r   of\t\r   a\t\r   time-­‐varying\t\r   magnetic\t\r   field.\t\r  \nBesides\t\r   a\t\r   constant\t\r   magnetic\t\r   field,\t\r   we\t\r   also\t\r   apply\t\r   a\t\r   rotating\t\r   magnetic\t\r   field\t\r  \n𝒃𝑡= 𝑏cos 𝜔𝑡𝒊+ sin 𝜔𝑡𝒋,\t\r  so\t\r  𝑩= 𝐵!𝒌+ 𝒃𝑡.\t\r  Show\t\r  that\t\r  the\t\r  new\t\r  Larmor\t\r  \nprecession\t\r  frequency\t\r  of\t\r  the\t\r  magnetic\t\r  moment\t\r  is\t\r  \n𝛺= 𝛾\n𝐵! −𝜔\n𝛾\n!\n+ 𝑏!.\t\r  \n4. (1.0\t\r  pts)\t\r  Instead\t\r  of\t\r  applying\t\r  the\t\r  field\t\r  𝒃𝑡= 𝑏cos 𝜔𝑡𝒊+ sin 𝜔𝑡𝒋,\t\r  now\t\r  we\t\r  \napply\t\r  𝒃𝑡= 𝑏cos 𝜔𝑡𝒊−sin 𝜔𝑡𝒋,\t\r  which\t\r   rotates\t\r   in\t\r   the\t\r   opposite\t\r   direction\t\r  \nand\t\r   hence\t\r  𝑩= 𝐵!𝒌+ 𝑏cos 𝜔𝑡𝒊−sin 𝜔𝑡𝒋.\t\r   What\t\r   is\t\r   the\t\r   effective\t\r   magnetic\t\r  \nfield\t\r  𝑩!\"\"\t\r  for\t\r  this\t\r  case\t\r  (in\t\r  terms\t\r  of\t\r  the\t\r  unit\t\r  vectors\t\r  𝒊!, 𝒋!, 𝒌′)?\t\r  What\t\r  is\t\r  its\t\r  time\t\r  \naverage,\t\r  𝑩!\"\"\t\r  (recall\t\r  that\t\r  cos 2𝜋𝑡/𝑇= sın 2𝜋𝑡/𝑇= 0)?\t\r  \t\r  \n\t\r  \nPart\t\r  C.\t\r  Rabi\t\r  oscillation\t\r  (3.0\t\r  points)\t\r  \nFor\t\r  an\t\r  ensemble\t\r  of\t\r  N\t\r  particles\t\r  under\t\r  the\t\r  influence\t\r  of\t\r  a\t\r  large\t\r  magnetic\t\r  field,\t\r  \nthe\t\r  spin\t\r  can\t\r  have\t\r  two\t\r  quantum\t\r  states:\t\r  “up”\t\r  and\t\r  “down”.\t\r  Consequently,\t\r  the\t\r  total\t\r  \npopulation\t\r  of\t\r  spin\t\r  up\t\r  𝑁↑\t\r  and\t\r  down\t\r  𝑁↓\t\r  obeys\t\r  the\t\r  equation\t\r  \t\r  \n𝑁↑+ 𝑁↓= 𝑁.\t\r  \nThe\t\r   difference\t\r   of\t\r   spin\t\r   up\t\r   population\t\r   and\t\r   spin\t\r   down\t\r   population\t\r   yields\t\r   the\t\r  \nmacroscopic\t\r  magnetization\t\r  along\t\r  the\t\r  𝑧\t\r  axis:\t\r  \n𝑀=   𝑁↑−𝑁↓𝜇= 𝑁𝜇!.\t\r  \nIn\t\r  a\t\r  real\t\r  experiment,\t\r  two\t\r  magnetic\t\r  fields\t\r  are\t\r  usually\t\r  applied,\t\r  a\t\r  large\t\r  bias\t\r  field\t\r  \n𝐵!𝒌\t\r  and\t\r   an\t\r   oscillating\t\r   field\t\r   with\t\r   amplitude\t\r  2𝑏\t\r  perpendicular\t\r   to\t\r   the\t\r   bias\t\r   field\t\r  \n(𝑏≪𝐵!).\t\r  Initially,\t\r  only\t\r  the\t\r  large\t\r  bias\t\r  is\t\r  applied,\t\r  causing\t\r  all\t\r  the\t\r  particles\t\r  lie\t\r  in\t\r  the\t\r  \nspin\t\r  up\t\r  states\t\r  (𝝁\t\r  is\t\r  oriented\t\r  in\t\r  the\t\r  𝑧-­‐direction\t\r  at\t\r  𝑡= 0).\t\r  Then,\t\r  the\t\r  oscillating\t\r  field\t\r  \n\n\t\r  \t\r  \t\r  \t\r  \t\r  \t\r  \t\r  \t\r  Problem\t\r  \nPhysics\t\r  of\t\r  Spin\t\r  \n\t\r  \n\t\r  \nTheory\t\r  \nQuestion\t\r  \n3\t\r  \r  \npage\t\r  3\t\r  of\t\r  4\t\r  \nis\t\r  turned\t\r  on,\t\r  where\t\r  its\t\r  frequency\t\r  𝜔\t\r  is\t\r  chosen\t\r  to\t\r  be\t\r  in\t\r  resonance\t\r  with\t\r  the\t\r  Larmor\t\r  \nprecession\t\r   frequency\t\r  𝜔!,\t\r  i.e.\t\r  𝜔= 𝜔!.\t\r   In\t\r   other\t\r   words,\t\r   the\t\r   total\t\r   field\t\r   after\t\r   time\t\r  \n𝑡= 0\t\r  is\t\r  given\t\r  by\t\r  \n𝑩(𝑡) = 𝐵!𝒌+ 2𝑏cos 𝜔!𝑡𝒊.\t\r  \n1. (1.2\t\r   pts)\t\r   In\t\r   the\t\r   rotating\t\r   frame\t\r  𝑆!,  show\t\r   that\t\r   the\t\r   effective\t\r   field\t\r   can\t\r   be\t\r  \napproximated\t\r  by\t\r  \n𝑩𝒆𝒇𝒇≈𝑏𝒊!,  \nwhich\t\r   is\t\r   commonly\t\r   known\t\r   as\t\r   rotating\t\r   wave\t\r   approximation.\t\r   What\t\r   is\t\r   the\t\r  \nprecession\t\r  frequency\t\r  𝛺\t\r  in\t\r  frame\t\r  𝑆′?\t\r  \n2. (0.6\t\r  pts)\t\r  Determine\t\r  the\t\r  angle\t\r  𝛼\t\r  that\t\r  𝝁\t\r  makes\t\r  with\t\r  𝑩!\"\".\t\r  Also,\t\r  prove\t\r  that\t\r  the\t\r  \nmagnetization\t\r  varies\t\r  with\t\r  time\t\r  as\t\r  \n  𝑀𝑡= 𝑁𝜇cos 𝛺𝑡.\t\r  \n3. (1.2\t\r  pts)\t\r  Under\t\r  the\t\r  application\t\r  of\t\r  magnetic\t\r  field\t\r  described\t\r  above,\t\r  determine\t\r  \nthe\t\r   fractional\t\r   population\t\r   of\t\r   each\t\r   spin\t\r   up\t\r   𝑃↑= 𝑁↑/𝑁\t\r  and\t\r   spin\t\r   down\t\r  \n𝑃↓= 𝑁↓/𝑁\t\r  as\t\r   a\t\r   function\t\r   of\t\r   time.\t\r   Plot\t\r  𝑃↑(𝑡)\t\r  and\t\r  𝑃↓(𝑡)\t\r  on\t\r   the\t\r   same\t\r   graph\t\r   vs.\t\r  \ntime\t\r  t.\t\r  The\t\r  alternating\t\r  spin\t\r  up\t\r  and\t\r  spin\t\r  down\t\r  population\t\r  as\t\r  a\t\r  function\t\r  of\t\r  \ntime\t\r  is\t\r  called\t\r  Rabi\t\r  oscillation.\t\r  \t\r  \t\r  \n\t\r  \nPart\t\r  D.\t\r  Measurement\t\r  incompatibility\t\r  (2.0\t\r  points)\t\r  \nSpin\t\r  is\t\r  in\t\r  fact\t\r  a\t\r  vector\t\r  quantity;\t\r  but\t\r  due\t\r  to\t\r  its\t\r  quantum\t\r  properties,\t\r  we\t\r  cannot\t\r  \nmeasure\t\r  each\t\r  of\t\r  its\t\r  components\t\r  simultaneously\t\r  (i.e.\t\r  we\t\r  can\t\r  know\t\r  both\t\r   𝝁\t\r  and\t\r  \n𝜇!  as\t\r   in\t\r   above\t\r   problems;\t\r   but\t\r   not\t\r   all\t\r   𝝁, 𝜇!, 𝜇!,  and\t\r  𝜇!  simultaneously).\t\r   In\t\r   this\t\r  \nproblem,\t\r  we\t\r  will\t\r  do\t\r  a\t\r  calculation\t\r  based\t\r  on\t\r  the\t\r  Heisenberg\t\r  uncertainty\t\r  principle\t\r  \n(using\t\r   the\t\r   relation\t\r   𝛥𝑝!𝛥𝑞≥ℏ)\t\r   to\t\r   show\t\r   how\t\r   these\t\r   measurements\t\r   are\t\r  \nincompatible\t\r  with\t\r  each\t\r  other.\t\r  \n\t\r  \n1. (1.0\t\r  pts)\t\r  Let\t\r  us\t\r  consider\t\r  an\t\r  oven\t\r  source\t\r  of\t\r  silver\t\r  atoms,\t\r  which\t\r  has\t\r  a\t\r  small\t\r  \nopening.\t\r  The\t\r  atoms\t\r  stream\t\r  out\t\r  of\t\r  the\t\r  opening\t\r  along\t\r  –y\t\r  direction\t\r  (see\t\r  Figure\t\r  \nbelow)\t\r  and\t\r  experience\t\r  a\t\r  spatial\t\r  varying\t\r  field\t\r  𝑩!.\t\r  The\t\r  field\t\r  𝑩!\t\r  has\t\r  strong\t\r  bias\t\r  \nfield\t\r  component\t\r  in\t\r  the\t\r  z\t\r  direction,\t\r  where\t\r  the\t\r  atoms\t\r  with\t\r  different\t\r  magnetic\t\r  \nmoment\t\r  𝜇! = ±𝛾ℏ\t\r  are\t\r  split\t\r  in\t\r  the\t\r  z\t\r  direction.\t\r  At\t\r  a\t\r  distance\t\r  𝐷\t\r  from\t\r  the\t\r  oven\t\r  \nsource,\t\r  a\t\r  screen\t\r  𝑆𝐶!\t\r  is\t\r  put\t\r  to\t\r  allow\t\r  only\t\r  spin\t\r  up\t\r  atoms\t\r  to\t\r  pass\t\r  (blocking\t\r  spin\t\r  \ndown\t\r   atoms).\t\r   Thus,\t\r   at\t\r   the\t\r   instant\t\r   after\t\r   passing\t\r   the\t\r   screen,\t\r   the\t\r   atoms\t\r   are\t\r  \nprepared\t\r  in\t\r  spin\t\r  up\t\r  states.\t\r  \t\r  After\t\r  the\t\r  screen,\t\r  the\t\r  atoms\t\r  enter\t\r  a\t\r  region\t\r  of\t\r  non-­‐\nhomogenous\t\r  field\t\r  𝑩!\t\r  where\t\r  the\t\r  atoms\t\r  feel\t\r  a\t\r  force\t\r  \n𝐹! = 𝜇!𝐶.  \nThe\t\r  field\t\r  𝑩!\t\r  has\t\r  strong\t\r  bias\t\r  field\t\r  component\t\r  in\t\r  the\t\r  x\t\r  direction,\t\r  where\t\r  the\t\r  \natoms\t\r  have\t\r  magnetic\t\r  moment\t\r  𝜇! = ±𝛾ℏ.\t\r  \n\n\t\r  \t\r  \t\r  \t\r  \t\r  \t\r  \t\r  \t\r  Problem\t\r  \nPhysics\t\r  of\t\r  Spin\t\r  \n\t\r  \n\t\r  \nTheory\t\r  \nQuestion\t\r  \n3\t\r  \r  \npage\t\r  4\t\r  of\t\r  4\t\r  \n\t\r  \t\r  \nIn\t\r  order\t\r  to\t\r  determine\t\r  𝜇!\t\r  by\t\r  observing\t\r  the\t\r  splitting\t\r  in\t\r  x\t\r  direction,\t\r  show\t\r  that\t\r  \nthe\t\r  following\t\r  condition\t\r  must\t\r  be\t\r  fulfilled:\t\r  \n1\nℏ𝜇! 𝛥𝑥𝐶𝑡≫1,  \nwhere\t\r  𝑡\t\r  is\t\r   the\t\r   duration\t\r   after\t\r   leaving\t\r   the\t\r   screen\t\r  𝑆𝐶!\t\r  and\t\r  𝛥𝑥\t\r  is\t\r   the\t\r   opening\t\r  \nwidth\t\r  on\t\r  𝑆𝐶!.\t\r  \n2. (1.0\t\r   pts)\t\r   The\t\r  atoms\t\r  are\t\r  initially\t\r  prepared\t\r  in\t\r  the\t\r  spin\t\r  up\t\r  states\t\r  right\t\r  after\t\r  \nleaving\t\r  the\t\r  screen,\t\r  where\t\r  𝜇! = 𝛾ℏ= 𝜇! .\t\r  This\t\r  means\t\r  the\t\r  atoms\t\r  will\t\r  precess\t\r  \nat\t\r  rates\t\r  covering\t\r  a\t\r  range\t\r  of\t\r  values\t\r  𝛥𝜔\t\r  with\t\r  respect\t\r  to\t\r  the\t\r  x\t\r  component\t\r  of\t\r  𝑩!,\t\r  \nspecifically  𝐵!! = 𝐵! + 𝐶𝑥.\t\r  Prove\t\r  that\t\r  the\t\r  spread\t\r  in\t\r  the\t\r  precession\t\r  angle\t\r  𝛥𝜔𝑡\t\r  \nis\t\r  so\t\r  large\t\r  and\t\r  hence\t\r  we\t\r  cannot\t\r  measure\t\r  both\t\r  𝜇!\t\r  and\t\r  𝜇!\t\r  simultaneously.\t\r  In\t\r  \nother\t\r  words,\t\r  the\t\r  measurement\t\r  of\t\r  𝜇!\t\r  destroys\t\r  the\t\r  information\t\r  on\t\r  𝜇!.\t\r  \t\r  \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2013-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Theoretical 3: Solution\nPhysics of Spin\nPart A. Larmor Precession\n1. From the two equations given in the text, we obtain the relation\ndµ\ndt = −γµ × B.\n(1)\nTaking the dot product of eq (1). with µ, we can prove that\nµ · dµ\ndt\n=\n−γµ · (µ × B) ,\nd |µ|2\ndt\n=\n0,\nµ = |µ|\n=\nconst.\n(2)\nTaking the dot product of eq. (1) with B, we also prove that\nB · dµ\ndt\n=\n−γB · (µ × B) ,\nB · dµ\ndt\n=\n0,\nB · µ\n=\nconst.\n(3)\nAn acute reader will notice that our master equation in (1) is identical to the equation of\nmotion for a charged particle in a magnetic ﬁeld\ndv\ndt = q\nmv × B.\n(4)\nHence, the same argument for a charged particle in magnetic ﬁeld can be applied in this case.\n2. For a magnetic moment making an angle of φ with B,\ndµ\ndt\n=\n−γµ × B,\n|µ| sin φdθ\ndt\n=\nγ |µ| B0 sin φ,\nω0 = dθ\ndt\n=\nγB0.\n(5)\nPart B. Rotating frame\n1. Using the relation given in the text, it is easily shown that\n\u0012dµ\ndt\n\u0013\nrot\n=\n\u0012dµ\ndt\n\u0013\nlab\n−ω × µ\n=\n−γµ × B −ωk′ × µ\n=\n−γµ ×\n\u0012\nB −ω\nγ k′\n\u0013\n=\n−γµ × Beﬀ.\n(6)\nNote that k is equal to k′ as observed in the rotating frame.\nPhysics of Spin\nPage 1 of 5\n\nTheoretical 3: Solution\nPhysics of Spin\n2. The new precession frequency as viewed on the rotating frame S′ is\n⃗∆\n=\n(ω0 −ω) k′,\n∆\n=\nγB0 −ω.\n(7)\n3. Since the magnetic ﬁeld as viewed in the rotating frame is B = B0k′ + bi′,\nBeﬀ= B −ω/γk′ =\n\u0012\nB0 −ω\nγ\n\u0013\nk′ + bi′,\nand\nΩ\n=\nγ |Beﬀ| ,\n=\nγ\ns\u0012\nB0 −ω\nγ\n\u00132\n+ b2.\n(8)\n4. In this case, the eﬀective magnetic ﬁeld becomes\nBeﬀ\n=\nB −ω/γk′\n=\n\u0012\nB0 −ω\nγ\n\u0013\nk′ + b(cos 2ωti′ −sin 2ωtj′)\n(9)\nwhich has a time average of Beﬀ=\n\u0010\nB0 −ω\nγ\n\u0011\nk′.\nPart C. Rabi oscillation\n1. The oscillating ﬁeld can be considered as a superposition of two oppositely rotating ﬁeld:\n2b cos ω0ti = b (cos ω0ti + sin ω0tj) + b (cos ω0ti −sin ω0tj) ,\nwhich gives an eﬀective ﬁeld of (with ω = ω0 = γB0):\nBeﬀ=\n\u0012\nB0 −ω\nγ\n\u0013\nk′ + bi′ + b(cos 2ω0ti′ −sin 2ω0tj′).\nSince ω0 ≫γb, the rotation of the term b(cos 2ω0ti′ −sin 2ω0tj′) is so fast compared to the\nfrequency γb. This means that we can take the approximation\nBeﬀ≈\n\u0012\nB0 −ω\nγ\n\u0013\nk′ + bi′ = bi′,\n(10)\nwhere the magnetic moment precesses with frequency Ω= γb.\nAs Ω= γb ≪ω0, the magnetic moment does not “feel” the rotating term b (cos 2ω0ti′ −sin 2ω0tj′)\nwhich averaged to zero.\nPhysics of Spin\nPage 2 of 5\n\nTheoretical 3: Solution\nPhysics of Spin\n2. Since the angle α that µ makes with Beﬀstays constant and µ is initially oriented along the z\naxis, α is also the angle between Beﬀand the z axis which is\ntan α =\nb\nB0 −ω\nγ\n.\n(11)\nFrom the geometry of the system, we can show that (cos θ = µz/µ):\n2µ sin θ\n2\n=\n2µ sin α sin Ωt\n2 ,\nsin2 θ\n2\n=\nsin2 α sin2 Ωt\n2 ,\n1 −cos θ\n2\n=\nsin2 α1 −cos Ωt\n2\n,\ncos θ\n=\n1 −sin2 α + sin2 α cos Ωt,\ncos θ\n=\ncos2 α + sin2 α cos Ωt.\nSo, the projected magnetic moment along the z axis is µz(t) = µ cos θ and the magnetization\nis\nM = Nµz = Nµ\n\u0000cos2 α + sin2 α cos Ωt\n\u0001\n.\n(12)\nNote that the magnetization does not depend on the reference frame S or S′ (µz has the same\nvalue viewed in both frames).\nTaking ω = ω0 = γB0, the angle α is 900 and M = Nµ cos Ωt.\n3. From the relations\nP↑−P↓\n=\nµz\nµ = cos θ,\nP↑+ P↓\n=\n1,\nPhysics of Spin\nPage 3 of 5\n\nTheoretical 3: Solution\nPhysics of Spin\nwe obtain the results (ω = ω0)\nP↓\n=\n1 −cos θ\n2\n=\n1 −cos2 α −sin2 α cos Ωt\n2\n=\nsin2 α1 −cos Ωt\n2\n=\nb2\n\u0010\nB0 −ω\nγ\n\u00112\n+ b2\nsin2 Ωt\n2\n=\nsin2 Ωt\n2 ,\n(13)\nand\nP↑=\nb2\n\u0010\nB0 −ω\nγ\n\u00112\n+ b2\ncos2 Ωt\n2 = cos2 Ωt\n2 .\n(14)\nPart D. Measurement incompatibility\n1. In the x direction, the uncertainty in position due to the screen opening is ∆x. According to\nthe uncertainty principle, the atom momentum uncertainty ∆px is given by\n∆px ≈\nℏ\n∆x,\nwhich translates into an uncertainty in the x velocity of the atom,\nvx ≈\nℏ\nm∆x.\nConsequently, during the time of ﬂight t of the atoms through the device, the uncertainty in\nthe width of the beam will grow by an amount δx given by\nδx = ∆vxt ≈\nℏ\nm∆xt.\nPhysics of Spin\nPage 4 of 5\n\nTheoretical 3: Solution\nPhysics of Spin\nSo, the width of the beams is growing linearly in time. Meanwhile, the two beams are separating\nat a rate determined by the force Fx and the separation between the beams after a time t\nbecomes\ndx = 2 × 1\n2\nFx\nm t2 = 1\nm |µx| Ct2.\nIn order to be able to distinguish which beam a particle belongs to, the separation of the two\nbeams must be greater than the widths of the beams; otherwise the two beams will overlap and\nit will be impossible to know what the x component of the atom spin is. Thus, the condition\nmust be satisﬁed is\ndx\n≫\nδx,\n1\nm |µx| Ct2\n≫\nℏ\nm∆xt,\n1\nℏ|µx| ∆xCt\n≫\n1.\n(15)\n2. As the atoms pass through the screen, the variation of magnetic ﬁeld strength across the beam\nwidth experienced by the atoms is\n∆B = ∆xdB\ndx = C∆x.\nThis means the atoms will precess at rates covering a range of values ∆ω given by\n∆ω = γ∆B = µz\nℏ∆B = |µx|\nℏC∆x,\nand, if previous condition in measuring µx is satisﬁed,\n∆ωt ≫1.\n(16)\nIn other words, the spread in the angle ∆ωt through which the magnetic moments precess\nis so large that the z component of the spin is completely randomized or the measurement\nuncertainty is very large.\nPhysics of Spin\nPage 5 of 5\n","textExtraction":"available"}}
+{
+  "id": "apho-2013-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2013_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2013_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2013-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Theory Question 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Problem"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Physics of Spin"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "All matters in the universe have fundamental properties called spin, besides their mass and charge. Spin is an intrinsic form of angular momentum carried by particles. Despite the fact that quantum mechanics is needed for a full treatment of spin, we can still study the physics of spin using the usual classical formalism. In this problem, we are investigating the influence of magnetic field on spin using its classical analogue."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The classical torque equation of spin is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\boldsymbol{\\tau} = \\frac{d\\boldsymbol{L}}{dt} = \\boldsymbol{\\mu}\\times\\boldsymbol{B}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " In this case, the angular momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{L}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " represents the “intrinsic” spin of the particles, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\mu}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the magnetic moment of the particles, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is magnetic field. The spin of a particle is associated with a magnetic moment via the equation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\boldsymbol{\\mu} = -\\gamma\\boldsymbol{L}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the gyromagnetic ratio."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "In this problem, the term “frequency” means angular frequency (rad/s), which is a scalar quantity. All bold letters represent vectors; otherwise they represent scalars."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Larmor precession (1.6 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.8 pts)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Prove that the magnitude of magnetic moment "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is always constant under the influence of a magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". For a special case of stationary (constant) magnetic field, also show that the angle between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\mu}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is constant."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n("
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Hint"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": You can use properties of vector products.)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.8 pts)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " A uniform magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " exists and it makes an angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with a particle’s magnetic moment "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\mu}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Due to the torque by the magnetic field, the magnetic moment "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\mu}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " rotates around the field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which is also known as Larmor precession. Determine the Larmor precession frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the magnetic moment with respect to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B} = B_0\\boldsymbol{k}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Rotating frame (3.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this section, we choose a rotating frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as our frame of reference. The rotating frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S' = (x',y',z')\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " rotates with an angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\boldsymbol{k}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as seen by an observer in the laboratory frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S = (x,y,z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where the axes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x',y',z'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " intersect with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x,y,z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Any vector "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{A} = A_x\\boldsymbol{i} + A_y\\boldsymbol{j} + A_z\\boldsymbol{k}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in a lab frame can be written as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{A} = {A_x}'\\boldsymbol{i}' + {A_y}'\\boldsymbol{j}' + {A_z}'\\boldsymbol{k}'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the rotating frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The time derivative of the vector becomes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d\\boldsymbol{A}}{dt} = \\left(\\frac{d{A_x}'}{dt}\\boldsymbol{i}' + \\frac{d{A_y}'}{dt}\\boldsymbol{j}' + \\frac{d{A_z}'}{dt}\\boldsymbol{k}'\\right) + \\left({A_x}'\\frac{d\\boldsymbol{i}'}{dt} + {A_y}'\\frac{d\\boldsymbol{j}'}{dt} + {A_z}'\\frac{d\\boldsymbol{k}'}{dt}\\right)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(\\frac{d\\boldsymbol{A}}{dt}\\right)_{lab} = \\left(\\frac{d\\boldsymbol{A}}{dt}\\right)_{rot} + (\\omega\\mathbf{k}\\times\\boldsymbol{A}),\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\left(\\frac{d\\boldsymbol{A}}{dt}\\right)_{lab}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the time derivative of vector "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{A}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " seen by an observer in the lab frame, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\left(\\frac{d\\boldsymbol{A}}{dt}\\right)_{rot}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the time derivative seen by an observer in the rotating frame. For all the following problems in this part, the answers are referred to the rotating frame "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "S"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "’."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.8 pts)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Show that the time evolution of the magnetic moment follows the equation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(\\frac{d\\boldsymbol{\\mu}}{dt}\\right)_{rot} = -\\gamma\\ \\boldsymbol{\\mu}\\times\\boldsymbol{B}_{eff},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B}_{eff} = \\boldsymbol{B} - \\frac{\\omega}{\\gamma}\\boldsymbol{k}'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the effective magnetic field."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.4 pts)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B} = B_0\\boldsymbol{k}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", what is the new precession frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathit{\\Delta}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.2 pts)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Now, let us consider the case of a time-varying magnetic field. Besides a constant magnetic field, we also apply a rotating magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{b}(t) = b(\\cos\\omega t\\,\\boldsymbol{i} + \\sin\\omega t\\,\\boldsymbol{j})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B} = B_0\\boldsymbol{k} + \\boldsymbol{b}(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Show that the new Larmor precession frequency of the magnetic moment is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathit{\\Omega} = \\gamma\\sqrt{\\left(B_0 - \\frac{\\omega}{\\gamma}\\right)^2 + b^2}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.0 pts)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Instead of applying the field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{b}(t) = b(\\cos\\omega t\\,\\boldsymbol{i} + \\sin\\omega t\\,\\boldsymbol{j})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", now we apply "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{b}(t) = b(\\cos\\omega t\\,\\boldsymbol{i} - \\sin\\omega t\\,\\boldsymbol{j})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which rotates in the opposite direction and hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B} = B_0\\boldsymbol{k} + b(\\cos\\omega t\\,\\boldsymbol{i} - \\sin\\omega t\\,\\boldsymbol{j})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". What is the effective magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B}_{eff}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for this case (in terms of the unit vectors "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{i}',\\boldsymbol{j}',\\boldsymbol{k}'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")? What is its time average, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overline{\\boldsymbol{B}_{eff}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (recall that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overline{\\cos 2\\pi t/T} = \\overline{\\text{sın}\\,2\\pi t/T} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C. Rabi oscillation (3.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For an ensemble of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " particles under the influence of a large magnetic field, the spin can have two quantum states: “up” and “down”. Consequently, the total population of spin up "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_\\uparrow\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and down "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_\\downarrow\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " obeys the equation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[N_\\uparrow + N_\\downarrow = N.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The difference of spin up population and spin down population yields the macroscopic magnetization along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[M = (N_\\uparrow - N_\\downarrow)\\mu = N\\mu_z.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In a real experiment, two magnetic fields are usually applied, a large bias field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_0\\boldsymbol{k}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and an oscillating field with amplitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " perpendicular to the bias field ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b \\ll B_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). Initially, only the large bias is applied, causing all the particles lie in the spin up states ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\mu}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is oriented in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-direction at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). Then, the oscillating field is turned on, where its frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is chosen to be in resonance with the Larmor precession frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega = \\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In other words, the total field after time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\boldsymbol{B}(t) = B_0\\boldsymbol{k} + 2b\\cos\\omega_0 t\\,\\boldsymbol{i}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.2 pts)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " In the rotating frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", show that the effective field can be approximated by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\boldsymbol{B}_{\\boldsymbol{eff}} \\approx b\\boldsymbol{i}',\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which is commonly known as rotating wave approximation. What is the precession frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathit{\\Omega}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.6 pts)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Determine the angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\mu}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " makes with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B}_{eff}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Also, prove that the magnetization varies with time as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[M(t) = N\\mu(\\cos\\mathit{\\Omega} t).\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.2 pts)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Under the application of magnetic field described above, determine the fractional population of each spin up "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\uparrow = N_\\uparrow/N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and spin down "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\downarrow = N_\\downarrow/N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of time. Plot "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\uparrow(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\downarrow(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the same graph vs. time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The alternating spin up and spin down population as a function of time is called Rabi oscillation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part D. Measurement incompatibility (2.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Spin is in fact a vector quantity; but due to its quantum properties, we cannot measure each of its components simultaneously (i.e. we can know both "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\boldsymbol{\\mu}|\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as in above problems; but not all "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\boldsymbol{\\mu}|,\\mu_x,\\mu_y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " simultaneously). In this problem, we will do a calculation based on the Heisenberg uncertainty principle (using the relation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathit{\\Delta} p_q\\mathit{\\Delta} q \\geq \\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ) to show how these measurements are incompatible with each other."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.0 pts)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Let us consider an oven source of silver atoms, which has a small opening. The atoms stream out of the opening along "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction (see Figure below) and experience a spatial varying field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B}_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B}_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " has strong bias field component in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction, where the atoms with different magnetic moment "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_z = \\pm\\gamma\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are split in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction. At a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(D\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the oven source, a screen "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(SC_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is put to allow only spin up atoms to pass (blocking spin down atoms). Thus, at the instant after passing the screen, the atoms are prepared in spin up states. After the screen, the atoms enter a region of non-homogenous field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B}_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where the atoms feel a force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[F_x = \\mu_x C.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B}_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " has strong bias field component in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction, where the atoms have magnetic moment "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_x = \\pm\\gamma\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2013-t3/ed09bd18abd2bc03c3c1.png",
+                "alt": "apho-2013-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In order to determine "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " by observing the splitting in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction, show that the following condition must be fulfilled: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{1}{\\hbar}|\\mu_x|\\mathit{\\Delta} xCt \\gg 1,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the duration after leaving the screen "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(SC_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathit{\\Delta} x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the opening width on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(SC_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2."
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.0 pts)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The atoms are initially prepared in the spin up states right after leaving the screen, where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_z = \\gamma\\hbar = |\\mu_x|\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This means the atoms will precess at rates covering a range of values "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathit{\\Delta}\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with respect to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " component of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{B}_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", specifically "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B_{2x} = B_0 + Cx\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Prove that the spread in the precession angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathit{\\Delta}\\omega t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is so large and hence we cannot measure both "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " simultaneously. In other words, the measurement of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " destroys the information on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "\n\nTheory Question 3\n\n\nProblem\n\n\nPhysics of Spin\n\n\n\n\nAll matters in the universe have fundamental properties called spin, besides their mass and charge. Spin is an intrinsic form of angular momentum carried by particles. Despite the fact that quantum mechanics is needed for a full treatment of spin, we can still study the physics of spin using the usual classical formalism. In this problem, we are investigating the influence of magnetic field on spin using its classical analogue.\n\n\nThe classical torque equation of spin is given by \n\\[\\boldsymbol{\\tau} = \\frac{d\\boldsymbol{L}}{dt} = \\boldsymbol{\\mu}\\times\\boldsymbol{B}.\\]\n In this case, the angular momentum \n\\(\\boldsymbol{L}\\)\n represents the “intrinsic” spin of the particles, \n\\(\\boldsymbol{\\mu}\\)\n is the magnetic moment of the particles, and \n\\(\\boldsymbol{B}\\)\n is magnetic field. The spin of a particle is associated with a magnetic moment via the equation \n\\[\\boldsymbol{\\mu} = -\\gamma\\boldsymbol{L}\\]\n where \n\\(\\gamma\\)\n is the gyromagnetic ratio.\n\n\nIn this problem, the term “frequency” means angular frequency (rad/s), which is a scalar quantity. All bold letters represent vectors; otherwise they represent scalars.\n\n\nPart A. Larmor precession (1.6 points)\n\n\n1.\n(0.8 pts)\n Prove that the magnitude of magnetic moment \n\\(\\mu\\)\n is always constant under the influence of a magnetic field \n\\(\\boldsymbol{B}\\)\n. For a special case of stationary (constant) magnetic field, also show that the angle between \n\\(\\boldsymbol{\\mu}\\)\n and \n\\(\\boldsymbol{B}\\)\n is constant.\n\n\n(\nHint\n: You can use properties of vector products.)\n\n\n2.\n(0.8 pts)\n A uniform magnetic field \n\\(\\boldsymbol{B}\\)\n exists and it makes an angle \n\\(\\phi\\)\n with a particle’s magnetic moment \n\\(\\boldsymbol{\\mu}\\)\n. Due to the torque by the magnetic field, the magnetic moment \n\\(\\boldsymbol{\\mu}\\)\n rotates around the field \n\\(\\boldsymbol{B}\\)\n, which is also known as Larmor precession. Determine the Larmor precession frequency \n\\(\\omega_0\\)\n of the magnetic moment with respect to \n\\(\\boldsymbol{B} = B_0\\boldsymbol{k}\\)\n.\n\n\nPart B. Rotating frame (3.4 points)\n\n\nIn this section, we choose a rotating frame \n\\(S'\\)\n as our frame of reference. The rotating frame \n\\(S' = (x',y',z')\\)\n rotates with an angular velocity \n\\(\\omega\\boldsymbol{k}\\)\n as seen by an observer in the laboratory frame \n\\(S = (x,y,z)\\)\n, where the axes \n\\(x',y',z'\\)\n intersect with \n\\(x,y,z\\)\n at time \n\\(t = 0\\)\n. Any vector \n\\(\\boldsymbol{A} = A_x\\boldsymbol{i} + A_y\\boldsymbol{j} + A_z\\boldsymbol{k}\\)\n in a lab frame can be written as \n\\(\\boldsymbol{A} = {A_x}'\\boldsymbol{i}' + {A_y}'\\boldsymbol{j}' + {A_z}'\\boldsymbol{k}'\\)\n in the rotating frame \n\\(S'\\)\n. The time derivative of the vector becomes \n\\[\\frac{d\\boldsymbol{A}}{dt} = \\left(\\frac{d{A_x}'}{dt}\\boldsymbol{i}' + \\frac{d{A_y}'}{dt}\\boldsymbol{j}' + \\frac{d{A_z}'}{dt}\\boldsymbol{k}'\\right) + \\left({A_x}'\\frac{d\\boldsymbol{i}'}{dt} + {A_y}'\\frac{d\\boldsymbol{j}'}{dt} + {A_z}'\\frac{d\\boldsymbol{k}'}{dt}\\right)\\]\n \n\\[\\left(\\frac{d\\boldsymbol{A}}{dt}\\right)_{lab} = \\left(\\frac{d\\boldsymbol{A}}{dt}\\right)_{rot} + (\\omega\\mathbf{k}\\times\\boldsymbol{A}),\\]\n where \n\\(\\left(\\frac{d\\boldsymbol{A}}{dt}\\right)_{lab}\\)\n is the time derivative of vector \n\\(\\boldsymbol{A}\\)\n seen by an observer in the lab frame, and \n\\(\\left(\\frac{d\\boldsymbol{A}}{dt}\\right)_{rot}\\)\n is the time derivative seen by an observer in the rotating frame. For all the following problems in this part, the answers are referred to the rotating frame \nS\n’.\n\n\n1.\n(0.8 pts)\n Show that the time evolution of the magnetic moment follows the equation \n\\[\\left(\\frac{d\\boldsymbol{\\mu}}{dt}\\right)_{rot} = -\\gamma\\ \\boldsymbol{\\mu}\\times\\boldsymbol{B}_{eff},\\]\n where \n\\(\\boldsymbol{B}_{eff} = \\boldsymbol{B} - \\frac{\\omega}{\\gamma}\\boldsymbol{k}'\\)\n is the effective magnetic field.\n\n\n2.\n(0.4 pts)\n For \n\\(\\boldsymbol{B} = B_0\\boldsymbol{k}\\)\n, what is the new precession frequency \n\\(\\mathit{\\Delta}\\)\n in terms of \n\\(\\omega_0\\)\n and \n\\(\\omega\\)\n?\n\n\n3.\n(1.2 pts)\n Now, let us consider the case of a time-varying magnetic field. Besides a constant magnetic field, we also apply a rotating magnetic field \n\\(\\boldsymbol{b}(t) = b(\\cos\\omega t\\,\\boldsymbol{i} + \\sin\\omega t\\,\\boldsymbol{j})\\)\n, so \n\\(\\boldsymbol{B} = B_0\\boldsymbol{k} + \\boldsymbol{b}(t)\\)\n. Show that the new Larmor precession frequency of the magnetic moment is \n\\[\\mathit{\\Omega} = \\gamma\\sqrt{\\left(B_0 - \\frac{\\omega}{\\gamma}\\right)^2 + b^2}.\\]\n\n\n4.\n(1.0 pts)\n Instead of applying the field \n\\(\\boldsymbol{b}(t) = b(\\cos\\omega t\\,\\boldsymbol{i} + \\sin\\omega t\\,\\boldsymbol{j})\\)\n, now we apply \n\\(\\boldsymbol{b}(t) = b(\\cos\\omega t\\,\\boldsymbol{i} - \\sin\\omega t\\,\\boldsymbol{j})\\)\n, which rotates in the opposite direction and hence \n\\(\\boldsymbol{B} = B_0\\boldsymbol{k} + b(\\cos\\omega t\\,\\boldsymbol{i} - \\sin\\omega t\\,\\boldsymbol{j})\\)\n. What is the effective magnetic field \n\\(\\boldsymbol{B}_{eff}\\)\n for this case (in terms of the unit vectors \n\\(\\boldsymbol{i}',\\boldsymbol{j}',\\boldsymbol{k}'\\)\n)? What is its time average, \n\\(\\overline{\\boldsymbol{B}_{eff}}\\)\n (recall that \n\\(\\overline{\\cos 2\\pi t/T} = \\overline{\\text{sın}\\,2\\pi t/T} = 0\\)\n)?\n\n\nPart C. Rabi oscillation (3.0 points)\n\n\nFor an ensemble of \n\\(N\\)\n particles under the influence of a large magnetic field, the spin can have two quantum states: “up” and “down”. Consequently, the total population of spin up \n\\(N_\\uparrow\\)\n and down \n\\(N_\\downarrow\\)\n obeys the equation \n\\[N_\\uparrow + N_\\downarrow = N.\\]\n The difference of spin up population and spin down population yields the macroscopic magnetization along the \n\\(z\\)\n axis: \n\\[M = (N_\\uparrow - N_\\downarrow)\\mu = N\\mu_z.\\]\n\n\nIn a real experiment, two magnetic fields are usually applied, a large bias field \n\\(B_0\\boldsymbol{k}\\)\n and an oscillating field with amplitude \n\\(2b\\)\n perpendicular to the bias field (\n\\(b \\ll B_0\\)\n). Initially, only the large bias is applied, causing all the particles lie in the spin up states (\n\\(\\boldsymbol{\\mu}\\)\n is oriented in the \n\\(z\\)\n-direction at \n\\(t = 0\\)\n). Then, the oscillating field is turned on, where its frequency \n\\(\\omega\\)\n is chosen to be in resonance with the Larmor precession frequency \n\\(\\omega_0\\)\n, i.e. \n\\(\\omega = \\omega_0\\)\n. In other words, the total field after time \n\\(t = 0\\)\n is given by \n\\[\\boldsymbol{B}(t) = B_0\\boldsymbol{k} + 2b\\cos\\omega_0 t\\,\\boldsymbol{i}.\\]\n\n\n1.\n(1.2 pts)\n In the rotating frame \n\\(S'\\)\n, show that the effective field can be approximated by \n\\[\\boldsymbol{B}_{\\boldsymbol{eff}} \\approx b\\boldsymbol{i}',\\]\n which is commonly known as rotating wave approximation. What is the precession frequency \n\\(\\mathit{\\Omega}\\)\n in frame \n\\(S'\\)\n?\n\n\n2.\n(0.6 pts)\n Determine the angle \n\\(\\alpha\\)\n that \n\\(\\boldsymbol{\\mu}\\)\n makes with \n\\(\\boldsymbol{B}_{eff}\\)\n. Also, prove that the magnetization varies with time as \n\\[M(t) = N\\mu(\\cos\\mathit{\\Omega} t).\\]\n\n\n3.\n(1.2 pts)\n Under the application of magnetic field described above, determine the fractional population of each spin up \n\\(P_\\uparrow = N_\\uparrow/N\\)\n and spin down \n\\(P_\\downarrow = N_\\downarrow/N\\)\n as a function of time. Plot \n\\(P_\\uparrow(t)\\)\n and \n\\(P_\\downarrow(t)\\)\n on the same graph vs. time \n\\(t\\)\n. The alternating spin up and spin down population as a function of time is called Rabi oscillation.\n\n\nPart D. Measurement incompatibility (2.0 points)\n\n\nSpin is in fact a vector quantity; but due to its quantum properties, we cannot measure each of its components simultaneously (i.e. we can know both \n\\(|\\boldsymbol{\\mu}|\\)\n and \n\\(\\mu_z\\)\n as in above problems; but not all \n\\(|\\boldsymbol{\\mu}|,\\mu_x,\\mu_y\\)\n, and \n\\(\\mu_z\\)\n simultaneously). In this problem, we will do a calculation based on the Heisenberg uncertainty principle (using the relation \n\\(\\mathit{\\Delta} p_q\\mathit{\\Delta} q \\geq \\hbar\\)\n ) to show how these measurements are incompatible with each other.\n\n\n1.\n(1.0 pts)\n Let us consider an oven source of silver atoms, which has a small opening. The atoms stream out of the opening along \n\\(-y\\)\n direction (see Figure below) and experience a spatial varying field \n\\(\\boldsymbol{B}_1\\)\n. The field \n\\(\\boldsymbol{B}_1\\)\n has strong bias field component in the \n\\(z\\)\n direction, where the atoms with different magnetic moment \n\\(\\mu_z = \\pm\\gamma\\hbar\\)\n are split in the \n\\(z\\)\n direction. At a distance \n\\(D\\)\n from the oven source, a screen \n\\(SC_1\\)\n is put to allow only spin up atoms to pass (blocking spin down atoms). Thus, at the instant after passing the screen, the atoms are prepared in spin up states. After the screen, the atoms enter a region of non-homogenous field \n\\(\\boldsymbol{B}_2\\)\n where the atoms feel a force \n\\[F_x = \\mu_x C.\\]\n The field \n\\(\\boldsymbol{B}_2\\)\n has strong bias field component in the \n\\(x\\)\n direction, where the atoms have magnetic moment \n\\(\\mu_x = \\pm\\gamma\\hbar\\)\n.\n\n\n\n\n\n\n\n\n\nIn order to determine \n\\(\\mu_x\\)\n by observing the splitting in \n\\(x\\)\n direction, show that the following condition must be fulfilled: \n\\[\\frac{1}{\\hbar}|\\mu_x|\\mathit{\\Delta} xCt \\gg 1,\\]\n where \n\\(t\\)\n is the duration after leaving the screen \n\\(SC_1\\)\n and \n\\(\\mathit{\\Delta} x\\)\n is the opening width on \n\\(SC_1\\)\n.\n\n\n2.\n(1.0 pts)\n The atoms are initially prepared in the spin up states right after leaving the screen, where \n\\(\\mu_z = \\gamma\\hbar = |\\mu_x|\\)\n. This means the atoms will precess at rates covering a range of values \n\\(\\mathit{\\Delta}\\omega\\)\n with respect to the \n\\(x\\)\n component of \n\\(\\boldsymbol{B}_2\\)\n, specifically \n\\(B_{2x} = B_0 + Cx\\)\n. Prove that the spread in the precession angle \n\\(\\mathit{\\Delta}\\omega t\\)\n is so large and hence we cannot measure both \n\\(\\mu_x\\)\n and \n\\(\\mu_z\\)\n simultaneously. In other words, the measurement of \n\\(\\mu_x\\)\n destroys the information on \n\\(\\mu_z\\)\n.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2013-t3/ed09bd18abd2bc03c3c1.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2013-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Theoretical 3: Solution"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Physics of Spin"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Larmor Precession"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.From the two equations given in the text, we obtain the relation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{d\\boldsymbol{\\mu}}{dt} = -\\gamma\\boldsymbol{\\mu}\\times\\mathbf{B}.\n\\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Taking the dot product of eq (1). with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\mu}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we can prove that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\boldsymbol{\\mu}\\cdot\\frac{d\\boldsymbol{\\mu}}{dt} &= -\\gamma\\boldsymbol{\\mu}\\cdot\\left(\\boldsymbol{\\mu}\\times\\mathbf{B}\\right),\\\\\n\\frac{d\\left|\\boldsymbol{\\mu}\\right|^2}{dt} &= 0,\\\\\n\\mu = \\left|\\boldsymbol{\\mu}\\right| &= \\mathrm{const}. \\tag{2}\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Taking the dot product of eq. (1) with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we also prove that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\mathbf{B}\\cdot\\frac{d\\boldsymbol{\\mu}}{dt} &= -\\gamma\\mathbf{B}\\cdot\\left(\\boldsymbol{\\mu}\\times\\mathbf{B}\\right),\\\\\n\\mathbf{B}\\cdot\\frac{d\\boldsymbol{\\mu}}{dt} &= 0,\\\\\n\\mathbf{B}\\cdot\\boldsymbol{\\mu} &= \\mathrm{const}. \\tag{3}\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " An acute reader will notice that our master equation in (1) is identical to the equation of motion for a charged particle in a magnetic field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{d\\mathbf{v}}{dt} = \\frac{q}{m}\\mathbf{v}\\times\\mathbf{B}.\n\\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Hence, the same argument for a charged particle in magnetic field can be applied in this case."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.For a magnetic moment making an angle of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\frac{d\\boldsymbol{\\mu}}{dt} &= -\\gamma\\boldsymbol{\\mu}\\times\\mathbf{B},\\\\\n\\left|\\boldsymbol{\\mu}\\right|\\sin\\phi\\frac{d\\theta}{dt} &= \\gamma\\left|\\boldsymbol{\\mu}\\right|B_0\\sin\\phi,\\\\\n\\omega_0 = \\frac{d\\theta}{dt} &= \\gamma B_0. \\tag{5}\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Rotating frame"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.Using the relation given in the text, it is easily shown that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\left(\\frac{d\\boldsymbol{\\mu}}{dt}\\right)_{\\mathrm{rot}} &= \\left(\\frac{d\\boldsymbol{\\mu}}{dt}\\right)_{\\mathrm{lab}} - \\boldsymbol{\\omega}\\times\\boldsymbol{\\mu}\\\\\n&= -\\gamma\\boldsymbol{\\mu}\\times\\mathbf{B} - \\omega\\mathbf{k}'\\times\\boldsymbol{\\mu}\\\\\n&= -\\gamma\\boldsymbol{\\mu}\\times\\left(\\mathbf{B} - \\frac{\\omega}{\\gamma}\\mathbf{k}'\\right)\\\\\n&= -\\gamma\\boldsymbol{\\mu}\\times\\mathbf{B}_{\\mathrm{eff}}. \\tag{6}\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Note that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{k}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is equal to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{k}'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as observed in the rotating frame."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.The new precession frequency as viewed on the rotating frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\vec{\\Delta} &= \\left(\\omega_0 - \\omega\\right)\\mathbf{k}',\\\\\n\\Delta &= \\gamma B_0 - \\omega. \\tag{7}\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.Since the magnetic field as viewed in the rotating frame is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{B} = B_0\\mathbf{k}' + b\\mathbf{i}'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathbf{B}_{\\mathrm{eff}} = \\mathbf{B} - \\omega/\\gamma\\mathbf{k}' = \\left(B_0 - \\frac{\\omega}{\\gamma}\\right)\\mathbf{k}' + b\\mathbf{i}',\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\Omega &= \\gamma\\left|\\mathbf{B}_{\\mathrm{eff}}\\right|,\\\\\n&= \\gamma\\sqrt{\\left(B_0 - \\frac{\\omega}{\\gamma}\\right)^2 + b^2}. \\tag{8}\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.In this case, the effective magnetic field becomes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n\\mathbf{B}_{\\mathrm{eff}} &= \\mathbf{B} - \\omega/\\gamma\\mathbf{k}'\\\\\n&= \\left(B_0 - \\frac{\\omega}{\\gamma}\\right)\\mathbf{k}' + b(\\cos 2\\omega t\\mathbf{i}' - \\sin 2\\omega t\\mathbf{j}') \\tag{9}\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which has a time average of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\overline{\\mathbf{B}_{\\mathrm{eff}}} = \\left(B_0 - \\frac{\\omega}{\\gamma}\\right)\\mathbf{k}'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C. Rabi oscillation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.The oscillating field can be considered as a superposition of two oppositely rotating field: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[2b\\cos\\omega_0t\\mathbf{i} = b\\left(\\cos\\omega_0t\\mathbf{i} + \\sin\\omega_0t\\mathbf{j}\\right) + b\\left(\\cos\\omega_0t\\mathbf{i} - \\sin\\omega_0t\\mathbf{j}\\right),\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which gives an effective field of (with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega = \\omega_0 = \\gamma B_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "): "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\mathbf{B}_{\\mathrm{eff}} = \\left(B_0 - \\frac{\\omega}{\\gamma}\\right)\\mathbf{k}' + b\\mathbf{i}' + b(\\cos 2\\omega_0t\\mathbf{i}' - \\sin 2\\omega_0t\\mathbf{j}').\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0 \\gg \\gamma b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the rotation of the term "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b(\\cos 2\\omega_0t\\mathbf{i}' - \\sin 2\\omega_0t\\mathbf{j}')\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is so fast compared to the frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This means that we can take the approximation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\mathbf{B}_{\\mathrm{eff}} \\approx \\left(B_0 - \\frac{\\omega}{\\gamma}\\right)\\mathbf{k}' + b\\mathbf{i}' = b\\mathbf{i}',\n\\tag{10}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where the magnetic moment precesses with frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega = \\gamma b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega = \\gamma b \\ll \\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the magnetic moment does not “feel” the rotating term "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\left(\\cos 2\\omega_0t\\mathbf{i}' - \\sin 2\\omega_0t\\mathbf{j}'\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which averaged to zero."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.Since the angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\mu}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " makes with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{B}_{\\mathrm{eff}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " stays constant and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\boldsymbol{\\mu}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is initially oriented along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is also the angle between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{B}_{\\mathrm{eff}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis which is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\tan\\alpha = \\frac{b}{B_0 - \\frac{\\omega}{\\gamma}}.\n\\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2013-t3/2ac222d1f4da3fe8d37c.png",
+                "alt": "apho-2013-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From the geometry of the system, we can show that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\cos\\theta = \\mu_z/\\mu)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\n2\\mu\\sin\\frac{\\theta}{2} &= 2\\mu\\sin\\alpha\\sin\\frac{\\Omega t}{2},\\\\\n\\sin^2\\frac{\\theta}{2} &= \\sin^2\\alpha\\sin^2\\frac{\\Omega t}{2},\\\\\n\\frac{1-\\cos\\theta}{2} &= \\sin^2\\alpha\\frac{1-\\cos\\Omega t}{2},\\\\\n\\cos\\theta &= 1 - \\sin^2\\alpha + \\sin^2\\alpha\\cos\\Omega t,\\\\\n\\cos\\theta &= \\cos^2\\alpha + \\sin^2\\alpha\\cos\\Omega t.\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " So, the projected magnetic moment along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_z(t) = \\mu\\cos\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the magnetization is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nM = N\\mu_z = N\\mu\\left(\\cos^2\\alpha + \\sin^2\\alpha\\cos\\Omega t\\right).\n\\tag{12}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Note that the magnetization does not depend on the reference frame "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " has the same value viewed in both frames)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Taking "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega = \\omega_0 = \\gamma B_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(90^0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M = N\\mu\\cos\\Omega t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.From the relations "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nP_\\uparrow - P_\\downarrow &= \\frac{\\mu_z}{\\mu} = \\cos\\theta,\\\\\nP_\\uparrow + P_\\downarrow &= 1,\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we obtain the results "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\omega = \\omega_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nP_\\downarrow &= \\frac{1-\\cos\\theta}{2}\\\\\n&= \\frac{1-\\cos^2\\alpha-\\sin^2\\alpha\\cos\\Omega t}{2}\\\\\n&= \\sin^2\\alpha\\frac{1-\\cos\\Omega t}{2}\\\\\n&= \\frac{b^2}{\\left(B_0 - \\frac{\\omega}{\\gamma}\\right)^2 + b^2}\\sin^2\\frac{\\Omega t}{2}\\\\\n&= \\sin^2\\frac{\\Omega t}{2}, \\tag{13}\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nP_\\uparrow = \\frac{b^2}{\\left(B_0 - \\frac{\\omega}{\\gamma}\\right)^2 + b^2}\\cos^2\\frac{\\Omega t}{2} = \\cos^2\\frac{\\Omega t}{2}.\n\\tag{14}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2013-t3/57b73d51411f522081b7.png",
+                "alt": "apho-2013-t3 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part D. Measurement incompatibility"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.In the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction, the uncertainty in position due to the screen opening is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". According to the uncertainty principle, the atom momentum uncertainty "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta p_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta p_x \\approx \\frac{\\hbar}{\\Delta x},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which translates into an uncertainty in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " velocity of the atom, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[v_x \\approx \\frac{\\hbar}{m\\Delta x}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Consequently, during the time of flight "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the atoms through the device, the uncertainty in the width of the beam will grow by an amount "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\delta x = \\Delta v_xt \\approx \\frac{\\hbar}{m\\Delta x}t.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "So, the width of the beams is growing linearly in time. Meanwhile, the two beams are separating at a rate determined by the force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the separation between the beams after a time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " becomes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[d_x = 2\\times\\frac{1}{2}\\frac{F_x}{m}t^2 = \\frac{1}{m}\\left|\\mu_x\\right|Ct^2.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " In order to be able to distinguish which beam a particle belongs to, the separation of the two beams must be greater than the widths of the beams; otherwise the two beams will overlap and it will be impossible to know what the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " component of the atom spin is. Thus, the condition must be satisfied is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nd_x &\\gg \\delta x,\\\\\n\\frac{1}{m}\\left|\\mu_x\\right|Ct^2 &\\gg \\frac{\\hbar}{m\\Delta x}t,\\\\\n\\frac{1}{\\hbar}\\left|\\mu_x\\right|\\Delta xCt &\\gg 1. \\tag{15}\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.As the atoms pass through the screen, the variation of magnetic field strength across the beam width experienced by the atoms is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta B = \\Delta x\\frac{dB}{dx} = C\\Delta x.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This means the atoms will precess at rates covering a range of values "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta\\omega = \\gamma\\Delta B = \\frac{\\mu_z}{\\hbar}\\Delta B = \\frac{\\left|\\mu_x\\right|}{\\hbar}C\\Delta x,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and, if previous condition in measuring "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is satisfied, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta\\omega t \\gg 1.\n\\tag{16}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " In other words, the spread in the angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\omega t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " through which the magnetic moments precess is so large that the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " component of the spin is completely randomized or the measurement uncertainty is very large."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "\n\nTheoretical 3: Solution\n\n\nPhysics of Spin\n\n\n\n\nPart A. Larmor Precession\n\n\n1.From the two equations given in the text, we obtain the relation \n\\[\\begin{equation}\n\\frac{d\\boldsymbol{\\mu}}{dt} = -\\gamma\\boldsymbol{\\mu}\\times\\mathbf{B}.\n\\tag{1}\n\\end{equation}\\]\n Taking the dot product of eq (1). with \n\\(\\boldsymbol{\\mu}\\)\n, we can prove that \n\\[\\begin{align*}\n\\boldsymbol{\\mu}\\cdot\\frac{d\\boldsymbol{\\mu}}{dt} &= -\\gamma\\boldsymbol{\\mu}\\cdot\\left(\\boldsymbol{\\mu}\\times\\mathbf{B}\\right),\\\\\n\\frac{d\\left|\\boldsymbol{\\mu}\\right|^2}{dt} &= 0,\\\\\n\\mu = \\left|\\boldsymbol{\\mu}\\right| &= \\mathrm{const}. \\tag{2}\n\\end{align*}\\]\n Taking the dot product of eq. (1) with \n\\(\\mathbf{B}\\)\n, we also prove that \n\\[\\begin{align*}\n\\mathbf{B}\\cdot\\frac{d\\boldsymbol{\\mu}}{dt} &= -\\gamma\\mathbf{B}\\cdot\\left(\\boldsymbol{\\mu}\\times\\mathbf{B}\\right),\\\\\n\\mathbf{B}\\cdot\\frac{d\\boldsymbol{\\mu}}{dt} &= 0,\\\\\n\\mathbf{B}\\cdot\\boldsymbol{\\mu} &= \\mathrm{const}. \\tag{3}\n\\end{align*}\\]\n An acute reader will notice that our master equation in (1) is identical to the equation of motion for a charged particle in a magnetic field \n\\[\\begin{equation}\n\\frac{d\\mathbf{v}}{dt} = \\frac{q}{m}\\mathbf{v}\\times\\mathbf{B}.\n\\tag{4}\n\\end{equation}\\]\n Hence, the same argument for a charged particle in magnetic field can be applied in this case.\n\n\n2.For a magnetic moment making an angle of \n\\(\\phi\\)\n with \n\\(\\mathbf{B}\\)\n, \n\\[\\begin{align*}\n\\frac{d\\boldsymbol{\\mu}}{dt} &= -\\gamma\\boldsymbol{\\mu}\\times\\mathbf{B},\\\\\n\\left|\\boldsymbol{\\mu}\\right|\\sin\\phi\\frac{d\\theta}{dt} &= \\gamma\\left|\\boldsymbol{\\mu}\\right|B_0\\sin\\phi,\\\\\n\\omega_0 = \\frac{d\\theta}{dt} &= \\gamma B_0. \\tag{5}\n\\end{align*}\\]\n\n\nPart B. Rotating frame\n\n\n1.Using the relation given in the text, it is easily shown that \n\\[\\begin{align*}\n\\left(\\frac{d\\boldsymbol{\\mu}}{dt}\\right)_{\\mathrm{rot}} &= \\left(\\frac{d\\boldsymbol{\\mu}}{dt}\\right)_{\\mathrm{lab}} - \\boldsymbol{\\omega}\\times\\boldsymbol{\\mu}\\\\\n&= -\\gamma\\boldsymbol{\\mu}\\times\\mathbf{B} - \\omega\\mathbf{k}'\\times\\boldsymbol{\\mu}\\\\\n&= -\\gamma\\boldsymbol{\\mu}\\times\\left(\\mathbf{B} - \\frac{\\omega}{\\gamma}\\mathbf{k}'\\right)\\\\\n&= -\\gamma\\boldsymbol{\\mu}\\times\\mathbf{B}_{\\mathrm{eff}}. \\tag{6}\n\\end{align*}\\]\n Note that \n\\(\\mathbf{k}\\)\n is equal to \n\\(\\mathbf{k}'\\)\n as observed in the rotating frame.\n\n\n2.The new precession frequency as viewed on the rotating frame \n\\(S'\\)\n is \n\\[\\begin{align*}\n\\vec{\\Delta} &= \\left(\\omega_0 - \\omega\\right)\\mathbf{k}',\\\\\n\\Delta &= \\gamma B_0 - \\omega. \\tag{7}\n\\end{align*}\\]\n\n\n3.Since the magnetic field as viewed in the rotating frame is \n\\(\\mathbf{B} = B_0\\mathbf{k}' + b\\mathbf{i}'\\)\n, \n\\[\\mathbf{B}_{\\mathrm{eff}} = \\mathbf{B} - \\omega/\\gamma\\mathbf{k}' = \\left(B_0 - \\frac{\\omega}{\\gamma}\\right)\\mathbf{k}' + b\\mathbf{i}',\\]\n and \n\\[\\begin{align*}\n\\Omega &= \\gamma\\left|\\mathbf{B}_{\\mathrm{eff}}\\right|,\\\\\n&= \\gamma\\sqrt{\\left(B_0 - \\frac{\\omega}{\\gamma}\\right)^2 + b^2}. \\tag{8}\n\\end{align*}\\]\n\n\n4.In this case, the effective magnetic field becomes \n\\[\\begin{align*}\n\\mathbf{B}_{\\mathrm{eff}} &= \\mathbf{B} - \\omega/\\gamma\\mathbf{k}'\\\\\n&= \\left(B_0 - \\frac{\\omega}{\\gamma}\\right)\\mathbf{k}' + b(\\cos 2\\omega t\\mathbf{i}' - \\sin 2\\omega t\\mathbf{j}') \\tag{9}\n\\end{align*}\\]\n which has a time average of \n\\(\\overline{\\mathbf{B}_{\\mathrm{eff}}} = \\left(B_0 - \\frac{\\omega}{\\gamma}\\right)\\mathbf{k}'\\)\n.\n\n\nPart C. Rabi oscillation\n\n\n1.The oscillating field can be considered as a superposition of two oppositely rotating field: \n\\[2b\\cos\\omega_0t\\mathbf{i} = b\\left(\\cos\\omega_0t\\mathbf{i} + \\sin\\omega_0t\\mathbf{j}\\right) + b\\left(\\cos\\omega_0t\\mathbf{i} - \\sin\\omega_0t\\mathbf{j}\\right),\\]\n which gives an effective field of (with \n\\(\\omega = \\omega_0 = \\gamma B_0\\)\n): \n\\[\\mathbf{B}_{\\mathrm{eff}} = \\left(B_0 - \\frac{\\omega}{\\gamma}\\right)\\mathbf{k}' + b\\mathbf{i}' + b(\\cos 2\\omega_0t\\mathbf{i}' - \\sin 2\\omega_0t\\mathbf{j}').\\]\n Since \n\\(\\omega_0 \\gg \\gamma b\\)\n, the rotation of the term \n\\(b(\\cos 2\\omega_0t\\mathbf{i}' - \\sin 2\\omega_0t\\mathbf{j}')\\)\n is so fast compared to the frequency \n\\(\\gamma b\\)\n. This means that we can take the approximation \n\\[\\begin{equation}\n\\mathbf{B}_{\\mathrm{eff}} \\approx \\left(B_0 - \\frac{\\omega}{\\gamma}\\right)\\mathbf{k}' + b\\mathbf{i}' = b\\mathbf{i}',\n\\tag{10}\n\\end{equation}\\]\n where the magnetic moment precesses with frequency \n\\(\\Omega = \\gamma b\\)\n.\n\n\nAs \n\\(\\Omega = \\gamma b \\ll \\omega_0\\)\n, the magnetic moment does not “feel” the rotating term \n\\(b\\left(\\cos 2\\omega_0t\\mathbf{i}' - \\sin 2\\omega_0t\\mathbf{j}'\\right)\\)\n which averaged to zero.\n\n\n2.Since the angle \n\\(\\alpha\\)\n that \n\\(\\boldsymbol{\\mu}\\)\n makes with \n\\(\\mathbf{B}_{\\mathrm{eff}}\\)\n stays constant and \n\\(\\boldsymbol{\\mu}\\)\n is initially oriented along the \n\\(z\\)\n axis, \n\\(\\alpha\\)\n is also the angle between \n\\(\\mathbf{B}_{\\mathrm{eff}}\\)\n and the \n\\(z\\)\n axis which is \n\\[\\begin{equation}\n\\tan\\alpha = \\frac{b}{B_0 - \\frac{\\omega}{\\gamma}}.\n\\tag{11}\n\\end{equation}\\]\n\n\n\n\n\n\n\n\n\nFrom the geometry of the system, we can show that \n\\((\\cos\\theta = \\mu_z/\\mu)\\)\n: \n\\[\\begin{align*}\n2\\mu\\sin\\frac{\\theta}{2} &= 2\\mu\\sin\\alpha\\sin\\frac{\\Omega t}{2},\\\\\n\\sin^2\\frac{\\theta}{2} &= \\sin^2\\alpha\\sin^2\\frac{\\Omega t}{2},\\\\\n\\frac{1-\\cos\\theta}{2} &= \\sin^2\\alpha\\frac{1-\\cos\\Omega t}{2},\\\\\n\\cos\\theta &= 1 - \\sin^2\\alpha + \\sin^2\\alpha\\cos\\Omega t,\\\\\n\\cos\\theta &= \\cos^2\\alpha + \\sin^2\\alpha\\cos\\Omega t.\n\\end{align*}\\]\n So, the projected magnetic moment along the \n\\(z\\)\n axis is \n\\(\\mu_z(t) = \\mu\\cos\\theta\\)\n and the magnetization is \n\\[\\begin{equation}\nM = N\\mu_z = N\\mu\\left(\\cos^2\\alpha + \\sin^2\\alpha\\cos\\Omega t\\right).\n\\tag{12}\n\\end{equation}\\]\n Note that the magnetization does not depend on the reference frame \n\\(S\\)\n or \n\\(S'\\)\n (\n\\(\\mu_z\\)\n has the same value viewed in both frames).\n\n\nTaking \n\\(\\omega = \\omega_0 = \\gamma B_0\\)\n, the angle \n\\(\\alpha\\)\n is \n\\(90^0\\)\n and \n\\(M = N\\mu\\cos\\Omega t\\)\n.\n\n\n3.From the relations \n\\[\\begin{align*}\nP_\\uparrow - P_\\downarrow &= \\frac{\\mu_z}{\\mu} = \\cos\\theta,\\\\\nP_\\uparrow + P_\\downarrow &= 1,\n\\end{align*}\\]\n we obtain the results \n\\((\\omega = \\omega_0)\\)\n \n\\[\\begin{align*}\nP_\\downarrow &= \\frac{1-\\cos\\theta}{2}\\\\\n&= \\frac{1-\\cos^2\\alpha-\\sin^2\\alpha\\cos\\Omega t}{2}\\\\\n&= \\sin^2\\alpha\\frac{1-\\cos\\Omega t}{2}\\\\\n&= \\frac{b^2}{\\left(B_0 - \\frac{\\omega}{\\gamma}\\right)^2 + b^2}\\sin^2\\frac{\\Omega t}{2}\\\\\n&= \\sin^2\\frac{\\Omega t}{2}, \\tag{13}\n\\end{align*}\\]\n and \n\\[\\begin{equation}\nP_\\uparrow = \\frac{b^2}{\\left(B_0 - \\frac{\\omega}{\\gamma}\\right)^2 + b^2}\\cos^2\\frac{\\Omega t}{2} = \\cos^2\\frac{\\Omega t}{2}.\n\\tag{14}\n\\end{equation}\\]\n\n\n\n\n\n\n\n\n\nPart D. Measurement incompatibility\n\n\n1.In the \n\\(x\\)\n direction, the uncertainty in position due to the screen opening is \n\\(\\Delta x\\)\n. According to the uncertainty principle, the atom momentum uncertainty \n\\(\\Delta p_x\\)\n is given by \n\\[\\Delta p_x \\approx \\frac{\\hbar}{\\Delta x},\\]\n which translates into an uncertainty in the \n\\(x\\)\n velocity of the atom, \n\\[v_x \\approx \\frac{\\hbar}{m\\Delta x}.\\]\n Consequently, during the time of flight \n\\(t\\)\n of the atoms through the device, the uncertainty in the width of the beam will grow by an amount \n\\(\\delta x\\)\n given by \n\\[\\delta x = \\Delta v_xt \\approx \\frac{\\hbar}{m\\Delta x}t.\\]\n\n\nSo, the width of the beams is growing linearly in time. Meanwhile, the two beams are separating at a rate determined by the force \n\\(F_x\\)\n and the separation between the beams after a time \n\\(t\\)\n becomes \n\\[d_x = 2\\times\\frac{1}{2}\\frac{F_x}{m}t^2 = \\frac{1}{m}\\left|\\mu_x\\right|Ct^2.\\]\n In order to be able to distinguish which beam a particle belongs to, the separation of the two beams must be greater than the widths of the beams; otherwise the two beams will overlap and it will be impossible to know what the \n\\(x\\)\n component of the atom spin is. Thus, the condition must be satisfied is \n\\[\\begin{align*}\nd_x &\\gg \\delta x,\\\\\n\\frac{1}{m}\\left|\\mu_x\\right|Ct^2 &\\gg \\frac{\\hbar}{m\\Delta x}t,\\\\\n\\frac{1}{\\hbar}\\left|\\mu_x\\right|\\Delta xCt &\\gg 1. \\tag{15}\n\\end{align*}\\]\n\n\n2.As the atoms pass through the screen, the variation of magnetic field strength across the beam width experienced by the atoms is \n\\[\\Delta B = \\Delta x\\frac{dB}{dx} = C\\Delta x.\\]\n This means the atoms will precess at rates covering a range of values \n\\(\\Delta\\omega\\)\n given by \n\\[\\Delta\\omega = \\gamma\\Delta B = \\frac{\\mu_z}{\\hbar}\\Delta B = \\frac{\\left|\\mu_x\\right|}{\\hbar}C\\Delta x,\\]\n and, if previous condition in measuring \n\\(\\mu_x\\)\n is satisfied, \n\\[\\begin{equation}\n\\Delta\\omega t \\gg 1.\n\\tag{16}\n\\end{equation}\\]\n In other words, the spread in the angle \n\\(\\Delta\\omega t\\)\n through which the magnetic moments precess is so large that the \n\\(z\\)\n component of the spin is completely randomized or the measurement uncertainty is very large.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2013-t3/2ac222d1f4da3fe8d37c.png",
+      "/corpus/figures/native/bulk/apho-2013-t3/57b73d51411f522081b7.png"
+    ],
+    "shared": false
+  }
+}

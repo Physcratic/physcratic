@@ -1,1 +1,4048 @@
-{"id":"ipho-2008-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2008_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2008_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2008-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"                 39th International Physics Olympiad - Hanoi - Vietnam - 2008                                   \n                                Theoretical Problem No. 2   \n                           \nCHERENKOV LIGHT AND RING IMAGING COUNTER \n \n \nLight propagates in vacuum with the speed \n. There is no particle which moves with \na speed higher than \n. However, it is possible that in a transparent medium a particle \nmoves with a speed \n higher than the speed of the light in the same medium \nc\nc\nv\nc\nn\n, where \n is the refraction index of the medium. Experiment (Cherenkov, 1934) and theory \n(Tamm and Frank, 1937) showed that a charged particle, moving with a speed \n in a \ntransparent medium with refractive index \n such that \nn\nv\nn\nc\nn\n>\nv\n, radiates light, called \nCherenkov light, in directions forming \nwith \nthe \ntrajectory \nan \nangle  \n \n1\narccos\nn\nθ\nβ\n=\n   \n \n \n(1) \nθ\nθ\nA\nB \nwhere \nc\nβ = v .  \n1. To establish this fact, consider a particle moving at constant velocity \nc\nn\n>\nv\n on a \nstraight line. It passes A at time 0 and B at time \n. As the problem is symmetric with \nrespect to rotations around AB, it is sufficient to consider light rays in a plane containing \nAB. \n1t\n \nAt any point C between A and B, the particle emits a spherical light wave, which \npropagates with velocity c\nn\n. We define the wave front at a given time \nas the envelope \nof all these spheres at this time.  \nt\n \n1.1. Determine the wave front at time \n and draw its intersection with a plane \ncontaining the trajectory of the particle.  \n1t\n  1.2. Express the angle ϕ  between this intersection and the trajectory of the particle \nin terms of \n and \nn\nβ . \n2. Let us consider a beam of particles moving with velocity \nc\nn\n>\nv\n, such that the angle \nθ  is small, along a straight line IS. The beam crosses a concave spherical mirror of focal \nlength f and center C, at point S. SC makes with SI a small angle α  (see the figure in \nthe Answer Sheet). The particle beam creates a ring image in the focal plane of the mirror. \n \n1\n\n                 39th International Physics Olympiad - Hanoi - Vietnam - 2008                                   \n                                Theoretical Problem No. 2   \n                           \nExplain why with the help of a sketch illustrating this fact. Give the position of the center \nO and the radius \n of the ring image.  \nr\n This set up is used in ring imaging Cherenkov counters (RICH) and the medium which \nthe particle traverses is called the radiator. \nNote: in all questions of the present problem, terms of second order and higher in α  \nand θ  will be neglected. \n \n3. A beam of particles of known momentum \n10 0 GeV/\n.\np\nc\n=\n consists of three types of \nparticles: protons, kaons and pions, with rest mass \n2\np\n0 94 GeV\n.\n/\nM\nc\n=\n,  \n2\nκ\n0 50 GeV\n.\n/\nM\nc\n=\n and \n2\nπ\n0 14 GeV\n.\n/\nM\nc\n=\n, respectively. Remember that \n and \npc\n2\nMc  have the dimension of an energy, and 1 eV is the energy acquired by an electron \nafter being accelerated by a voltage 1 V, and 1 GeV = 109 eV, 1 MeV = 106 eV.  \n \nThe particle beam traverses an air medium (the radiator) under the pressure \n. The \nrefraction index of air depends on the air pressure\naccording to the relation \nwhere a = 2.7×10\nP\nP\n1\nn\na\n= + P\n-4 atm-1\n \n3.1. Calculate for each of the three particle types the minimal value \nof the air \npressure such that they emit Cherenkov light. \nmin\nP\n \n3.2. Calculate the pressure \n1\n2\nP  such that the ring image of kaons has a radius equal \nto one half of that corresponding to pions. Calculate the values of \nκ\nθ  and \nπ\nθ  in this \ncase.  \n \nIs it possible to observe the ring image of protons under this pressure? \n \n \n4. Assume now that the beam is not perfectly monochromatic: the particles momenta are \ndistributed over an interval centered at 10 \n having a half width at half height \n. This makes the ring image broaden, correspondingly \nGeV / c\np\nΔ\nθ  distribution has a half \nwidth at half height \nθ\nΔ\n. The pressure of the radiator is \n1\n2\nP  determined in 3.2.  \n \n4.1. Calculate \nκ\np\nθ\nΔ\nΔ\n and \nπ\np\nθ\nΔ\nΔ\n, the values taken by \np\nθ\nΔ\nΔ\nin the pions and kaons \ncases. \n \n4.2. When the separation between the two ring images, \nπ\nκ\nθ\nθ\n−\n, is greater than 10 \n \n2\n\n                 39th International Physics Olympiad - Hanoi - Vietnam - 2008                                   \n                                Theoretical Problem No. 2   \n                           \nπ\ntimes the half-width sum \nκ\nθ\nθ\nΔ\n= Δ\n+ Δθ , that is \nπ\nκ\n10\nθ\nθ\nθ\n−\n>\nΔ\n, it is possible to \ndistinguish well the two ring images. Calculate the maximal value of \n such that the \ntwo ring images can still be well distinguished. \np\nΔ\n5. Cherenkov first discovered the effect bearing his name when he was observing a bottle \nof water located near a radioactive source. He saw that the water in the bottle emitted \nlight.  \n \n5.1. Find out the minimal kinetic energy \n of a particle with a rest mass \nmin\nT\nM  \nmoving in water, such that it emits Cherenkov light. The index of refraction of water is  \nn = 1.33. \n5.2. The radioactive source used by Cherenkov emits either α particles (i.e. helium \nnuclei) having a rest mass \n2\nα\n3 8 GeV\n.\n/\nM\nc\n=\n or β particles (i.e. electrons) having a \nrest mass \n2\ne\n0 51 MeV\n.\n/\nM\nc\n=\n. Calculate the numerical values of \n for α particles \nand β particles.  \nmin\nT\nKnowing that the kinetic energy of particles emitted by radioactive sources never \nexceeds a few MeV, find out which particles give rise to the radiation observed by \nCherenkov. \n \n6. In the previous sections of the problem, the dependence of the Cherenkov effect on \nwavelength λ  has been ignored. We now take into account the fact that the Cherenkov \nradiation of a particle has a broad continuous spectrum including the visible range  \n(wavelengths from 0.4 µm to 0.8 µm). We know also that the index of refraction \n of \nthe radiator decreases linearly by 2% of \nn\n1\nn − whenλ  increases over this range.  \n \n6.1. Consider a beam of pions with definite momentum of \n moving in \nair at pressure 6 atm. Find out the angular difference \n10 0 GeV\n.\nc\n/\nδθ  associated with the two ends \nof the visible range. \n \n6.2. On this basis, study qualitatively the effect of the dispersion on the ring image of \npions with momentum distributed over an interval centered at \nand \nhaving a half width at half height\n10 GeV /\np\nc\n=\n0 3 GeV\n.\n/\np\nc\nΔ =\n.  \n6.2.1. Calculate the broadening due to dispersion (varying refraction index) and \nthat due to achromaticity of the beam (varying momentum). \n6.2.2. Describe how the color of the ring changes when going from its inner to \nouter edges by checking the appropriate boxes in the Answer Sheet. \n \n3\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2008-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n1\n \nSolution \n \n \n1. \n \n \n                                                                                 \n                                                                                    \n                           \n \n \n \n                                                                                     \n                                                                                 \nA\nθ\nC\nB\nD\nE\nD’\n \nFigure 1 \n                                           \nLet us consider a plane containing the particle trajectory. At \n, the particle \nposition is at point A. It reaches point B at \n0\nt =\n1\nt\nt\n=\n. According to the Huygens principle, at \nmoment \n, the radiation emitted at A reaches the circle with a radius equal to AD \nand the one emitted at C reaches the circle of radius CE. The radii of the spheres are \nproportional to the distance of their centre to B: \n1\n0\nt\nt\n< <\n(\n)\n(\n)\n1\n1\nCE\n1\nconst\nCB\n/\nc t\nt\nn\nt\nt\nn\nβ\n−\n=\n=\n=\n−\nv\n \nThe spheres are therefore transformed into each other by homothety of vertex B and \ntheir envelope is the cone of summit B and half aperture \n1\n2\nArcsin\nn\nπ\nϕ\nθ\nβ\n=\n=\n−\n, \nwhere θ  is the angle made by the light ray CE with the particle trajectory.  \n1.1. The intersection of the wave front with the plane is two straight lines, BD and \nBD'. \n1.2. They make an angle \n1\nArcsin\nn\nϕ\nβ\n=\nwith the particle trajectory.  \n\n                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n2\n \n2. The construction for finding the ring image of the particles beam is taken in the plane  \ncontaining the trajectory of the particle and the optical axis of the mirror.  \nWe adopt the notations: \nS – the point where the beam crosses the spherical mirror \n \nF – the focus of the spherical mirror  \n \nC – the center of the spherical mirror \n \nIS – the straight-line trajectory of the charged particle making a small angle α with \nthe optical axis of the mirror. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nI \nθ\nθ\nC\nF\nO\nM\nN\nS\nα \nA \nP \nQ \nFigure 2 \n \n \nCF = FS = f \n \n \nCO//IS \n \n \nCM//AP \n \n \nCN//AQ \n \n \nn\nFCO\nα\n=\n⇒FO\nf\nα\n=\n×\n \n \n \nn\nn\nMCO\nOCN\nθ\n=\n=\n⇒MO\nf\nθ\n=\n×\n \n \nWe draw a straight line parallel to IS passing through the center C. The line intersects \nthe focal plane at O. We have FO ≈ f × α  . \n \nStarting from C, we draw two lines in both sides of the line CO making with it an \nangle θ. These two lines intersect the focal plane at M and N, respectively. All the rays of \nCherenkov radiation in the plane of the sketch, striking the mirror and being reflected, \n\n                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n3\nintersect at M or N. \n \nIn three-dimension case, the Cherenkov radiation gives a ring in the focal plane with \nthe center at O (FO ≈ f × α) and with the radius MO ≈ f × θ.  \n \nIn the construction, all the lines are in the plane of the sketch. Exceptionally, the ring \nis illustrated spatially by a dash line.  \n \n3. \n \n3.1. For the Cherenkov effect to occur it is necessary that \nc\nn > v\n , that is  \nmin\nc\nn\n= v\n. \nPutting \n,  we get      \n4\n1\n2 7 10\n.\nn\n−\nζ =\n−=\n×\nP\n \n \n4\nmin\nmin\n1\n2 7 10\n1\n1\n.\nc\nP\nζ\nβ\n−\n=\n×\n=\n−=\n−\nv\n      \n \n \n \n \n \n \n(1)                   \nBecause \n2\n2\n2\n1\n1\nMc\nMc\nMc\nK\nMv\npc\np\nβ\nβ\nβ\n−\n=\n=\n=\n=\n−\n                       (2)                   \nthen K = 0.094 ; 0.05 ; 0.014 for proton, kaon and pion, respectively. \n \nFrom (2) we can express β through K as \n        \n2\n1\n1\nK\nβ =\n+\n           \n \n \n \n \n \n \n \n \n \n \n(3)                  \nSince \n for all three kinds of particles we can neglect the terms of order \nhigher than 2 in K . We get \n2\n1\nK <<\n     \n2\n2\n1\n1\n1\n1\n2\n1\nK\nK\nβ\n−\n= −\n≈\n+\n= \n2\n1\n2\nMc\np\n⎛\n⎞\n⎜\n⎟\n⎝\n⎠\n     \n                   (3a) \n    \n2\n2\n1\n1\n1\n1\n1\n2\nK\nK\nβ −=\n+\n−≈\n=\n2\n1\n2\nMc\np\n⎛\n⎞\n⎜\n⎟\n⎝\n⎠\n    \n \n \n \n \n \n \n \n(3b)  \n                            \n \nPutting (3b) into (1), we obtain \n\n                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n4\n    \n \n2\nmin\n4\n1\n1\n2\n2 7 10\n.\nP\n−\n=\n×\n×\nK\nκ\n                                (4) \n \n \nWe get the following numerical values of the minimal pressure:   \nmin\nP\n= 16 atm      for protons, \nmin\nP\n= 4.6 atm     for kaons, \nmin\nP\n= 0.36 atm     for pions. \n \n3.2. For \nπ\n2\nθ\nθ\n=\n  we have \n      \n    \n \n \n \n \n \n \n \n \n(5)                   \n2\nπ\nκ\nκ\n2\n2\ncos\ncos\ncos\nθ\nθ\nθ\n=\n=\n1\n−\nWe denote  \n     \n2\n2\n1\n1\n1\n1\n2\n1\nK\nK\nε\nβ\n= −\n= −\n≈\n+\n   \n \n \n \n \n \n \n \n \n \n(6)                   \nFrom (5) we obtain \n      \n2\n2\nπ\nκ\n1\n2\n1\nn\nn\nβ\nβ\n=\n−                          \n \n \n \n \n \n(7)                   \nSubstituting \n1\nβ\nε\n= −\n and \n1\nn\nζ\n= +\n into (7), we get approximately: \n                                           \n      \n(\n)\n2\n2\n2\n2\nκ\nπ\n1\nκ\nπ\n2\n4\n1\n1\n4\n4 0 05\n0 014\n3\n6\n6\n.( .\n)\n( .\n)\nK\nK\nε\nε\nζ\n−\n⎡\n⎤\n=\n=\n−\n=\n−\n⎣\n⎦, \n      \n1\n1\n4\n2\n2\n1\n6 atm\n2 7 10\n.\nP\n−\n=\nζ\n=\n×\n. \n \nThe corresponding value of refraction index is n = 1.00162. We get: \n       \nκ\nθ  = 1.6o ;        \n. \no\nπ\nκ\n2\n3 2.\nθ\nθ\n=\n=\nWe do not observe the ring image of protons since \n        \n1\nm\n2\n6atm\n16atm\nin\nP\nP\n=\n<\n=\n for protons. \n \n\n                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n5\n4. \n \n4.1. \nTaking \nlogarithmic \ndifferentiation \nof \nboth \nsides \nof \nthe \nequation            \n1\ncos\nn\nθ\nβ\n=\n, we obtain \n       sin\ncos\nθ\nθ\nθ\n×Δ\n = \nβ\nβ\nΔ\n    \n \n \n \n \n \n \n \n \n \n \n \n(8)      \n \n                                                     \n \nLogarithmically differentiating equation (3a) gives \n       \n2\n1\np\np\nβ\nβ\nΔ\nΔ\n=\n−\n      \n \n \n \n \n \n \n \n \n \n \n \n \n(9)                   \n \nCombining (8) and (9), taking into account (3b) and putting approximately \ntanθ\nθ\n=\n, we derive \n       \n2\n2\n1\nK\np\np\nθ\nβ\np\nθ\nβ\nθ\nΔ\n−\n=\n×\n=\nΔ\n      \n \n \n \n \n \n \n \n \n \n \n(10)                 \n \n \nWe obtain \n \n-for kaons \n ,\n \nκ\n0 05\n.\nK =\no\nκ\n1 6\n1 6\nrad\n180\n.\n.\nπ\nθ =\n=\n, and so,  \no\nκ\n1\n0 51GeV\n.\n/\np\nc\nθ\nΔ\n=\nΔ\n, \n \n-for \npions\nπ\n0 014\n.\nK =\n, \n, \nand             \no\nπ\n3 2.\nθ =\no\nπ\n1\n0 02 GeV\n.\n/\np\nc\nθ\nΔ\n=\nΔ\n . \n \n4.2.  \nκ\nπ\np\nθ\nθ\nΔ\n+ Δ\n≡\nΔ\n(\n)\no\no\n1\n1\n0 51 0 02\n0 53\nGeV\nGeV\n.\n.\n.\n/\n/\np\nc\nc\nθ\nΔ\n=\n+\n=\nΔ\n. \n \nThe \ncondition \nfor \ntwo \nring \nimages \nto \nbe \ndistinguishable \nis \n. \no\nπ\nκ\n0 1\n0 16\n. (\n)\n.\nθ\nθ\nθ\nΔ\n<\n−\n=\n \nIt follows  \n1\n1 6\n0 3 GeV\n10\n0 53\n.\n.\n/\n.\np\nc\nΔ <\n×\n=\n. \n \n\n                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n6\n5.  \n \n5.1. The lower limit of β  giving rise to Cherenkov effect is \n \n   \n1\n1\n1 33\n.\nn\nβ =\n=\n.                                           \n(11) \n \nThe kinetic energy of a particle having rest mass M  and energy E  is given by the \nexpression \n       \n2\n2\n2\n2\n2\n2\n1\n1\n1\n1\nMc\nT\nE\nMc\nMc\nMc\nβ\nβ\n⎡\n⎤\n⎢\n⎥\n=\n−\n=\n−\n=\n−\n⎢\n⎥\n−\n−\n⎣\n⎦\n.   \n \n \n(12) \nSubstituting the limiting value (11) of β  into (12), we get the minimal kinetic energy of \nthe particle for Cherenkov effect to occur: \n \n \n2\n2\nmin\n2\n1\n1\n0 517\n1\n1\n1 33\n.\n.\nT\nMc\nM\n⎡\n⎤\n⎢\n⎥\n⎢\n⎥\n=\n−\n=\n⎢\n⎥\n⎛\n⎞\n⎢\n⎥\n−⎜\n⎟\n⎢\n⎥\n⎝\n⎠\n⎣\n⎦\nc   \n \n \n \n \n \n(13) \n                                  \n \n5.2.  \n \nFor α particles, \n. \nmin\n0 517\n3 8 GeV\n1 96 GeV\n.\n.\n.\nT\n=\n×\n=\n \nFor electrons,  \n. \nmin\n0 517\n0 51 MeV\n0 264 MeV\n.\n.\n.\nT\n=\n×\n=\n \nSince the kinetic energy of the particles emitted by radioactive source does not \nexceed a few MeV, these are electrons which give rise to Cherenkov radiation in the \nconsidered experiment. \n \n6. For a beam of particles having a definite momentum the dependence of the angle θ  \non the refraction index \n of the medium is given by the expression \nn\n     \n1\ncos\nn\nθ\nβ\n=\n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n(14) \n              \n \n6.1. Let δθ  be the difference of θ  between two rings corresponding to two \nwavelengths limiting the visible range, i.e. to wavelengths of 0.4 µm (violet) and     \n0.8 µm (red), respectively. The difference in the refraction indexes at these wavelengths \nis \n(\n)\nv\nr\n0 02\n1\n.\nn\nn\nn\nδ\nn\n−\n=\n=\n−\n. \n    Logarithmically differentiating both sides of equation (14) gives \n\n                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n7\n        \nsin\ncos\nn\nn\nθ\nδθ\nδ\nθ\n×\n=\n                                      \n(15)        \n \nCorresponding to the pressure of the radiator P = 6 atm we have from 4.2. the values            \nπ\nθ = 3.2o , \n1.00162.  \nn =\n \nPutting approximately tanθ\nθ\n=\n  and  n = 1, we get  \no\n0 033\n.\nn\nδ\nδθ\nθ\n=\n=\n.        \n \n6.2.  \n \n6.2.1. The broadening due to dispersion in terms of half width at half height is, \naccording to (6.1), \no\n1\n0 017\n2\n.\nδθ =\n. \n \n6.2.2. \nThe \nbroadening \ndue \nto \nachromaticity \nis, \nfrom \n4.1., \no\no\n1\n0 02\n0 3 GeV/c\n0 006\nGeV/c\n.\n.\n×\n= .\n, that is three times smaller than above. \n    6.2.3. The color of the ring changes from red to white then blue from the inner \nedge to the outer one. \n  \n \n                                        \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2008-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2008_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2008_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2008-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "CHERENKOV LIGHT AND RING IMAGING COUNTER"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Light propagates in vacuum with the speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". There is no particle which moves with a speed higher than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". However, it is possible that in a transparent medium a particle moves with a speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " higher than the speed of the light in the same medium "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{c}{n}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the refraction index of the medium. Experiment (Cherenkov, 1934) and theory (Tamm and Frank, 1937) showed that a charged particle, moving with a speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in a transparent medium with refractive index "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " such that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v > \\frac{c}{n}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", radiates light, called "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Cherenkov light"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", in directions forming with the trajectory an angle"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\theta = \\mathop{\\mathbf{arccos}}\\frac{1}{\\beta n} \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta = \\frac{v}{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2008-t2/9433817d38cc65d55bd2.png",
+                "alt": "ipho-2008-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " To establish this fact, consider a particle moving at constant velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v > \\frac{c}{n}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on a straight line. It passes A at time 0 and B at time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". As the problem is symmetric with respect to rotations around AB, it is sufficient to consider light rays in a plane containing AB."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At any point C between A and B, the particle emits a spherical light wave, which propagates with velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{c}{n}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We define the wave front at a given time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as the envelope of all these spheres at this time."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1. Determine the wave front at time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and draw its intersection with a plane containing the trajectory of the particle."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2. Express the angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between this intersection and the trajectory of the particle in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Let us consider a beam of particles moving with velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v > \\frac{c}{n}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", such that the angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is small, along a straight line IS. The beam crosses a concave spherical mirror of focal length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and center C, at point S. SC makes with SI a small angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (see the figure in the Answer Sheet). The particle beam creates a ring image in the focal plane of the mirror. Explain why with the help of a sketch illustrating this fact. Give the position of the center O and the radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the ring image."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This set up is used in "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "ring imaging Cherenkov counters"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (RICH) and the medium which the particle traverses is called the "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "radiator"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Note:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in all questions of the present problem, terms of second order and higher in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will be neglected."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "3."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " A beam of particles of known momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p = 10.0\\,\\mathrm{GeV}/c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " consists of three types of particles: protons, kaons and pions, with rest mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_{\\mathrm{p}} = 0.94\\,\\mathrm{GeV}/c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_{\\kappa} = 0.50\\,\\mathrm{GeV}/c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_{\\pi} = 0.14\\,\\mathrm{GeV}/c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", respectively. Remember that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(pc\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Mc^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " have the dimension of an energy, and 1 eV is the energy acquired by an electron after being accelerated by a voltage 1 V, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1\\,\\mathrm{GeV} = 10^9\\,\\mathrm{eV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1\\,\\mathrm{MeV} = 10^6\\,\\mathrm{eV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The particle beam traverses an air medium (the radiator) under the pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The refraction index of air depends on the air pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " according to the relation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n = 1 + aP\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a = 2.7\\times10^{-4}\\,\\mathrm{atm}^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.1. Calculate for each of the three particle types the minimal value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_{\\min}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the air pressure such that they emit Cherenkov light."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.2. Calculate the pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_{1/2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " such that the ring image of kaons has a radius equal to one half of that corresponding to pions. Calculate the values of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_{\\kappa}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_{\\pi}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in this case."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Is it possible to observe the ring image of protons under this pressure?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "4."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Assume now that the beam is not perfectly monochromatic: the particles momenta are distributed over an interval centered at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(10\\,\\mathrm{GeV}/c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " having a half width at half height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This makes the ring image broaden, correspondingly "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " distribution has a half width at half height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The pressure of the radiator is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_{1/2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " determined in 3.2."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.1. Calculate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{\\Delta\\theta_{\\kappa}}{\\Delta p}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{\\Delta\\theta_{\\pi}}{\\Delta p}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the values taken by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{\\Delta\\theta}{\\Delta p}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the pions and kaons cases."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.2. When the separation between the two ring images, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_{\\pi} - \\theta_{\\kappa}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is greater than 10 times the half-width sum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\theta = \\Delta\\theta_{\\kappa} + \\Delta\\theta_{\\pi}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", that is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_{\\pi} - \\theta_{\\kappa} > 10\\,\\Delta\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", it is possible to distinguish well the two ring images. Calculate the maximal value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " such that the two ring images can still be well distinguished."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "5."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Cherenkov first discovered the effect bearing his name when he was observing a bottle of water located near a radioactive source. He saw that the water in the bottle emitted light."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "5.1. Find out the minimal kinetic energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{\\min}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of a particle with a rest mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " moving in water, such that it emits Cherenkov light. The index of refraction of water is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n = 1.33\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "5.2. The radioactive source used by Cherenkov emits either "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " particles (i.e. helium nuclei) having a rest mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_{\\alpha} = 3.8\\,\\mathrm{GeV}/c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " particles (i.e. electrons) having a rest mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_{\\mathrm{e}} = 0.51\\,\\mathrm{MeV}/c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Calculate the numerical values of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{\\min}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " particles and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " particles."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Knowing that the kinetic energy of particles emitted by radioactive sources never exceeds a few MeV, find out which particles give rise to the radiation observed by Cherenkov."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "6."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " In the previous sections of the problem, the dependence of the Cherenkov effect on wavelength "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " has been ignored. We now take into account the fact that the Cherenkov radiation of a particle has a broad continuous spectrum including the visible range (wavelengths from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.4\\,\\mu\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.8\\,\\mu\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). We know also that the index of refraction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the radiator decreases linearly by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2\\%\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n-1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " increases over this range."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.1. Consider a beam of pions with definite momentum of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(10.0\\,\\mathrm{GeV}/c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " moving in air at pressure 6 atm. Find out the angular difference "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " associated with the two ends of the visible range."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.2. On this basis, study qualitatively the effect of the dispersion on the ring image of pions with momentum distributed over an interval centered at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p = 10\\,\\mathrm{GeV}/c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and having a half width at half height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta p = 0.3\\,\\mathrm{GeV}/c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.2.1. Calculate the broadening due to dispersion (varying refraction index) and that due to achromaticity of the beam (varying momentum)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.2.2. Describe how the color of the ring changes when going from its inner to outer edges by checking the appropriate boxes in the Answer Sheet."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "CHERENKOV LIGHT AND RING IMAGING COUNTER\n\n\nLight propagates in vacuum with the speed \n\\(c\\)\n. There is no particle which moves with a speed higher than \n\\(c\\)\n. However, it is possible that in a transparent medium a particle moves with a speed \n\\(v\\)\n higher than the speed of the light in the same medium \n\\(\\frac{c}{n}\\)\n, where \n\\(n\\)\n is the refraction index of the medium. Experiment (Cherenkov, 1934) and theory (Tamm and Frank, 1937) showed that a charged particle, moving with a speed \n\\(v\\)\n in a transparent medium with refractive index \n\\(n\\)\n such that \n\\(v > \\frac{c}{n}\\)\n, radiates light, called \nCherenkov light\n, in directions forming with the trajectory an angle\n\n\n\\[\\begin{equation}\n\\theta = \\mathop{\\mathbf{arccos}}\\frac{1}{\\beta n} \\tag{1}\n\\end{equation}\\]\n\n\nwhere \n\\(\\beta = \\frac{v}{c}\\)\n.\n\n\n\n\n\n\n\n\n\n1.\n To establish this fact, consider a particle moving at constant velocity \n\\(v > \\frac{c}{n}\\)\n on a straight line. It passes A at time 0 and B at time \n\\(t_1\\)\n. As the problem is symmetric with respect to rotations around AB, it is sufficient to consider light rays in a plane containing AB.\n\n\nAt any point C between A and B, the particle emits a spherical light wave, which propagates with velocity \n\\(\\frac{c}{n}\\)\n. We define the wave front at a given time \n\\(t\\)\n as the envelope of all these spheres at this time.\n\n\n1.1. Determine the wave front at time \n\\(t_1\\)\n and draw its intersection with a plane containing the trajectory of the particle.\n\n\n1.2. Express the angle \n\\(\\varphi\\)\n between this intersection and the trajectory of the particle in terms of \n\\(n\\)\n and \n\\(\\beta\\)\n.\n\n\n2.\n Let us consider a beam of particles moving with velocity \n\\(v > \\frac{c}{n}\\)\n, such that the angle \n\\(\\theta\\)\n is small, along a straight line IS. The beam crosses a concave spherical mirror of focal length \n\\(f\\)\n and center C, at point S. SC makes with SI a small angle \n\\(\\alpha\\)\n (see the figure in the Answer Sheet). The particle beam creates a ring image in the focal plane of the mirror. Explain why with the help of a sketch illustrating this fact. Give the position of the center O and the radius \n\\(r\\)\n of the ring image.\n\n\nThis set up is used in \nring imaging Cherenkov counters\n (RICH) and the medium which the particle traverses is called the \nradiator\n.\n\n\nNote:\n in all questions of the present problem, terms of second order and higher in \n\\(\\alpha\\)\n and \n\\(\\theta\\)\n will be neglected.\n\n\n3.\n A beam of particles of known momentum \n\\(p = 10.0\\,\\mathrm{GeV}/c\\)\n consists of three types of particles: protons, kaons and pions, with rest mass \n\\(M_{\\mathrm{p}} = 0.94\\,\\mathrm{GeV}/c^2\\)\n, \n\\(M_{\\kappa} = 0.50\\,\\mathrm{GeV}/c^2\\)\n and \n\\(M_{\\pi} = 0.14\\,\\mathrm{GeV}/c^2\\)\n, respectively. Remember that \n\\(pc\\)\n and \n\\(Mc^2\\)\n have the dimension of an energy, and 1 eV is the energy acquired by an electron after being accelerated by a voltage 1 V, and \n\\(1\\,\\mathrm{GeV} = 10^9\\,\\mathrm{eV}\\)\n, \n\\(1\\,\\mathrm{MeV} = 10^6\\,\\mathrm{eV}\\)\n.\n\n\nThe particle beam traverses an air medium (the radiator) under the pressure \n\\(P\\)\n. The refraction index of air depends on the air pressure \n\\(P\\)\n according to the relation \n\\(n = 1 + aP\\)\n where \n\\(a = 2.7\\times10^{-4}\\,\\mathrm{atm}^{-1}\\)\n.\n\n\n3.1. Calculate for each of the three particle types the minimal value \n\\(P_{\\min}\\)\n of the air pressure such that they emit Cherenkov light.\n\n\n3.2. Calculate the pressure \n\\(P_{1/2}\\)\n such that the ring image of kaons has a radius equal to one half of that corresponding to pions. Calculate the values of \n\\(\\theta_{\\kappa}\\)\n and \n\\(\\theta_{\\pi}\\)\n in this case.\n\n\nIs it possible to observe the ring image of protons under this pressure?\n\n\n4.\n Assume now that the beam is not perfectly monochromatic: the particles momenta are distributed over an interval centered at \n\\(10\\,\\mathrm{GeV}/c\\)\n having a half width at half height \n\\(\\Delta p\\)\n. This makes the ring image broaden, correspondingly \n\\(\\theta\\)\n distribution has a half width at half height \n\\(\\Delta\\theta\\)\n. The pressure of the radiator is \n\\(P_{1/2}\\)\n determined in 3.2.\n\n\n4.1. Calculate \n\\(\\frac{\\Delta\\theta_{\\kappa}}{\\Delta p}\\)\n and \n\\(\\frac{\\Delta\\theta_{\\pi}}{\\Delta p}\\)\n, the values taken by \n\\(\\frac{\\Delta\\theta}{\\Delta p}\\)\n in the pions and kaons cases.\n\n\n4.2. When the separation between the two ring images, \n\\(\\theta_{\\pi} - \\theta_{\\kappa}\\)\n, is greater than 10 times the half-width sum \n\\(\\Delta\\theta = \\Delta\\theta_{\\kappa} + \\Delta\\theta_{\\pi}\\)\n, that is \n\\(\\theta_{\\pi} - \\theta_{\\kappa} > 10\\,\\Delta\\theta\\)\n, it is possible to distinguish well the two ring images. Calculate the maximal value of \n\\(\\Delta p\\)\n such that the two ring images can still be well distinguished.\n\n\n5.\n Cherenkov first discovered the effect bearing his name when he was observing a bottle of water located near a radioactive source. He saw that the water in the bottle emitted light.\n\n\n5.1. Find out the minimal kinetic energy \n\\(T_{\\min}\\)\n of a particle with a rest mass \n\\(M\\)\n moving in water, such that it emits Cherenkov light. The index of refraction of water is \n\\(n = 1.33\\)\n.\n\n\n5.2. The radioactive source used by Cherenkov emits either \n\\(\\alpha\\)\n particles (i.e. helium nuclei) having a rest mass \n\\(M_{\\alpha} = 3.8\\,\\mathrm{GeV}/c^2\\)\n or \n\\(\\beta\\)\n particles (i.e. electrons) having a rest mass \n\\(M_{\\mathrm{e}} = 0.51\\,\\mathrm{MeV}/c^2\\)\n. Calculate the numerical values of \n\\(T_{\\min}\\)\n for \n\\(\\alpha\\)\n particles and \n\\(\\beta\\)\n particles.\n\n\nKnowing that the kinetic energy of particles emitted by radioactive sources never exceeds a few MeV, find out which particles give rise to the radiation observed by Cherenkov.\n\n\n6.\n In the previous sections of the problem, the dependence of the Cherenkov effect on wavelength \n\\(\\lambda\\)\n has been ignored. We now take into account the fact that the Cherenkov radiation of a particle has a broad continuous spectrum including the visible range (wavelengths from \n\\(0.4\\,\\mu\\mathrm{m}\\)\n to \n\\(0.8\\,\\mu\\mathrm{m}\\)\n). We know also that the index of refraction \n\\(n\\)\n of the radiator decreases linearly by \n\\(2\\%\\)\n of \n\\(n-1\\)\n when \n\\(\\lambda\\)\n increases over this range.\n\n\n6.1. Consider a beam of pions with definite momentum of \n\\(10.0\\,\\mathrm{GeV}/c\\)\n moving in air at pressure 6 atm. Find out the angular difference \n\\(\\delta\\theta\\)\n associated with the two ends of the visible range.\n\n\n6.2. On this basis, study qualitatively the effect of the dispersion on the ring image of pions with momentum distributed over an interval centered at \n\\(p = 10\\,\\mathrm{GeV}/c\\)\n and having a half width at half height \n\\(\\Delta p = 0.3\\,\\mathrm{GeV}/c\\)\n.\n\n\n6.2.1. Calculate the broadening due to dispersion (varying refraction index) and that due to achromaticity of the beam (varying momentum).\n\n\n6.2.2. Describe how the color of the ring changes when going from its inner to outer edges by checking the appropriate boxes in the Answer Sheet.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2008-t2/9433817d38cc65d55bd2.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2008-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Solution"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2008-t2/203048b174e7ed47b3a4.png",
+                "alt": "ipho-2008-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Figure 1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let us consider a plane containing the particle trajectory. At "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t=0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the particle position is at point A. It reaches point B at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t=t_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". According to the Huygens principle, at moment "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0<t<t_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the radiation emitted at A reaches the circle with a radius equal to AD and the one emitted at C reaches the circle of radius CE. The radii of the spheres are proportional to the distance of their centre to B:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\mathrm{CE}}{\\mathrm{CB}} = \\frac{c(t_1-t)/n}{v(t_1-t)} = \\frac{1}{\\beta n} = \\mathrm{const}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The spheres are therefore transformed into each other by homothety of vertex B and their envelope is the cone of summit B and half aperture "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi = \\mathbf{Arcsin}\\frac{1}{\\beta n} = \\frac{\\pi}{2} - \\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the angle made by the light ray CE with the particle trajectory."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1. The intersection of the wave front with the plane is two straight lines, BD and BD’."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2. They make an angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi = \\mathbf{Arcsin}\\frac{1}{\\beta n}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with the particle trajectory."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The construction for finding the ring image of the particles beam is taken in the plane containing the trajectory of the particle and the optical axis of the mirror."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We adopt the notations:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "S – the point where the beam crosses the spherical mirror"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "F – the focus of the spherical mirror"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C – the center of the spherical mirror"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "IS – the straight-line trajectory of the charged particle making a small angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with the optical axis of the mirror."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2008-t2/6453ebfe336237a321fe.png",
+                "alt": "ipho-2008-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Figure 2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "CF = FS = "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "CO//IS"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "CM//AP"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "CN//AQ"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\widehat{\\mathrm{FCO}} = \\alpha \\Rightarrow \\mathrm{FO} = f \\times \\alpha\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\widehat{\\mathrm{MCO}} = \\widehat{\\mathrm{OCN}} = \\theta \\Rightarrow \\mathrm{MO} = f \\times \\theta\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We draw a straight line parallel to IS passing through the center C. The line intersects the focal plane at O. We have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{FO} \\approx f \\times \\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Starting from C, we draw two lines in both sides of the line CO making with it an angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". These two lines intersect the focal plane at M and N, respectively. All the rays of Cherenkov radiation in the plane of the sketch, striking the mirror and being reflected, intersect at M or N."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In three-dimension case, the Cherenkov radiation gives a ring in the focal plane with the center at O ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{FO} \\approx f \\times \\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and with the radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{MO} \\approx f \\times \\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the construction, all the lines are in the plane of the sketch. Exceptionally, the ring is illustrated spatially by a dash line."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "3."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.1. For the Cherenkov effect to occur it is necessary that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n > \\frac{c}{v}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", that is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_{\\min} = \\frac{c}{v}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Putting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\zeta = n-1 = 2.7\\times10^{-4}P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , we get"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\zeta_{\\min} = 2.7\\times10^{-4}P_{\\min} = \\frac{c}{v} - 1 = \\frac{1}{\\beta} - 1\n\\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Because"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{Mc^2}{pc} = \\frac{Mc}{p} = \\frac{Mc}{\\frac{Mv}{\\sqrt{1-\\beta^2}}} = \\frac{\\sqrt{1-\\beta^2}}{\\beta} = K\n\\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K = 0.094\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ; "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.05\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ; "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.014\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for proton, kaon and pion, respectively."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From (2) we can express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " through "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\beta = \\frac{1}{\\sqrt{1+K^2}}\n\\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K^2 << 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for all three kinds of particles we can neglect the terms of order higher than 2 in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We get"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n1-\\beta = 1-\\frac{1}{\\sqrt{1+K^2}} \\approx \\frac{1}{2}K^2 = \\frac{1}{2}\\left(\\frac{Mc}{p}\\right)^2\n\\tag{3a}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{1}{\\beta}-1 = \\sqrt{1+K^2}-1 \\approx \\frac{1}{2}K^2 = \\frac{1}{2}\\left(\\frac{Mc}{p}\\right)^2\n\\tag{3b}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Putting (3b) into (1), we obtain"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nP_{\\min} = \\frac{1}{2.7\\times10^{-4}}\\times\\frac{1}{2}K^2\n\\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We get the following numerical values of the minimal pressure:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_{\\min} = 16\\,\\mathrm{atm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for protons,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_{\\min} = 4.6\\,\\mathrm{atm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for kaons,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_{\\min} = 0.36\\,\\mathrm{atm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for pions."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.2. For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_{\\pi} = 2\\theta_{\\kappa}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we have"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\mathbf{cos}\\theta_{\\pi} = \\mathbf{cos}2\\theta_{\\kappa} = 2\\mathbf{cos}^2\\theta_{\\kappa} - 1\n\\tag{5}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We denote"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\varepsilon = 1-\\beta = 1-\\frac{1}{\\sqrt{1+K^2}} \\approx \\frac{1}{2}K^2\n\\tag{6}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From (5) we obtain"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{1}{\\beta_{\\pi}n} = \\frac{2}{\\beta_{\\kappa}^2n^2} - 1\n\\tag{7}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Substituting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta = 1-\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n = 1+\\zeta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " into (7), we get approximately:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\zeta_{\\frac{1}{2}} = \\frac{4\\varepsilon_{\\kappa} - \\varepsilon_{\\pi}}{3} = \\frac{1}{6}\\left(4K_{\\kappa}^2 - K_{\\pi}^2\\right) = \\frac{1}{6}\\left[4.(0.05)^2 - (0.014)^2\\right],\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[P_{\\frac{1}{2}} = \\frac{1}{2.7\\times10^{-4}}\\zeta_{\\frac{1}{2}} = 6\\,\\mathrm{atm}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The corresponding value of refraction index is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n = 1.00162\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We get:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\theta_{\\kappa} = 1.6^{\\mathrm{o}} ; \\qquad \\theta_{\\pi} = 2\\theta_{\\kappa} = 3.2^{\\mathrm{o}}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We do not observe the ring image of protons since"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[P_{\\frac{1}{2}} = 6\\,\\mathrm{atm} < 16\\,\\mathrm{atm} = P_{\\min} \\quad \\text{for protons.}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "4."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.1. Taking logarithmic differentiation of both sides of the equation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{cos}\\theta = \\frac{1}{\\beta n}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we obtain"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\mathbf{sin}\\theta \\times \\Delta\\theta}{\\mathbf{cos}\\theta} = \\frac{\\Delta\\beta}{\\beta}\n\\tag{8}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Logarithmically differentiating equation (3a) gives"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\Delta\\beta}{1-\\beta} = 2\\frac{\\Delta p}{p}\n\\tag{9}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Combining (8) and (9), taking into account (3b) and putting approximately "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{tan}\\theta = \\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we derive"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\Delta\\theta}{\\Delta p} = \\frac{2}{\\theta}\\times\\frac{1-\\beta}{p\\beta} = \\frac{K^2}{\\theta p}\n\\tag{10}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We obtain"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "-for kaons "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K_{\\kappa} = 0.05\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_{\\kappa} = 1.6^{\\mathrm{o}} = 1.6\\,\\frac{\\pi}{180}\\,\\mathrm{rad}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and so, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{\\Delta\\theta_{\\kappa}}{\\Delta p} = 0.51\\,\\frac{1^{\\mathrm{o}}}{\\mathrm{GeV}/c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ","
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "-for pions "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K_{\\pi} = 0.014\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_{\\pi} = 3.2^{\\mathrm{o}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{\\Delta\\theta_{\\pi}}{\\Delta p} = 0.02\\,\\frac{1^{\\mathrm{o}}}{\\mathrm{GeV}/c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.2. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\frac{\\Delta\\theta_{\\kappa} + \\Delta\\theta_{\\pi}}{\\Delta p} \\equiv \\frac{\\Delta\\theta}{\\Delta p} = \\left(0.51 + 0.02\\right)\\frac{1^{\\mathrm{o}}}{\\mathrm{GeV}/c} = 0.53\\,\\frac{1^{\\mathrm{o}}}{\\mathrm{GeV}/c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The condition for two ring images to be distinguishable is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\theta < 0.1(\\theta_{\\pi} - \\theta_{\\kappa}) = 0.16^{\\mathrm{o}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "It follows "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta p < \\frac{1}{10}\\times\\frac{1.6}{0.53} = 0.3\\,\\mathrm{GeV}/c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "5."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "5.1. The lower limit of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " giving rise to Cherenkov effect is"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\beta = \\frac{1}{n} = \\frac{1}{1.33}.\n\\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The kinetic energy of a particle having rest mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by the expression"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nT = E - Mc^2 = \\frac{Mc^2}{\\sqrt{1-\\beta^2}} - Mc^2 = Mc^2\\left[\\frac{1}{\\sqrt{1-\\beta^2}} - 1\\right].\n\\tag{12}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Substituting the limiting value (11) of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " into (12), we get the minimal kinetic energy of the particle for Cherenkov effect to occur:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nT_{\\min} = Mc^2\\left[\\frac{1}{\\sqrt{1-\\left(\\frac{1}{1.33}\\right)^2}} - 1\\right] = 0.517\\,Mc^2\n\\tag{13}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "5.2."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " particles, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{\\min} = 0.517\\times3.8\\,\\mathrm{GeV} = 1.96\\,\\mathrm{GeV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For electrons, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{\\min} = 0.517\\times0.51\\,\\mathrm{MeV} = 0.264\\,\\mathrm{MeV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since the kinetic energy of the particles emitted by radioactive source does not exceed a few MeV, these are electrons which give rise to Cherenkov radiation in the considered experiment."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "6."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For a beam of particles having a definite momentum the dependence of the angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the refraction index "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the medium is given by the expression"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\mathbf{cos}\\theta = \\frac{1}{n\\beta}\n\\tag{14}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.1. Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the difference of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between two rings corresponding to two wavelengths limiting the visible range, i.e. to wavelengths of 0.4 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "m (violet) and 0.8 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "m (red), respectively. The difference in the refraction indexes at these wavelengths is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_{\\mathrm{v}}-n_{\\mathrm{r}}=\\delta n=0.02(n-1)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Logarithmically differentiating both sides of equation (14) gives"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\mathbf{sin}\\theta \\times \\delta\\theta}{\\mathbf{cos}\\theta} = \\frac{\\delta n}{n}\n\\tag{15}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Corresponding to the pressure of the radiator "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P = 6\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " atm we have from 4.2. the values "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta_{\\pi} = 3.2^{\\mathrm{o}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n = 1.00162\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Putting approximately "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathbf{tan}\\theta = \\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\theta = \\frac{\\delta n}{\\theta} = 0.033^{\\mathrm{o}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.2."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.2.1. The broadening due to dispersion in terms of half width at half height is, according to (6.1), "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{1}{2}\\delta\\theta = 0.017^{\\mathrm{o}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.2.2. The broadening due to achromaticity is, from 4.1., "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.02\\,\\frac{1^{\\mathrm{o}}}{\\mathrm{GeV/c}}\\times 0.3\\,\\mathrm{GeV/c} = 0.006^{\\mathrm{o}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , that is three times smaller than above."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.2.3. The color of the ring changes from red to white then blue from the inner edge to the outer one."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "\n\nSolution\n\n\n\n\n1.\n\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\nLet us consider a plane containing the particle trajectory. At \n\\(t=0\\)\n, the particle position is at point A. It reaches point B at \n\\(t=t_1\\)\n. According to the Huygens principle, at moment \n\\(0<t<t_1\\)\n, the radiation emitted at A reaches the circle with a radius equal to AD and the one emitted at C reaches the circle of radius CE. The radii of the spheres are proportional to the distance of their centre to B:\n\n\n\\[\\frac{\\mathrm{CE}}{\\mathrm{CB}} = \\frac{c(t_1-t)/n}{v(t_1-t)} = \\frac{1}{\\beta n} = \\mathrm{const}\\]\n\n\nThe spheres are therefore transformed into each other by homothety of vertex B and their envelope is the cone of summit B and half aperture \n\\(\\varphi = \\mathbf{Arcsin}\\frac{1}{\\beta n} = \\frac{\\pi}{2} - \\theta\\)\n, where \n\\(\\theta\\)\n is the angle made by the light ray CE with the particle trajectory.\n\n\n1.1. The intersection of the wave front with the plane is two straight lines, BD and BD’.\n\n\n1.2. They make an angle \n\\(\\varphi = \\mathbf{Arcsin}\\frac{1}{\\beta n}\\)\n with the particle trajectory.\n\n\n2.\n The construction for finding the ring image of the particles beam is taken in the plane containing the trajectory of the particle and the optical axis of the mirror.\n\n\nWe adopt the notations:\n\n\nS – the point where the beam crosses the spherical mirror\n\n\nF – the focus of the spherical mirror\n\n\nC – the center of the spherical mirror\n\n\nIS – the straight-line trajectory of the charged particle making a small angle \n\\(\\alpha\\)\n with the optical axis of the mirror.\n\n\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\nCF = FS = \n\\(f\\)\n\n\nCO//IS\n\n\nCM//AP\n\n\nCN//AQ\n\n\n\\[\\widehat{\\mathrm{FCO}} = \\alpha \\Rightarrow \\mathrm{FO} = f \\times \\alpha\\]\n\n\n\\[\\widehat{\\mathrm{MCO}} = \\widehat{\\mathrm{OCN}} = \\theta \\Rightarrow \\mathrm{MO} = f \\times \\theta\\]\n\n\nWe draw a straight line parallel to IS passing through the center C. The line intersects the focal plane at O. We have \n\\(\\mathrm{FO} \\approx f \\times \\alpha\\)\n.\n\n\nStarting from C, we draw two lines in both sides of the line CO making with it an angle \n\\(\\theta\\)\n. These two lines intersect the focal plane at M and N, respectively. All the rays of Cherenkov radiation in the plane of the sketch, striking the mirror and being reflected, intersect at M or N.\n\n\nIn three-dimension case, the Cherenkov radiation gives a ring in the focal plane with the center at O (\n\\(\\mathrm{FO} \\approx f \\times \\alpha\\)\n) and with the radius \n\\(\\mathrm{MO} \\approx f \\times \\theta\\)\n.\n\n\nIn the construction, all the lines are in the plane of the sketch. Exceptionally, the ring is illustrated spatially by a dash line.\n\n\n3.\n\n\n3.1. For the Cherenkov effect to occur it is necessary that \n\\(n > \\frac{c}{v}\\)\n, that is \n\\(n_{\\min} = \\frac{c}{v}\\)\n.\n\n\nPutting \n\\(\\zeta = n-1 = 2.7\\times10^{-4}P\\)\n , we get\n\n\n\\[\\begin{equation}\n\\zeta_{\\min} = 2.7\\times10^{-4}P_{\\min} = \\frac{c}{v} - 1 = \\frac{1}{\\beta} - 1\n\\tag{1}\n\\end{equation}\\]\n\n\nBecause\n\n\n\\[\\begin{equation}\n\\frac{Mc^2}{pc} = \\frac{Mc}{p} = \\frac{Mc}{\\frac{Mv}{\\sqrt{1-\\beta^2}}} = \\frac{\\sqrt{1-\\beta^2}}{\\beta} = K\n\\tag{2}\n\\end{equation}\\]\n\n\nthen \n\\(K = 0.094\\)\n ; \n\\(0.05\\)\n ; \n\\(0.014\\)\n for proton, kaon and pion, respectively.\n\n\nFrom (2) we can express \n\\(\\beta\\)\n through \n\\(K\\)\n as\n\n\n\\[\\begin{equation}\n\\beta = \\frac{1}{\\sqrt{1+K^2}}\n\\tag{3}\n\\end{equation}\\]\n\n\nSince \n\\(K^2 << 1\\)\n for all three kinds of particles we can neglect the terms of order higher than 2 in \n\\(K\\)\n. We get\n\n\n\\[\\begin{equation}\n1-\\beta = 1-\\frac{1}{\\sqrt{1+K^2}} \\approx \\frac{1}{2}K^2 = \\frac{1}{2}\\left(\\frac{Mc}{p}\\right)^2\n\\tag{3a}\n\\end{equation}\\]\n\n\n\\[\\begin{equation}\n\\frac{1}{\\beta}-1 = \\sqrt{1+K^2}-1 \\approx \\frac{1}{2}K^2 = \\frac{1}{2}\\left(\\frac{Mc}{p}\\right)^2\n\\tag{3b}\n\\end{equation}\\]\n\n\nPutting (3b) into (1), we obtain\n\n\n\\[\\begin{equation}\nP_{\\min} = \\frac{1}{2.7\\times10^{-4}}\\times\\frac{1}{2}K^2\n\\tag{4}\n\\end{equation}\\]\n\n\nWe get the following numerical values of the minimal pressure:\n\n\n\\(P_{\\min} = 16\\,\\mathrm{atm}\\)\n for protons,\n\n\n\\(P_{\\min} = 4.6\\,\\mathrm{atm}\\)\n for kaons,\n\n\n\\(P_{\\min} = 0.36\\,\\mathrm{atm}\\)\n for pions.\n\n\n3.2. For \n\\(\\theta_{\\pi} = 2\\theta_{\\kappa}\\)\n we have\n\n\n\\[\\begin{equation}\n\\mathbf{cos}\\theta_{\\pi} = \\mathbf{cos}2\\theta_{\\kappa} = 2\\mathbf{cos}^2\\theta_{\\kappa} - 1\n\\tag{5}\n\\end{equation}\\]\n\n\nWe denote\n\n\n\\[\\begin{equation}\n\\varepsilon = 1-\\beta = 1-\\frac{1}{\\sqrt{1+K^2}} \\approx \\frac{1}{2}K^2\n\\tag{6}\n\\end{equation}\\]\n\n\nFrom (5) we obtain\n\n\n\\[\\begin{equation}\n\\frac{1}{\\beta_{\\pi}n} = \\frac{2}{\\beta_{\\kappa}^2n^2} - 1\n\\tag{7}\n\\end{equation}\\]\n\n\nSubstituting \n\\(\\beta = 1-\\varepsilon\\)\n and \n\\(n = 1+\\zeta\\)\n into (7), we get approximately:\n\n\n\\[\\zeta_{\\frac{1}{2}} = \\frac{4\\varepsilon_{\\kappa} - \\varepsilon_{\\pi}}{3} = \\frac{1}{6}\\left(4K_{\\kappa}^2 - K_{\\pi}^2\\right) = \\frac{1}{6}\\left[4.(0.05)^2 - (0.014)^2\\right],\\]\n\n\n\\[P_{\\frac{1}{2}} = \\frac{1}{2.7\\times10^{-4}}\\zeta_{\\frac{1}{2}} = 6\\,\\mathrm{atm}.\\]\n\n\nThe corresponding value of refraction index is \n\\(n = 1.00162\\)\n. We get:\n\n\n\\[\\theta_{\\kappa} = 1.6^{\\mathrm{o}} ; \\qquad \\theta_{\\pi} = 2\\theta_{\\kappa} = 3.2^{\\mathrm{o}}.\\]\n\n\nWe do not observe the ring image of protons since\n\n\n\\[P_{\\frac{1}{2}} = 6\\,\\mathrm{atm} < 16\\,\\mathrm{atm} = P_{\\min} \\quad \\text{for protons.}\\]\n\n\n4.\n\n\n4.1. Taking logarithmic differentiation of both sides of the equation \n\\(\\mathbf{cos}\\theta = \\frac{1}{\\beta n}\\)\n, we obtain\n\n\n\\[\\begin{equation}\n\\frac{\\mathbf{sin}\\theta \\times \\Delta\\theta}{\\mathbf{cos}\\theta} = \\frac{\\Delta\\beta}{\\beta}\n\\tag{8}\n\\end{equation}\\]\n\n\nLogarithmically differentiating equation (3a) gives\n\n\n\\[\\begin{equation}\n\\frac{\\Delta\\beta}{1-\\beta} = 2\\frac{\\Delta p}{p}\n\\tag{9}\n\\end{equation}\\]\n\n\nCombining (8) and (9), taking into account (3b) and putting approximately \n\\(\\mathbf{tan}\\theta = \\theta\\)\n, we derive\n\n\n\\[\\begin{equation}\n\\frac{\\Delta\\theta}{\\Delta p} = \\frac{2}{\\theta}\\times\\frac{1-\\beta}{p\\beta} = \\frac{K^2}{\\theta p}\n\\tag{10}\n\\end{equation}\\]\n\n\nWe obtain\n\n\n-for kaons \n\\(K_{\\kappa} = 0.05\\)\n , \n\\(\\theta_{\\kappa} = 1.6^{\\mathrm{o}} = 1.6\\,\\frac{\\pi}{180}\\,\\mathrm{rad}\\)\n, and so, \n\\(\\frac{\\Delta\\theta_{\\kappa}}{\\Delta p} = 0.51\\,\\frac{1^{\\mathrm{o}}}{\\mathrm{GeV}/c}\\)\n,\n\n\n-for pions \n\\(K_{\\pi} = 0.014\\)\n , \n\\(\\theta_{\\pi} = 3.2^{\\mathrm{o}}\\)\n , and \n\\(\\frac{\\Delta\\theta_{\\pi}}{\\Delta p} = 0.02\\,\\frac{1^{\\mathrm{o}}}{\\mathrm{GeV}/c}\\)\n .\n\n\n4.2. \n\\(\\displaystyle \\frac{\\Delta\\theta_{\\kappa} + \\Delta\\theta_{\\pi}}{\\Delta p} \\equiv \\frac{\\Delta\\theta}{\\Delta p} = \\left(0.51 + 0.02\\right)\\frac{1^{\\mathrm{o}}}{\\mathrm{GeV}/c} = 0.53\\,\\frac{1^{\\mathrm{o}}}{\\mathrm{GeV}/c}\\)\n.\n\n\nThe condition for two ring images to be distinguishable is \n\\(\\Delta\\theta < 0.1(\\theta_{\\pi} - \\theta_{\\kappa}) = 0.16^{\\mathrm{o}}\\)\n.\n\n\nIt follows \n\\(\\Delta p < \\frac{1}{10}\\times\\frac{1.6}{0.53} = 0.3\\,\\mathrm{GeV}/c\\)\n.\n\n\n5.\n\n\n5.1. The lower limit of \n\\(\\beta\\)\n giving rise to Cherenkov effect is\n\n\n\\[\\begin{equation}\n\\beta = \\frac{1}{n} = \\frac{1}{1.33}.\n\\tag{11}\n\\end{equation}\\]\n\n\nThe kinetic energy of a particle having rest mass \n\\(M\\)\n and energy \n\\(E\\)\n is given by the expression\n\n\n\\[\\begin{equation}\nT = E - Mc^2 = \\frac{Mc^2}{\\sqrt{1-\\beta^2}} - Mc^2 = Mc^2\\left[\\frac{1}{\\sqrt{1-\\beta^2}} - 1\\right].\n\\tag{12}\n\\end{equation}\\]\n\n\nSubstituting the limiting value (11) of \n\\(\\beta\\)\n into (12), we get the minimal kinetic energy of the particle for Cherenkov effect to occur:\n\n\n\\[\\begin{equation}\nT_{\\min} = Mc^2\\left[\\frac{1}{\\sqrt{1-\\left(\\frac{1}{1.33}\\right)^2}} - 1\\right] = 0.517\\,Mc^2\n\\tag{13}\n\\end{equation}\\]\n\n\n5.2.\n\n\nFor \n\\(\\alpha\\)\n particles, \n\\(T_{\\min} = 0.517\\times3.8\\,\\mathrm{GeV} = 1.96\\,\\mathrm{GeV}\\)\n.\n\n\nFor electrons, \n\\(T_{\\min} = 0.517\\times0.51\\,\\mathrm{MeV} = 0.264\\,\\mathrm{MeV}\\)\n.\n\n\nSince the kinetic energy of the particles emitted by radioactive source does not exceed a few MeV, these are electrons which give rise to Cherenkov radiation in the considered experiment.\n\n\n6.\n For a beam of particles having a definite momentum the dependence of the angle \n\\(\\theta\\)\n on the refraction index \n\\(n\\)\n of the medium is given by the expression\n\n\n\\[\\begin{equation}\n\\mathbf{cos}\\theta = \\frac{1}{n\\beta}\n\\tag{14}\n\\end{equation}\\]\n\n\n6.1. Let \n\\(\\delta\\theta\\)\n be the difference of \n\\(\\theta\\)\n between two rings corresponding to two wavelengths limiting the visible range, i.e. to wavelengths of 0.4 \n\\(\\mu\\)\nm (violet) and 0.8 \n\\(\\mu\\)\nm (red), respectively. The difference in the refraction indexes at these wavelengths is \n\\(n_{\\mathrm{v}}-n_{\\mathrm{r}}=\\delta n=0.02(n-1)\\)\n.\n\n\nLogarithmically differentiating both sides of equation (14) gives\n\n\n\\[\\begin{equation}\n\\frac{\\mathbf{sin}\\theta \\times \\delta\\theta}{\\mathbf{cos}\\theta} = \\frac{\\delta n}{n}\n\\tag{15}\n\\end{equation}\\]\n\n\nCorresponding to the pressure of the radiator \n\\(P = 6\\)\n atm we have from 4.2. the values \n\\(\\theta_{\\pi} = 3.2^{\\mathrm{o}}\\)\n , \n\\(n = 1.00162\\)\n.\n\n\nPutting approximately \n\\(\\mathbf{tan}\\theta = \\theta\\)\n and \n\\(n = 1\\)\n, we get \n\\(\\delta\\theta = \\frac{\\delta n}{\\theta} = 0.033^{\\mathrm{o}}\\)\n.\n\n\n6.2.\n\n\n6.2.1. The broadening due to dispersion in terms of half width at half height is, according to (6.1), \n\\(\\frac{1}{2}\\delta\\theta = 0.017^{\\mathrm{o}}\\)\n.\n\n\n6.2.2. The broadening due to achromaticity is, from 4.1., \n\\(0.02\\,\\frac{1^{\\mathrm{o}}}{\\mathrm{GeV/c}}\\times 0.3\\,\\mathrm{GeV/c} = 0.006^{\\mathrm{o}}\\)\n , that is three times smaller than above.\n\n\n6.2.3. The color of the ring changes from red to white then blue from the inner edge to the outer one.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2008-t2/203048b174e7ed47b3a4.png",
+      "/corpus/figures/native/bulk/ipho-2008-t2/6453ebfe336237a321fe.png"
+    ],
+    "shared": false
+  }
+}

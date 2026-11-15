@@ -1,1 +1,3488 @@
-{"id":"ipho-2010-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2010_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2010_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2010-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"41st International Physics Olympiad, Croatia – Theoretical Competition, July 19th 2010 \n1/3 \n \n1. Image of a charge in a metallic object \nIntroduction – Method of images \nA point chargeq is placed in the vicinity of a grounded metallic sphere of radius R  [see Fig. 1(a)], and \nconsequently a surface charge distribution is induced on the sphere. To calculate the electric field \nand potential from the distribution of the surface charge is a formidable task. However, the \ncalculation can be considerably simplified by using the so called method of images. In this method, \nthe electric field and potential produced by the charge distributed on the sphere can be represented \nas an electric field and potential of a single point charge 'q placed inside the sphere (you do not have \nto prove it). Note: The electric field of this image charge 'q reproduces the electric field and the \npotential only outside the sphere (including its surface).  \n(a) \n \n \n(b) \n \n \n \n \n \nFig 1. (a) A point charge q in the vicinity of a grounded metallic sphere. (b) The electric field of the \ncharge induced on the sphere can be represented as electric field of an image charge 'q . \nTask 1 – The image charge \nThe symmetry of the problem dictates that the charge 'q should be placed on the line connecting the \npoint charge q and the center of the sphere [see Fig. 1(b)]. \na) What is the value of the potential on the sphere? (0.3 points) \nb) Express 'q  and the distance 'd of the charge 'q  from the center of the sphere, in terms of\nq , d , and  R . (1.9 points) \nc) Find the magnitude of force acting on chargeq . Is the force repulsive? (0.5 points) \nTask 2 – Shielding of an electrostatic field \nConsider a point charge q placed at a distance d from the center of a grounded metallic sphere of \nradius R. We are interested in how the grounded metallic sphere affects the electric field at point A \non the opposite side of the sphere (see Fig. 2). Point A is on the line connecting charge q and the \ncenter of the sphere; its distance from the point charge q is r.  \na) Find the vector of the electric field at point A. (0.6 points) \n\n41st International Physics Olympiad, Croatia – Theoretical Competition, July 19th 2010 \n2/3 \n \nb) For a very large distance \nd\nr \n, find the expression for the electric field by using the \napproximation (1+a)-2 ≈ 1-2a, where \n1\n\na\n. (0.6 points) \nc) In which limit of d does the grounded metallic sphere screen the field of the charge q \ncompletely, such that the electric field at point A is exactly zero? (0.3 points) \n \n \nFig 2. The electric field at point A is partially screened by the grounded sphere.  \nTask 3 – Small oscillations in the electric field of the grounded metallic \nsphere \nA point charge q with mass m is suspended on a thread of length L which is attached to a wall, in the \nvicinity of the grounded metallic sphere. In your considerations, ignore all electrostatic effects of the \nwall. The point charge makes a mathematical pendulum (see Fig. 3). The point at which the thread is \nattached to the wall is at a distancel  from the center of the sphere. Assume that the effects of \ngravity are negligible.  \na) Find the magnitude of the electric force acting on the point charge q for a given angle  and  \nindicate the direction in a clear diagram (0.8 points) \nb) Determine the component of this force acting in the direction perpendicular to the thread in \nterms of l , L, R, q and . (0.8 points) \nc) Find the frequency for small oscillations of the pendulum. (1.0 points) \n \nFig 3. A point charge in the vicinity of a grounded sphere oscillates as a pendulum.  \nTask 4 – The electrostatic energy of the system \nFor a distribution of electric charges it is important to know the electrostatic energy of the system. In \nour problem (see Fig. 1a), there is an electrostatic interaction between the external charge q and the \ninduced charges on the sphere, and there is an electrostatic interaction among the induced charges \n\n41st International Physics Olympiad, Croatia – Theoretical Competition, July 19th 2010 \n3/3 \n \non the sphere themselves. In terms of the charge q, radius of the sphere R and the distance d \ndetermine the following electrostatic energies: \na) the electrostatic energy of the interaction between charge q and the induced \ncharges on the sphere; (1.0 points) \nb) the electrostatic energy of the interaction among the induced charges on the \nsphere; (1.2 points) \nc) the total electrostatic energy of the interaction in the system. (1.0 points) \nHint: There are several ways of solving this problem: \n(1) In one of them, you can use the following integral,  \n\n\n\n\n\n\nd\nR\nd\n=\nR\nx\nxdx\n2\n2\n2\n2\n2\n1\n2\n1\n. \n \n(2) In another one, you can use the fact that for a collection of N charges \niq located at points\nN\n,\n=\n,i\nri\n\n1,\n\n, \nthe \nelectrostatic \nenergy \nis \na \nsum \nover \nall \npairs \nof \ncharges: \n.\n4\n1\n2\n1\n1\n1\n0\n\n\n\n\n\n\nN\ni\nN\nj\ni\nj\nj\ni\nj\ni\nr\nr\nq\nq\nV\n\n\n\n  \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2010-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8],"initialPage":1,"shared":false,"text":"41st international Physics Olympiad, Croatia – Theoretical Competition, July 19th 2010 \n1/8 \n \nSolution - Image of a charge \nSolution of Task 1 \nTask 1a) \nAs the metallic sphere is grounded, its potential vanishes, V=0. \nTask1b) \nLet us consider an arbitrary point B on the surface of the sphere as depicted in Fig. 1.  \n \nFig 1. The potential at point B is zero.  \n \nThe distance of point B from the charge q' is \n \n \n \n(1) \nwhereas the distance of the point B from the charge q is given with the expression \n \n  \n                                       (2)  \nThe electric potential at the point B is  \n \n                                 \n                                          (3) \nThis potential must vanish,  \n \n \n \n                                  \n                                          (4) \n  i.e. its numerical value is 0 V. \n\n41st international Physics Olympiad, Croatia – Theoretical Competition, July 19th 2010 \n2/8 \n \nCombining (1), (2) and (3) we obtain \n \n  \n                          (5) \n \nAs the surface of the sphere must be equipotential, the condition (5) must be satisfied for every \nangle α what leads to the following results \n \n  \n \n                                       (6) \nand \n \n  \n                                       (7) \nBy solving of (6) and (7) we obtain the expression for the distance d' of the charge q' from the center \nof the sphere  \n \n \n \n \n  \n                                       (8) \nand the size of the charge q' \n \n \n \n  \n                                        (9) \n \nTask 1c) \nFinally, the magnitude of force acting on the charge q is  \n\n\n2\n2\n2\n2\n0\n4\n1\nR\nd\nRd\nq\nF\n\n\n \n  \n                                         (10) \nThe force is apparently attractive. \nSolution of Task 2 \nTask 2a) \nThe electric field at the point A amounts to \n\n41st international Physics Olympiad, Croatia – Theoretical Competition, July 19th 2010 \n3/8 \n \n \n  \n \n                                    (11) \n \nTask 2b) \nFor very large distances r we can apply approximate formula (1+a)-2 ≈ 1-2a to the expression (11) \nwhat leads us to \n \n  \n \n                    (12)  \nIn general a grounded metallic sphere cannot completely screen a point charge q at a distance d \n(even in the sense that its electric field would decrease with distance faster than 1/r2) and the \ndominant dependence of the electric field on the distance r is as in standard Coulomb law. \n \nTask 2c) \nIn the limit d → R the electric field at the point A vanishes and the grounded metallic sphere screens \nthe point charge completely.  \n \nSolution of Task 3 \n \nTask 3a) \nLet us consider a configuration as in Fig. 2.  \n \nFig 2. The pendulum formed by a charge near a grounded metallic sphere.  \nThe distance of the charge q from the center of the sphere is \n\n41st international Physics Olympiad, Croatia – Theoretical Competition, July 19th 2010 \n4/8 \n \n \n                                      (13) \nThe magnitude of the electric force acting on the charge q is \n \n \n \n \n                                      (14) \nFrom which we have \n\n\n2\n2\n2\n2\n2\n2\n2\n0\ncos\n2\ncos\n2\n4\n1\nR\nlL\nL\nl\nlL\nL\nl\nR\nq\nF\n\n\n\n\n\n\n\n\n\n \n                                      (15) \n \nTask 3b) \nThe direction of the vector of the electric force (17) is described in Fig. 3. \n \nFig 3. The direction of the force F.  \n \nThe angles α and β are related as  \n \n \n                                      (16) \nwhereas for the angle γ the relation γ=α+β is valid. The component of the force perpendicular to the \nthread is F sin γ, that is ,        \n\n\n)\nsin(\ncos\n2\ncos\n2\n4\n1\n2\n2\n2\n2\n2\n2\n2\n0\n\n\n\n\n\n\n\n\n\n\n\n\n\nR\nlL\nL\nl\nlL\nL\nl\nR\nq\nF\n \nwhere \n)\nsin\ncos\n2\narcsin(\n2\n2\n\n\n\nLl\nl\nL\nL\n\n\n\n \n \n \n \n(17) \n \n\n41st international Physics Olympiad, Croatia – Theoretical Competition, July 19th 2010 \n5/8 \n \nTask 3c) \nThe equation of motion of the mathematical pendulum is \n\n\n\nF\nmL\n \n                                      (18) \n \nAs we are interested in small oscillations, the angle  α  is small, i.e. for its value in radians we have α \nmuch smaller than 1. For a small value of argument of trigonometric functions we have approximate \nrelations sin x  ≈ x and cos x ≈ 1-x2/2. So for small oscillations of the pendulum we have \n)\n/(\nL\nl\nL\n\n\n\n   and \n)\n/(\nL\nl\nl\n\n\n\n.                     \nCombining these relations with (13) we obtain \n\n\n0\n1\n4\n1\n2\n2\n2\n2\n0\n2\n2\n\n\n\n\n\n\n\n\n\n\n\n\nd\nL\nR\nd\nRd\nq\ndt\nd\nmL\n \n(19) \nWhere \nL\nl\nd\n\n\nwhat leads to  \nmL\nRl\nR\nL\nl\nq\nd\nL\nmL\nRd\nR\nd\nq\n1\n4\n)\n(\n1\n1\n4\n0\n2\n2\n0\n2\n2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n. \n(20) \n \n \nSolution of Task 4 \nFirst we present a solution based on the definition of the electrostatic energy of a collection of \ncharges. \nTask 4a) \nThe total energy of the system can be separated into the electrostatic energy of interaction of the \nexternal charge with the induced charges on the sphere, Eel,1, and the electrostatic energy of mutual \ninteraction of charges on the sphere, Eel,2, i.e. \n \n                                     (21) \n Let there be N charges induced on the sphere. These charges \nj\nq are located at points \nN\nj\nrj\n,\n,1\n,\n\n\n\n on the sphere. We use the definition of the image charge, i.e., the potential on the \nsurface of the sphere from the image charge is identical to the potential arising from the induced \ncharges: \n\n41st international Physics Olympiad, Croatia – Theoretical Competition, July 19th 2010 \n6/8 \n \n\n\n\n\n\nN\nj\nj\nj\nr\nr\nq\nd\nr\nq\n1\n'\n'\n\n\n\n\n, \n   \n (22) \n where ris a vector on the sphere and \n'd\n\ndenotes the vector position of the image charge. When r\ncoincides with some \nir, then we just have \n\n\n\n\n\n\nN\ni\nj\nj\ni\nj\nj\ni\nr\nr\nq\nd\nr\nq\n1\n'\n'\n\n\n\n\n. \n   \n (23) \n \nFrom the requirement that the potential on the surface of the sphere vanishes we have \n0\n'\n'\n\n\n\n\nd\nr\nq\nd\nr\nq\n\n\n\n\n, \n \n                           (24) \nwhere d\n\ndenotes the vector position of the charge q( r is on the sphere).  \nFor the interaction of the external charge with the induced charges on the sphere we have  \n2\n2\n2\n0\n0\n1\n0\n0\n1,\n4\n1\n'\n'\n4\n1\n'\n'\n4\n1\n4\nR\nd\nR\nq\nd\nd\nqq\nd\nd\nqq\nd\nr\nq\nq\nE\nN\ni\ni\ni\nel\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n   \n(25) \nHere the first equality is the definition of this energy as the sum of interactions of the charge q with \neach of the induced charges on the surface of the sphere. The second equality follows from (21). \nIn fact, the interaction energy \n1,\nel\nE\n \nfollows directly from the definition of an image charge.  \nTask 4b) \nThe energy of mutual interactions of induced charges on the surface of the sphere is given with \n \n\n41st international Physics Olympiad, Croatia – Theoretical Competition, July 19th 2010 \n7/8 \n \n2\n2\n2\n0\n0\n0\n1\n0\n1\n0\n1\n1\n0\n2\n,\n4\n1\n2\n1\n'\n'\n4\n1\n2\n1\n'\n'\n4\n1\n2\n1\n4\n1\n2\n1\n'\n'\n4\n1\n2\n1\n4\n1\n2\n1\nR\nd\nR\nq\nd\nd\nqq\nd\nd\nqq\nd\nr\nq\nq\nd\nr\nq\nq\nr\nr\nq\nq\nE\nN\ni\ni\ni\nN\ni\ni\ni\nN\ni\nN\ni\nj\nj\nj\ni\nj\ni\nel\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n \n \n \n                             (26) \n Here the second line is obtained using (22). From the second line we obtain the third line applying \n(23), whereas from the third line we obtain the fourth using (22) again. \n \nTask 4c) \nCombining expressions (19) and (20) with the quantitative results for the image charge we finally \nobtain the total energy of electrostatic interaction \n2\n2\n2\n0\n4\n1\n2\n1\n)\n(\nR\nd\nR\nq\nd\nEel\n\n\n\n\n \n \n                                        (27) \n \n An alternative solution follows from the definition of work. By knowing the integral \n\n\n\n\n\n\n\nd\nR\nd\nR\nx\nxdx\n2\n2\n2\n2\n2\n1\n2\n1\n \n                                        (28) \nWe can obtain the total energy in the system by calculating the work needed to bring the charge q \nfrom infinity to the distance d from the center of the sphere: \n\n\n2\n2\n2\n0\n2\n2\n2\n2\n0\n4\n1\n2\n1\n4\n1\n)\n(\n)\n(\n)\n(\n)\n(\nR\nd\nR\nq\ndx\nR\nx\nRx\nq\nx\nd\nx\nF\nx\nd\nx\nF\nd\nE\nd\nd\nd\nel\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n                                        (29) \nThis solves Task 4c).  \nThe electrostatic energy between the charge q and the sphere must be equal to the energy between \nthe charges q and q’ according to the definition of the image charge: \n\n41st international Physics Olympiad, Croatia – Theoretical Competition, July 19th 2010 \n8/8 \n \n2\n2\n2\n0\n0\n1,\n4\n1\n)'\n(\n'\n4\n1\nR\nd\nR\nq\nd\nd\nqq\nEel\n\n\n\n\n\n\n\n \n                                        (30)   \nThis solves Task 4a).  \nFrom this we immediately have that the electrostatic energy among the charges on the sphere is: \n2\n2\n2\n0\n2\n,\n4\n1\n2\n1\nR\nd\nR\nq\nEel\n\n\n\n. \n                                        (31)   \nThis solves Task 4b).  \n \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2010-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2010_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2010_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2010-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1. Image of a charge in a metallic object"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Introduction – Method of images"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A point charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is placed in the vicinity of a grounded metallic sphere of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " [see Fig. 1(a)], and consequently a surface charge distribution is induced on the sphere. To calculate the electric field and potential from the distribution of the surface charge is a formidable task. However, the calculation can be considerably simplified by using the so called method of images. In this method, the electric field and potential produced by the charge distributed on the sphere can be represented as an electric field and potential of a single point charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " placed inside the sphere (you do not have to prove it). Note: "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "The electric field of this image charge "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(q'\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " reproduces the electric field and the potential only outside the sphere (including its surface)."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "src": "/corpus/figures/native/bulk/ipho-2010-t1/b862415d7250d26c336c.png",
+                        "alt": "ipho-2010-t1 original source figure 1"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "src": "/corpus/figures/native/bulk/ipho-2010-t1/72ce4f96426e35204795.png",
+                        "alt": "ipho-2010-t1 original source figure 2"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig 1. (a) A point charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the vicinity of a grounded metallic sphere. (b) The electric field of the charge induced on the sphere can be represented as electric field of an image charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 1 – The image charge"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The symmetry of the problem dictates that the charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " should be placed on the line connecting the point charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the center of the sphere [see Fig. 1(b)]."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a) What is the value of the potential on the sphere? "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) Express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the center of the sphere, in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.9 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "c) Find the magnitude of force acting on charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Is the force repulsive? "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 2 – Shielding of an electrostatic field"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider a point charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " placed at a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the center of a grounded metallic sphere of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We are interested in how the grounded metallic sphere affects the electric field at point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the opposite side of the sphere (see Fig. 2). Point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is on the line connecting charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the center of the sphere; its distance from the point charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a) Find the vector of the electric field at point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.6 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) For a very large distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r >> d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", find the expression for the electric field by using the approximation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1+a)"
+              },
+              {
+                "type": "element",
+                "tag": "sup",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "-2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\approx\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "1-2a"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a << 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.6 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "c) In which limit of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " does the grounded metallic sphere screen the field of the charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " completely, such that the electric field at point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is exactly zero? "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2010-t1/2a6190456aac0b41e83c.png",
+                "alt": "ipho-2010-t1 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig 2. The electric field at point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is partially screened by the grounded sphere."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 3 – Small oscillations in the electric field of the grounded metallic sphere"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A point charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is suspended on a thread of length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which is attached to a wall, in the vicinity of the grounded metallic sphere. In your considerations, ignore all electrostatic effects of the wall. The point charge makes a mathematical pendulum (see Fig. 3). The point at which the thread is attached to the wall is at a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the center of the sphere. Assume that the effects of gravity are negligible."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a) Find the magnitude of the electric force acting on the point charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for a given angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and indicate the direction in a clear diagram "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.8 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) Determine the component of this force acting in the direction perpendicular to the thread in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "and"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.8 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "c) Find the frequency for small oscillations of the pendulum. "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2010-t1/1e20770159f32a77784b.png",
+                "alt": "ipho-2010-t1 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig 3. A point charge in the vicinity of a grounded sphere oscillates as a pendulum."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 4 – The electrostatic energy of the system"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For a distribution of electric charges it is important to know the electrostatic energy of the system. In our problem (see Fig. 1a), there is an electrostatic interaction between the external charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the induced charges on the sphere, and there is an electrostatic interaction among the induced charges on the sphere themselves. In terms of the charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", radius of the sphere "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " determine the following electrostatic energies:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a) the electrostatic energy of the interaction between charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the induced charges on the sphere; "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) the electrostatic energy of the interaction among the induced charges on the sphere; "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.2 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "c) the total electrostatic energy of the interaction in the system. "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Hint: There are several ways of solving this problem:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(1) In one of them, you can use the following integral, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int_{d}^{\\infty}\\frac{x\\,dx}{\\left(x^{2}-R^{2}\\right)^{2}} = \\frac{1}{2}\\frac{1}{d^{2}-R^{2}}\\,.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(2) In another one, you can use the fact that for a collection of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " charges "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " located at points "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{r}_i,\\ i = 1,\\ldots,N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the electrostatic energy is a sum over all pairs of charges: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V = \\frac{1}{2}\\sum_{i=1}^{N}\\sum_{\\substack{j=1\\\\ i\\neq j}}^{N}\\frac{1}{4\\pi\\varepsilon_0}\\frac{q_i q_j}{\\left|\\vec{r}_i-\\vec{r}_j\\right|}\\,.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "1. Image of a charge in a metallic object\n\n\nIntroduction – Method of images\n\n\nA point charge \n\\(q\\)\n is placed in the vicinity of a grounded metallic sphere of radius \n\\(R\\)\n [see Fig. 1(a)], and consequently a surface charge distribution is induced on the sphere. To calculate the electric field and potential from the distribution of the surface charge is a formidable task. However, the calculation can be considerably simplified by using the so called method of images. In this method, the electric field and potential produced by the charge distributed on the sphere can be represented as an electric field and potential of a single point charge \n\\(q'\\)\n placed inside the sphere (you do not have to prove it). Note: \nThe electric field of this image charge \n\\(q'\\)\n reproduces the electric field and the potential only outside the sphere (including its surface).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFig 1. (a) A point charge \n\\(q\\)\n in the vicinity of a grounded metallic sphere. (b) The electric field of the charge induced on the sphere can be represented as electric field of an image charge \n\\(q'\\)\n .\n\n\nTask 1 – The image charge\n\n\nThe symmetry of the problem dictates that the charge \n\\(q'\\)\n should be placed on the line connecting the point charge \n\\(q\\)\n and the center of the sphere [see Fig. 1(b)].\n\n\na) What is the value of the potential on the sphere? \n(0.3 points)\n\n\nb) Express \n\\(q'\\)\n and the distance \n\\(d'\\)\n of the charge \n\\(q'\\)\n from the center of the sphere, in terms of \n\\(q\\)\n, \n\\(d\\)\n, and \n\\(R\\)\n. \n(1.9 points)\n\n\nc) Find the magnitude of force acting on charge \n\\(q\\)\n. Is the force repulsive? \n(0.5 points)\n\n\nTask 2 – Shielding of an electrostatic field\n\n\nConsider a point charge \n\\(q\\)\n placed at a distance \n\\(d\\)\n from the center of a grounded metallic sphere of radius \n\\(R\\)\n. We are interested in how the grounded metallic sphere affects the electric field at point \n\\(A\\)\n on the opposite side of the sphere (see Fig. 2). Point \n\\(A\\)\n is on the line connecting charge \n\\(q\\)\n and the center of the sphere; its distance from the point charge \n\\(q\\)\n is \n\\(r\\)\n.\n\n\na) Find the vector of the electric field at point \n\\(A\\)\n. \n(0.6 points)\n\n\nb) For a very large distance \n\\(r >> d\\)\n, find the expression for the electric field by using the approximation \n(1+a)\n-2\n\\(\\approx\\)\n1-2a\n, where \n\\(a << 1\\)\n. \n(0.6 points)\n\n\nc) In which limit of \n\\(d\\)\n does the grounded metallic sphere screen the field of the charge \n\\(q\\)\n completely, such that the electric field at point \n\\(A\\)\n is exactly zero? \n(0.3 points)\n\n\n\n\n\n\n\n\n\nFig 2. The electric field at point \n\\(A\\)\n is partially screened by the grounded sphere.\n\n\nTask 3 – Small oscillations in the electric field of the grounded metallic sphere\n\n\nA point charge \n\\(q\\)\n with mass \n\\(m\\)\n is suspended on a thread of length \n\\(L\\)\n which is attached to a wall, in the vicinity of the grounded metallic sphere. In your considerations, ignore all electrostatic effects of the wall. The point charge makes a mathematical pendulum (see Fig. 3). The point at which the thread is attached to the wall is at a distance \n\\(l\\)\n from the center of the sphere. Assume that the effects of gravity are negligible.\n\n\na) Find the magnitude of the electric force acting on the point charge \n\\(q\\)\n for a given angle \n\\(\\alpha\\)\n and indicate the direction in a clear diagram \n(0.8 points)\n\n\nb) Determine the component of this force acting in the direction perpendicular to the thread in terms of \n\\(l\\)\n, \n\\(L\\)\n, \n\\(R\\)\n, \n\\(q\\)\n \nand\n \n\\(\\alpha\\)\n. \n(0.8 points)\n\n\nc) Find the frequency for small oscillations of the pendulum. \n(1.0 points)\n\n\n\n\n\n\n\n\n\nFig 3. A point charge in the vicinity of a grounded sphere oscillates as a pendulum.\n\n\nTask 4 – The electrostatic energy of the system\n\n\nFor a distribution of electric charges it is important to know the electrostatic energy of the system. In our problem (see Fig. 1a), there is an electrostatic interaction between the external charge \n\\(q\\)\n and the induced charges on the sphere, and there is an electrostatic interaction among the induced charges on the sphere themselves. In terms of the charge \n\\(q\\)\n, radius of the sphere \n\\(R\\)\n and the distance \n\\(d\\)\n determine the following electrostatic energies:\n\n\na) the electrostatic energy of the interaction between charge \n\\(q\\)\n and the induced charges on the sphere; \n(1.0 points)\n\n\nb) the electrostatic energy of the interaction among the induced charges on the sphere; \n(1.2 points)\n\n\nc) the total electrostatic energy of the interaction in the system. \n(1.0 points)\n\n\nHint: There are several ways of solving this problem:\n\n\n(1) In one of them, you can use the following integral, \n\\[\\int_{d}^{\\infty}\\frac{x\\,dx}{\\left(x^{2}-R^{2}\\right)^{2}} = \\frac{1}{2}\\frac{1}{d^{2}-R^{2}}\\,.\\]\n\n\n(2) In another one, you can use the fact that for a collection of \n\\(N\\)\n charges \n\\(q_i\\)\n located at points \n\\(\\vec{r}_i,\\ i = 1,\\ldots,N\\)\n, the electrostatic energy is a sum over all pairs of charges: \n\\[V = \\frac{1}{2}\\sum_{i=1}^{N}\\sum_{\\substack{j=1\\\\ i\\neq j}}^{N}\\frac{1}{4\\pi\\varepsilon_0}\\frac{q_i q_j}{\\left|\\vec{r}_i-\\vec{r}_j\\right|}\\,.\\]\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2010-t1/b862415d7250d26c336c.png",
+      "/corpus/figures/native/bulk/ipho-2010-t1/72ce4f96426e35204795.png",
+      "/corpus/figures/native/bulk/ipho-2010-t1/2a6190456aac0b41e83c.png",
+      "/corpus/figures/native/bulk/ipho-2010-t1/1e20770159f32a77784b.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2010-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution - Image of a charge"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution of Task 1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 1a)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As the metallic sphere is grounded, its potential vanishes, V=0."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task1b)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let us consider an arbitrary point B on the surface of the sphere as depicted in Fig. 1."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2010-t1/ede246ced75df65841e9.png",
+                "alt": "ipho-2010-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig 1. The potential at point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is zero."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The distance of point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the charge q’ is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nr_1=\\sqrt{R^2+d'^2-2Rd'\\cos\\alpha}\\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " whereas the distance of the point B from the charge q is given with the expression "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nr_2=\\sqrt{R^2+d^2-2Rd\\cos\\alpha}\\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The electric potential at the point B is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nV=\\frac{1}{4\\pi\\varepsilon_0}\\left(\\frac{q}{r_2}+\\frac{q'}{r_1}\\right)\\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This potential must vanish, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{q}{r_2}+\\frac{q'}{r_1}=0\\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " i.e. its numerical value is 0 V."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Combining (1), (2) and (3) we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nR^2+d^2-2Rd\\cos\\alpha=\\left(\\frac{q}{q'}\\right)^2\\left(R^2+d'^2-2Rd'\\cos\\alpha\\right)\\tag{5}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As the surface of the sphere must be equipotential, the condition (5) must be satisfied for every angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " what leads to the following results "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nd^2+R^2=\\left(\\frac{q}{q'}\\right)^2\\left(R^2+d'^2\\right)\\tag{6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndR=\\left(\\frac{q}{q'}\\right)^2\\left(d'R\\right)\\tag{7}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "By solving of (6) and (7) we obtain the expression for the distance d’ of the charge q’ from the center of the sphere "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nd'=\\frac{R^2}{d}\\tag{8}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the size of the charge q’ "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nq'=-q\\frac{R}{d}\\tag{9}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 1c)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Finally, the magnitude of force acting on the charge q is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nF=\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2Rd}{\\left(d^2-R^2\\right)^2}\\tag{10}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The force is apparently "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "attractive."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution of Task 2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 2a)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The electric field at the point A amounts to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\vec E_A=\\left(\\frac{1}{4\\pi\\varepsilon_0}\\frac{q}{r^2}-\\frac{1}{4\\pi\\varepsilon_0}\\frac{q\\frac{R}{d}}{\\left(r-d+\\frac{R^2}{d}\\right)^2}\\right)\\hat r\\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 2b)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For very large distances r we can apply approximate formula (1+a)"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "-2"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\approx\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1-2a to the expression (11) what leads us to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\vec E_A=\\frac{1}{4\\pi\\varepsilon_0}\\frac{\\left(1-\\frac{R}{d}\\right)q}{r^2}\\hat r-\\frac{1}{4\\pi\\varepsilon_0}\\frac{2q\\frac{R}{d}\\left(d-\\frac{R^2}{d}\\right)}{r^3}\\hat r\\tag{12}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " In general a grounded metallic sphere cannot completely screen a point charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (even in the sense that its electric field would decrease with distance faster than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1/r^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and the dominant dependence of the electric field on the distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is as in standard Coulomb law."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 2c)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the limit "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d \\to R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the electric field at the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " vanishes and the grounded metallic sphere screens the point charge completely."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution of Task 3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 3a)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let us consider a configuration as in Fig. 2."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2010-t1/efb5df98ea9e902a7a91.png",
+                "alt": "ipho-2010-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig 2. The pendulum formed by a charge near a grounded metallic sphere."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The distance of the charge q from the center of the sphere is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nd=\\sqrt{l^2+L^2-2lL\\cos\\alpha}\\tag{13}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The magnitude of the electric force acting on the charge q is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nF=\\frac{1}{4\\pi\\varepsilon_0}\\frac{qq'}{(d-d')^2}=\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2Rd}{(d^2-R^2)^2}\\tag{14}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " From which we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nF=\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R\\sqrt{l^2+L^2-2lL\\cos\\alpha}}{\\left(l^2+L^2-2lL\\cos\\alpha-R^2\\right)^2}\\tag{15}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 3b)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The direction of the vector of the electric force (17) is described in Fig. 3."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2010-t1/195f2207de669414b0cd.png",
+                "alt": "ipho-2010-t1 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig 3. The direction of the force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The angles "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are related as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nL\\sin\\alpha=d\\sin\\beta\\tag{16}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " whereas for the angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the relation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma=\\alpha+\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is valid. The component of the force perpendicular to the thread is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{F}\\sin\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", that is , "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nF_\\perp=\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R\\sqrt{l^2+L^2-2lL\\cos\\alpha}}{\\left(l^2+L^2-2lL\\cos\\alpha-R^2\\right)^2}\\sin(\\alpha+\\beta)\\tag{17}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\beta=\\arcsin\\left(\\frac{L}{\\sqrt{L^2+l^2-2Ll\\cos\\alpha}}\\sin\\alpha\\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 3c)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The equation of motion of the mathematical pendulum is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nmL\\ddot{\\alpha}=-F_\\perp\\tag{18}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As we are interested in small oscillations, the angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is small, i.e. for its value in radians we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " much smaller than 1. For a small value of argument of trigonometric functions we have approximate relations sin x "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\approx\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " x and cos x "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\approx\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 1-x"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "/2. So for small oscillations of the pendulum we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta \\approx \\alpha L/(l-L)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma \\approx l\\alpha/(l-L)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Combining these relations with (13) we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nmL\\frac{d^2\\alpha}{dt^2}+\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2Rd}{\\left(d^2-R^2\\right)^2}\\left(1+\\frac{L}{d}\\right)\\alpha=0\\tag{19}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d = l - L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " what leads to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\begin{aligned}\n\\omega&=\\frac{q}{d^2-R^2}\\sqrt{\\frac{Rd}{4\\pi\\varepsilon_0}\\frac{1}{mL}\\left(1+\\frac{L}{d}\\right)}=\\quad . \\\\\n&=\\frac{q}{(l-L)^2-R^2}\\sqrt{\\frac{Rl}{4\\pi\\varepsilon_0}\\frac{1}{mL}}\n\\end{aligned}\\tag{20}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution of Task 4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "First we present a solution based on the definition of the electrostatic energy of a collection of charges."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 4a)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The total energy of the system can be separated into the electrostatic energy of interaction of the external charge with the induced charges on the sphere, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "E"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "el,1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the electrostatic energy of mutual interaction of charges on the sphere, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "E"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "sub",
+            "children": [
+              {
+                "type": "text",
+                "text": "el,2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE_{el}=E_{el,1}+E_{el,2}\\tag{21}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let there be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " charges induced on the sphere. These charges "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q_j\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are located at points "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec r_j\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(j=1,\\ldots,N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the sphere. We use the definition of the image charge, i.e., the potential on the surface of the sphere from the image charge is identical to the potential arising from the induced charges: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{q'}{|\\vec r-\\vec d'|}=\\sum_{j=1}^{N}\\frac{q_j}{|\\vec r_j-\\vec r|},\\tag{22}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a vector on the sphere and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec d'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " denotes the vector position of the image charge. When "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " coincides with some "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec r_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", then we just have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{q'}{|\\vec r_i-\\vec d'|}=\\sum_{\\substack{j=1\\\\ j\\neq i}}^{N}\\frac{q_j}{|\\vec r_j-\\vec r_i|}.\\tag{23}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From the requirement that the potential on the surface of the sphere vanishes we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{q'}{|\\vec r-\\vec d'|}+\\frac{q}{|\\vec r-\\vec d|}=0,\\tag{24}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " denotes the vector position of the charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is on the sphere)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For the interaction of the external charge with the induced charges on the sphere we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\begin{aligned}\nE_{el,1}&=\\frac{q}{4\\pi\\varepsilon_0}\\sum_{i=1}^{N}\\frac{q_i}{|\\vec r_i-\\vec d|}=\\frac{1}{4\\pi\\varepsilon_0}\\frac{qq'}{|\\vec d'-\\vec d|} \\\\\n&=\\frac{1}{4\\pi\\varepsilon_0}\\frac{qq'}{d-d'}=-\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R}{d^2-R^2}\n\\end{aligned}\\tag{25}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Here the first equality is the definition of this energy as the sum of interactions of the charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with each of the induced charges on the surface of the sphere. The second equality follows from (21)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In fact, the interaction energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_{el,1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " follows directly from the definition of an image charge."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 4b)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The energy of mutual interactions of induced charges on the surface of the sphere is given with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\begin{aligned}\nE_{el,2}&=\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\sum_{i=1}^{N}\\sum_{\\substack{j=1\\\\ j\\neq i}}^{N}\\frac{q_iq_j}{|\\vec r_i-\\vec r_j|} \\\\\n&=\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\sum_{i=1}^{N}q_i\\frac{q'}{|\\vec r_i-\\vec d'|}= \\\\\n&=-\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\sum_{i=1}^{N}q_i\\frac{q}{|\\vec r_i-\\vec d|}= \\\\\n&=-\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\frac{qq'}{|\\vec d'-\\vec d|}=-\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\frac{qq'}{d-d'}=\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R}{d^2-R^2}\n\\end{aligned}\\tag{26}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Here the second line is obtained using (22). From the second line we obtain the third line applying (23), whereas from the third line we obtain the fourth using (22) again."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 4c)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Combining expressions (19) and (20) with the quantitative results for the image charge we finally obtain the total energy of electrostatic interaction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE_{el}(d)=-\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R}{d^2-R^2}\\tag{27}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "An alternative solution"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " follows from the definition of work. By knowing the integral "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\int_{d}^{\\infty}\\frac{x\\,dx}{\\left(x^2-R^2\\right)^2}=\\frac{1}{2}\\frac{1}{d^2-R^2}\\tag{28}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " We can obtain the total energy in the system by calculating the work needed to bring the charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from infinity to the distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the center of the sphere: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\begin{aligned}\nE_{el}(d)&=-\\int_{\\infty}^{d}F(\\vec x)\\,d\\vec x=\\int_{d}^{\\infty}F(\\vec x)\\,d\\vec x= \\\\\n&=\\int_{d}^{\\infty}(-)\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2Rx}{\\left(x^2-R^2\\right)^2}\\,dx= \\\\\n&=-\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R}{d^2-R^2}\n\\end{aligned}\\tag{29}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This solves Task 4c)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The electrostatic energy between the charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the sphere must be equal to the energy between the charges "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " according to the definition of the image charge: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE_{el,1}=\\frac{1}{4\\pi\\varepsilon_0}\\frac{qq'}{(d-d')}=-\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R}{d^2-R^2}\\tag{30}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This solves Task 4a)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From this we immediately have that the electrostatic energy among the charges on the sphere is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE_{el,2}=\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R}{d^2-R^2}.\\tag{31}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This solves Task 4b)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Solution - Image of a charge\n\n\nSolution of Task 1\n\n\nTask 1a)\n\n\nAs the metallic sphere is grounded, its potential vanishes, V=0.\n\n\nTask1b)\n\n\nLet us consider an arbitrary point B on the surface of the sphere as depicted in Fig. 1.\n\n\n\n\n\n\n\n\n\nFig 1. The potential at point \n\\(B\\)\n is zero.\n\n\nThe distance of point \n\\(B\\)\n from the charge q’ is \n\\[\\begin{equation}\nr_1=\\sqrt{R^2+d'^2-2Rd'\\cos\\alpha}\\tag{1}\n\\end{equation}\\]\n whereas the distance of the point B from the charge q is given with the expression \n\\[\\begin{equation}\nr_2=\\sqrt{R^2+d^2-2Rd\\cos\\alpha}\\tag{2}\n\\end{equation}\\]\n The electric potential at the point B is \n\\[\\begin{equation}\nV=\\frac{1}{4\\pi\\varepsilon_0}\\left(\\frac{q}{r_2}+\\frac{q'}{r_1}\\right)\\tag{3}\n\\end{equation}\\]\n This potential must vanish, \n\\[\\begin{equation}\n\\frac{q}{r_2}+\\frac{q'}{r_1}=0\\tag{4}\n\\end{equation}\\]\n i.e. its numerical value is 0 V.\n\n\nCombining (1), (2) and (3) we obtain \n\\[\\begin{equation}\nR^2+d^2-2Rd\\cos\\alpha=\\left(\\frac{q}{q'}\\right)^2\\left(R^2+d'^2-2Rd'\\cos\\alpha\\right)\\tag{5}\n\\end{equation}\\]\n\n\nAs the surface of the sphere must be equipotential, the condition (5) must be satisfied for every angle \n\\(\\alpha\\)\n what leads to the following results \n\\[\\begin{equation}\nd^2+R^2=\\left(\\frac{q}{q'}\\right)^2\\left(R^2+d'^2\\right)\\tag{6}\n\\end{equation}\\]\n and \n\\[\\begin{equation}\ndR=\\left(\\frac{q}{q'}\\right)^2\\left(d'R\\right)\\tag{7}\n\\end{equation}\\]\n\n\nBy solving of (6) and (7) we obtain the expression for the distance d’ of the charge q’ from the center of the sphere \n\\[\\begin{equation}\nd'=\\frac{R^2}{d}\\tag{8}\n\\end{equation}\\]\n and the size of the charge q’ \n\\[\\begin{equation}\nq'=-q\\frac{R}{d}\\tag{9}\n\\end{equation}\\]\n\n\nTask 1c)\n\n\nFinally, the magnitude of force acting on the charge q is \n\\[\\begin{equation}\nF=\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2Rd}{\\left(d^2-R^2\\right)^2}\\tag{10}\n\\end{equation}\\]\n The force is apparently \nattractive.\n\n\nSolution of Task 2\n\n\nTask 2a)\n\n\nThe electric field at the point A amounts to \n\\[\\begin{equation}\n\\vec E_A=\\left(\\frac{1}{4\\pi\\varepsilon_0}\\frac{q}{r^2}-\\frac{1}{4\\pi\\varepsilon_0}\\frac{q\\frac{R}{d}}{\\left(r-d+\\frac{R^2}{d}\\right)^2}\\right)\\hat r\\tag{11}\n\\end{equation}\\]\n\n\nTask 2b)\n\n\nFor very large distances r we can apply approximate formula (1+a)\n-2\n\\(\\approx\\)\n 1-2a to the expression (11) what leads us to \n\\[\\begin{equation}\n\\vec E_A=\\frac{1}{4\\pi\\varepsilon_0}\\frac{\\left(1-\\frac{R}{d}\\right)q}{r^2}\\hat r-\\frac{1}{4\\pi\\varepsilon_0}\\frac{2q\\frac{R}{d}\\left(d-\\frac{R^2}{d}\\right)}{r^3}\\hat r\\tag{12}\n\\end{equation}\\]\n In general a grounded metallic sphere cannot completely screen a point charge \n\\(q\\)\n at a distance \n\\(d\\)\n (even in the sense that its electric field would decrease with distance faster than \n\\(1/r^2\\)\n) and the dominant dependence of the electric field on the distance \n\\(r\\)\n is as in standard Coulomb law.\n\n\nTask 2c)\n\n\nIn the limit \n\\(d \\to R\\)\n the electric field at the point \n\\(A\\)\n vanishes and the grounded metallic sphere screens the point charge completely.\n\n\nSolution of Task 3\n\n\nTask 3a)\n\n\nLet us consider a configuration as in Fig. 2.\n\n\n\n\n\n\n\n\n\nFig 2. The pendulum formed by a charge near a grounded metallic sphere.\n\n\nThe distance of the charge q from the center of the sphere is \n\\[\\begin{equation}\nd=\\sqrt{l^2+L^2-2lL\\cos\\alpha}\\tag{13}\n\\end{equation}\\]\n The magnitude of the electric force acting on the charge q is \n\\[\\begin{equation}\nF=\\frac{1}{4\\pi\\varepsilon_0}\\frac{qq'}{(d-d')^2}=\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2Rd}{(d^2-R^2)^2}\\tag{14}\n\\end{equation}\\]\n From which we have \n\\[\\begin{equation}\nF=\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R\\sqrt{l^2+L^2-2lL\\cos\\alpha}}{\\left(l^2+L^2-2lL\\cos\\alpha-R^2\\right)^2}\\tag{15}\n\\end{equation}\\]\n\n\nTask 3b)\n\n\nThe direction of the vector of the electric force (17) is described in Fig. 3.\n\n\n\n\n\n\n\n\n\nFig 3. The direction of the force \n\\(F\\)\n.\n\n\nThe angles \n\\(\\alpha\\)\n and \n\\(\\beta\\)\n are related as \n\\[\\begin{equation}\nL\\sin\\alpha=d\\sin\\beta\\tag{16}\n\\end{equation}\\]\n whereas for the angle \n\\(\\gamma\\)\n the relation \n\\(\\gamma=\\alpha+\\beta\\)\n is valid. The component of the force perpendicular to the thread is \n\\(\\mathrm{F}\\sin\\gamma\\)\n, that is , \n\\[\\begin{equation}\nF_\\perp=\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R\\sqrt{l^2+L^2-2lL\\cos\\alpha}}{\\left(l^2+L^2-2lL\\cos\\alpha-R^2\\right)^2}\\sin(\\alpha+\\beta)\\tag{17}\n\\end{equation}\\]\n where \n\\[\\beta=\\arcsin\\left(\\frac{L}{\\sqrt{L^2+l^2-2Ll\\cos\\alpha}}\\sin\\alpha\\right)\\]\n\n\nTask 3c)\n\n\nThe equation of motion of the mathematical pendulum is \n\\[\\begin{equation}\nmL\\ddot{\\alpha}=-F_\\perp\\tag{18}\n\\end{equation}\\]\n\n\nAs we are interested in small oscillations, the angle \n\\(\\alpha\\)\n is small, i.e. for its value in radians we have \n\\(\\alpha\\)\n much smaller than 1. For a small value of argument of trigonometric functions we have approximate relations sin x \n\\(\\approx\\)\n x and cos x \n\\(\\approx\\)\n 1-x\n2\n/2. So for small oscillations of the pendulum we have \n\\(\\beta \\approx \\alpha L/(l-L)\\)\n and \n\\(\\gamma \\approx l\\alpha/(l-L)\\)\n.\n\n\nCombining these relations with (13) we obtain \n\\[\\begin{equation}\nmL\\frac{d^2\\alpha}{dt^2}+\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2Rd}{\\left(d^2-R^2\\right)^2}\\left(1+\\frac{L}{d}\\right)\\alpha=0\\tag{19}\n\\end{equation}\\]\n Where \n\\(d = l - L\\)\n what leads to \n\\[\\begin{equation}\n\\begin{aligned}\n\\omega&=\\frac{q}{d^2-R^2}\\sqrt{\\frac{Rd}{4\\pi\\varepsilon_0}\\frac{1}{mL}\\left(1+\\frac{L}{d}\\right)}=\\quad . \\\\\n&=\\frac{q}{(l-L)^2-R^2}\\sqrt{\\frac{Rl}{4\\pi\\varepsilon_0}\\frac{1}{mL}}\n\\end{aligned}\\tag{20}\n\\end{equation}\\]\n\n\nSolution of Task 4\n\n\nFirst we present a solution based on the definition of the electrostatic energy of a collection of charges.\n\n\nTask 4a)\n\n\nThe total energy of the system can be separated into the electrostatic energy of interaction of the external charge with the induced charges on the sphere, \nE\nel,1\n, and the electrostatic energy of mutual interaction of charges on the sphere, \nE\nel,2\n, i.e. \n\\[\\begin{equation}\nE_{el}=E_{el,1}+E_{el,2}\\tag{21}\n\\end{equation}\\]\n\n\nLet there be \n\\(N\\)\n charges induced on the sphere. These charges \n\\(q_j\\)\n are located at points \n\\(\\vec r_j\\)\n, \n\\(j=1,\\ldots,N\\)\n on the sphere. We use the definition of the image charge, i.e., the potential on the surface of the sphere from the image charge is identical to the potential arising from the induced charges: \n\\[\\begin{equation}\n\\frac{q'}{|\\vec r-\\vec d'|}=\\sum_{j=1}^{N}\\frac{q_j}{|\\vec r_j-\\vec r|},\\tag{22}\n\\end{equation}\\]\n where \n\\(\\vec r\\)\n is a vector on the sphere and \n\\(\\vec d'\\)\n denotes the vector position of the image charge. When \n\\(\\vec r\\)\n coincides with some \n\\(\\vec r_i\\)\n, then we just have \n\\[\\begin{equation}\n\\frac{q'}{|\\vec r_i-\\vec d'|}=\\sum_{\\substack{j=1\\\\ j\\neq i}}^{N}\\frac{q_j}{|\\vec r_j-\\vec r_i|}.\\tag{23}\n\\end{equation}\\]\n\n\nFrom the requirement that the potential on the surface of the sphere vanishes we have \n\\[\\begin{equation}\n\\frac{q'}{|\\vec r-\\vec d'|}+\\frac{q}{|\\vec r-\\vec d|}=0,\\tag{24}\n\\end{equation}\\]\n where \n\\(\\vec d\\)\n denotes the vector position of the charge \n\\(\\vec q\\)\n (\n\\(\\vec r\\)\n is on the sphere).\n\n\nFor the interaction of the external charge with the induced charges on the sphere we have \n\\[\\begin{equation}\n\\begin{aligned}\nE_{el,1}&=\\frac{q}{4\\pi\\varepsilon_0}\\sum_{i=1}^{N}\\frac{q_i}{|\\vec r_i-\\vec d|}=\\frac{1}{4\\pi\\varepsilon_0}\\frac{qq'}{|\\vec d'-\\vec d|} \\\\\n&=\\frac{1}{4\\pi\\varepsilon_0}\\frac{qq'}{d-d'}=-\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R}{d^2-R^2}\n\\end{aligned}\\tag{25}\n\\end{equation}\\]\n Here the first equality is the definition of this energy as the sum of interactions of the charge \n\\(q\\)\n with each of the induced charges on the surface of the sphere. The second equality follows from (21).\n\n\nIn fact, the interaction energy \n\\(E_{el,1}\\)\n follows directly from the definition of an image charge.\n\n\nTask 4b)\n\n\nThe energy of mutual interactions of induced charges on the surface of the sphere is given with \n\\[\\begin{equation}\n\\begin{aligned}\nE_{el,2}&=\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\sum_{i=1}^{N}\\sum_{\\substack{j=1\\\\ j\\neq i}}^{N}\\frac{q_iq_j}{|\\vec r_i-\\vec r_j|} \\\\\n&=\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\sum_{i=1}^{N}q_i\\frac{q'}{|\\vec r_i-\\vec d'|}= \\\\\n&=-\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\sum_{i=1}^{N}q_i\\frac{q}{|\\vec r_i-\\vec d|}= \\\\\n&=-\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\frac{qq'}{|\\vec d'-\\vec d|}=-\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\frac{qq'}{d-d'}=\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R}{d^2-R^2}\n\\end{aligned}\\tag{26}\n\\end{equation}\\]\n Here the second line is obtained using (22). From the second line we obtain the third line applying (23), whereas from the third line we obtain the fourth using (22) again.\n\n\nTask 4c)\n\n\nCombining expressions (19) and (20) with the quantitative results for the image charge we finally obtain the total energy of electrostatic interaction \n\\[\\begin{equation}\nE_{el}(d)=-\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R}{d^2-R^2}\\tag{27}\n\\end{equation}\\]\n\n\nAn alternative solution\n follows from the definition of work. By knowing the integral \n\\[\\begin{equation}\n\\int_{d}^{\\infty}\\frac{x\\,dx}{\\left(x^2-R^2\\right)^2}=\\frac{1}{2}\\frac{1}{d^2-R^2}\\tag{28}\n\\end{equation}\\]\n We can obtain the total energy in the system by calculating the work needed to bring the charge \n\\(q\\)\n from infinity to the distance \n\\(d\\)\n from the center of the sphere: \n\\[\\begin{equation}\n\\begin{aligned}\nE_{el}(d)&=-\\int_{\\infty}^{d}F(\\vec x)\\,d\\vec x=\\int_{d}^{\\infty}F(\\vec x)\\,d\\vec x= \\\\\n&=\\int_{d}^{\\infty}(-)\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2Rx}{\\left(x^2-R^2\\right)^2}\\,dx= \\\\\n&=-\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R}{d^2-R^2}\n\\end{aligned}\\tag{29}\n\\end{equation}\\]\n This solves Task 4c).\n\n\nThe electrostatic energy between the charge \n\\(q\\)\n and the sphere must be equal to the energy between the charges \n\\(q\\)\n and \n\\(q'\\)\n according to the definition of the image charge: \n\\[\\begin{equation}\nE_{el,1}=\\frac{1}{4\\pi\\varepsilon_0}\\frac{qq'}{(d-d')}=-\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R}{d^2-R^2}\\tag{30}\n\\end{equation}\\]\n This solves Task 4a).\n\n\nFrom this we immediately have that the electrostatic energy among the charges on the sphere is: \n\\[\\begin{equation}\nE_{el,2}=\\frac{1}{2}\\frac{1}{4\\pi\\varepsilon_0}\\frac{q^2R}{d^2-R^2}.\\tag{31}\n\\end{equation}\\]\n This solves Task 4b).\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2010-t1/ede246ced75df65841e9.png",
+      "/corpus/figures/native/bulk/ipho-2010-t1/efb5df98ea9e902a7a91.png",
+      "/corpus/figures/native/bulk/ipho-2010-t1/195f2207de669414b0cd.png"
+    ],
+    "shared": false
+  }
+}

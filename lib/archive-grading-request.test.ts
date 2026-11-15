@@ -42,6 +42,7 @@ test("grading dependency graph has no auth, database, storage, progress or submi
     const source = readFileSync(new URL(path, import.meta.url), "utf8");
     assert.doesNotMatch(source, /from ["'](?:@\/lib\/|\.\/|\.\.\/)*(?:db|auth|blob|progress-store|submission-store)(?:[\/"'])|console\.(?:log|info)|recordResult|writeFile/);
     for (const match of source.matchAll(/(?:import|export)[\s\S]*?from\s*["'](\.[^"']+)["']/g)) {
+      if (match[1].endsWith(".json")) continue; // Static data has no executable imports or writes.
       const target = new URL(`${match[1]}.ts`, new URL(path, import.meta.url));
       if (target.pathname.includes("/lib/")) inspect(target.href);
     }

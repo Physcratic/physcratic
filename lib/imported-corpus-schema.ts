@@ -48,6 +48,10 @@ export type ImportedNode =
       children?: ImportedNode[];
       src?: string;
       alt?: string;
+      colSpan?: number;
+      rowSpan?: number;
+      start?: number;
+      listType?: "1" | "a" | "A" | "i" | "I";
     };
 
 const importedNodeSchema: z.ZodType<ImportedNode> = z.lazy(() =>
@@ -60,6 +64,10 @@ const importedNodeSchema: z.ZodType<ImportedNode> = z.lazy(() =>
         children: z.array(importedNodeSchema).optional(),
         src: localAsset.optional(),
         alt: z.string().optional(),
+        colSpan: z.number().int().min(1).max(100).optional(),
+        rowSpan: z.number().int().min(1).max(100).optional(),
+        start: z.number().int().min(1).max(10000).optional(),
+        listType: z.enum(["1", "a", "A", "i", "I"]).optional(),
       })
       .refine(
         (node) => node.tag !== "img" || Boolean(node.src && node.alt),

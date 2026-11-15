@@ -21,6 +21,7 @@ export const archiveMetadataSchema = z.strictObject({
       max: z.number().finite().optional(),
     })).max(20),
     help: z.string(),
+    responseFormat: z.enum(["math", "text"]).optional(),
   })).min(1).max(64),
 });
 export const archiveGradeRequestSchema = z.strictObject({

@@ -1,1 +1,2897 @@
-{"id":"apho-2024-t1","importedOn":"2026-11-14","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2024_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2024_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2024-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"Geometry of Water Fountain\nIntroduction\nWater sprayers are found at various places such as agriculture farms, green parks or urban areas for\nfunctional purposes or for aesthetic art installation. Consider a hemispherical shaped fountain sprayer of\nradius  at the height  from the ground as shown in a cross-sectional diagram in Fig. 1. Let the radius\nof the hemisphere to be small compared to the range , hence can be treated as a point source. However\nthere are \n number of holes per unit area at angle . The water spurts in all directions at the same\ninitial velocity \n.\nFig. 1: Schematic cross section of a hemispherical shaped fountain sprayer.\nr\nh\nR\nρ(θ)\nθ\nvo\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 4 of 18\n\nPart A: Uniformly Distributed Holes on the Surface of the Hemisphere (6.0 points)\nFirst consider the holes distribution on the surface of the hemisphere to be uniform (i.e. \n is a\nconstant).\nA.1\nExpress the instantaneous position \n and \n of a water element (can be treated\nas a stream of particles) launched at velocity \n at angle .\n0.5pt\nA.2\nDerive the water trajectory relation \n and express in a same type of\ntrigonometric function (e.g. in terms of sine, cosine or tangent ONLY). Note that \n.\n1.0pt\nA.3\nThe envelope is the minimal boundary which encloses all water trajectories (i.e. no\nwater will be found beyond this boundary). Derive the equation for the envelope\nfor this system. Express your answer as y(x). Sketch the envelope over the\ntrajectories.\n3.0pt\nA.4\nCalculate the range \n as a function of angle  .\n1.0pt\nA.5\nLetting \n in the range obtained in A.4, show that \n.\n0.5pt\nρ(θ)\nx(t)\ny(t)\nvo\nθ\ny = y(x, θ)\nθ > 0\nR = R(θ)\nθ\nh →0\nR = v2\no\ng sin  2θ\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 5 of 18\n\nPart B: Non-Uniformly Distributed Holes on the Surface of the Hemisphere (4.0 points)\nNow, consider the area of holes per unit area \n to be non-uniformly distributed and depended on the\nangle .\nB.1\nUsing the results from part A.4 above, calculate the elemental area \n of an\nannulus (ring) of radius \n and width \n of the water hitting the ground. Express\nyour answer in R, R' and d . [hint: consider R'=\n]\n1.0pt\nB.2\nDetermine the relation for \n that gives a uniform spray coverage pattern on the\nground by considering elemental area on the hemisphere in proportional to the\nelemental area of the water spray on the ground. Express your answer in terms of\nR and its derivative. [hint: consider condition where \n]. \n1.0pt\nB.3\nLetting \n, calculate explicitly the relation for \n that gives a uniform spray\ncoverage pattern for \n.\n2.0pt\nρ(θ)\nθ\ndAW\nR\ndR\nθ\ndR\ndθ\nρ(θ)\nR′(θ) > 0\nh = 0\nρ(θ)\nθ < 45°\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 6 of 18\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2024-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8,9,10],"initialPage":1,"shared":false,"text":"Geometry of Water Fountain\nPart A: Uniformly Distributed Holes on the Surface of the Hemisphere\nA.1\n[0.5pt]\nGiven the radius of the hemisphere is small compared to the range, that we can treat all the\ndifferent water sprouts emanate from a point source at the center of the hemisphere at the\nsame initial velocity but at different angles . Note that the distribution of the holes on the\nsurface of the hemisphere is uniform.\nConsider the motion in x- and y-directions with coordinate (x,y) as indicated in the Fig. 1.\nHorizontal motion – no acceleration\n(1.1)\n[0.2pt]\nVertical motion – ‘particle’ in free fall under gravity, g\n(1.2)\n[0.3pt]\nθ\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 1 of 31\n\nA.2\n[1.0pt]\nEquation of water trajectory (or path of the projectile) is obtained by\neliminating time t from equations (1.1) and (1.2).\n[0.1pt]\nUsing Eq. (1.1), we get \n  and substituting t in Eq.(1.2) we\nobtain\n[0.1pt]\n(1.3)\n[0.2pt]\n(1.4)\n[0.2pt]\nUsing trigonometry identity: \n, thus we write:\n[0.1pt]\n(1.5)\n[0.3pt]\nor\n(1.6)\n[0.0pt]\nThe equation of water trajectory is given by Eq. (1.5) (with reference to the ground) or Eq.\n(1.6) with reference to the base of the hemisphere.\nt =\nx\nv0 cos θ\nsec2 θ = 1 + tan2 θ\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 2 of 31\n\nA.3\n[3.0pt]\nWe rewrite the trajectory equation in the form of quadratic function in \n[0.2pt]\n(1.7)\n[0.5pt]\nwhere \n.\nLet \n, thus we express Eq. (1.7) as a quadratic function in u:\n(1.8)\n[0.3pt]\nwhere\n(1.9)\n[0.0pt]\nThe quadratic equation Eq.(1.8) must have a real solution for u, i.e\n(1.10)\n[0.2pt]\nOr the discriminant is non-negative, i.e. \n, which gives.\n[0.2pt]\n(1.11)\n[0.4pt]\nRe-arranging Eq.(1.11) for y’ to get\n(1.12)\n[0.0pt]\ntan  θ\ny′ = y −h\ntan  θ = u\nb2 −4ac ≥0\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 3 of 31\n\nor\n(1.13)\n[0.2pt]\nThe water trajectory follows the inequality in (1.13) and the envelop of different water\ntrajectories with different launch angles follow the parabolic equation:\n(1.14)\n[0.2pt]\nOr\n(1.15)\n[0.3pt]\nThe sketch of the envelop of water trajectory is shown below:\n[0.5pt]\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 4 of 31\n\nA.4\n[1.0pt]\nRecall the trajectory Eq. (1.5) and set y = 0 to obtain the horizontal range \n:\n(1.16)\n[0.2pt]\n(1.17)\n[0.2pt]\nwhich is a quadratic equation\n(1.18)\n[0.2pt]\nwith\n(1.19)\n[0.0pt]\nThe solution of Eq. (1.18) is the range of the water trajectory on the ground.\n(1.20)\n[0.1pt]\n(1.21)\n[0.3pt]\nx = R\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 5 of 31\n\nA.5\n[0.5pt]\nLetting \n in Eq.(1.21) gives\n(1.22)\n[0.2pt]\n(1.23)\n[0.0pt]\n(1.24)\n[0.3pt]\nh = 0\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 6 of 31\n\nPart B: Non-Uniformly Distributed Holes on the Surface of the Hemisphere\nB.1\n[1.0pt]\nRecall the range from (A.4) above (Eq. (1.21))\n(1.21)\n[0.2pt]\nLet\n(1.25)\n[0.2pt]\nand thus\n(1.26)\n[0.2pt]\nThere is no need to determine the R' explicitely. Answers can be left in R'. Consider an\nannulus (or ring) water on the ground with radius R and thickness dR where the element\narea of annulus \n is given by\n(1.27)\n[0.2pt]\n(1.28)\n[0.2pt]\ndAW\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 7 of 31\n\nB.2\n[1.0pt]\nNumber of holes in on the elemental area of annulus \n, on the hemisphere, of radius \n at angle   with angular width \n is\n(1.29)\n[0.2pt]\nIn order the water sprouts to spray uniformly on the ground \n  such that\n(1.30)\n[0.4pt]\nAnd to ensure the expression is independent of \n, we express\n(1.31)\n[0.3pt]\nwhere \n and \n are given by Eq. (1.21) and Eq.(1.25), respectively.\nIf the distribution of the holes on the hemisphere follows Eq. (1.31), then\nthe water spray on the ground will be uniform (independent of angle).\nThe condition set for angle  does not affect the general expression in\n(1.31). \n[0.1pt]\ndAH\nr\nθ\ndθ\ndAH = ρ(θ) × 2π(r cosθ)rdθ\ndAW~dAH\ndAH = ρ(θ) × 2π(rcosθ)rdθ~2πRR′(θ)dθ~ dAW\nρ(θ)\nρ(θ)~ R(θ)R′(θ)\nr2 cos θ\nR(θ)\nR′(θ)\nθ\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 8 of 31\n\nB.3\n[2.0pt]\nWhen \n, the range become simple to estimate, namely from Eq. (1.24) we have\n[0.2pt]\nand\n(1.32)\n[0.2pt]\n(1.33)\n[0.1pt]\nConsider an annulus (or ring) water on the ground with radius \n and thickness \n where\nthe element area of annulus \n is given by\n(1.34)\n[0.2pt]\n(1.35)\n[0.2pt]\n(1.36)\n[0.1pt]\nThus, elemental area of water annulus \n follows\n(1.37)\n[0.1pt]\nRecall from B.2 the number of holes in on the elemental area of\nannulus \n, on the hemisphere, of radius   at angle   with angular\nwidth \n is\n[0.1pt]\nh = 0\nR\ndR\ndAW\ndAW\ndAH\nr\nθ\ndθ\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 9 of 31\n\n[0.1pt]\nIn order the water sprouts to spray uniformly on the ground \nsuch that\n[0.1pt]\n(1.38)\n[0.3pt]\nAnd to ensure the expression is independent of \n, we express\n.\n(1.39)\n[0.2pt]\nIf the distribution of the holes per unit area on the hemisphere follows Eq.\n(1.39), then the water sprayed on the ground will be uniform (independent\nof angle). The condition set on the angle only to avoid duplication of\nwater hitting the same area for \n \n[0.1pt]\ndAH = ρ(θ) × 2π(r  cos(θ))rdθ~ρ(θ) cos(θ)dθ.\ndAW ∝dAH\nρ(θ)\nρ(θ)~ sin(4θ)\ncos(θ)\n0o < θ ≤45o or 45o < θ < 90o.\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 10 of 31\n","textExtraction":"available"}}
+{
+  "id": "apho-2024-t1",
+  "importedOn": "2026-11-14",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2024_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2024_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2024-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "Geometry of Water Fountain"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "Introduction"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Water sprayers are found at various places such as agriculture farms, green parks or urban areas for functional purposes or for aesthetic art installation. Consider a hemispherical shaped fountain sprayer of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the ground as shown in a cross-sectional diagram in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Let the radius of the hemisphere to be small compared to the range "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", hence can be treated as a point source. However there are "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " number of holes per unit area at angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The water spurts in all directions at the same initial velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_o\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2024-t1/f6e32b00f47a52bbd800.png",
+                "alt": "apho-2024-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 1"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": Schematic cross section of a hemispherical shaped fountain sprayer."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A: Uniformly Distributed Holes on the Surface of the Hemisphere (6.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "First consider the holes distribution on the surface of the hemisphere to be uniform (i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a constant)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Express the instantaneous position "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of a water element (can be treated as a stream of particles) launched at velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_o\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Derive the water trajectory relation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y = y(x, \\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and express in a same type of trigonometric function (e.g. in terms of sine, cosine or tangent ONLY). Note that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.0pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The envelope is the minimal boundary which encloses all water trajectories (i.e. no water will be found beyond this boundary). Derive the equation for the envelope for this system. Express your answer as y(x). Sketch the envelope over the trajectories. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "3.0pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Calculate the range "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = R(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.0pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Letting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h \\to 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the range obtained in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", show that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = \\frac{v_o^2}{g} \\sin\\ 2\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B: Non-Uniformly Distributed Holes on the Surface of the Hemisphere (4.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now, consider the area of holes per unit area "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to be non-uniformly distributed and depended on the angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Using the results from part "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " above, calculate the elemental area "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dA_W\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of an annulus (ring) of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and width "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dR\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the water hitting the ground. Express your answer in R, R' and d"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [hint: consider R'="
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{dR}{d\\theta}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "] "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.0pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Determine the relation for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that gives a uniform spray coverage pattern on the ground by considering elemental area on the hemisphere in proportional to the elemental area of the water spray on the ground. Express your answer in terms of R and its derivative. [hint: consider condition where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\prime(\\theta) > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "]. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.0pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Letting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", calculate explicitly the relation for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that gives a uniform spray coverage pattern for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta < 45^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2.0pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Geometry of Water Fountain\n\n\nIntroduction\n\n\nWater sprayers are found at various places such as agriculture farms, green parks or urban areas for functional purposes or for aesthetic art installation. Consider a hemispherical shaped fountain sprayer of radius \n\\(r\\)\n at the height \n\\(h\\)\n from the ground as shown in a cross-sectional diagram in \nFig. 1\n. Let the radius of the hemisphere to be small compared to the range \n\\(R\\)\n, hence can be treated as a point source. However there are \n\\(\\rho(\\theta)\\)\n number of holes per unit area at angle \n\\(\\theta\\)\n. The water spurts in all directions at the same initial velocity \n\\(v_o\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nFig. 1\n: Schematic cross section of a hemispherical shaped fountain sprayer.\n\n\n\n\nPart A: Uniformly Distributed Holes on the Surface of the Hemisphere (6.0 points)\n\n\nFirst consider the holes distribution on the surface of the hemisphere to be uniform (i.e. \n\\(\\rho(\\theta)\\)\n is a constant).\n\n\nA.1\nExpress the instantaneous position \n\\(x(t)\\)\n and \n\\(y(t)\\)\n of a water element (can be treated as a stream of particles) launched at velocity \n\\(v_o\\)\n at angle \n\\(\\theta\\)\n. \n0.5pt\n\n\nA.2\nDerive the water trajectory relation \n\\(y = y(x, \\theta)\\)\n and express in a same type of trigonometric function (e.g. in terms of sine, cosine or tangent ONLY). Note that \n\\(\\theta > 0\\)\n. \n1.0pt\n\n\nA.3\nThe envelope is the minimal boundary which encloses all water trajectories (i.e. no water will be found beyond this boundary). Derive the equation for the envelope for this system. Express your answer as y(x). Sketch the envelope over the trajectories. \n3.0pt\n\n\nA.4\nCalculate the range \n\\(R = R(\\theta)\\)\n as a function of angle \n\\(\\theta\\)\n. \n1.0pt\n\n\nA.5\nLetting \n\\(h \\to 0\\)\n in the range obtained in \nA.4\n, show that \n\\(R = \\frac{v_o^2}{g} \\sin\\ 2\\theta\\)\n. \n0.5pt\n\n\nPart B: Non-Uniformly Distributed Holes on the Surface of the Hemisphere (4.0 points)\n\n\nNow, consider the area of holes per unit area \n\\(\\rho(\\theta)\\)\n to be non-uniformly distributed and depended on the angle \n\\(\\theta\\)\n.\n\n\nB.1\nUsing the results from part \nA.4\n above, calculate the elemental area \n\\(dA_W\\)\n of an annulus (ring) of radius \n\\(R\\)\n and width \n\\(dR\\)\n of the water hitting the ground. Express your answer in R, R' and d\n\\(\\theta\\)\n. [hint: consider R'=\n\\(\\frac{dR}{d\\theta}\\)\n] \n1.0pt\n\n\nB.2\nDetermine the relation for \n\\(\\rho(\\theta)\\)\n that gives a uniform spray coverage pattern on the ground by considering elemental area on the hemisphere in proportional to the elemental area of the water spray on the ground. Express your answer in terms of R and its derivative. [hint: consider condition where \n\\(R\\prime(\\theta) > 0\\)\n]. \n1.0pt\n\n\nB.3\nLetting \n\\(h = 0\\)\n, calculate explicitly the relation for \n\\(\\rho(\\theta)\\)\n that gives a uniform spray coverage pattern for \n\\(\\theta < 45^\\circ\\)\n. \n2.0pt\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2024-t1/f6e32b00f47a52bbd800.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2024-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "Geometry of Water Fountain"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A: Uniformly Distributed Holes on the Surface of the Hemisphere"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Given the radius of the hemisphere is small compared to the range, that we can treat all the different water sprouts emanate from a point source at the center of the hemisphere at the same initial velocity but at different angles "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Note that the distribution of the holes on the surface of the hemisphere is uniform."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider the motion in "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "x"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "- and "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "y"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-directions with coordinate ("
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "x"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ","
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "y"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") as indicated in the "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Horizontal motion – no acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nx = x(t) = (v_o\\cos\\theta)t \\tag*{(1.1)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Vertical motion – ‘particle’ in free fall under gravity, "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "g"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ny = y(t) = h + (v_o\\sin\\theta)t - \\frac{1}{2}gt^2 \\tag*{(1.2)\\quad[0.3pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[1.0pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Equation of water trajectory (or path of the projectile) is obtained by eliminating time "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "t"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from equations (1.1) and (1.2). [0.1pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using Eq. (1.1), we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = \\frac{x}{v_0\\cos\\theta}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and substituting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in Eq.(1.2) we obtain [0.1pt] "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\ny &= h + x\\frac{\\sin\\theta}{\\cos\\theta} - \\frac{gx^2}{2v_o^2}\\frac{1}{(\\cos^2\\theta)} \\tag*{(1.3)\\quad[0.2pt]}\\\\\n&= h + x\\tan\\theta - \\frac{gx^2}{2v_o^2}(\\,\\mathit{sec}^2\\,\\theta) \\tag*{(1.4)\\quad[0.2pt]}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using trigonometry identity: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sec^2\\theta = 1 + \\tan^2\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", thus we write: [0.1pt] "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ny = h + x\\tan\\theta - \\frac{gx^2}{2v_o^2}(1\\,+\\mathit{tan}^2\\,\\theta) \\tag*{(1.5)\\quad[0.3pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ny' = y - h = x\\tan\\theta - \\frac{gx^2}{2v_o^2}(1\\,+\\mathit{tan}^2\\,\\theta) \\tag*{(1.6)}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The equation of water trajectory is given by Eq. (1.5) (with reference to the ground) or Eq. (1.6) with reference to the base of the hemisphere."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[3.0pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "We rewrite the trajectory equation in the form of quadratic function in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tan\\ \\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " [0.2pt] "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\left(\\tfrac{gx^2}{2v_o^2}\\right)\\mathit{tan}^2\\theta - x\\tan\\theta + \\left(y' + \\tfrac{gx^2}{2v_o^2}\\right) = 0 \\tag*{(1.7)\\quad[0.5pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y' = y - h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tan\\ \\theta = u\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", thus we express Eq. (1.7) as a quadratic function in "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "u"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nau^2 + bu + c = 0 \\tag*{(1.8)\\quad[0.3pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\na = \\frac{gx^2}{2v_o^2}, \\qquad b = -x, \\qquad c = y' + \\frac{gx^2}{2v_o^2}. \\tag*{(1.9)}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The quadratic equation Eq.(1.8) must have a real solution for "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "u"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", i.e "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nu = \\frac{-b\\pm\\sqrt{b^2-4ac}}{2a} \\tag*{(1.10)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Or the discriminant is non-negative, i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b^2 - 4ac \\geq 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which gives. [0.2pt] "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nx^2 - 4\\left(\\tfrac{gx^2}{2v_o^2}\\right)\\left(y' + \\tfrac{gx^2}{2v_o^2}\\right) \\geq 0 \\tag*{(1.11)\\quad[0.4pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Re-arranging Eq.(1.11) for y’ to get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n-y' \\geq \\frac{gx^2}{2v_o^2} - \\frac{v_o^2}{2g} \\tag*{(1.12)}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ny' \\leq \\frac{v_o^2}{2g} - \\frac{gx^2}{2v_o^2} \\tag*{(1.13)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The water trajectory follows the inequality in (1.13) and the envelop of different water trajectories with different launch angles follow the parabolic equation: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ny' = \\frac{v_o^2}{2g} - \\frac{gx^2}{2v_o^2} \\tag*{(1.14)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ny = h + \\frac{v_o^2}{2g} - \\frac{gx^2}{2v_o^2} \\tag*{(1.15)\\quad[0.3pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The sketch of the envelop of water trajectory is shown below:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2024-t1/05a811ec763130ce8207.png",
+                "alt": "apho-2024-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "[0.5pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[1.0pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Recall the trajectory Eq. (1.5) and set "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "y"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 0 to obtain the horizontal range "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n0 = h + R\\tan\\theta - \\frac{gR^2}{2v_o^2}(1\\,+\\mathit{tan}^2\\,\\theta) \\tag*{(1.16)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\tfrac{g}{2v_o^2}(1\\,+\\mathit{tan}^2\\,\\theta)R^2 - (\\tan\\theta)R - h = 0 \\tag*{(1.17)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "which is a quadratic equation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\na'R^2 + b'R + c' = 0 \\tag*{(1.18)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\na' = \\tfrac{g}{2v_o^2}(1 + \\tan^2\\theta),\\ \\ b' = -\\tan\\theta\\,,\\ c = h., \\tag*{(1.19)}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The solution of Eq. (1.18) is the range of the water trajectory on the ground. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nR = \\frac{-b'\\pm\\sqrt{b'^2-4a'c'}}{2a'} \\tag*{(1.20)\\quad[0.1pt]}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nR = \\frac{\\tan\\theta\\pm\\sqrt{\\mathit{tan}^2\\theta+4\\tfrac{g}{2v_o^2}(1+\\mathit{tan}^2\\theta)h}}{\\tfrac{g}{v_o^2}(1+\\mathit{tan}^2\\theta)} \\tag*{(1.21)\\quad[0.3pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Letting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in Eq.(1.21) gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nR = \\frac{\\tan\\theta\\pm\\sqrt{\\mathit{tan}^2\\theta}}{\\tfrac{g}{v_o^2}(1+\\mathit{tan}^2\\theta)} \\tag*{(1.22)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nR = \\frac{2\\tan\\theta}{\\tfrac{g}{v_o^2}(1+\\mathit{tan}^2\\theta)} = \\frac{2\\tan\\theta}{\\tfrac{g}{v_o^2}(\\mathit{sec}^2\\theta)} \\tag*{(1.23)}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n= \\frac{v_o^2}{g}2\\sin\\theta\\cos\\theta = \\frac{v_o^2}{g}\\sin 2\\theta \\tag*{(1.24)\\quad[0.3pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B: Non-Uniformly Distributed Holes on the Surface of the Hemisphere"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[1.0pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Recall the range from ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") above (Eq. (1.21)) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nR = R(\\theta) = \\frac{\\tan\\theta\\pm\\sqrt{\\mathit{tan}^2\\theta+4\\tfrac{g}{2v_o^2}(1+\\mathit{tan}^2\\theta)h}}{\\tfrac{g}{v_o^2}(1+\\mathit{tan}^2\\theta)} \\tag*{(1.21)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\tfrac{dR}{d\\theta} = R'(\\theta) \\tag*{(1.25)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "and thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndR = R'(\\theta)d\\theta. \\tag*{(1.26)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "There is no need to determine the R' explicitely. Answers can be left in R'. Consider an annulus (or ring) water on the ground with radius "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "R"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and thickness "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "dR"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where the element area of annulus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dA_W\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\ndA_W &= 2\\pi R\\times dR \\tag*{(1.27)\\quad[0.2pt]}\\\\\n&= 2\\pi RR'(\\theta)d\\theta \\tag*{(1.28)\\quad[0.2pt]}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[1.0pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Number of holes in on the elemental area of annulus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dA_H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", on the hemisphere, of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with angular width "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndA_H = \\rho(\\theta)\\times 2\\pi(\\mathrm{r}\\ \\cos\\theta)\\mathrm{rd}\\theta \\tag*{(1.29)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In order the water sprouts to spray uniformly on the ground "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dA_W\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({\\sim}\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dA_H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " such that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndA_H = \\rho(\\theta)\\times 2\\pi(\\mathrm{rcos}\\theta)\\mathrm{rd}\\theta{\\sim}2\\pi\\mathrm{RR'}(\\theta)\\mathrm{d}\\theta{\\sim}\\ \\mathrm{dA_W} \\tag*{(1.30)\\quad[0.4pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "And to ensure the expression is independent of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\rho\\Bigl(\\theta\\Bigr){\\sim}\\tfrac{R(\\theta)R'(\\theta)}{r^2\\cos\\theta} \\tag*{(1.31)\\quad[0.3pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R'(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are given by Eq. (1.21) and Eq.(1.25), respectively."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If the distribution of the holes on the hemisphere follows Eq. (1.31), then the water spray on the ground will be uniform (independent of angle). The condition set for angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " does not affect the general expression in (1.31). [0.1pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[2.0pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "When "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the range become simple to estimate, namely from Eq. (1.24) we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nR(\\theta) = \\frac{v_o^2}{g}\\sin 2\\theta \\tag*{[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\tfrac{dR(\\theta)}{d\\theta} = \\tfrac{2v_o^2}{g}\\cos 2\\theta \\tag*{(1.32)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndR = \\tfrac{2v_o^2}{g}\\cos 2\\theta\\, d\\theta \\tag*{(1.33)\\quad[0.1pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider an annulus (or ring) water on the ground with radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and thickness "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dR\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where the element area of annulus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dA_W\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\ndA_W &= 2\\pi R\\times dR \\notag\\\\\n&= 2\\pi\\left(\\tfrac{v_o^2}{g}\\sin 2\\theta\\right)\\left(\\tfrac{2v_o^2}{g}\\cos 2\\theta\\right)d\\theta \\tag*{(1.34)\\quad[0.2pt]}\\\\\n&= 2\\pi\\left(\\tfrac{v_o^2}{g}\\right)^2 2\\sin 2\\theta\\cos 2\\theta\\, d\\theta \\tag*{(1.35)\\quad[0.2pt]}\\\\\n&= 2\\pi\\left(\\tfrac{v_o^2}{g}\\right)^2 \\sin 4\\theta\\, d\\theta \\tag*{(1.36)\\quad[0.1pt]}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus, elemental area of water annulus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dA_W\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " follows "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndA_W \\propto \\sin 4\\theta\\, d\\theta. \\tag*{(1.37)\\quad[0.1pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Recall from "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the number of holes in on the elemental area of annulus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dA_H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", on the hemisphere, of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at angle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with angular width "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\theta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is [0.1pt] "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndA_H = \\rho(\\theta)\\times 2\\pi(\\mathrm{r}\\ \\cos(\\theta))\\mathrm{rd}\\theta{\\sim}\\rho(\\theta)\\cos(\\theta)\\mathrm{d}\\theta. \\tag*{[0.1pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In order the water sprouts to spray uniformly on the ground "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dA_W \\propto dA_H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " such that [0.1pt] "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndA_H{\\sim}\\rho(\\theta)\\cos\\theta d\\theta{\\sim}\\sin 4\\theta\\ d\\theta. \\tag*{(1.38)\\quad[0.3pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "And to ensure the expression is independent of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho(\\theta)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\rho\\Bigl(\\theta\\Bigr){\\sim}\\tfrac{\\sin(4\\theta)}{\\cos(\\theta)}. \\tag*{(1.39)\\quad[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If the distribution of the holes per unit area on the hemisphere follows Eq. (1.39), then the water sprayed on the ground will be uniform (independent of angle). The condition set on the angle only to avoid duplication of water hitting the same area for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0^o < \\theta \\leq 45^o\\ or\\ 45^o < \\theta < 90^o\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [0.1pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Geometry of Water Fountain\n\n\nPart A: Uniformly Distributed Holes on the Surface of the Hemisphere\n\n\nA.1\n \n[0.5pt]\nGiven the radius of the hemisphere is small compared to the range, that we can treat all the different water sprouts emanate from a point source at the center of the hemisphere at the same initial velocity but at different angles \n\\(\\theta\\)\n. Note that the distribution of the holes on the surface of the hemisphere is uniform.\n\n\nConsider the motion in \nx\n- and \ny\n-directions with coordinate (\nx\n,\ny\n) as indicated in the \nFig. 1\n.\n\n\nHorizontal motion – no acceleration \n\\[\\begin{equation}\nx = x(t) = (v_o\\cos\\theta)t \\tag*{(1.1)\\quad[0.2pt]}\n\\end{equation}\\]\n\n\nVertical motion – ‘particle’ in free fall under gravity, \ng\n \n\\[\\begin{equation}\ny = y(t) = h + (v_o\\sin\\theta)t - \\frac{1}{2}gt^2 \\tag*{(1.2)\\quad[0.3pt]}\n\\end{equation}\\]\n\n\nA.2\n \n[1.0pt]\nEquation of water trajectory (or path of the projectile) is obtained by eliminating time \nt\n from equations (1.1) and (1.2). [0.1pt]\n\n\nUsing Eq. (1.1), we get \n\\(t = \\frac{x}{v_0\\cos\\theta}\\)\n and substituting \n\\(t\\)\n in Eq.(1.2) we obtain [0.1pt] \n\\[\\begin{align}\ny &= h + x\\frac{\\sin\\theta}{\\cos\\theta} - \\frac{gx^2}{2v_o^2}\\frac{1}{(\\cos^2\\theta)} \\tag*{(1.3)\\quad[0.2pt]}\\\\\n&= h + x\\tan\\theta - \\frac{gx^2}{2v_o^2}(\\,\\mathit{sec}^2\\,\\theta) \\tag*{(1.4)\\quad[0.2pt]}\n\\end{align}\\]\n\n\nUsing trigonometry identity: \n\\(\\sec^2\\theta = 1 + \\tan^2\\theta\\)\n, thus we write: [0.1pt] \n\\[\\begin{equation}\ny = h + x\\tan\\theta - \\frac{gx^2}{2v_o^2}(1\\,+\\mathit{tan}^2\\,\\theta) \\tag*{(1.5)\\quad[0.3pt]}\n\\end{equation}\\]\n\n\nor \n\\[\\begin{equation}\ny' = y - h = x\\tan\\theta - \\frac{gx^2}{2v_o^2}(1\\,+\\mathit{tan}^2\\,\\theta) \\tag*{(1.6)}\n\\end{equation}\\]\n\n\nThe equation of water trajectory is given by Eq. (1.5) (with reference to the ground) or Eq. (1.6) with reference to the base of the hemisphere.\n\n\nA.3\n \n[3.0pt]\nWe rewrite the trajectory equation in the form of quadratic function in \n\\(\\tan\\ \\theta\\)\n [0.2pt] \n\\[\\begin{equation}\n\\left(\\tfrac{gx^2}{2v_o^2}\\right)\\mathit{tan}^2\\theta - x\\tan\\theta + \\left(y' + \\tfrac{gx^2}{2v_o^2}\\right) = 0 \\tag*{(1.7)\\quad[0.5pt]}\n\\end{equation}\\]\n\n\nwhere \n\\(y' = y - h\\)\n.\n\n\nLet \n\\(\\tan\\ \\theta = u\\)\n, thus we express Eq. (1.7) as a quadratic function in \nu\n: \n\\[\\begin{equation}\nau^2 + bu + c = 0 \\tag*{(1.8)\\quad[0.3pt]}\n\\end{equation}\\]\n\n\nwhere \n\\[\\begin{equation}\na = \\frac{gx^2}{2v_o^2}, \\qquad b = -x, \\qquad c = y' + \\frac{gx^2}{2v_o^2}. \\tag*{(1.9)}\n\\end{equation}\\]\n\n\nThe quadratic equation Eq.(1.8) must have a real solution for \nu\n, i.e \n\\[\\begin{equation}\nu = \\frac{-b\\pm\\sqrt{b^2-4ac}}{2a} \\tag*{(1.10)\\quad[0.2pt]}\n\\end{equation}\\]\n\n\nOr the discriminant is non-negative, i.e. \n\\(b^2 - 4ac \\geq 0\\)\n, which gives. [0.2pt] \n\\[\\begin{equation}\nx^2 - 4\\left(\\tfrac{gx^2}{2v_o^2}\\right)\\left(y' + \\tfrac{gx^2}{2v_o^2}\\right) \\geq 0 \\tag*{(1.11)\\quad[0.4pt]}\n\\end{equation}\\]\n\n\nRe-arranging Eq.(1.11) for y’ to get \n\\[\\begin{equation}\n-y' \\geq \\frac{gx^2}{2v_o^2} - \\frac{v_o^2}{2g} \\tag*{(1.12)}\n\\end{equation}\\]\n\n\nor \n\\[\\begin{equation}\ny' \\leq \\frac{v_o^2}{2g} - \\frac{gx^2}{2v_o^2} \\tag*{(1.13)\\quad[0.2pt]}\n\\end{equation}\\]\n\n\nThe water trajectory follows the inequality in (1.13) and the envelop of different water trajectories with different launch angles follow the parabolic equation: \n\\[\\begin{equation}\ny' = \\frac{v_o^2}{2g} - \\frac{gx^2}{2v_o^2} \\tag*{(1.14)\\quad[0.2pt]}\n\\end{equation}\\]\n\n\nOr \n\\[\\begin{equation}\ny = h + \\frac{v_o^2}{2g} - \\frac{gx^2}{2v_o^2} \\tag*{(1.15)\\quad[0.3pt]}\n\\end{equation}\\]\n\n\nThe sketch of the envelop of water trajectory is shown below:\n\n\n\n\n\n\n\n\n\n[0.5pt]\n\n\nA.4\n \n[1.0pt]\nRecall the trajectory Eq. (1.5) and set \ny\n = 0 to obtain the horizontal range \n\\(x = R\\)\n: \n\\[\\begin{equation}\n0 = h + R\\tan\\theta - \\frac{gR^2}{2v_o^2}(1\\,+\\mathit{tan}^2\\,\\theta) \\tag*{(1.16)\\quad[0.2pt]}\n\\end{equation}\\]\n \n\\[\\begin{equation}\n\\tfrac{g}{2v_o^2}(1\\,+\\mathit{tan}^2\\,\\theta)R^2 - (\\tan\\theta)R - h = 0 \\tag*{(1.17)\\quad[0.2pt]}\n\\end{equation}\\]\n\n\nwhich is a quadratic equation \n\\[\\begin{equation}\na'R^2 + b'R + c' = 0 \\tag*{(1.18)\\quad[0.2pt]}\n\\end{equation}\\]\n\n\nwith \n\\[\\begin{equation}\na' = \\tfrac{g}{2v_o^2}(1 + \\tan^2\\theta),\\ \\ b' = -\\tan\\theta\\,,\\ c = h., \\tag*{(1.19)}\n\\end{equation}\\]\n\n\nThe solution of Eq. (1.18) is the range of the water trajectory on the ground. \n\\[\\begin{equation}\nR = \\frac{-b'\\pm\\sqrt{b'^2-4a'c'}}{2a'} \\tag*{(1.20)\\quad[0.1pt]}\n\\end{equation}\\]\n \n\\[\\begin{equation}\nR = \\frac{\\tan\\theta\\pm\\sqrt{\\mathit{tan}^2\\theta+4\\tfrac{g}{2v_o^2}(1+\\mathit{tan}^2\\theta)h}}{\\tfrac{g}{v_o^2}(1+\\mathit{tan}^2\\theta)} \\tag*{(1.21)\\quad[0.3pt]}\n\\end{equation}\\]\n\n\nA.5\n \n[0.5pt]\nLetting \n\\(h = 0\\)\n in Eq.(1.21) gives \n\\[\\begin{equation}\nR = \\frac{\\tan\\theta\\pm\\sqrt{\\mathit{tan}^2\\theta}}{\\tfrac{g}{v_o^2}(1+\\mathit{tan}^2\\theta)} \\tag*{(1.22)\\quad[0.2pt]}\n\\end{equation}\\]\n \n\\[\\begin{equation}\nR = \\frac{2\\tan\\theta}{\\tfrac{g}{v_o^2}(1+\\mathit{tan}^2\\theta)} = \\frac{2\\tan\\theta}{\\tfrac{g}{v_o^2}(\\mathit{sec}^2\\theta)} \\tag*{(1.23)}\n\\end{equation}\\]\n \n\\[\\begin{equation}\n= \\frac{v_o^2}{g}2\\sin\\theta\\cos\\theta = \\frac{v_o^2}{g}\\sin 2\\theta \\tag*{(1.24)\\quad[0.3pt]}\n\\end{equation}\\]\n\n\nPart B: Non-Uniformly Distributed Holes on the Surface of the Hemisphere\n\n\nB.1\n \n[1.0pt]\nRecall the range from (\nA.4\n) above (Eq. (1.21)) \n\\[\\begin{equation}\nR = R(\\theta) = \\frac{\\tan\\theta\\pm\\sqrt{\\mathit{tan}^2\\theta+4\\tfrac{g}{2v_o^2}(1+\\mathit{tan}^2\\theta)h}}{\\tfrac{g}{v_o^2}(1+\\mathit{tan}^2\\theta)} \\tag*{(1.21)\\quad[0.2pt]}\n\\end{equation}\\]\n\n\nLet \n\\[\\begin{equation}\n\\tfrac{dR}{d\\theta} = R'(\\theta) \\tag*{(1.25)\\quad[0.2pt]}\n\\end{equation}\\]\n\n\nand thus \n\\[\\begin{equation}\ndR = R'(\\theta)d\\theta. \\tag*{(1.26)\\quad[0.2pt]}\n\\end{equation}\\]\n\n\nThere is no need to determine the R' explicitely. Answers can be left in R'. Consider an annulus (or ring) water on the ground with radius \nR\n and thickness \ndR\n where the element area of annulus \n\\(dA_W\\)\n is given by \n\\[\\begin{align}\ndA_W &= 2\\pi R\\times dR \\tag*{(1.27)\\quad[0.2pt]}\\\\\n&= 2\\pi RR'(\\theta)d\\theta \\tag*{(1.28)\\quad[0.2pt]}\n\\end{align}\\]\n\n\nB.2\n \n[1.0pt]\nNumber of holes in on the elemental area of annulus \n\\(dA_H\\)\n, on the hemisphere, of radius \n\\(r\\)\n at angle \n\\(\\theta\\)\n with angular width \n\\(d\\theta\\)\n is \n\\[\\begin{equation}\ndA_H = \\rho(\\theta)\\times 2\\pi(\\mathrm{r}\\ \\cos\\theta)\\mathrm{rd}\\theta \\tag*{(1.29)\\quad[0.2pt]}\n\\end{equation}\\]\n\n\nIn order the water sprouts to spray uniformly on the ground \n\\(dA_W\\)\n\\({\\sim}\\)\n\\(dA_H\\)\n such that \n\\[\\begin{equation}\ndA_H = \\rho(\\theta)\\times 2\\pi(\\mathrm{rcos}\\theta)\\mathrm{rd}\\theta{\\sim}2\\pi\\mathrm{RR'}(\\theta)\\mathrm{d}\\theta{\\sim}\\ \\mathrm{dA_W} \\tag*{(1.30)\\quad[0.4pt]}\n\\end{equation}\\]\n\n\nAnd to ensure the expression is independent of \n\\(\\rho(\\theta)\\)\n, we express \n\\[\\begin{equation}\n\\rho\\Bigl(\\theta\\Bigr){\\sim}\\tfrac{R(\\theta)R'(\\theta)}{r^2\\cos\\theta} \\tag*{(1.31)\\quad[0.3pt]}\n\\end{equation}\\]\n\n\nwhere \n\\(R(\\theta)\\)\n and \n\\(R'(\\theta)\\)\n are given by Eq. (1.21) and Eq.(1.25), respectively.\n\n\nIf the distribution of the holes on the hemisphere follows Eq. (1.31), then the water spray on the ground will be uniform (independent of angle). The condition set for angle \n\\(\\theta\\)\n does not affect the general expression in (1.31). [0.1pt]\n\n\nB.3\n \n[2.0pt]\nWhen \n\\(h = 0\\)\n, the range become simple to estimate, namely from Eq. (1.24) we have \n\\[\\begin{equation}\nR(\\theta) = \\frac{v_o^2}{g}\\sin 2\\theta \\tag*{[0.2pt]}\n\\end{equation}\\]\n\n\nand \n\\[\\begin{equation}\n\\tfrac{dR(\\theta)}{d\\theta} = \\tfrac{2v_o^2}{g}\\cos 2\\theta \\tag*{(1.32)\\quad[0.2pt]}\n\\end{equation}\\]\n \n\\[\\begin{equation}\ndR = \\tfrac{2v_o^2}{g}\\cos 2\\theta\\, d\\theta \\tag*{(1.33)\\quad[0.1pt]}\n\\end{equation}\\]\n\n\nConsider an annulus (or ring) water on the ground with radius \n\\(R\\)\n and thickness \n\\(dR\\)\n where the element area of annulus \n\\(dA_W\\)\n is given by \n\\[\\begin{align}\ndA_W &= 2\\pi R\\times dR \\notag\\\\\n&= 2\\pi\\left(\\tfrac{v_o^2}{g}\\sin 2\\theta\\right)\\left(\\tfrac{2v_o^2}{g}\\cos 2\\theta\\right)d\\theta \\tag*{(1.34)\\quad[0.2pt]}\\\\\n&= 2\\pi\\left(\\tfrac{v_o^2}{g}\\right)^2 2\\sin 2\\theta\\cos 2\\theta\\, d\\theta \\tag*{(1.35)\\quad[0.2pt]}\\\\\n&= 2\\pi\\left(\\tfrac{v_o^2}{g}\\right)^2 \\sin 4\\theta\\, d\\theta \\tag*{(1.36)\\quad[0.1pt]}\n\\end{align}\\]\n\n\nThus, elemental area of water annulus \n\\(dA_W\\)\n follows \n\\[\\begin{equation}\ndA_W \\propto \\sin 4\\theta\\, d\\theta. \\tag*{(1.37)\\quad[0.1pt]}\n\\end{equation}\\]\n\n\nRecall from \nB.2\n the number of holes in on the elemental area of annulus \n\\(dA_H\\)\n, on the hemisphere, of radius \n\\(r\\)\n at angle \n\\(\\theta\\)\n with angular width \n\\(d\\theta\\)\n is [0.1pt] \n\\[\\begin{equation}\ndA_H = \\rho(\\theta)\\times 2\\pi(\\mathrm{r}\\ \\cos(\\theta))\\mathrm{rd}\\theta{\\sim}\\rho(\\theta)\\cos(\\theta)\\mathrm{d}\\theta. \\tag*{[0.1pt]}\n\\end{equation}\\]\n\n\nIn order the water sprouts to spray uniformly on the ground \n\\(dA_W \\propto dA_H\\)\n such that [0.1pt] \n\\[\\begin{equation}\ndA_H{\\sim}\\rho(\\theta)\\cos\\theta d\\theta{\\sim}\\sin 4\\theta\\ d\\theta. \\tag*{(1.38)\\quad[0.3pt]}\n\\end{equation}\\]\n\n\nAnd to ensure the expression is independent of \n\\(\\rho(\\theta)\\)\n, we express \n\\[\\begin{equation}\n\\rho\\Bigl(\\theta\\Bigr){\\sim}\\tfrac{\\sin(4\\theta)}{\\cos(\\theta)}. \\tag*{(1.39)\\quad[0.2pt]}\n\\end{equation}\\]\n\n\nIf the distribution of the holes per unit area on the hemisphere follows Eq. (1.39), then the water sprayed on the ground will be uniform (independent of angle). The condition set on the angle only to avoid duplication of water hitting the same area for \n\\(0^o < \\theta \\leq 45^o\\ or\\ 45^o < \\theta < 90^o\\)\n. [0.1pt]\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2024-t1/05a811ec763130ce8207.png"
+    ],
+    "shared": false
+  }
+}

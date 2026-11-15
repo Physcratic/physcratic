@@ -1,1 +1,4660 @@
-{"id":"apho-2022-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2022_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2022_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2022-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Theory\nQ3-1\nOﬃcial (English)\nMaxwell, Rayleigh and Mount Everest: THE PROBLEM1\nLord Rayleigh visited Darjeeling, India in 1897. On viewing Mount Everest at a distance of 170 km he was\nreminded of a query by James Maxwell 26 years earlier on the attenuation of light by air and the visibility\nof far-off peaks. Lord Rayleigh authored a famous research paper2 two years later in 1899 in which he\ninvestigated this problem. In the present problem we attempt to reconstruct, at least partially, a modern\nversion of Lord Rayleigh's line of reasoning.\nOscillation of the electron cloud: We model a typical neutral air molecule by a stationary positive charge\n𝑞surrounded by a spherical uniform charge cloud of mass 𝑚, radius 𝑟and charge −𝑞. The natural angular\nfrequency of vibration of the molecule is 𝜔0. Light is incident on it and the negative cloud oscillates\nmaintaining its spherical shape with angular frequency 𝜔as,\n𝑦= 𝑦0 cos(𝜔𝑡),\n(1)\nunder the inﬂuence of the electric ﬁeld\n⃗𝐸(𝑡) = 𝐸0 cos(𝜔𝑡)\n̂𝑦,\n(2)\nof the light wave. Here 𝑦represents the separation between the stationary positive charge and the centre\nof the negative charge cloud of the molecule.\nA.1\nSet up the equation for the motion for 𝑦. Take the contribution to the magnitude\nof the acceleration due to the electric ﬁeld to be 𝐸(𝑡) 𝑞/𝑚.\n0.5pt\nA.2\nBased on the information provided above, solve the equation for 𝑦. Find the\namplitude.\n0.5pt\nA.3\nFind the magnitude 𝑝(𝑡) of the dipole moment of the air molecule as a function\nof time for 𝜔≪𝜔0.\n0.5pt\nA.4\nObtain an expression for 𝜔0 in terms of 𝑞, 𝑚and 𝑟.\n0.5pt\nPower radiated: The sinusoidal time dependent dipole radiates electromagnetic radiation. The power\nradiated depends on the amplitude of the dipole moment 𝑝0 = 𝑞𝑦0, the permittivity of vacuum 𝜖0, the\nspeed of light 𝑐, and the frequency of oscillation 𝜔.\nB.1\nUse dimensional analysis to express the average power 𝑠radiated in terms of\nthese quantities.\n1pt\n1Amitabh Virmani (CMI, Chennai) and A. C. Biyani (retired Govt. Nagarjuna P.G. College of Science. Raipur) were the principal\nauthors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International\nBoard are gratefully acknowledged.\n2Philosphical Mag. “On the transmission of light through an atmosphere ... and the origin of the blue of the sky”, Vol. 47, pg\n375-384 1899\n\nTheory\nQ3-2\nOﬃcial (English)\nB.2\nTake the proportionality constant to be 1/12𝜋. Express the answer for the power\nradiated 𝑠in terms of 𝐸0, 𝜔0, 𝜔and related quantities. Take 𝜔≪𝜔0.\n0.2pt\nAttenuation of the Intensity 𝐼(𝑥) : Recall that the intensity of EM waves is\n1\n2𝑐𝜖0𝐸2\n0.\n(3)\nThe intensity decreases along the path of light because the power\n𝑆= 𝑛0𝑠\n(4)\nis lost per unit volume. Here 𝑛0 is the number of molecules per unit volume.\nC.1\nSet up the differential equation for the intensity 𝐼(𝑥) as a function of the dis-\ntance 𝑥.\n1pt\nC.2\nObtain the expression for the intensity 𝐼(𝑥) as a function of 𝑥in terms of the\ncharacteristic length scale 𝐿associated with the drop in intensity. Take the ini-\ntial intensity to be 𝐼0.\n0.5pt\nC.3\nTake 𝑚to be the mass of the electron (typically only one electron constitutes\nthe charge cloud) and take\n𝑛0 = 2.54 × 1025 m−3,\n(5)\n𝜔0 = 1.25 × 1016 rad ⋅s−1,\n(6)\n𝜔= 3.25 × 1015 rad ⋅s−1.\n(7)\nObtain the numerical value of 𝐿in kilometers.\n0.3pt\n\nTheory\nQ3-3\nOﬃcial (English)\nD.1\nHeight 𝐻′ of the Mountains as seen by an observer : In the ﬁgure the point 𝑃\ndenotes Darjeeling, a hill station in the eastern Himalayas at height ℎ= 2042 m\nabove the sea level. The line 𝐵𝑆denotes Mt Everest which is 𝑑= 170 km away\nfrom Darjeeling and is of height 𝐻= 8848 m. Another peak Mount Kanchen-\njunga (not shown in the ﬁgure) is 75 km away from Darjeeling and is of height\n8586 m. Obtain an expression and the numerical values of the vertical height\n𝐻′ of these mountains as seen by an observer from Darjeeling in terms of the\nabove-mentioned quantities. Assume that the observer is unable to see below\nthe local horizon. Draw an appropriate ﬁgure. Take the radius 𝑅of the Earth to\nbe 6378 km.\n \n𝑂\n𝑃\n𝑅\n𝜃\nℎ\n𝐵\n𝑆\n𝐻\n𝑑\n \nFigure 1. Great circle on which lie the mountain 𝐵𝑆at height 𝐻and the\nobserver 𝑃at height ℎ. Note that the ﬁgure is not to scale.\n2pt\nE.1\nTake the intensity of Mt Kanchenjunga at Darjeeling to be the reference value.\nWhat would be the intensity of Mt Everest relative to Mt Kanchenjunga as seen\nfrom Darjeeling? In this problem we ignore the variation in the number density\nof air molecules with height. If the intensity is 5 % or more of the reference value\nthe mountain is said to be visible. Will Mt Everest be visible from Darjeeling?\n1pt\nF.1\nAttenuation length 𝐿𝑝due to aerosol pollution : Above, we calculated the\ncharacteristic length scale 𝐿associated with the drop in intensity due to scat-\ntering with air molecules. We are now interested in the characteristic length\n𝐿𝑝associated with the drop in intensity due to scattering with aerosol parti-\ncles (pollution). 𝐿𝑝depends on the number density 𝑛of particles and the cross\nsectional area 𝜋𝑟2 of the aerosol particle of radius 𝑟. Obtain this dependence\nusing physical insight and dimensional analysis. Take the dimensionless con-\nstant to be 1/8. Given mild pollution the average aerosol density at Darjeeling\nis 𝜌𝑝= 5 𝜇g/m3, and their average radius is 500 nanometres. What is the length\n𝐿𝑝? Let the density of an individual aerosol particle be 𝜌= 3 g/cm3. Note 1 𝜇g =\n10−9 kg and 1 nm = 10−9 m.\n1pt\n\nTheory\nQ3-4\nOﬃcial (English)\nG.1\nRelative intensity and Visibility of Mt. Kanchenjunga and Mt. Everest : Es-\ntimate the relative intensity of Mt Kanchenjunga and Mt Everest with the above\nlevel of pollution with respect to the reference value. Which, if any of these\npeaks will be visible from Darjeeling? Assume that pollution is uniform through-\nout the path the light travels.\n1pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2022-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"Solutions\nA3-1\nOﬃcial (English)\nGeneral Grading Guidelines\n \nWhen student’s solutions are correct and s/he also show how solutions were obtained, the stduent\ngets full credit. The scheme oulined below is helpful if the student’s answers are partially correct.\nAttention will be paid to the detailed solution so, if the ﬁnal answer is correct but it is obtained by\nincorrect method(s) then no credit will be given. Alternative solutions may exist and will be given\ndue credit.\n \nPartial or full outcomes obtained for later sections in the problem which are incorrect solely because\nof errors being carried forward from previous sections, but are otherwise reasonable, will not be\nfurther penalized. For example a dimensioanlly wrong answer when carried forward will not get\nany credit in the subsequent sections. A numerically wrong evaluation when carried forward will get\ncredit in subsequent sections unless the numerical answer is patently wrong (e.g. the value of g is\n981 m/sec2! )\n \nIncorrect or no labeling of an axis is penalized by -0.1 points\n \nThe numerical answer (i) must be correct to +/- 10% AND (ii) must respect signiﬁcant ﬁgures.\n \nIt maybe noted that NO micro-marking scheme takes care of all contingencies. A certain\namount of discretion rests with and a certain level of judgement is invested in the academic\ncommittee.\nMaxwell, Rayleigh and Mount Everest: THE SOLUTION1\nOscillation of the electron cloud:\nA.1 (0.5 pt)\n⃗𝐸(𝑡) is the electric ﬁeld at the location of the molecule. The equation of motion of the charge in the\nabsence of\n⃗𝐸(𝑡) would be\n̈𝑦= −𝜔2\n0𝑦,\n(1)\nand under forced oscillations\n̈𝑦= −𝜔2\n0𝑦−𝑞𝐸0\n𝑚cos 𝜔𝑡.\n(2)\n[0.5]\n[a sign mistake or a term missing −0.3]\n1Amitabh Virmani (CMI, Chennai) and A. C. Biyani (retired Govt. Nagarjuna P.G. College of Science. Raipur) were the principal\nauthors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International\nBoard are gratefully acknowledged.\n\nSolutions\nA3-2\nOﬃcial (English)\nA.2 (0.5 pt)\nIn equation (2) we substitute 𝑦= 𝑦0 cos 𝜔𝑡to obtain\n−𝜔2𝑦0 = −𝜔2\n0𝑦0 −𝑞𝐸0\n𝑚.\n(3)\n[0.2]\nThis implies that the amplitude of oscillation is\n𝑦0 = 𝑞𝐸0/𝑚\n𝜔2 −𝜔2\n0\n.\n(4)\n[0.3]\n[a sign mistake or a term missing −0.1]\nA.3 (0.5 pt)\nSince 𝑦is the separation between the positive and negative charge clouds, the magnitude 𝑝(𝑡) of the\ndipole moment is\n𝑝(𝑡) = 𝑞𝑦(𝑡) ≈𝑞2𝐸0\n𝑚𝜔2\n0\ncos 𝜔𝑡.\n(5)\n[0.5]\n[sign mistake −0.1]\n[answer without approximation −0.2]\nA.4 (0.5 pt)\nWe model the atom as a stationary positive point charge 𝑞surrounded by a spherical negative charge\ncloud of total charge −𝑞, radius 𝑟and mass 𝑚. Now let the charge cloud be displaced by a small\ndistance 𝑦. The electrostatic force on the electron cloud by the central positive charge is (see Figure)\n⃗𝐹el = 𝑚̈𝑦̂𝑦= −\n𝑞2\n4𝜋𝜖0𝑟3 𝑦̂𝑦= −𝑚𝜔2\n0𝑦̂𝑦\n(6)\n[0.4]\n−𝑞\n+𝑞\n𝑟\n𝑦\n̂𝚥\n̂𝚤\nFigure 1. Model of the atom with a central positive charge and a displaced spherical electron cloud\nof radius 𝑟\nThus, the natural frequency of oscillation is\n𝜔0 =\n𝑞\n√4𝜋𝜖0𝑚𝑟3\n(7)\n[0.1]\n\nSolutions\nA3-3\nOﬃcial (English)\nPower radiated:\nB.1 (1 pt)\nDimension of power is\n[𝑠] = kg ⋅m2 ⋅s−3\n(8)\n[0.1]\nDimension of dipole moment is\n[𝑝0] = C ⋅m.\n(9)\n[0.1]\nWe are using SI units. C stands for Coloumb. Dimension of 𝜔is\n[𝜔] = s−1.\n(10)\n[0.1]\nDimension of 𝜖0 is\n[𝜖0] = C2 ⋅N−1 ⋅m−2 = C2 ⋅kg−1 ⋅m−3 ⋅s2.\n(11)\n[0.1]\nDimension of speed of light 𝑐is\n[𝑐] = m ⋅s−1.\n(12)\n[0.1]\nLet us take the ansatz 𝑠= 𝑝𝛼\n0 𝜔𝛽𝜖𝛾\n0𝑐𝛿, i.e.,\n[𝑠] = [𝑝0]𝛼[𝜔]𝛽[𝜖0]𝛾[𝑐]𝛿.\n(13)\n[0.1]\nWe get four equations for the four variables,\n𝛼+ 2𝛾= 0,\n𝛾= −1,\n(14)\n−𝛽+ 2𝛾−𝛿= −3\n𝛼−3𝛾+ 𝛿= 2.\n(15)\nThis gives\n𝛼= 2,\n𝛽= 4,\n𝛾= −1,\n𝛿= −3.\n(16)\nImplying,\n𝑠= 𝑘𝑝2\n0𝜔4\n𝜖0𝑐3\n(17)\n \n[0.4]\n\nSolutions\nA3-4\nOﬃcial (English)\nB.2 (0.2 pt)\nWe have\n𝑠=\n1\n12𝜋\n𝑝2\n0𝜔4\n𝜖0𝑐3 =\n1\n12𝜋\n𝑞2𝑦2\n0𝜔4\n𝜖0𝑐3\n=\n1\n12𝜋\n𝑞4𝐸2\n0\n𝑚2𝜖0𝑐3\n𝜔4\n𝜔4\n0\n.\n(18)\n[0.2]\nAttenuation of the Intensity 𝐼(𝑥) :\nC.1 (1 pt)\nRecall that the intensity is the power incident per unit area. Consider a horizontal column of the\natmosphere of cross-sectional area 𝐴and length Δ𝑥. Let the incident intensity be 𝐼(𝑥). Let the\ntransmitted intensity be 𝐼(𝑥+ Δ𝑥). The drop in the intensity is due to the scattering of light by the\nair molecules. If the number density of air molecules is 𝑛0 then the total power radiated per unit\nvolume is 𝑛0𝑠. Therefore,\n𝐼(𝑥)𝐴−𝐼(𝑥+ Δ𝑥)𝐴= 𝑛0𝑠(𝐴Δ𝑥).\n(19)\n[0.8]\nThis gives\n−𝑑𝐼\n𝑑𝑥= 𝑛0𝑠.\n(20)\n[0.2]\nC.2 (0.5 pt)\nSince 𝑠∝𝐸2\n0 and 𝐼∝𝐸2\n0 we have\n−𝑑𝐼\n𝑑𝑥= 𝐼\n𝐿,\n(21)\n[0.2]\nwhere\n𝐿= 6𝜋𝜖2\n0𝑚2𝑐4\n𝑛0𝑞4\n(𝜔0\n𝜔)\n4\n.\n(22)\n[0.2]\nThe solution to the differential equation as a function of 𝑥is\n𝐼(𝑥) = 𝐼0𝑒−𝑥/𝐿,\n(23)\nwith 𝐿given above.\n[0.1]\nC.3 (0.3 pt)\nSubstituting the numbers we ﬁnd\n𝐿= 6𝜋𝜖2\n0𝑚2𝑐4\n𝑛0𝑞4\n(𝜔0\n𝜔)\n4\n.\n(24)\n𝐿≈130 km.\n(25)\n[points are for numerical calculation 0.3]\nHeight 𝐻′ of the Mountains as seen by an observer :\n\nSolutions\nA3-5\nOﬃcial (English)\nD.1 (2 pt)\n𝑂\n𝑃\n𝑅\n𝜃\nℎ\n𝐵\n𝑆\n𝐵′\n𝑆′\n𝐻\n𝜃\n𝑑\n𝛼\nFigure 2. Great circle on which lie the mountain 𝐵𝑆at height 𝐻and the observer 𝑃at height ℎ.\nThe ﬁgure is not to scale.\n \n[0.7]\nIn Δ𝑂𝑃𝐵′,\n𝑂𝐵′ = 𝑂𝑃sec(𝜃) = (𝑅+ ℎ) sec(𝜃)\n(26)\nNow, ∠𝑂𝑆𝑃= ∠𝐵′𝑆𝑆′ and ∠𝑆𝑂𝑃= ∠𝑆𝐵′𝑆′, hence Δ𝑂𝑆𝑃and Δ𝐵′𝑆𝑆′ are similar. Thus\n𝐵′𝑆′\n𝑂𝑃\n= 𝐵′𝑆\n𝑂𝑆= 𝑂𝑆−𝑂𝐵′\n𝑂𝑆\n= 1 −𝑂𝐵′\n𝑂𝑆.\n(27)\nNoting that 𝐵′𝑆′ = 𝐻′, 𝑂𝑃= 𝑅+ ℎ, 𝑂𝑆= 𝑅+ 𝐻and using Eq. (26), we obtain\n𝐻′\n𝑅+ ℎ= 1 −(𝑅+ ℎ) sec(𝜃)\n𝑅+ 𝐻\n(28)\nOr\n𝐻′ = 𝑅+ ℎ−(𝑅+ ℎ)2\n𝑅+ 𝐻\nsec(𝜃).\n(29)\n[0.8]\nNoting that cos(𝜃) ≈1 −𝜃2/2 and 𝜃= 𝑑/𝑅we get,\n𝐻′ ≃𝑅+ ℎ−(𝑅+ ℎ)2\n𝑅+ 𝐻\n(1 + 𝑑2\n2𝑅2 ) .\n(30)\nAlternative answers such as\n𝐻′ = 𝐻−ℎ−𝑑2\n2𝑅\n(31)\nare given credit.\nThe numerical values are 𝐻′ = 6096 m for Mt Kanchenjunga and 𝐻′ = 4534 m for Mt Everest.\n[0.5]\n\nSolutions\nA3-6\nOﬃcial (English)\nE.1 (1 pt)\nIn Eq.(23) 𝐼0 represents the intensity of the source which would have been perceived by an observer\nat that location if attenuation effects were absent. If the power of the source is taken to be 𝑃0, then\n𝐼0 = 𝑃0/4𝜋𝑑2 for the location at distance 𝑑.\n𝐼=\n𝑃0\n4𝜋𝑑2 exp [−𝑑\n𝐿]\n(32)\n[points only if 1/𝑑2 is recognised 0.5]\nThe relative intensity of Mt Everest as seen from Darjeeling would be\n𝐼Everest\n𝐼Kanchenjunga\n=\n𝑑2\nKanchenjunga\n𝑑2\nEverest\nexp [−𝑑Everest\n𝐿\n+\n𝑑Kanchenjunga\n𝐿\n]\n(33)\n=\n0.093\n(34)\n[0.3]\nYes, Mt Everest is visible.\n[0.2]\nAttenuation length 𝐿𝑝due to aerosol pollution :\nF.1 (1 pt)\nFrom the information given in the problem we have\n𝐿𝑝=\n1\n8𝑛𝜋𝑟2\n(35)\n[ 0.3]\n𝑛= 𝜌𝑝\n𝑚\n(36)\n𝑚= 4𝜋\n3 𝑟3𝜌\n(37)\nThis yields\n𝐿𝑝= 𝑟𝜌\n6𝜌𝑝\n= 50 km,\n(38)\n[ 0.2 (expression)]\n[ 0.5 (evaluation)]\nwhere,\n𝑟= 500 × 10−9 m,\n𝜌= 3 × 103 kg/m3,\n𝜌𝑝= 5 × 10−9 kg/m3.\n(39)\nRelative intensity and Visibility of Mt. Kanchenjunga and Mt. Everest :\n\nSolutions\nA3-7\nOﬃcial (English)\nG.1 (1 pt)\nThe new relation for the intensity attenuation is\n𝐼=\n𝑃0\n4𝜋𝑑2 exp [−𝑑\n𝐿−𝑑\n𝐿𝑝\n] .\n(40)\nFor Mt Kanchenjunga\n𝐼𝐾\n𝐼ref\n= exp [−𝑑𝐾\n𝐿𝑝\n] = 0.22.\n(41)\n[0.3 (expression) + 0.1 (numerical answer)]\nThe drop in intensity is to 22 % of the reference value. Mt Kanchenjunga will be visible from Darjeel-\ning. For Mt Everest\n[0.1]\n𝐼𝐸\n𝐼ref\n= 0.093 exp [−𝑑𝐸\n𝐿𝑝\n] = 0.093 × 0.033 = 0.003.\n(42)\n[0.3 (expression) + 0.1 (numerical answer)]\nThe drop in intensity is to 0.3 % of the reference value. Mt Everest will not be visible from Darjeeling.\n[0.1]\n","textExtraction":"available"}}
+{
+  "id": "apho-2022-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2022_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2022_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2022-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Maxwell, Rayleigh and Mount Everest: THE PROBLEM"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "sup",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Lord Rayleigh visited Darjeeling, India in 1897. On viewing Mount Everest at a distance of 170 km he was reminded of a query by James Maxwell 26 years earlier on the attenuation of light by air and the visibility of far-off peaks. Lord Rayleigh authored a famous research paper"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "sup",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " two years later in 1899 in which he investigated this problem. In the present problem we attempt to reconstruct, at least partially, a modern version of Lord Rayleigh’s line of reasoning."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Oscillation of the electron cloud:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " We model a typical neutral air molecule by a stationary positive charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " surrounded by a spherical uniform charge cloud of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The natural angular frequency of vibration of the molecule is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Light is incident on it and the negative cloud oscillates maintaining its spherical shape with angular frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ny = y_0\\cos(\\omega t), \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " under the influence of the electric field "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\vec{E}(t) = E_0\\cos(\\omega t)\\,\\hat{y}, \\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the light wave. Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " represents the separation between the stationary positive charge and the centre of the negative charge cloud of the molecule."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Set up the equation for the motion for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Take the contribution to the magnitude of the acceleration due to the electric field to be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E(t)\\,q/m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Based on the information provided above, solve the equation for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Find the amplitude. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the magnitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the dipole moment of the air molecule as a function of time for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega \\ll \\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Obtain an expression for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Power radiated:"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The sinusoidal time dependent dipole radiates electromagnetic radiation. The power radiated depends on the amplitude of the dipole moment "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_0 = qy_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the permittivity of vacuum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the speed of light "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the frequency of oscillation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Use dimensional analysis to express the average power "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " radiated in terms of these quantities. 1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Take the proportionality constant to be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1/12\\pi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Express the answer for the power radiated "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and related quantities. Take "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega \\ll \\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Attenuation of the Intensity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": ":"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Recall that the intensity of EM waves is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{1}{2}c\\epsilon_0E_0^2. \\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The intensity decreases along the path of light because the power "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nS = n_0s \\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is lost per unit volume. Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the number of molecules per unit volume."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Set up the differential equation for the intensity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of the distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Obtain the expression for the intensity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of the characteristic length scale "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " associated with the drop in intensity. Take the initial intensity to be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Take "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to be the mass of the electron (typically only one electron constitutes the charge cloud) and take "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n&n_0 = 2.54\\times10^{25}\\ \\mathrm{m}^{-3}, \\tag{5}\\\\\n&\\omega_0 = 1.25\\times10^{16}\\ \\mathrm{rad}\\cdot\\mathrm{s}^{-1}, \\tag{6}\\\\\n&\\omega = 3.25\\times10^{15}\\ \\mathrm{rad}\\cdot\\mathrm{s}^{-1}. \\tag{7}\n\\end{align}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Obtain the numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in kilometers. 0.3pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.1Height"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "of the Mountains as seen by an observer :"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " In the figure the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " denotes Darjeeling, a hill station in the eastern Himalayas at height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 2042 m above the sea level. The line "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(BS\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " denotes Mt Everest which is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 170 km away from Darjeeling and is of height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 8848 m. Another peak Mount Kanchenjunga (not shown in the figure) is 75 km away from Darjeeling and is of height 8586 m. Obtain an expression and the numerical values of the vertical height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of these mountains as seen by an observer from Darjeeling in terms of the above-mentioned quantities. Assume that the observer is unable to see below the local horizon. Draw an appropriate figure. Take the radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the Earth to be 6378 km. 2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t3/27ecdf29b926b3fefd5a.png",
+                "alt": "apho-2022-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1. Great circle on which lie the mountain "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(BS\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " at height "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(H\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " and the observer "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(P\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " at height "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(h\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ". Note that the figure is not to scale."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Take the intensity of Mt Kanchenjunga at Darjeeling to be the reference value. What would be the intensity of Mt Everest relative to Mt Kanchenjunga as seen from Darjeeling? In this problem we ignore the variation in the number density of air molecules with height. If the intensity is 5 % or more of the reference value the mountain is said to be visible. Will Mt Everest be visible from Darjeeling? 1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "F.1Attenuation length"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "due to aerosol pollution :"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Above, we calculated the characteristic length scale "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " associated with the drop in intensity due to scattering with air molecules. We are now interested in the characteristic length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " associated with the drop in intensity due to scattering with "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "aerosol"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " particles (pollution). "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " depends on the number density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of particles and the cross sectional area "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\pi r^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the aerosol particle of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Obtain this dependence using physical insight and dimensional analysis. Take the dimensionless constant to be 1/8. Given mild pollution the average aerosol density at Darjeeling is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_p = 5\\,\\mu\\mathrm{g/m^3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and their average radius is 500 nanometres. What is the length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? Let the density of an individual aerosol particle be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho = 3\\,\\mathrm{g/cm^3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Note 1 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "g = 10"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-9}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg and 1 nm = 10"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-9}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m. 1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "G.1Relative intensity and Visibility of Mt. Kanchenjunga and Mt. Everest :"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Estimate the relative intensity of Mt Kanchenjunga and Mt Everest with the above level of pollution with respect to the reference value. Which, if any of these peaks will be visible from Darjeeling? Assume that pollution is uniform throughout the path the light travels. 1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "span",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "hr",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "ol",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Amitabh Virmani (CMI, Chennai) and A. C. Biyani (retired Govt. Nagarjuna P.G. College of Science. Raipur) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully acknowledged."
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "↩︎"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Philosphical Mag. “On the transmission of light through an atmosphere ... and the origin of the blue of the sky”, Vol. 47, pg 375-384 1899"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "↩︎"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Maxwell, Rayleigh and Mount Everest: THE PROBLEM\n1\n\n\nLord Rayleigh visited Darjeeling, India in 1897. On viewing Mount Everest at a distance of 170 km he was reminded of a query by James Maxwell 26 years earlier on the attenuation of light by air and the visibility of far-off peaks. Lord Rayleigh authored a famous research paper\n2\n two years later in 1899 in which he investigated this problem. In the present problem we attempt to reconstruct, at least partially, a modern version of Lord Rayleigh’s line of reasoning.\n\n\nOscillation of the electron cloud:\n We model a typical neutral air molecule by a stationary positive charge \n\\(q\\)\n surrounded by a spherical uniform charge cloud of mass \n\\(m\\)\n, radius \n\\(r\\)\n and charge \n\\(-q\\)\n. The natural angular frequency of vibration of the molecule is \n\\(\\omega_0\\)\n. Light is incident on it and the negative cloud oscillates maintaining its spherical shape with angular frequency \n\\(\\omega\\)\n as, \n\\[\\begin{equation}\ny = y_0\\cos(\\omega t), \\tag{1}\n\\end{equation}\\]\n under the influence of the electric field \n\\[\\begin{equation}\n\\vec{E}(t) = E_0\\cos(\\omega t)\\,\\hat{y}, \\tag{2}\n\\end{equation}\\]\n of the light wave. Here \n\\(y\\)\n represents the separation between the stationary positive charge and the centre of the negative charge cloud of the molecule.\n\n\nA.1\nSet up the equation for the motion for \n\\(y\\)\n. Take the contribution to the magnitude of the acceleration due to the electric field to be \n\\(E(t)\\,q/m\\)\n. 0.5pt\n\n\nA.2\nBased on the information provided above, solve the equation for \n\\(y\\)\n. Find the amplitude. 0.5pt\n\n\nA.3\nFind the magnitude \n\\(p(t)\\)\n of the dipole moment of the air molecule as a function of time for \n\\(\\omega \\ll \\omega_0\\)\n. 0.5pt\n\n\nA.4\nObtain an expression for \n\\(\\omega_0\\)\n in terms of \n\\(q\\)\n, \n\\(m\\)\n and \n\\(r\\)\n. 0.5pt\n\n\nPower radiated:\n The sinusoidal time dependent dipole radiates electromagnetic radiation. The power radiated depends on the amplitude of the dipole moment \n\\(p_0 = qy_0\\)\n, the permittivity of vacuum \n\\(\\epsilon_0\\)\n, the speed of light \n\\(c\\)\n, and the frequency of oscillation \n\\(\\omega\\)\n.\n\n\nB.1\nUse dimensional analysis to express the average power \n\\(s\\)\n radiated in terms of these quantities. 1pt\n\n\nB.2\nTake the proportionality constant to be \n\\(1/12\\pi\\)\n. Express the answer for the power radiated \n\\(s\\)\n in terms of \n\\(E_0\\)\n, \n\\(\\omega_0\\)\n, \n\\(\\omega\\)\n and related quantities. Take \n\\(\\omega \\ll \\omega_0\\)\n. 0.2pt\n\n\nAttenuation of the Intensity\n \n\\(I(x)\\)\n \n:\n Recall that the intensity of EM waves is \n\\[\\begin{equation}\n\\frac{1}{2}c\\epsilon_0E_0^2. \\tag{3}\n\\end{equation}\\]\n The intensity decreases along the path of light because the power \n\\[\\begin{equation}\nS = n_0s \\tag{4}\n\\end{equation}\\]\n is lost per unit volume. Here \n\\(n_0\\)\n is the number of molecules per unit volume.\n\n\nC.1\nSet up the differential equation for the intensity \n\\(I(x)\\)\n as a function of the distance \n\\(x\\)\n. 1pt\n\n\nC.2\nObtain the expression for the intensity \n\\(I(x)\\)\n as a function of \n\\(x\\)\n in terms of the characteristic length scale \n\\(L\\)\n associated with the drop in intensity. Take the initial intensity to be \n\\(I_0\\)\n. 0.5pt\n\n\nC.3\nTake \n\\(m\\)\n to be the mass of the electron (typically only one electron constitutes the charge cloud) and take \n\\[\\begin{align}\n&n_0 = 2.54\\times10^{25}\\ \\mathrm{m}^{-3}, \\tag{5}\\\\\n&\\omega_0 = 1.25\\times10^{16}\\ \\mathrm{rad}\\cdot\\mathrm{s}^{-1}, \\tag{6}\\\\\n&\\omega = 3.25\\times10^{15}\\ \\mathrm{rad}\\cdot\\mathrm{s}^{-1}. \\tag{7}\n\\end{align}\\]\n Obtain the numerical value of \n\\(L\\)\n in kilometers. 0.3pt\n\n\nD.1Height\n \n\\(H'\\)\n \nof the Mountains as seen by an observer :\n In the figure the point \n\\(P\\)\n denotes Darjeeling, a hill station in the eastern Himalayas at height \n\\(h\\)\n = 2042 m above the sea level. The line \n\\(BS\\)\n denotes Mt Everest which is \n\\(d\\)\n = 170 km away from Darjeeling and is of height \n\\(H\\)\n = 8848 m. Another peak Mount Kanchenjunga (not shown in the figure) is 75 km away from Darjeeling and is of height 8586 m. Obtain an expression and the numerical values of the vertical height \n\\(H'\\)\n of these mountains as seen by an observer from Darjeeling in terms of the above-mentioned quantities. Assume that the observer is unable to see below the local horizon. Draw an appropriate figure. Take the radius \n\\(R\\)\n of the Earth to be 6378 km. 2pt\n\n\n\n\n\n\n\n\n\n\n\nFigure 1. Great circle on which lie the mountain \n\\(BS\\)\n at height \n\\(H\\)\n and the observer \n\\(P\\)\n at height \n\\(h\\)\n. Note that the figure is not to scale.\n\n\n\n\nE.1\nTake the intensity of Mt Kanchenjunga at Darjeeling to be the reference value. What would be the intensity of Mt Everest relative to Mt Kanchenjunga as seen from Darjeeling? In this problem we ignore the variation in the number density of air molecules with height. If the intensity is 5 % or more of the reference value the mountain is said to be visible. Will Mt Everest be visible from Darjeeling? 1pt\n\n\nF.1Attenuation length\n \n\\(L_p\\)\n \ndue to aerosol pollution :\n Above, we calculated the characteristic length scale \n\\(L\\)\n associated with the drop in intensity due to scattering with air molecules. We are now interested in the characteristic length \n\\(L_p\\)\n associated with the drop in intensity due to scattering with \naerosol\n particles (pollution). \n\\(L_p\\)\n depends on the number density \n\\(n\\)\n of particles and the cross sectional area \n\\(\\pi r^2\\)\n of the aerosol particle of radius \n\\(r\\)\n. Obtain this dependence using physical insight and dimensional analysis. Take the dimensionless constant to be 1/8. Given mild pollution the average aerosol density at Darjeeling is \n\\(\\rho_p = 5\\,\\mu\\mathrm{g/m^3}\\)\n, and their average radius is 500 nanometres. What is the length \n\\(L_p\\)\n? Let the density of an individual aerosol particle be \n\\(\\rho = 3\\,\\mathrm{g/cm^3}\\)\n. Note 1 \n\\(\\mu\\)\ng = 10\n\\(^{-9}\\)\n kg and 1 nm = 10\n\\(^{-9}\\)\n m. 1pt\n\n\nG.1Relative intensity and Visibility of Mt. Kanchenjunga and Mt. Everest :\n Estimate the relative intensity of Mt Kanchenjunga and Mt Everest with the above level of pollution with respect to the reference value. Which, if any of these peaks will be visible from Darjeeling? Assume that pollution is uniform throughout the path the light travels. 1pt\n\n\n\n\n\n\n\n\n\nAmitabh Virmani (CMI, Chennai) and A. C. Biyani (retired Govt. Nagarjuna P.G. College of Science. Raipur) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully acknowledged.\n↩︎\n\n\nPhilosphical Mag. “On the transmission of light through an atmosphere ... and the origin of the blue of the sky”, Vol. 47, pg 375-384 1899\n↩︎\n\n\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2022-t3/27ecdf29b926b3fefd5a.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2022-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "General Grading Guidelines"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When student’s solutions are correct and s/he also show how solutions were obtained, the stduent gets full credit. The scheme oulined below is helpful if the student’s answers are partially correct. Attention will be paid to the detailed solution so, if the final answer is correct but it is obtained by incorrect method(s) then no credit will be given. Alternative solutions may exist and will be given due credit."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Partial or full outcomes obtained for later sections in the problem which are incorrect solely because of errors being carried forward from previous sections, but are otherwise reasonable, will not be further penalized. For example a dimensioanlly wrong answer when carried forward will not get any credit in the subsequent sections. A numerically wrong evaluation when carried forward will get credit in subsequent sections unless the numerical answer is patently wrong (e.g. the value of g is 981 m/sec"
+          },
+          {
+            "type": "element",
+            "tag": "sup",
+            "children": [
+              {
+                "type": "text",
+                "text": "2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "! )"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Incorrect or no labeling of an axis is penalized by -0.1 points"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The numerical answer (i) must be correct to +/- 10% AND (ii) must respect significant figures."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "It maybe noted that NO micro-marking scheme takes care of all contingencies. A certain amount of discretion rests with and a certain level of judgement is invested in the academic committee."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Maxwell, Rayleigh and Mount Everest: THE SOLUTION"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "sup",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Oscillation of the electron cloud:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((0.5\\ \\mathrm{pt})\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{E}(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the electric field at the location of the molecule. The equation of motion of the charge in the absence of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{E}(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " would be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\ddot{y} = -\\omega_0^2 y, \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and under forced oscillations "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\ddot{y} = -\\omega_0^2 y - \\frac{qE_0}{m}\\cos\\omega t. \\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[a sign mistake or a term missing "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(-\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((0.5\\ \\mathrm{pt})\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nIn equation (2) we substitute "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y = y_0\\cos\\omega t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n-\\omega^2 y_0 = -\\omega_0^2 y_0 - \\frac{qE_0}{m}. \\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This implies that the amplitude of oscillation is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ny_0 = \\frac{qE_0/m}{\\omega^2 - \\omega_0^2}. \\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[a sign mistake or a term missing "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(-\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "0.1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((0.5\\ \\mathrm{pt})\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nSince "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the separation between the positive and negative charge clouds, the magnitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the dipole moment is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\np(t) = qy(t) \\approx \\frac{q^2E_0}{m\\omega_0^2}\\cos\\omega t. \\tag{5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[sign mistake "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(-\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "0.1]"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[answer without approximation "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(-\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((0.5\\ \\mathrm{pt})\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nWe model the atom as a stationary positive point charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " surrounded by a spherical negative charge cloud of total charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Now let the charge cloud be displaced by a small distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The electrostatic force on the electron cloud by the central positive charge is (see Figure) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\vec{F}_{\\mathrm{el}} = m\\ddot{y}\\hat{y} = -\\frac{q^2}{4\\pi\\epsilon_0 r^3}y\\hat{y} = -m\\omega_0^2 y\\hat{y} \\tag{6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t3/b91987e4cfe633b26c76.png",
+                "alt": "apho-2022-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 1. Model of the atom with a central positive charge and a displaced spherical electron cloud of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus, the natural frequency of oscillation is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\omega_0 = \\frac{q}{\\sqrt{4\\pi\\epsilon_0 m r^3}} \\tag{7}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Power radiated:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((1\\ \\mathrm{pt})\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nDimension of power is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n[s] = \\mathrm{kg}\\cdot\\mathrm{m}^2\\cdot\\mathrm{s}^{-3} \\tag{8}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Dimension of dipole moment is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n[p_0] = \\mathrm{C}\\cdot\\mathrm{m}. \\tag{9}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We are using SI units. C stands for Coloumb. Dimension of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n[\\omega] = \\mathrm{s}^{-1}. \\tag{10}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Dimension of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n[\\epsilon_0] = \\mathrm{C}^2\\cdot\\mathrm{N}^{-1}\\cdot\\mathrm{m}^{-2} = \\mathrm{C}^2\\cdot\\mathrm{kg}^{-1}\\cdot\\mathrm{m}^{-3}\\cdot\\mathrm{s}^2. \\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Dimension of speed of light "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n[c] = \\mathrm{m}\\cdot\\mathrm{s}^{-1}. \\tag{12}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let us take the ansatz "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(s = p_0^\\alpha\\omega^\\beta\\epsilon_0^\\gamma c^\\delta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", i.e., "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n[s] = [p_0]^\\alpha[\\omega]^\\beta[\\epsilon_0]^\\gamma[c]^\\delta. \\tag{13}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We get four equations for the four variables, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{alignat}\n{2}\n&\\alpha + 2\\gamma = 0, &\\qquad\\qquad\\qquad\\qquad &\\gamma = -1, \\tag{14}\\\\\n&{}-\\beta + 2\\gamma - \\delta = -3 & &\\alpha - 3\\gamma + \\delta = 2. \\tag{15}\n\\end{alignat}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\alpha = 2, \\qquad\\qquad\\qquad \\beta = 4, \\qquad\\qquad\\qquad \\gamma = -1, \\qquad\\qquad\\qquad \\delta = -3. \\tag{16}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Implying, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ns = k\\frac{p_0^2\\omega^4}{\\epsilon_0 c^3} \\tag{17}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.4]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((0.2\\ \\mathrm{pt})\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nWe have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ns = \\frac{1}{12\\pi}\\frac{p_0^2\\omega^4}{\\epsilon_0 c^3} = \\frac{1}{12\\pi}\\frac{q^2y_0^2\\omega^4}{\\epsilon_0 c^3} = \\frac{1}{12\\pi}\\frac{q^4E_0^2}{m^2\\epsilon_0 c^3}\\frac{\\omega^4}{\\omega_0^4}. \\tag{18}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Attenuation of the Intensity"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": ":"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((1\\ \\mathrm{pt})\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nRecall that the intensity is the power incident per unit area. Consider a horizontal column of the atmosphere of cross-sectional area "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Let the incident intensity be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Let the transmitted intensity be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I(x+\\Delta x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The drop in the intensity is due to the scattering of light by the air molecules. If the number density of air molecules is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " then the total power radiated per unit volume is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_0s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI(x)A - I(x+\\Delta x)A = n_0s(A\\Delta x). \\tag{19}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.8]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n-\\frac{dI}{dx} = n_0s. \\tag{20}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((0.5\\ \\mathrm{pt})\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nSince "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(s \\propto E_0^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I \\propto E_0^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n-\\frac{dI}{dx} = \\frac{I}{L}, \\tag{21}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nL = \\frac{6\\pi\\epsilon_0^2m^2c^4}{n_0q^4}\\left(\\frac{\\omega_0}{\\omega}\\right)^4. \\tag{22}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The solution to the differential equation as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI(x) = I_0e^{-x/L}, \\tag{23}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " given above."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((0.3\\ \\mathrm{pt})\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nSubstituting the numbers we find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{gather}\nL = \\frac{6\\pi\\epsilon_0^2m^2c^4}{n_0q^4}\\left(\\frac{\\omega_0}{\\omega}\\right)^4. \\tag{24}\\\\\nL \\approx 130\\ \\mathrm{km}. \\tag{25}\n\\end{gather}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[points are for numerical calculation 0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Height"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "of the Mountains as seen by an observer :"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((2\\ \\mathrm{pt})\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2022-t3/3f775be0c7c341d1467f.png",
+                "alt": "apho-2022-t3 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 2. Great circle on which lie the mountain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(BS\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the observer "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The figure is not to scale."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.7]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta OPB'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nOB' = OP\\sec(\\theta) = (R+h)\\sec(\\theta) \\tag{26}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Now, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\angle OSP = \\angle B'SS'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\angle SOP = \\angle SB'S'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta OSP\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta B'SS'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are similar. Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{B'S'}{OP} = \\frac{B'S}{OS} = \\frac{OS - OB'}{OS} = 1 - \\frac{OB'}{OS}. \\tag{27}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Noting that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B'S' = H', OP = R+h, OS = R+H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and using Eq. (26), we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{H'}{R+h} = 1 - \\frac{(R+h)\\sec(\\theta)}{R+H} \\tag{28}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nH' = R + h - \\frac{(R+h)^2}{R+H}\\sec(\\theta). \\tag{29}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.8]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Noting that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cos(\\theta) \\approx 1 - \\theta^2/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\theta = d/R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we get, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nH' \\simeq R + h - \\frac{(R+h)^2}{R+H}\\left(1 + \\frac{d^2}{2R^2}\\right). \\tag{30}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Alternative answers such as"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nH' = H - h - \\frac{d^2}{2R} \\tag{31}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "are given credit."
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nThe numerical values are "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 6096 m for Mt Kanchenjunga and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = 4534 m for Mt Everest."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((1\\ \\mathrm{pt})\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nIn Eq.(23) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " represents the intensity of the source which would have been perceived by an observer at that location if attenuation effects were absent. If the power of the source is taken to be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_0 = P_0/4\\pi d^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the location at distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI = \\frac{P_0}{4\\pi d^2}\\exp\\left[-\\frac{d}{L}\\right] \\tag{32}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[points only if "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(1/d^2\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " is recognised 0.5]"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nThe relative intensity of Mt Everest as seen from Darjeeling would be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\frac{I_{\\text{Everest}}}{I_{\\text{Kanchenjunga}}} &= \\frac{d_{\\text{Kanchenjunga}}^2}{d_{\\text{Everest}}^2}\\exp\\left[-\\frac{d_{\\text{Everest}}}{L} + \\frac{d_{\\text{Kanchenjunga}}}{L}\\right] \\tag{33}\\\\\n&= 0.093 \\tag{34}\n\\end{align}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Yes, Mt Everest is visible."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.2]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Attenuation length"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "due to aerosol pollution :"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "F.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((1\\ \\mathrm{pt})\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nFrom the information given in the problem we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nL_p = \\frac{1}{8n\\pi r^2} \\tag{35}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[ 0.3]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{gather}\nn = \\frac{\\rho_p}{m} \\tag{36}\\\\\nm = \\frac{4\\pi}{3}r^3\\rho \\tag{37}\n\\end{gather}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This yields "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nL_p = \\frac{r\\rho}{6\\rho_p} = 50\\ \\mathrm{km}, \\tag{38}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[ 0.2 (expression)]"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[ 0.5 (evaluation)]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nr = 500\\times10^{-9}\\ \\mathrm{m}, \\qquad\\qquad\\qquad \\rho = 3\\times10^3\\ \\mathrm{kg/m^3}, \\qquad\\qquad\\qquad \\rho_p = 5\\times10^{-9}\\ \\mathrm{kg/m^3}. \\tag{39}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Relative intensity and Visibility of Mt. Kanchenjunga and Mt. Everest :"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "G.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((1\\ \\mathrm{pt})\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nThe new relation for the intensity attenuation is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nI = \\frac{P_0}{4\\pi d^2}\\exp\\left[-\\frac{d}{L} - \\frac{d}{L_p}\\right]. \\tag{40}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For Mt Kanchenjunga "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{I_K}{I_{\\text{ref}}} = \\exp\\left[-\\frac{d_K}{L_p}\\right] = 0.22. \\tag{41}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3 (expression) + 0.1 (numerical answer)]"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nThe drop in intensity is to 22 % of the reference value. Mt Kanchenjunga will be visible from Darjeeling. For Mt Everest"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.1]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{I_E}{I_{\\text{ref}}} = 0.093\\exp\\left[-\\frac{d_E}{L_p}\\right] = 0.093\\times0.033 = 0.003. \\tag{42}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.3 (expression) + 0.1 (numerical answer)]"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nThe drop in intensity is to 0.3 % of the reference value. Mt Everest will not be visible from Darjeeling."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.1]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "span",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "hr",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "ol",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Amitabh Virmani (CMI, Chennai) and A. C. Biyani (retired Govt. Nagarjuna P.G. College of Science. Raipur) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully acknowledged."
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "↩︎"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "General Grading Guidelines\n\n\nWhen student’s solutions are correct and s/he also show how solutions were obtained, the stduent gets full credit. The scheme oulined below is helpful if the student’s answers are partially correct. Attention will be paid to the detailed solution so, if the final answer is correct but it is obtained by incorrect method(s) then no credit will be given. Alternative solutions may exist and will be given due credit.\n\n\nPartial or full outcomes obtained for later sections in the problem which are incorrect solely because of errors being carried forward from previous sections, but are otherwise reasonable, will not be further penalized. For example a dimensioanlly wrong answer when carried forward will not get any credit in the subsequent sections. A numerically wrong evaluation when carried forward will get credit in subsequent sections unless the numerical answer is patently wrong (e.g. the value of g is 981 m/sec\n2\n! )\n\n\nIncorrect or no labeling of an axis is penalized by -0.1 points\n\n\nThe numerical answer (i) must be correct to +/- 10% AND (ii) must respect significant figures.\n\n\nIt maybe noted that NO micro-marking scheme takes care of all contingencies. A certain amount of discretion rests with and a certain level of judgement is invested in the academic committee.\n\n\nMaxwell, Rayleigh and Mount Everest: THE SOLUTION\n1\n\n\nOscillation of the electron cloud:\n\n\nA.1\n \n\\((0.5\\ \\mathrm{pt})\\)\n\n\n\n\\(\\vec{E}(t)\\)\n is the electric field at the location of the molecule. The equation of motion of the charge in the absence of \n\\(\\vec{E}(t)\\)\n would be \n\\[\\begin{equation}\n\\ddot{y} = -\\omega_0^2 y, \\tag{1}\n\\end{equation}\\]\n and under forced oscillations \n\\[\\begin{equation}\n\\ddot{y} = -\\omega_0^2 y - \\frac{qE_0}{m}\\cos\\omega t. \\tag{2}\n\\end{equation}\\]\n \n[0.5]\n\n\n[a sign mistake or a term missing \n\\(-\\)\n0.3]\n\n\nA.2\n \n\\((0.5\\ \\mathrm{pt})\\)\n\n\nIn equation (2) we substitute \n\\(y = y_0\\cos\\omega t\\)\n to obtain \n\\[\\begin{equation}\n-\\omega^2 y_0 = -\\omega_0^2 y_0 - \\frac{qE_0}{m}. \\tag{3}\n\\end{equation}\\]\n \n[0.2]\n\n\nThis implies that the amplitude of oscillation is \n\\[\\begin{equation}\ny_0 = \\frac{qE_0/m}{\\omega^2 - \\omega_0^2}. \\tag{4}\n\\end{equation}\\]\n \n[0.3]\n\n\n[a sign mistake or a term missing \n\\(-\\)\n0.1]\n\n\nA.3\n \n\\((0.5\\ \\mathrm{pt})\\)\n\n\nSince \n\\(y\\)\n is the separation between the positive and negative charge clouds, the magnitude \n\\(p(t)\\)\n of the dipole moment is \n\\[\\begin{equation}\np(t) = qy(t) \\approx \\frac{q^2E_0}{m\\omega_0^2}\\cos\\omega t. \\tag{5}\n\\end{equation}\\]\n \n[0.5]\n\n\n[sign mistake \n\\(-\\)\n0.1]\n\n\n\n[answer without approximation \n\\(-\\)\n0.2]\n\n\nA.4\n \n\\((0.5\\ \\mathrm{pt})\\)\n\n\nWe model the atom as a stationary positive point charge \n\\(q\\)\n surrounded by a spherical negative charge cloud of total charge \n\\(-q\\)\n, radius \n\\(r\\)\n and mass \n\\(m\\)\n. Now let the charge cloud be displaced by a small distance \n\\(y\\)\n. The electrostatic force on the electron cloud by the central positive charge is (see Figure) \n\\[\\begin{equation}\n\\vec{F}_{\\mathrm{el}} = m\\ddot{y}\\hat{y} = -\\frac{q^2}{4\\pi\\epsilon_0 r^3}y\\hat{y} = -m\\omega_0^2 y\\hat{y} \\tag{6}\n\\end{equation}\\]\n \n[0.4]\n\n\n\n\n\n\n\n\n\nFigure 1. Model of the atom with a central positive charge and a displaced spherical electron cloud of radius \n\\(r\\)\n\n\nThus, the natural frequency of oscillation is \n\\[\\begin{equation}\n\\omega_0 = \\frac{q}{\\sqrt{4\\pi\\epsilon_0 m r^3}} \\tag{7}\n\\end{equation}\\]\n \n[0.1]\n\n\nPower radiated:\n\n\nB.1\n \n\\((1\\ \\mathrm{pt})\\)\n\n\nDimension of power is \n\\[\\begin{equation}\n[s] = \\mathrm{kg}\\cdot\\mathrm{m}^2\\cdot\\mathrm{s}^{-3} \\tag{8}\n\\end{equation}\\]\n \n[0.1]\n\n\nDimension of dipole moment is \n\\[\\begin{equation}\n[p_0] = \\mathrm{C}\\cdot\\mathrm{m}. \\tag{9}\n\\end{equation}\\]\n \n[0.1]\n\n\nWe are using SI units. C stands for Coloumb. Dimension of \n\\(\\omega\\)\n is \n\\[\\begin{equation}\n[\\omega] = \\mathrm{s}^{-1}. \\tag{10}\n\\end{equation}\\]\n \n[0.1]\n\n\nDimension of \n\\(\\epsilon_0\\)\n is \n\\[\\begin{equation}\n[\\epsilon_0] = \\mathrm{C}^2\\cdot\\mathrm{N}^{-1}\\cdot\\mathrm{m}^{-2} = \\mathrm{C}^2\\cdot\\mathrm{kg}^{-1}\\cdot\\mathrm{m}^{-3}\\cdot\\mathrm{s}^2. \\tag{11}\n\\end{equation}\\]\n \n[0.1]\n\n\nDimension of speed of light \n\\(c\\)\n is \n\\[\\begin{equation}\n[c] = \\mathrm{m}\\cdot\\mathrm{s}^{-1}. \\tag{12}\n\\end{equation}\\]\n \n[0.1]\n\n\nLet us take the ansatz \n\\(s = p_0^\\alpha\\omega^\\beta\\epsilon_0^\\gamma c^\\delta\\)\n, i.e., \n\\[\\begin{equation}\n[s] = [p_0]^\\alpha[\\omega]^\\beta[\\epsilon_0]^\\gamma[c]^\\delta. \\tag{13}\n\\end{equation}\\]\n \n[0.1]\n\n\nWe get four equations for the four variables, \n\\[\\begin{alignat}\n{2}\n&\\alpha + 2\\gamma = 0, &\\qquad\\qquad\\qquad\\qquad &\\gamma = -1, \\tag{14}\\\\\n&{}-\\beta + 2\\gamma - \\delta = -3 & &\\alpha - 3\\gamma + \\delta = 2. \\tag{15}\n\\end{alignat}\\]\n This gives \n\\[\\begin{equation}\n\\alpha = 2, \\qquad\\qquad\\qquad \\beta = 4, \\qquad\\qquad\\qquad \\gamma = -1, \\qquad\\qquad\\qquad \\delta = -3. \\tag{16}\n\\end{equation}\\]\n Implying, \n\\[\\begin{equation}\ns = k\\frac{p_0^2\\omega^4}{\\epsilon_0 c^3} \\tag{17}\n\\end{equation}\\]\n \n[0.4]\n\n\nB.2\n \n\\((0.2\\ \\mathrm{pt})\\)\n\n\nWe have \n\\[\\begin{equation}\ns = \\frac{1}{12\\pi}\\frac{p_0^2\\omega^4}{\\epsilon_0 c^3} = \\frac{1}{12\\pi}\\frac{q^2y_0^2\\omega^4}{\\epsilon_0 c^3} = \\frac{1}{12\\pi}\\frac{q^4E_0^2}{m^2\\epsilon_0 c^3}\\frac{\\omega^4}{\\omega_0^4}. \\tag{18}\n\\end{equation}\\]\n \n[0.2]\n\n\nAttenuation of the Intensity\n \n\\(I(x)\\)\n \n:\n\n\nC.1\n \n\\((1\\ \\mathrm{pt})\\)\n\n\nRecall that the intensity is the power incident per unit area. Consider a horizontal column of the atmosphere of cross-sectional area \n\\(A\\)\n and length \n\\(\\Delta x\\)\n. Let the incident intensity be \n\\(I(x)\\)\n. Let the transmitted intensity be \n\\(I(x+\\Delta x)\\)\n. The drop in the intensity is due to the scattering of light by the air molecules. If the number density of air molecules is \n\\(n_0\\)\n then the total power radiated per unit volume is \n\\(n_0s\\)\n. Therefore, \n\\[\\begin{equation}\nI(x)A - I(x+\\Delta x)A = n_0s(A\\Delta x). \\tag{19}\n\\end{equation}\\]\n \n[0.8]\n\n\nThis gives \n\\[\\begin{equation}\n-\\frac{dI}{dx} = n_0s. \\tag{20}\n\\end{equation}\\]\n \n[0.2]\n\n\nC.2\n \n\\((0.5\\ \\mathrm{pt})\\)\n\n\nSince \n\\(s \\propto E_0^2\\)\n and \n\\(I \\propto E_0^2\\)\n we have \n\\[\\begin{equation}\n-\\frac{dI}{dx} = \\frac{I}{L}, \\tag{21}\n\\end{equation}\\]\n \n[0.2]\n\n\nwhere \n\\[\\begin{equation}\nL = \\frac{6\\pi\\epsilon_0^2m^2c^4}{n_0q^4}\\left(\\frac{\\omega_0}{\\omega}\\right)^4. \\tag{22}\n\\end{equation}\\]\n \n[0.2]\n\n\nThe solution to the differential equation as a function of \n\\(x\\)\n is \n\\[\\begin{equation}\nI(x) = I_0e^{-x/L}, \\tag{23}\n\\end{equation}\\]\n with \n\\(L\\)\n given above.\n\n\n[0.1]\n\n\nC.3\n \n\\((0.3\\ \\mathrm{pt})\\)\n\n\nSubstituting the numbers we find \n\\[\\begin{gather}\nL = \\frac{6\\pi\\epsilon_0^2m^2c^4}{n_0q^4}\\left(\\frac{\\omega_0}{\\omega}\\right)^4. \\tag{24}\\\\\nL \\approx 130\\ \\mathrm{km}. \\tag{25}\n\\end{gather}\\]\n \n[points are for numerical calculation 0.3]\n\n\nHeight\n \n\\(H'\\)\n \nof the Mountains as seen by an observer :\n\n\nD.1\n \n\\((2\\ \\mathrm{pt})\\)\n\n\n\n\n\n\n\n\n\nFigure 2. Great circle on which lie the mountain \n\\(BS\\)\n at height \n\\(H\\)\n and the observer \n\\(P\\)\n at height \n\\(h\\)\n. The figure is not to scale.\n\n\n[0.7]\n\n\nIn \n\\(\\Delta OPB'\\)\n, \n\\[\\begin{equation}\nOB' = OP\\sec(\\theta) = (R+h)\\sec(\\theta) \\tag{26}\n\\end{equation}\\]\n Now, \n\\(\\angle OSP = \\angle B'SS'\\)\n and \n\\(\\angle SOP = \\angle SB'S'\\)\n, hence \n\\(\\Delta OSP\\)\n and \n\\(\\Delta B'SS'\\)\n are similar. Thus \n\\[\\begin{equation}\n\\frac{B'S'}{OP} = \\frac{B'S}{OS} = \\frac{OS - OB'}{OS} = 1 - \\frac{OB'}{OS}. \\tag{27}\n\\end{equation}\\]\n Noting that \n\\(B'S' = H', OP = R+h, OS = R+H\\)\n and using Eq. (26), we obtain \n\\[\\begin{equation}\n\\frac{H'}{R+h} = 1 - \\frac{(R+h)\\sec(\\theta)}{R+H} \\tag{28}\n\\end{equation}\\]\n Or \n\\[\\begin{equation}\nH' = R + h - \\frac{(R+h)^2}{R+H}\\sec(\\theta). \\tag{29}\n\\end{equation}\\]\n \n[0.8]\n\n\nNoting that \n\\(\\cos(\\theta) \\approx 1 - \\theta^2/2\\)\n and \n\\(\\theta = d/R\\)\n we get, \n\\[\\begin{equation}\nH' \\simeq R + h - \\frac{(R+h)^2}{R+H}\\left(1 + \\frac{d^2}{2R^2}\\right). \\tag{30}\n\\end{equation}\\]\n \nAlternative answers such as\n \n\\[\\begin{equation}\nH' = H - h - \\frac{d^2}{2R} \\tag{31}\n\\end{equation}\\]\n \nare given credit.\n\n\nThe numerical values are \n\\(H'\\)\n = 6096 m for Mt Kanchenjunga and \n\\(H'\\)\n = 4534 m for Mt Everest.\n\n\n\n[0.5]\n\n\nE.1\n \n\\((1\\ \\mathrm{pt})\\)\n\n\nIn Eq.(23) \n\\(I_0\\)\n represents the intensity of the source which would have been perceived by an observer at that location if attenuation effects were absent. If the power of the source is taken to be \n\\(P_0\\)\n, then \n\\(I_0 = P_0/4\\pi d^2\\)\n for the location at distance \n\\(d\\)\n. \n\\[\\begin{equation}\nI = \\frac{P_0}{4\\pi d^2}\\exp\\left[-\\frac{d}{L}\\right] \\tag{32}\n\\end{equation}\\]\n \n[points only if \n\\(1/d^2\\)\n is recognised 0.5]\n\n\nThe relative intensity of Mt Everest as seen from Darjeeling would be \n\\[\\begin{align}\n\\frac{I_{\\text{Everest}}}{I_{\\text{Kanchenjunga}}} &= \\frac{d_{\\text{Kanchenjunga}}^2}{d_{\\text{Everest}}^2}\\exp\\left[-\\frac{d_{\\text{Everest}}}{L} + \\frac{d_{\\text{Kanchenjunga}}}{L}\\right] \\tag{33}\\\\\n&= 0.093 \\tag{34}\n\\end{align}\\]\n \n[0.3]\n\n\nYes, Mt Everest is visible.\n\n\n[0.2]\n\n\nAttenuation length\n \n\\(L_p\\)\n \ndue to aerosol pollution :\n\n\nF.1\n \n\\((1\\ \\mathrm{pt})\\)\n\n\nFrom the information given in the problem we have \n\\[\\begin{equation}\nL_p = \\frac{1}{8n\\pi r^2} \\tag{35}\n\\end{equation}\\]\n \n[ 0.3]\n \n\\[\\begin{gather}\nn = \\frac{\\rho_p}{m} \\tag{36}\\\\\nm = \\frac{4\\pi}{3}r^3\\rho \\tag{37}\n\\end{gather}\\]\n This yields \n\\[\\begin{equation}\nL_p = \\frac{r\\rho}{6\\rho_p} = 50\\ \\mathrm{km}, \\tag{38}\n\\end{equation}\\]\n \n[ 0.2 (expression)]\n\n\n\n[ 0.5 (evaluation)]\n\n\nwhere, \n\\[\\begin{equation}\nr = 500\\times10^{-9}\\ \\mathrm{m}, \\qquad\\qquad\\qquad \\rho = 3\\times10^3\\ \\mathrm{kg/m^3}, \\qquad\\qquad\\qquad \\rho_p = 5\\times10^{-9}\\ \\mathrm{kg/m^3}. \\tag{39}\n\\end{equation}\\]\n\n\nRelative intensity and Visibility of Mt. Kanchenjunga and Mt. Everest :\n\n\nG.1\n \n\\((1\\ \\mathrm{pt})\\)\n\n\nThe new relation for the intensity attenuation is \n\\[\\begin{equation}\nI = \\frac{P_0}{4\\pi d^2}\\exp\\left[-\\frac{d}{L} - \\frac{d}{L_p}\\right]. \\tag{40}\n\\end{equation}\\]\n For Mt Kanchenjunga \n\\[\\begin{equation}\n\\frac{I_K}{I_{\\text{ref}}} = \\exp\\left[-\\frac{d_K}{L_p}\\right] = 0.22. \\tag{41}\n\\end{equation}\\]\n \n[0.3 (expression) + 0.1 (numerical answer)]\n\n\nThe drop in intensity is to 22 % of the reference value. Mt Kanchenjunga will be visible from Darjeeling. For Mt Everest\n\n\n[0.1]\n \n\\[\\begin{equation}\n\\frac{I_E}{I_{\\text{ref}}} = 0.093\\exp\\left[-\\frac{d_E}{L_p}\\right] = 0.093\\times0.033 = 0.003. \\tag{42}\n\\end{equation}\\]\n \n[0.3 (expression) + 0.1 (numerical answer)]\n\n\nThe drop in intensity is to 0.3 % of the reference value. Mt Everest will not be visible from Darjeeling.\n\n\n\n[0.1]\n\n\n\n\n\n\n\n\n\nAmitabh Virmani (CMI, Chennai) and A. C. Biyani (retired Govt. Nagarjuna P.G. College of Science. Raipur) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group, and the International Board are gratefully acknowledged.\n↩︎\n\n\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2022-t3/b91987e4cfe633b26c76.png",
+      "/corpus/figures/native/bulk/apho-2022-t3/3f775be0c7c341d1467f.png"
+    ],
+    "shared": false
+  }
+}

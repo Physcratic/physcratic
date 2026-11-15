@@ -1,1 +1,5123 @@
-{"id":"apho-2019-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2019_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2019_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2019-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6],"initialPage":1,"shared":false,"text":"Theory\nQ1-1\nEnglish (Oﬃcial)\nRF reﬂectometry for spin readout for silicon quantum com-\nputing\nIntroduction\nDeveloping the idea of quantum computing into a practical technology is one of the largest outstanding\nchallenges in science and technology. A promising path is to manipulate individual electrons in silicon\ntransistors by time-dependent electromagnetic ﬁelds.\nIn this question, we investigate the use of radio frequency (RF) reﬂectometry and single-electron transis-\ntors to read out the state of quantum bits in silicon-based quantum computer prototypes.\nPart A and Part B discuss radio wave transmission through cables and transmission lines, part C is de-\nvoted to conditions for wave reﬂection, part D introduces the single-electron transistor, and parts E and\nF introduce and ask you to optimise the method of reﬂectometry.\nPart A: Lumped element model of a co-axial transmission line (2.0 points)\nWhen modelling DC or low frequency signals, one often assumes that a voltage pulse travels instanta-\nneously throughout the circuit. This assumption is valid when the wavelength of such signals is much\nlonger than the size of the circuit, however when working with radio frequency signals, the dynamics\nare more complex, and we need to account for the intrinsic capacitance and inductance of our cables\nin our model. We model a co-axial transmission line which acts as a waveguide as described below, ig-\nnoring the small resistance of the copper and the small conductance through the dielectric. Throughout\nthe problem, we consider the large-wavelength limit of electromagnetic waves in the co-axial cable such\nthat electric and magnetic ﬁelds are perpendicular to the axis of the cable everywhere (the so-called\ntransverse electromagnetic mode).\nDiagram of a coaxial cable showing C - the centre core, I - the dielectric insulator, S - the metallic\nshield and J - the plastic jacket.\nConsider a co-axial cable consisting of a copper inner core of negligible resistance, negligible magnetic\npermeability and radius 𝑎, covered by an outer co-axial copper shield with inner radius 𝑏. A dielectric\nof dimensionless relative permittivity 𝜀r and dimensionless relative permeability 𝜇r separates the layers.\nWhen electromagnetic signals propagate through the co-axial cable, they are conﬁned between the inner\ncore and outer shielding.\nA.1\nAt what speed do electromagnetic waves propagate in the co-axial cable?\n0.2pt\nA.2\nIf there is a charge Δ𝑞on a length Δ𝑥of the inner core of the co-axial cable,\nand the outer shield is grounded, ﬁnd the electric ﬁeld in the region between\nthe inner core and the shield.\n0.2pt\n\nTheory\nQ1-2\nEnglish (Oﬃcial)\nA.3\nFind the capacitance per unit length, 𝐶𝑥, of the co-axial cable. You may wish to\nconsider a length Δ𝑥of the cable.\n0.3pt\nA.4\nFind the inductance per unit length, 𝐿𝑥, of the cable.\n0.3pt\nA lumped element model of the cable is constructed by considering the inductance and capacitance of\nshort sections of the cable. The inductance is assumed to be a property of the inner core, and the capac-\nitance links the core with the shielding. A diagram of the lumped element model is shown below.\nCircuit diagram of lumped element model of coaxial cable.\nA.5\ni. Show that the impedance 𝑍0 of a semi-inﬁnite length of cable is 𝑍0 = √𝐿𝑥/𝐶𝑥.\nii. Find 𝑏/𝑎if the cable has impedance 𝑍0 = 50 Ω and is made using a dielectric\nmaterial with 𝜀r = 4.0 and 𝜇r = 1.0.\n1.0pt\nPart B: Hypothetical transmission line with return along a grounded plane (1.0 points)\nAn alternative hypothetical transmission line is shown in the diagram below. The input signal is sent\nthrough a very thin conductor of radius 𝑎, which is a distance 𝑑≫𝑎from a highly conductive grounded\nplane. The material surrounding the conductor has dimensionless relative permittivity 𝜀r and dimension-\nless relative permeability 𝜇r. The return current ﬂows along the grounded plane.\nDiagram of a hypothetical transmission line showing C - the conductor of radius 𝑎, at a distance\n𝑑≫𝑎from P - the grounded conducting plane. The conductor is embedded in a material with\ndimensionless relative permeability 𝜀r and dimensionless relative permittivity 𝜇r.\nB.1\nFind an expression for the characteristic impedance of this hypothetical trans-\nmission line.\n1.0pt\nPart C: Basics of RF reﬂectometry (1.2 points)\nAn electromagnetic wave can propagate in a transmission line in two opposite directions. For each di-\n\nTheory\nQ1-3\nEnglish (Oﬃcial)\nrection of propagation, the characteristic impedance 𝑍0can be used to relate the voltage 𝑉0 and current\n𝐼0amplitudes as in the Ohm's law, 𝑍0 = 𝑉0/𝐼0.\nConsider an interface between two transmission lines, with characteristic impedances 𝑍0 and 𝑍1. A\nschematic diagram of the circuit is shown below.\nZ0\nZ1\nCircuit diagram of a transmission line of impedance 𝑍0 connected to a transmission line of\nimpedance 𝑍1. The physical size of the interface is much smaller than the wavelength.\nWhen a signal 𝑉i sent into the transmission line with impedance 𝑍0reaches the interface it is partially\ntransmitted into the second transmission line, resulting in a signal 𝑉t in that line which propagates for-\nward. Some of the signal may also be reﬂected, resulting in a backward propagating signal in the initial\ntransmission line 𝑉r.\nC.1\nFind the reﬂectance of the interface Γ = 𝑉r/𝑉i.\n1.0pt\nC.2\nState the condition(s) for the signal 𝑉i to have gained a 𝜋phase change on re-\nﬂection.\n0.2pt\nPart D: The single electron transistor (3.3 points)\nA single electron transistor (SET) consists of a quantum dot, which is a small isolated conductor where\nelectrons can be localised, and of several electrodes in its vicinity. The gate electrode couples capacita-\ntively to the quantum dot, while the two other electrodes --- the source and the drain --- are connected\nvia tunnel junctions, through which electrons can tunnel due to quantum mechanics. A simpliﬁed circuit\ndiagram for an SET is shown in the ﬁgure.\nCircuit diagram representation of an SET. QD is the quantum dot, S is the source, D is the drain\nand G is the gate.\n\nTheory\nQ1-4\nEnglish (Oﬃcial)\nThe capacitance of the gate is 𝐶𝑔and the capacitance of the tunnel junctions is 𝐶𝑡≪𝐶𝑔. Consider 𝐶𝑔to\nbe the total capacitance of the quantum dot. In this part of the problem, the source and the drain are\nheld at zero potential, and the voltage on the gate electrode is ﬁxed at 𝑉𝑔.\nD.1\nConsider a state of the SET in which the quantum dot contains 𝑛electrons.\ni. Find the electrical potential 𝜑𝑛on the QD.\nii. Find the amount of energy Δ𝐸𝑛that is necessary to bring an additional elec-\ntron from the source or the drain onto the QD.\n \n1.5pt\nIf Δ𝐸𝑛< 0 then electrons will spontaneously tunnel into the quantum dot until such a number 𝒩> 𝑛is\nreached that Δ𝐸𝒩≥0. The equilibrium number of electrons 𝒩and the corresponding addition energy\nΔ𝐸𝒩can be controlled by choosing the appropriate voltage 𝑉𝑔.\nD.2\nFind an expression for the maximal possible value 𝐸𝑐= max Δ𝐸𝒩(𝑉𝑔) of the\nequilibrium addition energy that can be achieved by tuning the gate voltage of\nthe SET.\n0.5pt\nIf Δ𝐸𝒩= 0 then tunnelling of electrons does not require extra energy and SET is in a highly conductive\nON state. If Δ𝐸𝒩> 0, then the conductance of the SET is reduced (high-resistance OFF).\nFor the number of electrons on the quantum dot to remain well-deﬁned, certain conditions need to be\nsatisﬁed. Firstly, if electrons in the source or drain have thermal energies suﬃcient to move sponta-\nneously onto the quantum dot, the contrast between the ON and OFF states will disappear.\nD.3\nFind a condition on the temperature of the electrons so that electrons cannot\nmove onto the quantum dot by thermal excitation.\n0.5pt\nSecondly, tunnelling of electrons onto or off the dot limits the lifetime of their energy states. This tun-\nnelling can be modelled using an effective resistance of the tunnel junction with the characteristic tun-\nnelling time equal to the characteristic time for charging or discharging the quantum dot through the\njunction.\nD.4\ni. Estimate the tunnelling time for a quantum dot in terms of capacitance 𝐶𝑡\nand effective resistance 𝑅𝑡of the tunnel junction.\nii. Find a condition on the effective resistance 𝑅𝑡so that the electrons in the\nquantum dot retain suﬃciently well-deﬁned energy for the ON and OFF states\nto remain distinct.\n0.8pt\nPart E: RF reﬂectometry to read out SET state (1.0 points)\nThe state of the SET is sensitive to electrical potentials created by nearby elements of the quantum circuit\n(such as quantum bits), and distinguishing between ON and OFF states provides a way to read out the in-\nformation produced by the quantum computer. The SET in the ON state can be modelled by a resistance\n𝑅ON = 100 kΩ while in the OFF state we can assume the SET to be a complete insulator (neglecting any\ncapacitative connection between the source and the drain via the SET). While it is possible to determine\nthe state of the SET by measuring the response to an input signal through the source, it is faster to do so\nusing RF reﬂectometry to measure both the amplitude and phase of the reﬂected signal, i.e. determined\nthe reﬂectance Γ.\n\nTheory\nQ1-5\nEnglish (Oﬃcial)\nThe change in reﬂectance due to switching of an SET between ON and OFF states is\nΔΓ = |ΓON −ΓOFF| ,\n(1)\nwhere ΓON and ΓOFF are the reﬂectances in two different states.\nZ0\nZSET\nCircuit diagram of transmission cable of impedance 𝑍0 connected to an SET.\nE.1\nFind the change in reﬂectance ΔΓ between the conductive and insulating states\nfor a typical SET connected to a co-axial cable with impedance of 50 Ω.\n0.2pt\nIn order to increase the change in reﬂectance, and hence the sensitivity of the RF reﬂectometry, the circuit\nis modiﬁed by inclusion of an inductor. The intrinsic capacitance due to the device geometry 𝐶0 ≈0.4 pF\nis also taken into account. The RF reﬂectometry is conducted using a signal of angular frequency 𝜔rf.\nZ0\nL0\nC0\nZSET\nModiﬁed SET circuit.\nE.2\nEstimate the value of the inductance 𝐿0 that can result in the change in re-\nﬂection on the order of one. Calculate your estimate for 𝐿0 numerically for\n𝜔rf/(2𝜋) = 100 MHz and compute the corresponding ΔΓ.\n0.8pt\nPart F: Charge sensing with a single lead quantum dot (1.5 points)\nFor a scalable quantum computing architecture, the number of wires reaching each individual quantum\nbit need to be minimized. A promising alternative to an SET for charge sensing in silicon quantum com-\n\nTheory\nQ1-6\nEnglish (Oﬃcial)\nputing is a Single Lead Quantum Dot (SLQD). In many ways it is similar to an SET, but does not have the\nsource and drain leads. The gate is the only electrode, through which the electron energy states of the\nquantum dot are controlled and also through which RF reﬂectometry is conducted.\nLike an SET, a SLQD has an OFF in which the SLQD behaves as a total insulator. In contrast to an SET,\nthe ON state of the SLQD is capacitive, with capacitance 𝐶q. In order to maximize the difference in re-\nﬂectance ΔΓ of the SLQD, the following circuit is constructed. The parasitic capacitance 𝐶0 ≈0.4 pF is\nﬁxed by circuit geometry, but the value of 𝐿0 and the operating frequency can be changed to optimize\nthe performance. The characteristic impedance of the transmission line is 𝑍0 = 50Ω.\nZ0\nL0\nC0\nZSLQD\nCircuit diagram of the SLQD readout circuit connected to the transmission line.\nF.1\nSuggest 𝜔rf and 𝑍C = √𝐿0/𝐶0 that allow ΔΓ ∼1 for given 𝐶0 and 𝐶𝑞.\n1.0pt\nOptimal values of 𝐿0 are relatively large and not always technically feasible. Hence, other types of circuit\nelements may be needed to improve sensitivity of the reﬂectometry readout circuit.\nF.2\nAssume that 𝐿0 (and hence 𝑍𝐶) is ﬁxed. Draw a circuit diagram showing where\nto place an additional element in the SLQD readout circuit and specify the pa-\nrameter(s) of this element such that ΔΓ ∼1 can still be achieved without requir-\ning a large inductance.\n0.5pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2019-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Theory Q1: Solutions\nRF Reﬂectometry  \nVersion 1.32.\nA.\nLUMPED ELEMENT MODEL OF A CO-AXIAL TRANSMISSION LINE\nA.1 The speed of wave propagation in free space (c0 = 299 792 458 m/s) is c0 = 1/√ε0 µ0. The speed in the dielectric\n& diamagnetic medium is\nv =\nc0\n√εr µr\n(A.1)\nA.2 Gauss law for the ﬂux through a cylindrical surface with radius r co-axial with the the core, a < r < b:\n∆x 2πr E(r) = ∆q\nεrε0\n⇒E(r) = ∆q\n∆x\n1\n2πεrε0r\n(A.2)\nA.3 The capacitance\nCx ∆x = ∆q\nφ\n(A.3)\nwhere the potential φ of the core with respect to the shield is\n0 −φ = −\n∫b\na\nE(r) dr ⇒φ = ∆q\n∆x\n1\n2πεrε0\nln b\na\n(A.4)\nCx = 2πεrε0\nln b\na\n(A.5)\nA.4 The magnetic ﬂux through a rectangular contour paralel to the axis equal inductance times the current:\n∆x\n∫b\na\nB(r) dr = Lx ∆x I\n(A.6)\nBiot-Savart law B(r) = µrµ0\n2π\nI\nr gives\nLx = µrµ0\n2π ln b\na\n(A.7)\nA.5\ni. Adding δx length of the cable should not change its impedance. Hence the impedance Z of the following\ncircuit must be equal to Z0:\n1\nZ =\n1\nZ0 + jωδL +\n1\n1\njωδC\n= 1\nZ0\n(A.8)\nZ2\n0 + j ω δL Z0 −δL/δC = 0\n(A.9)\n(here engineering notation for j2 = −1 is used.) δL/δC = Lx/Cx and δL →0 for δx →0, hence\nZ0 =\n√\nLx/Cx\n(A.10)\nii.\nZ0 =\n√\nLx/Cx = ln(b/a)\n2π\n√µrµ0\nεrε0\n= ln(b/a)\n√µr\nεr\n× 59.96 Ω\n(A.11)\nFor Z0 = 50 Ω, εr = 4.0 and µr = 1.0 this gives b = 5.30 a .\n\n2\nB.\nHYPOTHETICAL TRANSMISSION LINE WITH RETURN ALONG A GROUNDED PLANE\nB.1 The high-conductance ground plate can be replaced by an image of the wire with opposite direction of the\ncurrent at distance 2d from the real wire. The magnetic ﬁelds from the real and the imaginary wires add up\nand need to be integrated to get the magnetic ﬂux between the wire and the plate:\nLx ∆x I = µµ0\n2π I\n∫d\na\n(1\nr +\n1\n2d −r\n)\ndr ∆x\n(B.1)\nLx = µµ0\n2π ln\n(2d\na −1\n)\n≈µµ0\n2π ln 2d\na\n(B.2)\nThe potential diﬀerence between the wire and the plate can be obtained similarly by integrating the combined\nﬁeld for the wire and its image:\nφ = ∆q\n∆x\n1\n2πεrε0\n∫d\na\n(1\nr +\n1\n2d −r\n)\ndr = ∆q\n∆x\nln(2d/a)\n2πεrε0\n(B.3)\nCx = ∆q\n∆x\n1\nφ ≈\n2πεrε0\nln(2d/a)\n(B.4)\nHence the characterstic impedance Z0 =\n√\nLx/Cx of the wire-plate system is\nZ0 = ln(2d/a)\n2π\n√µrµ0\nεrε0\n(B.5)\nC.\nBASICS OF RF REFLECTOMETRY\nC.1 At the interface, values of the voltage on both transmission lines have to coincide:\nVi + Vr = Vt\n(C.1)\nThe current has to be conserved at the interface, however, the incident and the reﬂected waves carry the current\nin opposite directions:\nVi\nZ0\n−Vr\nZ0\n= Vt\nZ1\n(C.2)\nIt is clear from the equation above that Vt ̸= 0 if Z0 ̸= Z1 – impedance mismatch has to cause reﬂection. Solving\nthe voltage and the current equations for Γ = Vr/Vi gives\nΓ = Z1 −Z0\nZ1 + Z0\n(C.3)\nC.2 A π-shift implies opposite signs of Vi and Vr and hence requires Γ < 0. This implies Z1 < Z0 .\nD.\nTHE SINGLE ELECTRON TRANSISTOR\nD.1\ni. Since any capacitance beyond Cg is neglected in our model, the quantum dot can be thought as a capacitor\nplate with the gate being the other plate of the same capacitor with capacitance Cg. The ﬁxed number n of\nelectrons trapped on the quantum dot sets a ﬁxed-charge (q = −ne) boundary condition for the capacitor\nCg on the QD, while the gate side is kept at a constant potential Vg. (We denote the elementary charge\nby e > 0). The implies that an excess charge of opposite sign, −q = ne will accumulate on the gate, to\nkeep electric ﬁeld conﬁned between the QD and the gate. The potential jump across the capacitor from\nthe gate to the QD will be equal to the capacitor q/Cg = −ne/Cg. Hence the potential on the QD is\nφn = Vg + −ne\nCg\n(D.1)\n\n3\nii. Bringing an inﬁnitesimal charge δq from potential 0 to potential φ(q) requires energy δE = φ(q)δq, and\nthe dependence of potential φ(q) on the accumulated charge q is linear. For the single-electron transfer,\nthe additional charge of the electron, −e, changes the potential from φn to φn+1 = φn −e/Cg. Hence the\nwork necessary to accumulate an extra e on the QD is the integral of δE\n∆En = −eφn + φn+1\n2\n(D.2)\n∆En = e2\nCg\n(\nn + 1\n2\n)\n−eVg\n(D.3)\nAlternatively, ∆En can be obtained from energy conservation, by computing the change of the energy of\nthe capacitor the dork the work done against the electromotive force of the battery (=−“work done by the\nbattery’) for a charge +e to be brought from the ground potential via the battery to the gate-side plate of\nthe capacitor:\n∆En = e2(n + 1)2\n2Cg\n−e2n2\n2Cg\n−eVg\n(D.4)\nNote that without Ct ≪Cg approximation, the answer is ∆En =\ne2\nCg+2 Ct\n(\nn + 1\n2\n)\n−eVgCg/(2 Ct + Cg)\n(not required to receive full marks).\nD.2 N is a minimal integer n for which ∆En ≥0. Consider the marginal case of ∆EN = 0 which is achieved at\nsome Vg = V0,\n∆EN (V0) = 0 = e2\nCg\n(\nN + 1\n2\n)\n−eV0\n(D.5)\nIf Vg would go slightly larger than V0, then ∆En would go negative and then minimal n that makes a positive\n∆En would jump from N to N + 1. Hence Ec = ∆EN+1(V0). This gives\n∆EN +1(V0) = Ec = e2\nCg\n(\nN + 1 + 1\n2\n)\n−eV0 =\ne2\nCg\n(D.6)\nD.3 In a metal, only electrons in an energy range ± ≈kBT around the Fermi level take part in the thermal motion.\n(Here kB is the Boltzmann constant.) Typical energy of these electrons is kBT per particle and it may not\nexceed characteristic single-electron addition energy Ec, kBT < Ec .\nD.4\ni. τ = Rt Ct\nii. Quantum uncertainty of energy (life-time broadening) h/τ must be less than the energy diﬀerence between\nthe states with n and n + 1 electrons,\nh/τ < Ec ⇒\nh\nRtCt\n< e2\nCg\n(D.7)\nRt > h\ne2\nCg\nCt\n> h\ne2\n(D.8)\nE.\nRF REFLECTOMETRY TO READ OUT SET STATE\nE.1\nΓ = ZSET −Z0\nZSET + Z0\n(E.1)\nΓON = 105 −50\n105 + 50 ≈1 −2 50\n105\n(E.2)\nΓOFF =\nlim\nZ1→∞\nZ1 −Z0\nZ1 + Z0\n= 1\n(E.3)\n∆Γ = |ΓON −ΓOFF| ≈1.0 · 10−3\n(E.4)\n\n4\nE.2 Large change in reﬂectance requires the impedance Z1 of the circuit to switch between Z1 < Z0 to Z1 > Z0 as\nthe SET between ON (ZSET = 100kΩ) and OFF (ZSET = ∞).\nIn the OFF state of the SET, the circuit is an disspationless LC contour with resonance frequency ω0 = 1/√L0C0\nand its impedance is 0. If we choose\nL0 =\n1\nω2\nrfC0\n(E.5)\nthen the imedance of the ω0 = ωrf.\nSince Ztot (the total impedance of the circuit) in the OFF state of the SET equals to 0, the reﬂectance i\nΓOFF = −1. As we switch to the ON state with ZSET = RSET = 105Ω, the change in reﬂectance will be large if\n|Ztot| in this ON state is on the order of Z0 or larger, which is indeed the case.\nFor the ON state and ω0 = ωrf\nZtot =\n(\n1\n1\nj ω C0\n+\n1\nRSET\n)−1\n+ j ωL0 =\nRSET\n1 + j ωC0 RSET\n+ j ω L0 = RSET + j\n√\nL0/C0\n1 + R2\nSETC0/L0\n(E.6)\nFor C0 = 0.4 · 10−12 F, Z0 = 50 Ωand ωrf = 2π · 108 Hz, we have\nL0 = 6.33 µH , Ztot = (158 + 6.3 j)Ω,\nΓON = 0.5198 + 0.0145 j, and ∆Γ = 1.52 .\nF.\nCHARGE SENSING WITH A SINGLE LEAD QUANTUM DOT\nF.1 The SLQD readout circuit contains only reactive elements, so |Γ| = 1 will always be one. The OFF state of the\nSLQD corresponds to an inductor L0 and a capacitor C0 connected in parallel. We again choose\nωrf = 1/\n√\nL0C0\n(F.1)\nso that Ztot is the OFF state is inﬁnite and ΓOFF = 1.\nThe ON state corresponds to ZSET = −j\n1\nωrfCq and Ztot at ωrf = ω0 is just the impedance of the SLQD\nZtot =\n1\n(jωrfL0)−1 + jωrf(C0 + Cq) = −j\n1\nω0Cq\n= −j C0\nCq\nZC\n(F.2)\nFor the complex phase of ΓON = (Ztot−Z0)/(Ztot+Z0) to be signiﬁcantly diﬀerent from zero, we need |Ztot| ∼Z0\nsince Ztot is purely imaginary. Hence\nZC ∼Cq\nC0\nZ0\n(F.3)\nF.2 If L0 is ﬁxed, we can still operate the circuit at the frequency\nωrf = 1/\n√\nL0C0\n(F.4)\nthat gives ΓOFF = 1. However, we need to deduce a way to increase |Ztot| even if ZC ≪CqZ0/C0 is not\nsuﬃcient. One of the ways to do that is to add an additional capacitance Cm is series with rest of the circuit.\nThis will give (at ωrf = ω0)\nZtot = −j\n(C0\nCq\nZC +\n1\nω0Cm\n)\n= −jω−1\n0\n(\nC−1\nq\n+ C−1\nm\n)\n(F.5)\nWe can satisfy the condition |Ztot| = Z0 (and hence ΓON = j and ∆Γ =\n√\n2 ∼1) with\nCm =\nCq\nZ0Cqωrf −1 =\nCq\n√L0C0\nZ0Cq −√L0C0\n(F.6)\nCm =\nCqZC\nZ0Cq/C0 −ZC\nZC≪Z0Cq/C0\n≈\n1\nZ0 ωrf\n(F.7)\n","textExtraction":"available"}}
+{
+  "id": "apho-2019-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2019_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2019_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2019-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "RF reflectometry for spin readout for silicon quantum computing"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Introduction"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Developing the idea of quantum computing into a practical technology is one of the largest outstanding challenges in science and technology. A promising path is to manipulate individual electrons in silicon transistors by time-dependent electromagnetic fields."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this question, we investigate the use of radio frequency (RF) reflectometry and single-electron transistors to read out the state of quantum bits in silicon-based quantum computer prototypes."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Part A and Part B discuss radio wave transmission through cables and transmission lines, part C is devoted to conditions for wave reflection, part D introduces the single-electron transistor, and parts E and F introduce and ask you to optimise the method of reflectometry."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A: Lumped element model of a co-axial transmission line (2.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When modelling DC or low frequency signals, one often assumes that a voltage pulse travels instantaneously throughout the circuit. This assumption is valid when the wavelength of such signals is much longer than the size of the circuit, however when working with radio frequency signals, the dynamics are more complex, and we need to account for the intrinsic capacitance and inductance of our cables in our model. We model a co-axial transmission line which acts as a waveguide as described below, ignoring the small resistance of the copper and the small conductance through the dielectric. Throughout the problem, we consider the large-wavelength limit of electromagnetic waves in the co-axial cable such that electric and magnetic fields are perpendicular to the axis of the cable everywhere (the so-called transverse electromagnetic mode)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2019-t1/571cf42dab8958858f93.png",
+                "alt": "apho-2019-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Diagram of a coaxial cable showing C - the centre core, I - the dielectric insulator, S - the metallic shield and J - the plastic jacket."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider a co-axial cable consisting of a copper inner core of negligible resistance, negligible magnetic permeability and radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", covered by an outer co-axial copper shield with inner radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". A dielectric of dimensionless relative permittivity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon_\\mathrm{r}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and dimensionless relative permeability "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_\\mathrm{r}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " separates the layers. When electromagnetic signals propagate through the co-axial cable, they are confined between the inner core and outer shielding."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "At what speed do electromagnetic waves propagate in the co-axial cable? 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "If there is a charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on a length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the inner core of the co-axial cable, and the outer shield is grounded, find the electric field in the region between the inner core and the shield. 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the capacitance per unit length, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of the co-axial cable. You may wish to consider a length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the cable. 0.3pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the inductance per unit length, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of the cable. 0.3pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "lumped element"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " model of the cable is constructed by considering the inductance and capacitance of short sections of the cable. The inductance is assumed to be a property of the inner core, and the capacitance links the core with the shielding. A diagram of the lumped element model is shown below."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2019-t1/aee5af9634c8ff1f72bb.png",
+                "alt": "apho-2019-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Circuit diagram of lumped element model of coaxial cable."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "i. Show that the impedance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of a semi-infinite length of cable is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0 = \\sqrt{L_x/C_x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nii. Find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b/a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " if the cable has impedance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0 = 50\\ \\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and is made using a dielectric material with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon_\\mathrm{r} = 4.0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_\\mathrm{r} = 1.0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B: Hypothetical transmission line with return along a grounded plane (1.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An alternative hypothetical transmission line is shown in the diagram below. The input signal is sent through a very thin conductor of radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which is a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d \\gg a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from a highly conductive grounded plane. The material surrounding the conductor has dimensionless relative permittivity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon_\\mathrm{r}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and dimensionless relative permeability "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_\\mathrm{r}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The return current flows along the grounded plane."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2019-t1/56dd14a2ca87d9a2d0df.png",
+                "alt": "apho-2019-t1 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Diagram of a hypothetical transmission line showing C - the conductor of radius "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(a\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ", at a distance "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(d \\gg a\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " from P - the grounded conducting plane. The conductor is embedded in a material with dimensionless relative permeability "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\varepsilon_\\mathrm{r}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " and dimensionless relative permittivity "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(\\mu_\\mathrm{r}\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find an expression for the characteristic impedance of this hypothetical transmission line. 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C: Basics of RF reflectometry (1.2 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An electromagnetic wave can propagate in a transmission line in two opposite directions. For each direction of propagation, the characteristic impedance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "can be used to relate the voltage "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and current "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "amplitudes as in the Ohm’s law, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0 = V_0/I_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider an interface between two transmission lines, with characteristic impedances "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". A schematic diagram of the circuit is shown below."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2019-t1/c33659de9952f0e4479b.png",
+                "alt": "apho-2019-t1 original source figure 4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Circuit diagram of a transmission line of impedance "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(Z_0\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " connected to a transmission line of impedance "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(Z_1\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ". The physical size of the interface is much smaller than the wavelength."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When a signal "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{i}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " sent into the transmission line with impedance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "reaches the interface it is partially transmitted into the second transmission line, resulting in a signal "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{t}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in that line which propagates forward. Some of the signal may also be reflected, resulting in a backward propagating signal in the initial transmission line "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{r}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the reflectance of the interface "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Gamma = V_\\mathrm{r}/V_\\mathrm{i}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "State the condition(s) for the signal "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{i}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to have gained a "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\pi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " phase change on reflection. 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part D: The single electron transistor (3.3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A single electron transistor (SET) consists of a quantum dot, which is a small isolated conductor where electrons can be localised, and of several electrodes in its vicinity. The gate electrode couples capacitatively to the quantum dot, while the two other electrodes --- the source and the drain --- are connected via tunnel junctions, through which electrons can tunnel due to quantum mechanics. A simplified circuit diagram for an SET is shown in the figure."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2019-t1/840db8cd9e7f5ffb66d3.png",
+                "alt": "apho-2019-t1 original source figure 5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Circuit diagram representation of an SET. QD is the quantum dot, S is the source, D is the drain and G is the gate."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The capacitance of the gate is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the capacitance of the tunnel junctions is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_t \\ll C_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Consider "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to be the total capacitance of the quantum dot. In this part of the problem, the source and the drain are held at zero potential, and the voltage on the gate electrode is fixed at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Consider a state of the SET in which the quantum dot contains "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " electrons."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\ni. Find the electrical potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi_n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the QD."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nii. Find the amount of energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that is necessary to bring an additional electron from the source or the drain onto the QD. 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_n < 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " then electrons will spontaneously tunnel into the quantum dot until such a number "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{N} > n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is reached that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_\\mathcal{N} \\geq 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The equilibrium number of electrons "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{N}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the corresponding addition energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_\\mathcal{N}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be controlled by choosing the appropriate voltage "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find an expression for the maximal possible value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_c = \\text{max}\\,\\Delta E_\\mathcal{N}(V_g)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the equilibrium addition energy that can be achieved by tuning the gate voltage of the SET. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_\\mathcal{N} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " then tunnelling of electrons does not require extra energy and SET is in a highly conductive ON state. If "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_\\mathcal{N} > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", then the conductance of the SET is reduced (high-resistance OFF)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For the number of electrons on the quantum dot to remain well-defined, certain conditions need to be satisfied. Firstly, if electrons in the source or drain have thermal energies sufficient to move spontaneously onto the quantum dot, the contrast between the ON and OFF states will disappear."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find a condition on the temperature of the electrons so that electrons cannot move onto the quantum dot by thermal excitation. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Secondly, tunnelling of electrons onto or off the dot limits the lifetime of their energy states. This tunnelling can be modelled using an effective resistance of the tunnel junction with the characteristic tunnelling time equal to the characteristic time for charging or discharging the quantum dot through the junction."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "i. Estimate the tunnelling time for a quantum dot in terms of capacitance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and effective resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the tunnel junction."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nii. Find a condition on the effective resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that the electrons in the quantum dot retain sufficiently well-defined energy for the ON and OFF states to remain distinct. 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part E: RF reflectometry to read out SET state (1.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The state of the SET is sensitive to electrical potentials created by nearby elements of the quantum circuit (such as quantum bits), and distinguishing between ON and OFF states provides a way to read out the information produced by the quantum computer. The SET in the ON state can be modelled by a resistance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{ON} = 100\\,\\mathrm{k\\Omega}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " while in the OFF state we can assume the SET to be a complete insulator (neglecting any capacitative connection between the source and the drain via the SET). While it is possible to determine the state of the SET by measuring the response to an input signal through the source, it is faster to do so using RF reflectometry to measure both the amplitude and phase of the reflected signal, i.e. determined the reflectance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The change in reflectance due to switching of an SET between ON and OFF states is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta\\Gamma = \\left|\\Gamma_\\mathrm{ON} - \\Gamma_\\mathrm{OFF}\\right| \\ , \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Gamma_\\mathrm{ON}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Gamma_\\mathrm{OFF}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are the reflectances in two different states."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2019-t1/bfad5348d3e88512f016.png",
+                "alt": "apho-2019-t1 original source figure 6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Circuit diagram of transmission cable of impedance "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(Z_0\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " connected to an SET."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the change in reflectance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\Gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between the conductive and insulating states for a typical SET connected to a co-axial cable with impedance of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(50\\ \\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In order to increase the change in reflectance, and hence the sensitivity of the RF reflectometry, the circuit is modified by inclusion of an inductor. The intrinsic capacitance due to the device geometry "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_0 \\approx 0.4\\ \\mathrm{pF}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is also taken into account. The RF reflectometry is conducted using a signal of angular frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_\\mathrm{rf}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2019-t1/210a4e8d1609bd86cd33.png",
+                "alt": "apho-2019-t1 original source figure 7"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Modified SET circuit."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Estimate the value of the inductance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that can result in the change in reflection on the order of one. Calculate your estimate for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " numerically for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_\\mathrm{rf}/(2\\pi) = 100\\,\\mathrm{MHz}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and compute the corresponding "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\Gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part F: Charge sensing with a single lead quantum dot (1.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For a scalable quantum computing architecture, the number of wires reaching each individual quantum bit need to be minimized. A promising alternative to an SET for charge sensing in silicon quantum computing is a Single Lead Quantum Dot (SLQD). In many ways it is similar to an SET, but does not have the source and drain leads. The gate is the only electrode, through which the electron energy states of the quantum dot are controlled and also through which RF reflectometry is conducted."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Like an SET, a SLQD has an OFF in which the SLQD behaves as a total insulator. In contrast to an SET, the ON state of the SLQD is capacitive, with capacitance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_\\mathrm{q}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In order to maximize the difference in reflectance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\Gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the SLQD, the following circuit is constructed. The parasitic capacitance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_0 \\approx 0.4\\ \\mathrm{pF}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is fixed by circuit geometry, but the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the operating frequency can be changed to optimize the performance. The characteristic impedance of the transmission line is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0 = 50\\,\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2019-t1/06f1f09eee54efe5fd6f.png",
+                "alt": "apho-2019-t1 original source figure 8"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Circuit diagram of the SLQD readout circuit connected to the transmission line."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "F.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Suggest "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_\\mathrm{rf}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_\\mathrm{C} = \\sqrt{L_0/C_0}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that allow "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\Gamma \\sim 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for given "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Optimal values of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are relatively large and not always technically feasible. Hence, other types of circuit elements may be needed to improve sensitivity of the reflectometry readout circuit."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "F.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Assume that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (and hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_C\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is fixed. Draw a circuit diagram showing where to place an additional element in the SLQD readout circuit and specify the parameter(s) of this element such that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\Gamma \\sim 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can still be achieved without requiring a large inductance. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "RF reflectometry for spin readout for silicon quantum computing\n\n\nIntroduction\n\n\nDeveloping the idea of quantum computing into a practical technology is one of the largest outstanding challenges in science and technology. A promising path is to manipulate individual electrons in silicon transistors by time-dependent electromagnetic fields.\n\n\nIn this question, we investigate the use of radio frequency (RF) reflectometry and single-electron transistors to read out the state of quantum bits in silicon-based quantum computer prototypes.\n\n\nPart A and Part B discuss radio wave transmission through cables and transmission lines, part C is devoted to conditions for wave reflection, part D introduces the single-electron transistor, and parts E and F introduce and ask you to optimise the method of reflectometry.\n\n\nPart A: Lumped element model of a co-axial transmission line (2.0 points)\n\n\nWhen modelling DC or low frequency signals, one often assumes that a voltage pulse travels instantaneously throughout the circuit. This assumption is valid when the wavelength of such signals is much longer than the size of the circuit, however when working with radio frequency signals, the dynamics are more complex, and we need to account for the intrinsic capacitance and inductance of our cables in our model. We model a co-axial transmission line which acts as a waveguide as described below, ignoring the small resistance of the copper and the small conductance through the dielectric. Throughout the problem, we consider the large-wavelength limit of electromagnetic waves in the co-axial cable such that electric and magnetic fields are perpendicular to the axis of the cable everywhere (the so-called transverse electromagnetic mode).\n\n\n\n\n\n\n\n\n\n\n\nDiagram of a coaxial cable showing C - the centre core, I - the dielectric insulator, S - the metallic shield and J - the plastic jacket.\n\n\n\n\nConsider a co-axial cable consisting of a copper inner core of negligible resistance, negligible magnetic permeability and radius \n\\(a\\)\n, covered by an outer co-axial copper shield with inner radius \n\\(b\\)\n. A dielectric of dimensionless relative permittivity \n\\(\\varepsilon_\\mathrm{r}\\)\n and dimensionless relative permeability \n\\(\\mu_\\mathrm{r}\\)\n separates the layers. When electromagnetic signals propagate through the co-axial cable, they are confined between the inner core and outer shielding.\n\n\nA.1\nAt what speed do electromagnetic waves propagate in the co-axial cable? 0.2pt\n\n\nA.2\nIf there is a charge \n\\(\\Delta q\\)\n on a length \n\\(\\Delta x\\)\n of the inner core of the co-axial cable, and the outer shield is grounded, find the electric field in the region between the inner core and the shield. 0.2pt\n\n\nA.3\nFind the capacitance per unit length, \n\\(C_x\\)\n, of the co-axial cable. You may wish to consider a length \n\\(\\Delta x\\)\n of the cable. 0.3pt\n\n\nA.4\nFind the inductance per unit length, \n\\(L_x\\)\n, of the cable. 0.3pt\n\n\nA \nlumped element\n model of the cable is constructed by considering the inductance and capacitance of short sections of the cable. The inductance is assumed to be a property of the inner core, and the capacitance links the core with the shielding. A diagram of the lumped element model is shown below.\n\n\n\n\n\n\n\n\n\n\n\nCircuit diagram of lumped element model of coaxial cable.\n\n\n\n\nA.5\ni. Show that the impedance \n\\(Z_0\\)\n of a semi-infinite length of cable is \n\\(Z_0 = \\sqrt{L_x/C_x}\\)\n.\n\n\nii. Find \n\\(b/a\\)\n if the cable has impedance \n\\(Z_0 = 50\\ \\Omega\\)\n and is made using a dielectric material with \n\\(\\varepsilon_\\mathrm{r} = 4.0\\)\n and \n\\(\\mu_\\mathrm{r} = 1.0\\)\n. 1.0pt\n\n\nPart B: Hypothetical transmission line with return along a grounded plane (1.0 points)\n\n\nAn alternative hypothetical transmission line is shown in the diagram below. The input signal is sent through a very thin conductor of radius \n\\(a\\)\n, which is a distance \n\\(d \\gg a\\)\n from a highly conductive grounded plane. The material surrounding the conductor has dimensionless relative permittivity \n\\(\\varepsilon_\\mathrm{r}\\)\n and dimensionless relative permeability \n\\(\\mu_\\mathrm{r}\\)\n. The return current flows along the grounded plane.\n\n\n\n\n\n\n\n\n\n\n\nDiagram of a hypothetical transmission line showing C - the conductor of radius \n\\(a\\)\n, at a distance \n\\(d \\gg a\\)\n from P - the grounded conducting plane. The conductor is embedded in a material with dimensionless relative permeability \n\\(\\varepsilon_\\mathrm{r}\\)\n and dimensionless relative permittivity \n\\(\\mu_\\mathrm{r}\\)\n.\n\n\n\n\nB.1\nFind an expression for the characteristic impedance of this hypothetical transmission line. 1.0pt\n\n\nPart C: Basics of RF reflectometry (1.2 points)\n\n\nAn electromagnetic wave can propagate in a transmission line in two opposite directions. For each direction of propagation, the characteristic impedance \n\\(Z_0\\)\ncan be used to relate the voltage \n\\(V_0\\)\n and current \n\\(I_0\\)\namplitudes as in the Ohm’s law, \n\\(Z_0 = V_0/I_0\\)\n.\n\n\nConsider an interface between two transmission lines, with characteristic impedances \n\\(Z_0\\)\n and \n\\(Z_1\\)\n. A schematic diagram of the circuit is shown below.\n\n\n\n\n\n\n\n\n\n\n\nCircuit diagram of a transmission line of impedance \n\\(Z_0\\)\n connected to a transmission line of impedance \n\\(Z_1\\)\n. The physical size of the interface is much smaller than the wavelength.\n\n\n\n\nWhen a signal \n\\(V_\\mathrm{i}\\)\n sent into the transmission line with impedance \n\\(Z_0\\)\nreaches the interface it is partially transmitted into the second transmission line, resulting in a signal \n\\(V_\\mathrm{t}\\)\n in that line which propagates forward. Some of the signal may also be reflected, resulting in a backward propagating signal in the initial transmission line \n\\(V_\\mathrm{r}\\)\n.\n\n\nC.1\nFind the reflectance of the interface \n\\(\\Gamma = V_\\mathrm{r}/V_\\mathrm{i}\\)\n. 1.0pt\n\n\nC.2\nState the condition(s) for the signal \n\\(V_\\mathrm{i}\\)\n to have gained a \n\\(\\pi\\)\n phase change on reflection. 0.2pt\n\n\nPart D: The single electron transistor (3.3 points)\n\n\nA single electron transistor (SET) consists of a quantum dot, which is a small isolated conductor where electrons can be localised, and of several electrodes in its vicinity. The gate electrode couples capacitatively to the quantum dot, while the two other electrodes --- the source and the drain --- are connected via tunnel junctions, through which electrons can tunnel due to quantum mechanics. A simplified circuit diagram for an SET is shown in the figure.\n\n\n\n\n\n\n\n\n\n\n\nCircuit diagram representation of an SET. QD is the quantum dot, S is the source, D is the drain and G is the gate.\n\n\n\n\nThe capacitance of the gate is \n\\(C_g\\)\n and the capacitance of the tunnel junctions is \n\\(C_t \\ll C_g\\)\n. Consider \n\\(C_g\\)\n to be the total capacitance of the quantum dot. In this part of the problem, the source and the drain are held at zero potential, and the voltage on the gate electrode is fixed at \n\\(V_g\\)\n.\n\n\nD.1\nConsider a state of the SET in which the quantum dot contains \n\\(n\\)\n electrons.\n\n\ni. Find the electrical potential \n\\(\\varphi_n\\)\n on the QD.\n\n\nii. Find the amount of energy \n\\(\\Delta E_n\\)\n that is necessary to bring an additional electron from the source or the drain onto the QD. 1.5pt\n\n\nIf \n\\(\\Delta E_n < 0\\)\n then electrons will spontaneously tunnel into the quantum dot until such a number \n\\(\\mathcal{N} > n\\)\n is reached that \n\\(\\Delta E_\\mathcal{N} \\geq 0\\)\n. The equilibrium number of electrons \n\\(\\mathcal{N}\\)\n and the corresponding addition energy \n\\(\\Delta E_\\mathcal{N}\\)\n can be controlled by choosing the appropriate voltage \n\\(V_g\\)\n.\n\n\nD.2\nFind an expression for the maximal possible value \n\\(E_c = \\text{max}\\,\\Delta E_\\mathcal{N}(V_g)\\)\n of the equilibrium addition energy that can be achieved by tuning the gate voltage of the SET. 0.5pt\n\n\nIf \n\\(\\Delta E_\\mathcal{N} = 0\\)\n then tunnelling of electrons does not require extra energy and SET is in a highly conductive ON state. If \n\\(\\Delta E_\\mathcal{N} > 0\\)\n, then the conductance of the SET is reduced (high-resistance OFF).\n\n\nFor the number of electrons on the quantum dot to remain well-defined, certain conditions need to be satisfied. Firstly, if electrons in the source or drain have thermal energies sufficient to move spontaneously onto the quantum dot, the contrast between the ON and OFF states will disappear.\n\n\nD.3\nFind a condition on the temperature of the electrons so that electrons cannot move onto the quantum dot by thermal excitation. 0.5pt\n\n\nSecondly, tunnelling of electrons onto or off the dot limits the lifetime of their energy states. This tunnelling can be modelled using an effective resistance of the tunnel junction with the characteristic tunnelling time equal to the characteristic time for charging or discharging the quantum dot through the junction.\n\n\nD.4\ni. Estimate the tunnelling time for a quantum dot in terms of capacitance \n\\(C_t\\)\n and effective resistance \n\\(R_t\\)\n of the tunnel junction.\n\n\nii. Find a condition on the effective resistance \n\\(R_t\\)\n so that the electrons in the quantum dot retain sufficiently well-defined energy for the ON and OFF states to remain distinct. 0.8pt\n\n\nPart E: RF reflectometry to read out SET state (1.0 points)\n\n\nThe state of the SET is sensitive to electrical potentials created by nearby elements of the quantum circuit (such as quantum bits), and distinguishing between ON and OFF states provides a way to read out the information produced by the quantum computer. The SET in the ON state can be modelled by a resistance \n\\(R_\\mathrm{ON} = 100\\,\\mathrm{k\\Omega}\\)\n while in the OFF state we can assume the SET to be a complete insulator (neglecting any capacitative connection between the source and the drain via the SET). While it is possible to determine the state of the SET by measuring the response to an input signal through the source, it is faster to do so using RF reflectometry to measure both the amplitude and phase of the reflected signal, i.e. determined the reflectance \n\\(\\Gamma\\)\n.\n\n\nThe change in reflectance due to switching of an SET between ON and OFF states is \n\\[\\begin{equation}\n\\Delta\\Gamma = \\left|\\Gamma_\\mathrm{ON} - \\Gamma_\\mathrm{OFF}\\right| \\ , \\tag{1}\n\\end{equation}\\]\n where \n\\(\\Gamma_\\mathrm{ON}\\)\n and \n\\(\\Gamma_\\mathrm{OFF}\\)\n are the reflectances in two different states.\n\n\n\n\n\n\n\n\n\n\n\nCircuit diagram of transmission cable of impedance \n\\(Z_0\\)\n connected to an SET.\n\n\n\n\nE.1\nFind the change in reflectance \n\\(\\Delta\\Gamma\\)\n between the conductive and insulating states for a typical SET connected to a co-axial cable with impedance of \n\\(50\\ \\Omega\\)\n. 0.2pt\n\n\nIn order to increase the change in reflectance, and hence the sensitivity of the RF reflectometry, the circuit is modified by inclusion of an inductor. The intrinsic capacitance due to the device geometry \n\\(C_0 \\approx 0.4\\ \\mathrm{pF}\\)\n is also taken into account. The RF reflectometry is conducted using a signal of angular frequency \n\\(\\omega_\\mathrm{rf}\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nModified SET circuit.\n\n\n\n\nE.2\nEstimate the value of the inductance \n\\(L_0\\)\n that can result in the change in reflection on the order of one. Calculate your estimate for \n\\(L_0\\)\n numerically for \n\\(\\omega_\\mathrm{rf}/(2\\pi) = 100\\,\\mathrm{MHz}\\)\n and compute the corresponding \n\\(\\Delta\\Gamma\\)\n. 0.8pt\n\n\nPart F: Charge sensing with a single lead quantum dot (1.5 points)\n\n\nFor a scalable quantum computing architecture, the number of wires reaching each individual quantum bit need to be minimized. A promising alternative to an SET for charge sensing in silicon quantum computing is a Single Lead Quantum Dot (SLQD). In many ways it is similar to an SET, but does not have the source and drain leads. The gate is the only electrode, through which the electron energy states of the quantum dot are controlled and also through which RF reflectometry is conducted.\n\n\nLike an SET, a SLQD has an OFF in which the SLQD behaves as a total insulator. In contrast to an SET, the ON state of the SLQD is capacitive, with capacitance \n\\(C_\\mathrm{q}\\)\n. In order to maximize the difference in reflectance \n\\(\\Delta\\Gamma\\)\n of the SLQD, the following circuit is constructed. The parasitic capacitance \n\\(C_0 \\approx 0.4\\ \\mathrm{pF}\\)\n is fixed by circuit geometry, but the value of \n\\(L_0\\)\n and the operating frequency can be changed to optimize the performance. The characteristic impedance of the transmission line is \n\\(Z_0 = 50\\,\\Omega\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nCircuit diagram of the SLQD readout circuit connected to the transmission line.\n\n\n\n\nF.1\nSuggest \n\\(\\omega_\\mathrm{rf}\\)\n and \n\\(Z_\\mathrm{C} = \\sqrt{L_0/C_0}\\)\n that allow \n\\(\\Delta\\Gamma \\sim 1\\)\n for given \n\\(C_0\\)\n and \n\\(C_q\\)\n. 1.0pt\n\n\nOptimal values of \n\\(L_0\\)\n are relatively large and not always technically feasible. Hence, other types of circuit elements may be needed to improve sensitivity of the reflectometry readout circuit.\n\n\nF.2\nAssume that \n\\(L_0\\)\n (and hence \n\\(Z_C\\)\n) is fixed. Draw a circuit diagram showing where to place an additional element in the SLQD readout circuit and specify the parameter(s) of this element such that \n\\(\\Delta\\Gamma \\sim 1\\)\n can still be achieved without requiring a large inductance. 0.5pt\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2019-t1/571cf42dab8958858f93.png",
+      "/corpus/figures/native/bulk/apho-2019-t1/aee5af9634c8ff1f72bb.png",
+      "/corpus/figures/native/bulk/apho-2019-t1/56dd14a2ca87d9a2d0df.png",
+      "/corpus/figures/native/bulk/apho-2019-t1/c33659de9952f0e4479b.png",
+      "/corpus/figures/native/bulk/apho-2019-t1/840db8cd9e7f5ffb66d3.png",
+      "/corpus/figures/native/bulk/apho-2019-t1/bfad5348d3e88512f016.png",
+      "/corpus/figures/native/bulk/apho-2019-t1/210a4e8d1609bd86cd33.png",
+      "/corpus/figures/native/bulk/apho-2019-t1/06f1f09eee54efe5fd6f.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2019-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Theory Q1: Solutions"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "RF Reflectometry"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Version 1.32."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "A.LUMPED ELEMENT MODEL OF A CO-AXIAL TRANSMISSION LINE"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1 The speed of wave propagation in free space ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_0 = 299\\,792\\,458\\,\\mathrm{m/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_0 = 1/\\sqrt{\\varepsilon_0\\,\\mu_0}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The speed in the dielectric & diamagnetic medium is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nv = \\frac{c_0}{\\sqrt{\\varepsilon_\\mathrm{r}\\,\\mu_\\mathrm{r}}}\n\\tag{A.1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2 Gauss law for the flux through a cylindrical surface with radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " co-axial with the the core, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a < r < b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta x\\, 2\\pi r\\, E(r) = \\frac{\\Delta q}{\\varepsilon_\\mathrm{r}\\varepsilon_0} \\Rightarrow E(r) = \\frac{\\Delta q}{\\Delta x}\\frac{1}{2\\pi\\varepsilon_\\mathrm{r}\\varepsilon_0 r}\n\\tag{A.2}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.3 The capacitance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nC_x\\,\\Delta x = \\frac{\\Delta q}{\\varphi}\n\\tag{A.3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where the potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the core with respect to the shield is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n0 - \\varphi = -\\int_a^b E(r)\\,dr \\Rightarrow \\varphi = \\frac{\\Delta q}{\\Delta x}\\frac{1}{2\\pi\\varepsilon_\\mathrm{r}\\varepsilon_0}\\ln\\frac{b}{a}\n\\tag{A.4}\\\\\nC_x = \\frac{2\\pi\\varepsilon_\\mathrm{r}\\varepsilon_0}{\\ln\\frac{b}{a}}\n\\tag{A.5}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.4 The magnetic flux through a rectangular contour paralel to the axis equal inductance times the current: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta x \\int_a^b B(r)\\,dr = L_x\\,\\Delta x\\, I\n\\tag{A.6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Biot-Savart law "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B(r) = \\frac{\\mu_\\mathrm{r}\\mu_0}{2\\pi}\\frac{I}{r}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nL_x = \\frac{\\mu_\\mathrm{r}\\mu_0}{2\\pi}\\ln\\frac{b}{a}\n\\tag{A.7}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.5i. Adding "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " length of the cable should not change its impedance. Hence the impedance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the following circuit must be equal to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\frac{1}{Z} = \\frac{1}{Z_0 + j\\omega\\delta L} + \\frac{1}{\\frac{1}{j\\omega\\delta C}} = \\frac{1}{Z_0}\n\\tag{A.8}\\\\\nZ_0^2 + j\\,\\omega\\,\\delta L\\,Z_0 - \\delta L/\\delta C = 0\n\\tag{A.9}\n\\end{align}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (here engineering notation for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(j^2 = -1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is used.) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta L/\\delta C = L_x/C_x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta L \\to 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta x \\to 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nZ_0 = \\sqrt{L_x/C_x}\n\\tag{A.10}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "ii. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nZ_0 = \\sqrt{L_x/C_x} = \\frac{\\ln(b/a)}{2\\pi}\\sqrt{\\frac{\\mu_\\mathrm{r}\\mu_0}{\\varepsilon_\\mathrm{r}\\varepsilon_0}} = \\ln(b/a)\\sqrt{\\frac{\\mu_\\mathrm{r}}{\\varepsilon_\\mathrm{r}}} \\times 59.96\\,\\Omega\n\\tag{A.11}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0 = 50\\,\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon_\\mathrm{r} = 4.0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu_\\mathrm{r} = 1.0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " this gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b = 5.30\\,a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "B.HYPOTHETICAL TRANSMISSION LINE WITH RETURN ALONG A GROUNDED PLANE"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1 The high-conductance ground plate can be replaced by an image of the wire with opposite direction of the current at distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the real wire. The magnetic fields from the real and the imaginary wires add up and need to be integrated to get the magnetic flux between the wire and the plate: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\nL_x\\,\\Delta x\\, I &= \\frac{\\mu\\mu_0}{2\\pi} I \\int_a^d \\left(\\frac{1}{r} + \\frac{1}{2d - r}\\right) dr\\,\\Delta x\n\\tag{B.1}\\\\\nL_x &= \\frac{\\mu\\mu_0}{2\\pi}\\ln\\left(\\frac{2d}{a} - 1\\right) \\approx \\frac{\\mu\\mu_0}{2\\pi}\\ln\\frac{2d}{a}\n\\tag{B.2}\n\\end{align}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The potential difference between the wire and the plate can be obtained similarly by integrating the combined field for the wire and its image: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\varphi &= \\frac{\\Delta q}{\\Delta x}\\frac{1}{2\\pi\\varepsilon_\\mathrm{r}\\varepsilon_0}\\int_a^d \\left(\\frac{1}{r} + \\frac{1}{2d - r}\\right) dr = \\frac{\\Delta q}{\\Delta x}\\frac{\\ln(2d/a)}{2\\pi\\varepsilon_\\mathrm{r}\\varepsilon_0}\n\\tag{B.3}\\\\\nC_x &= \\frac{\\Delta q}{\\Delta x}\\frac{1}{\\varphi} \\approx \\frac{2\\pi\\varepsilon_\\mathrm{r}\\varepsilon_0}{\\ln(2d/a)}\n\\tag{B.4}\n\\end{align}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Hence the characterstic impedance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0 = \\sqrt{L_x/C_x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the wire-plate system is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nZ_0 = \\frac{\\ln(2d/a)}{2\\pi}\\sqrt{\\frac{\\mu_\\mathrm{r}\\mu_0}{\\varepsilon_\\mathrm{r}\\varepsilon_0}}\n\\tag{B.5}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "C.BASICS OF RF REFLECTOMETRY"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.1 At the interface, values of the voltage on both transmission lines have to coincide: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nV_\\mathrm{i} + V_\\mathrm{r} = V_\\mathrm{t}\n\\tag{C.1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The current has to be conserved at the interface, however, the incident and the reflected waves carry the current in opposite directions: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{V_\\mathrm{i}}{Z_0} - \\frac{V_\\mathrm{r}}{Z_0} = \\frac{V_\\mathrm{t}}{Z_1}\n\\tag{C.2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " It is clear from the equation above that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{t} \\neq 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0 \\neq Z_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " – impedance mismatch has to cause reflection. Solving the voltage and the current equations for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Gamma = V_\\mathrm{r}/V_\\mathrm{i}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Gamma = \\frac{Z_1 - Z_0}{Z_1 + Z_0}\n\\tag{C.3}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.2 A "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\pi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-shift implies opposite signs of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{i}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{r}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and hence requires "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Gamma < 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This implies "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_1 < Z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "D.THE SINGLE ELECTRON TRANSISTOR"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.1i. Since any capacitance beyond "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is neglected in our model, the quantum dot can be thought as a capacitor plate with the gate being the other plate of the same capacitor with capacitance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The fixed number "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of electrons trapped on the quantum dot sets a fixed-charge ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q = -ne\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") boundary condition for the capacitor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the QD, while the gate side is kept at a constant potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". (We denote the elementary charge by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). The implies that an excess charge of opposite sign, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-q = ne\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will accumulate on the gate, to keep electric field confined between the QD and the gate. The potential jump across the capacitor from the gate to the QD will be equal to the capacitor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q/C_g = -ne/C_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence the potential on the QD is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\varphi_n = V_g + \\frac{-ne}{C_\\mathrm{g}}\n\\tag{D.1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "ii. Bringing an infinitesimal charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from potential 0 to potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi(q)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " requires energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta E = \\varphi(q)\\delta q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the dependence of potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi(q)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the accumulated charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is linear. For the single-electron transfer, the additional charge of the electron, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", changes the potential from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi_n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi_{n+1} = \\varphi_n - e/C_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence the work necessary to accumulate an extra "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the QD is the integral of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\Delta E_n = -e\\frac{\\varphi_n + \\varphi_{n+1}}{2}\n\\tag{D.2}\\\\\n\\Delta E_n = \\frac{e^2}{C_g}\\left(n + \\frac{1}{2}\\right) - eV_g\n\\tag{D.3}\n\\end{align}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Alternatively, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be obtained from energy conservation, by computing the change of the energy of the capacitor the dork the work done against the electromotive force of the battery (="
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "“work done by the battery’) for a charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(+e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to be brought from the ground potential via the battery to the gate-side plate of the capacitor: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta E_n = \\frac{e^2(n+1)^2}{2C_g} - \\frac{e^2n^2}{2C_g} - eV_g\n\\tag{D.4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Note that without "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_t \\ll C_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " approximation, the answer is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_n = \\frac{e^2}{C_g + 2\\,C_t}\\left(n + \\frac{1}{2}\\right) - eV_gC_g/(2\\,C_t + C_g)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (not required to receive full marks)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.2 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{N}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a minimal integer "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for which "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_n \\geq 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Consider the marginal case of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_\\mathcal{N} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which is achieved at some "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_g = V_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta E_\\mathcal{N}(V_0) = 0 = \\frac{e^2}{C_g}\\left(\\mathcal{N} + \\frac{1}{2}\\right) - eV_0\n\\tag{D.5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " If "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " would go slightly larger than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " would go negative and then minimal "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that makes a positive "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " would jump from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{N}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathcal{N} + 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_c = \\Delta E_{\\mathcal{N}+1}(V_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta E_{\\mathcal{N}+1}(V_0) = E_c = \\frac{e^2}{C_g}\\left(\\mathcal{N} + 1 + \\frac{1}{2}\\right) - eV_0 = \\frac{e^2}{C_g}\n\\tag{D.6}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.3 In a metal, only electrons in an energy range "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\pm \\approx k_BT\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " around the Fermi level take part in the thermal motion. (Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_\\mathrm{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the Boltzmann constant.) Typical energy of these electrons is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_\\mathrm{B}T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " per particle and it may not exceed characteristic single-electron addition energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_\\mathrm{B}T < E_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.4i. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau = R_t\\,C_t\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "ii. Quantum uncertainty of energy (life-time broadening) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h/\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " must be less than the energy difference between the states with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n + 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " electrons, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\nh/\\tau < E_c \\Rightarrow \\frac{h}{R_tC_t} < \\frac{e^2}{C_g}\n\\tag{D.7}\\\\\nR_t > \\frac{h}{e^2}\\frac{C_g}{C_t} > \\frac{h}{e^2}\n\\tag{D.8}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "E.RF REFLECTOMETRY TO READ OUT SET STATE"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "E.1 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\n\\Gamma &= \\frac{Z_\\mathrm{SET} - Z_0}{Z_\\mathrm{SET} + Z_0}\n\\tag{E.1}\\\\\n\\Gamma_\\mathrm{ON} &= \\frac{10^5 - 50}{10^5 + 50} \\approx 1 - 2\\frac{50}{10^5}\n\\tag{E.2}\\\\\n\\Gamma_\\mathrm{OFF} &= \\lim_{Z_1\\to\\infty}\\frac{Z_1 - Z_0}{Z_1 + Z_0} = 1\n\\tag{E.3}\\\\\n\\Delta\\Gamma &= |\\Gamma_\\mathrm{ON} - \\Gamma_\\mathrm{OFF}| \\approx 1.0 \\cdot 10^{-3}\n\\tag{E.4}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "E.2 Large change in reflectance requires the impedance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the circuit to switch between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_1 < Z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_1 > Z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as the SET between ON ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_\\mathrm{SET} = 100\\mathrm{k}\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and OFF ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_\\mathrm{SET} = \\infty\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nIn the OFF state of the SET, the circuit is an disspationless LC contour with resonance frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0 = 1/\\sqrt{L_0C_0}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and its impedance is 0. If we choose "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nL_0 = \\frac{1}{\\omega_\\mathrm{rf}^2C_0}\n\\tag{E.5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " then the imedance of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0 = \\omega_\\mathrm{rf}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nSince "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_\\mathrm{tot}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (the total impedance of the circuit) in the OFF state of the SET equals to 0, the reflectance i "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Gamma_\\mathrm{OFF} = -1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". As we switch to the ON state with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_\\mathrm{SET} = R_\\mathrm{SET} = 10^5\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the change in reflectance will be large if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|Z_\\mathrm{tot}|\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in this ON state is on the order of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or larger, which is indeed the case."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nFor the ON state and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_0 = \\omega_\\mathrm{rf}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nZ_\\mathrm{tot} = \\left(\\frac{1}{\\frac{1}{j\\,\\omega\\,C_0}} + \\frac{1}{R_\\mathrm{SET}}\\right)^{-1} + j\\,\\omega L_0 = \\frac{R_\\mathrm{SET}}{1 + j\\,\\omega C_0\\,R_\\mathrm{SET}} + j\\,\\omega\\,L_0 = \\frac{R_\\mathrm{SET} + j\\,\\sqrt{L_0/C_0}}{1 + R_\\mathrm{SET}^2C_0/L_0}\n\\tag{E.6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_0 = 0.4 \\cdot 10^{-12}\\,\\mathrm{F}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_0 = 50\\,\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_\\mathrm{rf} = 2\\pi \\cdot 10^8\\,\\mathrm{Hz}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0 = 6.33\\,\\mu\\mathrm{H}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_\\mathrm{tot} = (158 + 6.3\\,j)\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Gamma_\\mathrm{ON} = 0.5198 + 0.0145\\,j\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\Gamma = 1.52\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "F.CHARGE SENSING WITH A SINGLE LEAD QUANTUM DOT"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "F.1 The SLQD readout circuit contains only reactive elements, so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\Gamma| = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will always be one. The OFF state of the SLQD corresponds to an inductor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and a capacitor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " connected in parallel. We again choose "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\omega_\\mathrm{rf} = 1/\\sqrt{L_0C_0}\n\\tag{F.1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_\\mathrm{tot}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the OFF state is infinite and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Gamma_\\mathrm{OFF} = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nThe ON state corresponds to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_\\mathrm{SET} = -j\\frac{1}{\\omega_\\mathrm{rf}C_q}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_\\mathrm{tot}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_\\mathrm{rf} = \\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is just the impedance of the SLQD "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nZ_\\mathrm{tot} = \\frac{1}{(j\\omega_\\mathrm{rf}L_0)^{-1} + j\\omega_\\mathrm{rf}(C_0 + C_q)} = -j\\frac{1}{\\omega_0C_q} = -j\\frac{C_0}{C_q}Z_C\n\\tag{F.2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For the complex phase of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Gamma_\\mathrm{ON} = (Z_\\mathrm{tot}{-}Z_0)/(Z_\\mathrm{tot}{+}Z_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to be significantly different from zero, we need "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|Z_\\mathrm{tot}| \\sim Z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_\\mathrm{tot}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is purely imaginary. Hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nZ_C \\sim \\frac{C_q}{C_0}Z_0\n\\tag{F.3}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "F.2 If "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is fixed, we can still operate the circuit at the frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\omega_\\mathrm{rf} = 1/\\sqrt{L_0C_0}\n\\tag{F.4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Gamma_\\mathrm{OFF} = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". However, we need to deduce a way to increase "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|Z_\\mathrm{tot}|\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " even if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Z_C \\ll C_qZ_0/C_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is not sufficient. One of the ways to do that is to add an additional capacitance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(C_m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is series with rest of the circuit. This will give (at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_\\mathrm{rf} = \\omega_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nZ_\\mathrm{tot} = -j\\left(\\frac{C_0}{C_q}Z_C + \\frac{1}{\\omega_0C_m}\\right) = -j\\omega_0^{-1}\\left(C_q^{-1} + C_m^{-1}\\right)\n\\tag{F.5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " We can satisfy the condition "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|Z_\\mathrm{tot}| = Z_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (and hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Gamma_\\mathrm{ON} = j\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\Gamma = \\sqrt{2} \\sim 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align}\nC_m = \\frac{C_q}{Z_0C_q\\omega_\\mathrm{rf} - 1} = \\frac{C_q\\sqrt{L_0C_0}}{Z_0C_q - \\sqrt{L_0C_0}}\n\\tag{F.6}\\\\\nC_m = \\frac{C_qZ_C}{Z_0C_q/C_0 - Z_C} \\overset{Z_C\\ll Z_0C_q/C_0}{\\approx} \\frac{1}{Z_0\\,\\omega_\\mathrm{rf}}\n\\tag{F.7}\n\\end{align}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Theory Q1: Solutions\n\n\n\nRF Reflectometry\n\n\nVersion 1.32.\n\n\n\n\nA.LUMPED ELEMENT MODEL OF A CO-AXIAL TRANSMISSION LINE\n\n\n\n\nA.1 The speed of wave propagation in free space (\n\\(c_0 = 299\\,792\\,458\\,\\mathrm{m/s}\\)\n) is \n\\(c_0 = 1/\\sqrt{\\varepsilon_0\\,\\mu_0}\\)\n. The speed in the dielectric & diamagnetic medium is \n\\[\\begin{equation}\nv = \\frac{c_0}{\\sqrt{\\varepsilon_\\mathrm{r}\\,\\mu_\\mathrm{r}}}\n\\tag{A.1}\n\\end{equation}\\]\n\n\nA.2 Gauss law for the flux through a cylindrical surface with radius \n\\(r\\)\n co-axial with the the core, \n\\(a < r < b\\)\n: \n\\[\\begin{equation}\n\\Delta x\\, 2\\pi r\\, E(r) = \\frac{\\Delta q}{\\varepsilon_\\mathrm{r}\\varepsilon_0} \\Rightarrow E(r) = \\frac{\\Delta q}{\\Delta x}\\frac{1}{2\\pi\\varepsilon_\\mathrm{r}\\varepsilon_0 r}\n\\tag{A.2}\n\\end{equation}\\]\n\n\nA.3 The capacitance \n\\[\\begin{equation}\nC_x\\,\\Delta x = \\frac{\\Delta q}{\\varphi}\n\\tag{A.3}\n\\end{equation}\\]\n where the potential \n\\(\\varphi\\)\n of the core with respect to the shield is \n\\[\\begin{align}\n0 - \\varphi = -\\int_a^b E(r)\\,dr \\Rightarrow \\varphi = \\frac{\\Delta q}{\\Delta x}\\frac{1}{2\\pi\\varepsilon_\\mathrm{r}\\varepsilon_0}\\ln\\frac{b}{a}\n\\tag{A.4}\\\\\nC_x = \\frac{2\\pi\\varepsilon_\\mathrm{r}\\varepsilon_0}{\\ln\\frac{b}{a}}\n\\tag{A.5}\n\\end{align}\\]\n\n\nA.4 The magnetic flux through a rectangular contour paralel to the axis equal inductance times the current: \n\\[\\begin{equation}\n\\Delta x \\int_a^b B(r)\\,dr = L_x\\,\\Delta x\\, I\n\\tag{A.6}\n\\end{equation}\\]\n Biot-Savart law \n\\(B(r) = \\frac{\\mu_\\mathrm{r}\\mu_0}{2\\pi}\\frac{I}{r}\\)\n gives \n\\[\\begin{equation}\nL_x = \\frac{\\mu_\\mathrm{r}\\mu_0}{2\\pi}\\ln\\frac{b}{a}\n\\tag{A.7}\n\\end{equation}\\]\n\n\nA.5i. Adding \n\\(\\delta x\\)\n length of the cable should not change its impedance. Hence the impedance \n\\(Z\\)\n of the following circuit must be equal to \n\\(Z_0\\)\n: \n\\[\\begin{align}\n\\frac{1}{Z} = \\frac{1}{Z_0 + j\\omega\\delta L} + \\frac{1}{\\frac{1}{j\\omega\\delta C}} = \\frac{1}{Z_0}\n\\tag{A.8}\\\\\nZ_0^2 + j\\,\\omega\\,\\delta L\\,Z_0 - \\delta L/\\delta C = 0\n\\tag{A.9}\n\\end{align}\\]\n (here engineering notation for \n\\(j^2 = -1\\)\n is used.) \n\\(\\delta L/\\delta C = L_x/C_x\\)\n and \n\\(\\delta L \\to 0\\)\n for \n\\(\\delta x \\to 0\\)\n, hence \n\\[\\begin{equation}\nZ_0 = \\sqrt{L_x/C_x}\n\\tag{A.10}\n\\end{equation}\\]\n\n\nii. \n\\[\\begin{equation}\nZ_0 = \\sqrt{L_x/C_x} = \\frac{\\ln(b/a)}{2\\pi}\\sqrt{\\frac{\\mu_\\mathrm{r}\\mu_0}{\\varepsilon_\\mathrm{r}\\varepsilon_0}} = \\ln(b/a)\\sqrt{\\frac{\\mu_\\mathrm{r}}{\\varepsilon_\\mathrm{r}}} \\times 59.96\\,\\Omega\n\\tag{A.11}\n\\end{equation}\\]\n For \n\\(Z_0 = 50\\,\\Omega\\)\n, \n\\(\\varepsilon_\\mathrm{r} = 4.0\\)\n and \n\\(\\mu_\\mathrm{r} = 1.0\\)\n this gives \n\\(b = 5.30\\,a\\)\n.\n\n\n\n\nB.HYPOTHETICAL TRANSMISSION LINE WITH RETURN ALONG A GROUNDED PLANE\n\n\n\n\nB.1 The high-conductance ground plate can be replaced by an image of the wire with opposite direction of the current at distance \n\\(2d\\)\n from the real wire. The magnetic fields from the real and the imaginary wires add up and need to be integrated to get the magnetic flux between the wire and the plate: \n\\[\\begin{align}\nL_x\\,\\Delta x\\, I &= \\frac{\\mu\\mu_0}{2\\pi} I \\int_a^d \\left(\\frac{1}{r} + \\frac{1}{2d - r}\\right) dr\\,\\Delta x\n\\tag{B.1}\\\\\nL_x &= \\frac{\\mu\\mu_0}{2\\pi}\\ln\\left(\\frac{2d}{a} - 1\\right) \\approx \\frac{\\mu\\mu_0}{2\\pi}\\ln\\frac{2d}{a}\n\\tag{B.2}\n\\end{align}\\]\n The potential difference between the wire and the plate can be obtained similarly by integrating the combined field for the wire and its image: \n\\[\\begin{align}\n\\varphi &= \\frac{\\Delta q}{\\Delta x}\\frac{1}{2\\pi\\varepsilon_\\mathrm{r}\\varepsilon_0}\\int_a^d \\left(\\frac{1}{r} + \\frac{1}{2d - r}\\right) dr = \\frac{\\Delta q}{\\Delta x}\\frac{\\ln(2d/a)}{2\\pi\\varepsilon_\\mathrm{r}\\varepsilon_0}\n\\tag{B.3}\\\\\nC_x &= \\frac{\\Delta q}{\\Delta x}\\frac{1}{\\varphi} \\approx \\frac{2\\pi\\varepsilon_\\mathrm{r}\\varepsilon_0}{\\ln(2d/a)}\n\\tag{B.4}\n\\end{align}\\]\n Hence the characterstic impedance \n\\(Z_0 = \\sqrt{L_x/C_x}\\)\n of the wire-plate system is \n\\[\\begin{equation}\nZ_0 = \\frac{\\ln(2d/a)}{2\\pi}\\sqrt{\\frac{\\mu_\\mathrm{r}\\mu_0}{\\varepsilon_\\mathrm{r}\\varepsilon_0}}\n\\tag{B.5}\n\\end{equation}\\]\n\n\n\n\nC.BASICS OF RF REFLECTOMETRY\n\n\n\n\nC.1 At the interface, values of the voltage on both transmission lines have to coincide: \n\\[\\begin{equation}\nV_\\mathrm{i} + V_\\mathrm{r} = V_\\mathrm{t}\n\\tag{C.1}\n\\end{equation}\\]\n The current has to be conserved at the interface, however, the incident and the reflected waves carry the current in opposite directions: \n\\[\\begin{equation}\n\\frac{V_\\mathrm{i}}{Z_0} - \\frac{V_\\mathrm{r}}{Z_0} = \\frac{V_\\mathrm{t}}{Z_1}\n\\tag{C.2}\n\\end{equation}\\]\n It is clear from the equation above that \n\\(V_\\mathrm{t} \\neq 0\\)\n if \n\\(Z_0 \\neq Z_1\\)\n – impedance mismatch has to cause reflection. Solving the voltage and the current equations for \n\\(\\Gamma = V_\\mathrm{r}/V_\\mathrm{i}\\)\n gives \n\\[\\begin{equation}\n\\Gamma = \\frac{Z_1 - Z_0}{Z_1 + Z_0}\n\\tag{C.3}\n\\end{equation}\\]\n\n\nC.2 A \n\\(\\pi\\)\n-shift implies opposite signs of \n\\(V_\\mathrm{i}\\)\n and \n\\(V_\\mathrm{r}\\)\n and hence requires \n\\(\\Gamma < 0\\)\n. This implies \n\\(Z_1 < Z_0\\)\n.\n\n\n\n\nD.THE SINGLE ELECTRON TRANSISTOR\n\n\n\n\nD.1i. Since any capacitance beyond \n\\(C_g\\)\n is neglected in our model, the quantum dot can be thought as a capacitor plate with the gate being the other plate of the same capacitor with capacitance \n\\(C_g\\)\n. The fixed number \n\\(n\\)\n of electrons trapped on the quantum dot sets a fixed-charge (\n\\(q = -ne\\)\n) boundary condition for the capacitor \n\\(C_g\\)\n on the QD, while the gate side is kept at a constant potential \n\\(V_g\\)\n. (We denote the elementary charge by \n\\(e > 0\\)\n). The implies that an excess charge of opposite sign, \n\\(-q = ne\\)\n will accumulate on the gate, to keep electric field confined between the QD and the gate. The potential jump across the capacitor from the gate to the QD will be equal to the capacitor \n\\(q/C_g = -ne/C_g\\)\n. Hence the potential on the QD is \n\\[\\begin{equation}\n\\varphi_n = V_g + \\frac{-ne}{C_\\mathrm{g}}\n\\tag{D.1}\n\\end{equation}\\]\n\n\nii. Bringing an infinitesimal charge \n\\(\\delta q\\)\n from potential 0 to potential \n\\(\\varphi(q)\\)\n requires energy \n\\(\\delta E = \\varphi(q)\\delta q\\)\n, and the dependence of potential \n\\(\\varphi(q)\\)\n on the accumulated charge \n\\(q\\)\n is linear. For the single-electron transfer, the additional charge of the electron, \n\\(-e\\)\n, changes the potential from \n\\(\\varphi_n\\)\n to \n\\(\\varphi_{n+1} = \\varphi_n - e/C_g\\)\n. Hence the work necessary to accumulate an extra \n\\(e\\)\n on the QD is the integral of \n\\(\\delta E\\)\n \n\\[\\begin{align}\n\\Delta E_n = -e\\frac{\\varphi_n + \\varphi_{n+1}}{2}\n\\tag{D.2}\\\\\n\\Delta E_n = \\frac{e^2}{C_g}\\left(n + \\frac{1}{2}\\right) - eV_g\n\\tag{D.3}\n\\end{align}\\]\n Alternatively, \n\\(\\Delta E_n\\)\n can be obtained from energy conservation, by computing the change of the energy of the capacitor the dork the work done against the electromotive force of the battery (=\n\\(-\\)\n“work done by the battery’) for a charge \n\\(+e\\)\n to be brought from the ground potential via the battery to the gate-side plate of the capacitor: \n\\[\\begin{equation}\n\\Delta E_n = \\frac{e^2(n+1)^2}{2C_g} - \\frac{e^2n^2}{2C_g} - eV_g\n\\tag{D.4}\n\\end{equation}\\]\n Note that without \n\\(C_t \\ll C_g\\)\n approximation, the answer is \n\\(\\Delta E_n = \\frac{e^2}{C_g + 2\\,C_t}\\left(n + \\frac{1}{2}\\right) - eV_gC_g/(2\\,C_t + C_g)\\)\n (not required to receive full marks).\n\n\nD.2 \n\\(\\mathcal{N}\\)\n is a minimal integer \n\\(n\\)\n for which \n\\(\\Delta E_n \\geq 0\\)\n. Consider the marginal case of \n\\(\\Delta E_\\mathcal{N} = 0\\)\n which is achieved at some \n\\(V_g = V_0\\)\n, \n\\[\\begin{equation}\n\\Delta E_\\mathcal{N}(V_0) = 0 = \\frac{e^2}{C_g}\\left(\\mathcal{N} + \\frac{1}{2}\\right) - eV_0\n\\tag{D.5}\n\\end{equation}\\]\n If \n\\(V_g\\)\n would go slightly larger than \n\\(V_0\\)\n, then \n\\(\\Delta E_n\\)\n would go negative and then minimal \n\\(n\\)\n that makes a positive \n\\(\\Delta E_n\\)\n would jump from \n\\(\\mathcal{N}\\)\n to \n\\(\\mathcal{N} + 1\\)\n. Hence \n\\(E_c = \\Delta E_{\\mathcal{N}+1}(V_0)\\)\n. This gives \n\\[\\begin{equation}\n\\Delta E_{\\mathcal{N}+1}(V_0) = E_c = \\frac{e^2}{C_g}\\left(\\mathcal{N} + 1 + \\frac{1}{2}\\right) - eV_0 = \\frac{e^2}{C_g}\n\\tag{D.6}\n\\end{equation}\\]\n\n\nD.3 In a metal, only electrons in an energy range \n\\(\\pm \\approx k_BT\\)\n around the Fermi level take part in the thermal motion. (Here \n\\(k_\\mathrm{B}\\)\n is the Boltzmann constant.) Typical energy of these electrons is \n\\(k_\\mathrm{B}T\\)\n per particle and it may not exceed characteristic single-electron addition energy \n\\(E_c\\)\n, \n\\(k_\\mathrm{B}T < E_c\\)\n.\n\n\nD.4i. \n\\(\\tau = R_t\\,C_t\\)\n\n\nii. Quantum uncertainty of energy (life-time broadening) \n\\(h/\\tau\\)\n must be less than the energy difference between the states with \n\\(n\\)\n and \n\\(n + 1\\)\n electrons, \n\\[\\begin{align}\nh/\\tau < E_c \\Rightarrow \\frac{h}{R_tC_t} < \\frac{e^2}{C_g}\n\\tag{D.7}\\\\\nR_t > \\frac{h}{e^2}\\frac{C_g}{C_t} > \\frac{h}{e^2}\n\\tag{D.8}\n\\end{align}\\]\n\n\n\n\nE.RF REFLECTOMETRY TO READ OUT SET STATE\n\n\n\n\nE.1 \n\\[\\begin{align}\n\\Gamma &= \\frac{Z_\\mathrm{SET} - Z_0}{Z_\\mathrm{SET} + Z_0}\n\\tag{E.1}\\\\\n\\Gamma_\\mathrm{ON} &= \\frac{10^5 - 50}{10^5 + 50} \\approx 1 - 2\\frac{50}{10^5}\n\\tag{E.2}\\\\\n\\Gamma_\\mathrm{OFF} &= \\lim_{Z_1\\to\\infty}\\frac{Z_1 - Z_0}{Z_1 + Z_0} = 1\n\\tag{E.3}\\\\\n\\Delta\\Gamma &= |\\Gamma_\\mathrm{ON} - \\Gamma_\\mathrm{OFF}| \\approx 1.0 \\cdot 10^{-3}\n\\tag{E.4}\n\\end{align}\\]\n\n\nE.2 Large change in reflectance requires the impedance \n\\(Z_1\\)\n of the circuit to switch between \n\\(Z_1 < Z_0\\)\n to \n\\(Z_1 > Z_0\\)\n as the SET between ON (\n\\(Z_\\mathrm{SET} = 100\\mathrm{k}\\Omega\\)\n) and OFF (\n\\(Z_\\mathrm{SET} = \\infty\\)\n).\n\n\nIn the OFF state of the SET, the circuit is an disspationless LC contour with resonance frequency \n\\(\\omega_0 = 1/\\sqrt{L_0C_0}\\)\n and its impedance is 0. If we choose \n\\[\\begin{equation}\nL_0 = \\frac{1}{\\omega_\\mathrm{rf}^2C_0}\n\\tag{E.5}\n\\end{equation}\\]\n then the imedance of the \n\\(\\omega_0 = \\omega_\\mathrm{rf}\\)\n.\n\n\nSince \n\\(Z_\\mathrm{tot}\\)\n (the total impedance of the circuit) in the OFF state of the SET equals to 0, the reflectance i \n\\(\\Gamma_\\mathrm{OFF} = -1\\)\n. As we switch to the ON state with \n\\(Z_\\mathrm{SET} = R_\\mathrm{SET} = 10^5\\Omega\\)\n, the change in reflectance will be large if \n\\(|Z_\\mathrm{tot}|\\)\n in this ON state is on the order of \n\\(Z_0\\)\n or larger, which is indeed the case.\n\n\nFor the ON state and \n\\(\\omega_0 = \\omega_\\mathrm{rf}\\)\n \n\\[\\begin{equation}\nZ_\\mathrm{tot} = \\left(\\frac{1}{\\frac{1}{j\\,\\omega\\,C_0}} + \\frac{1}{R_\\mathrm{SET}}\\right)^{-1} + j\\,\\omega L_0 = \\frac{R_\\mathrm{SET}}{1 + j\\,\\omega C_0\\,R_\\mathrm{SET}} + j\\,\\omega\\,L_0 = \\frac{R_\\mathrm{SET} + j\\,\\sqrt{L_0/C_0}}{1 + R_\\mathrm{SET}^2C_0/L_0}\n\\tag{E.6}\n\\end{equation}\\]\n For \n\\(C_0 = 0.4 \\cdot 10^{-12}\\,\\mathrm{F}\\)\n, \n\\(Z_0 = 50\\,\\Omega\\)\n and \n\\(\\omega_\\mathrm{rf} = 2\\pi \\cdot 10^8\\,\\mathrm{Hz}\\)\n, we have \n\\(L_0 = 6.33\\,\\mu\\mathrm{H}\\)\n, \n\\(Z_\\mathrm{tot} = (158 + 6.3\\,j)\\Omega\\)\n, \n\\(\\Gamma_\\mathrm{ON} = 0.5198 + 0.0145\\,j\\)\n, and \n\\(\\Delta\\Gamma = 1.52\\)\n.\n\n\n\n\nF.CHARGE SENSING WITH A SINGLE LEAD QUANTUM DOT\n\n\n\n\nF.1 The SLQD readout circuit contains only reactive elements, so \n\\(|\\Gamma| = 1\\)\n will always be one. The OFF state of the SLQD corresponds to an inductor \n\\(L_0\\)\n and a capacitor \n\\(C_0\\)\n connected in parallel. We again choose \n\\[\\begin{equation}\n\\omega_\\mathrm{rf} = 1/\\sqrt{L_0C_0}\n\\tag{F.1}\n\\end{equation}\\]\n so that \n\\(Z_\\mathrm{tot}\\)\n is the OFF state is infinite and \n\\(\\Gamma_\\mathrm{OFF} = 1\\)\n.\n\n\nThe ON state corresponds to \n\\(Z_\\mathrm{SET} = -j\\frac{1}{\\omega_\\mathrm{rf}C_q}\\)\n and \n\\(Z_\\mathrm{tot}\\)\n at \n\\(\\omega_\\mathrm{rf} = \\omega_0\\)\n is just the impedance of the SLQD \n\\[\\begin{equation}\nZ_\\mathrm{tot} = \\frac{1}{(j\\omega_\\mathrm{rf}L_0)^{-1} + j\\omega_\\mathrm{rf}(C_0 + C_q)} = -j\\frac{1}{\\omega_0C_q} = -j\\frac{C_0}{C_q}Z_C\n\\tag{F.2}\n\\end{equation}\\]\n For the complex phase of \n\\(\\Gamma_\\mathrm{ON} = (Z_\\mathrm{tot}{-}Z_0)/(Z_\\mathrm{tot}{+}Z_0)\\)\n to be significantly different from zero, we need \n\\(|Z_\\mathrm{tot}| \\sim Z_0\\)\n since \n\\(Z_\\mathrm{tot}\\)\n is purely imaginary. Hence \n\\[\\begin{equation}\nZ_C \\sim \\frac{C_q}{C_0}Z_0\n\\tag{F.3}\n\\end{equation}\\]\n\n\nF.2 If \n\\(L_0\\)\n is fixed, we can still operate the circuit at the frequency \n\\[\\begin{equation}\n\\omega_\\mathrm{rf} = 1/\\sqrt{L_0C_0}\n\\tag{F.4}\n\\end{equation}\\]\n that gives \n\\(\\Gamma_\\mathrm{OFF} = 1\\)\n. However, we need to deduce a way to increase \n\\(|Z_\\mathrm{tot}|\\)\n even if \n\\(Z_C \\ll C_qZ_0/C_0\\)\n is not sufficient. One of the ways to do that is to add an additional capacitance \n\\(C_m\\)\n is series with rest of the circuit. This will give (at \n\\(\\omega_\\mathrm{rf} = \\omega_0\\)\n) \n\\[\\begin{equation}\nZ_\\mathrm{tot} = -j\\left(\\frac{C_0}{C_q}Z_C + \\frac{1}{\\omega_0C_m}\\right) = -j\\omega_0^{-1}\\left(C_q^{-1} + C_m^{-1}\\right)\n\\tag{F.5}\n\\end{equation}\\]\n We can satisfy the condition \n\\(|Z_\\mathrm{tot}| = Z_0\\)\n (and hence \n\\(\\Gamma_\\mathrm{ON} = j\\)\n and \n\\(\\Delta\\Gamma = \\sqrt{2} \\sim 1\\)\n) with \n\\[\\begin{align}\nC_m = \\frac{C_q}{Z_0C_q\\omega_\\mathrm{rf} - 1} = \\frac{C_q\\sqrt{L_0C_0}}{Z_0C_q - \\sqrt{L_0C_0}}\n\\tag{F.6}\\\\\nC_m = \\frac{C_qZ_C}{Z_0C_q/C_0 - Z_C} \\overset{Z_C\\ll Z_0C_q/C_0}{\\approx} \\frac{1}{Z_0\\,\\omega_\\mathrm{rf}}\n\\tag{F.7}\n\\end{align}\\]\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

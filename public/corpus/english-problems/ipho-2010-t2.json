@@ -1,1 +1,2568 @@
-{"id":"ipho-2010-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2010_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2010_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2010-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"41st International Physics Olympiad, Croatia – Theoretical competition, July 19th, 2010 \n1/4 \n \n2. Chimney physics \nIntroduction \nGaseous products of burning are released into the atmosphere of temperature TAir through a high \nchimney of cross-section A and height h (see Fig. 1). The solid matter is burned in the furnace which \nis at temperature TSmoke. The volume of gases produced per unit time in the furnace is B.  \nAssume that: \n \nthe velocity of the gases in the furnace is negligibly small \n \nthe density of the gases (smoke) does not differ from that of the air at the same temperature \nand pressure; while in furnace, the gases can be treated as ideal  \n \nthe pressure of the air changes with height in accordance with the hydrostatic law; the \nchange of the density of the air with height is negligible \n \nthe flow of gases fulfills the Bernoulli equation which states that the following quantity is \nconserved in all points of the flow:  \n \n                      , \nwhere ρ is the density of the gas, v(z) is its velocity, p(z) is pressure, and z is the height  \n \nthe change of the density of the gas is negligible throughout the chimney  \nFig 1. Sketch of a chimney of height h with a furnace at temperature TSmoke . \n \nTask 1 \na) What is the minimal height of the chimney needed in order that the chimney functions \nefficiently, so that it can release all of the produced gas into the atmosphere? Express your \n\n41st International Physics Olympiad, Croatia – Theoretical competition, July 19th, 2010 \n2/4 \n \nresult in terms of B, A, TAir, g=9.81m/s2, ΔT=TSmoke-TAir. Important: in all subsequent tasks \nassume that this minimal height is the height of the chimney. (3.5 points) \nb) Assume that two chimneys are built to serve exactly the same purpose. Their cross sections \nare identical, but are designed to work in different parts of the world: one in cold regions, \ndesigned to work at an average atmospheric temperature of -30 oC and the other in warm \nregions, designed to work at an average atmospheric temperature of 30 oC. The temperature \nof the furnace is 400 oC. It was calculated that the height of the chimney designed to work in \ncold regions is 100 m. How high is the other chimney? (0.5 points) \nc) How does the velocity of the gases vary along the height of the chimney? Make a \nsketch/diagram assuming that the chimney cross-section does not change along the height. \nIndicate the point where the gases enter the chimney. (0.6  points) \nd) How does the pressure of the gases vary along the height of the chimney? (0.5  points) \nSolar power plant \n \nThe flow of gases in a chimney can be used to construct a particular kind of solar power plant \n(solar chimney). The idea is illustrated in Fig. 2. The Sun heats the air underneath the collector of \narea S with an open periphery to allow the undisturbed inflow of air (see Fig. 2). As the heated air \nrises through the chimney (thin solid arrows), new cold air enters the collector from its surrounding \n(thick dotted arrows) enabling a continuous flow of air through the power plant. The flow of air \nthrough the chimney powers a turbine, resulting in the production of electrical energy. The energy of \nsolar radiation per unit time per unit of horizontal area of the collector is G. Assume that all that \nenergy can be used to heat the air in the collector (the mass heat capacity of the air is c, and one can \nneglect its dependence on the air temperature).  We define the efficiency of the solar chimney as the \nratio of the kinetic energy of the gas flow and the solar energy absorbed in heating of the air prior to \nits entry into the chimney.  \n\n41st International Physics Olympiad, Croatia – Theoretical competition, July 19th, 2010 \n3/4 \n \n \nFig 2. Sketch of a solar power plant.  \n \nTask 2 \na) What is the efficiency of the solar chimney power plant? (2.0 points) \nb) Make a diagram showing how the efficiency of the chimney changes with its height. (0.4 \npoints) \nManzanares prototype \nThe prototype chimney built in Manzanares, Spain, had a height of 195 m, and a radius 5 m. \nThe collector is circular with diameter of 244 m. The specific heat of the air under typical operational \nconditions of the prototype solar chimney is 1012 J/kg K, the density of the hot air is about 0.9 kg/m3, \nand the typical temperature of the atmosphere TAir = 295 K. In Manzanares, the solar power per unit \nof horizontal surface is typically 150 W/m2 during a sunny day. \nTask 3 \na) What is the efficiency of the prototype power plant? Write down the numerical estimate. \n(0.3 points) \nb) How much power could be produced in the prototype power plant? (0.4 points) \nc) How much energy could the power plant produce during a typical sunny day? (0.3 points) \n\n41st International Physics Olympiad, Croatia – Theoretical competition, July 19th, 2010 \n4/4 \n \nTask 4 \na) How large is the rise in the air temperature as it enters the chimney (warm air) from the \nsurrounding (cold air)? Write the general formula and evaluate it for the prototype chimney. \n(1.0 points) \nb) What is the mass flow rate of air through the system? (0.5 points) \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2010-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"41st International Physics Olympiad, Croatia – Theoretical competition, July 19th, 2010 \n1/4 \n \nSolution - Chimney physics \nThis problem was inspired and posed by using the following two references: \n \nW.W. Christie, Chimney design and theory, D. Van Nostrand Company, New York, 1902. \n \nJ. Schlaich, R. Bergermann, W. Schiel, G. Weinrebe, Design of Commercial Solar Updraft \nTower Systems — Utilization of Solar Induced Convective Flows for Power Generation, Journal \nof Solar Energy Engineering 127, 117 (2005). \n \nSolution of Task 1 \na) What is the minimal height of the chimney needed in order that the chimney functions \nefficiently, so that it can release all of the produced gas in the atmosphere? \nLet \n)\n(z\np\ndenote the pressure of air at height z; then, according to one of the assumptions\ngz\np\nz\np\nAir\n\n\n\n)\n0\n(\n)\n(\n, where\n)\n0\n(\np\nis the atmospheric pressure at zero altitude.  \nThroughout the chimney the Bernoulli law applies, that is, we can write  \n.\n)\n(\n)\n(\n2\n1\n2\nconst\nz\np\ngz\nz\nSmoke\nSmoke\nSmoke\n\n\n\n\n\n, \n(1) \nwhere \n)\n(z\npSmoke\nis the pressure of smoke at height z, \nSmoke\n\n is its density, and \n)\n(z\nv\ndenotes the \nvelocity of smoke; here we have used the assumption that the density of smoke does not vary \nthroughout the chimney. Now we apply this equation at two points, (i) in the furnace, that is at point \n\n\n\nz\n, where is a negligibly small positive number, and (ii) at the top of the chimney where\nh\nz \nto obtain: \n)\n(\n)\n(\n)\n(\n2\n1\n2\n\n\n\n\n\n\n\n\nSmoke\nSmoke\nSmoke\nSmoke\np\nh\np\ngh\nh\n (2) \nOn the right hand side we have used the assumption that the velocity of gases in the furnace is \nnegligible (and also\n0\n\n\n\n\ng\nSmoke\n).  \nWe are interested in the minimal height at which the chimney will operate. The pressure of smoke at \nthe top of the chimney has to be equal or larger than the pressure of air at altitude h ; for minimal \nheight of the chimney we have\n)\n(\n)\n(\nh\np\nh\npSmoke\n\n. In the furnace we can use \n)\n0\n(\n)\n(\np\npSmoke\n\n\n. The \nBernoulli law applied in the furnace and at the top of the chimney [Eq. (2)] now reads \n)\n0\n(\n)\n(\n)\n(\n2\n1\n2\np\nh\np\ngh\nh\nSmoke\nSmoke\n\n\n\n\n\n. \n(3) \n From this we get \n\n\n\n\n\n\n\n\n1\n2\n)\n(\nSmoke\nAir\ngh\nh\n\n\n\n. \n(4) \nThe chimney will be efficient if all of its products are released in the atmosphere, i.e.,  \n\n41st International Physics Olympiad, Croatia – Theoretical competition, July 19th, 2010 \n2/4 \n \nA\nB\nh \n)\n(\n\n, \n(5) \nfrom which we have \n1\n1\n2\n1\n2\n2\n\n\nSmoke\nAir\ng\nA\nB\nh\n\n\n. \n(6) \nWe can treat the smoke in the furnace as an ideal gas (which is at atmospheric pressure \n)\n0\n(\np\nand \ntemperature \nSmoke\nT\n). If the air was at the same temperature and pressure it would have the same \ndensity according to our assumptions. We can use this to relate the ratio \nSmoke\nAir \n\n/\nto \nAir\nSmoke T\nT\n/\nthat is,  \nAir\nSmoke\nSmoke\nAir\nT\nT\n\n\n\n, and finally \n(7) \nT\nT\ng\nA\nB\nT\nT\nT\ng\nA\nB\nh\nAir\nAir\nSmoke\nAir\n\n\n\n\n2\n1\n2\n1\n2\n2\n2\n2\n. \n(8) \n For minimal height of the chimney we use the equality sign.  \nb) How high should the chimney in warm regions be? \nm\nh\nT\nT\nT\nT\nT\nT\nh\nh\nSmoke\nSmoke\n145\n)\n30\n(\n;\n)\n30\n(\n)\n30\n(\n)\n30\n(\n)\n30\n(\n)\n30\n(\n)\n30\n(\n\n\n\n\n\n\n\n. \n(9) \n \nc) How does the velocity of the gases vary along the height of the chimney? \nThe velocity is constant,  \nAir\nAir\nSmoke\nSmoke\nAir\nT\nT\ngh\nT\nT\ngh\ngh\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n1\n2\n1\n2\n\n\n\n. \n(10) \nThis can be seen from the equation of continuity \n.\nconst\nAv \n(\nSmoke\n\n is constant). It has a sudden \njump from approximately zero velocity to this constant value when the gases enter the chimney from \nthe furnace. In fact, since the chimney operates at minimal height this constant is equal to B , that is \nA\nB\nv\n/\n\n.  \nd) At some height z, from the Bernoulli equation one gets \ngz\ngh\np\nz\np\nSmoke\nSmoke\nAir\nsmoke\n\n\n\n\n\n\n\n)\n(\n)\n0\n(\n)\n(\n. \n(11) \nThus the pressure of smoke suddenly changes as it enters the chimney from the furnace and acquires \nvelocity. \n\n41st International Physics Olympiad, Croatia – Theoretical competition, July 19th, 2010 \n3/4 \n \nSolution of Task 2 \na) The kinetic energy of the hot air released in a time interval t\n is \nAtm\nHot\nHot\nkin\nT\nT\ngh\nt\nAv\nv\nt\nAv\nE\n\n\n\n\n\n\n\n2\n)\n(\n2\n1\n, \n(12) \nWhere the index “Hot” refer to the hot air heated by the Sun. If we denote the mass of the air that \nexits the chimney in unit time with \nHot\nAv\nw\n\n\n , then the power which corresponds to kinetic \nenergy above is  \nAir\nkin\nT\nT\nwgh\nP\n\n\n. \n(13) \nThis is the maximal power that can be obtained from the kinetic energy of the gas flow.  \nThe Sun power used to heat the air is  \nT\nwc\nGS\nPSun\n\n\n\n. \n(14) \nThe efficiency is evidently \n.\nAtm\nSun\nkin\ncT\ngh\nP\nP\n\n\n\n \n(15) \n \nb) The change is apparently linear. \nSolution of Task 3 \na) The efficiency is \n%\n64\n.0\n0064\n.0\n\n\n\nAtm\ncT\ngh\n\n. \n(16) \nb) The power is \n45\n)\n2\n/\n(\n2\n\n\n\n\n\nD\nG\nGS\nP\nkW. \n(17) \nc) If there are 8 sunny hours per day we get 360kWh.  \nSolution of Task 4 \nThe result can be obtained by expressing the mass flow of air w as \nHot\nAir\nHot\nT\nT\ngh\nA\nAv\nw\n\n\n\n\n\n2\n \n(18) \nT\nc\nGS\nw\n\n\n \n(19) \nwhich yields \n1.9\n)\n2\n(\n3\n/\n1\n2\n2\n2\n2\n2\n\n\n\ngh\nc\nA\nT\nS\nG\nT\nHot\nAtm\n\nK. \n(20) \n\n41st International Physics Olympiad, Croatia – Theoretical competition, July 19th, 2010 \n4/4 \n \nFrom this we get \n760\n\nw\nkg/s. \n(21) \n \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2010-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2010_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2010_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2010-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "2. Chimney physics"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Introduction"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Gaseous products of burning are released into the atmosphere of temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{Air}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " through a high chimney of cross-section "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (see Fig. 1). The solid matter is burned in the furnace which is at temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{Smoke}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The volume of gases produced per unit time in the furnace is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Assume that:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "the velocity of the gases in the furnace is negligibly small"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "the density of the gases (smoke) does not differ from that of the air at the same temperature and pressure; while in furnace, the gases can be treated as ideal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "the pressure of the air changes with height in accordance with the hydrostatic law; the change of the density of the air with height is negligible"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "the flow of gases fulfills the Bernoulli equation which states that the following quantity is conserved in all points of the flow: "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\[\\tfrac{1}{2}\\rho v^{2}(z)+\\rho g z+p(z)=\\mathit{const},\\]"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " where "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\rho\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " is the density of the gas, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(v(z)\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " is its velocity, "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(p(z)\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " is pressure, and "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(z\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " is the height"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "the change of the density of the gas is negligible throughout the chimney"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2010-t2/a0d693b54a0bf21228ec.png",
+                "alt": "ipho-2010-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig 1. Sketch of a chimney of height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with a furnace at temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{Smoke}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a) What is the minimal height of the chimney needed in order that the chimney functions efficiently, so that it can release all of the produced gas into the atmosphere? Express your result in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{Air}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g=9.81\\,\\mathrm{m/s^{2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta T=T_{Smoke}\\text{-}T_{Air}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Important: in all subsequent tasks assume that this minimal height is "
+              },
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "em",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "the"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " height of the chimney."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(3.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) Assume that two chimneys are built to serve exactly the same purpose. Their cross sections are identical, but are designed to work in different parts of the world: one in cold regions, designed to work at an average atmospheric temperature of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\text{-}30\\,^{\\circ}\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the other in warm regions, designed to work at an average atmospheric temperature of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(30\\,^{\\circ}\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The temperature of the furnace is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(400\\,^{\\circ}\\mathrm{C}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". It was calculated that the height of the chimney designed to work in cold regions is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(100\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". How high is the other chimney? "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "c) How does the velocity of the gases vary along the height of the chimney? Make a sketch/diagram assuming that the chimney cross-section does not change along the height. Indicate the point where the gases enter the chimney. "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.6 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "d) How does the pressure of the gases vary along the height of the chimney? "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solar power plant"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The flow of gases in a chimney can be used to construct a particular kind of solar power plant (solar chimney). The idea is illustrated in Fig. 2. The Sun heats the air underneath the collector of area "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with an open periphery to allow the undisturbed inflow of air (see Fig. 2). As the heated air rises through the chimney (thin solid arrows), new cold air enters the collector from its surrounding (thick dotted arrows) enabling a continuous flow of air through the power plant. The flow of air through the chimney powers a turbine, resulting in the production of electrical energy. The energy of solar radiation per unit time per unit of horizontal area of the collector is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Assume that all that energy can be used to heat the air in the collector (the mass heat capacity of the air is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and one can neglect its dependence on the air temperature). We define the efficiency of the solar chimney as the ratio of the kinetic energy of the gas flow and the solar energy absorbed in heating of the air prior to its entry into the chimney."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2010-t2/17b1b188982398351ea9.png",
+                "alt": "ipho-2010-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Fig 2. Sketch of a solar power plant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a) What is the efficiency of the solar chimney power plant? "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(2.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) Make a diagram showing how the efficiency of the chimney changes with its height. "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Manzanares prototype"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The prototype chimney built in Manzanares, Spain, had a height of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(195\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and a radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(5\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The collector is circular with diameter of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(244\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The specific heat of the air under typical operational conditions of the prototype solar chimney is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1012\\,\\mathrm{J/kg\\,K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the density of the hot air is about "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.9\\,\\mathrm{kg/m^{3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the typical temperature of the atmosphere "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{Air} = 295\\,\\mathrm{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In Manzanares, the solar power per unit of horizontal surface is typically "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(150\\,\\mathrm{W/m^{2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " during a sunny day."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a) What is the efficiency of the prototype power plant? Write down the numerical estimate. "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) How much power could be produced in the prototype power plant? "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "c) How much energy could the power plant produce during a typical sunny day? "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Task 4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a) How large is the rise in the air temperature as it enters the chimney (warm air) from the surrounding (cold air)? Write the general formula and evaluate it for the prototype chimney. "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(1.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) What is the mass flow rate of air through the system? "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "(0.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "2. Chimney physics\n\n\nIntroduction\n\n\nGaseous products of burning are released into the atmosphere of temperature \n\\(T_{Air}\\)\n through a high chimney of cross-section \n\\(A\\)\n and height \n\\(h\\)\n (see Fig. 1). The solid matter is burned in the furnace which is at temperature \n\\(T_{Smoke}\\)\n. The volume of gases produced per unit time in the furnace is \n\\(B\\)\n.\n\n\nAssume that:\n\n\n\n\nthe velocity of the gases in the furnace is negligibly small\n\n\nthe density of the gases (smoke) does not differ from that of the air at the same temperature and pressure; while in furnace, the gases can be treated as ideal\n\n\nthe pressure of the air changes with height in accordance with the hydrostatic law; the change of the density of the air with height is negligible\n\n\nthe flow of gases fulfills the Bernoulli equation which states that the following quantity is conserved in all points of the flow: \n\\[\\tfrac{1}{2}\\rho v^{2}(z)+\\rho g z+p(z)=\\mathit{const},\\]\n where \n\\(\\rho\\)\n is the density of the gas, \n\\(v(z)\\)\n is its velocity, \n\\(p(z)\\)\n is pressure, and \n\\(z\\)\n is the height\n\n\nthe change of the density of the gas is negligible throughout the chimney\n\n\n\n\n\n\n\n\n\n\n\nFig 1. Sketch of a chimney of height \n\\(h\\)\n with a furnace at temperature \n\\(T_{Smoke}\\)\n .\n\n\nTask 1\n\n\na) What is the minimal height of the chimney needed in order that the chimney functions efficiently, so that it can release all of the produced gas into the atmosphere? Express your result in terms of \n\\(B\\)\n, \n\\(A\\)\n, \n\\(T_\\mathrm{Air}\\)\n, \n\\(g=9.81\\,\\mathrm{m/s^{2}}\\)\n, \n\\(\\Delta T=T_{Smoke}\\text{-}T_{Air}\\)\n. \nImportant: in all subsequent tasks assume that this minimal height is \nthe\n height of the chimney.\n \n(3.5 points)\n\n\nb) Assume that two chimneys are built to serve exactly the same purpose. Their cross sections are identical, but are designed to work in different parts of the world: one in cold regions, designed to work at an average atmospheric temperature of \n\\(\\text{-}30\\,^{\\circ}\\mathrm{C}\\)\n and the other in warm regions, designed to work at an average atmospheric temperature of \n\\(30\\,^{\\circ}\\mathrm{C}\\)\n. The temperature of the furnace is \n\\(400\\,^{\\circ}\\mathrm{C}\\)\n. It was calculated that the height of the chimney designed to work in cold regions is \n\\(100\\,\\mathrm{m}\\)\n. How high is the other chimney? \n(0.5 points)\n\n\nc) How does the velocity of the gases vary along the height of the chimney? Make a sketch/diagram assuming that the chimney cross-section does not change along the height. Indicate the point where the gases enter the chimney. \n(0.6 points)\n\n\nd) How does the pressure of the gases vary along the height of the chimney? \n(0.5 points)\n\n\nSolar power plant\n\n\nThe flow of gases in a chimney can be used to construct a particular kind of solar power plant (solar chimney). The idea is illustrated in Fig. 2. The Sun heats the air underneath the collector of area \n\\(S\\)\n with an open periphery to allow the undisturbed inflow of air (see Fig. 2). As the heated air rises through the chimney (thin solid arrows), new cold air enters the collector from its surrounding (thick dotted arrows) enabling a continuous flow of air through the power plant. The flow of air through the chimney powers a turbine, resulting in the production of electrical energy. The energy of solar radiation per unit time per unit of horizontal area of the collector is \n\\(G\\)\n. Assume that all that energy can be used to heat the air in the collector (the mass heat capacity of the air is \n\\(c\\)\n, and one can neglect its dependence on the air temperature). We define the efficiency of the solar chimney as the ratio of the kinetic energy of the gas flow and the solar energy absorbed in heating of the air prior to its entry into the chimney.\n\n\n\n\n\n\n\n\n\nFig 2. Sketch of a solar power plant.\n\n\nTask 2\n\n\na) What is the efficiency of the solar chimney power plant? \n(2.0 points)\n\n\nb) Make a diagram showing how the efficiency of the chimney changes with its height. \n(0.4 points)\n\n\nManzanares prototype\n\n\nThe prototype chimney built in Manzanares, Spain, had a height of \n\\(195\\,\\mathrm{m}\\)\n, and a radius \n\\(5\\,\\mathrm{m}\\)\n. The collector is circular with diameter of \n\\(244\\,\\mathrm{m}\\)\n. The specific heat of the air under typical operational conditions of the prototype solar chimney is \n\\(1012\\,\\mathrm{J/kg\\,K}\\)\n, the density of the hot air is about \n\\(0.9\\,\\mathrm{kg/m^{3}}\\)\n, and the typical temperature of the atmosphere \n\\(T_{Air} = 295\\,\\mathrm{K}\\)\n. In Manzanares, the solar power per unit of horizontal surface is typically \n\\(150\\,\\mathrm{W/m^{2}}\\)\n during a sunny day.\n\n\nTask 3\n\n\na) What is the efficiency of the prototype power plant? Write down the numerical estimate. \n(0.3 points)\n\n\nb) How much power could be produced in the prototype power plant? \n(0.4 points)\n\n\nc) How much energy could the power plant produce during a typical sunny day? \n(0.3 points)\n\n\nTask 4\n\n\na) How large is the rise in the air temperature as it enters the chimney (warm air) from the surrounding (cold air)? Write the general formula and evaluate it for the prototype chimney. \n(1.0 points)\n\n\nb) What is the mass flow rate of air through the system? \n(0.5 points)\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2010-t2/a0d693b54a0bf21228ec.png",
+      "/corpus/figures/native/bulk/ipho-2010-t2/17b1b188982398351ea9.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2010-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution - Chimney physics"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This problem was inspired and posed by using the following two references:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "• W.W. Christie, "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Chimney design and theory"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", D. Van Nostrand Company, New York, 1902."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "• J. Schlaich, R. Bergermann, W. Schiel, G. Weinrebe, "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Design of Commercial Solar Updraft Tower Systems — Utilization of Solar Induced Convective Flows for Power Generation"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", Journal of Solar Energy Engineering 127, 117 (2005)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution of Task 1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a) What is the minimal height of the chimney needed in order that the chimney functions efficiently, so that it can release all of the produced gas in the atmosphere?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p(z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " denote the pressure of air at height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "; then, according to one of the assumptions "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p(z)=p(0)-\\rho_{Air}gz\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p(0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the atmospheric pressure at zero altitude."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Throughout the chimney the Bernoulli law applies, that is, we can write"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{1}{2}\\rho_{Smoke}v(z)^2+\\rho_{Smoke}gz+p_{Smoke}(z)=const.,\n\\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_{Smoke}(z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the pressure of smoke at height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_{Smoke}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is its density, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v(z)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " denotes the velocity of smoke; here we have used the assumption that the density of smoke does not vary throughout the chimney. Now we apply this equation at two points, (i) in the furnace, that is at point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z=-\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a negligibly small positive number, and (ii) at the top of the chimney where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z=h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to obtain:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{1}{2}\\rho_{Smoke}v(h)^2+\\rho_{Smoke}gh+p_{Smoke}(h)\\approx p_{Smoke}(-\\varepsilon)\n\\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "On the right hand side we have used the assumption that the velocity of gases in the furnace is negligible (and also "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\rho_{Smoke}g\\varepsilon\\approx 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We are interested in the minimal height at which the chimney will operate. The pressure of smoke at the top of the chimney has to be equal or larger than the pressure of air at altitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ; for minimal height of the chimney we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_{Smoke}(h)\\approx p(h)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In the furnace we can use "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_{Smoke}(-\\varepsilon)\\approx p(0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The Bernoulli law applied in the furnace and at the top of the chimney [Eq. (2)] now reads"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{1}{2}\\rho_{Smoke}v(h)^2+\\rho_{Smoke}gh+p(h)\\approx p(0).\n\\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From this we get"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nv(h)=\\sqrt{2gh\\left(\\frac{\\rho_{Air}}{\\rho_{Smoke}}-1\\right)}.\n\\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The chimney will be efficient if all of its products are released in the atmosphere, i.e.,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nv(h)\\ge\\frac{B}{A},\n\\tag{5}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "from which we have"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nh\\ge\\frac{B^2}{A^2}\\frac{1}{2g}\\frac{1}{\\frac{\\rho_{Air}}{\\rho_{Smoke}}-1}.\n\\tag{6}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We can treat the smoke in the furnace as an ideal gas (which is at atmospheric pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p(0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{Smoke}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). If the air was at the same temperature and pressure it would have the same density according to our assumptions. We can use this to relate the ratio "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_{Air}/\\rho_{Smoke}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{Smoke}/T_{Air}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that is,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{\\rho_{Air}}{\\rho_{Smoke}}=\\frac{T_{Smoke}}{T_{Air}}, \\text{and finally}\n\\tag{7}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nh\\ge\\frac{B^2}{A^2}\\frac{1}{2g}\\frac{T_{Air}}{T_{Smoke}-T_{Air}}=\\frac{B^2}{A^2}\\frac{1}{2g}\\frac{T_{Air}}{\\Delta T}.\n\\tag{8}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For minimal height of the chimney we use the equality sign."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) How high should the chimney in warm regions be?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\frac{h(30)}{h(-30)}=\\frac{\\dfrac{T(30)}{T_{Smoke}-T(30)}}{\\dfrac{T(-30)}{T_{Smoke}-T(-30)}};\\ h(30)=145m.\n\\tag{9}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "c) How does the velocity of the gases vary along the height of the chimney?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The velocity is constant,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nv=\\sqrt{2gh\\left(\\frac{\\rho_{Air}}{\\rho_{Smoke}}-1\\right)}=\\sqrt{2gh\\left(\\frac{T_{Smoke}}{T_{Air}}-1\\right)}=\\sqrt{2gh\\frac{\\Delta T}{T_{Air}}}.\n\\tag{10}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This can be seen from the equation of continuity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Av=const.\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_{Smoke}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is constant). It has a sudden jump from approximately zero velocity to this constant value when the gases enter the chimney from the furnace. In fact, since the chimney operates at minimal height this constant is equal to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , that is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v=B/A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "d) At some height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", from the Bernoulli equation one gets"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\np_{smoke}(z)=p(0)-(\\rho_{Air}-\\rho_{Smoke})gh-\\rho_{Smoke}gz.\n\\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus the pressure of smoke suddenly changes as it enters the chimney from the furnace and acquires velocity."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution of Task 2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a) The kinetic energy of the hot air released in a time interval "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE_{kin}=\\frac{1}{2}(Av\\Delta t\\rho_{Hot})v^2=Av\\Delta t\\rho_{Hot}gh\\frac{\\Delta T}{T_{Atm}},\n\\tag{12}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Where the index “Hot” refer to the hot air heated by the Sun. If we denote the mass of the air that exits the chimney in unit time with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w=Av\\rho_{Hot}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", then the power which corresponds to kinetic energy above is"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nP_{kin}=wgh\\frac{\\Delta T}{T_{Air}}.\n\\tag{13}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This is the maximal power that can be obtained from the kinetic energy of the gas flow."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The Sun power used to heat the air is"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nP_{Sun}=GS=wc\\Delta T.\n\\tag{14}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The efficiency is evidently"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\eta=\\frac{P_{kin}}{P_{Sun}}=\\frac{gh}{cT_{Atm}}.\n\\tag{15}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) The change is apparently linear."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution of Task 3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "a) The efficiency is"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\eta=\\frac{gh}{cT_{Atm}}=0.0064=0.64\\%.\n\\tag{16}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "b) The power is"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nP=GS\\eta=G(D/2)^2\\pi\\eta=45\\,\\mathrm{kW}.\n\\tag{17}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "c) If there are 8 sunny hours per day we get 360kWh."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution of Task 4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The result can be obtained by expressing the mass flow of air "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nw=Av\\rho_{Hot}=A\\sqrt{2gh\\frac{\\Delta T}{T_{Air}}}\\rho_{Hot}\n\\tag{18}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nw=\\frac{GS}{c\\Delta T}\n\\tag{19}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "which yields"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\Delta T=\\left(\\frac{G^2S^2T_{Atm}}{A^2c^2\\rho_{Hot}^2\\,2gh}\\right)^{1/3}\\approx 9.1\\,\\mathrm{K}.\n\\tag{20}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From this we get"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nw=760\\,\\mathrm{kg/s}.\n\\tag{21}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Solution - Chimney physics\n\n\nThis problem was inspired and posed by using the following two references:\n\n\n• W.W. Christie, \nChimney design and theory\n, D. Van Nostrand Company, New York, 1902.\n\n\n• J. Schlaich, R. Bergermann, W. Schiel, G. Weinrebe, \nDesign of Commercial Solar Updraft Tower Systems — Utilization of Solar Induced Convective Flows for Power Generation\n, Journal of Solar Energy Engineering 127, 117 (2005).\n\n\nSolution of Task 1\n\n\na) What is the minimal height of the chimney needed in order that the chimney functions efficiently, so that it can release all of the produced gas in the atmosphere?\n\n\nLet \n\\(p(z)\\)\n denote the pressure of air at height \n\\(z\\)\n; then, according to one of the assumptions \n\\(p(z)=p(0)-\\rho_{Air}gz\\)\n, where \n\\(p(0)\\)\n is the atmospheric pressure at zero altitude.\n\n\nThroughout the chimney the Bernoulli law applies, that is, we can write\n\n\n\\[\\begin{equation}\n\\frac{1}{2}\\rho_{Smoke}v(z)^2+\\rho_{Smoke}gz+p_{Smoke}(z)=const.,\n\\tag{1}\n\\end{equation}\\]\n\n\nwhere \n\\(p_{Smoke}(z)\\)\n is the pressure of smoke at height \n\\(z\\)\n, \n\\(\\rho_{Smoke}\\)\n is its density, and \n\\(v(z)\\)\n denotes the velocity of smoke; here we have used the assumption that the density of smoke does not vary throughout the chimney. Now we apply this equation at two points, (i) in the furnace, that is at point \n\\(z=-\\varepsilon\\)\n, where \n\\(\\varepsilon\\)\n is a negligibly small positive number, and (ii) at the top of the chimney where \n\\(z=h\\)\n to obtain:\n\n\n\\[\\begin{equation}\n\\frac{1}{2}\\rho_{Smoke}v(h)^2+\\rho_{Smoke}gh+p_{Smoke}(h)\\approx p_{Smoke}(-\\varepsilon)\n\\tag{2}\n\\end{equation}\\]\n\n\nOn the right hand side we have used the assumption that the velocity of gases in the furnace is negligible (and also \n\\(-\\rho_{Smoke}g\\varepsilon\\approx 0\\)\n).\n\n\nWe are interested in the minimal height at which the chimney will operate. The pressure of smoke at the top of the chimney has to be equal or larger than the pressure of air at altitude \n\\(h\\)\n ; for minimal height of the chimney we have \n\\(p_{Smoke}(h)\\approx p(h)\\)\n. In the furnace we can use \n\\(p_{Smoke}(-\\varepsilon)\\approx p(0)\\)\n. The Bernoulli law applied in the furnace and at the top of the chimney [Eq. (2)] now reads\n\n\n\\[\\begin{equation}\n\\frac{1}{2}\\rho_{Smoke}v(h)^2+\\rho_{Smoke}gh+p(h)\\approx p(0).\n\\tag{3}\n\\end{equation}\\]\n\n\nFrom this we get\n\n\n\\[\\begin{equation}\nv(h)=\\sqrt{2gh\\left(\\frac{\\rho_{Air}}{\\rho_{Smoke}}-1\\right)}.\n\\tag{4}\n\\end{equation}\\]\n\n\nThe chimney will be efficient if all of its products are released in the atmosphere, i.e.,\n\n\n\\[\\begin{equation}\nv(h)\\ge\\frac{B}{A},\n\\tag{5}\n\\end{equation}\\]\n\n\nfrom which we have\n\n\n\\[\\begin{equation}\nh\\ge\\frac{B^2}{A^2}\\frac{1}{2g}\\frac{1}{\\frac{\\rho_{Air}}{\\rho_{Smoke}}-1}.\n\\tag{6}\n\\end{equation}\\]\n\n\nWe can treat the smoke in the furnace as an ideal gas (which is at atmospheric pressure \n\\(p(0)\\)\n and temperature \n\\(T_{Smoke}\\)\n). If the air was at the same temperature and pressure it would have the same density according to our assumptions. We can use this to relate the ratio \n\\(\\rho_{Air}/\\rho_{Smoke}\\)\n to \n\\(T_{Smoke}/T_{Air}\\)\n that is,\n\n\n\\[\\begin{equation}\n\\frac{\\rho_{Air}}{\\rho_{Smoke}}=\\frac{T_{Smoke}}{T_{Air}}, \\text{and finally}\n\\tag{7}\n\\end{equation}\\]\n\n\n\\[\\begin{equation}\nh\\ge\\frac{B^2}{A^2}\\frac{1}{2g}\\frac{T_{Air}}{T_{Smoke}-T_{Air}}=\\frac{B^2}{A^2}\\frac{1}{2g}\\frac{T_{Air}}{\\Delta T}.\n\\tag{8}\n\\end{equation}\\]\n\n\nFor minimal height of the chimney we use the equality sign.\n\n\nb) How high should the chimney in warm regions be?\n\n\n\\[\\begin{equation}\n\\frac{h(30)}{h(-30)}=\\frac{\\dfrac{T(30)}{T_{Smoke}-T(30)}}{\\dfrac{T(-30)}{T_{Smoke}-T(-30)}};\\ h(30)=145m.\n\\tag{9}\n\\end{equation}\\]\n\n\nc) How does the velocity of the gases vary along the height of the chimney?\n\n\nThe velocity is constant,\n\n\n\\[\\begin{equation}\nv=\\sqrt{2gh\\left(\\frac{\\rho_{Air}}{\\rho_{Smoke}}-1\\right)}=\\sqrt{2gh\\left(\\frac{T_{Smoke}}{T_{Air}}-1\\right)}=\\sqrt{2gh\\frac{\\Delta T}{T_{Air}}}.\n\\tag{10}\n\\end{equation}\\]\n\n\nThis can be seen from the equation of continuity \n\\(Av=const.\\)\n(\n\\(\\rho_{Smoke}\\)\n is constant). It has a sudden jump from approximately zero velocity to this constant value when the gases enter the chimney from the furnace. In fact, since the chimney operates at minimal height this constant is equal to \n\\(B\\)\n , that is \n\\(v=B/A\\)\n.\n\n\nd) At some height \n\\(z\\)\n, from the Bernoulli equation one gets\n\n\n\\[\\begin{equation}\np_{smoke}(z)=p(0)-(\\rho_{Air}-\\rho_{Smoke})gh-\\rho_{Smoke}gz.\n\\tag{11}\n\\end{equation}\\]\n\n\nThus the pressure of smoke suddenly changes as it enters the chimney from the furnace and acquires velocity.\n\n\nSolution of Task 2\n\n\na) The kinetic energy of the hot air released in a time interval \n\\(\\Delta t\\)\n is\n\n\n\\[\\begin{equation}\nE_{kin}=\\frac{1}{2}(Av\\Delta t\\rho_{Hot})v^2=Av\\Delta t\\rho_{Hot}gh\\frac{\\Delta T}{T_{Atm}},\n\\tag{12}\n\\end{equation}\\]\n\n\nWhere the index “Hot” refer to the hot air heated by the Sun. If we denote the mass of the air that exits the chimney in unit time with \n\\(w=Av\\rho_{Hot}\\)\n, then the power which corresponds to kinetic energy above is\n\n\n\\[\\begin{equation}\nP_{kin}=wgh\\frac{\\Delta T}{T_{Air}}.\n\\tag{13}\n\\end{equation}\\]\n\n\nThis is the maximal power that can be obtained from the kinetic energy of the gas flow.\n\n\nThe Sun power used to heat the air is\n\n\n\\[\\begin{equation}\nP_{Sun}=GS=wc\\Delta T.\n\\tag{14}\n\\end{equation}\\]\n\n\nThe efficiency is evidently\n\n\n\\[\\begin{equation}\n\\eta=\\frac{P_{kin}}{P_{Sun}}=\\frac{gh}{cT_{Atm}}.\n\\tag{15}\n\\end{equation}\\]\n\n\nb) The change is apparently linear.\n\n\nSolution of Task 3\n\n\na) The efficiency is\n\n\n\\[\\begin{equation}\n\\eta=\\frac{gh}{cT_{Atm}}=0.0064=0.64\\%.\n\\tag{16}\n\\end{equation}\\]\n\n\nb) The power is\n\n\n\\[\\begin{equation}\nP=GS\\eta=G(D/2)^2\\pi\\eta=45\\,\\mathrm{kW}.\n\\tag{17}\n\\end{equation}\\]\n\n\nc) If there are 8 sunny hours per day we get 360kWh.\n\n\nSolution of Task 4\n\n\nThe result can be obtained by expressing the mass flow of air \n\\(w\\)\n as\n\n\n\\[\\begin{equation}\nw=Av\\rho_{Hot}=A\\sqrt{2gh\\frac{\\Delta T}{T_{Air}}}\\rho_{Hot}\n\\tag{18}\n\\end{equation}\\]\n\n\n\\[\\begin{equation}\nw=\\frac{GS}{c\\Delta T}\n\\tag{19}\n\\end{equation}\\]\n\n\nwhich yields\n\n\n\\[\\begin{equation}\n\\Delta T=\\left(\\frac{G^2S^2T_{Atm}}{A^2c^2\\rho_{Hot}^2\\,2gh}\\right)^{1/3}\\approx 9.1\\,\\mathrm{K}.\n\\tag{20}\n\\end{equation}\\]\n\n\nFrom this we get\n\n\n\\[\\begin{equation}\nw=760\\,\\mathrm{kg/s}.\n\\tag{21}\n\\end{equation}\\]\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

@@ -1,4 +1,5 @@
-// Real production PDF pages. No mocked document, rendered tree or axe exclusions.
+// Retained production PDF bytes and original page metadata through the unmodified reader.
+// The canonical archive pages now render native LaTeX. An isolated harness keeps PDF regression coverage.
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";

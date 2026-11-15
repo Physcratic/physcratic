@@ -1,1 +1,4399 @@
-{"id":"ipho-2017-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2017_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2017_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2017-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Theory\nEnglish (Official)\nT3\npage 1 of 5\n \n \nρ\nRs\nR(t)\na(t)\nR(t) = a(t)Rs\n=\nρ(t) −\n( )\na˙\na\n2\nA1\nkc2\n(t)\nR2\nsa2\nk\nc\n\nTheory\nEnglish (Official)\nT3\npage 2 of 5\n \nhere \n denotes the pressure on the\nsphere.\n \n \nA1\nρ(t)c2\n+\n(ρ + (\n))\n= 0\nρ˙\nA2\np\nc2\na˙\na\np\nA2\np = p(ρ)\np(t)/\n= wρ(t)\nc2\nw\nH = /a\na˙\nt0 ρ0 H0 a0\n= 1\na0\nw\nk = 0\na(t)\na(t = 0) = 0\n= 1\na0\nk\nk = +1\nk = 0\nk = −1\nΩ = ρ/ρc\n=\n/\nρcc2\nH 2 A1\nA1\n\nTheory\nEnglish (Official)\nT3\npage 3 of 5\n \n \nk\nΩ H a\nR0\nΩ\nk = +1 k = 0\nk = −1\n(Ω(t) −1)\n.\n(Ω(t) −1)\n(Ω(t) −1) ≪1\n( > 0)\na¨\n(d(aH\n/dt < 0)\n)−1\n \nϵ = −\n/\nH˙ H 2\nϵ < 1\nϵ < 1\nϵ = 1\nN\ndN = d ln a = Hdt\nN = 0\nϕ(t)\n+ 3H\n= −\nϕ¨\nϕ˙\nV ′\nV = V(ϕ)\n=\nV ′\n∂V\n∂ϕ\n\nTheory\nEnglish (Official)\nT3\npage 4 of 5\n=\n[\n+ V]\nH2\n1\n3M 2\npl\n1\n2 ϕ˙ 2\nMpl\nV\n/2\nϕ˙ 2\nϕ¨\nϵ\n= δ + ϵ\nηV\nδ = −/(H )\nϕ¨\nϕ˙\nϵ\nηV dN/dϕ\nV(ϕ)\nV ′\nV ″\n\nTheory\nEnglish (Official)\nT3\npage 5 of 5\n \nns\n±\nr\nr = 16ϵ\n= 1 + 2\n−6ϵ\nns\nηV\nϕ = ϕstart\nV(ϕ) = Λ4\n(\n)\nϕ\nMpl\nn\nn\nΛ\nϕend\nr\nns\nn\nn\nr\nns\nN\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2017-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8,9,10],"initialPage":1,"shared":false,"text":"Original English PDF supplied as scanned pages. Searchable text extraction is unavailable; consult the original PDF for all problem content, equations and diagrams. This notice is not a transcription.","textExtraction":"image-only"}}
+{
+  "id": "ipho-2017-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2017-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Cosmic Inflation"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Due to the relative movement of galaxies observed from the earth, the wavelength of visible spectrum of a particular galaxy differs from its original wavelength, which is known as the electromagnetic Doppler effect. One expects, for a collection of galaxies, to a random distributions of wavelength shifts: some positive (red shift) and some negative (blue shift). However, observations show that all, expect for a nearby group of galaxies, are red shifted. This must be true even if the observation take place on different point in the universe. As a conclusion, our universe must be expanding. On the other hand local irregularity of the universe can be neglected on scales of more than 100 Mpc, in which 1 pc = 3.26 light-years. Averaged over large scales, the clumpy distribution of galaxies becomes more and more isotropic (independent of direction) and homogeneous (independent of position). Therefore we can assume the universe as a matter having a uniform mass density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and is expanding."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A. Expansion of Universe"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2017-t3/bc712024825a35fa4b8a.png",
+                "alt": "ipho-2017-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For a simple model of our universe, let us consider an expanding uniform-density sphere embedded in a medium of a much larger sphere with the same density. Let say at some time, the radius of the smaller sphere is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". To express the expansion of the sphere, the time dependency of the radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be expressed by scale factor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", that is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R(t) = a(t)R_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using Newton’s law of gravity to evaluate velocity of a mass element on the sphere boundary according the model of our universe, one can obtain a set of Friedmann equations: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\left(\\frac{\\dot{a}}{a}\\right)^2 = A_1\\rho(t) - \\frac{kc^2}{R_s^2 a^2(t)} \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " a dimensionless constant, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is velocity of light."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1Determine the constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the equation (1) 1.3 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The discussion so far is non-relativistic. But in fact, it can be extended to a relativistic system by reinterpreting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho(t)c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as total energy density (excluding the gravitational potential energy). In this relativistic system derives the 2nd Friedmann equation: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\dot{\\rho}+A_2\\left(\\rho+\\left(\\frac{p}{c^2}\\right)\\right)\\frac{\\dot{a}}{a}=0 \\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " using the 1st law thermodynamics of an adiabatic system, where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " denotes the pressure on the sphere."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2Determine the constants "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the equation (2) 0.9 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "To solve Eqs. (1) and (2), one should assume a relation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p = p(\\rho)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", such as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p(t)/c^2 = w\\rho(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a constant. There is also a factor "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H = \\dot{a}/a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " being called Hubble parameter. The present values of parameters are usually symbolized by subscript 0 such as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and so on. For simplicity, we take "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_0 = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Universe is believed to start from a big explosion called Big-Bang that produces radiation of relativistic particles. During its expansion, the universe is cooling down and the particles in it become non-relativistic. However, the recent observations clarify that the present universe is dominated by cosmological constant energy density. For the case of photon, as the universe is expanding, the photon’s wavelength expands proportionally to the scale factor."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.3For each of the following three cases determine the resulting value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": (i) a universe filled only with radiation (i.e. photon energy), (ii) a universe filled only with non-relativistic matter and (iii) a universe with constant energy density. 1.2 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.4In the case of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for each case of (i) to (iii) being mentioned in A.3. Use the initial condition "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a(t = 0) = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for case (i) and (ii), and use the condition "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_0 = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for case (iii). 1.2 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in Eq. (1) refers to classification of spatial geometry of the universe. Its value can be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = +1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for positive-curvature universe (closed), "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for flat universe (infinite), and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = -1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for negative-curvature universe (open, infinite). Let define a density ratio "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega = \\rho/\\rho_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_c c^2 = H^2/A_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is critical energy density. Note that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is obtained from problem A.1."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.5Express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in Eq.(1) in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.1 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.6Find a range for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that corresponds to each value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = +1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = -1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.3 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B. Motivation To Introduce Inflation Phase and Its General Conditions"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The observation of cosmic microwave background radiation (CMB) suggests that our present universe is approximately flat. The problem is that if this is true then the present universe should start from exactly flat early universe, otherwise any deviation from the flatness will eventually grow over time and spoil the present flatness."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1Find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\Omega(t) - 1)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of time for the universe when it is dominated by radiation or non-relativistic matter (see problem A.3). 0.5 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "To solve the problem, at some early time in its history, the universe should undergo a constant energy density domination period which leads to an exponential expansion so called inflation period."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2For this constant energy density domination period, find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\Omega(t) - 1)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of time. Assume that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\Omega(t) - 1) \\ll 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.3 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.3Show that condition for inflation implies several following conditions: negative pressure, accelerated expansion "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\ddot{a} > 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and decreasing Hubble radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((d(aH)^{-1}/dt < 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.9 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.4Show that the condition of decreasing Hubble radius can be expressed in terms of parameter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon = -\\dot{H}/H^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon < 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.2 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Inflation occurs as long as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon < 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and then ends when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We can define e-folding number "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", such that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dN = d\\ln a = Hdt\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the end of inflation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C. Inflation Generated by Homogenously Distributed Matter"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As an example of simple physical system that can generate period of inflation is a universe dominated by homogenously distributed matter. This kind of matter is called inflaton and can be characterized by a function "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The dynamical equation of the matter can be expressed as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\ddot{\\phi} + 3H\\dot{\\phi} = -V', \\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V = V(\\phi)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a potential function and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V' = \\frac{\\partial V}{\\partial\\phi}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The Hubble parameter satisfies "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nH^2 = \\frac{1}{3M_{pl}^2}\\left[\\frac{1}{2}\\dot{\\phi}^2 + V\\right]. \\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_{pl}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a constant called the reduced Planck mass. Inflation phase occurs during domination of potential energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " over kinetic energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{\\phi}^2/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for sufficient time such that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ddot{\\phi}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " term in equation (3) can be neglected. This condition is called slow-roll approximation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The quantities "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta_V = \\delta + \\epsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta = -\\ddot{\\phi}/(H\\dot{\\phi})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", are called ‘slow-roll’ parameters."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.1Estimate parameter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", parameter "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta_V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dN/d\\phi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\phi)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and its first and second derivative ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V''\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). 1.7 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D. Inflation with A Simple Potential"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Predictions of any inflation model should be compared to observational constraints from CMB as follow "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_s = 0.968 \\pm 0.006\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r < 0.12\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r = 16\\epsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_s = 1 + 2\\eta_V - 6\\epsilon\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are evaluated at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi = \\phi_{start}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for inflation model being generated by a dominant matter. Assume that potential of matter takes a simple form "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\phi) = \\Lambda^4 \\left(\\frac{\\phi}{M_{pl}}\\right)^n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is any integer and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.1Calculate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi_{end}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the end of inflation. 0.5 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.2Express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of e-folding number N and integer "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Estimate the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that is closest to observational values "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Take "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N = 60\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in your calculation. 0.9 pt."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Cosmic Inflation\n\n\nDue to the relative movement of galaxies observed from the earth, the wavelength of visible spectrum of a particular galaxy differs from its original wavelength, which is known as the electromagnetic Doppler effect. One expects, for a collection of galaxies, to a random distributions of wavelength shifts: some positive (red shift) and some negative (blue shift). However, observations show that all, expect for a nearby group of galaxies, are red shifted. This must be true even if the observation take place on different point in the universe. As a conclusion, our universe must be expanding. On the other hand local irregularity of the universe can be neglected on scales of more than 100 Mpc, in which 1 pc = 3.26 light-years. Averaged over large scales, the clumpy distribution of galaxies becomes more and more isotropic (independent of direction) and homogeneous (independent of position). Therefore we can assume the universe as a matter having a uniform mass density \n\\(\\rho\\)\n and is expanding.\n\n\nA. Expansion of Universe\n\n\n\n\n\n\n\n\n\nFor a simple model of our universe, let us consider an expanding uniform-density sphere embedded in a medium of a much larger sphere with the same density. Let say at some time, the radius of the smaller sphere is \n\\(R_s\\)\n. To express the expansion of the sphere, the time dependency of the radius \n\\(R(t)\\)\n can be expressed by scale factor \n\\(a(t)\\)\n, that is \n\\(R(t) = a(t)R_s\\)\n.\n\n\nUsing Newton’s law of gravity to evaluate velocity of a mass element on the sphere boundary according the model of our universe, one can obtain a set of Friedmann equations: \n\\[\\begin{equation}\n\\left(\\frac{\\dot{a}}{a}\\right)^2 = A_1\\rho(t) - \\frac{kc^2}{R_s^2 a^2(t)} \\tag{1}\n\\end{equation}\\]\n where \n\\(k\\)\n a dimensionless constant, and \n\\(c\\)\n is velocity of light.\n\n\nA.1Determine the constant \n\\(A_1\\)\n in the equation (1) 1.3 pt.\n\n\nThe discussion so far is non-relativistic. But in fact, it can be extended to a relativistic system by reinterpreting \n\\(\\rho(t)c^2\\)\n as total energy density (excluding the gravitational potential energy). In this relativistic system derives the 2nd Friedmann equation: \n\\[\\begin{equation}\n\\dot{\\rho}+A_2\\left(\\rho+\\left(\\frac{p}{c^2}\\right)\\right)\\frac{\\dot{a}}{a}=0 \\tag{2}\n\\end{equation}\\]\n using the 1st law thermodynamics of an adiabatic system, where \n\\(p\\)\n denotes the pressure on the sphere.\n\n\nA.2Determine the constants \n\\(A_2\\)\n in the equation (2) 0.9 pt.\n\n\nTo solve Eqs. (1) and (2), one should assume a relation \n\\(p = p(\\rho)\\)\n, such as \n\\(p(t)/c^2 = w\\rho(t)\\)\n, where \n\\(w\\)\n is a constant. There is also a factor \n\\(H = \\dot{a}/a\\)\n being called Hubble parameter. The present values of parameters are usually symbolized by subscript 0 such as \n\\(t_0\\)\n, \n\\(\\rho_0\\)\n, \n\\(H_0\\)\n, \n\\(a_0\\)\n and so on. For simplicity, we take \n\\(a_0 = 1\\)\n.\n\n\nUniverse is believed to start from a big explosion called Big-Bang that produces radiation of relativistic particles. During its expansion, the universe is cooling down and the particles in it become non-relativistic. However, the recent observations clarify that the present universe is dominated by cosmological constant energy density. For the case of photon, as the universe is expanding, the photon’s wavelength expands proportionally to the scale factor.\n\n\nA.3For each of the following three cases determine the resulting value of \n\\(w\\)\n: (i) a universe filled only with radiation (i.e. photon energy), (ii) a universe filled only with non-relativistic matter and (iii) a universe with constant energy density. 1.2 pt.\n\n\nA.4In the case of \n\\(k = 0\\)\n, find \n\\(a(t)\\)\n for each case of (i) to (iii) being mentioned in A.3. Use the initial condition \n\\(a(t = 0) = 0\\)\n for case (i) and (ii), and use the condition \n\\(a_0 = 1\\)\n for case (iii). 1.2 pt.\n\n\nConstant \n\\(k\\)\n in Eq. (1) refers to classification of spatial geometry of the universe. Its value can be \n\\(k = +1\\)\n for positive-curvature universe (closed), \n\\(k = 0\\)\n for flat universe (infinite), and \n\\(k = -1\\)\n for negative-curvature universe (open, infinite). Let define a density ratio \n\\(\\Omega = \\rho/\\rho_c\\)\n, where \n\\(\\rho_c c^2 = H^2/A_1\\)\n is critical energy density. Note that \n\\(A_1\\)\n is obtained from problem A.1.\n\n\nA.5Express \n\\(k\\)\n in Eq.(1) in terms of \n\\(\\Omega\\)\n, \n\\(H\\)\n, \n\\(a\\)\n, and \n\\(R_0\\)\n. 0.1 pt.\n\n\nA.6Find a range for \n\\(\\Omega\\)\n that corresponds to each value of \n\\(k = +1\\)\n, \n\\(k = 0\\)\n and \n\\(k = -1\\)\n. 0.3 pt.\n\n\nB. Motivation To Introduce Inflation Phase and Its General Conditions\n\n\nThe observation of cosmic microwave background radiation (CMB) suggests that our present universe is approximately flat. The problem is that if this is true then the present universe should start from exactly flat early universe, otherwise any deviation from the flatness will eventually grow over time and spoil the present flatness.\n\n\nB.1Find \n\\((\\Omega(t) - 1)\\)\n as a function of time for the universe when it is dominated by radiation or non-relativistic matter (see problem A.3). 0.5 pt.\n\n\nTo solve the problem, at some early time in its history, the universe should undergo a constant energy density domination period which leads to an exponential expansion so called inflation period.\n\n\nB.2For this constant energy density domination period, find \n\\((\\Omega(t) - 1)\\)\n as a function of time. Assume that \n\\((\\Omega(t) - 1) \\ll 1\\)\n. 0.3 pt.\n\n\nB.3Show that condition for inflation implies several following conditions: negative pressure, accelerated expansion \n\\((\\ddot{a} > 0)\\)\n, and decreasing Hubble radius \n\\((d(aH)^{-1}/dt < 0)\\)\n. 0.9 pt.\n\n\nB.4Show that the condition of decreasing Hubble radius can be expressed in terms of parameter \n\\(\\epsilon = -\\dot{H}/H^2\\)\n as \n\\(\\epsilon < 1\\)\n. 0.2 pt.\n\n\nInflation occurs as long as \n\\(\\epsilon < 1\\)\n and then ends when \n\\(\\epsilon = 1\\)\n. We can define e-folding number \n\\(N\\)\n, such that \n\\(dN = d\\ln a = Hdt\\)\n and \n\\(N = 0\\)\n at the end of inflation.\n\n\nC. Inflation Generated by Homogenously Distributed Matter\n\n\nAs an example of simple physical system that can generate period of inflation is a universe dominated by homogenously distributed matter. This kind of matter is called inflaton and can be characterized by a function \n\\(\\phi(t)\\)\n.\n\n\nThe dynamical equation of the matter can be expressed as \n\\[\\begin{equation}\n\\ddot{\\phi} + 3H\\dot{\\phi} = -V', \\tag{3}\n\\end{equation}\\]\n where \n\\(V = V(\\phi)\\)\n is a potential function and \n\\(V' = \\frac{\\partial V}{\\partial\\phi}\\)\n. The Hubble parameter satisfies \n\\[\\begin{equation}\nH^2 = \\frac{1}{3M_{pl}^2}\\left[\\frac{1}{2}\\dot{\\phi}^2 + V\\right]. \\tag{4}\n\\end{equation}\\]\n with \n\\(M_{pl}\\)\n is a constant called the reduced Planck mass. Inflation phase occurs during domination of potential energy \n\\(V\\)\n over kinetic energy \n\\(\\dot{\\phi}^2/2\\)\n for sufficient time such that \n\\(\\ddot{\\phi}\\)\n term in equation (3) can be neglected. This condition is called slow-roll approximation.\n\n\nThe quantities \n\\(\\epsilon\\)\n and \n\\(\\eta_V = \\delta + \\epsilon\\)\n, where \n\\(\\delta = -\\ddot{\\phi}/(H\\dot{\\phi})\\)\n, are called ‘slow-roll’ parameters.\n\n\nC.1Estimate parameter \n\\(\\epsilon\\)\n, parameter \n\\(\\eta_V\\)\n, \n\\(dN/d\\phi\\)\n in terms of potential \n\\(V(\\phi)\\)\n and its first and second derivative (\n\\(V'\\)\n and \n\\(V''\\)\n). 1.7 pt.\n\n\nD. Inflation with A Simple Potential\n\n\nPredictions of any inflation model should be compared to observational constraints from CMB as follow \n\\(n_s = 0.968 \\pm 0.006\\)\n and \n\\(r < 0.12\\)\n, where \n\\(r = 16\\epsilon\\)\n and \n\\(n_s = 1 + 2\\eta_V - 6\\epsilon\\)\n are evaluated at \n\\(\\phi = \\phi_{start}\\)\n for inflation model being generated by a dominant matter. Assume that potential of matter takes a simple form \n\\(V(\\phi) = \\Lambda^4 \\left(\\frac{\\phi}{M_{pl}}\\right)^n\\)\n where \n\\(n\\)\n is any integer and \n\\(\\Lambda\\)\n is a constant.\n\n\nD.1Calculate \n\\(\\phi_{end}\\)\n at the end of inflation. 0.5 pt.\n\n\nD.2Express \n\\(r\\)\n and \n\\(n_s\\)\n in terms of e-folding number N and integer \n\\(n\\)\n. Estimate the value of \n\\(n\\)\n that is closest to observational values \n\\(r\\)\n and \n\\(n_s\\)\n. Take \n\\(N = 60\\)\n in your calculation. 0.9 pt.\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2017-t3/bc712024825a35fa4b8a.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2017-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Cosmic Inflation"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A. Expansion of Universe"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question A.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For any test mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " on the boundary of the sphere, 0.2 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nm\\ddot{R}(t) = -GmM_s/R^2(t)\n\\tag{A.1.1}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is mass portion inside the sphere"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Multiplying equation (A.1.1) with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{R}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and integrating it gives 0.6 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int \\dot{R}\\,\\frac{d\\dot{R}}{dt}\\,dt = \\frac{1}{2}\\dot{R}^2 = \\frac{GM_s}{R} + A\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a integration constant"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Taking "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_s = \\frac{4}{3}\\pi R^3(t)\\rho(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{R} = \\dot{a}\\,R_s\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{8\\pi G}{3}\\,\\rho(t) + \\frac{2A}{R_s^2\\,a^2(t)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore, we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_1 = \\frac{8\\pi G}{3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total 1.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question A.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The 2nd Friedmann equation can be obtained from the 1st law of thermodynamics : 0.1 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[dE = -pdV + dQ.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For adiabatic processes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dE + pdV = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and its time derivative is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{E} + p\\dot{V} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For the sphere "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{V} = V\\left(3\\dot{a}/a\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Its total energy is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E = \\rho(t)V(t)c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{E} = \\left(\\dot{\\rho} + 3\\frac{\\dot{a}}{a}\\right)Vc^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "It yields 0.2 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\dot{\\rho} + 3\\left(\\rho + \\frac{p}{c^2}\\right)\\frac{\\dot{a}}{a} = 0\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore, we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A_2 = 3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total 0.9"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question A.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Interpreting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho(t)c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as total energy density, and substituting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{p(t)}{c^2} = w\\,\\rho(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in to the 2nd Friedmann equation yields: 0.1 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\dot{\\rho} + 3\\rho(1+w)\\frac{\\dot{a}}{a} = 0\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\rho \\propto a^{-3(w+1)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i) In case of radiation, photon as example, the energy is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_r = h\\nu = hc/\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " then its energy density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_r = \\frac{E_r}{V} \\propto a^{-4}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w_r = \\frac{1}{3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii) In case of nonrelativistic matter, its energy density nearly "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_m \\simeq \\frac{m_0c^2}{V} \\propto a^{-3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " since dominant energy comes from its rest energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_0c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w_m = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(iii) For a constant energy density, let say "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon_\\Lambda =\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " constant, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon_\\Lambda \\propto a^0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w_\\Lambda = -1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total 1.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question A.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i) In case of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", for radiation we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_r a^4 =\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " constant. So by comparing the parameters values with their present value, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_r(t)a^4(t) = \\rho_{r0}a_0^4,\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{8\\pi G}{3}\\,\\rho_{r0}\\left(\\frac{a_0}{a}\\right)^4.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int a\\,da = \\frac{1}{2}a^2 + K = \\left(\\frac{8\\pi G}{3}\\,\\rho_{r0}a_0^4\\right)^{\\frac{1}{2}} t.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Because "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a(t = 0) = 0, K = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", then 0.2 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a(t) = (2)^{\\frac{1}{2}}\\left(\\frac{8\\pi G}{3}\\,\\rho_{r0}a_0^4\\right)^{\\frac{1}{4}} t^{\\frac{1}{2}} = (2H_0)^{\\frac{1}{2}}\\,t^{\\frac{1}{2}}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H_0 = \\left(\\frac{8\\pi G}{3}\\,\\rho_{r0}\\right)^{\\frac{1}{2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " after taking "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_0 = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii) for non-relativistic matter domination, using "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_m(t)a^3(t) = \\rho_{m0}a_0^3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and similar way we will get 0.4 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a(t) = \\left(\\frac{3}{2}\\right)^{\\frac{2}{3}}\\left(\\frac{8\\pi G}{3}\\,\\rho_{m0}a_0^4\\right)^{\\frac{1}{3}} t^{\\frac{2}{3}} = \\left(\\frac{3H_0}{2}\\right)^{\\frac{2}{3}} t^{\\frac{2}{3}}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H_0 = \\left(\\frac{8\\pi G}{3}\\,\\rho_{m0}\\right)^{\\frac{1}{2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(iii) for constant energy density, 0.4 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\ln a = H_0 t + K'\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is integration constant and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H_0 = \\left(\\frac{8\\pi G}{3}\\,\\rho_\\Lambda\\right)^{\\frac{1}{2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Taking condition "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_0 = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\ln\\left(\\frac{a}{a_0}\\right) = H_0(t - t_0)\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[a(t) = e^{H_0(t-t_0)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total 1.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question A.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Condition for critical energy condition: 0.1 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\rho_c(t) = \\frac{3H^2}{8\\pi G}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Friedmann equation can be written as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[H^2(t) = H^2(\\mathrm{t})\\,\\Omega(\\mathrm{t}) - \\frac{kc^2}{R_0^2\\,a^2(t)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\left(\\frac{R_0^2}{\\mathrm{c}^2}\\right)a^2H^2(\\Omega - 1) = k\n\\tag{A.5.1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total 0.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question A.6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Because "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\left(\\frac{R_0^2}{\\mathrm{c}^2}\\right)a^2H^2 > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = +1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " corresponds to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega > 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = -1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " corresponds to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega < 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " corresponds to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B. Motivation To Introduce Inflation Phase and Its General Conditions"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question B.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Equation (A.5.1) shows that 0.1 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[(\\Omega - 1) = \\frac{kc^2}{R_0^2}\\,\\frac{1}{\\dot{a}^2}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In a universe dominated by non-relativistic matter or radiation, scale factor can be written as a function of time as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a = a_0\\left(\\frac{t}{t_0}\\right)^p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p < 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p = \\frac{1}{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for radiation and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p = \\frac{2}{3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for non-relativistic matter ) 0.2 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[(\\Omega - 1) = \\tilde{k}\\,t^{2(1-p)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total 0.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question B.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For a period dominated by constant energy provides the solution "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a(t) = e^{Ht}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{a} = He^{Ht}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.1 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[(\\Omega - 1) = \\frac{k}{H^2}\\,t^{-2Ht}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question B.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Inflation period can be generated by constant energy period, therefore it is a phase where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w = -1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p = w\\rho c^2 = -\\rho c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (negative pressure). 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Differentiating Friedmann equation leads to 0.4 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\dot{a}^2 = \\frac{8\\pi G}{3}\\,\\rho a^2 - \\frac{kc^2}{R_0^2}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[2\\dot{a}\\ddot{a} = \\frac{8\\pi G}{3}\\left(\\dot{\\rho}a^2 + 2\\rho a\\dot{a}\\right) = \\frac{8\\pi G}{3}\\left(-3\\left(\\rho + \\frac{p}{c^2}\\right)a\\dot{a} + 2\\rho a\\dot{a}\\right).\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\ddot{a}}{a} = -\\frac{4\\pi G}{3}\\left(\\rho + \\frac{3p}{c^2}\\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "So that because during inflation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p = -\\rho c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", it is equivalent with condition "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ddot{a} > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (accelerated expansion) 0.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As a result, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ddot{a} = d(\\dot{a})/dt = d(Ha)/dt > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d(Ha)^{-1}/dt < 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (shrinking Hubble radius). 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total 0.9"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question B.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Inflation condition can be written as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{d(aH)^{-1}}{dt} < 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H = \\dot{a}/a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as such 0.2 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{d(aH)^{-1}}{dt} = -\\frac{\\dot{a}H + a\\dot{H}}{(aH)^2} = -\\frac{1}{a}(1 - \\epsilon) < 0 \\Rightarrow \\epsilon < 1\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C. Inflation Generated by Homogenously Distributed Matter"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question C.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Differentiating equations (4) and employing equation 4 we can get 0.3 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[2H\\dot{H} = \\frac{1}{3M_{pl}^2}\\left[\\dot{\\phi}\\ddot{\\phi} + \\left(\\frac{\\partial V}{\\partial\\phi}\\right)\\dot{\\phi}\\right] = \\frac{1}{3M_{pl}^2}\\left[-3H\\dot{\\phi}^2\\right]\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\dot{H} = -\\frac{1}{2}\\,\\frac{\\dot{\\phi}^2}{M_{pl}^2}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon = \\frac{1}{2}\\,\\frac{\\dot{\\phi}^2}{M_{pl}^2 H^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The inflation can occur when the potential energy dominates the particle’s energy ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dot{\\phi}^2 \\ll V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") such that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H^2 \\approx V/(3M_{pl}^2)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Slow-roll approximation: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(3H\\dot{\\phi} \\approx -V'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Implies 0.3 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\epsilon \\approx \\frac{M_{pl}^2}{2}\\left(\\frac{V'}{V}\\right)^2\n\\tag{C.1.1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "we also have 0.4 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[3\\dot{H}\\dot{\\phi} + 3H\\ddot{\\phi} = -V''\\dot{\\phi}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\delta = -\\frac{\\ddot{\\phi}}{H\\dot{\\phi}} = \\frac{V''}{3H^2} - \\epsilon\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\eta_V \\approx M_{Pl}^2\\,\\frac{V''}{V}\n\\tag{C.1.2}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\ndN = H\\,dt = \\left(\\frac{H}{\\dot{\\phi}}\\right)d\\phi \\approx -\\frac{1}{M_{pl}^2}\\,(V/V')\\,d\\phi\n\\tag{C.1.3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.3 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dN}{d\\phi} \\approx -\\frac{1}{M_{pl}^2}\\,(V/V')\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total 1.7"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D. Inflation with A Simple Potential"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question D.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Inflation ends at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Using "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\phi) = \\Lambda^4\\left(\\phi/M_{pl}\\right)^n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " yields 0.5 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\epsilon = \\frac{M_{pl}^2}{2}\\left[\\frac{n}{\\phi_{end}}\\right]^2 = 1 \\Rightarrow \\phi_{end} = \\frac{n}{\\sqrt{2}}M_{pl}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total 0.5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question D.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From equations (C.1.1), (C.1.2) and (C.1.3) we can obtain 0.2 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[N = -\\left[\\frac{\\phi}{M_{pl}}\\right]^2\\frac{1}{2n} + \\beta\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a integration constant. As "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\phi_{end}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta = \\frac{n}{4}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[N = -\\left[\\frac{\\phi}{M_{pl}}\\right]^2\\frac{1}{2n} + \\frac{n}{4}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\eta_V = n(n-1)\\left[\\frac{M_{pl}}{\\phi}\\right]^2 = \\frac{2(n-1)}{n - 4N}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\varepsilon = \\frac{n^2}{2}\\left[\\frac{M_{pl}}{\\phi}\\right]^2 = \\frac{n}{n - 4N}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.2"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "so that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[r = 16\\varepsilon = \\frac{16n}{n - 4N}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[n_s = 1 + 2\\eta_V - 6\\epsilon = 1 - \\frac{2(n+2)}{(n - 4N)}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "To obtain the observational constraint "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_s = 0.968\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we need "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n = -5.93\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which is inconsistent with the condition "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r < 0.12\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". There is "
+          },
+          {
+            "type": "element",
+            "tag": "u",
+            "children": [
+              {
+                "type": "text",
+                "text": "no a closest integer"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that can obtains "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r < 0.12\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". As example, for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n = -6\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " leads a contradiction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0 < (-0.27)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n = -5\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " leads a contradiction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0 < (-0.2)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.1"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total 0.9"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Cosmic Inflation\n\n\nA. Expansion of Universe\n\n\nQuestion A.1\n\n\nFor any test mass \n\\(m\\)\n on the boundary of the sphere, 0.2 \n\\[\\begin{equation}\nm\\ddot{R}(t) = -GmM_s/R^2(t)\n\\tag{A.1.1}\n\\end{equation}\\]\n where \n\\(M_s\\)\n is mass portion inside the sphere\n\n\nMultiplying equation (A.1.1) with \n\\(\\dot{R}\\)\n and integrating it gives 0.6 \n\\[\\int \\dot{R}\\,\\frac{d\\dot{R}}{dt}\\,dt = \\frac{1}{2}\\dot{R}^2 = \\frac{GM_s}{R} + A\\]\n where \n\\(A\\)\n is a integration constant\n\n\nTaking \n\\(M_s = \\frac{4}{3}\\pi R^3(t)\\rho(t)\\)\n, and \n\\(\\dot{R} = \\dot{a}\\,R_s\\)\n 0.2 \n\\[\\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{8\\pi G}{3}\\,\\rho(t) + \\frac{2A}{R_s^2\\,a^2(t)}\\]\n 0.2\n\n\nTherefore, we have \n\\(A_1 = \\frac{8\\pi G}{3}\\)\n 0.1\n\n\nTotal 1.3\n\n\nQuestion A.2\n\n\nThe 2nd Friedmann equation can be obtained from the 1st law of thermodynamics : 0.1 \n\\[dE = -pdV + dQ.\\]\n\n\nFor adiabatic processes \n\\(dE + pdV = 0\\)\n and its time derivative is \n\\(\\dot{E} + p\\dot{V} = 0\\)\n. 0.1\n\n\nFor the sphere \n\\(\\dot{V} = V\\left(3\\dot{a}/a\\right)\\)\n 0.1\n\n\nIts total energy is \n\\(E = \\rho(t)V(t)c^2\\)\n 0.2\n\n\nTherefore \n\\(\\dot{E} = \\left(\\dot{\\rho} + 3\\frac{\\dot{a}}{a}\\right)Vc^2\\)\n 0.1\n\n\nIt yields 0.2 \n\\[\\dot{\\rho} + 3\\left(\\rho + \\frac{p}{c^2}\\right)\\frac{\\dot{a}}{a} = 0\\]\n\n\nTherefore, we have \n\\(A_2 = 3\\)\n. 0.1\n\n\nTotal 0.9\n\n\nQuestion A.3\n\n\nInterpreting \n\\(\\rho(t)c^2\\)\n as total energy density, and substituting \n\\(\\frac{p(t)}{c^2} = w\\,\\rho(t)\\)\n in to the 2nd Friedmann equation yields: 0.1 \n\\[\\dot{\\rho} + 3\\rho(1+w)\\frac{\\dot{a}}{a} = 0\\]\n\n\n\\[\\rho \\propto a^{-3(w+1)}\\]\n 0.2\n\n\n(i) In case of radiation, photon as example, the energy is given by \n\\(E_r = h\\nu = hc/\\lambda\\)\n then its energy density \n\\(\\rho_r = \\frac{E_r}{V} \\propto a^{-4}\\)\n so that \n\\(w_r = \\frac{1}{3}\\)\n 0.3\n\n\n(ii) In case of nonrelativistic matter, its energy density nearly \n\\(\\rho_m \\simeq \\frac{m_0c^2}{V} \\propto a^{-3}\\)\n since dominant energy comes from its rest energy \n\\(m_0c^2\\)\n, so that \n\\(w_m = 0\\)\n 0.3\n\n\n(iii) For a constant energy density, let say \n\\(\\epsilon_\\Lambda =\\)\n constant, \n\\(\\epsilon_\\Lambda \\propto a^0\\)\n so that \n\\(w_\\Lambda = -1\\)\n. 0.3\n\n\nTotal 1.2\n\n\nQuestion A.4\n\n\n(i) In case of \n\\(k = 0\\)\n, for radiation we have \n\\(\\rho_r a^4 =\\)\n constant. So by comparing the parameters values with their present value, \n\\(\\rho_r(t)a^4(t) = \\rho_{r0}a_0^4,\\)\n 0.2 \n\\[\\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{8\\pi G}{3}\\,\\rho_{r0}\\left(\\frac{a_0}{a}\\right)^4.\\]\n \n\\[\\int a\\,da = \\frac{1}{2}a^2 + K = \\left(\\frac{8\\pi G}{3}\\,\\rho_{r0}a_0^4\\right)^{\\frac{1}{2}} t.\\]\n\n\nBecause \n\\(a(t = 0) = 0, K = 0\\)\n, then 0.2 \n\\[a(t) = (2)^{\\frac{1}{2}}\\left(\\frac{8\\pi G}{3}\\,\\rho_{r0}a_0^4\\right)^{\\frac{1}{4}} t^{\\frac{1}{2}} = (2H_0)^{\\frac{1}{2}}\\,t^{\\frac{1}{2}}.\\]\n where \n\\(H_0 = \\left(\\frac{8\\pi G}{3}\\,\\rho_{r0}\\right)^{\\frac{1}{2}}\\)\n after taking \n\\(a_0 = 1\\)\n.\n\n\n(ii) for non-relativistic matter domination, using \n\\(\\rho_m(t)a^3(t) = \\rho_{m0}a_0^3\\)\n, and similar way we will get 0.4 \n\\[a(t) = \\left(\\frac{3}{2}\\right)^{\\frac{2}{3}}\\left(\\frac{8\\pi G}{3}\\,\\rho_{m0}a_0^4\\right)^{\\frac{1}{3}} t^{\\frac{2}{3}} = \\left(\\frac{3H_0}{2}\\right)^{\\frac{2}{3}} t^{\\frac{2}{3}}.\\]\n where \n\\(H_0 = \\left(\\frac{8\\pi G}{3}\\,\\rho_{m0}\\right)^{\\frac{1}{2}}\\)\n.\n\n\n(iii) for constant energy density, 0.4 \n\\[\\ln a = H_0 t + K'\\]\n Where \n\\(K'\\)\n is integration constant and \n\\(H_0 = \\left(\\frac{8\\pi G}{3}\\,\\rho_\\Lambda\\right)^{\\frac{1}{2}}\\)\n. Taking condition \n\\(a_0 = 1\\)\n, \n\\[\\ln\\left(\\frac{a}{a_0}\\right) = H_0(t - t_0)\\]\n \n\\[a(t) = e^{H_0(t-t_0)}\\]\n\n\nTotal 1.2\n\n\nQuestion A.5\n\n\nCondition for critical energy condition: 0.1 \n\\[\\rho_c(t) = \\frac{3H^2}{8\\pi G}\\]\n Friedmann equation can be written as \n\\[H^2(t) = H^2(\\mathrm{t})\\,\\Omega(\\mathrm{t}) - \\frac{kc^2}{R_0^2\\,a^2(t)}\\]\n \n\\[\\begin{equation}\n\\left(\\frac{R_0^2}{\\mathrm{c}^2}\\right)a^2H^2(\\Omega - 1) = k\n\\tag{A.5.1}\n\\end{equation}\\]\n\n\nTotal 0.1\n\n\nQuestion A.6\n\n\nBecause \n\\(\\left(\\frac{R_0^2}{\\mathrm{c}^2}\\right)a^2H^2 > 0\\)\n, then \n\\(k = +1\\)\n corresponds to \n\\(\\Omega > 1\\)\n, \n\\(k = -1\\)\n corresponds to \n\\(\\Omega < 1\\)\n and \n\\(k = 0\\)\n corresponds to \n\\(\\Omega = 1\\)\n 0.3\n\n\nTotal 0.3\n\n\nB. Motivation To Introduce Inflation Phase and Its General Conditions\n\n\nQuestion B.1\n\n\nEquation (A.5.1) shows that 0.1 \n\\[(\\Omega - 1) = \\frac{kc^2}{R_0^2}\\,\\frac{1}{\\dot{a}^2}.\\]\n\n\nIn a universe dominated by non-relativistic matter or radiation, scale factor can be written as a function of time as \n\\(a = a_0\\left(\\frac{t}{t_0}\\right)^p\\)\n where \n\\(p < 1\\)\n (\n\\(p = \\frac{1}{2}\\)\n for radiation and \n\\(p = \\frac{2}{3}\\)\n for non-relativistic matter ) 0.2 \n\\[(\\Omega - 1) = \\tilde{k}\\,t^{2(1-p)}\\]\n 0.2\n\n\nTotal 0.5\n\n\nQuestion B.2\n\n\nFor a period dominated by constant energy provides the solution \n\\(a(t) = e^{Ht}\\)\n so that \n\\(\\dot{a} = He^{Ht}\\)\n 0.1 \n\\[(\\Omega - 1) = \\frac{k}{H^2}\\,t^{-2Ht}\\]\n 0.2\n\n\nTotal 0.3\n\n\nQuestion B.3\n\n\nInflation period can be generated by constant energy period, therefore it is a phase where \n\\(w = -1\\)\n so that \n\\(p = w\\rho c^2 = -\\rho c^2\\)\n (negative pressure). 0.2\n\n\nDifferentiating Friedmann equation leads to 0.4 \n\\[\\dot{a}^2 = \\frac{8\\pi G}{3}\\,\\rho a^2 - \\frac{kc^2}{R_0^2}\\]\n \n\\[2\\dot{a}\\ddot{a} = \\frac{8\\pi G}{3}\\left(\\dot{\\rho}a^2 + 2\\rho a\\dot{a}\\right) = \\frac{8\\pi G}{3}\\left(-3\\left(\\rho + \\frac{p}{c^2}\\right)a\\dot{a} + 2\\rho a\\dot{a}\\right).\\]\n \n\\[\\frac{\\ddot{a}}{a} = -\\frac{4\\pi G}{3}\\left(\\rho + \\frac{3p}{c^2}\\right)\\]\n\n\nSo that because during inflation \n\\(p = -\\rho c^2\\)\n, it is equivalent with condition \n\\(\\ddot{a} > 0\\)\n (accelerated expansion) 0.1\n\n\nAs a result, \n\\(\\ddot{a} = d(\\dot{a})/dt = d(Ha)/dt > 0\\)\n or \n\\(d(Ha)^{-1}/dt < 0\\)\n (shrinking Hubble radius). 0.2\n\n\nTotal 0.9\n\n\nQuestion B.4\n\n\nInflation condition can be written as \n\\(\\frac{d(aH)^{-1}}{dt} < 0\\)\n, with \n\\(H = \\dot{a}/a\\)\n as such 0.2 \n\\[\\frac{d(aH)^{-1}}{dt} = -\\frac{\\dot{a}H + a\\dot{H}}{(aH)^2} = -\\frac{1}{a}(1 - \\epsilon) < 0 \\Rightarrow \\epsilon < 1\\]\n\n\nTotal 0.2\n\n\nC. Inflation Generated by Homogenously Distributed Matter\n\n\nQuestion C.1\n\n\nDifferentiating equations (4) and employing equation 4 we can get 0.3 \n\\[2H\\dot{H} = \\frac{1}{3M_{pl}^2}\\left[\\dot{\\phi}\\ddot{\\phi} + \\left(\\frac{\\partial V}{\\partial\\phi}\\right)\\dot{\\phi}\\right] = \\frac{1}{3M_{pl}^2}\\left[-3H\\dot{\\phi}^2\\right]\\]\n \n\\[\\dot{H} = -\\frac{1}{2}\\,\\frac{\\dot{\\phi}^2}{M_{pl}^2}\\]\n\n\nTherefore \n\\(\\epsilon = \\frac{1}{2}\\,\\frac{\\dot{\\phi}^2}{M_{pl}^2 H^2}\\)\n 0.1\n\n\nThe inflation can occur when the potential energy dominates the particle’s energy (\n\\(\\dot{\\phi}^2 \\ll V\\)\n) such that \n\\(H^2 \\approx V/(3M_{pl}^2)\\)\n. 0.2\n\n\nSlow-roll approximation: \n\\(3H\\dot{\\phi} \\approx -V'\\)\n 0.1\n\n\nImplies 0.3 \n\\[\\begin{equation}\n\\epsilon \\approx \\frac{M_{pl}^2}{2}\\left(\\frac{V'}{V}\\right)^2\n\\tag{C.1.1}\n\\end{equation}\\]\n\n\nwe also have 0.4 \n\\[3\\dot{H}\\dot{\\phi} + 3H\\ddot{\\phi} = -V''\\dot{\\phi}\\]\n \n\\[\\delta = -\\frac{\\ddot{\\phi}}{H\\dot{\\phi}} = \\frac{V''}{3H^2} - \\epsilon\\]\n\n\nTherefore \n\\[\\begin{equation}\n\\eta_V \\approx M_{Pl}^2\\,\\frac{V''}{V}\n\\tag{C.1.2}\n\\end{equation}\\]\n\n\n\\[\\begin{equation}\ndN = H\\,dt = \\left(\\frac{H}{\\dot{\\phi}}\\right)d\\phi \\approx -\\frac{1}{M_{pl}^2}\\,(V/V')\\,d\\phi\n\\tag{C.1.3}\n\\end{equation}\\]\n 0.3 \n\\[\\frac{dN}{d\\phi} \\approx -\\frac{1}{M_{pl}^2}\\,(V/V')\\]\n\n\nTotal 1.7\n\n\nD. Inflation with A Simple Potential\n\n\nQuestion D.1\n\n\nInflation ends at \n\\(\\epsilon = 1\\)\n. Using \n\\(V(\\phi) = \\Lambda^4\\left(\\phi/M_{pl}\\right)^n\\)\n yields 0.5 \n\\[\\epsilon = \\frac{M_{pl}^2}{2}\\left[\\frac{n}{\\phi_{end}}\\right]^2 = 1 \\Rightarrow \\phi_{end} = \\frac{n}{\\sqrt{2}}M_{pl}\\]\n\n\nTotal 0.5\n\n\nQuestion D.2\n\n\nFrom equations (C.1.1), (C.1.2) and (C.1.3) we can obtain 0.2 \n\\[N = -\\left[\\frac{\\phi}{M_{pl}}\\right]^2\\frac{1}{2n} + \\beta\\]\n where \n\\(\\beta\\)\n is a integration constant. As \n\\(N = 0\\)\n at \n\\(\\phi_{end}\\)\n then \n\\(\\beta = \\frac{n}{4}\\)\n. \n\\[N = -\\left[\\frac{\\phi}{M_{pl}}\\right]^2\\frac{1}{2n} + \\frac{n}{4}\\]\n\n\n\\[\\eta_V = n(n-1)\\left[\\frac{M_{pl}}{\\phi}\\right]^2 = \\frac{2(n-1)}{n - 4N}\\]\n 0.2\n\n\n\\[\\varepsilon = \\frac{n^2}{2}\\left[\\frac{M_{pl}}{\\phi}\\right]^2 = \\frac{n}{n - 4N}\\]\n 0.2\n\n\nso that \n\\[r = 16\\varepsilon = \\frac{16n}{n - 4N}\\]\n 0.1\n\n\n\\[n_s = 1 + 2\\eta_V - 6\\epsilon = 1 - \\frac{2(n+2)}{(n - 4N)}\\]\n 0.1\n\n\nTo obtain the observational constraint \n\\(n_s = 0.968\\)\n we need \n\\(n = -5.93\\)\n which is inconsistent with the condition \n\\(r < 0.12\\)\n. There is \nno a closest integer\n \n\\(n\\)\n that can obtains \n\\(r < 0.12\\)\n. As example, for \n\\(n = -6\\)\n leads a contradiction \n\\(0 < (-0.27)\\)\n and for \n\\(n = -5\\)\n leads a contradiction \n\\(0 < (-0.2)\\)\n. 0.1\n\n\nTotal 0.9\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

@@ -1,1 +1,5740 @@
-{"id":"ipho-2013-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2013_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2013_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2013-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"   \n \n   Data sheet  \nT \n \nPage 1 of 1 \n \n \nData sheet: Table of physical parameters \n \nSpeed of light in vacuum \n                   \nPlanck's constant over    \n                   \nGravitational constant \n                       \nGravitational acceleration \n             \nElementary charge  \n                 \nElectric permittivity of vacuum  \n                           \nElectron mass  \n                   \nAvogadro constant  \n                     \nBoltzmann constant  \n                       \nStony meteorite, specific heat \n                      \nStony meteorite, thermal conductivity \n                  \nStony meteorite, density \n                    \nStony meteorite, melting point \n              \nStony meteorite, specific melting heat  \n                   \nSilver, molar mass  \n                         \nSilver, density  \n                      \nSilver, specific heat capacity \n                        \nWater, molar mass \n                         \nWater, density \n                      \nWater, specific heat capacity \n                         \nWater, heat of vaporization \n                      \nWater, boiling temperature \n                     \nIce, density of glacier \n                      \nSteam, specific heat capacity \n                          \nEarth, mass of the \n                  \nEarth, radius of the  \n               \nSun, mass of the  \n                 \nSun, radius of the \n               \nAverage Sun-Earth distance \n                 \n \n\n    \n \n   The Maribo Meteorite  \nT1 \n \nPage 1 of 4 \n \nIntroduction \nA meteoroid is a small particle (typically smaller than 1 m) from a comet or an asteroid. A \nmeteoroid that impacts the ground is called a meteorite. \n \nOn the night of 17 January 2009 many people near the Baltic Sea saw the glowing trail or fireball of \na meteoroid falling through the atmosphere of the Earth. In Sweden a surveillance camera recorded \na video of the event, see Fig. 1.1(a). From these pictures and eyewitness accounts it was possible to \nnarrow down the impact area, and six weeks later a meteorite with the mass 0.025 kg was found in \nthe vicinity of the town Maribo in southern Denmark. Measurements on the meteorite, now named \nMaribo, and its orbit in the sky showed interesting results. Its speed when entering the atmosphere \nhad been exceptionally high. Its age,           year, shows that it had been formed shortly after \nthe birth of the solar system. The Maribo meteorite is possibly a part of Comet Encke.  \n \n \nThe speed of Maribo \nThe fireball was moving in westerly direction, heading 285q relative to north, toward the location \nwhere the meteorite was subsequently found, as sketched in Fig. 1.1. The meteorite was found at a \ndistance 195 km from the surveillance camera in the direction 230q relative to north. \n \n1.1 \nUse this and the data in Fig. 1.1 to calculate the average speed of Maribo in the time \ninterval between frames 155 and 161. The curvature of the Earth and the gravitational \nforce on the meteoroid can both be neglected. \n1.3 \n \n \nThrough the atmosphere and melting? \nThe friction from the air on a meteoroid moving in the higher atmosphere depends in a complicated \nway on the shape and velocity of the meteoroid, and on the temperature and density of the atmo-\nsphere. As a reasonable approximation the friction force   in the upper atmosphere is given by the \nexpression           , where   is a constant,      the density of the atmosphere,   the projec-\nted cross-section area of the meteorite, and   its speed.    \n      \nThe following simplifying assumptions are made to analyze the meteoroid: The object entering the \natmosphere was a sphere of mass         , radius          , temperature         , and \nspeed                . The density of the atmosphere is constant (its value 40 km above the \nsurface of the Earth),                     , and the friction coefficient is       . \n  \n1.2a Estimate how long time after entering the atmosphere it takes the meteoroid to have its \nspeed reduced by 10 % from    to        . You can neglect the gravitational force on \nthe meteoroid and assume, that it maintains its mass and shape. \n0.7 \n1.2b Calculate how many times larger the kinetic energy      of the meteoroid entering the \natmosphere is than the energy       necessary for melting it completely (see data sheet). \n0.3 \n \n\n    \n \n   The Maribo Meteorite  \nT1 \n \nPage 2 of 4 \n \n  \n(a) \n \n  \n(b) \nFrame \nTime Azimuth Altitude \n \n155 \n1.46 s \n215q \n19.2q \n \n161 \n2.28 s \n221q \n14.7q \n \nLanding at M \n230q \n 0.0q \n \n(c) \n \nFigure 1.1 (a) Azimuth is the clockwise angular position from north in the horizontal plane, and \naltitude is the angular position above the horizon. A series of frames recorded by the surveillance \ncamera in Sweden, showing the motion of Maribo as a fireball on its way down through the \natmosphere. (b) The data from two frames indicating the time, the direction (azimuth) in degrees, \nas seen by the camera (C), and the height above the horizon (altitude) in degrees. (c) Sketch of the \ndirections of the path (magenta arrow) of Maribo relative to north (N) and of the landing site (M) \nin Denmark as seen by the camera (C). \n \nHeating of Maribo during its fall in the atmosphere \nWhen the stony meteoroid Maribo entered the atmosphere at supersonic speed it appeared as a fire-\nball because the surrounding air was glowing. Nevertheless, only the outermost layer of Maribo was \nheated. Assume that Maribo is a homogenous sphere with density    , specific heat capacity    , \nand thermal conductivity     (for values see the data sheet). Furthermore, when entering the \natmosphere, it had the temperature         . While falling through the atmosphere its surface \ntemperature was constant            due to the air friction, thus gradually heating up the interior.  \n\n    \n \n   The Maribo Meteorite  \nT1 \n \nPage 3 of 4 \n \n     After falling a time   in the atmosphere, an outer shell of Maribo of thickness   will have been \nheated to a temperature significantly larger than   . This thickness can be estimated by dimensional \nanalysis as the simple product of powers of the thermodynamic parameters:        \n     \n     \n .  \n  \n1.3a Determine by dimensional (unit) analysis the value of the four powers  ,  ,  , and  . \n0.6 \n1.3b Calculate the thickness   after a fall time      , and determine the ratio     . \n0.4 \n \nThe age of a meteorite \nThe chemical properties of radioactive elements may be different, so during the crystallization of \nthe minerals in a given meteorite, some minerals will have a high content of a specific radioactive \nelement and others a low content. This difference can be used to determine the age of a meteorite by \nradiometric dating of its radioactive minerals. \n     As a specific example, we study the isotope 87Rb (element no. 37), which decays into the stable \nisotope 87Sr (element no. 38) with a half-life of              year, relative to the stable isotope \n86Sr. At the time of crystallization the ratio 87Sr/86Sr was identical for all minerals, while the ratio \n87Rb/86Sr was different. As time passes on, the amount of 87Rb decreases by decay, while \nconsequently the amount of 87Sr increases. As a result, the ratio 87Sr/86Sr will be different today. In \nFig. 1.2(a), the points on the horizontal line refer to the ratio 87Rb/86Sr in different minerals at the \ntime, when they are crystallized.  \n \nFigure 1.2 (a) The ratio 87Sr/86Sr in different minerals at the time     of crystallization (open \ncircles) and at present time (filled circles). (b) The isochron-line for three different mineral samples \ntaken from a meteorite at present time. \n \n1.4a Write down the decay scheme for the transformation of \n  \n  \n  \n to \n  \n  \n  \n. \n0.3 \n1.4b \nShow that the present-time ratio 87Sr/86Sr plotted versus the present-time ratio 87Rb/86Sr \nin different mineral samples from the same meteorite forms a straight line, the so-called \nisochron-line, with slope      (     ). Here   is the time since the formation of the \nminerals, while   is the decay constant inversely proportional to half-life   . \n0.7 \n1.4c Determine the age    of the meteorite using the isochron-line of Fig. 1.2(b). \n0.4 \n\n    \n \n   The Maribo Meteorite  \nT1 \n \nPage 4 of 4 \n \n \nComet Encke, from which Maribo may originate \nIn its orbit around the Sun, the minimum and maximum distances between comet Encke and the \nSun are                  and                 , respectively. \n \n1.5 Calculate the orbital period        of comet Encke. \n0.6 \n \n \nConsequences of an asteroid impact on Earth \n65 million years ago Earth was hit by a huge asteroid with density                    , radius \n           , and final speed of                 . This impact resulted in the extermination \nof most of the life on Earth and the formation of the enormous Chicxulub Crater. Assume that an \nidentical asteroid would hit Earth today in a completely inelastic collision, and use the fact that the \nmoment of inertia of Earth is 0.83 times that for a homogeneous sphere of the same mass and \nradius. The moment of inertia of a homogeneous sphere with mass   and radius   is \n \n    . \nNeglect any changes in the orbit of the Earth. \n \n1.6a Let the asteroid hit the North Pole. Find the maximum change in angular orientation of \nthe axis of Earth after the impact. \n0.7 \n1.6b Let the asteroid hit the Equator in a radial impact. Find the change       in the duration \nof one revolution of Earth after the impact. \n0.7 \n1.6c Let the asteroid hit the Equator in a tangential impact in the equatorial plane. Find the \nchange       in the duration of one revolution of Earth after the impact. \n0.7 \n \n \nMaximum impact speed \nConsider a celestial body, gravitationally bound in the solar system, which impacts the surface of \nEarth with a speed     . Initially the effect of the gravitational field of the Earth on the body can be \nneglected. Disregard the friction in the atmosphere, the effect of other celestial bodies, and the \nrotation of the Earth. \n \n1.7 Calculate     \n   , the largest possible value of     . \n1.6 \n \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2013-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"    \n \n   The Maribo Meteorite  \nT1 \n \nPage 1 of 3 \n \nSolutions \n1.1  \n \nTop view: Triangle MBC: |  |        ,                   , and \n         , so                      .  \nThen |  |  \n|  |    (    )\n   (    )\n         . \nTriangle DBC: |  |          ,                    ,and         ,  \nso                      . \nThen |  |  \n|  |    (    )\n   (    )\n           \nTriangle EBC: |  |          ,                    , and         ,  \nso                      . \nThen |  |  \n|  |    (    )\n   (    )\n          . \nTriangle EDC:                   Horizontal distance traveled by \nMaribo:|  |  \n|  |    (    )\n   (    )\n          \nSide view: Triangle CDF: |  |  |  |    (    )           \nTriangle CEG: |  |  |  |    (    )           \nThus vertical distance travelled by Maribo: |  |  |  |          . \nTotal distance travelled by Maribo from frame 155 to 161: \n|  |  √|  |  (|  |  |  |)          . \nThe speed of Maribo is   \n        \n                        \n \n1.3 \n \n1.2a \nNewton's second law:   \n  \n            \n     yields  \n \n      \n        \n \n  \n   . \nBy integration   \n  \n        \n  (\n \n     )\n \n         .  \nAlternative solution: The average force on the meteoroid when the speed decreases from \n   to        can be estimated to              \n  (       ) . Using that the accele-\nration is approximately constant,              \n  (       )    , results in \n   \n       \n   \n       . \n0.7 \nC \nTurned sideview, not to \nscale \nN \nTop \nview  \nFrame 155  \nFrame 161  \nM\nE \nD \nB \nF \nG \nM \n195 km \nC \nB \nD \nE \n\n    \n \n   The Maribo Meteorite  \nT1 \n \nPage 2 of 3 \n \n1.2b     \n      \n \n    \n \n   (      )        \n       \n                 . \n0.3 \n \n1.3a \n[ ]  [ ] [   ] [   ]  [   ]  [ ] [      ] [         ]  [           ] , \nso [ ]  [  ]   [ ]        [ ]       [ ]    .   \nThus      ,             ,            , and         . \nFrom which (       )   ( \n \n   \n \n   \n \n   \n \n )  and  ( )  √\n    \n      . \n0.6 \n1.3b  (   )   1.6 mm \n \n                         . \n0.4 \n \n1.4a Rb-Sr decay scheme: \n  \n  \n  \n \n   \n  \n  \n \n \n  \n    ̅  \n0.3 \n1.4b \n     ( )       ( )    and Rb Sr:       ( )       ( )  [     ( )       ( )]. \nThus      ( )       ( )  (     )     ( ), and dividing by       we obtain the \nequation of a straight line: \n     ( )\n       \n     ( )\n      (     )\n     ( )\n     . \n0.7 \n1.4c \nSlope:         \n           \n    \n       and     \n  ( )\n \n              .  \n \nSo      (   )  \n  \n  (   )\n  ( )                 . \n0.4 \n \n1.5 \nKepler's 3rd law on comet Encke and Earth, with the orbital semi-major axis of Encke \ngiven by   \n \n (         ). Thus         (\n \n  )\n \n                        .  \n0.6 \n  \n1.6a \nFor Earth around its rotation axis:  Angular velocity    \n  \n                  . \nMoment of inertia        \n \n     \n                 .  \nAngular momentum                            .  \nAsteroid:      \n  \n     \n                    and angular momentum  \n                                   .      is perpendicular to   , so by \nconservation angular momentum:     (  )           =          .The axis tilt \n                  (so the North Pole moves             ). \n0.7 \n1.6b \nAt vertical impact       so  (    )   . Thus        (   )   , and since  \n             \n               we obtain                    . The change \nin rotation period is       (\n \n       \n \n  )     \n   \n  \n             . \n0.7 \n1.6c \nAt tangential impact      is parallel to    so         (       )(      ) and \nthus       (\n \n       \n \n  )    (\n      \n        \n \n  )              . \n0.7 \n\n    \n \n   The Maribo Meteorite  \nT1 \n \nPage 3 of 3 \n \n \n \n1.7 \nMaximum impact speed     \n    arises from three contributions:  \n \n(I) The velocity    of the body at distance    (Earth orbit radius) from the Sun, \n   √\n    \n  \n          .  \n(II) The orbital velocity of the Earth,     \n    \n                .  \n(III) Gravitational attraction from the Earth and kinetic energy seen from the Earth:  \n       \n \n (     )    \n   \n   \n \n (    \n   )\n .  \n \nIn conclusion:     \n    √(     )   \n    \n  \n          . \n1.6 \n \n \nTotal \n9.0 \n   \n  \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2013-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2013-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Data sheet: Table of physical parameters"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "table",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "thead",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Speed of light in vacuum"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(c = 2.998\\times 10^{8}\\,\\mathrm{m\\,s^{-1}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tbody",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Planck’s constant over "
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(2\\pi\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\hbar = 1.055\\times 10^{-34}\\,\\mathrm{J\\,s}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Gravitational constant"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(G = 6.67\\times 10^{-11}\\,\\mathrm{m^{3}kg^{-1}s^{-2}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Gravitational acceleration"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(g = 9.82\\,\\mathrm{m\\,s^{-2}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Elementary charge"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(e = 1.602\\times 10^{-19}\\,\\mathrm{C}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Electric permittivity of vacuum"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\varepsilon_0 = 8.854\\times 10^{-12}\\,\\mathrm{C^{2}\\,J^{-1}\\,m^{-1}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Electron mass"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(m_e = 9.109\\times 10^{-31}\\,\\mathrm{kg}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Avogadro constant"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(N_\\mathrm{A} = 6.022\\times 10^{23}\\,\\mathrm{mol^{-1}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Boltzmann constant"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(k_\\mathrm{B} = 1.381\\times 10^{-23}\\,\\mathrm{J\\,K^{-1}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Stony meteorite, specific heat"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(c_\\mathrm{sm} = 1.2\\times 10^{3}\\,\\mathrm{J\\,kg^{-1}K^{-1}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Stony meteorite, thermal conductivity"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(k_\\mathrm{sm} = 2.0\\,\\mathrm{W\\,m^{-1}\\,K^{-1}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Stony meteorite, density"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\rho_\\mathrm{sm} = 3.3\\times 10^{3}\\,\\mathrm{kg\\,m^{-3}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Stony meteorite, melting point"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(T_\\mathrm{sm} = 1.7\\times 10^{3}\\,\\mathrm{K}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Stony meteorite, specific melting heat"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(L_\\mathrm{sm} = 2.6\\times 10^{5}\\,\\mathrm{J\\,kg^{-1}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Silver, molar mass"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(M_\\mathrm{Ag} = 1.079\\times 10^{-1}\\,\\mathrm{kg\\,mol^{-1}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Silver, density"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\rho_\\mathrm{Ag} = 1.049\\times 10^{4}\\,\\mathrm{kg\\,m^{-3}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Silver, specific heat capacity"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(c_\\mathrm{Ag} = 2.40\\times 10^{2}\\,\\mathrm{J\\,kg^{-1}K^{-1}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Water, molar mass"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(M_\\mathrm{wa} = 1.801\\times 10^{-2}\\,\\mathrm{kg\\,mol^{-1}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Water, density"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\rho_\\mathrm{wa} = 0.998\\times 10^{3}\\,\\mathrm{kg\\,m^{-3}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Water, specific heat capacity"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(c_\\mathrm{wa} = 4.181\\times 10^{3}\\,\\mathrm{J\\,kg^{-1}K^{-1}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Water, heat of vaporization"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(L_\\mathrm{wa} = 2.260\\times 10^{6}\\,\\mathrm{J\\,kg^{-1}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Water, boiling temperature"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(T_{100} = 100\\,^\\circ\\mathrm{C} = 373.15\\,\\mathrm{K}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Ice, density of glacier"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\rho_\\mathrm{ice} = 0.917\\times 10^{3}\\,\\mathrm{kg\\,m^{-3}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Steam, specific heat capacity"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(c_\\mathrm{st} = 2.080\\times 10^{3}\\,\\mathrm{J\\,kg^{-1}\\,K^{-1}}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Earth, mass of the"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(m_\\mathrm{E} = 5.97\\times 10^{24}\\,\\mathrm{kg}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Earth, radius of the"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(R_\\mathrm{E} = 6.38\\times 10^{6}\\,\\mathrm{m}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Sun, mass of the"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(m_\\mathrm{S} = 1.99\\times 10^{30}\\,\\mathrm{kg}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Sun, radius of the"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(R_\\mathrm{S} = 6.96\\times 10^{8}\\,\\mathrm{m}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Average Sun-Earth distance"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(a_\\mathrm{E} = 1.50\\times 10^{11}\\,\\mathrm{m}\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The Maribo Meteorite"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Introduction"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A meteoroid is a small particle (typically smaller than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") from a comet or an asteroid. A meteoroid that impacts the ground is called a meteorite."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "On the night of 17 January 2009 many people near the Baltic Sea saw the glowing trail or fireball of a meteoroid falling through the atmosphere of the Earth. In Sweden a surveillance camera recorded a video of the event, see Fig. 1.1(a). From these pictures and eyewitness accounts it was possible to narrow down the impact area, and six weeks later a meteorite with the mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.025\\,\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " was found in the vicinity of the town Maribo in southern Denmark. Measurements on the meteorite, now named Maribo, and its orbit in the sky showed interesting results. Its speed when entering the atmosphere had been exceptionally high. Its age, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(4.567\\times 10^{9}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " year, shows that it had been formed shortly after the birth of the solar system. The Maribo meteorite is possibly a part of Comet Encke."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "The speed of Maribo"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The fireball was moving in westerly direction, heading "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(285^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " relative to north, toward the location where the meteorite was subsequently found, as sketched in Fig. 1.1. The meteorite was found at a distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(195\\,\\mathrm{km}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the surveillance camera in the direction "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(230^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " relative to north."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1Use this and the data in Fig. 1.1 to calculate the average speed of Maribo in the time interval between frames 155 and 161. The curvature of the Earth and the gravitational force on the meteoroid can both be neglected. 1.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Through the atmosphere and melting?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The friction from the air on a meteoroid moving in the higher atmosphere depends in a complicated way on the shape and velocity of the meteoroid, and on the temperature and density of the atmosphere. As a reasonable approximation the friction force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the upper atmosphere is given by the expression "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F = k\\rho_\\mathrm{atm}Av^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a constant, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_\\mathrm{atm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the density of the atmosphere, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the projected cross-section area of the meteorite, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " its speed."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The following simplifying assumptions are made to analyze the meteoroid: The object entering the atmosphere was a sphere of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{M} = 30\\,\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{M} = 0.13\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 200\\,\\mathrm{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{M} = 2.91\\times 10^4\\,\\mathrm{m/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The density of the atmosphere is constant (its value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(40\\,\\mathrm{km}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " above the surface of the Earth), "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_\\mathrm{atm} = 4.1\\times 10^{-3}\\,\\mathrm{kg/m^3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the friction coefficient is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 0.60\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2aEstimate how long time after entering the atmosphere it takes the meteoroid to have its speed reduced by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(10\\,\\%\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.90\\,v_\\mathrm{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". You can neglect the gravitational force on the meteoroid and assume, that it maintains its mass and shape. 0.7"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2bCalculate how many times larger the kinetic energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{kin}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the meteoroid entering the atmosphere is than the energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{melt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " necessary for melting it completely (see data sheet). 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2013-t1/acc78329bbf4301e90e8.png",
+                "alt": "ipho-2013-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(b)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "table",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "thead",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Frame"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Time"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Azimuth"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Altitude"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "tbody",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "155"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(1.46\\,\\mathrm{s}\\)"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(215^\\circ\\)"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(19.2^\\circ\\)"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "161"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(2.28\\,\\mathrm{s}\\)"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(221^\\circ\\)"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(14.7^\\circ\\)"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Landing at M"
+                      }
+                    ],
+                    "colSpan": 2
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(230^\\circ\\)"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "\\(0.0^\\circ\\)"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2013-t1/9169748000cbdff7c67a.png",
+                "alt": "ipho-2013-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(a)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Azimuth is the clockwise angular position from north in the horizontal plane, and altitude is the angular position above the horizon. A series of frames recorded by the surveillance camera in Sweden, showing the motion of Maribo as a fireball on its way down through the atmosphere. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(b)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The data from two frames indicating the time, the direction (azimuth) in degrees, as seen by the camera (C), and the height above the horizon (altitude) in degrees. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(c)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Sketch of the directions of the path (magenta arrow) of Maribo relative to north (N) and of the landing site (M) in Denmark as seen by the camera (C)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Heating of Maribo during its fall in the atmosphere"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When the stony meteoroid Maribo entered the atmosphere at supersonic speed it appeared as a fireball because the surrounding air was glowing. Nevertheless, only the outermost layer of Maribo was heated. Assume that Maribo is a homogenous sphere with density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_\\mathrm{sm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", specific heat capacity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_\\mathrm{sm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and thermal conductivity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_\\mathrm{sm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (for values see the data sheet). Furthermore, when entering the atmosphere, it had the temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 200\\,\\mathrm{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". While falling through the atmosphere its surface temperature was constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{s} = 1000\\,\\mathrm{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " due to the air friction, thus gradually heating up the interior."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "After falling a time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the atmosphere, an outer shell of Maribo of thickness "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will have been heated to a temperature significantly larger than "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This thickness can be estimated by dimensional analysis as the simple product of powers of the thermodynamic parameters: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x \\approx t^{\\alpha}\\rho_\\mathrm{sm}^{\\beta}c_\\mathrm{sm}^{\\gamma}k_\\mathrm{sm}^{\\delta}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.3aDetermine by dimensional (unit) analysis the value of the four powers "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.3bCalculate the thickness "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " after a fall time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = 5\\,\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and determine the ratio "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x/R_\\mathrm{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "The age of a meteorite"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The chemical properties of radioactive elements may be different, so during the crystallization of the minerals in a given meteorite, some minerals will have a high content of a specific radioactive element and others a low content. This difference can be used to determine the age of a meteorite by radiometric dating of its radioactive minerals."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As a specific example, we study the isotope "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}\\mathrm{Rb}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (element no. 37), which decays into the stable isotope "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}\\mathrm{Sr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (element no. 38) with a half-life of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{\\text{½}} = 4.9\\times 10^{10}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " year, relative to the stable isotope "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{86}\\mathrm{Sr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". At the time of crystallization the ratio "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}\\mathrm{Sr}/{}^{86}\\mathrm{Sr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " was identical for all minerals, while the ratio "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}\\mathrm{Rb}/{}^{86}\\mathrm{Sr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " was different. As time passes on, the amount of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}\\mathrm{Rb}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " decreases by decay, while consequently the amount of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}\\mathrm{Sr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " increases. As a result, the ratio "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}\\mathrm{Sr}/{}^{86}\\mathrm{Sr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will be different today. In Fig. 1.2(a), the points on the horizontal line refer to the ratio "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}\\mathrm{Rb}/{}^{86}\\mathrm{Sr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in different minerals at the time, when they are crystallized."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2013-t1/37ca1349b50a49e94e5a.png",
+                "alt": "ipho-2013-t1 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(a)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The ratio "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}\\mathrm{Sr}/{}^{86}\\mathrm{Sr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in different minerals at the time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of crystallization (open circles) and at present time (filled circles). "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "(b)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The isochron-line for three different mineral samples taken from a meteorite at present time."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4aWrite down the decay scheme for the transformation of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}_{37}\\mathrm{Rb}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}_{38}\\mathrm{Sr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4bShow that the present-time ratio "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}\\mathrm{Sr}/{}^{86}\\mathrm{Sr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plotted versus the present-time ratio "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}\\mathrm{Rb}/{}^{86}\\mathrm{Sr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in different mineral samples from the same meteorite forms a straight line, the so-called isochron-line, with slope "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a(t) = \\left(\\mathrm{e}^{\\lambda t}-1\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the time since the formation of the minerals, while "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the decay constant inversely proportional to half-life "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{\\text{½}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.7"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4cDetermine the age "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_\\mathrm{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the meteorite using the isochron-line of Fig. 1.2(b). 0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Comet Encke, from which Maribo may originate"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In its orbit around the Sun, the minimum and maximum distances between comet Encke and the Sun are "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_\\mathrm{min} = 4.95\\times 10^{10}\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_\\mathrm{max} = 6.16\\times 10^{11}\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", respectively."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.5Calculate the orbital period "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_\\mathrm{Encke}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of comet Encke. 0.6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Consequences of an asteroid impact on Earth"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "65 million years ago Earth was hit by a huge asteroid with density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_\\mathrm{ast} = 3.0\\times 10^{3}\\,\\mathrm{kg\\,m^{-3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{ast} = 5.0\\,\\mathrm{km}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and final speed of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{ast} = 2.5\\times 10^{4}\\,\\mathrm{m/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This impact resulted in the extermination of most of the life on Earth and the formation of the enormous Chicxulub Crater. Assume that an identical asteroid would hit Earth today in a completely inelastic collision, and use the fact that the moment of inertia of Earth is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.83\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " times that for a homogeneous sphere of the same mass and radius. The moment of inertia of a homogeneous sphere with mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{2}{5}MR^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Neglect any changes in the orbit of the Earth."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6aLet the asteroid hit the North Pole. Find the maximum change in angular orientation of the axis of Earth after the impact. 0.7"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6bLet the asteroid hit the Equator in a radial impact. Find the change "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\tau_\\mathrm{vrt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the duration of one revolution of Earth after the impact. 0.7"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6cLet the asteroid hit the Equator in a tangential impact in the equatorial plane. Find the change "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\tau_\\mathrm{tan}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the duration of one revolution of Earth after the impact. 0.7"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Maximum impact speed"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider a celestial body, gravitationally bound in the solar system, which impacts the surface of Earth with a speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{imp}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Initially the effect of the gravitational field of the Earth on the body can be neglected. Disregard the friction in the atmosphere, the effect of other celestial bodies, and the rotation of the Earth."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.7Calculate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{\\mathrm{imp}}^{\\mathrm{max}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the largest possible value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{imp}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "\n\nData sheet: Table of physical parameters\n\n\n\n\n\n\n\n\n\n\n\n\nSpeed of light in vacuum\n\n\n\\(c = 2.998\\times 10^{8}\\,\\mathrm{m\\,s^{-1}}\\)\n\n\n\n\n\n\n\n\n\n\nPlanck’s constant over \n\\(2\\pi\\)\n\n\n\\(\\hbar = 1.055\\times 10^{-34}\\,\\mathrm{J\\,s}\\)\n\n\n\n\n\n\nGravitational constant\n\n\n\\(G = 6.67\\times 10^{-11}\\,\\mathrm{m^{3}kg^{-1}s^{-2}}\\)\n\n\n\n\n\n\nGravitational acceleration\n\n\n\\(g = 9.82\\,\\mathrm{m\\,s^{-2}}\\)\n\n\n\n\n\n\nElementary charge\n\n\n\\(e = 1.602\\times 10^{-19}\\,\\mathrm{C}\\)\n\n\n\n\n\n\nElectric permittivity of vacuum\n\n\n\\(\\varepsilon_0 = 8.854\\times 10^{-12}\\,\\mathrm{C^{2}\\,J^{-1}\\,m^{-1}}\\)\n\n\n\n\n\n\nElectron mass\n\n\n\\(m_e = 9.109\\times 10^{-31}\\,\\mathrm{kg}\\)\n\n\n\n\n\n\nAvogadro constant\n\n\n\\(N_\\mathrm{A} = 6.022\\times 10^{23}\\,\\mathrm{mol^{-1}}\\)\n\n\n\n\n\n\nBoltzmann constant\n\n\n\\(k_\\mathrm{B} = 1.381\\times 10^{-23}\\,\\mathrm{J\\,K^{-1}}\\)\n\n\n\n\n\n\nStony meteorite, specific heat\n\n\n\\(c_\\mathrm{sm} = 1.2\\times 10^{3}\\,\\mathrm{J\\,kg^{-1}K^{-1}}\\)\n\n\n\n\n\n\nStony meteorite, thermal conductivity\n\n\n\\(k_\\mathrm{sm} = 2.0\\,\\mathrm{W\\,m^{-1}\\,K^{-1}}\\)\n\n\n\n\n\n\nStony meteorite, density\n\n\n\\(\\rho_\\mathrm{sm} = 3.3\\times 10^{3}\\,\\mathrm{kg\\,m^{-3}}\\)\n\n\n\n\n\n\nStony meteorite, melting point\n\n\n\\(T_\\mathrm{sm} = 1.7\\times 10^{3}\\,\\mathrm{K}\\)\n\n\n\n\n\n\nStony meteorite, specific melting heat\n\n\n\\(L_\\mathrm{sm} = 2.6\\times 10^{5}\\,\\mathrm{J\\,kg^{-1}}\\)\n\n\n\n\n\n\nSilver, molar mass\n\n\n\\(M_\\mathrm{Ag} = 1.079\\times 10^{-1}\\,\\mathrm{kg\\,mol^{-1}}\\)\n\n\n\n\n\n\nSilver, density\n\n\n\\(\\rho_\\mathrm{Ag} = 1.049\\times 10^{4}\\,\\mathrm{kg\\,m^{-3}}\\)\n\n\n\n\n\n\nSilver, specific heat capacity\n\n\n\\(c_\\mathrm{Ag} = 2.40\\times 10^{2}\\,\\mathrm{J\\,kg^{-1}K^{-1}}\\)\n\n\n\n\n\n\nWater, molar mass\n\n\n\\(M_\\mathrm{wa} = 1.801\\times 10^{-2}\\,\\mathrm{kg\\,mol^{-1}}\\)\n\n\n\n\n\n\nWater, density\n\n\n\\(\\rho_\\mathrm{wa} = 0.998\\times 10^{3}\\,\\mathrm{kg\\,m^{-3}}\\)\n\n\n\n\n\n\nWater, specific heat capacity\n\n\n\\(c_\\mathrm{wa} = 4.181\\times 10^{3}\\,\\mathrm{J\\,kg^{-1}K^{-1}}\\)\n\n\n\n\n\n\nWater, heat of vaporization\n\n\n\\(L_\\mathrm{wa} = 2.260\\times 10^{6}\\,\\mathrm{J\\,kg^{-1}}\\)\n\n\n\n\n\n\nWater, boiling temperature\n\n\n\\(T_{100} = 100\\,^\\circ\\mathrm{C} = 373.15\\,\\mathrm{K}\\)\n\n\n\n\n\n\nIce, density of glacier\n\n\n\\(\\rho_\\mathrm{ice} = 0.917\\times 10^{3}\\,\\mathrm{kg\\,m^{-3}}\\)\n\n\n\n\n\n\nSteam, specific heat capacity\n\n\n\\(c_\\mathrm{st} = 2.080\\times 10^{3}\\,\\mathrm{J\\,kg^{-1}\\,K^{-1}}\\)\n\n\n\n\n\n\nEarth, mass of the\n\n\n\\(m_\\mathrm{E} = 5.97\\times 10^{24}\\,\\mathrm{kg}\\)\n\n\n\n\n\n\nEarth, radius of the\n\n\n\\(R_\\mathrm{E} = 6.38\\times 10^{6}\\,\\mathrm{m}\\)\n\n\n\n\n\n\nSun, mass of the\n\n\n\\(m_\\mathrm{S} = 1.99\\times 10^{30}\\,\\mathrm{kg}\\)\n\n\n\n\n\n\nSun, radius of the\n\n\n\\(R_\\mathrm{S} = 6.96\\times 10^{8}\\,\\mathrm{m}\\)\n\n\n\n\n\n\nAverage Sun-Earth distance\n\n\n\\(a_\\mathrm{E} = 1.50\\times 10^{11}\\,\\mathrm{m}\\)\n\n\n\n\n\n\n\n\n\n\nThe Maribo Meteorite\n\n\nIntroduction\n\n\nA meteoroid is a small particle (typically smaller than \n\\(1\\,\\mathrm{m}\\)\n) from a comet or an asteroid. A meteoroid that impacts the ground is called a meteorite.\n\n\nOn the night of 17 January 2009 many people near the Baltic Sea saw the glowing trail or fireball of a meteoroid falling through the atmosphere of the Earth. In Sweden a surveillance camera recorded a video of the event, see Fig. 1.1(a). From these pictures and eyewitness accounts it was possible to narrow down the impact area, and six weeks later a meteorite with the mass \n\\(0.025\\,\\mathrm{kg}\\)\n was found in the vicinity of the town Maribo in southern Denmark. Measurements on the meteorite, now named Maribo, and its orbit in the sky showed interesting results. Its speed when entering the atmosphere had been exceptionally high. Its age, \n\\(4.567\\times 10^{9}\\)\n year, shows that it had been formed shortly after the birth of the solar system. The Maribo meteorite is possibly a part of Comet Encke.\n\n\nThe speed of Maribo\n\n\nThe fireball was moving in westerly direction, heading \n\\(285^\\circ\\)\n relative to north, toward the location where the meteorite was subsequently found, as sketched in Fig. 1.1. The meteorite was found at a distance \n\\(195\\,\\mathrm{km}\\)\n from the surveillance camera in the direction \n\\(230^\\circ\\)\n relative to north.\n\n\n1.1Use this and the data in Fig. 1.1 to calculate the average speed of Maribo in the time interval between frames 155 and 161. The curvature of the Earth and the gravitational force on the meteoroid can both be neglected. 1.3\n\n\nThrough the atmosphere and melting?\n\n\nThe friction from the air on a meteoroid moving in the higher atmosphere depends in a complicated way on the shape and velocity of the meteoroid, and on the temperature and density of the atmosphere. As a reasonable approximation the friction force \n\\(F\\)\n in the upper atmosphere is given by the expression \n\\(F = k\\rho_\\mathrm{atm}Av^2\\)\n, where \n\\(k\\)\n is a constant, \n\\(\\rho_\\mathrm{atm}\\)\n the density of the atmosphere, \n\\(A\\)\n the projected cross-section area of the meteorite, and \n\\(v\\)\n its speed.\n\n\nThe following simplifying assumptions are made to analyze the meteoroid: The object entering the atmosphere was a sphere of mass \n\\(m_\\mathrm{M} = 30\\,\\mathrm{kg}\\)\n, radius \n\\(R_\\mathrm{M} = 0.13\\,\\mathrm{m}\\)\n, temperature \n\\(T_0 = 200\\,\\mathrm{K}\\)\n, and speed \n\\(v_\\mathrm{M} = 2.91\\times 10^4\\,\\mathrm{m/s}\\)\n. The density of the atmosphere is constant (its value \n\\(40\\,\\mathrm{km}\\)\n above the surface of the Earth), \n\\(\\rho_\\mathrm{atm} = 4.1\\times 10^{-3}\\,\\mathrm{kg/m^3}\\)\n, and the friction coefficient is \n\\(k = 0.60\\)\n.\n\n\n1.2aEstimate how long time after entering the atmosphere it takes the meteoroid to have its speed reduced by \n\\(10\\,\\%\\)\n from \n\\(v_\\mathrm{M}\\)\n to \n\\(0.90\\,v_\\mathrm{M}\\)\n. You can neglect the gravitational force on the meteoroid and assume, that it maintains its mass and shape. 0.7\n\n\n1.2bCalculate how many times larger the kinetic energy \n\\(E_\\mathrm{kin}\\)\n of the meteoroid entering the atmosphere is than the energy \n\\(E_\\mathrm{melt}\\)\n necessary for melting it completely (see data sheet). 0.3\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\n\nFrame\n\n\nTime\n\n\nAzimuth\n\n\nAltitude\n\n\n\n\n\n\n\n\n\n\n155\n\n\n\\(1.46\\,\\mathrm{s}\\)\n\n\n\\(215^\\circ\\)\n\n\n\\(19.2^\\circ\\)\n\n\n\n\n\n\n161\n\n\n\\(2.28\\,\\mathrm{s}\\)\n\n\n\\(221^\\circ\\)\n\n\n\\(14.7^\\circ\\)\n\n\n\n\n\n\nLanding at M\n\n\n\\(230^\\circ\\)\n\n\n\\(0.0^\\circ\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1.1\n \n(a)\n Azimuth is the clockwise angular position from north in the horizontal plane, and altitude is the angular position above the horizon. A series of frames recorded by the surveillance camera in Sweden, showing the motion of Maribo as a fireball on its way down through the atmosphere. \n(b)\n The data from two frames indicating the time, the direction (azimuth) in degrees, as seen by the camera (C), and the height above the horizon (altitude) in degrees. \n(c)\n Sketch of the directions of the path (magenta arrow) of Maribo relative to north (N) and of the landing site (M) in Denmark as seen by the camera (C).\n\n\nHeating of Maribo during its fall in the atmosphere\n\n\nWhen the stony meteoroid Maribo entered the atmosphere at supersonic speed it appeared as a fireball because the surrounding air was glowing. Nevertheless, only the outermost layer of Maribo was heated. Assume that Maribo is a homogenous sphere with density \n\\(\\rho_\\mathrm{sm}\\)\n, specific heat capacity \n\\(c_\\mathrm{sm}\\)\n, and thermal conductivity \n\\(k_\\mathrm{sm}\\)\n (for values see the data sheet). Furthermore, when entering the atmosphere, it had the temperature \n\\(T_0 = 200\\,\\mathrm{K}\\)\n. While falling through the atmosphere its surface temperature was constant \n\\(T_\\mathrm{s} = 1000\\,\\mathrm{K}\\)\n due to the air friction, thus gradually heating up the interior.\n\n\nAfter falling a time \n\\(t\\)\n in the atmosphere, an outer shell of Maribo of thickness \n\\(x\\)\n will have been heated to a temperature significantly larger than \n\\(T_0\\)\n. This thickness can be estimated by dimensional analysis as the simple product of powers of the thermodynamic parameters: \n\\(x \\approx t^{\\alpha}\\rho_\\mathrm{sm}^{\\beta}c_\\mathrm{sm}^{\\gamma}k_\\mathrm{sm}^{\\delta}\\)\n.\n\n\n1.3aDetermine by dimensional (unit) analysis the value of the four powers \n\\(\\alpha\\)\n, \n\\(\\beta\\)\n, \n\\(\\gamma\\)\n, and \n\\(\\delta\\)\n. 0.6\n\n\n1.3bCalculate the thickness \n\\(x\\)\n after a fall time \n\\(t = 5\\,\\mathrm{s}\\)\n, and determine the ratio \n\\(x/R_\\mathrm{M}\\)\n. 0.4\n\n\nThe age of a meteorite\n\n\nThe chemical properties of radioactive elements may be different, so during the crystallization of the minerals in a given meteorite, some minerals will have a high content of a specific radioactive element and others a low content. This difference can be used to determine the age of a meteorite by radiometric dating of its radioactive minerals.\n\n\nAs a specific example, we study the isotope \n\\({}^{87}\\mathrm{Rb}\\)\n (element no. 37), which decays into the stable isotope \n\\({}^{87}\\mathrm{Sr}\\)\n (element no. 38) with a half-life of \n\\(T_{\\text{½}} = 4.9\\times 10^{10}\\)\n year, relative to the stable isotope \n\\({}^{86}\\mathrm{Sr}\\)\n. At the time of crystallization the ratio \n\\({}^{87}\\mathrm{Sr}/{}^{86}\\mathrm{Sr}\\)\n was identical for all minerals, while the ratio \n\\({}^{87}\\mathrm{Rb}/{}^{86}\\mathrm{Sr}\\)\n was different. As time passes on, the amount of \n\\({}^{87}\\mathrm{Rb}\\)\n decreases by decay, while consequently the amount of \n\\({}^{87}\\mathrm{Sr}\\)\n increases. As a result, the ratio \n\\({}^{87}\\mathrm{Sr}/{}^{86}\\mathrm{Sr}\\)\n will be different today. In Fig. 1.2(a), the points on the horizontal line refer to the ratio \n\\({}^{87}\\mathrm{Rb}/{}^{86}\\mathrm{Sr}\\)\n in different minerals at the time, when they are crystallized.\n\n\n\n\n\n\n\n\n\nFigure 1.2\n \n(a)\n The ratio \n\\({}^{87}\\mathrm{Sr}/{}^{86}\\mathrm{Sr}\\)\n in different minerals at the time \n\\(t = 0\\)\n of crystallization (open circles) and at present time (filled circles). \n(b)\n The isochron-line for three different mineral samples taken from a meteorite at present time.\n\n\n1.4aWrite down the decay scheme for the transformation of \n\\({}^{87}_{37}\\mathrm{Rb}\\)\n to \n\\({}^{87}_{38}\\mathrm{Sr}\\)\n. 0.3\n\n\n1.4bShow that the present-time ratio \n\\({}^{87}\\mathrm{Sr}/{}^{86}\\mathrm{Sr}\\)\n plotted versus the present-time ratio \n\\({}^{87}\\mathrm{Rb}/{}^{86}\\mathrm{Sr}\\)\n in different mineral samples from the same meteorite forms a straight line, the so-called isochron-line, with slope \n\\(a(t) = \\left(\\mathrm{e}^{\\lambda t}-1\\right)\\)\n. Here \n\\(t\\)\n is the time since the formation of the minerals, while \n\\(\\lambda\\)\n is the decay constant inversely proportional to half-life \n\\(T_{\\text{½}}\\)\n. 0.7\n\n\n1.4cDetermine the age \n\\(\\tau_\\mathrm{M}\\)\n of the meteorite using the isochron-line of Fig. 1.2(b). 0.4\n\n\nComet Encke, from which Maribo may originate\n\n\nIn its orbit around the Sun, the minimum and maximum distances between comet Encke and the Sun are \n\\(a_\\mathrm{min} = 4.95\\times 10^{10}\\,\\mathrm{m}\\)\n and \n\\(a_\\mathrm{max} = 6.16\\times 10^{11}\\,\\mathrm{m}\\)\n, respectively.\n\n\n1.5Calculate the orbital period \n\\(t_\\mathrm{Encke}\\)\n of comet Encke. 0.6\n\n\nConsequences of an asteroid impact on Earth\n\n\n65 million years ago Earth was hit by a huge asteroid with density \n\\(\\rho_\\mathrm{ast} = 3.0\\times 10^{3}\\,\\mathrm{kg\\,m^{-3}}\\)\n, radius \n\\(R_\\mathrm{ast} = 5.0\\,\\mathrm{km}\\)\n, and final speed of \n\\(v_\\mathrm{ast} = 2.5\\times 10^{4}\\,\\mathrm{m/s}\\)\n. This impact resulted in the extermination of most of the life on Earth and the formation of the enormous Chicxulub Crater. Assume that an identical asteroid would hit Earth today in a completely inelastic collision, and use the fact that the moment of inertia of Earth is \n\\(0.83\\)\n times that for a homogeneous sphere of the same mass and radius. The moment of inertia of a homogeneous sphere with mass \n\\(M\\)\n and radius \n\\(R\\)\n is \n\\(\\frac{2}{5}MR^2\\)\n. Neglect any changes in the orbit of the Earth.\n\n\n1.6aLet the asteroid hit the North Pole. Find the maximum change in angular orientation of the axis of Earth after the impact. 0.7\n\n\n1.6bLet the asteroid hit the Equator in a radial impact. Find the change \n\\(\\Delta\\tau_\\mathrm{vrt}\\)\n in the duration of one revolution of Earth after the impact. 0.7\n\n\n1.6cLet the asteroid hit the Equator in a tangential impact in the equatorial plane. Find the change \n\\(\\Delta\\tau_\\mathrm{tan}\\)\n in the duration of one revolution of Earth after the impact. 0.7\n\n\nMaximum impact speed\n\n\nConsider a celestial body, gravitationally bound in the solar system, which impacts the surface of Earth with a speed \n\\(v_\\mathrm{imp}\\)\n. Initially the effect of the gravitational field of the Earth on the body can be neglected. Disregard the friction in the atmosphere, the effect of other celestial bodies, and the rotation of the Earth.\n\n\n1.7Calculate \n\\(v_{\\mathrm{imp}}^{\\mathrm{max}}\\)\n, the largest possible value of \n\\(v_\\mathrm{imp}\\)\n. 1.6\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2013-t1/acc78329bbf4301e90e8.png",
+      "/corpus/figures/native/bulk/ipho-2013-t1/9169748000cbdff7c67a.png",
+      "/corpus/figures/native/bulk/ipho-2013-t1/37ca1349b50a49e94e5a.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2013-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The Maribo Meteorite"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Solutions"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.11.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2013-t1/dd369137ef76d0ca7b75.png",
+                "alt": "ipho-2013-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Top view: Triangle MBC: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\mathrm{CM}| = 195\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\angle \\mathrm{BCM} = 230^\\circ - 180^\\circ = 50^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\angle \\mathrm{MBC} = 75^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\angle \\mathrm{CMB} = 180^\\circ - 75^\\circ - 50^\\circ = 55^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\mathrm{CB}| = \\frac{|\\mathrm{CM}|\\sin(\\angle \\mathrm{CMB})}{\\sin(\\angle \\mathrm{MBC})} = 165.4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Triangle DBC: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\mathrm{BC}| = 165.4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\angle \\mathrm{BCD} = 215^\\circ - 180^\\circ = 35^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\angle \\mathrm{DBC} = 75^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\angle \\mathrm{CDB} = 180^\\circ - 75^\\circ - 35^\\circ = 70^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\mathrm{CD}| = \\frac{|\\mathrm{BC}|\\sin(\\angle \\mathrm{DBC})}{\\sin(\\angle \\mathrm{CDB})} = 170.0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Triangle EBC: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\mathrm{BC}| = 165.4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\angle \\mathrm{BCE} = 221^\\circ - 180^\\circ = 41^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\angle \\mathrm{EBC} = 75^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\angle \\mathrm{CEB} = 180^\\circ - 75^\\circ - 41^\\circ = 64^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\mathrm{CE}| = \\frac{|\\mathrm{BC}|\\sin(\\angle \\mathrm{EBC})}{\\sin(\\angle \\mathrm{CEB})} = 177.7\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Triangle EDC: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\angle \\mathrm{DCE} = 41^\\circ - 35^\\circ = 6^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Horizontal distance traveled by Maribo: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\mathrm{DE}| = \\frac{|\\mathrm{DC}|\\sin(\\angle \\mathrm{DCE})}{\\sin(\\angle \\mathrm{CED})} = 19.77\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Side view: Triangle CDF: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\mathrm{DF}| = |\\mathrm{DC}|\\tan(\\angle \\mathrm{FCD}) = 59.20\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Triangle CEG: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\mathrm{EG}| = |\\mathrm{CE}|\\tan(\\angle \\mathrm{GCE}) = 46.62\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus vertical distance travelled by Maribo: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\mathrm{DF}| - |\\mathrm{EG}| = 12.57\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total distance travelled by Maribo from frame 155 to 161:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(|\\mathrm{FG}| = \\sqrt{|\\mathrm{DE}|^2 + (|\\mathrm{DF}| - |\\mathrm{EG}|)^2} = 23.43\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The speed of Maribo is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v = \\frac{23.43\\,\\mathrm{km}}{2.28\\,\\mathrm{s} - 1.46\\,\\mathrm{s}} = 28.6\\,\\mathrm{km/s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2a0.7"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Newton’s second law: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{M}\\frac{\\mathrm{d}v}{\\mathrm{d}t} = -k\\rho_\\mathrm{atm}\\pi R_\\mathrm{M}^2 v^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " yields "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{1}{v^2}\\,\\mathrm{d}v = -\\frac{k\\rho_\\mathrm{atm}\\pi R_\\mathrm{M}^2}{m_\\mathrm{M}}\\,\\mathrm{d}t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "By integration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = \\frac{m_\\mathrm{M}}{k\\rho_\\mathrm{atm}\\pi R_\\mathrm{M}^2}\\left(\\frac{1}{0.9} - 1\\right)\\frac{1}{v_\\mathrm{M}} = 0.88\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " s."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Alternative solution: The average force on the meteoroid when the speed decreases from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0.9\\,v_\\mathrm{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be estimated to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_\\mathrm{av} = -k\\rho_\\mathrm{atm}\\pi R_\\mathrm{M}^2\\,(0.95\\,v_\\mathrm{M})^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Using that the acceleration is approximately constant, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_\\mathrm{av} = -k\\rho_\\mathrm{atm}\\pi R_\\mathrm{M}^2\\,(0.95\\,v_\\mathrm{M})^2/m_\\mathrm{M}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", results in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = \\frac{-0.1\\,v_\\mathrm{M}}{a_\\mathrm{av}} = 0.87\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " s."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2b0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{E_\\mathrm{kin}}{E_\\mathrm{melt}} = \\frac{\\frac{1}{2}v_\\mathrm{M}^2}{c_\\mathrm{sm}(T_\\mathrm{sm}-T_0) + L_\\mathrm{sm}} = \\frac{4.2\\times 10^8}{2.1\\times 10^6} = 2.1\\times 10^2 \\gg 1.\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.3a0.6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[[x] = [t]^\\alpha[\\rho_\\mathrm{sm}]^\\beta[c_\\mathrm{sm}]^\\gamma[k_\\mathrm{sm}]^\\delta\n= [\\mathrm{s}]^\\alpha[\\mathrm{kg\\,m^{-3}}]^\\beta[\\mathrm{m^2\\,s^{-2}K^{-1}}]^\\gamma[\\mathrm{kg\\,m\\,s^{-3}K^{-1}}]^\\delta,\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[[\\mathrm{m}] = [\\mathrm{kg}]^{\\beta+\\delta}[\\mathrm{m}]^{-3\\beta+2\\gamma+\\delta}[\\mathrm{s}]^{\\alpha-2\\gamma-3\\delta}[\\mathrm{K}]^{-\\gamma-\\delta}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta+\\delta = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-3\\beta+2\\gamma+\\delta = 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha-2\\gamma-3\\delta = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\gamma-\\delta = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From which "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\alpha,\\beta,\\gamma,\\delta) = \\left(+\\frac{1}{2},-\\frac{1}{2},-\\frac{1}{2},+\\frac{1}{2}\\right)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x(t) \\approx \\sqrt{\\frac{k_\\mathrm{sm}\\,t}{\\rho_\\mathrm{sm}c_\\mathrm{sm}}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.3b0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x(5\\,\\mathrm{s}) = 1.6\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " mm "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x/R_\\mathrm{M} = 1.6\\,\\mathrm{mm}/130\\,\\mathrm{mm} = 0.012\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4a0.3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Rb-Sr decay scheme: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}_{37}\\mathrm{Rb} \\rightarrow {}^{87}_{38}\\mathrm{Sr} + {}^{0}_{-1}\\mathrm{e} + \\bar{\\nu}_\\mathrm{e}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4b0.7"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_{87\\mathrm{Rb}}(t) = N_{87\\mathrm{Rb}}(0)\\,\\mathrm{e}^{-\\lambda t}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and Rb"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rightarrow\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sr: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_{87\\mathrm{Sr}}(t) = N_{87\\mathrm{Sr}}(0) + [N_{87\\mathrm{Rb}}(0) - N_{87\\mathrm{Rb}}(t)]\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_{87\\mathrm{Sr}}(t) = N_{87\\mathrm{Sr}}(0) + (\\mathrm{e}^{\\lambda t} - 1)N_{87\\mathrm{Rb}}(t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and dividing by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_{86\\mathrm{Sr}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we obtain the equation of a straight line: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{N_{87\\mathrm{Sr}}(t)}{N_{86\\mathrm{Sr}}} = \\frac{N_{87\\mathrm{Sr}}(0)}{N_{86\\mathrm{Sr}}} + (\\mathrm{e}^{\\lambda t} - 1)\\,\\frac{N_{87\\mathrm{Rb}}(t)}{N_{86\\mathrm{Sr}}}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4c0.4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Slope: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{e}^{\\lambda t} - 1 = a = \\frac{0.712 - 0.700}{0.25} = 0.050\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_{\\frac{1}{2}} = \\frac{\\ln(2)}{\\lambda} = 4.9\\times 10^{10}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " year."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "So "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_\\mathrm{M} = \\ln(1 + a)\\frac{1}{\\lambda} = \\frac{\\ln(1+a)}{\\ln(2)}T_{\\frac{1}{2}} = 3.4\\times 10^9\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " year ."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.50.6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Kepler’s 3rd law on comet Encke and Earth, with the orbital semi-major axis of Encke given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a = \\frac{1}{2}(a_\\mathrm{min} + a_\\mathrm{max})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_\\mathrm{Encke} = \\left(\\frac{a}{a_\\mathrm{E}}\\right)^{\\frac{3}{2}} t_\\mathrm{E} = 3.30\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " year "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(= 1.04\\times 10^8\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " s."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6a0.7"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For Earth around its rotation axis: Angular velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega_\\mathrm{E} = \\frac{2\\pi}{24\\,\\mathrm{h}} = 7.27\\times 10^{-5}\\,\\mathrm{s^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Moment of inertia "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(I_\\mathrm{E} = 0.83\\,\\frac{2}{5}\\,m_\\mathrm{E}R_\\mathrm{E}^2 = 8.07\\times 10^{37}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg m"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Angular momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_\\mathrm{E} = I_\\mathrm{E}\\omega_\\mathrm{E} = 5.87\\times 10^{33}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg m"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "s"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Asteroid: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{ast} = \\frac{4\\pi}{3}R_\\mathrm{ast}^3\\rho_\\mathrm{ast} = 1.57\\times 10^{15}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg and angular momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_\\mathrm{ast} = m_\\mathrm{ast}v_\\mathrm{ast}R_\\mathrm{E} = 2.51\\times 10^{26}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg m"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "s"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_\\mathrm{ast}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is perpendicular to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_\\mathrm{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so by conservation angular momentum: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tan(\\Delta\\theta) = L_\\mathrm{ast}/L_\\mathrm{E} = 4.27\\times 10^{-8}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The axis tilt "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\theta = 4.27\\times 10^{-8}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " rad (so the North Pole moves "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\mathrm{E}\\,\\Delta\\theta = 0.27\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6b0.7"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At vertical impact "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta L_\\mathrm{E} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta(I_\\mathrm{E}\\omega_\\mathrm{E}) = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\omega_\\mathrm{E} = -\\omega_\\mathrm{E}(\\Delta I_\\mathrm{E})/I_\\mathrm{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta I_\\mathrm{E}/I_\\mathrm{E} = m_\\mathrm{ast}R_\\mathrm{E}^2/I_\\mathrm{E} = 7.9\\times 10^{-10}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\omega_\\mathrm{E} = -5.76\\times 10^{-14}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " s"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The change in rotation period is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta T_\\mathrm{E} = 2\\pi\\left(\\frac{1}{\\omega_\\mathrm{E}+\\Delta\\omega_\\mathrm{E}} - \\frac{1}{\\omega_\\mathrm{E}}\\right) \\approx -2\\pi\\frac{\\Delta\\omega_\\mathrm{E}}{\\omega_\\mathrm{E}^2} = 6.84\\times 10^{-5}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " s."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6c0.7"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At tangential impact "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_\\mathrm{ast}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is parallel to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_\\mathrm{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_\\mathrm{E} + L_\\mathrm{ast} = (I_\\mathrm{E} + \\Delta I_\\mathrm{E})(\\omega_\\mathrm{E} + \\Delta\\omega_\\mathrm{E})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta T_\\mathrm{E} = 2\\pi\\left(\\frac{1}{\\omega_\\mathrm{E}+\\Delta\\omega_\\mathrm{E}} - \\frac{1}{\\omega_\\mathrm{E}}\\right) = 2\\pi\\left(\\frac{I_\\mathrm{E}+\\Delta I_\\mathrm{E}}{L_\\mathrm{E}+L_\\mathrm{ast}} - \\frac{1}{\\omega_\\mathrm{E}}\\right) = -3.62\\times 10^{-3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " s."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.71.6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Maximum impact speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{imp}^\\mathrm{max}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " arises from three contributions:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(I) The velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the body at distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_\\mathrm{E}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (Earth orbit radius) from the Sun,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{b} = \\sqrt{\\frac{2Gm_S}{a_E}} = 42.1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km/s."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(II) The orbital velocity of the Earth, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{E} = \\frac{2\\pi a_E}{1\\,\\mathrm{year}} = 29.8\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km/s."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(III) Gravitational attraction from the Earth and kinetic energy seen from the Earth: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{1}{2}(v_\\mathrm{b} + v_\\mathrm{E})^2 = -\\frac{Gm_E}{R_E} + \\frac{1}{2}\\left(v_\\mathrm{imp}^\\mathrm{max}\\right)^2.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In conclusion: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{imp}^\\mathrm{max} = \\sqrt{(v_\\mathrm{b} + v_\\mathrm{E})^2 + \\frac{2Gm_E}{R_E}} = 72.8\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " km/s."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Total9.0"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "The Maribo Meteorite\n\n\n\n\nSolutions\n\n\n\n\n1.11.3\n\n\n\n\n\n\n\n\n\nTop view: Triangle MBC: \n\\(|\\mathrm{CM}| = 195\\)\n km, \n\\(\\angle \\mathrm{BCM} = 230^\\circ - 180^\\circ = 50^\\circ\\)\n, and \n\\(\\angle \\mathrm{MBC} = 75^\\circ\\)\n, so \n\\(\\angle \\mathrm{CMB} = 180^\\circ - 75^\\circ - 50^\\circ = 55^\\circ\\)\n.\n\n\nThen \n\\(|\\mathrm{CB}| = \\frac{|\\mathrm{CM}|\\sin(\\angle \\mathrm{CMB})}{\\sin(\\angle \\mathrm{MBC})} = 165.4\\)\n km.\n\n\nTriangle DBC: \n\\(|\\mathrm{BC}| = 165.4\\)\n km, \n\\(\\angle \\mathrm{BCD} = 215^\\circ - 180^\\circ = 35^\\circ\\)\n, and \n\\(\\angle \\mathrm{DBC} = 75^\\circ\\)\n, so \n\\(\\angle \\mathrm{CDB} = 180^\\circ - 75^\\circ - 35^\\circ = 70^\\circ\\)\n.\n\n\nThen \n\\(|\\mathrm{CD}| = \\frac{|\\mathrm{BC}|\\sin(\\angle \\mathrm{DBC})}{\\sin(\\angle \\mathrm{CDB})} = 170.0\\)\n km.\n\n\nTriangle EBC: \n\\(|\\mathrm{BC}| = 165.4\\)\n km, \n\\(\\angle \\mathrm{BCE} = 221^\\circ - 180^\\circ = 41^\\circ\\)\n, and \n\\(\\angle \\mathrm{EBC} = 75^\\circ\\)\n, so \n\\(\\angle \\mathrm{CEB} = 180^\\circ - 75^\\circ - 41^\\circ = 64^\\circ\\)\n.\n\n\nThen \n\\(|\\mathrm{CE}| = \\frac{|\\mathrm{BC}|\\sin(\\angle \\mathrm{EBC})}{\\sin(\\angle \\mathrm{CEB})} = 177.7\\)\n km.\n\n\nTriangle EDC: \n\\(\\angle \\mathrm{DCE} = 41^\\circ - 35^\\circ = 6^\\circ\\)\n. Horizontal distance traveled by Maribo: \n\\(|\\mathrm{DE}| = \\frac{|\\mathrm{DC}|\\sin(\\angle \\mathrm{DCE})}{\\sin(\\angle \\mathrm{CED})} = 19.77\\)\n km.\n\n\nSide view: Triangle CDF: \n\\(|\\mathrm{DF}| = |\\mathrm{DC}|\\tan(\\angle \\mathrm{FCD}) = 59.20\\)\n km.\n\n\nTriangle CEG: \n\\(|\\mathrm{EG}| = |\\mathrm{CE}|\\tan(\\angle \\mathrm{GCE}) = 46.62\\)\n km.\n\n\nThus vertical distance travelled by Maribo: \n\\(|\\mathrm{DF}| - |\\mathrm{EG}| = 12.57\\)\n km.\n\n\nTotal distance travelled by Maribo from frame 155 to 161:\n\n\n\\(|\\mathrm{FG}| = \\sqrt{|\\mathrm{DE}|^2 + (|\\mathrm{DF}| - |\\mathrm{EG}|)^2} = 23.43\\)\n km.\n\n\nThe speed of Maribo is \n\\(v = \\frac{23.43\\,\\mathrm{km}}{2.28\\,\\mathrm{s} - 1.46\\,\\mathrm{s}} = 28.6\\,\\mathrm{km/s}\\)\n.\n\n\n1.2a0.7\n\n\nNewton’s second law: \n\\(m_\\mathrm{M}\\frac{\\mathrm{d}v}{\\mathrm{d}t} = -k\\rho_\\mathrm{atm}\\pi R_\\mathrm{M}^2 v^2\\)\n yields \n\\(\\frac{1}{v^2}\\,\\mathrm{d}v = -\\frac{k\\rho_\\mathrm{atm}\\pi R_\\mathrm{M}^2}{m_\\mathrm{M}}\\,\\mathrm{d}t\\)\n.\n\n\nBy integration \n\\(t = \\frac{m_\\mathrm{M}}{k\\rho_\\mathrm{atm}\\pi R_\\mathrm{M}^2}\\left(\\frac{1}{0.9} - 1\\right)\\frac{1}{v_\\mathrm{M}} = 0.88\\)\n s.\n\n\nAlternative solution: The average force on the meteoroid when the speed decreases from \n\\(v_\\mathrm{M}\\)\n to \n\\(0.9\\,v_\\mathrm{M}\\)\n can be estimated to \n\\(F_\\mathrm{av} = -k\\rho_\\mathrm{atm}\\pi R_\\mathrm{M}^2\\,(0.95\\,v_\\mathrm{M})^2\\)\n. Using that the acceleration is approximately constant, \n\\(a_\\mathrm{av} = -k\\rho_\\mathrm{atm}\\pi R_\\mathrm{M}^2\\,(0.95\\,v_\\mathrm{M})^2/m_\\mathrm{M}\\)\n, results in \n\\(t = \\frac{-0.1\\,v_\\mathrm{M}}{a_\\mathrm{av}} = 0.87\\)\n s.\n\n\n1.2b0.3\n\n\n\\(\\frac{E_\\mathrm{kin}}{E_\\mathrm{melt}} = \\frac{\\frac{1}{2}v_\\mathrm{M}^2}{c_\\mathrm{sm}(T_\\mathrm{sm}-T_0) + L_\\mathrm{sm}} = \\frac{4.2\\times 10^8}{2.1\\times 10^6} = 2.1\\times 10^2 \\gg 1.\\)\n\n\n1.3a0.6\n\n\n\\[[x] = [t]^\\alpha[\\rho_\\mathrm{sm}]^\\beta[c_\\mathrm{sm}]^\\gamma[k_\\mathrm{sm}]^\\delta\n= [\\mathrm{s}]^\\alpha[\\mathrm{kg\\,m^{-3}}]^\\beta[\\mathrm{m^2\\,s^{-2}K^{-1}}]^\\gamma[\\mathrm{kg\\,m\\,s^{-3}K^{-1}}]^\\delta,\\]\n\n\nso \n\\[[\\mathrm{m}] = [\\mathrm{kg}]^{\\beta+\\delta}[\\mathrm{m}]^{-3\\beta+2\\gamma+\\delta}[\\mathrm{s}]^{\\alpha-2\\gamma-3\\delta}[\\mathrm{K}]^{-\\gamma-\\delta}.\\]\n\n\nThus \n\\(\\beta+\\delta = 0\\)\n, \n\\(-3\\beta+2\\gamma+\\delta = 1\\)\n, \n\\(\\alpha-2\\gamma-3\\delta = 0\\)\n, and \n\\(-\\gamma-\\delta = 0\\)\n.\n\n\nFrom which \n\\((\\alpha,\\beta,\\gamma,\\delta) = \\left(+\\frac{1}{2},-\\frac{1}{2},-\\frac{1}{2},+\\frac{1}{2}\\right)\\)\n and \n\\(x(t) \\approx \\sqrt{\\frac{k_\\mathrm{sm}\\,t}{\\rho_\\mathrm{sm}c_\\mathrm{sm}}}\\)\n.\n\n\n1.3b0.4\n\n\n\\(x(5\\,\\mathrm{s}) = 1.6\\)\n mm \n\\(x/R_\\mathrm{M} = 1.6\\,\\mathrm{mm}/130\\,\\mathrm{mm} = 0.012\\)\n.\n\n\n1.4a0.3\n\n\nRb-Sr decay scheme: \n\\({}^{87}_{37}\\mathrm{Rb} \\rightarrow {}^{87}_{38}\\mathrm{Sr} + {}^{0}_{-1}\\mathrm{e} + \\bar{\\nu}_\\mathrm{e}\\)\n\n\n1.4b0.7\n\n\n\\(N_{87\\mathrm{Rb}}(t) = N_{87\\mathrm{Rb}}(0)\\,\\mathrm{e}^{-\\lambda t}\\)\n and Rb\n\\(\\rightarrow\\)\nSr: \n\\(N_{87\\mathrm{Sr}}(t) = N_{87\\mathrm{Sr}}(0) + [N_{87\\mathrm{Rb}}(0) - N_{87\\mathrm{Rb}}(t)]\\)\n.\n\n\nThus \n\\(N_{87\\mathrm{Sr}}(t) = N_{87\\mathrm{Sr}}(0) + (\\mathrm{e}^{\\lambda t} - 1)N_{87\\mathrm{Rb}}(t)\\)\n, and dividing by \n\\(N_{86\\mathrm{Sr}}\\)\n we obtain the equation of a straight line: \n\\[\\frac{N_{87\\mathrm{Sr}}(t)}{N_{86\\mathrm{Sr}}} = \\frac{N_{87\\mathrm{Sr}}(0)}{N_{86\\mathrm{Sr}}} + (\\mathrm{e}^{\\lambda t} - 1)\\,\\frac{N_{87\\mathrm{Rb}}(t)}{N_{86\\mathrm{Sr}}}.\\]\n\n\n1.4c0.4\n\n\nSlope: \n\\(\\mathrm{e}^{\\lambda t} - 1 = a = \\frac{0.712 - 0.700}{0.25} = 0.050\\)\n and \n\\(T_{\\frac{1}{2}} = \\frac{\\ln(2)}{\\lambda} = 4.9\\times 10^{10}\\)\n year.\n\n\nSo \n\\(\\tau_\\mathrm{M} = \\ln(1 + a)\\frac{1}{\\lambda} = \\frac{\\ln(1+a)}{\\ln(2)}T_{\\frac{1}{2}} = 3.4\\times 10^9\\)\n year .\n\n\n1.50.6\n\n\nKepler’s 3rd law on comet Encke and Earth, with the orbital semi-major axis of Encke given by \n\\(a = \\frac{1}{2}(a_\\mathrm{min} + a_\\mathrm{max})\\)\n. Thus \n\\(t_\\mathrm{Encke} = \\left(\\frac{a}{a_\\mathrm{E}}\\right)^{\\frac{3}{2}} t_\\mathrm{E} = 3.30\\)\n year \n\\(= 1.04\\times 10^8\\)\n s.\n\n\n1.6a0.7\n\n\nFor Earth around its rotation axis: Angular velocity \n\\(\\omega_\\mathrm{E} = \\frac{2\\pi}{24\\,\\mathrm{h}} = 7.27\\times 10^{-5}\\,\\mathrm{s^{-1}}\\)\n.\n\n\nMoment of inertia \n\\(I_\\mathrm{E} = 0.83\\,\\frac{2}{5}\\,m_\\mathrm{E}R_\\mathrm{E}^2 = 8.07\\times 10^{37}\\)\n kg m\n\\(^2\\)\n.\n\n\nAngular momentum \n\\(L_\\mathrm{E} = I_\\mathrm{E}\\omega_\\mathrm{E} = 5.87\\times 10^{33}\\)\n kg m\n\\(^2\\)\ns\n\\(^{-1}\\)\n.\n\n\nAsteroid: \n\\(m_\\mathrm{ast} = \\frac{4\\pi}{3}R_\\mathrm{ast}^3\\rho_\\mathrm{ast} = 1.57\\times 10^{15}\\)\n kg and angular momentum \n\\(L_\\mathrm{ast} = m_\\mathrm{ast}v_\\mathrm{ast}R_\\mathrm{E} = 2.51\\times 10^{26}\\)\n kg m\n\\(^2\\)\ns\n\\(^{-1}\\)\n. \n\\(L_\\mathrm{ast}\\)\n is perpendicular to \n\\(L_\\mathrm{E}\\)\n, so by conservation angular momentum: \n\\(\\tan(\\Delta\\theta) = L_\\mathrm{ast}/L_\\mathrm{E} = 4.27\\times 10^{-8}\\)\n. The axis tilt \n\\(\\Delta\\theta = 4.27\\times 10^{-8}\\)\n rad (so the North Pole moves \n\\(R_\\mathrm{E}\\,\\Delta\\theta = 0.27\\)\n m).\n\n\n1.6b0.7\n\n\nAt vertical impact \n\\(\\Delta L_\\mathrm{E} = 0\\)\n so \n\\(\\Delta(I_\\mathrm{E}\\omega_\\mathrm{E}) = 0\\)\n. Thus \n\\(\\Delta\\omega_\\mathrm{E} = -\\omega_\\mathrm{E}(\\Delta I_\\mathrm{E})/I_\\mathrm{E}\\)\n, and since \n\\(\\Delta I_\\mathrm{E}/I_\\mathrm{E} = m_\\mathrm{ast}R_\\mathrm{E}^2/I_\\mathrm{E} = 7.9\\times 10^{-10}\\)\n we obtain \n\\(\\Delta\\omega_\\mathrm{E} = -5.76\\times 10^{-14}\\)\n s\n\\(^{-1}\\)\n. The change in rotation period is \n\\(\\Delta T_\\mathrm{E} = 2\\pi\\left(\\frac{1}{\\omega_\\mathrm{E}+\\Delta\\omega_\\mathrm{E}} - \\frac{1}{\\omega_\\mathrm{E}}\\right) \\approx -2\\pi\\frac{\\Delta\\omega_\\mathrm{E}}{\\omega_\\mathrm{E}^2} = 6.84\\times 10^{-5}\\)\n s.\n\n\n1.6c0.7\n\n\nAt tangential impact \n\\(L_\\mathrm{ast}\\)\n is parallel to \n\\(L_\\mathrm{E}\\)\n so \n\\(L_\\mathrm{E} + L_\\mathrm{ast} = (I_\\mathrm{E} + \\Delta I_\\mathrm{E})(\\omega_\\mathrm{E} + \\Delta\\omega_\\mathrm{E})\\)\n and thus \n\\(\\Delta T_\\mathrm{E} = 2\\pi\\left(\\frac{1}{\\omega_\\mathrm{E}+\\Delta\\omega_\\mathrm{E}} - \\frac{1}{\\omega_\\mathrm{E}}\\right) = 2\\pi\\left(\\frac{I_\\mathrm{E}+\\Delta I_\\mathrm{E}}{L_\\mathrm{E}+L_\\mathrm{ast}} - \\frac{1}{\\omega_\\mathrm{E}}\\right) = -3.62\\times 10^{-3}\\)\n s.\n\n\n1.71.6\n\n\nMaximum impact speed \n\\(v_\\mathrm{imp}^\\mathrm{max}\\)\n arises from three contributions:\n\n\n(I) The velocity \n\\(v_\\mathrm{b}\\)\n of the body at distance \n\\(a_\\mathrm{E}\\)\n (Earth orbit radius) from the Sun,\n\n\n\\(v_\\mathrm{b} = \\sqrt{\\frac{2Gm_S}{a_E}} = 42.1\\)\n km/s.\n\n\n(II) The orbital velocity of the Earth, \n\\(v_\\mathrm{E} = \\frac{2\\pi a_E}{1\\,\\mathrm{year}} = 29.8\\)\n km/s.\n\n\n(III) Gravitational attraction from the Earth and kinetic energy seen from the Earth: \n\\[\\frac{1}{2}(v_\\mathrm{b} + v_\\mathrm{E})^2 = -\\frac{Gm_E}{R_E} + \\frac{1}{2}\\left(v_\\mathrm{imp}^\\mathrm{max}\\right)^2.\\]\n\n\nIn conclusion: \n\\(v_\\mathrm{imp}^\\mathrm{max} = \\sqrt{(v_\\mathrm{b} + v_\\mathrm{E})^2 + \\frac{2Gm_E}{R_E}} = 72.8\\)\n km/s.\n\n\nTotal9.0\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2013-t1/dd369137ef76d0ca7b75.png"
+    ],
+    "shared": false
+  }
+}

@@ -1,1 +1,3785 @@
-{"id":"ipho-2019-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2019_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2019_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2019-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Theory\nQ3-1\nEnglish (Oﬃcial)\nThermoacoustic Engine\nA thermoacoustic engine is a device that converts heat into acoustic power, or sound waves - a form of\nmechanical work. Like many other heat machines, it can be operated in reverse to become a refrigerator,\nusing sound to pump heat from a cold to a hot reservoir. The high operating frequencies reduce heat\nconduction and eliminate the need for any working chamber conﬁnement. Unlike many other engine\ntypes, the thermoacoustic engine has no moving parts except the working ﬂuid itself.\nThe eﬃciencies of thermoacoustic machines are typically lower than other engine types, but they have\nadvantages in set up and maintenance costs. This creates opportunities for renewable energy applica-\ntions, such as solar-thermal power plants and utilization of waste heat. Our analysis will focus on the\ncreation of acoustic energy within the system, ignoring the extraction or conversion for powering exter-\nnal devices.\nPart A: Sound wave in a closed tube (3.7 points)\nConsider a thermally insulating tube of length 𝐿and cross-sectional area 𝑆, whose axis lies along the 𝑥\ndirection. The two ends of the tube are located at 𝑥= 0 and 𝑥= 𝐿. The tube is ﬁlled with an ideal gas\nand is sealed on both ends. At equilibrium, the gas has temperature 𝑇0, pressure 𝑝0 and mass density\n𝜌0. Assume that viscosity can be ignored and that the gas motion is only in the 𝑥direction. The gas\nproperties are uniform in the perpendicular 𝑦and 𝑧directions.\nFigure 1\nA.1\nWhen a standing sound wave forms, the gas elements oscillate in the 𝑥direction\nwith angular frequency 𝜔. The amplitude of the oscillations depends on each\nelement’s equilibrium position 𝑥along the tube. The longitudinal displacement\nof each gas element from its equilibrium position 𝑥is given by\n𝑢(𝑥, 𝑡) = 𝑎sin(𝑘𝑥) cos(𝜔𝑡) = 𝑢1(𝑥) cos(𝜔𝑡)\n(1)\n(please note the 𝑢here describes the displacement of a gas element)\n \nwhere 𝑎≪𝐿is a positive constant, 𝑘= 2𝜋/𝜆is the wavenumber and 𝜆is the\nwavelength. What is the maximum possible wavelength 𝜆max in this system?\n0.3pt\nWe will assume throughout the question an oscillation mode of 𝜆= 𝜆max.\nNow, consider a narrow parcel of gas, located at rest between 𝑥and 𝑥+ Δ𝑥(Δ𝑥≪𝐿). As a result of the\ndisplacement wave of Task A.1, the parcel oscillates along the 𝑥axis and undergoes a change in volume\nand other thermodynamic properties.\nThroughout the following tasks assume all these changes to the thermodynamic properties to be small\ncompared to the unperturbed values.\n\nTheory\nQ3-2\nEnglish (Oﬃcial)\nA.2\nThe parcel volume 𝑉(𝑥, 𝑡) oscillates around the equilibrium value of 𝑉0 = 𝑆Δ𝑥\nand has the form\n𝑉(𝑥, 𝑡) = 𝑉0 + 𝑉1(𝑥) cos(𝜔𝑡).\n(2)\nObtain an expression for 𝑉1(𝑥) in terms of 𝑉0, 𝑎, 𝑘and 𝑥.\n0.5pt\nA.3\nAssume that the total pressure of the gas, as a result of the sound wave, takes\nthe approximate form\n𝑝(𝑥, 𝑡) = 𝑝0 −𝑝1(𝑥) cos(𝜔𝑡).\n(3)\nConsidering the forces acting on the parcel of gas, compute the amplitude 𝑝1(𝑥)\nof the pressure oscillation to leading order, in terms of the position 𝑥, the equi-\nlibrium density 𝜌0, the displacement amplitude 𝑎and the wave parameters 𝑘\nand 𝜔.\n0.7pt\nAt acoustic frequencies, the thermal conductivity of the gas can be neglected. We will treat the expansion\nand contraction of gas parcels as purely adiabatic, satisfying the relation 𝑝𝑉𝛾= const, where 𝛾is the\nadiabatic constant.\nA.4\nUse the relation above and the results of the previous tasks to obtain an expres-\nsion for the speed of sound waves 𝑐= 𝜔/𝑘in the tube, to ﬁrst order. Express\nyour answer in terms of 𝑝0, 𝜌0 and the adiabatic constant 𝛾.\n0.3pt\nA.5\nThe change in the gas temperature due to the adiabatic expansion and contrac-\ntion, as a result of the sound wave, takes the form:\n𝑇(𝑥, 𝑡) = 𝑇0 −𝑇1(𝑥) cos(𝜔𝑡).\n(4)\nCompute the amplitude 𝑇1(𝑥) of the temperature oscillations in terms of 𝑇0, 𝛾,\n𝑎, 𝑘and 𝑥.\n0.7pt\nA.6\nFor the purpose of this task only, we assume a weak thermal interaction be-\ntween the tube and the gas. As a result, the standing sound wave remains\nalmost unchanged, but the gas can exchange a small amount of heat with the\ntube. The heating due to viscosity can be neglected.\nFor each of the points in Figure 2 (A, C at the edges of the tube, B at the center)\nstate whether the temperature of the tube at that point will increase, decrease\nor remain the same over a long time.\n1.2pt\nFigure 2\n\nTheory\nQ3-3\nEnglish (Oﬃcial)\nPart B: Sound wave ampliﬁcation induced by external thermal contact (6.3 points)\nA stack of thin well-spaced solid plates is placed inside the tube. The plates of the stack are aligned in\nparallel to the tube axis, so as not to obstruct the ﬂow of gas along the tube. The center of the stack is\npositioned at 𝑥0 = 𝐿/4, and spans a width of ℓ≪𝐿along the tube axis, ﬁlling its entire cross section.\nThe right and left edges of the stack are held at temperature difference 𝜏. The left edge of the stack, at\n𝑥𝐻= 𝑥0 −ℓ/2, is held by an external thermal reservoir at temperature 𝑇𝐻= 𝑇0 + 𝜏/2, and at the same\ntime, its right edge, at 𝑥𝐶= 𝑥0 + ℓ/2, is held at a temperature 𝑇𝐶= 𝑇0 −𝜏/2.\nThe plate stack allows a slight longitudinal heat ﬂow to maintain a constant temperature gradient be-\ntween its edges, such that 𝑇plate(𝑥) = 𝑇0 −𝑥−𝑥0\nℓ\n𝜏.\nFigure 3. A sketch of the system. (A) and (B) denote the hot and cold heat reservoirs respec-\ntively. (D) denotes the stack.\nTo analyze the effect of the thermal contact between the plate stack and the gas on the sound waves in\nthe tube, make the following assumptions:\n• As in the previous part, all changes to the thermodynamic properties are small compared to the\nunperturbed values.\n• The system operates in the fundamental standing-wave mode of the longest possible wavelength.\nIt is only slightly modiﬁed by the presence of the plate stack.\n• The stack is much shorter than the wavelength ℓ≪𝜆max, and can be positioned far enough from\nboth displacement and pressure nodes, so that the displacement 𝑢(𝑥, 𝑡) ≈𝑢(𝑥0, 𝑡) and the pressure\n𝑝(𝑥, 𝑡) ≈𝑝(𝑥0, 𝑡) may be considered uniform over the entire length of the stack.\n• We may neglect any edge effects, caused by the parcels moving in and out of the stack.\n• The temperature difference between the ends of the plate stack, i.e. between the hot and the cold\nreservoirs, is small compared to the absolute temperature: 𝜏≪𝑇0.\n• Heat conduction through the stack, through the gas, and along the tube are all negligible. The only\nsigniﬁcant sources of heat transfer are convection due to the motion of the gas and conduction\nbetween the gas and the stack.\n\nTheory\nQ3-4\nEnglish (Oﬃcial)\nB.1\nConsider a speciﬁc parcel of gas in the region of the stack, originally at 𝑥0 = 𝐿/4.\nAs the parcel moves within the stack, the local temperature of the nearby part\nof the stack changes as follows:\n𝑇env(𝑡) = 𝑇0 −𝑇st cos(𝜔𝑡).\n(5)\nExpress 𝑇st in terms of 𝑎, 𝜏and ℓ.\n0.4pt\nB.2\nAbove which critical temperature difference 𝜏cr will the gas be conveying heat\nfrom the hot reservoir to the cold one? Express 𝜏cr in terms of 𝑇0, 𝛾, 𝑘and ℓ.\n1.0pt\nB.3\nObtain the general approximate expression for the heat ﬂow 𝑑𝑄\n𝑑𝑡into a small\nparcel of gas as a linear function of its volume and pressure change rates. Ex-\npress your answer in terms of the rate of volume change 𝑑𝑉\n𝑑𝑡, the rate of pressure\nchange 𝑑𝑝\n𝑑𝑡, the unperturbed equilibrium values of parcel pressure and volume\n𝑝0 ,𝑉0 and the adiabatic index 𝛾. (You may use the expression for the molar heat\ncapacity at constant volume 𝑐𝑣=\n𝑅\n𝛾−1, where 𝑅is the gas constant.)\n0.8pt\nThe limited heat ﬂow rate between the parcel and the stack causes a phase difference between the\npressure and volume oscillations of the parcel. We will see how this generates work.\nLet the heat ﬂux into the parcel from the stack be proportional to the temperature difference between\nthe parcel and the neighboring element of the stack, given approximately by 𝑑𝑄\n𝑑𝑡= −𝛽𝑉0(𝑇st−𝑇1) cos(𝜔𝑡).\nHere 𝑇1 and 𝑇st are the temperature oscillation amplitudes of the gas parcel and the neighbouring stack\nfrom Tasks A.5 and B.1, respectively, and 𝛽> 0 is a constant. Assume that at the machine’s operating\nfrequencies, the change in gas temperature as a result of this heat ﬂow is insigniﬁcant compared to both\n𝑇1 and 𝑇st.\nB.4\nIn order to calculate work, we will consider a change to the volume of the mov-\ning parcel as a result of the thermal contact with the stack. Let us write the\npressure and the volume of the parcel under the stack’s inﬂuence in the form:\n𝑝= 𝑝0 + 𝑝𝑎sin(𝜔𝑡) −𝑝𝑏cos(𝜔𝑡),\n𝑉= 𝑉0 + 𝑉𝑎sin(𝜔𝑡) + 𝑉𝑏cos(𝜔𝑡).\n(6)\nGiven 𝑝𝑎and 𝑝𝑏, ﬁnd the coeﬃcients 𝑉𝑎and 𝑉𝑏. Express your answer in terms of\n𝑝𝑎, 𝑝𝑏, 𝑝0, 𝑉0, 𝛾, 𝜏, 𝜏cr, 𝛽, 𝜔, 𝑎and ℓ.\n1.9pt\nB.5\nObtain an approximate expression for the acoustic work per unit volume 𝑤pro-\nduced by the gas parcel over one cycle. Integrate over the volume of the stack\nto obtain the total work 𝑊tot generated by the gas over one cycle. Express 𝑊tot\nin terms of 𝛾, 𝜏, 𝜏cr, 𝛽, 𝜔, 𝑎, 𝑘and 𝑆.\n0.8pt\n\nTheory\nQ3-5\nEnglish (Oﬃcial)\nB.6\nObtain an approximate expression for the heat 𝑄tot transported from the left\nside of the plane 𝑥= 𝑥0 to the right, over a cycle. Express your answer in terms\nof 𝜏, 𝜏cr, 𝛽, 𝜔, 𝑎, 𝑆, ℓ.\n(Hint: you may use the formula 𝑗= 𝑄𝑑𝑢\n𝑑𝑡for the heat current due convection.)\n0.8pt\nB.7\nFind the eﬃciency 𝜂of the thermoacoustic engine. The eﬃciency is deﬁned as\nthe ratio of the generated acoustic work to the heat drawn from the hot reser-\nvoir. Express your answer in terms of the temperature difference 𝜏between\nthe hot and the cold reservoir, the critical temperature difference 𝜏cr and the\nCarnot eﬃciency 𝜂𝑐= 1 −𝑇𝐶/𝑇𝐻.\n0.6pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2019-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"      Theory IPhO 2019 \n \nQ1-1 \n \n \n \n \n \nS3-1 \n \nThermoacoustic engine – Solution \nPart A: Sound wave in a closed tube \nA.1. The boundary conditions are: 𝑢(0, 𝑡) = 𝑢(𝐿, 𝑡) = 0. As a result, sin (\n2𝜋\n𝜆𝐿) = 0, so we get \n𝜆max = 2𝐿. \nA.2. We get \n𝑉(𝑥, 𝑡) = 𝑆⋅(Δ𝑥+ 𝑢(𝑥+ Δ𝑥, 𝑡) −𝑢(𝑥, 𝑡)) = 𝑆Δ𝑥⋅(1 + 𝑢′) = 𝑉0 + 𝑉0𝑢′. \nThus, \n𝑉(𝑥, 𝑡) = 𝑉0 + 𝑎𝑘𝑉0 cos(𝑘𝑥) cos(𝜔𝑡)      \n ⇒       𝑉1(𝑥) = 𝑎𝑘𝑉0 cos(𝑘𝑥). \nA.3. We use Newton’s Second Law 𝜌0𝑢̈ = −𝑝′ to deduce 𝑝′ = −𝜌0𝑢̈ = 𝜌0𝑎𝜔2 sin(𝑘𝑥)cos (𝜔𝑡), \nso that \n𝑝(𝑥, 𝑡) = 𝑝0 −𝑎\n𝜔2\n𝑘𝜌0cos (𝑘𝑥)cos (𝜔𝑡)      \n ⇒       𝑝1(𝑥) = 𝑎\n𝜔2\n𝑘𝜌0cos (𝑘𝑥). \nA.4. Using 𝑎≪𝐿, we obtain \n𝑝1(𝑥)\n𝑝0\n= 𝛾\n𝑉1(𝑥)\n𝑉0 . As a result, \n𝜌0\n𝑝0\n𝜔2\n𝑘= 𝛾⋅𝑘, and 𝑐= √\n𝛾𝑝0\n𝜌0 . \nA.5. The relative change in 𝑇(𝑥, 𝑡) is the sum of the relative changes in 𝑉(𝑥, 𝑡) and 𝑝(𝑥, 𝑡). As a \nresult, \n𝑇1(𝑥) =\n𝑇0\n𝑝0 𝑝1(𝑥) −\n𝑇0\n𝑉0 𝑉1(𝑥) = (𝛾−1) 𝑇0\n𝑉0 𝑉1(𝑥) = 𝑎𝑘(𝛾−1)𝑇0 cos(𝑘𝑥). \nA.6. The movement of the gas parcels inside the tube conveys heat along its boundary. To \ndetermine the direction of the convection, we combining the result of Task A.5 and the \nexpression (1) for 𝑢(𝑥, 𝑡). We see that when 0 < 𝑥<\n𝐿\n2, the gas is colder when the displacement \n𝑢(𝑥, 𝑡) is positive. Likewise, when \n𝐿\n2 < 𝑥< 𝐿, the gas is colder when the displacement 𝑢(𝑥, 𝑡) is \nnegative. Hence, heat flows into the gas near the point B, cooling it down, and out of the gas near \nthe points A and C, heating them up. \nPart B: Sound wave amplification induced by external thermal contact \nB.1. We get \n𝑇env(𝑡) = 𝑇plate(𝑥0 + 𝑢(𝑥0, 𝑡)) = 𝑇0 −\n𝜏\nℓ⋅𝑢(𝑥0, 𝑡), \n\n      Theory IPhO 2019 \n \nQ1-1 \n \n \n \n \n \nS3-2 \n \nso that: \n𝑇st =\n𝑎𝜏\nℓsin(𝑘𝑥0) =\n𝑎𝜏\nℓ√2. \nB.2. The gas will convey heat from the hot reservoir to the cold one if the parcels are colder than \nthe environment when 𝑢(𝑥0, 𝑡) < 0, and hotter when 𝑢(𝑥0, 𝑡) > 0. This occurs precisely if \n𝑇st > 𝑇1. \nPlugging in the results of Tasks A.5 and B.1, we get \n𝑎𝜏cr\nℓsin(𝑘𝑥0) = 𝑎𝑘(𝛾−1)𝑇0 cos(𝑘𝑥0)     \n ⇒       𝜏cr = 𝑘ℓ(𝛾−1)𝑇0. \nB.3. Using the first law of thermodynamics, we get \n𝑑𝑄\n𝑑𝑡=\n𝑑𝐸\n𝑑𝑡+ 𝑝\n𝑑𝑉\n𝑑𝑡. \nPlugging in the relation 𝐸=\n1\n𝛾−1 𝑝𝑉, we see that: \n𝑑𝑄\n𝑑𝑡=\n1\n𝛾−1\n𝑑\n𝑑𝑡(𝑝𝑉) + 𝑝\n𝑑𝑉\n𝑑𝑡=\n1\n𝛾−1 𝑉\n𝑑𝑝\n𝑑𝑡+\n𝛾\n𝛾−1 𝑝\n𝑑𝑉\n𝑑𝑡≈\n1\n𝛾−1 𝑉0\n𝑑𝑝\n𝑑𝑡+\n𝛾\n𝛾−1 𝑝0\n𝑑𝑉\n𝑑𝑡. \nB.4. We plug the expression for \n𝑑𝑄\n𝑑𝑡 into the result of Task B.3. This gives: \n1\n𝛾−1 𝑉0\n𝑑𝑝\n𝑑𝑡+\n𝛾\n𝛾−1 𝑝0\n𝑑𝑉\n𝑑𝑡= 𝛽𝑉0(𝑇st −𝑇1) ⋅cos (𝜔𝑡). \nWe now plug in the data given in equation (6), and get (by considering terms with cos (𝜔𝑡) and \nsin (𝜔𝑡) separately): \n1\n𝛾−1 𝑉0𝑝𝑎𝜔+\n𝛾\n𝛾−1 𝑝0𝑉𝑎𝜔= 𝛽𝑉0(𝑇st −𝑇1) \n1\n𝛾−1 𝑉0𝑝𝑏𝜔−\n𝛾\n𝛾−1 𝑝0𝑉𝑏𝜔= 0 \nand thus, we can already express 𝑉𝑏 as \n𝑉𝑏=\n1\n𝛾𝑝𝑏⋅\n𝑉0\n𝑝0. \nFor 𝑉𝑎, we plug in the results of Tasks B.1 and B.2, \n𝑇st −𝑇1 =\n𝑎\nℓ√2 (𝜏−𝜏cr), \n\n      Theory IPhO 2019 \n \nQ1-1 \n \n \n \n \n \nS3-3 \n \ngiving: \n𝑉𝑎= (−\n1\n𝛾𝑝𝑎−\n𝛾−1\n𝛾\n𝛽\n𝜔\n𝑎\nℓ√2 (𝜏−𝜏cr)) ⋅\n𝑉0\n𝑝0. \nB.5. We want to integrate the mechanical work generated, ∫𝑝𝑑𝑉, and averaging the result over \na long time. To do this, we substitute our expressions (6) for the perturbed 𝑝 and 𝑉. Since the \naverage of cos (𝜔𝑡)sin (𝜔𝑡) is 0, and that of sin2(𝜔𝑡) and cos2(𝜔𝑡) is \n1\n2, we get: \n𝑉0\n𝑆ℓ𝑊tot = −𝜋⋅(𝑝𝑎𝑉𝑏+ 𝑝𝑏𝑉𝑎). \nUsing the result of B.4, we get \n𝑉0\n𝑆ℓ𝑊tot =\n𝜋\n𝜔⋅\n𝛾−1\n𝛾𝛽\n𝑎\nℓ√2 (𝜏−𝜏cr) ⋅𝑉0\n𝑝𝑏\n𝑝0. \nTo leading order, 𝑝𝑏 is the unperturbed wave 𝑝𝑏≈𝑝1(𝑥0) = 𝑎\n𝜔2\n𝑘𝜌0 cos(𝑘𝑥0) = 𝑎𝑘𝛾𝑝0\n1\n√2. \nSimplifying, we get \n𝑊tot =\n𝜋\n𝜔𝑆⋅\n𝛾−1\n𝛾𝛽\n𝑎\n√2 (𝜏−𝜏cr) ⋅\n𝑝𝑏\n𝑝0 =\n𝜋\n2𝜔(𝛾−1)𝛽(𝜏−𝜏cr)𝑘𝑎2𝑆. \nB.6. We want to compute the amount of heat convection over one cycle. This means that we \nneed to take the amount of heat moving in or out of the parcel, and weigh it by the position of \nthe parcel at that time. Thus, the total heat conveyed by the parcel, integrated along a cycle, is: \n𝑄tot =\n1\nΔ𝑥∫\n𝑑𝑄\n𝑑𝑡𝑢⋅𝑑𝑡. \nThis expression can be computed to leading order using \n𝑑𝑄\n𝑑𝑡= 𝛽𝑉0(𝑇st −𝑇1) ⋅cos (𝜔𝑡) and the \nunperturbed displacement 𝑢(𝑥0, 𝑡) =\n𝑎\n√2 cos (𝜔𝑡). This gives \n𝑄tot =\n𝜋\n𝜔𝛽𝑉0(𝑇st −𝑇1) 𝑎\n√2 =\n𝜋\n𝜔𝛽𝑉0 ⋅\n𝑎\nℓ√2 (𝜏−𝜏cr) ⋅\n𝑎\n√2 =\n𝜋\n2𝜔𝛽(𝜏−𝜏cr) 𝑎2𝑆\nℓ. \nB.7. Dividing the results of Tasks B.5 and B.6, we obtain the expression: \n𝜂=\n𝑊tot\n𝑄tot = (𝛾−1)𝑘ℓ=\n𝜏cr\n𝑇0 =\n𝜏cr\n𝜏⋅\n𝜏\n𝑇0 =\n𝜏cr\n𝜏⋅𝜂𝑐. \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2019-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2019-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Thermoacoustic Engine"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A thermoacoustic engine is a device that converts heat into acoustic power, or sound waves - a form of mechanical work. Like many other heat machines, it can be operated in reverse to become a refrigerator, using sound to pump heat from a cold to a hot reservoir. The high operating frequencies reduce heat conduction and eliminate the need for any working chamber confinement. Unlike many other engine types, the thermoacoustic engine has no moving parts except the working fluid itself."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The efficiencies of thermoacoustic machines are typically lower than other engine types, but they have advantages in set up and maintenance costs. This creates opportunities for renewable energy applications, such as solar-thermal power plants and utilization of waste heat. Our analysis will focus on the creation of acoustic energy within the system, ignoring the extraction or conversion for powering external devices."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A: Sound wave in a closed tube (3.7 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider a thermally insulating tube of length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and cross-sectional area "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", whose axis lies along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction. The two ends of the tube are located at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The tube is filled with an ideal gas and is sealed on both ends. At equilibrium, the gas has temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", pressure "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and mass density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Assume that viscosity can be ignored and that the gas motion is only in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction. The gas properties are uniform in the perpendicular "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " directions."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2019-t3/68592aae0d588e67781e.png",
+                "alt": "ipho-2019-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "When a standing sound wave forms, the gas elements oscillate in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction with angular frequency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The amplitude of the oscillations depends on each element’s equilibrium position "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " along the tube. The longitudinal displacement of each gas element from its equilibrium position "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nu(x,t) = a\\sin(kx)\\cos(\\omega t) = u_1(x)\\cos(\\omega t) \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "(please note the "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(u\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " here describes the displacement of a gas element)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a \\ll L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a positive constant, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 2\\pi/\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the wavenumber and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the wavelength. What is the maximum possible wavelength "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_\\mathrm{max}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in this system? 0.3pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We will assume throughout the question an oscillation mode of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda = \\lambda_\\mathrm{max}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now, consider a narrow parcel of gas, located at rest between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x + \\Delta x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta x \\ll L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). As a result of the displacement wave of Task A.1, the parcel oscillates along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis and undergoes a change in volume and other thermodynamic properties."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Throughout the following tasks assume all these changes to the thermodynamic properties to be small compared to the unperturbed values."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The parcel volume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(x,t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " oscillates around the equilibrium value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_0 = S\\Delta x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and has the form "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nV(x,t) = V_0 + V_1(x)\\cos(\\omega t).  \\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Obtain an expression for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_1(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Assume that the total pressure of the gas, as a result of the sound wave, takes the approximate form "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\np(x,t) = p_0 - p_1(x)\\cos(\\omega t). \\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Considering the forces acting on the parcel of gas, compute the amplitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_1(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the pressure oscillation to leading order, in terms of the position "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the equilibrium density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the displacement amplitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the wave parameters "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.7pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At acoustic frequencies, the thermal conductivity of the gas can be neglected. We will treat the expansion and contraction of gas parcels as purely adiabatic, satisfying the relation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(pV^\\gamma = \\mathrm{const}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the adiabatic constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Use the relation above and the results of the previous tasks to obtain an expression for the speed of sound waves "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c = \\omega/k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the tube, to first order. Express your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_0, \\rho_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the adiabatic constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.3pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The change in the gas temperature due to the adiabatic expansion and contraction, as a result of the sound wave, takes the form: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nT(x,t) = T_0 - T_1(x)\\cos(\\omega t). \\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Compute the amplitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_1(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the temperature oscillations in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.7pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "For the purpose of this task only, we assume a weak thermal interaction between the tube and the gas. As a result, the standing sound wave remains almost unchanged, but the gas can exchange a small amount of heat with the tube. The heating due to viscosity can be neglected. For each of the points in Figure 2 (A, C at the edges of the tube, B at the center) state whether the temperature of the tube at that point will increase, decrease or remain the same over a long time. 1.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2019-t3/9fc4062a64a675ecaaae.png",
+                "alt": "ipho-2019-t3 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B: Sound wave amplification induced by external thermal contact (6.3 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A stack of thin well-spaced solid plates is placed inside the tube. The plates of the stack are aligned in parallel to the tube axis, so as not to obstruct the flow of gas along the tube. The center of the stack is positioned at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_0 = L/4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and spans a width of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell \\ll L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " along the tube axis, filling its entire cross section. The right and left edges of the stack are held at temperature difference "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The left edge of the stack, at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_H = x_0 - \\ell/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is held by an external thermal reservoir at temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_H = T_0 + \\tau/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and at the same time, its right edge, at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_C = x_0 + \\ell/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is held at a temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_C = T_0 - \\tau/2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The plate stack allows a slight longitudinal heat flow to maintain a constant temperature gradient between its edges, such that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{plate}(x) = T_0 - \\frac{x-x_0}{\\ell}\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2019-t3/76467bbdec762cdbac34.png",
+                "alt": "ipho-2019-t3 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 3. A sketch of the system. (A) and (B) denote the hot and cold heat reservoirs respectively. (D) denotes the stack."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "To analyze the effect of the thermal contact between the plate stack and the gas on the sound waves in the tube, make the following assumptions:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "As in the previous part, all changes to the thermodynamic properties are small compared to the unperturbed values."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The system operates in the fundamental standing-wave mode of the longest possible wavelength. It is only slightly modified by the presence of the plate stack."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The stack is much shorter than the wavelength "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\ell \\ll \\lambda_\\mathrm{max}\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ", and can be positioned far enough from both displacement and pressure nodes, so that the displacement "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(u(x,t) \\approx u(x_0,t)\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " and the pressure "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(p(x,t) \\approx p(x_0,t)\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " may be considered uniform over the entire length of the stack."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "We may neglect any edge effects, caused by the parcels moving in and out of the stack."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "The temperature difference between the ends of the plate stack, i.e. between the hot and the cold reservoirs, is small compared to the absolute temperature: "
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\\(\\tau \\ll T_0\\)"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "element",
+                "tag": "p",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Heat conduction through the stack, through the gas, and along the tube are all negligible. The only significant sources of heat transfer are convection due to the motion of the gas and conduction between the gas and the stack."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Consider a specific parcel of gas in the region of the stack, originally at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_0 = L/4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". As the parcel moves within the stack, the local temperature of the nearby part of the stack changes as follows: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nT_\\mathrm{env}(t) = T_0 - T_\\mathrm{st}\\cos(\\omega t). \\tag{5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{st}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Above which critical temperature difference "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_\\mathrm{cr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " will the gas be conveying heat from the hot reservoir to the cold one? Express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_\\mathrm{cr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Obtain the general approximate expression for the heat flow "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{dQ}{dt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " into a small parcel of gas as a linear function of its volume and pressure change rates. Express your answer in terms of the rate of volume change "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{dV}{dt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the rate of pressure change "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{dp}{dt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the unperturbed equilibrium values of parcel pressure and volume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ,"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the adiabatic index "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". (You may use the expression for the molar heat capacity at constant volume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c_v = \\frac{R}{\\gamma-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the gas constant.) 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The limited heat flow rate between the parcel and the stack causes a phase difference between the pressure and volume oscillations of the parcel. We will see how this generates work."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let the heat flux into the parcel from the stack be proportional to the temperature difference between the parcel and the neighboring element of the stack, given approximately by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{dQ}{dt} = -\\beta V_0(T_\\mathrm{st} - T_1)\\cos(\\omega t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{st}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are the temperature oscillation amplitudes of the gas parcel and the neighbouring stack from Tasks A.5 and B.1, respectively, and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a constant. Assume that at the machine’s operating frequencies, the change in gas temperature as a result of this heat flow is insignificant compared to both "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{st}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "In order to calculate work, we will consider a change to the volume of the moving parcel as a result of the thermal contact with the stack. Let us write the pressure and the volume of the parcel under the stack’s influence in the form: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\begin{aligned}\np &= p_0 + p_a\\sin(\\omega t) - p_b\\cos(\\omega t), \\\\\nV &= V_0 + V_a\\sin(\\omega t) + V_b\\cos(\\omega t).\n\\end{aligned} \\tag{6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Given "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", find the coefficients "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Express your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_\\mathrm{cr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.9pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Obtain an approximate expression for the acoustic work per unit volume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(w\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " produced by the gas parcel over one cycle. Integrate over the volume of the stack to obtain the total work "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W_\\mathrm{tot}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " generated by the gas over one cycle. Express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W_\\mathrm{tot}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_\\mathrm{cr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Obtain an approximate expression for the heat "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Q_\\mathrm{tot}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " transported from the left side of the plane "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = x_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the right, over a cycle. Express your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_\\mathrm{cr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". (Hint: you may use the formula "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(j = Q\\frac{du}{dt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the heat current due convection.) 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.7"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the efficiency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the thermoacoustic engine. The efficiency is defined as the ratio of the generated acoustic work to the heat drawn from the hot reservoir. Express your answer in terms of the temperature difference "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between the hot and the cold reservoir, the critical temperature difference "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_\\mathrm{cr}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the Carnot efficiency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta_c = 1-T_C/T_H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.6pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Thermoacoustic Engine\n\n\nA thermoacoustic engine is a device that converts heat into acoustic power, or sound waves - a form of mechanical work. Like many other heat machines, it can be operated in reverse to become a refrigerator, using sound to pump heat from a cold to a hot reservoir. The high operating frequencies reduce heat conduction and eliminate the need for any working chamber confinement. Unlike many other engine types, the thermoacoustic engine has no moving parts except the working fluid itself.\n\n\nThe efficiencies of thermoacoustic machines are typically lower than other engine types, but they have advantages in set up and maintenance costs. This creates opportunities for renewable energy applications, such as solar-thermal power plants and utilization of waste heat. Our analysis will focus on the creation of acoustic energy within the system, ignoring the extraction or conversion for powering external devices.\n\n\nPart A: Sound wave in a closed tube (3.7 points)\n\n\nConsider a thermally insulating tube of length \n\\(L\\)\n and cross-sectional area \n\\(S\\)\n, whose axis lies along the \n\\(x\\)\n direction. The two ends of the tube are located at \n\\(x = 0\\)\n and \n\\(x = L\\)\n. The tube is filled with an ideal gas and is sealed on both ends. At equilibrium, the gas has temperature \n\\(T_0\\)\n, pressure \n\\(p_0\\)\n and mass density \n\\(\\rho_0\\)\n. Assume that viscosity can be ignored and that the gas motion is only in the \n\\(x\\)\n direction. The gas properties are uniform in the perpendicular \n\\(y\\)\n and \n\\(z\\)\n directions.\n\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\nA.1\nWhen a standing sound wave forms, the gas elements oscillate in the \n\\(x\\)\n direction with angular frequency \n\\(\\omega\\)\n. The amplitude of the oscillations depends on each element’s equilibrium position \n\\(x\\)\n along the tube. The longitudinal displacement of each gas element from its equilibrium position \n\\(x\\)\n is given by \n\\[\\begin{equation}\nu(x,t) = a\\sin(kx)\\cos(\\omega t) = u_1(x)\\cos(\\omega t) \\tag{1}\n\\end{equation}\\]\n\n\n\n\n(please note the \n\\(u\\)\n here describes the displacement of a gas element)\n\n\n\n\nwhere \n\\(a \\ll L\\)\n is a positive constant, \n\\(k = 2\\pi/\\lambda\\)\n is the wavenumber and \n\\(\\lambda\\)\n is the wavelength. What is the maximum possible wavelength \n\\(\\lambda_\\mathrm{max}\\)\n in this system? 0.3pt\n\n\nWe will assume throughout the question an oscillation mode of \n\\(\\lambda = \\lambda_\\mathrm{max}\\)\n.\n\n\nNow, consider a narrow parcel of gas, located at rest between \n\\(x\\)\n and \n\\(x + \\Delta x\\)\n (\n\\(\\Delta x \\ll L\\)\n). As a result of the displacement wave of Task A.1, the parcel oscillates along the \n\\(x\\)\n axis and undergoes a change in volume and other thermodynamic properties.\n\n\nThroughout the following tasks assume all these changes to the thermodynamic properties to be small compared to the unperturbed values.\n\n\nA.2\nThe parcel volume \n\\(V(x,t)\\)\n oscillates around the equilibrium value of \n\\(V_0 = S\\Delta x\\)\n and has the form \n\\[\\begin{equation}\nV(x,t) = V_0 + V_1(x)\\cos(\\omega t).  \\tag{2}\n\\end{equation}\\]\n Obtain an expression for \n\\(V_1(x)\\)\n in terms of \n\\(V_0\\)\n, \n\\(a\\)\n, \n\\(k\\)\n and \n\\(x\\)\n. 0.5pt\n\n\nA.3\nAssume that the total pressure of the gas, as a result of the sound wave, takes the approximate form \n\\[\\begin{equation}\np(x,t) = p_0 - p_1(x)\\cos(\\omega t). \\tag{3}\n\\end{equation}\\]\n Considering the forces acting on the parcel of gas, compute the amplitude \n\\(p_1(x)\\)\n of the pressure oscillation to leading order, in terms of the position \n\\(x\\)\n, the equilibrium density \n\\(\\rho_0\\)\n, the displacement amplitude \n\\(a\\)\n and the wave parameters \n\\(k\\)\n and \n\\(\\omega\\)\n. 0.7pt\n\n\nAt acoustic frequencies, the thermal conductivity of the gas can be neglected. We will treat the expansion and contraction of gas parcels as purely adiabatic, satisfying the relation \n\\(pV^\\gamma = \\mathrm{const}\\)\n, where \n\\(\\gamma\\)\n is the adiabatic constant.\n\n\nA.4\nUse the relation above and the results of the previous tasks to obtain an expression for the speed of sound waves \n\\(c = \\omega/k\\)\n in the tube, to first order. Express your answer in terms of \n\\(p_0, \\rho_0\\)\n and the adiabatic constant \n\\(\\gamma\\)\n. 0.3pt\n\n\nA.5\nThe change in the gas temperature due to the adiabatic expansion and contraction, as a result of the sound wave, takes the form: \n\\[\\begin{equation}\nT(x,t) = T_0 - T_1(x)\\cos(\\omega t). \\tag{4}\n\\end{equation}\\]\n Compute the amplitude \n\\(T_1(x)\\)\n of the temperature oscillations in terms of \n\\(T_0\\)\n, \n\\(\\gamma\\)\n, \n\\(a\\)\n, \n\\(k\\)\n and \n\\(x\\)\n. 0.7pt\n\n\nA.6\nFor the purpose of this task only, we assume a weak thermal interaction between the tube and the gas. As a result, the standing sound wave remains almost unchanged, but the gas can exchange a small amount of heat with the tube. The heating due to viscosity can be neglected. For each of the points in Figure 2 (A, C at the edges of the tube, B at the center) state whether the temperature of the tube at that point will increase, decrease or remain the same over a long time. 1.2pt\n\n\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\nPart B: Sound wave amplification induced by external thermal contact (6.3 points)\n\n\nA stack of thin well-spaced solid plates is placed inside the tube. The plates of the stack are aligned in parallel to the tube axis, so as not to obstruct the flow of gas along the tube. The center of the stack is positioned at \n\\(x_0 = L/4\\)\n, and spans a width of \n\\(\\ell \\ll L\\)\n along the tube axis, filling its entire cross section. The right and left edges of the stack are held at temperature difference \n\\(\\tau\\)\n. The left edge of the stack, at \n\\(x_H = x_0 - \\ell/2\\)\n, is held by an external thermal reservoir at temperature \n\\(T_H = T_0 + \\tau/2\\)\n, and at the same time, its right edge, at \n\\(x_C = x_0 + \\ell/2\\)\n, is held at a temperature \n\\(T_C = T_0 - \\tau/2\\)\n.\n\n\nThe plate stack allows a slight longitudinal heat flow to maintain a constant temperature gradient between its edges, such that \n\\(T_\\mathrm{plate}(x) = T_0 - \\frac{x-x_0}{\\ell}\\tau\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nFigure 3. A sketch of the system. (A) and (B) denote the hot and cold heat reservoirs respectively. (D) denotes the stack.\n\n\n\n\nTo analyze the effect of the thermal contact between the plate stack and the gas on the sound waves in the tube, make the following assumptions:\n\n\n\n\nAs in the previous part, all changes to the thermodynamic properties are small compared to the unperturbed values.\n\n\nThe system operates in the fundamental standing-wave mode of the longest possible wavelength. It is only slightly modified by the presence of the plate stack.\n\n\nThe stack is much shorter than the wavelength \n\\(\\ell \\ll \\lambda_\\mathrm{max}\\)\n, and can be positioned far enough from both displacement and pressure nodes, so that the displacement \n\\(u(x,t) \\approx u(x_0,t)\\)\n and the pressure \n\\(p(x,t) \\approx p(x_0,t)\\)\n may be considered uniform over the entire length of the stack.\n\n\nWe may neglect any edge effects, caused by the parcels moving in and out of the stack.\n\n\nThe temperature difference between the ends of the plate stack, i.e. between the hot and the cold reservoirs, is small compared to the absolute temperature: \n\\(\\tau \\ll T_0\\)\n.\n\n\nHeat conduction through the stack, through the gas, and along the tube are all negligible. The only significant sources of heat transfer are convection due to the motion of the gas and conduction between the gas and the stack.\n\n\n\n\nB.1\nConsider a specific parcel of gas in the region of the stack, originally at \n\\(x_0 = L/4\\)\n. As the parcel moves within the stack, the local temperature of the nearby part of the stack changes as follows: \n\\[\\begin{equation}\nT_\\mathrm{env}(t) = T_0 - T_\\mathrm{st}\\cos(\\omega t). \\tag{5}\n\\end{equation}\\]\n Express \n\\(T_\\mathrm{st}\\)\n in terms of \n\\(a\\)\n, \n\\(\\tau\\)\n and \n\\(\\ell\\)\n. 0.4pt\n\n\nB.2\nAbove which critical temperature difference \n\\(\\tau_\\mathrm{cr}\\)\n will the gas be conveying heat from the hot reservoir to the cold one? Express \n\\(\\tau_\\mathrm{cr}\\)\n in terms of \n\\(T_0\\)\n, \n\\(\\gamma\\)\n, \n\\(k\\)\n and \n\\(\\ell\\)\n. 1.0pt\n\n\nB.3\nObtain the general approximate expression for the heat flow \n\\(\\frac{dQ}{dt}\\)\n into a small parcel of gas as a linear function of its volume and pressure change rates. Express your answer in terms of the rate of volume change \n\\(\\frac{dV}{dt}\\)\n, the rate of pressure change \n\\(\\frac{dp}{dt}\\)\n, the unperturbed equilibrium values of parcel pressure and volume \n\\(p_0\\)\n ,\n\\(V_0\\)\n and the adiabatic index \n\\(\\gamma\\)\n. (You may use the expression for the molar heat capacity at constant volume \n\\(c_v = \\frac{R}{\\gamma-1}\\)\n, where \n\\(R\\)\n is the gas constant.) 0.8pt\n\n\nThe limited heat flow rate between the parcel and the stack causes a phase difference between the pressure and volume oscillations of the parcel. We will see how this generates work.\n\n\nLet the heat flux into the parcel from the stack be proportional to the temperature difference between the parcel and the neighboring element of the stack, given approximately by \n\\(\\frac{dQ}{dt} = -\\beta V_0(T_\\mathrm{st} - T_1)\\cos(\\omega t)\\)\n. Here \n\\(T_1\\)\n and \n\\(T_\\mathrm{st}\\)\n are the temperature oscillation amplitudes of the gas parcel and the neighbouring stack from Tasks A.5 and B.1, respectively, and \n\\(\\beta > 0\\)\n is a constant. Assume that at the machine’s operating frequencies, the change in gas temperature as a result of this heat flow is insignificant compared to both \n\\(T_1\\)\n and \n\\(T_\\mathrm{st}\\)\n.\n\n\nB.4\nIn order to calculate work, we will consider a change to the volume of the moving parcel as a result of the thermal contact with the stack. Let us write the pressure and the volume of the parcel under the stack’s influence in the form: \n\\[\\begin{equation}\n\\begin{aligned}\np &= p_0 + p_a\\sin(\\omega t) - p_b\\cos(\\omega t), \\\\\nV &= V_0 + V_a\\sin(\\omega t) + V_b\\cos(\\omega t).\n\\end{aligned} \\tag{6}\n\\end{equation}\\]\n Given \n\\(p_a\\)\n and \n\\(p_b\\)\n, find the coefficients \n\\(V_a\\)\n and \n\\(V_b\\)\n. Express your answer in terms of \n\\(p_a\\)\n, \n\\(p_b\\)\n, \n\\(p_0\\)\n, \n\\(V_0\\)\n, \n\\(\\gamma\\)\n, \n\\(\\tau\\)\n, \n\\(\\tau_\\mathrm{cr}\\)\n, \n\\(\\beta\\)\n, \n\\(\\omega\\)\n, \n\\(a\\)\n and \n\\(\\ell\\)\n. 1.9pt\n\n\nB.5\nObtain an approximate expression for the acoustic work per unit volume \n\\(w\\)\n produced by the gas parcel over one cycle. Integrate over the volume of the stack to obtain the total work \n\\(W_\\mathrm{tot}\\)\n generated by the gas over one cycle. Express \n\\(W_\\mathrm{tot}\\)\n in terms of \n\\(\\gamma\\)\n, \n\\(\\tau\\)\n, \n\\(\\tau_\\mathrm{cr}\\)\n, \n\\(\\beta\\)\n, \n\\(\\omega\\)\n, \n\\(a\\)\n, \n\\(k\\)\n and \n\\(S\\)\n. 0.8pt\n\n\nB.6\nObtain an approximate expression for the heat \n\\(Q_\\mathrm{tot}\\)\n transported from the left side of the plane \n\\(x = x_0\\)\n to the right, over a cycle. Express your answer in terms of \n\\(\\tau\\)\n, \n\\(\\tau_\\mathrm{cr}\\)\n, \n\\(\\beta\\)\n, \n\\(\\omega\\)\n, \n\\(a\\)\n, \n\\(S\\)\n, \n\\(\\ell\\)\n. (Hint: you may use the formula \n\\(j = Q\\frac{du}{dt}\\)\n for the heat current due convection.) 0.8pt\n\n\nB.7\nFind the efficiency \n\\(\\eta\\)\n of the thermoacoustic engine. The efficiency is defined as the ratio of the generated acoustic work to the heat drawn from the hot reservoir. Express your answer in terms of the temperature difference \n\\(\\tau\\)\n between the hot and the cold reservoir, the critical temperature difference \n\\(\\tau_\\mathrm{cr}\\)\n and the Carnot efficiency \n\\(\\eta_c = 1-T_C/T_H\\)\n. 0.6pt\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2019-t3/68592aae0d588e67781e.png",
+      "/corpus/figures/native/bulk/ipho-2019-t3/9fc4062a64a675ecaaae.png",
+      "/corpus/figures/native/bulk/ipho-2019-t3/76467bbdec762cdbac34.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2019-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Thermoacoustic engine – Solution"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A: Sound wave in a closed tube"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1. The boundary conditions are: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(0,t) = u(L,t) = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". As a result, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin\\left(\\frac{2\\pi}{\\lambda}L\\right) = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_{\\max} = 2L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2. We get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V(x,t) = S \\cdot \\left(\\Delta x + u(x + \\Delta x, t) - u(x,t)\\right) = S\\Delta x \\cdot (1 + u') = V_0 + V_0u'.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Thus, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V(x,t) = V_0 + akV_0\\cos(kx)\\cos(\\omega t) \\quad\\Rightarrow\\quad V_1(x) = akV_0\\cos(kx).\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.3. We use Newton’s Second Law "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho_0\\ddot{u} = -p'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to deduce "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p' = -\\rho_0\\ddot{u} = \\rho_0 a\\omega^2\\sin(kx)\\cos(\\omega t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p(x,t) = p_0 - a\\frac{\\omega^2}{k}\\rho_0\\cos(kx)\\cos(\\omega t) \\quad\\Rightarrow\\quad p_1(x) = a\\frac{\\omega^2}{k}\\rho_0\\cos(kx).\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.4. Using "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a \\ll L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{p_1(x)}{p_0} = \\gamma\\frac{V_1(x)}{V_0}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". As a result, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{\\rho_0}{p_0}\\frac{\\omega^2}{k} = \\gamma \\cdot k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c = \\sqrt{\\frac{\\gamma p_0}{\\rho_0}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.5. The relative change in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T(x,t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the sum of the relative changes in "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(x,t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p(x,t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". As a result, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_1(x) = \\frac{T_0}{p_0}p_1(x) - \\frac{T_0}{V_0}V_1(x) = (\\gamma - 1)\\frac{T_0}{V_0}V_1(x) = ak(\\gamma - 1)T_0\\cos(kx).\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.6. The movement of the gas parcels inside the tube conveys heat along its boundary. To determine the direction of the convection, we combining the result of Task A.5 and the expression (1) for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(x,t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We see that when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0 < x < \\frac{L}{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the gas is colder when the displacement "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(x,t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is positive. Likewise, when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{L}{2} < x < L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the gas is colder when the displacement "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(x,t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is negative. Hence, heat flows into the gas near the point B, cooling it down, and out of the gas near the points A and C, heating them up."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B: Sound wave amplification induced by external thermal contact"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1. We get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_{\\mathrm{env}}(t) = T_{\\mathrm{plate}}\\left(x_0 + u(x_0,t)\\right) = T_0 - \\frac{\\tau}{\\ell} \\cdot u(x_0,t),\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_{\\mathrm{st}} = \\frac{a\\tau}{\\ell}\\sin(kx_0) = \\frac{a\\tau}{\\ell\\sqrt{2}}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2. The gas will convey heat from the hot reservoir to the cold one if the parcels are colder than the environment when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(x_0,t) < 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and hotter when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(x_0,t) > 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This occurs precisely if "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_{\\mathrm{st}} > T_1.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Plugging in the results of Tasks A.5 and B.1, we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{a\\tau_{\\mathrm{cr}}}{\\ell}\\sin(kx_0) = ak(\\gamma - 1)T_0\\cos(kx_0) \\quad\\Rightarrow\\quad \\tau_{\\mathrm{cr}} = k\\ell(\\gamma - 1)T_0.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.3. Using the first law of thermodynamics, we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dQ}{dt} = \\frac{dE}{dt} + p\\frac{dV}{dt}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Plugging in the relation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E = \\frac{1}{\\gamma-1}pV\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we see that: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{dQ}{dt} = \\frac{1}{\\gamma-1}\\frac{d}{dt}(pV) + p\\frac{dV}{dt} = \\frac{1}{\\gamma-1}V\\frac{dp}{dt} + \\frac{\\gamma}{\\gamma-1}p\\frac{dV}{dt} \\approx \\frac{1}{\\gamma-1}V_0\\frac{dp}{dt} + \\frac{\\gamma}{\\gamma-1}p_0\\frac{dV}{dt}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.4. We plug the expression for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{dQ}{dt}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " into the result of Task B.3. This gives: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{1}{\\gamma-1}V_0\\frac{dp}{dt} + \\frac{\\gamma}{\\gamma-1}p_0\\frac{dV}{dt} = \\beta V_0(T_{\\mathrm{st}} - T_1) \\cdot \\cos(\\omega t).\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " We now plug in the data given in equation (6), and get (by considering terms with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cos(\\omega t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin(\\omega t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " separately): "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{gather*}\n\\frac{1}{\\gamma-1}V_0p_a\\omega + \\frac{\\gamma}{\\gamma-1}p_0V_a\\omega = \\beta V_0(T_{\\mathrm{st}} - T_1) \\\\\n\\frac{1}{\\gamma-1}V_0p_b\\omega - \\frac{\\gamma}{\\gamma-1}p_0V_b\\omega = 0\n\\end{gather*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and thus, we can already express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V_b = \\frac{1}{\\gamma}p_b \\cdot \\frac{V_0}{p_0}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we plug in the results of Tasks B.1 and B.2, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_{\\mathrm{st}} - T_1 = \\frac{a}{\\ell\\sqrt{2}}(\\tau - \\tau_{\\mathrm{cr}}),\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " giving: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[V_a = \\left(-\\frac{1}{\\gamma}p_a - \\frac{\\gamma-1}{\\gamma}\\frac{\\beta}{\\omega}\\frac{a}{\\ell\\sqrt{2}}(\\tau - \\tau_{\\mathrm{cr}})\\right) \\cdot \\frac{V_0}{p_0}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.5. We want to integrate the mechanical work generated, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\int pdV\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and averaging the result over a long time. To do this, we substitute our expressions (6) for the perturbed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Since the average of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cos(\\omega t)\\sin(\\omega t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is 0, and that of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sin^2(\\omega t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\cos^2(\\omega t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{1}{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{V_0}{S\\ell}W_{\\mathrm{tot}} = -\\pi \\cdot (p_aV_b + p_bV_a).\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Using the result of B.4, we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{V_0}{S\\ell}W_{\\mathrm{tot}} = \\frac{\\pi}{\\omega} \\cdot \\frac{\\gamma-1}{\\gamma}\\beta \\frac{a}{\\ell\\sqrt{2}}(\\tau - \\tau_{\\mathrm{cr}}) \\cdot V_0\\frac{p_b}{p_0}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " To leading order, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the unperturbed wave "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_b \\approx p_1(x_0) = a\\frac{\\omega^2}{k}\\rho_0\\cos(kx_0) = ak\\gamma p_0\\frac{1}{\\sqrt{2}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Simplifying, we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[W_{\\mathrm{tot}} = \\frac{\\pi}{\\omega} S \\cdot \\frac{\\gamma-1}{\\gamma}\\beta \\frac{a}{\\sqrt{2}}(\\tau - \\tau_{\\mathrm{cr}}) \\cdot \\frac{p_b}{p_0} = \\frac{\\pi}{2\\omega}(\\gamma - 1)\\beta(\\tau - \\tau_{\\mathrm{cr}})ka^2S.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.6. We want to compute the amount of heat convection over one cycle. This means that we need to take the amount of heat moving in or out of the parcel, and weigh it by the position of the parcel at that time. Thus, the total heat conveyed by the parcel, integrated along a cycle, is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[Q_{\\mathrm{tot}} = \\frac{1}{\\Delta x}\\int \\frac{dQ}{dt} u \\cdot dt.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This expression can be computed to leading order using "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{dQ}{dt} = \\beta V_0(T_{\\mathrm{st}} - T_1) \\cdot \\cos(\\omega t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the unperturbed displacement "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(x_0,t) = \\frac{a}{\\sqrt{2}}\\cos(\\omega t)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[Q_{\\mathrm{tot}} = \\frac{\\pi}{\\omega}\\beta V_0(T_{\\mathrm{st}} - T_1)\\frac{a}{\\sqrt{2}} = \\frac{\\pi}{\\omega}\\beta V_0 \\cdot \\frac{a}{\\ell\\sqrt{2}}(\\tau - \\tau_{\\mathrm{cr}}) \\cdot \\frac{a}{\\sqrt{2}} = \\frac{\\pi}{2\\omega}\\beta(\\tau - \\tau_{\\mathrm{cr}})\\frac{a^2S}{\\ell}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.7. Dividing the results of Tasks B.5 and B.6, we obtain the expression: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\eta = \\frac{W_{\\mathrm{tot}}}{Q_{\\mathrm{tot}}} = (\\gamma - 1)k\\ell = \\frac{\\tau_{\\mathrm{cr}}}{T_0} = \\frac{\\tau_{\\mathrm{cr}}}{\\tau} \\cdot \\frac{\\tau}{T_0} = \\frac{\\tau_{\\mathrm{cr}}}{\\tau} \\cdot \\eta_c.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Thermoacoustic engine – Solution\n\n\nPart A: Sound wave in a closed tube\n\n\nA.1. The boundary conditions are: \n\\(u(0,t) = u(L,t) = 0\\)\n. As a result, \n\\(\\sin\\left(\\frac{2\\pi}{\\lambda}L\\right) = 0\\)\n, so we get \n\\(\\lambda_{\\max} = 2L\\)\n.\n\n\nA.2. We get \n\\[V(x,t) = S \\cdot \\left(\\Delta x + u(x + \\Delta x, t) - u(x,t)\\right) = S\\Delta x \\cdot (1 + u') = V_0 + V_0u'.\\]\n Thus, \n\\[V(x,t) = V_0 + akV_0\\cos(kx)\\cos(\\omega t) \\quad\\Rightarrow\\quad V_1(x) = akV_0\\cos(kx).\\]\n\n\nA.3. We use Newton’s Second Law \n\\(\\rho_0\\ddot{u} = -p'\\)\n to deduce \n\\(p' = -\\rho_0\\ddot{u} = \\rho_0 a\\omega^2\\sin(kx)\\cos(\\omega t)\\)\n, so that \n\\[p(x,t) = p_0 - a\\frac{\\omega^2}{k}\\rho_0\\cos(kx)\\cos(\\omega t) \\quad\\Rightarrow\\quad p_1(x) = a\\frac{\\omega^2}{k}\\rho_0\\cos(kx).\\]\n\n\nA.4. Using \n\\(a \\ll L\\)\n, we obtain \n\\(\\frac{p_1(x)}{p_0} = \\gamma\\frac{V_1(x)}{V_0}\\)\n. As a result, \n\\(\\frac{\\rho_0}{p_0}\\frac{\\omega^2}{k} = \\gamma \\cdot k\\)\n, and \n\\(c = \\sqrt{\\frac{\\gamma p_0}{\\rho_0}}\\)\n.\n\n\nA.5. The relative change in \n\\(T(x,t)\\)\n is the sum of the relative changes in \n\\(V(x,t)\\)\n and \n\\(p(x,t)\\)\n. As a result, \n\\[T_1(x) = \\frac{T_0}{p_0}p_1(x) - \\frac{T_0}{V_0}V_1(x) = (\\gamma - 1)\\frac{T_0}{V_0}V_1(x) = ak(\\gamma - 1)T_0\\cos(kx).\\]\n\n\nA.6. The movement of the gas parcels inside the tube conveys heat along its boundary. To determine the direction of the convection, we combining the result of Task A.5 and the expression (1) for \n\\(u(x,t)\\)\n. We see that when \n\\(0 < x < \\frac{L}{2}\\)\n, the gas is colder when the displacement \n\\(u(x,t)\\)\n is positive. Likewise, when \n\\(\\frac{L}{2} < x < L\\)\n, the gas is colder when the displacement \n\\(u(x,t)\\)\n is negative. Hence, heat flows into the gas near the point B, cooling it down, and out of the gas near the points A and C, heating them up.\n\n\nPart B: Sound wave amplification induced by external thermal contact\n\n\nB.1. We get \n\\[T_{\\mathrm{env}}(t) = T_{\\mathrm{plate}}\\left(x_0 + u(x_0,t)\\right) = T_0 - \\frac{\\tau}{\\ell} \\cdot u(x_0,t),\\]\n so that: \n\\[T_{\\mathrm{st}} = \\frac{a\\tau}{\\ell}\\sin(kx_0) = \\frac{a\\tau}{\\ell\\sqrt{2}}.\\]\n\n\nB.2. The gas will convey heat from the hot reservoir to the cold one if the parcels are colder than the environment when \n\\(u(x_0,t) < 0\\)\n, and hotter when \n\\(u(x_0,t) > 0\\)\n. This occurs precisely if \n\\[T_{\\mathrm{st}} > T_1.\\]\n Plugging in the results of Tasks A.5 and B.1, we get \n\\[\\frac{a\\tau_{\\mathrm{cr}}}{\\ell}\\sin(kx_0) = ak(\\gamma - 1)T_0\\cos(kx_0) \\quad\\Rightarrow\\quad \\tau_{\\mathrm{cr}} = k\\ell(\\gamma - 1)T_0.\\]\n\n\nB.3. Using the first law of thermodynamics, we get \n\\[\\frac{dQ}{dt} = \\frac{dE}{dt} + p\\frac{dV}{dt}.\\]\n Plugging in the relation \n\\(E = \\frac{1}{\\gamma-1}pV\\)\n, we see that: \n\\[\\frac{dQ}{dt} = \\frac{1}{\\gamma-1}\\frac{d}{dt}(pV) + p\\frac{dV}{dt} = \\frac{1}{\\gamma-1}V\\frac{dp}{dt} + \\frac{\\gamma}{\\gamma-1}p\\frac{dV}{dt} \\approx \\frac{1}{\\gamma-1}V_0\\frac{dp}{dt} + \\frac{\\gamma}{\\gamma-1}p_0\\frac{dV}{dt}.\\]\n\n\nB.4. We plug the expression for \n\\(\\frac{dQ}{dt}\\)\n into the result of Task B.3. This gives: \n\\[\\frac{1}{\\gamma-1}V_0\\frac{dp}{dt} + \\frac{\\gamma}{\\gamma-1}p_0\\frac{dV}{dt} = \\beta V_0(T_{\\mathrm{st}} - T_1) \\cdot \\cos(\\omega t).\\]\n We now plug in the data given in equation (6), and get (by considering terms with \n\\(\\cos(\\omega t)\\)\n and \n\\(\\sin(\\omega t)\\)\n separately): \n\\[\\begin{gather*}\n\\frac{1}{\\gamma-1}V_0p_a\\omega + \\frac{\\gamma}{\\gamma-1}p_0V_a\\omega = \\beta V_0(T_{\\mathrm{st}} - T_1) \\\\\n\\frac{1}{\\gamma-1}V_0p_b\\omega - \\frac{\\gamma}{\\gamma-1}p_0V_b\\omega = 0\n\\end{gather*}\\]\n and thus, we can already express \n\\(V_b\\)\n as \n\\[V_b = \\frac{1}{\\gamma}p_b \\cdot \\frac{V_0}{p_0}.\\]\n For \n\\(V_a\\)\n, we plug in the results of Tasks B.1 and B.2, \n\\[T_{\\mathrm{st}} - T_1 = \\frac{a}{\\ell\\sqrt{2}}(\\tau - \\tau_{\\mathrm{cr}}),\\]\n giving: \n\\[V_a = \\left(-\\frac{1}{\\gamma}p_a - \\frac{\\gamma-1}{\\gamma}\\frac{\\beta}{\\omega}\\frac{a}{\\ell\\sqrt{2}}(\\tau - \\tau_{\\mathrm{cr}})\\right) \\cdot \\frac{V_0}{p_0}.\\]\n\n\nB.5. We want to integrate the mechanical work generated, \n\\(\\int pdV\\)\n, and averaging the result over a long time. To do this, we substitute our expressions (6) for the perturbed \n\\(p\\)\n and \n\\(V\\)\n. Since the average of \n\\(\\cos(\\omega t)\\sin(\\omega t)\\)\n is 0, and that of \n\\(\\sin^2(\\omega t)\\)\n and \n\\(\\cos^2(\\omega t)\\)\n is \n\\(\\frac{1}{2}\\)\n, we get: \n\\[\\frac{V_0}{S\\ell}W_{\\mathrm{tot}} = -\\pi \\cdot (p_aV_b + p_bV_a).\\]\n Using the result of B.4, we get \n\\[\\frac{V_0}{S\\ell}W_{\\mathrm{tot}} = \\frac{\\pi}{\\omega} \\cdot \\frac{\\gamma-1}{\\gamma}\\beta \\frac{a}{\\ell\\sqrt{2}}(\\tau - \\tau_{\\mathrm{cr}}) \\cdot V_0\\frac{p_b}{p_0}.\\]\n To leading order, \n\\(p_b\\)\n is the unperturbed wave \n\\(p_b \\approx p_1(x_0) = a\\frac{\\omega^2}{k}\\rho_0\\cos(kx_0) = ak\\gamma p_0\\frac{1}{\\sqrt{2}}\\)\n. Simplifying, we get \n\\[W_{\\mathrm{tot}} = \\frac{\\pi}{\\omega} S \\cdot \\frac{\\gamma-1}{\\gamma}\\beta \\frac{a}{\\sqrt{2}}(\\tau - \\tau_{\\mathrm{cr}}) \\cdot \\frac{p_b}{p_0} = \\frac{\\pi}{2\\omega}(\\gamma - 1)\\beta(\\tau - \\tau_{\\mathrm{cr}})ka^2S.\\]\n\n\nB.6. We want to compute the amount of heat convection over one cycle. This means that we need to take the amount of heat moving in or out of the parcel, and weigh it by the position of the parcel at that time. Thus, the total heat conveyed by the parcel, integrated along a cycle, is: \n\\[Q_{\\mathrm{tot}} = \\frac{1}{\\Delta x}\\int \\frac{dQ}{dt} u \\cdot dt.\\]\n This expression can be computed to leading order using \n\\(\\frac{dQ}{dt} = \\beta V_0(T_{\\mathrm{st}} - T_1) \\cdot \\cos(\\omega t)\\)\n and the unperturbed displacement \n\\(u(x_0,t) = \\frac{a}{\\sqrt{2}}\\cos(\\omega t)\\)\n. This gives \n\\[Q_{\\mathrm{tot}} = \\frac{\\pi}{\\omega}\\beta V_0(T_{\\mathrm{st}} - T_1)\\frac{a}{\\sqrt{2}} = \\frac{\\pi}{\\omega}\\beta V_0 \\cdot \\frac{a}{\\ell\\sqrt{2}}(\\tau - \\tau_{\\mathrm{cr}}) \\cdot \\frac{a}{\\sqrt{2}} = \\frac{\\pi}{2\\omega}\\beta(\\tau - \\tau_{\\mathrm{cr}})\\frac{a^2S}{\\ell}.\\]\n\n\nB.7. Dividing the results of Tasks B.5 and B.6, we obtain the expression: \n\\[\\eta = \\frac{W_{\\mathrm{tot}}}{Q_{\\mathrm{tot}}} = (\\gamma - 1)k\\ell = \\frac{\\tau_{\\mathrm{cr}}}{T_0} = \\frac{\\tau_{\\mathrm{cr}}}{\\tau} \\cdot \\frac{\\tau}{T_0} = \\frac{\\tau_{\\mathrm{cr}}}{\\tau} \\cdot \\eta_c.\\]\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

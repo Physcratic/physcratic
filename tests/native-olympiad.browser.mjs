@@ -5,7 +5,8 @@ import { createServer } from 'node:http';
 import { mkdtemp, readFile, rm, mkdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { basename, join, resolve } from 'node:path';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { olympiadDefinitions } from '../lib/olympiad/keys.ts';
 import { handleArchiveGrade } from '../lib/archive-grading-request.ts';
 import { importedProblemSchema } from '../lib/imported-corpus-schema.ts';
@@ -14,8 +15,18 @@ const tools = createRequire(join(process.env.AUTHORING_BROWSER_TOOLS || '/tmp/ph
 const { chromium } = tools('playwright');
 const { default: AxeBuilder } = tools('@axe-core/playwright');
 const { build } = createRequire(require.resolve('tsx'))('esbuild');
+const shard=Number(process.env.NATIVE_SHARD||0), shards=Number(process.env.NATIVE_SHARDS||1);
+if(!Number.isInteger(shard)||!Number.isInteger(shards)||shard<0||shard>=shards)throw Error('Invalid native shard');
+const definitions=olympiadDefinitions.filter((d,i)=>i%shards===shard && (!process.env.NATIVE_IDS||process.env.NATIVE_IDS.split(',').includes(d.problemId)));
 const index = JSON.parse(await readFile('lib/corpus/import-index.json','utf8'));
-const records = new Map(await Promise.all(olympiadDefinitions.map(async d => [d.problemId,importedProblemSchema.parse(JSON.parse(await readFile('public'+index.problems.find(p=>p.id===d.problemId).path,'utf8')))])));
+const records = new Map(await Promise.all(definitions.map(async d => [d.problemId,importedProblemSchema.parse(JSON.parse(await readFile('public'+index.problems.find(p=>p.id===d.problemId).path,'utf8')))])));
+if(process.env.NATIVE_PDF_FIXTURES==='1') {
+  const fixtures=JSON.parse(await readFile('tests/fixtures/retained-archive-pdfs.json','utf8'));
+  for(const[id,documents]of Object.entries(fixtures)) {
+    const record=JSON.parse(await readFile('public'+index.problems.find(p=>p.id===id).path,'utf8'));
+    records.set(id,importedProblemSchema.parse({...record,...documents}));
+  }
+}
 const temp = await mkdtemp(join(tmpdir(),'physcratic-native-'));
 let browser,server,origin,checks=0,statelessPosts=0,persistentPosts=0;
 const errors=[];
@@ -27,12 +38,15 @@ try {
     try {
       const url=new URL(req.url,origin);
       res.setHeader('Cache-Control','no-store');
+      if(url.pathname==='/pdfjs-dist/build/pdf.worker.min.mjs') {
+        res.setHeader('Content-Type','application/javascript');res.end(await readFile(require.resolve('pdfjs-dist/build/pdf.worker.min.mjs')));return;
+      }
       if(assets.has(url.pathname)||url.pathname==='/style.css'){
         res.setHeader('Content-Type',url.pathname.endsWith('.css')?'text/css':'application/javascript');
         res.end(await readFile(join(temp,basename(url.pathname))));return;
       }
       if(url.pathname.startsWith('/corpus/')&&!url.pathname.includes('..')){
-        res.setHeader('Content-Type',url.pathname.endsWith('.png')?'image/png':url.pathname.endsWith('.pdf')?'application/pdf':'application/json');
+        res.setHeader('Content-Type',url.pathname.endsWith('.png')?'image/png':url.pathname.endsWith('.jpg')?'image/jpeg':url.pathname.endsWith('.webp')?'image/webp':url.pathname.endsWith('.pdf')?'application/pdf':'application/json');
         res.end(await readFile('public'+url.pathname));return;
       }
       if(url.pathname==='/api/archive-grade'){
@@ -45,53 +59,78 @@ try {
         if(req.method==='POST')persistentPosts++;
         res.writeHead(503,{'Content-Type':'application/json'});res.end('{"error":"Synthetic provider unavailable"}');return;
       }
-      const record=records.get(url.searchParams.get('id'));if(!record){res.writeHead(404);res.end();return;}
+      const record=records.get(url.searchParams.get('id')||url.pathname.split('/').pop());if(!record){res.writeHead(404);res.end();return;}
       res.setHeader('Content-Type','text/html; charset=utf-8');
       res.end('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Native olympiad test</title><link rel="stylesheet" href="/style.css"></head><body><div id="root"></div><script>window.__nativeRecord='+JSON.stringify(record).replaceAll('<','\\u003c')+'</script><script type="module" src="/bundle.js"></script></body></html>');
     }catch(e){res.writeHead(500);res.end(String(e));}
   });
   await new Promise(r=>server.listen(0,'127.0.0.1',r));origin='http://127.0.0.1:'+server.address().port;
+  if(process.env.NATIVE_PDF_FIXTURES==='1') {
+    const result=await promisify(execFile)(process.execPath,['tests/pdf-accessibility.browser.mjs'],{env:{...process.env,BROWSER_TEST_ORIGIN:origin},maxBuffer:4*1024*1024});
+    console.log(result.stdout);
+  } else {
   browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});
   await mkdir('work',{recursive:true});
-  for(const definition of olympiadDefinitions)for(const width of [375,1440])for(const theme of ['light','dark']){
+  for(const definition of definitions)for(const width of [375,1440])for(const theme of ['light','dark']){
+    console.log('Native case:',definition.problemId,width,theme);
     const context=await browser.newContext({viewport:{width,height:1000}});
     await context.addInitScript(theme=>document.addEventListener('DOMContentLoaded',()=>document.documentElement.classList.toggle('dark',theme==='dark')),theme);
     const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
     await page.goto(origin+'/?id='+definition.problemId);
-    await page.getByRole('button',{name:'Check answer',exact:true}).waitFor();
+    const automatic=definition.parts.some(p=>p.kind!=='self-review');
+    const buttonName=automatic?'Check answer':'Compare with worked solution';
+    await page.getByRole('button',{name:buttonName,exact:true}).waitFor();
     if(process.env.NATIVE_BROWSER_SESSION !== 'guest') {
       await page.evaluate(()=>window.__setPracticeSession('Synthetic',true));
-      await page.getByRole('button',{name:'Check answer',exact:true}).waitFor();
+      await page.getByRole('button',{name:buttonName,exact:true}).waitFor();
     }
     assert.equal(await page.locator('iframe,embed,object').count(),0);checks++;
     assert.equal(await page.getByRole('heading',{level:1}).count(),1);checks++;
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);checks++;
+    const mathParts=definition.parts.filter(p=>p.kind==='expression'||p.responseFormat==='math');
+    const drafts=new Map();
     for(const part of definition.parts){
-      if(part.kind==='self-review')await page.getByLabel('Your reasoning for '+part.sourcePart,{exact:true}).fill('My reasoning stays separate from automatic checking.');
-      else if(part.kind==='numeric')await page.locator('input[inputmode="decimal"]').nth(definition.parts.filter(p=>p.kind==='numeric').indexOf(part)).fill(String(part.target));
-      else{
-        const field=page.locator('math-field').filter({visible:true}).nth(definition.parts.filter(p=>p.kind==='expression').indexOf(part));
+      const suffix='[id$="-'+part.id+'"]';
+      if(part.kind==='self-review'&&part.responseFormat==='math'){
+        const field=page.locator('math-field'+suffix);await field.waitFor();
+        await field.evaluate(el=>{el.value='x^2+1';el.dispatchEvent(new Event('input',{bubbles:true}));});
+        drafts.set(part.id,'x^2+1');
+      } else if(part.kind==='self-review') {
+        const field=part.responseFormat?page.locator('textarea'+suffix):page.getByLabel('Your reasoning for '+part.sourcePart,{exact:true});
+        await field.fill('My reasoning stays separate from automatic checking.');
+        drafts.set(part.id,'My reasoning stays separate from automatic checking.');
+      } else if(part.kind==='numeric') await page.locator('input[inputmode="decimal"]').nth(definition.parts.filter(p=>p.kind==='numeric').indexOf(part)).fill(String(part.target));
+      else {
+        const field=page.locator('math-field').filter({visible:true}).nth(mathParts.indexOf(part));
         await field.waitFor();await field.evaluate((el,value)=>{el.value=value;el.dispatchEvent(new Event('input',{bubbles:true}));},part.canonical);
       }
     }
     await page.getByRole('tab',{name:/Worked solution/}).click();
-    assert.equal(await page.locator('math-field').count(),definition.parts.filter(p=>p.kind==='expression').length);checks++;
+    assert.equal(await page.locator('math-field').count(),mathParts.length);checks++;
     await page.getByRole('tab',{name:/Problem statement/}).click();
     for(const part of definition.parts.filter(p=>p.kind==='self-review')) {
-      assert.equal(await page.getByLabel('Your reasoning for '+part.sourcePart,{exact:true}).inputValue(),'My reasoning stays separate from automatic checking.');checks++;
+      const suffix='[id$="-'+part.id+'"]';
+      const field=part.responseFormat==='math'?page.locator('math-field'+suffix):part.responseFormat?page.locator('textarea'+suffix):page.getByLabel('Your reasoning for '+part.sourcePart,{exact:true});
+      assert.equal(await field.evaluate(el=>el.value),drafts.get(part.id));checks++;
     }
-    await page.getByRole('button',{name:'Check answer',exact:true}).focus();
+    await page.getByRole('button',{name:buttonName,exact:true}).focus();
     await page.keyboard.press('Enter');
-    await page.getByText('Checked without saving. This result does not update account progress.',{exact:true}).waitFor();checks++;
-    const feedback=await page.locator('[id$="-result"]').allTextContents();
-    assert.ok(feedback.length>=definition.parts.filter(p=>p.kind!=='self-review').length);checks++;
-    assert.ok(feedback.every(t=>t.startsWith('Correct.')),feedback.join('\n'));checks++;
+    if(automatic) {
+      await page.getByText('Checked without saving. This result does not update account progress.',{exact:true}).waitFor();checks++;
+      const feedback=await page.locator('[id$="-result"]').allTextContents();
+      assert.ok(feedback.length>=definition.parts.filter(p=>p.kind!=='self-review').length);checks++;
+      assert.ok(feedback.every(t=>t.startsWith('Correct.')),feedback.join('\n'));checks++;
+    } else {
+      assert.equal(await page.getByRole('tab',{name:/Worked solution/}).getAttribute('data-state'),'active');checks++;
+      assert.equal(await page.getByRole('button',{name:'Check answer',exact:true}).count(),0);checks++;
+    }
     const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
     assert.deepEqual(axe.violations.filter(v=>['serious','critical'].includes(v.impact)),[]);checks++;
     await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:'work/native-'+definition.problemId+'-'+width+'-'+theme+'.png'});
     await context.close();
   }
   assert.equal(persistentPosts,0,'signed-in native checks must not reach a persistence/provider endpoint');checks++;
-  assert.equal(statelessPosts,olympiadDefinitions.length*4);assert.deepEqual(errors,[]);
-  console.log('PASS '+checks+' '+(process.env.NATIVE_BROWSER_SESSION === 'guest' ? 'guest' : 'verified')+' native reader, stateless grading, keyboard/axe and account-isolation checks in '+olympiadDefinitions.length*4+' width/theme/problem combinations.');
+  assert.equal(statelessPosts,definitions.filter(d=>d.parts.some(p=>p.kind!=='self-review')).length*4);assert.deepEqual(errors,[]);
+  console.log('PASS '+checks+' '+(process.env.NATIVE_BROWSER_SESSION === 'guest' ? 'guest' : 'verified')+' native reader, stateless grading, keyboard/axe and account-isolation checks in '+definitions.length*4+' width/theme/problem combinations.');
+  }
 }finally{await browser?.close();if(server)await new Promise(r=>server.close(r));await rm(temp,{recursive:true,force:true});}

@@ -1,0 +1,487 @@
+[
+  {
+    "id": "ipho-2025-t1",
+    "recordPath": "/corpus/english-problems/ipho-2025-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2025-t2",
+    "recordPath": "/corpus/english-problems/ipho-2025-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2025-t3",
+    "recordPath": "/corpus/english-problems/ipho-2025-t3.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q3_tex.zip"
+  },
+  {
+    "id": "ipho-2024-t1",
+    "recordPath": "/corpus/english-problems/ipho-2024-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2024-t2",
+    "recordPath": "/corpus/english-problems/ipho-2024-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2024-t3",
+    "recordPath": "/corpus/english-problems/ipho-2024-t3.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q3_tex.zip"
+  },
+  {
+    "id": "ipho-2023-t1",
+    "recordPath": "/corpus/english-problems/ipho-2023-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2023-t2",
+    "recordPath": "/corpus/english-problems/ipho-2023-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2023-t3",
+    "recordPath": "/corpus/english-problems/ipho-2023-t3.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q3_tex.zip"
+  },
+  {
+    "id": "ipho-2022-t1",
+    "recordPath": "/corpus/english-problems/ipho-2022-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2022-t2",
+    "recordPath": "/corpus/english-problems/ipho-2022-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2022-t3",
+    "recordPath": "/corpus/english-problems/ipho-2022-t3.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q3_tex.zip"
+  },
+  {
+    "id": "ipho-2021-t1",
+    "recordPath": "/corpus/english-problems/ipho-2021-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2021-t2",
+    "recordPath": "/corpus/english-problems/ipho-2021-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2021-t3",
+    "recordPath": "/corpus/english-problems/ipho-2021-t3.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q3_tex.zip"
+  },
+  {
+    "id": "ipho-2019-t1",
+    "recordPath": "/corpus/english-problems/ipho-2019-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2019-t2",
+    "recordPath": "/corpus/english-problems/ipho-2019-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2019-t3",
+    "recordPath": "/corpus/english-problems/ipho-2019-t3.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q3_tex.zip"
+  },
+  {
+    "id": "ipho-2018-t1",
+    "recordPath": "/corpus/english-problems/ipho-2018-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2018-t2",
+    "recordPath": "/corpus/english-problems/ipho-2018-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2018-t3",
+    "recordPath": "/corpus/english-problems/ipho-2018-t3.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q3_tex.zip"
+  },
+  {
+    "id": "ipho-2008-t1",
+    "recordPath": "/corpus/english-problems/ipho-2008-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2008_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2017-t2",
+    "recordPath": "/corpus/english-problems/ipho-2017-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2017_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2017-t3",
+    "recordPath": "/corpus/english-problems/ipho-2017-t3.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2017_Q3_tex.zip"
+  },
+  {
+    "id": "ipho-2016-t2",
+    "recordPath": "/corpus/english-problems/ipho-2016-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2016_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2005-t1",
+    "recordPath": "/corpus/english-problems/ipho-2005-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2005_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2015-t1",
+    "recordPath": "/corpus/english-problems/ipho-2015-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2015-t2",
+    "recordPath": "/corpus/english-problems/ipho-2015-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2015-t3",
+    "recordPath": "/corpus/english-problems/ipho-2015-t3.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q3_tex.zip"
+  },
+  {
+    "id": "ipho-2016-t1",
+    "recordPath": "/corpus/english-problems/ipho-2016-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2016_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2014-t3",
+    "recordPath": "/corpus/english-problems/ipho-2014-t3.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2014_Q3_tex.zip"
+  },
+  {
+    "id": "ipho-2013-t1",
+    "recordPath": "/corpus/english-problems/ipho-2013-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2013-t2",
+    "recordPath": "/corpus/english-problems/ipho-2013-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2013-t3",
+    "recordPath": "/corpus/english-problems/ipho-2013-t3.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q3_tex.zip"
+  },
+  {
+    "id": "ipho-2011-t1",
+    "recordPath": "/corpus/english-problems/ipho-2011-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2011_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2010-t1",
+    "recordPath": "/corpus/english-problems/ipho-2010-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2010_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2010-t2",
+    "recordPath": "/corpus/english-problems/ipho-2010-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2010_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2008-t2",
+    "recordPath": "/corpus/english-problems/ipho-2008-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2008_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2007-t2",
+    "recordPath": "/corpus/english-problems/ipho-2007-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2007_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2009-t1",
+    "recordPath": "/corpus/english-problems/ipho-2009-t1.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2009_Q1_tex.zip"
+  },
+  {
+    "id": "ipho-2005-t2",
+    "recordPath": "/corpus/english-problems/ipho-2005-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2005_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2009-t2",
+    "recordPath": "/corpus/english-problems/ipho-2009-t2.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2009_Q2_tex.zip"
+  },
+  {
+    "id": "ipho-2004-t3",
+    "recordPath": "/corpus/english-problems/ipho-2004-t3.json",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2004_Q3_tex.zip"
+  },
+  {
+    "id": "apho-2025-t1",
+    "recordPath": "/corpus/english-problems/apho-2025-t1.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2025_Q1_tex.zip"
+  },
+  {
+    "id": "apho-2025-t2",
+    "recordPath": "/corpus/english-problems/apho-2025-t2.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2025_Q2_tex.zip"
+  },
+  {
+    "id": "apho-2025-t3",
+    "recordPath": "/corpus/english-problems/apho-2025-t3.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2025_Q3_tex.zip"
+  },
+  {
+    "id": "apho-2024-t1",
+    "recordPath": "/corpus/english-problems/apho-2024-t1.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2024_Q1_tex.zip"
+  },
+  {
+    "id": "apho-2024-t2",
+    "recordPath": "/corpus/english-problems/apho-2024-t2.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2024_Q2_tex.zip"
+  },
+  {
+    "id": "apho-2024-t3",
+    "recordPath": "/corpus/english-problems/apho-2024-t3.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2024_Q3_tex.zip"
+  },
+  {
+    "id": "apho-2023-t1",
+    "recordPath": "/corpus/english-problems/apho-2023-t1.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2023_Q1_tex.zip"
+  },
+  {
+    "id": "apho-2023-t2",
+    "recordPath": "/corpus/english-problems/apho-2023-t2.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2023_Q2_tex.zip"
+  },
+  {
+    "id": "apho-2023-t3",
+    "recordPath": "/corpus/english-problems/apho-2023-t3.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2023_Q3_tex.zip"
+  },
+  {
+    "id": "apho-2011-t2",
+    "recordPath": "/corpus/english-problems/apho-2011-t2.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2011_Q2_tex.zip"
+  },
+  {
+    "id": "apho-2022-t1",
+    "recordPath": "/corpus/english-problems/apho-2022-t1.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2022_Q1_tex.zip"
+  },
+  {
+    "id": "apho-2022-t2",
+    "recordPath": "/corpus/english-problems/apho-2022-t2.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2022_Q2_tex.zip"
+  },
+  {
+    "id": "apho-2022-t3",
+    "recordPath": "/corpus/english-problems/apho-2022-t3.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2022_Q3_tex.zip"
+  },
+  {
+    "id": "apho-2021-t1",
+    "recordPath": "/corpus/english-problems/apho-2021-t1.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2021_Q1_tex.zip"
+  },
+  {
+    "id": "apho-2021-t2",
+    "recordPath": "/corpus/english-problems/apho-2021-t2.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2021_Q2_tex.zip"
+  },
+  {
+    "id": "apho-2021-t3",
+    "recordPath": "/corpus/english-problems/apho-2021-t3.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2021_Q3_tex.zip"
+  },
+  {
+    "id": "apho-2019-t1",
+    "recordPath": "/corpus/english-problems/apho-2019-t1.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2019_Q1_tex.zip"
+  },
+  {
+    "id": "apho-2019-t2",
+    "recordPath": "/corpus/english-problems/apho-2019-t2.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2019_Q2_tex.zip"
+  },
+  {
+    "id": "apho-2019-t3",
+    "recordPath": "/corpus/english-problems/apho-2019-t3.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2019_Q3_tex.zip"
+  },
+  {
+    "id": "apho-2018-t1",
+    "recordPath": "/corpus/english-problems/apho-2018-t1.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2018_Q1_tex.zip"
+  },
+  {
+    "id": "apho-2018-t2",
+    "recordPath": "/corpus/english-problems/apho-2018-t2.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2018_Q2_tex.zip"
+  },
+  {
+    "id": "apho-2018-t3",
+    "recordPath": "/corpus/english-problems/apho-2018-t3.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2018_Q3_tex.zip"
+  },
+  {
+    "id": "apho-2017-t1",
+    "recordPath": "/corpus/english-problems/apho-2017-t1.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2017_Q1_tex.zip"
+  },
+  {
+    "id": "apho-2017-t2",
+    "recordPath": "/corpus/english-problems/apho-2017-t2.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2017_Q2_tex.zip"
+  },
+  {
+    "id": "apho-2017-t3",
+    "recordPath": "/corpus/english-problems/apho-2017-t3.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2017_Q3_tex.zip"
+  },
+  {
+    "id": "apho-2016-t1",
+    "recordPath": "/corpus/english-problems/apho-2016-t1.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2016_Q1_tex.zip"
+  },
+  {
+    "id": "apho-2009-t1",
+    "recordPath": "/corpus/english-problems/apho-2009-t1.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2009_Q1_tex.zip"
+  },
+  {
+    "id": "apho-2016-t3",
+    "recordPath": "/corpus/english-problems/apho-2016-t3.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2016_Q3_tex.zip"
+  },
+  {
+    "id": "apho-2015-t1",
+    "recordPath": "/corpus/english-problems/apho-2015-t1.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2015_Q1_tex.zip"
+  },
+  {
+    "id": "apho-2015-t2",
+    "recordPath": "/corpus/english-problems/apho-2015-t2.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2015_Q2_tex.zip"
+  },
+  {
+    "id": "apho-2015-t3",
+    "recordPath": "/corpus/english-problems/apho-2015-t3.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2015_Q3_tex.zip"
+  },
+  {
+    "id": "apho-2006-t2",
+    "recordPath": "/corpus/english-problems/apho-2006-t2.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2006_Q2_tex.zip"
+  },
+  {
+    "id": "apho-2014-t2",
+    "recordPath": "/corpus/english-problems/apho-2014-t2.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2014_Q2_tex.zip"
+  },
+  {
+    "id": "apho-2014-t3",
+    "recordPath": "/corpus/english-problems/apho-2014-t3.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2014_Q3_tex.zip"
+  },
+  {
+    "id": "apho-2013-t1",
+    "recordPath": "/corpus/english-problems/apho-2013-t1.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2013_Q1_tex.zip"
+  },
+  {
+    "id": "apho-2013-t3",
+    "recordPath": "/corpus/english-problems/apho-2013-t3.json",
+    "url": "https://olimpicos.net/files/apho/APhO_2013_Q3_tex.zip"
+  },
+  {
+    "id": "eupho-2025-t1",
+    "recordPath": "/corpus/problems/eupho-2025-t1.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2025_Q1_tex.zip"
+  },
+  {
+    "id": "eupho-2025-t2",
+    "recordPath": "/corpus/problems/eupho-2025-t2.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2025_Q2_tex.zip"
+  },
+  {
+    "id": "eupho-2025-t3",
+    "recordPath": "/corpus/problems/eupho-2025-t3.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2025_Q3_tex.zip"
+  },
+  {
+    "id": "eupho-2024-t1",
+    "recordPath": "/corpus/problems/eupho-2024-t1.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2024_Q1_tex.zip"
+  },
+  {
+    "id": "eupho-2024-t2",
+    "recordPath": "/corpus/problems/eupho-2024-t2.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2024_Q2_tex.zip"
+  },
+  {
+    "id": "eupho-2024-t3",
+    "recordPath": "/corpus/problems/eupho-2024-t3.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2024_Q3_tex.zip"
+  },
+  {
+    "id": "eupho-2023-t1",
+    "recordPath": "/corpus/problems/eupho-2023-t1.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2023_Q1_tex.zip"
+  },
+  {
+    "id": "eupho-2023-t2",
+    "recordPath": "/corpus/problems/eupho-2023-t2.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2023_Q2_tex.zip"
+  },
+  {
+    "id": "eupho-2023-t3",
+    "recordPath": "/corpus/problems/eupho-2023-t3.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2023_Q3_tex.zip"
+  },
+  {
+    "id": "eupho-2022-t1",
+    "recordPath": "/corpus/problems/eupho-2022-t1.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2022_Q1_tex.zip"
+  },
+  {
+    "id": "eupho-2022-t2",
+    "recordPath": "/corpus/problems/eupho-2022-t2.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2022_Q2_tex.zip"
+  },
+  {
+    "id": "eupho-2022-t3",
+    "recordPath": "/corpus/problems/eupho-2022-t3.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2022_Q3_tex.zip"
+  },
+  {
+    "id": "eupho-2021-t1",
+    "recordPath": "/corpus/problems/eupho-2021-t1.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2021_Q1_tex.zip"
+  },
+  {
+    "id": "eupho-2021-t2",
+    "recordPath": "/corpus/problems/eupho-2021-t2.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2021_Q2_tex.zip"
+  },
+  {
+    "id": "eupho-2021-t3",
+    "recordPath": "/corpus/problems/eupho-2021-t3.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2021_Q3_tex.zip"
+  },
+  {
+    "id": "eupho-2017-t1",
+    "recordPath": "/corpus/problems/eupho-2017-t1.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2017_Q1_tex.zip"
+  },
+  {
+    "id": "eupho-2017-t2",
+    "recordPath": "/corpus/problems/eupho-2017-t2.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2017_Q2_tex.zip"
+  },
+  {
+    "id": "eupho-2017-t3",
+    "recordPath": "/corpus/problems/eupho-2017-t3.json",
+    "url": "https://olimpicos.net/files/eupho/EuPhO_2017_Q3_tex.zip"
+  }
+]

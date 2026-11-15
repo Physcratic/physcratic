@@ -7,6 +7,7 @@ import "./native-pancharatnam";
 import "./native-2020";
 import { batchTwoParts } from "./keys-batch-2";
 import { batchThreeParts } from "./keys-batch-3";
+import { bulkParts } from "./keys-bulk";
 
 const label = (part: ArchiveKeyPart, sourcePart: string): ArchiveKeyPart => ({ ...part, sourcePart });
 const expr = (id: string, sourcePart: string, title: string, key: string, symbols: string, help: string, positive: string[] = []): ArchiveKeyPart =>
@@ -46,7 +47,7 @@ const parts: Record<string, ArchiveKeyPart[]> = {
 };
 
 /** Deliberately separate from the account-persistence catalogue: these checks are stateless and unrated. */
-export const olympiadDefinitions: ArchiveDefinition[] = Object.entries({ ...parts, ...batchTwoParts, ...batchThreeParts }).map(([problemId, parts]) => ({
+export const olympiadDefinitions: ArchiveDefinition[] = Object.entries({ ...parts, ...batchTwoParts, ...batchThreeParts, ...bulkParts }).map(([problemId, parts]) => ({
   problemId, keyVersion: 1, content: JSON.stringify(nativeOlympiadContent[problemId]),
   parts: parts.map(part => ({ ...part, sourceReference: problemId + " original official solution, part " + part.sourcePart })),
 }));

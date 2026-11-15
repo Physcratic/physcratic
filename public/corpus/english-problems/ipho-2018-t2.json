@@ -1,1 +1,3546 @@
-{"id":"ipho-2018-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2018_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2018_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2018-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Theory\nQ2-1\nEnglish (Oﬃcial)\nWhere is the neutrino? (10 points)\nWhen two protons collide with a very high energy at the Large Hadron Collider (LHC), several particles\nmay be produced as a result of that collision, such as electrons, muons, neutrinos, quarks, and their\nrespective anti-particles. Most of these particles can be detected by the particle detector surrounding\nthe collision point. For example, quarks undergo a process called hadronisation in which they become a\nshower of subatomic particles, called \"jet''. In addition, the high magnetic ﬁeld present in the detectors\nallows even very energetic charged particles to curve enough for their momentum to be determined.\nThe ATLAS detector uses a superconducting solenoid system that produces a constant and uniform 2.00\nTesla magnetic ﬁeld in the inner part of the detector, surrounding the collision point. Charged particles\nwith momenta below a certain value will be curved so strongly that they will loop repeatedly in the ﬁeld\nand most likely not be measured. Due to its nature, the neutrino is not detected at all, as it escapes\nthrough the detector without interacting.\nData: Electron rest mass, 𝑚= 9.11 × 10−31 kg; Elementary charge, 𝑒= 1.60 × 10−19 C;\nSpeed of light, 𝑐= 3.00 × 108 m s−1; Vacuum permittivity, 𝜖0 = 8.85 × 10−12 F m−1\nPart A. ATLAS Detector physics (4.0 points)\nA.1\nDerive an expression for the cyclotron radius, 𝑟, of the circular trajectory of an\nelectron acted upon by a magnetic force perpendicular to its velocity, and ex-\npress that radius as a function of its kinetic energy, 𝐾; charge modulus, 𝑒; mass,\n𝑚; and magnetic ﬁeld, 𝐵. Assume that the electron is a non-relativistic classical\nparticle.\n0.5pt\nElectrons produced inside the ATLAS detector must be treated relativistically. However, the formula for\nthe cyclotron radius also holds for relativistic motion when the relativistic momentum is considered.\nA.2\nCalculate the minimum value of the momentum of an electron that allows it to\nescape the inner part of the detector in the radial direction. The inner part of\nthe detector has a cylindrical shape with a radius of 1.1 meters, and the electron\nis produced in the collision point exactly in the center of the cylinder. Express\nyour answer in MeV/𝑐.\n0.5pt\nWhen accelerated perpendicularly to the velocity, relativistic particles of charge 𝑒and rest mass 𝑚emitt\nelectromagnetic radiation, called synchrotron radiation. The emitted power is given by\n𝑃= 𝑒2𝑎2𝛾4\n6𝜋𝜖0𝑐3\nwhere 𝑎is the acceleration and 𝛾= [1 −(𝑣/𝑐)2]−1/2.\nA.3\nA particle is called ultrarelativistic when its speed is very close to the speed of\nlight. For an ultrarelativistic particle the emitted power can be expressed as:\n𝑃= 𝜉\n𝑒4\n𝜖0𝑚𝑘𝑐𝑛𝐸2𝐵2 ,\nwhere 𝜉is a real number, 𝑛, 𝑘are integers, 𝐸is the energy of the charged par-\nticle and 𝐵is the magnetic ﬁeld. Find 𝜉, 𝑛and 𝑘.\n1.0pt\n\nTheory\nQ2-2\nEnglish (Oﬃcial)\nA.4\nIn the ultrarelativistic limit, the energy of the electron as a function of time is:\n𝐸(𝑡) =\n𝐸0\n1 + 𝛼𝐸0𝑡,\nwhere 𝐸0 is the initial energy of the electron. Find 𝛼as a function of 𝑒, 𝑐, 𝐵, 𝜖0\nand 𝑚.\n1.0pt\nA.5\nConsider an electron produced at the collision point along the radial direction\nwith an energy of 100 GeV. Estimate the amount of energy that is lost due to\nsynchrotron radiation until the electron escapes the inner part of the detector?\nExpress your answer in MeV.\n0.5pt\nA.6\nFind an expression for the cyclotron frequency of the electron as a function of\ntime in the ultrarelativistic limit.\n0.5pt\nPart B. Finding the neutrino (6.0 points)\nThe collision between the two protons shown in Figure 1 leads to the production of a top quark (𝑡) and\nan anti-top quark ( ̄𝑡), the heaviest elementary particles ever detected. The top quark decays into a 𝑊+\nboson and a bottom quark (𝑏), while the anti-top quark decays into a 𝑊−boson and an anti-bottom quark\n( ̄𝑏). In the case depicted in Figure 1, the 𝑊+ boson decays into a anti-muon (𝜇+) and a neutrino (𝜈), and\nthe 𝑊−boson decays into a quark and an anti-quark. The task of this problem is to reconstruct the full\nmomentum of the neutrino using the momenta of some detected particles. For simplicity, all particles\nand jets in this problem will be considered massless, except for the top quark and W± bosons.\nThe momenta of the top quark decay products can be determined from the experiment (see Table),\nexcept for the neutrino momentum component along the (𝑧-axis). The total linear momentum of the\nﬁnal state particles caught by the detector is only zero on the transverse plane (𝑥𝑦plane), and not along\nthe collision line (𝑧-axis). As such, one can ﬁnd the transverse momentum of the neutrino from the\nmissing momentum in the transverse plane.\nOn June 4, 2015, the ATLAS experiment at the LHC recorded a proton-proton collision at 00:21:24 GMT+1\nlike the one represented in Figure 1.\n\nTheory\nQ2-3\nEnglish (Oﬃcial)\nFigure 1. Schematic representation of the ATLAS detector coordinate system (left) and proton-proton\ncollision (right).\nThe linear momenta of the three ﬁnal-state particles coming from the top quark decay, including the\nneutrino, is presented below for each component.\nParticle\n𝑝𝑥(GeV/𝑐)\n𝑝𝑦(GeV/𝑐)\n𝑝𝑧(GeV/𝑐)\nanti-muon (𝜇+)\n−24.7\n−24.9\n−12.4\njet 1 (𝑗1)\n−14.2\n+50.1\n+94.1\nneutrino (𝜈)\n−104.1\n+5.3\n---\nB.1\nFind an equation which relates the square of the 𝑊+ boson mass, 𝑚2\nW, with\nthe neutrino and anti-muon momentum components presented in the table\nabove. Express your answer in terms of the neutrino and anti-muon transverse\nmomentum,\n⃗𝑝(𝜈)\nT\n= 𝑝(𝜈)\n𝑥\n̂𝚤+ 𝑝(𝜈)\n𝑦\n̂𝚥and\n⃗𝑝(𝜇)\nT\n= 𝑝(𝜇)\n𝑥\n̂𝚤+ 𝑝(𝜇)\n𝑦\n̂𝚥,\nand their 𝑧-axis momentum components, 𝑝(𝜇)\n𝑧\nand 𝑝(𝜈)\n𝑧\n.\n1.5pt\nB.2\nAssuming a 𝑊+ boson mass of 𝑚W = 80.4 GeV/𝑐2 calculate the two possible so-\nlutions for the neutrino momentum along the 𝑧-axis, 𝑝(𝜈)\n𝑧\n. Express your answer\nin GeV/c.\n1.5pt\nB.3\nCalculate the top quark mass for each one of the two previous solutions. Ex-\npress your answer in GeV/𝑐2.\n[If you did not obtain the two solutions in B.2, use\n𝑝(𝜈)\n𝑧\n= 70 GeV/𝑐\nand 𝑝(𝜈)\n𝑧\n= −180 GeV/𝑐.]\n1.0pt\nThe normalised number of collision events for the measurement of the top quark mass (as determined\n\nTheory\nQ2-4\nEnglish (Oﬃcial)\nfrom the experiment), has two components: the so-called \"signal\" (corresponding to the decay of\ntop quarks) and \"background\" (corresponding to events from other processes that do not include top\nquarks). Experimental data include both processes, see Fig. 2.\nFigure 2. Top quark mass distribution as determined from the experiment, i.e. the normalised\nnumber of events plotted against the top quark mass. The dots correspond to the data. The\ndashed line corresponds to the \"signal\" and the shade to the \"background\".\nB.4\nAccording to the top quark mass distribution, which one of the two previous\nsolutions is more likely to be the right one? Estimate the probability for the\nmost likely solution.\n1.0pt\nB.5\nCalculate the distance traveled by the top quark before decaying, using the\nmost likely solution.\nAssume the top quark has a mean lifetime at rest of\n5 × 10−25 s.\n1.0pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2018-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"Confidential\nSolutions to Theory Problem 2\nWhere is the neutrino?\n(Miguel C N Fiolhais and António Onofre)\nJuly 24, 2018\nv1.2\n\nConfidential\nTheory\nEnglish (UK)\nST2-1\nWhere is the neutrino? (10 points)\nPart A. ATLAS Detector physics (4.0 points)\nA.1\nThe magnetic force is the centripetal force:\n𝑚𝑣2\n𝑟= 𝑒𝑣𝐵⇒𝑟= 𝑚𝑣\n𝑒𝐵.\nFirst express the velocity in terms of the kinetic energy,\n𝐾= 1\n2𝑚𝑣2 ⇒𝑣= √2𝐾\n𝑚,\nand then insert it in the expression above for the radius to get\nA.1\n𝑟=\n√\n2𝐾𝑚\n𝑒𝐵\n.\n0.5pt\nA.2\nThe radius of the circular motion of a charged particle in the presence of a uniform magnetic field is\ngiven by,\n𝑟= 𝑚𝑣\n𝑒𝐵.\nThis formula is valid in the relativistic scenario if the mass correction, 𝑚→𝛾𝑚is included:\n𝑟= 𝛾𝑚𝑣\n𝑒𝐵= 𝑝\n𝑒𝐵⇒𝑝= 𝑟𝑒𝐵.\nNote that the radius of the circular motion is half the radius of the inner part of the detector. One obtains\n[1 MeV/𝑐= 5.34 × 10−22 m kg s−1]\nA.2\n𝑝= 330 MeV/𝑐.\n0.5pt\nA.3\nThe acceleration for the particle is 𝑎= 𝑒𝑣𝐵\n𝛾𝑚∼𝑒𝑐𝐵\n𝛾𝑚, in the ultrarelativistic limit. Then,\n𝑃=\n𝑒4𝑐2𝛾4𝐵2\n6𝜋𝜖0𝑐3𝛾2𝑚2 = 𝑒4𝛾2𝑐4𝐵2\n6𝜋𝜖0𝑐5𝑚2 .\nSince 𝐸= 𝛾𝑚𝑐2 we can obtain 𝛾2𝑐4 = 𝐸2\n𝑚2 and, finally,\n\nConfidential\nTheory\nEnglish (UK)\nST2-2\n𝑃=\n𝑒4\n6𝜋𝜖0𝑚4𝑐5 𝐸2𝐵2.\nTherefore,\nA.3\n𝜉= 1\n6𝜋,\n𝑛= 5 and 𝑘= 4.\n1.0pt\nA.4\nThe power emitted by the particle is given by,\n𝑃= −d𝐸\nd𝑡=\n𝑒4\n6𝜋𝜖0𝑚4𝑐5 𝐸2𝐵2 .\nThe energy of the particle as a function of time can be calculated from\n∫\n𝐸(𝑡)\n𝐸0\n1\n𝐸2 d𝐸= −∫\n𝑡\n0\n𝑒4\n6𝜋𝜖0𝑚4𝑐5 𝐵2d𝑡,\nwhere 𝐸(0) = 𝐸0. This leads to,\n1\n𝐸(𝑡) −1\n𝐸0\n=\n𝑒4𝐵2\n6𝜋𝜖0𝑚4𝑐5 𝑡\n⇒\n𝐸(𝑡) =\n𝐸0\n1 + 𝛼𝐸0𝑡,\nwith\nA.4\n𝛼=\n𝑒4𝐵2\n6𝜋𝜖0𝑚4𝑐5 .\n1.0pt\nA.5\nIf the initial energy of the electron is 100 GeV, the radius of curvature is extremely large (𝑟=\n𝐸\n𝑒𝐵𝑐≈167 m).\nTherefore, in approximation, one can consider the electron is moving in the inner part of the ATLAS\ndetector along a straight line. The time of flight of the electron is 𝑡= 𝑅/𝑐, where 𝑅= 1.1 m is the radius\nof the inner part of the detector. The total energy lost due to synchrotron radiation is,\nΔ𝐸= 𝐸(𝑅/𝑐) −𝐸0 =\n𝐸0\n1 + 𝛼𝐸0\n𝑅\n𝑐\n−𝐸0 ≈−𝛼𝐸2\n0\n𝑅\n𝑐\nand\nA.5\nΔ𝐸= −56 MeV .\n0.5pt\n\nConfidential\nTheory\nEnglish (UK)\nST2-3\nA.6\nIn the ultrarelativistic limit, 𝑣≈𝑐and 𝐸≈𝑝𝑐. The cyclotron frequency is,\n𝜔(𝑡) =\n𝑐\n𝑟(𝑡) = 𝑒𝑐𝐵\n𝑝(𝑡) = 𝑒𝑐2𝐵\n𝐸(𝑡)\nA.6\n𝜔(𝑡) = 𝑒𝑐2𝐵\n𝐸0\n(1 +\n𝑒4𝐵2\n6𝜋𝜖0𝑚4𝑐5 𝐸0𝑡) .\n0.5pt\n\nConfidential\nTheory\nEnglish (UK)\nST2-4\nPart B. Finding the neutrino (6.0 points)\nB.1\nSince the 𝑊+ boson decays into an anti-muon and a neutrino, one can use principles of conservation\nof energy and linear momentum to calculate the unknown 𝑝(𝜈)\nz\nof the neutrino. Moreover, the anti-\nmuon and the neutrino can be considered massless, which implies that the magnitude of their momenta\n(times 𝑐) and their energies are the same. Therefore, the conservation of linear momentum can be ex-\npressed as\n⃗𝑝(𝑊)\n=\n⃗𝑝(𝜇) + ⃗𝑝(𝜈) ,\nand the conservation of energy as,\n𝐸(𝑊)\n=\n𝑐𝑝(𝜇) + 𝑐𝑝(𝜈) .\nIn addition, one can also relate the energy and the momentum of the 𝑊+ boson through its mass,\n𝑚2\n𝑊= (𝐸(𝑊))2/𝑐4 −(𝑝(𝑊))2/𝑐2\nwhich leads to a quadratic equation on 𝑝(𝜈)\n𝑧\n,\n𝑚2\n𝑊\n=\n[(𝑝(𝜇) + 𝑝(𝜈))2 −( ⃗𝑝(𝜇) + ⃗𝑝(𝜈))2] /𝑐2\n=\n(2𝑝(𝜇)𝑝(𝜈) −2 ⃗𝑝(𝜇) ⋅⃗𝑝(𝜈)) /𝑐2\nB.1\n𝑚2\n𝑊= 1\n𝑐2 (2𝑝(𝜇)√(𝑝(𝜈)\nT )2 + (𝑝(𝜈)\n𝑧)2 −2 ⃗𝑝(𝜇)\nT\n⋅⃗𝑝(𝜈)\nT\n−2𝑝(𝜇)\n𝑧𝑝(𝜈)\n𝑧) .\n1.5pt\nB.2\nThe numerical substitution directly in the answer of B.1, using\n𝑝(𝜇) = 37.2 GeV/𝑐\n𝑚2\n𝑊𝑐2 = 6464.2 (GeV/𝑐)2\n𝑝(𝜈) 2\nT\n= 10 864.9 (GeV/𝑐)2\n⃗𝑝(𝜇)\nT\n⋅⃗𝑝(𝜈)\nT\n= 2439.3(GeV/𝑐)2\n𝑝(𝜇)\n𝑧\n= −12.4 GeV/𝑐,\nleads to\n6464.2 = 74.4√10 864.9 + 𝑝(𝜈) 2\n𝑧\n−4878.6 + 24.8𝑝(𝜈) .\nThis is a quadratic equation, equivalent to\n0.88889 𝑝(𝜈) 2\n𝑧\n+ 101.64 𝑝(𝜈)\n𝑧\n−12378 = 0\nwhose solutions are:\n\nConfidential\nTheory\nEnglish (UK)\nST2-5\nB.2\n𝑝(𝜈)\n𝑧\n= 74.0 GeV/𝑐\nor\n𝑝(𝜈)\n𝑧\n= −188.3 GeV/𝑐.\n1.5pt\nThe general solution of the equation above in B.1 leads to\n𝑝(𝜈)\n𝑧\n=\n2 ⃗𝑝(𝜇)\nT\n⋅⃗𝑝(𝜈)\nT\n𝑝(𝜇)\n𝑧\n+ 𝑚2\n𝑊𝑐2𝑝(𝜇)\n𝑧\n2(𝑝(𝜇)\nT )2\n±\n𝑝(𝜇) √−4(𝑝(𝜇)\nT )2(𝑝(𝜈)\nT )2 + 4( ⃗𝑝(𝜇)\nT\n⋅⃗𝑝(𝜈)\nT\n)2 + 4 ⃗𝑝(𝜇)\nT\n⋅⃗𝑝(𝜈)\nT\n𝑚2\n𝑊𝑐2 + 𝑚4\n𝑊𝑐4\n2(𝑝(𝜇)\nT )2\nNumerical substitution leads to the above mentioned values for 𝑝(𝜈)\n𝑧.\nB.3\nThe final state particles of the top quark decay are the anti-muon, the neutrino and jet 1. Since the\nneutrino is now fully reconstructed the energy and linear momentum of the top quark can be calculated\nas,\n𝐸(t)\n=\n𝑐𝑝(𝜇) + 𝑐𝑝(𝜈) + 𝑐𝑝(𝑗1)\n⃗𝑝(t)\n=\n⃗𝑝(𝜇) + ⃗𝑝(𝜈) + ⃗𝑝(𝑗1) .\nThe top quark mass is,\n𝑚t\n=\n√(𝐸(t))2/𝑐4 −( ⃗𝑝(t))2/𝑐2\n=\n𝑐−1√(𝑝(𝜇) + 𝑝(𝜈) + 𝑝(𝑗1))\n2 −( ⃗𝑝(𝜇) + ⃗𝑝(𝜈) + ⃗𝑝(𝑗1))\n2 .\nThe substitution of values leads to two possible masses:\nB.3\n𝑚t = 169.3 GeV/𝑐2\nor\n𝑚t = 311.2 GeV/𝑐2\n1.0pt\nB.4\nAccording to the frequency distribution for signal (dashed line), the probability of the 𝑚t = 169.3 GeV/𝑐2\nsolution is roughly 0.1 while the probability of the 𝑚t = 311.2 GeV/c2 solution is below 0.01. Therefore,\nB.4\nThe most likely candidate is the 𝑚t = 169.3 GeV/c2 solution.\n1.0pt\n\nConfidential\nTheory\nEnglish (UK)\nST2-6\nB.5\nThe top quark energy for the most likely candidate is 𝐸(t) = 𝑐𝑝(𝜇) + 𝑐𝑝(𝜈) + 𝑐𝑝(𝑗1) = 272.6 GeV .\n𝑑= 𝑣𝑡= 𝑣𝛾𝑡0 = 𝑝(t)\n𝑚t\n𝑡0 = 𝑐𝑡0√𝐸(t)2\n𝑚2\nt 𝑐4 −1 .\nB.5\n𝑑= 2 × 10−16 m .\n1.0pt\n","textExtraction":"available"}}
+{
+  "id": "ipho-2018-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2018-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Where is the neutrino? (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When two protons collide with a very high energy at the Large Hadron Collider (LHC), several particles may be produced as a result of that collision, such as electrons, muons, neutrinos, quarks, and their respective anti-particles. Most of these particles can be detected by the particle detector surrounding the collision point. For example, quarks undergo a process called "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "hadronisation"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in which they become a shower of subatomic particles, called \"jet''. In addition, the high magnetic field present in the detectors allows even very energetic charged particles to curve enough for their momentum to be determined. The ATLAS detector uses a superconducting solenoid system that produces a constant and uniform 2.00 Tesla magnetic field in the inner part of the detector, surrounding the collision point. Charged particles with momenta below a certain value will be curved so strongly that they will loop repeatedly in the field and most likely not be measured. Due to its nature, the neutrino is not detected at all, as it escapes through the detector without interacting."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Data: Electron rest mass, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m = 9.11 \\times 10^{-31}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " kg; Elementary charge, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e = 1.60 \\times 10^{-19}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " C; Speed of light, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c = 3.00 \\times 10^{8}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m s"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "; Vacuum permittivity, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon_0 = 8.85 \\times 10^{-12}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " F m"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-1}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. ATLAS Detector physics (4.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Derive an expression for the cyclotron radius, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of the circular trajectory of an electron acted upon by a magnetic force perpendicular to its velocity, and express that radius as a function of its kinetic energy, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "; charge modulus, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "; mass, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "; and magnetic field, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Assume that the electron is a non-relativistic classical particle. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Electrons produced inside the ATLAS detector must be treated relativistically. However, the formula for the cyclotron radius also holds for relativistic motion when the relativistic momentum is considered."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Calculate the minimum value of the momentum of an electron that allows it to escape the inner part of the detector in the radial direction. The inner part of the detector has a cylindrical shape with a radius of 1.1 meters, and the electron is produced in the collision point exactly in the center of the cylinder. Express your answer in MeV/"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When accelerated perpendicularly to the velocity, relativistic particles of charge "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and rest mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " emitt electromagnetic radiation, called synchrotron radiation. The emitted power is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[P = \\frac{e^2 a^2 \\gamma^4}{6\\pi\\epsilon_0 c^3}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the acceleration and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma = [1 - (v/c)^2]^{-1/2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "A particle is called ultrarelativistic when its speed is very close to the speed of light. For an ultrarelativistic particle the emitted power can be expressed as: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[P = \\xi\\frac{e^4}{\\epsilon_0 m^k c^n} E^2 B^2\\,,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\xi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a real number, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n, k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are integers, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the energy of the charged particle and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the magnetic field. Find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\xi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "In the ultrarelativistic limit, the energy of the electron as a function of time is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E(t) = \\frac{E_0}{1 + \\alpha E_0 t}\\,,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the initial energy of the electron. Find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\epsilon_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Consider an electron produced at the collision point along the radial direction with an energy of 100 GeV. Estimate the amount of energy that is lost due to synchrotron radiation until the electron escapes the inner part of the detector? Express your answer in MeV. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find an expression for the cyclotron frequency of the electron as a function of time in the ultrarelativistic limit. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Finding the neutrino (6.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The collision between the two protons shown in Figure 1 leads to the production of a top quark ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and an anti-top quark ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\bar{t}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "), the heaviest elementary particles ever detected. The top quark decays into a "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W^+\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " boson and a bottom quark ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "), while the anti-top quark decays into a "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W^-\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " boson and an anti-bottom quark ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\bar{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). In the case depicted in Figure 1, the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W^+\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " boson decays into a anti-muon ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu^+\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and a neutrino ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "), and the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W^-\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " boson decays into a quark and an anti-quark. The task of this problem is to reconstruct the full momentum of the neutrino using the momenta of some detected particles. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "For simplicity, all particles and jets in this problem will be considered massless, except for the top quark and W"
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(^\\pm\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " bosons."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The momenta of the top quark decay products can be determined from the experiment (see Table), except for the neutrino momentum component along the ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis). The total linear momentum of the final state particles caught by the detector is only zero on the transverse plane ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(xy\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane), and not along the collision line ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis). As such, one can find the transverse momentum of the neutrino from the missing momentum in the transverse plane."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "On June 4, 2015, the ATLAS experiment at the LHC recorded a proton-proton collision at 00:21:24 GMT+1 like the one represented in Figure 1."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2018-t2/ef9ccb6968f018598319.png",
+                "alt": "ipho-2018-t2 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 1. Schematic representation of the ATLAS detector coordinate system (left) and proton-proton collision (right)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The linear momenta of the three final-state particles coming from the top quark decay, including the neutrino, is presented below for each component."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "table",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "thead",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Particle"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(p_x\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " (GeV/"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(c\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ")"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(p_y\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " (GeV/"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(c\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ")"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "th",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(p_z\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " (GeV/"
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(c\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ")"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "tbody",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "anti-muon ("
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\mu^+\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ")"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(-24.7\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(-24.9\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(-12.4\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "jet 1 ("
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(j_1\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ")"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(-14.2\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(+50.1\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(+94.1\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "tr",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "neutrino ("
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(\\nu\\)"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ")"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(-104.1\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "\\(+5.3\\)"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "td",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "---"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "text": "\n"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find an equation which relates the square of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W^+\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " boson mass, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m^2_\\mathrm{W}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", with the neutrino and anti-muon momentum components presented in the table above. Express your answer in terms of the neutrino and anti-muon transverse momentum, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\vec{p}_\\mathrm{T}^{\\,(\\nu)} = p_x^{(\\nu)}\\hat{\\imath} + p_y^{(\\nu)}\\hat{\\jmath}\\ \\text{and}\\ \\vec{p}_\\mathrm{T}^{\\,(\\mu)} = p_x^{(\\mu)}\\hat{\\imath} + p_y^{(\\mu)}\\hat{\\jmath},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and their "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis momentum components, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_z^{(\\mu)}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_z^{(\\nu)}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Assuming a "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W^+\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " boson mass of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{W} = 80.4\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " GeV/"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " calculate the two possible solutions for the neutrino momentum along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-axis, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_z^{(\\nu)}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Express your answer in GeV/c. 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Calculate the top quark mass for each one of the two previous solutions. Express your answer in GeV/"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [If you did not obtain the two solutions in B.2, use "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_z^{(\\nu)} = 70\\,\\mathrm{GeV}/c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_z^{(\\nu)} = -180\\,\\mathrm{GeV}/c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ".] 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The normalised number of collision events for the measurement of the top quark mass (as determined from the experiment), has two components: the so-called \"signal\" (corresponding to the decay of top quarks) and \"background\" (corresponding to events from other processes that do not include top quarks). Experimental data include both processes, see Fig. 2."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2018-t2/767a928cede180f49ec7.png",
+                "alt": "ipho-2018-t2 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 2. Top quark mass distribution as determined from the experiment, i.e. the normalised number of events plotted against the top quark mass. The dots correspond to the data. The dashed line corresponds to the \"signal\" and the shade to the \"background\"."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "According to the top quark mass distribution, which one of the two previous solutions is more likely to be the right one? Estimate the probability for the most likely solution. 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Calculate the distance traveled by the top quark before decaying, using the most likely solution. Assume the top quark has a mean lifetime at rest of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(5 \\times 10^{-25}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " s. 1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Where is the neutrino? (10 points)\n\n\nWhen two protons collide with a very high energy at the Large Hadron Collider (LHC), several particles may be produced as a result of that collision, such as electrons, muons, neutrinos, quarks, and their respective anti-particles. Most of these particles can be detected by the particle detector surrounding the collision point. For example, quarks undergo a process called \nhadronisation\n in which they become a shower of subatomic particles, called \"jet''. In addition, the high magnetic field present in the detectors allows even very energetic charged particles to curve enough for their momentum to be determined. The ATLAS detector uses a superconducting solenoid system that produces a constant and uniform 2.00 Tesla magnetic field in the inner part of the detector, surrounding the collision point. Charged particles with momenta below a certain value will be curved so strongly that they will loop repeatedly in the field and most likely not be measured. Due to its nature, the neutrino is not detected at all, as it escapes through the detector without interacting.\n\n\nData: Electron rest mass, \n\\(m = 9.11 \\times 10^{-31}\\)\n kg; Elementary charge, \n\\(e = 1.60 \\times 10^{-19}\\)\n C; Speed of light, \n\\(c = 3.00 \\times 10^{8}\\)\n m s\n\\(^{-1}\\)\n; Vacuum permittivity, \n\\(\\epsilon_0 = 8.85 \\times 10^{-12}\\)\n F m\n\\(^{-1}\\)\n\n\nPart A. ATLAS Detector physics (4.0 points)\n\n\nA.1\nDerive an expression for the cyclotron radius, \n\\(r\\)\n, of the circular trajectory of an electron acted upon by a magnetic force perpendicular to its velocity, and express that radius as a function of its kinetic energy, \n\\(K\\)\n; charge modulus, \n\\(e\\)\n; mass, \n\\(m\\)\n; and magnetic field, \n\\(B\\)\n. Assume that the electron is a non-relativistic classical particle. 0.5pt\n\n\nElectrons produced inside the ATLAS detector must be treated relativistically. However, the formula for the cyclotron radius also holds for relativistic motion when the relativistic momentum is considered.\n\n\nA.2\nCalculate the minimum value of the momentum of an electron that allows it to escape the inner part of the detector in the radial direction. The inner part of the detector has a cylindrical shape with a radius of 1.1 meters, and the electron is produced in the collision point exactly in the center of the cylinder. Express your answer in MeV/\n\\(c\\)\n. 0.5pt\n\n\nWhen accelerated perpendicularly to the velocity, relativistic particles of charge \n\\(e\\)\n and rest mass \n\\(m\\)\n emitt electromagnetic radiation, called synchrotron radiation. The emitted power is given by \n\\[P = \\frac{e^2 a^2 \\gamma^4}{6\\pi\\epsilon_0 c^3}\\]\n where \n\\(a\\)\n is the acceleration and \n\\(\\gamma = [1 - (v/c)^2]^{-1/2}\\)\n.\n\n\nA.3\nA particle is called ultrarelativistic when its speed is very close to the speed of light. For an ultrarelativistic particle the emitted power can be expressed as: \n\\[P = \\xi\\frac{e^4}{\\epsilon_0 m^k c^n} E^2 B^2\\,,\\]\n where \n\\(\\xi\\)\n is a real number, \n\\(n, k\\)\n are integers, \n\\(E\\)\n is the energy of the charged particle and \n\\(B\\)\n is the magnetic field. Find \n\\(\\xi\\)\n, \n\\(n\\)\n and \n\\(k\\)\n. 1.0pt\n\n\nA.4\nIn the ultrarelativistic limit, the energy of the electron as a function of time is: \n\\[E(t) = \\frac{E_0}{1 + \\alpha E_0 t}\\,,\\]\n where \n\\(E_0\\)\n is the initial energy of the electron. Find \n\\(\\alpha\\)\n as a function of \n\\(e\\)\n, \n\\(c\\)\n, \n\\(B\\)\n, \n\\(\\epsilon_0\\)\n and \n\\(m\\)\n. 1.0pt\n\n\nA.5\nConsider an electron produced at the collision point along the radial direction with an energy of 100 GeV. Estimate the amount of energy that is lost due to synchrotron radiation until the electron escapes the inner part of the detector? Express your answer in MeV. 0.5pt\n\n\nA.6\nFind an expression for the cyclotron frequency of the electron as a function of time in the ultrarelativistic limit. 0.5pt\n\n\nPart B. Finding the neutrino (6.0 points)\n\n\nThe collision between the two protons shown in Figure 1 leads to the production of a top quark (\n\\(t\\)\n) and an anti-top quark (\n\\(\\bar{t}\\)\n), the heaviest elementary particles ever detected. The top quark decays into a \n\\(W^+\\)\n boson and a bottom quark (\n\\(b\\)\n), while the anti-top quark decays into a \n\\(W^-\\)\n boson and an anti-bottom quark (\n\\(\\bar{b}\\)\n). In the case depicted in Figure 1, the \n\\(W^+\\)\n boson decays into a anti-muon (\n\\(\\mu^+\\)\n) and a neutrino (\n\\(\\nu\\)\n), and the \n\\(W^-\\)\n boson decays into a quark and an anti-quark. The task of this problem is to reconstruct the full momentum of the neutrino using the momenta of some detected particles. \nFor simplicity, all particles and jets in this problem will be considered massless, except for the top quark and W\n\\(^\\pm\\)\n bosons.\n\n\nThe momenta of the top quark decay products can be determined from the experiment (see Table), except for the neutrino momentum component along the (\n\\(z\\)\n-axis). The total linear momentum of the final state particles caught by the detector is only zero on the transverse plane (\n\\(xy\\)\n plane), and not along the collision line (\n\\(z\\)\n-axis). As such, one can find the transverse momentum of the neutrino from the missing momentum in the transverse plane.\n\n\nOn June 4, 2015, the ATLAS experiment at the LHC recorded a proton-proton collision at 00:21:24 GMT+1 like the one represented in Figure 1.\n\n\n\n\n\n\n\n\n\nFigure 1. Schematic representation of the ATLAS detector coordinate system (left) and proton-proton collision (right).\n\n\nThe linear momenta of the three final-state particles coming from the top quark decay, including the neutrino, is presented below for each component.\n\n\n\n\n\n\n\n\n\n\nParticle\n\n\n\\(p_x\\)\n (GeV/\n\\(c\\)\n)\n\n\n\\(p_y\\)\n (GeV/\n\\(c\\)\n)\n\n\n\\(p_z\\)\n (GeV/\n\\(c\\)\n)\n\n\n\n\n\n\n\n\n\n\nanti-muon (\n\\(\\mu^+\\)\n)\n\n\n\\(-24.7\\)\n\n\n\\(-24.9\\)\n\n\n\\(-12.4\\)\n\n\n\n\n\n\njet 1 (\n\\(j_1\\)\n)\n\n\n\\(-14.2\\)\n\n\n\\(+50.1\\)\n\n\n\\(+94.1\\)\n\n\n\n\n\n\nneutrino (\n\\(\\nu\\)\n)\n\n\n\\(-104.1\\)\n\n\n\\(+5.3\\)\n\n\n---\n\n\n\n\n\n\n\n\n\n\nB.1\nFind an equation which relates the square of the \n\\(W^+\\)\n boson mass, \n\\(m^2_\\mathrm{W}\\)\n, with the neutrino and anti-muon momentum components presented in the table above. Express your answer in terms of the neutrino and anti-muon transverse momentum, \n\\[\\vec{p}_\\mathrm{T}^{\\,(\\nu)} = p_x^{(\\nu)}\\hat{\\imath} + p_y^{(\\nu)}\\hat{\\jmath}\\ \\text{and}\\ \\vec{p}_\\mathrm{T}^{\\,(\\mu)} = p_x^{(\\mu)}\\hat{\\imath} + p_y^{(\\mu)}\\hat{\\jmath},\\]\n and their \n\\(z\\)\n-axis momentum components, \n\\(p_z^{(\\mu)}\\)\n and \n\\(p_z^{(\\nu)}\\)\n. 1.5pt\n\n\nB.2\nAssuming a \n\\(W^+\\)\n boson mass of \n\\(m_\\mathrm{W} = 80.4\\)\n GeV/\n\\(c^2\\)\n calculate the two possible solutions for the neutrino momentum along the \n\\(z\\)\n-axis, \n\\(p_z^{(\\nu)}\\)\n. Express your answer in GeV/c. 1.5pt\n\n\nB.3\nCalculate the top quark mass for each one of the two previous solutions. Express your answer in GeV/\n\\(c^2\\)\n. [If you did not obtain the two solutions in B.2, use \n\\(p_z^{(\\nu)} = 70\\,\\mathrm{GeV}/c\\)\n and \n\\(p_z^{(\\nu)} = -180\\,\\mathrm{GeV}/c\\)\n.] 1.0pt\n\n\nThe normalised number of collision events for the measurement of the top quark mass (as determined from the experiment), has two components: the so-called \"signal\" (corresponding to the decay of top quarks) and \"background\" (corresponding to events from other processes that do not include top quarks). Experimental data include both processes, see Fig. 2.\n\n\n\n\n\n\n\n\n\nFigure 2. Top quark mass distribution as determined from the experiment, i.e. the normalised number of events plotted against the top quark mass. The dots correspond to the data. The dashed line corresponds to the \"signal\" and the shade to the \"background\".\n\n\nB.4\nAccording to the top quark mass distribution, which one of the two previous solutions is more likely to be the right one? Estimate the probability for the most likely solution. 1.0pt\n\n\nB.5\nCalculate the distance traveled by the top quark before decaying, using the most likely solution. Assume the top quark has a mean lifetime at rest of \n\\(5 \\times 10^{-25}\\)\n s. 1.0pt\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2018-t2/ef9ccb6968f018598319.png",
+      "/corpus/figures/native/bulk/ipho-2018-t2/767a928cede180f49ec7.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2018-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Where is the neutrino? (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. ATLAS Detector physics (4.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The magnetic force is the centripetal force: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation*}\nm\\frac{v^2}{r} = evB \\Rightarrow r = \\frac{mv}{eB} \\; .\n\\end{equation*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " First express the velocity in terms of the kinetic energy, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation*}\nK = \\frac{1}{2}mv^2 \\Rightarrow v = \\sqrt{\\frac{2K}{m}} \\; ,\n\\end{equation*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and then insert it in the expression above for the radius to get"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[r = \\frac{\\sqrt{2Km}}{eB} \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The radius of the circular motion of a charged particle in the presence of a uniform magnetic field is given by, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation*}\nr = \\frac{mv}{eB} \\; .\n\\end{equation*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This formula is valid in the relativistic scenario if the mass correction, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m \\to \\gamma m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is included: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation*}\nr = \\frac{\\gamma mv}{eB} = \\frac{p}{eB} \\Rightarrow p = reB \\; .\n\\end{equation*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Note that the radius of the circular motion is half the radius of the inner part of the detector. One obtains [1 MeV/"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c = 5.34 \\times 10^{-22}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m kg s"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{-1}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p = 330 \\; \\mathrm{MeV}/c \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The acceleration for the particle is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a = \\frac{evB}{\\gamma m} \\sim \\frac{ecB}{\\gamma m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", in the ultrarelativistic limit. Then, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation*}\nP = \\frac{e^4c^2\\gamma^4B^2}{6\\pi\\epsilon_0c^3\\gamma^2m^2} = \\frac{e^4\\gamma^2c^4B^2}{6\\pi\\epsilon_0c^5m^2} \\; .\n\\end{equation*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E = \\gamma mc^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we can obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma^2c^4 = \\frac{E^2}{m^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and, finally, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[P = \\frac{e^4}{6\\pi\\epsilon_0m^4c^5}E^2B^2 \\; .\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\xi = \\frac{1}{6\\pi} \\; , \\quad n = 5 \\text{ and } k = 4 \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The power emitted by the particle is given by, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[P = -\\frac{\\mathrm{d}E}{\\mathrm{d}t} = \\frac{e^4}{6\\pi\\epsilon_0m^4c^5}E^2B^2 \\; .\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The energy of the particle as a function of time can be calculated from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\int_{E_0}^{E(t)} \\frac{1}{E^2}\\,\\mathrm{d}E = -\\int_0^t \\frac{e^4}{6\\pi\\epsilon_0m^4c^5}B^2\\,\\mathrm{d}t \\; ,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E(0) = E_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". This leads to, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{1}{E(t)} - \\frac{1}{E_0} = \\frac{e^4B^2}{6\\pi\\epsilon_0m^4c^5}\\, t \\quad\\Rightarrow\\quad E(t) = \\frac{E_0}{1 + \\alpha E_0 t} \\; ,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\alpha = \\frac{e^4B^2}{6\\pi\\epsilon_0m^4c^5} \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.5"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If the initial energy of the electron is 100 GeV, the radius of curvature is extremely large ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r = \\frac{E}{eBc} \\approx 167\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m). Therefore, in approximation, one can consider the electron is moving in the inner part of the ATLAS detector along a straight line. The time of flight of the electron is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t = R/c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R = 1.1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m is the radius of the inner part of the detector. The total energy lost due to synchrotron radiation is, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta E = E(R/c) - E_0 = \\frac{E_0}{1 + \\alpha E_0 \\frac{R}{c}} - E_0 \\approx -\\alpha E_0^2 \\frac{R}{c}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Delta E = -56 \\; \\mathrm{MeV} \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.6"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the ultrarelativistic limit, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v \\approx c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E \\approx pc\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The cyclotron frequency is, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\omega(t) = \\frac{c}{r(t)} = \\frac{ecB}{p(t)} = \\frac{ec^2B}{E(t)}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\omega(t) = \\frac{ec^2B}{E_0}\\left(1 + \\frac{e^4B^2}{6\\pi\\epsilon_0m^4c^5}E_0t\\right) \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Finding the neutrino (6.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W^+\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " boson decays into an anti-muon and a neutrino, one can use principles of conservation of energy and linear momentum to calculate the unknown "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_z^{(\\nu)}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the neutrino. Moreover, the anti-muon and the neutrino can be considered massless, which implies that the magnitude of their momenta (times "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and their energies are the same. Therefore, the conservation of linear momentum can be expressed as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\vec{p}^{\\,(W)} = \\vec{p}^{\\,(\\mu)} + \\vec{p}^{\\,(\\nu)} \\; ,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the conservation of energy as, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E^{(W)} = cp^{(\\mu)} + cp^{(\\nu)} \\; .\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " In addition, one can also relate the energy and the momentum of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(W^+\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " boson through its mass, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m_W^2 = (E^{(W)})^2/c^4 - (p^{(W)})^2/c^2\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " which leads to a quadratic equation on "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_z^{(\\nu)}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{aligned}\nm_W^2 &= \\left[(p^{(\\mu)} + p^{(\\nu)})^2 - (\\vec{p}^{\\,(\\mu)} + \\vec{p}^{\\,(\\nu)})^2\\right]/c^2 \\\\\n&= \\left(2p^{(\\mu)}p^{(\\nu)} - 2\\vec{p}^{\\,(\\mu)} \\cdot \\vec{p}^{\\,(\\nu)}\\right)/c^2\n\\end{aligned}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m_W^2 = \\frac{1}{c^2}\\left(2p^{(\\mu)}\\sqrt{(p_{\\mathrm{T}}^{(\\nu)})^2 + (p_z^{(\\nu)})^2} - 2\\vec{p}_{\\mathrm{T}}^{\\,(\\mu)} \\cdot \\vec{p}_{\\mathrm{T}}^{\\,(\\nu)} - 2p_z^{(\\mu)}p_z^{(\\nu)}\\right) \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The numerical substitution directly in the answer of B.1, using "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p^{(\\mu)} = 37.2\\,\\mathrm{GeV}/c \\quad m_W^2c^2 = 6464.2\\,(\\mathrm{GeV}/c)^2 \\quad (p_{\\mathrm{T}}^{(\\nu)})^2 = 10\\,864.9\\,(\\mathrm{GeV}/c)^2\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\vec{p}_{\\mathrm{T}}^{\\,(\\mu)} \\cdot \\vec{p}_{\\mathrm{T}}^{\\,(\\nu)} = 2439.3\\,(\\mathrm{GeV}/c)^2 \\quad p_z^{(\\mu)} = -12.4\\,\\mathrm{GeV}/c \\; ,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " leads to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[6464.2 = 74.4\\sqrt{10\\,864.9 + (p_z^{(\\nu)})^2} - 4878.6 + 24.8p^{(\\nu)} \\; .\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This is a quadratic equation, equivalent to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[0.88889\\,(p_z^{(\\nu)})^2 + 101.64\\,p_z^{(\\nu)} - 12378 = 0\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " whose solutions are:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p_z^{(\\nu)} = 74.0 \\; \\mathrm{GeV}/c \\quad \\text{or} \\quad p_z^{(\\nu)} = -188.3 \\; \\mathrm{GeV}/c \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The general solution of the equation above in B.1 leads to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{aligned}\np_z^{(\\nu)} &= \\frac{2\\vec{p}_{\\mathrm{T}}^{\\,(\\mu)} \\cdot \\vec{p}_{\\mathrm{T}}^{\\,(\\nu)}\\,p_z^{(\\mu)} + m_W^2c^2p_z^{(\\mu)}}{2(p_{\\mathrm{T}}^{(\\mu)})^2} \\\\\n&\\pm \\frac{p^{(\\mu)}\\sqrt{-4(p_{\\mathrm{T}}^{(\\mu)})^2(p_{\\mathrm{T}}^{(\\nu)})^2 + 4(\\vec{p}_{\\mathrm{T}}^{\\,(\\mu)} \\cdot \\vec{p}_{\\mathrm{T}}^{\\,(\\nu)})^2 + 4\\vec{p}_{\\mathrm{T}}^{\\,(\\mu)} \\cdot \\vec{p}_{\\mathrm{T}}^{\\,(\\nu)}m_W^2c^2 + m_W^4c^4}}{2(p_{\\mathrm{T}}^{(\\mu)})^2}\n\\end{aligned}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Numerical substitution leads to the above mentioned values for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_z^{(\\nu)}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The final state particles of the top quark decay are the anti-muon, the neutrino and jet 1. Since the neutrino is now fully reconstructed the energy and linear momentum of the top quark can be calculated as, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{aligned}\nE^{(\\mathrm{t})} &= cp^{(\\mu)} + cp^{(\\nu)} + cp^{(j_1)} \\\\\n\\vec{p}^{\\,(\\mathrm{t})} &= \\vec{p}^{\\,(\\mu)} + \\vec{p}^{\\,(\\nu)} + \\vec{p}^{\\,(j_1)} \\; .\n\\end{aligned}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The top quark mass is, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{aligned}\nm_{\\mathrm{t}} &= \\sqrt{(E^{(\\mathrm{t})})^2/c^4 - (\\vec{p}^{\\,(\\mathrm{t})})^2/c^2} \\\\\n&= c^{-1}\\sqrt{\\left(p^{(\\mu)} + p^{(\\nu)} + p^{(j_1)}\\right)^2 - \\left(\\vec{p}^{\\,(\\mu)} + \\vec{p}^{\\,(\\nu)} + \\vec{p}^{\\,(j_1)}\\right)^2} \\; .\n\\end{aligned}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The substitution of values leads to two possible masses:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[m_{\\mathrm{t}} = 169.3 \\; \\mathrm{GeV}/c^2 \\quad \\text{or} \\quad m_{\\mathrm{t}} = 311.2 \\; \\mathrm{GeV}/c^2 \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "According to the frequency distribution for signal (dashed line), the probability of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_{\\mathrm{t}} = 169.3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " GeV/"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " solution is roughly 0.1 while the probability of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_{\\mathrm{t}} = 311.2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " GeV/c"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " solution is below 0.01. Therefore,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The most likely candidate is the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_{\\mathrm{t}} = 169.3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " GeV/c"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " solution.1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.5"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The top quark energy for the most likely candidate is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E^{(\\mathrm{t})} = cp^{(\\mu)} + cp^{(\\nu)} + cp^{(j_1)} = 272.6\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " GeV . "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[d = vt = v\\gamma t_0 = \\frac{p^{(\\mathrm{t})}}{m_{\\mathrm{t}}}t_0 = ct_0\\sqrt{\\frac{(E^{(\\mathrm{t})})^2}{m_{\\mathrm{t}}^2c^4} - 1} \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "1.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[d = 2 \\times 10^{-16} \\; \\mathrm{m} \\; .\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Where is the neutrino? (10 points)\n\n\nPart A. ATLAS Detector physics (4.0 points)\n\n\nA.1\n\n\nThe magnetic force is the centripetal force: \n\\[\\begin{equation*}\nm\\frac{v^2}{r} = evB \\Rightarrow r = \\frac{mv}{eB} \\; .\n\\end{equation*}\\]\n First express the velocity in terms of the kinetic energy, \n\\[\\begin{equation*}\nK = \\frac{1}{2}mv^2 \\Rightarrow v = \\sqrt{\\frac{2K}{m}} \\; ,\n\\end{equation*}\\]\n and then insert it in the expression above for the radius to get\n\n\nA.1\n0.5pt\n\n\n\\[r = \\frac{\\sqrt{2Km}}{eB} \\; .\\]\n\n\nA.2\n\n\nThe radius of the circular motion of a charged particle in the presence of a uniform magnetic field is given by, \n\\[\\begin{equation*}\nr = \\frac{mv}{eB} \\; .\n\\end{equation*}\\]\n This formula is valid in the relativistic scenario if the mass correction, \n\\(m \\to \\gamma m\\)\n is included: \n\\[\\begin{equation*}\nr = \\frac{\\gamma mv}{eB} = \\frac{p}{eB} \\Rightarrow p = reB \\; .\n\\end{equation*}\\]\n Note that the radius of the circular motion is half the radius of the inner part of the detector. One obtains [1 MeV/\n\\(c = 5.34 \\times 10^{-22}\\)\n m kg s\n\\(^{-1}\\)\n]\n\n\nA.2\n0.5pt\n\n\n\\[p = 330 \\; \\mathrm{MeV}/c \\; .\\]\n\n\nA.3\n\n\nThe acceleration for the particle is \n\\(a = \\frac{evB}{\\gamma m} \\sim \\frac{ecB}{\\gamma m}\\)\n, in the ultrarelativistic limit. Then, \n\\[\\begin{equation*}\nP = \\frac{e^4c^2\\gamma^4B^2}{6\\pi\\epsilon_0c^3\\gamma^2m^2} = \\frac{e^4\\gamma^2c^4B^2}{6\\pi\\epsilon_0c^5m^2} \\; .\n\\end{equation*}\\]\n Since \n\\(E = \\gamma mc^2\\)\n we can obtain \n\\(\\gamma^2c^4 = \\frac{E^2}{m^2}\\)\n and, finally, \n\\[P = \\frac{e^4}{6\\pi\\epsilon_0m^4c^5}E^2B^2 \\; .\\]\n Therefore,\n\n\nA.3\n1.0pt\n\n\n\\[\\xi = \\frac{1}{6\\pi} \\; , \\quad n = 5 \\text{ and } k = 4 \\; .\\]\n\n\nA.4\n\n\nThe power emitted by the particle is given by, \n\\[P = -\\frac{\\mathrm{d}E}{\\mathrm{d}t} = \\frac{e^4}{6\\pi\\epsilon_0m^4c^5}E^2B^2 \\; .\\]\n The energy of the particle as a function of time can be calculated from \n\\[\\int_{E_0}^{E(t)} \\frac{1}{E^2}\\,\\mathrm{d}E = -\\int_0^t \\frac{e^4}{6\\pi\\epsilon_0m^4c^5}B^2\\,\\mathrm{d}t \\; ,\\]\n where \n\\(E(0) = E_0\\)\n. This leads to, \n\\[\\frac{1}{E(t)} - \\frac{1}{E_0} = \\frac{e^4B^2}{6\\pi\\epsilon_0m^4c^5}\\, t \\quad\\Rightarrow\\quad E(t) = \\frac{E_0}{1 + \\alpha E_0 t} \\; ,\\]\n with\n\n\nA.4\n1.0pt\n\n\n\\[\\alpha = \\frac{e^4B^2}{6\\pi\\epsilon_0m^4c^5} \\; .\\]\n\n\nA.5\n\n\nIf the initial energy of the electron is 100 GeV, the radius of curvature is extremely large (\n\\(r = \\frac{E}{eBc} \\approx 167\\)\n m). Therefore, in approximation, one can consider the electron is moving in the inner part of the ATLAS detector along a straight line. The time of flight of the electron is \n\\(t = R/c\\)\n, where \n\\(R = 1.1\\)\n m is the radius of the inner part of the detector. The total energy lost due to synchrotron radiation is, \n\\[\\Delta E = E(R/c) - E_0 = \\frac{E_0}{1 + \\alpha E_0 \\frac{R}{c}} - E_0 \\approx -\\alpha E_0^2 \\frac{R}{c}\\]\n and\n\n\nA.5\n0.5pt\n\n\n\\[\\Delta E = -56 \\; \\mathrm{MeV} \\; .\\]\n\n\nA.6\n\n\nIn the ultrarelativistic limit, \n\\(v \\approx c\\)\n and \n\\(E \\approx pc\\)\n. The cyclotron frequency is, \n\\[\\omega(t) = \\frac{c}{r(t)} = \\frac{ecB}{p(t)} = \\frac{ec^2B}{E(t)}\\]\n\n\nA.6\n0.5pt\n\n\n\\[\\omega(t) = \\frac{ec^2B}{E_0}\\left(1 + \\frac{e^4B^2}{6\\pi\\epsilon_0m^4c^5}E_0t\\right) \\; .\\]\n\n\nPart B. Finding the neutrino (6.0 points)\n\n\nB.1\n\n\nSince the \n\\(W^+\\)\n boson decays into an anti-muon and a neutrino, one can use principles of conservation of energy and linear momentum to calculate the unknown \n\\(p_z^{(\\nu)}\\)\n of the neutrino. Moreover, the anti-muon and the neutrino can be considered massless, which implies that the magnitude of their momenta (times \n\\(c\\)\n) and their energies are the same. Therefore, the conservation of linear momentum can be expressed as \n\\[\\vec{p}^{\\,(W)} = \\vec{p}^{\\,(\\mu)} + \\vec{p}^{\\,(\\nu)} \\; ,\\]\n and the conservation of energy as, \n\\[E^{(W)} = cp^{(\\mu)} + cp^{(\\nu)} \\; .\\]\n In addition, one can also relate the energy and the momentum of the \n\\(W^+\\)\n boson through its mass, \n\\[m_W^2 = (E^{(W)})^2/c^4 - (p^{(W)})^2/c^2\\]\n which leads to a quadratic equation on \n\\(p_z^{(\\nu)}\\)\n, \n\\[\\begin{aligned}\nm_W^2 &= \\left[(p^{(\\mu)} + p^{(\\nu)})^2 - (\\vec{p}^{\\,(\\mu)} + \\vec{p}^{\\,(\\nu)})^2\\right]/c^2 \\\\\n&= \\left(2p^{(\\mu)}p^{(\\nu)} - 2\\vec{p}^{\\,(\\mu)} \\cdot \\vec{p}^{\\,(\\nu)}\\right)/c^2\n\\end{aligned}\\]\n\n\nB.1\n1.5pt\n\n\n\\[m_W^2 = \\frac{1}{c^2}\\left(2p^{(\\mu)}\\sqrt{(p_{\\mathrm{T}}^{(\\nu)})^2 + (p_z^{(\\nu)})^2} - 2\\vec{p}_{\\mathrm{T}}^{\\,(\\mu)} \\cdot \\vec{p}_{\\mathrm{T}}^{\\,(\\nu)} - 2p_z^{(\\mu)}p_z^{(\\nu)}\\right) \\; .\\]\n\n\nB.2\n\n\nThe numerical substitution directly in the answer of B.1, using \n\\[p^{(\\mu)} = 37.2\\,\\mathrm{GeV}/c \\quad m_W^2c^2 = 6464.2\\,(\\mathrm{GeV}/c)^2 \\quad (p_{\\mathrm{T}}^{(\\nu)})^2 = 10\\,864.9\\,(\\mathrm{GeV}/c)^2\\]\n \n\\[\\vec{p}_{\\mathrm{T}}^{\\,(\\mu)} \\cdot \\vec{p}_{\\mathrm{T}}^{\\,(\\nu)} = 2439.3\\,(\\mathrm{GeV}/c)^2 \\quad p_z^{(\\mu)} = -12.4\\,\\mathrm{GeV}/c \\; ,\\]\n leads to \n\\[6464.2 = 74.4\\sqrt{10\\,864.9 + (p_z^{(\\nu)})^2} - 4878.6 + 24.8p^{(\\nu)} \\; .\\]\n This is a quadratic equation, equivalent to \n\\[0.88889\\,(p_z^{(\\nu)})^2 + 101.64\\,p_z^{(\\nu)} - 12378 = 0\\]\n whose solutions are:\n\n\nB.2\n1.5pt\n\n\n\\[p_z^{(\\nu)} = 74.0 \\; \\mathrm{GeV}/c \\quad \\text{or} \\quad p_z^{(\\nu)} = -188.3 \\; \\mathrm{GeV}/c \\; .\\]\n\n\nThe general solution of the equation above in B.1 leads to \n\\[\\begin{aligned}\np_z^{(\\nu)} &= \\frac{2\\vec{p}_{\\mathrm{T}}^{\\,(\\mu)} \\cdot \\vec{p}_{\\mathrm{T}}^{\\,(\\nu)}\\,p_z^{(\\mu)} + m_W^2c^2p_z^{(\\mu)}}{2(p_{\\mathrm{T}}^{(\\mu)})^2} \\\\\n&\\pm \\frac{p^{(\\mu)}\\sqrt{-4(p_{\\mathrm{T}}^{(\\mu)})^2(p_{\\mathrm{T}}^{(\\nu)})^2 + 4(\\vec{p}_{\\mathrm{T}}^{\\,(\\mu)} \\cdot \\vec{p}_{\\mathrm{T}}^{\\,(\\nu)})^2 + 4\\vec{p}_{\\mathrm{T}}^{\\,(\\mu)} \\cdot \\vec{p}_{\\mathrm{T}}^{\\,(\\nu)}m_W^2c^2 + m_W^4c^4}}{2(p_{\\mathrm{T}}^{(\\mu)})^2}\n\\end{aligned}\\]\n Numerical substitution leads to the above mentioned values for \n\\(p_z^{(\\nu)}\\)\n.\n\n\nB.3\n\n\nThe final state particles of the top quark decay are the anti-muon, the neutrino and jet 1. Since the neutrino is now fully reconstructed the energy and linear momentum of the top quark can be calculated as, \n\\[\\begin{aligned}\nE^{(\\mathrm{t})} &= cp^{(\\mu)} + cp^{(\\nu)} + cp^{(j_1)} \\\\\n\\vec{p}^{\\,(\\mathrm{t})} &= \\vec{p}^{\\,(\\mu)} + \\vec{p}^{\\,(\\nu)} + \\vec{p}^{\\,(j_1)} \\; .\n\\end{aligned}\\]\n The top quark mass is, \n\\[\\begin{aligned}\nm_{\\mathrm{t}} &= \\sqrt{(E^{(\\mathrm{t})})^2/c^4 - (\\vec{p}^{\\,(\\mathrm{t})})^2/c^2} \\\\\n&= c^{-1}\\sqrt{\\left(p^{(\\mu)} + p^{(\\nu)} + p^{(j_1)}\\right)^2 - \\left(\\vec{p}^{\\,(\\mu)} + \\vec{p}^{\\,(\\nu)} + \\vec{p}^{\\,(j_1)}\\right)^2} \\; .\n\\end{aligned}\\]\n The substitution of values leads to two possible masses:\n\n\nB.3\n1.0pt\n\n\n\\[m_{\\mathrm{t}} = 169.3 \\; \\mathrm{GeV}/c^2 \\quad \\text{or} \\quad m_{\\mathrm{t}} = 311.2 \\; \\mathrm{GeV}/c^2 \\; .\\]\n\n\nB.4\n\n\nAccording to the frequency distribution for signal (dashed line), the probability of the \n\\(m_{\\mathrm{t}} = 169.3\\)\n GeV/\n\\(c^2\\)\n solution is roughly 0.1 while the probability of the \n\\(m_{\\mathrm{t}} = 311.2\\)\n GeV/c\n\\(^2\\)\n solution is below 0.01. Therefore,\n\n\nB.4\nThe most likely candidate is the \n\\(m_{\\mathrm{t}} = 169.3\\)\n GeV/c\n\\(^2\\)\n solution.1.0pt\n\n\nB.5\n\n\nThe top quark energy for the most likely candidate is \n\\(E^{(\\mathrm{t})} = cp^{(\\mu)} + cp^{(\\nu)} + cp^{(j_1)} = 272.6\\)\n GeV . \n\\[d = vt = v\\gamma t_0 = \\frac{p^{(\\mathrm{t})}}{m_{\\mathrm{t}}}t_0 = ct_0\\sqrt{\\frac{(E^{(\\mathrm{t})})^2}{m_{\\mathrm{t}}^2c^4} - 1} \\; .\\]\n\n\nB.5\n1.0pt\n\n\n\\[d = 2 \\times 10^{-16} \\; \\mathrm{m} \\; .\\]\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

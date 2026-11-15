@@ -1,1 +1,2718 @@
-{"id":"ipho-2019-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2019_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2019_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2019-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"Theory\nQ1-1\nEnglish (Oﬃcial)\nZero-length springs and slinky coils\nA zero effective length spring (ZLS) is a spring for which the force is proportional to the spring's length,\n𝐹= 𝑘𝐿for 𝐿> 𝐿0 where 𝐿0 is the minimal length of the spring as well as its unstretched length. Figure\n1 shows the relation between the force 𝐹and the spring length 𝐿for a ZLS, where the slope of the line\nis the spring constant 𝑘.\nFigure 1: the relation between the force 𝐹and the spring length 𝐿\nA ZLS is useful in seismography and allows very accurate measurement of changes in the gravitational\nacceleration 𝑔. Here, we shall consider a homogenous ZLS, whose weight 𝑀𝑔exceeds 𝑘𝐿0. We deﬁne a\ncorresponding dimensionless ratio, 𝛼= 𝑘𝐿0/𝑀𝑔< 1 to characterize the relative softness of the spring.\nThe toy known as “slinky” may be (but not necessarily) such a ZLS.\nPart A: Statics (3.0 points)\nA.1\nConsider a segment of length Δℓof the unstretched ZLS spring which is then\nstretched by a force 𝐹, under weightless conditions. What is the length Δ𝑦of\nthis segment as a function of 𝐹, Δℓand the parameters of the spring?\n0.5pt\nA.2\nFor a segment of length Δℓ, calculate the work Δ𝑊required to stretch it from\nits original length Δℓto a length Δ𝑦.\n0.5pt\nThroughout this question, we will denote a point on the spring by its distance 0 ≤ℓ≤𝐿0 from the bottom\nof the spring when it is unstretched. In particular, for every point on the spring, ℓremains unchanged\nas the spring stretches.\nA.3\nSuppose that we hang the spring by its top end, so that it stretches under its\nown weight. What is the total length 𝐻of the suspended spring in equilibrium?\nExpress your answers in terms of 𝐿0 and 𝛼.\n2.0pt\nPart B: Dynamics (5.5 points)\nExperiments show that when the spring is hung at rest and then released, it gradually contracts from\nthe top, while the lower part remains stationary (see Figure 2). As time advances, the contracting part\nmoves as a solid chunk and accumulates additional turns of the spring, while the stationary part becomes\nshorter. Every point on the spring begins to move only when the moving part reaches it. The bottom end\n\nTheory\nQ1-2\nEnglish (Oﬃcial)\nof the spring starts moving only when the spring is fully collapsed and reaches its unstretched length\n𝐿0. After that, the contracted spring continues falling straight downwards, without tumbling, as a rigid\nbody under the inﬂuence of gravity.\nFigure 2: Left: a sequence of pictures taken during the free fall of slinky. Right: the moving\npart I and the stationary part II during the free fall of the spring.\nIn the remaining parts of the question, you are asked to base your solution on this described model. You\nmay neglect air resistance, but you are not allowed to neglect 𝐿0.\nB.1\nCalculate the time 𝑡𝑐it takes from the moment the spring is released, until it\nfully collapses back to its minimal length 𝐿0. Express your answer in terms of\n𝐿0, 𝑔and 𝛼.\nCompute the numerical value of 𝑡𝑐for a spring with 𝑘= 1.02 N/m, 𝐿0 = 0.055m\nand 𝑀= 0.201 kg, while taking 𝑔to be 9.80 m/s2.\n2.5pt\n\nTheory\nQ1-3\nEnglish (Oﬃcial)\nB.2\nIn this task ℓis used to denote the coordinate of the boundary between parts I\n(in ﬁgure 2, the moving part) and II (the stationary part). At a certain moment,\nwhile a stationary part still exists its mass is 𝑚(ℓ) =\nℓ\n𝐿0 𝑀, and the moving part\nmoves with uniform instantaneous velocity 𝑣𝐼(ℓ). Show that at this moment\n(while there exists a stationary part) the velocity of the moving part is 𝑣𝐼(ℓ) =\n√\n𝐴ℓ+ 𝐵. Express the constants 𝐴and 𝐵in terms of 𝐿0, 𝑔and 𝛼.\n2.5pt\nB.3\nBased on B.2, ﬁnd the minimum speed 𝑣min of the moving part of the spring in\nthe course of its motion, after its release and before it hits the ground. Express\nyour answer in terms of 𝐿0, 𝛼, 𝐴and 𝐵.\n0.5pt\nPart C: Energetics (1.5 points)\nC.1\nCalculate the amount of mechanical energy 𝑄that was lost by generating heat,\nfrom the moment the spring is released until just before the spring hits the\nground. Express your answer in terms of 𝐿0, 𝑀, 𝑔and 𝛼.\n1.5pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2019-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"      Theory IPhO 2019 \n \nQ1-1 \n \n \n \n \n \nS1-1 \n \nZero-length springs and slinky coils – Solution \nPart A: Statics \nA.1 The force 𝐹 causes the spring to change its length from 𝐿0 to 𝐿. Since equal parts of the \nspring are extended to equal lengths, we get: \nΔ𝑦\nΔ𝑙=\n𝐿\n𝐿0 →Δ𝑦=\n𝐿\n𝐿0 Δ𝑙. \nSince 𝐿= max {\n𝐹\n𝑘, 𝐿0}, we get Δ𝑦= max⁡{\n𝐹\n𝑘𝐿0 Δ𝑙, Δ𝑙}. From this result we see that any piece of \nlength Δ𝑙 the spring behaves as a ZLS with spring constant 𝑘∗= 𝑘\n𝐿0\nΔ𝑙. \n \nA.2 Let us compute the work of the force. From Task A.1: 𝑑𝑊= 𝐹(𝑥)𝑑𝑥=\n𝑘𝐿0\nΔ𝑙𝑥𝑑𝑥. \nHence, Δ𝑊= ∫\n𝑘𝐿0\nΔ𝑙𝑥𝑑𝑥\nΔ𝑦\nΔ𝑙\n=\n𝑘𝐿0\nΔ𝑙\n𝑥2\n2 |\nΔ𝑙\nΔ𝑦\n=\n𝑘𝐿0\n2Δ𝑙(Δ𝑦2 −Δ𝑙2)⁡⁡. \n \nA.3. At every point along the statically hanging spring the weight of the mass below is balanced \nby the tension from above. This implies that at the bottom of the spring there is a section of \nlength 𝑙0 whose turns are still touching each other, as their weight is insufficient to exceed the \nthreshold force 𝑘𝐿0 to pull them apart. The length 𝑙0 can be derived from the equation: \n𝑙0\n𝐿0 𝑀𝑔= 𝑘𝐿0, hence 𝑙0 =\n𝑘𝐿02\n𝑀𝑔= 𝛼𝐿0.  \n \nFor 𝑙> 𝑙0, a segment of the unstretched spring between 𝑙 and 𝑙+ d𝑙 feels a weight of \n𝑙\n𝐿0 𝑀𝑔 \nfrom beneath, which causes its length to stretch from d𝑙 to 𝑑𝑦=\n𝐹\n𝑘𝐿0 𝑑𝑙=\n𝑙\n𝐿0 𝑀𝑔\n𝑑𝑙\n𝑘𝐿0 =\n𝑀𝑔\n𝑘𝐿02 𝑙𝑑𝑙=\n𝑙\n𝑙0 𝑑𝑙 . \nIntegration of the last expression over the stretched region, up to the point 𝐿0, gives its height \nwhen the spring is stretched \n𝐻= 𝑙0 + ∫𝑙\n𝑙0\n𝑑𝑙\n𝐿0\n𝑙0\n= 𝑙0 + 𝑙2\n2𝑙0\n|\n𝑙0\n𝐿0\n= 𝑙0 + 1\n2𝑙0\n(𝐿0\n2 −𝑙0\n2) = 𝐿0\n2\n2𝑙0\n+ 𝑙0\n2 = 𝐿0\n2 (𝛼+ 1\n𝛼)⁡ \n \n\n      Theory IPhO 2019 \n \nQ1-1 \n \n \n \n \n \nS1-2 \n \nPart B: Dynamics \nB.1. From Task A.3 we have 𝐻(𝑙) =\n𝑙2\n2𝑙0 +\n𝑙0\n2. We now calculate the position of the center of \nmass of the suspended spring. The contribution of the unstretched section of height 𝑙0 at the \nbottom, having a mass of \n𝑙0\n𝐿0 𝑀= 𝛼𝑀, is 𝛼𝑀\n𝑙0\n2. The position of the center of mass is obtained by \nsumming the contributions of its elements: \n𝐻𝑐𝑚= 1\n𝑀[𝑙0\n2 𝛼𝑀+ ∫𝐻(𝑙)𝑑𝑚\n𝐿0\n𝑙0\n] = 1\n𝑀[𝛼𝐿0\n2 𝛼𝑀+ ∫( 𝑙2\n2𝑙0\n+ 𝑙0\n2) 𝑀𝑑𝑙\n𝐿0\n⁡\n𝐿0\n𝑙0\n]\n= 𝛼2𝐿0\n2\n+ 1\n𝐿0\n[ 𝑙3\n6𝑙0\n+ 𝑙0\n2 𝑙]\n𝑙0\n𝐿0\n= 𝛼2𝐿0\n2\n+ 1\n𝐿0\n[𝐿0\n3 −𝑙0\n3\n6𝑙0\n+ 𝑙0\n2 (𝐿0 −𝑙0)] \nWhere we have used 𝑑𝑚=\n𝑑𝑙\n𝐿0 𝑀. Substituting 𝑙0 = 𝛼𝐿0 yields \n𝐻𝑐𝑚= 𝐿0 [ 1\n6𝛼−𝛼2\n6 + 𝛼\n2] \nWhen the spring is contracted to its free length 𝐿0, its center of mass is located at \n𝐿0\n2 . From the \nfalling of the center of mass at acceleration 𝑔 we get:  \n𝑔\n2 𝑡𝑐\n2 = 𝐻𝑐𝑚−𝐿0\n2 = 𝐿0 [ 1\n6𝛼−𝛼2\n6 + 𝛼\n2 −1\n2] = 𝐿0\n6𝛼(1 −𝛼)3 \nHence,  𝑡𝑐= √\n𝐿0\n3𝑔𝛼(1 −𝛼)3. \n \nFor 𝑘= 1.02 N/m, 𝐿0 = 0.055 m, 𝑀= 0.201 kg, and 𝑔= 9.80 m/s2, we have⁡𝛼= 0.0285, and \n𝑡𝑐= 0.245⁡s. \n \nB.2. The moving top section of the spring is pulled down by its own weight, 𝑚𝑡𝑜𝑝𝑔= 𝑀𝑔\n(𝐿0−𝑙)\n𝐿0 ⁡ \nand also by the tension in the spring below, which is equal to the weight 𝑀𝑔𝑙/𝐿0 of the \nstationary section of the spring. Thus, the moving top section experiences a constant force 𝐹=\n𝑀𝑔 throughout its whole fall. Another way to see that, is that a total force of 𝑀𝑔 is exerted on \nthe spring, but only the moving part experiences it. Let’s calculate the position of the center of \nmass at equilibrium of the upper part, i.e., all points with 𝑙′ > 𝑙  for some 𝑙> 𝑙0. From part A, \n\n      Theory IPhO 2019 \n \nQ1-1 \n \n \n \n \n \nS1-3 \n \nthe position of a small portion \n'l\n with coordinate 'l  is: 𝐻(𝑙′) =\n𝑙′2\n2𝑙0 +\n𝑙0\n2 and the center of \nmass of this part is: \n𝐻𝑐𝑚−𝑢𝑝𝑝𝑒𝑟−𝑖=\n𝐿0\n𝑀(𝐿0 −𝑙) ∫𝐻(𝑙′)𝑑𝑚\n𝐿0\n𝑙\n=\n𝐿0\n𝑀(𝐿0 −𝑙) ∫(𝑙′2\n2𝑙0\n+ 𝑙0\n2) 𝑑𝑚\n𝐿0\n𝑙\n=\n𝐿0\n𝑀(𝐿0 −𝑙) ∫(𝑙′2\n2𝑙0\n+ 𝑙0\n2) 𝑀𝑑𝑙′\n𝐿0\n⁡\n𝐿0\n𝑙\n=\n1\n(𝐿0 −𝑙) ∫(𝑙′2\n2𝑙0\n+ 𝑙0\n2) 𝑑𝑙′⁡\n𝐿0\n𝑙\n=\n1\n(𝐿0 −𝑙) [𝑙′3\n6𝑙0\n+ 𝑙0𝑙′\n2 ]\n𝑙\n𝐿_0\n= 𝐿0\n2 + 𝐿0𝑙+ 𝑙2\n6𝑙0\n+ 𝑙0\n2 \nThe position of the upper part of CM when it contracts to a length 𝐿0 −𝑙 is 𝐻𝑐𝑚−𝑢𝑝𝑝𝑒𝑟−𝑓=\n𝑙2\n2𝑙0 +\n𝑙0\n2 +\n1\n2 (𝐿0 −𝑙). The change in the CM during the contraction process is: Δ𝐻𝑐𝑚−𝑢𝑝𝑝𝑒𝑟=\n𝐻𝑐𝑚−𝑢𝑝𝑝𝑒𝑟−𝑖−𝐻𝑐𝑚−𝑢𝑝𝑝𝑒𝑟−𝑓=\n𝐿02+𝐿0𝑙−2𝑙2\n6𝑙0\n−\n1\n2 (𝐿0 −𝑙) =\n(𝐿0−𝑙)(𝐿0+2𝑙)\n6𝑙0\n−\n1\n2 (𝐿0 −𝑙). \nThe acceleration of the CM of the upper part is  𝑎𝐶𝑀=\n𝐹𝐿0\n𝑀(𝐿0−𝑙) =\n𝑔𝐿0\n𝐿0−𝑙.   \nFrom the work energy theorem we get the equation 𝑣𝑢𝑝𝑝𝑒𝑟−𝑓\n2\n= 2𝑎𝐶𝑀Δ𝐻𝑐𝑚−𝑢𝑝𝑝𝑒𝑟, hence \n𝑣𝑢𝑝𝑝𝑒𝑟−𝑓\n2\n= 2 𝑔𝐿0\n𝐿0 −𝑙[\n(𝐿0 −𝑙)(𝐿0 + 2𝑙)\n6𝛼𝐿0\n−1\n2 (𝐿0 −𝑙)] = 2𝑔[𝐿0 + 2𝑙\n6𝛼\n−1\n2 𝐿0]\n= 2𝑔\n3𝛼𝑙+ ( 1\n3𝛼−1) 𝑔𝐿0 \nTherefore, 𝐴=\n2𝑔\n3𝛼 and 𝐵= (\n1\n3𝛼−1) 𝑔𝐿0. \nNote that for 𝑙= 𝐿0, we have ⁡𝑣𝑢𝑝𝑝𝑒𝑟−𝑓\n2\n= 𝐿0𝑔\n1−𝛼\n𝛼 and for 𝑙= 𝑙0 = 𝛼𝐿0, we get ⁡𝑣𝑢𝑝𝑝𝑒𝑟−𝑓\n2\n=\n𝐿0𝑔\n1−𝛼\n3𝛼 , hence, the moment we release the spring its velocity is finite (not zero, the meaning is \nthat it accumulate this velocity in time that is much shorter than the contracting time \nct ) and it \ndecreases to \n1\n√3 of the initial value when 𝑙= 𝑙0. \n \nB.3. Note that even though the center of mass of the spring accelerates downwards constantly, \nthe moving top section actually decelerates, while the position of the center of mass moves \ndown the spring. The speed of the top section 𝑣(𝑙), calculated in Task B2, decreases and \n\n      Theory IPhO 2019 \n \nQ1-1 \n \n \n \n \n \nS1-4 \n \napproaches the  value  √𝐴𝛼𝐿0 + 𝐵 immediately before it attaches to the bottom section of \nheight 𝑙0 = 𝛼𝐿0, which was unstretched and at rest. Once the moving top section attaches to \nthe resting bottom section, its momentum is shared between both sections, so the speed \nfurther decreases just before the whole spring starts accelerating downwards as a single mass. \nThus, the minimum speed is that of the whole spring immediately after its full collapse. From \nmomentum conservation, we have \n𝑀𝑣𝑚𝑖𝑛= 𝑚𝑡𝑜𝑝𝑣(𝑙0) = 𝑀(1 −𝑙0\n𝐿0\n) √𝐴𝛼𝐿0 + 𝐵 \n𝑣𝑚𝑖𝑛= (1 −𝛼)√𝐴𝛼𝐿0 + 𝐵 \nPart C: Energetics \nC.1. From the moment the spring is released, the acceleration of its center of mass is governed \nby the external force 𝑀𝑔 and therefore the gravitational potential energy of the spring is fully \nconverted into the kinetic energy of the center of mass of the spring, which just before hitting \nthe ground is equal to the kinetic energy of the spring. \nAll that is left is the elastic energy stored in the spring, which is converted into heat, sound, etc. \nTo calculate it, we consider the elastic energy stored in a segment 𝑑ℎ of the stretched spring, \nwhich when unstretched lies between 𝑙 and 𝑙+ d𝑙, using the result of Task A.2, Δ𝑊=\n𝑘𝐿0\n2Δ𝑙(Δ𝑙2\n2 −Δ𝑙2), by choosing Δ𝑙= 𝑑𝑙 and Δ𝑙2 = 𝑑𝑦, and using 𝑑𝑦=\n𝑙\n𝑙0 𝑑𝑙 (which was obtained \nin Task A.3), we get: \n𝑑𝑊=\n𝑘𝐿0\n2 (\n𝑙2\n𝑙02 −1) 𝑑𝑙. Integrating from 𝑙0 to 𝐿0 we find \n𝑊= ∫𝑘𝐿0\n2 (𝑙2\n𝑙0\n2 −1) 𝑑𝑙\n𝐿0\n𝑙0\n= 𝑘𝐿0\n2 [ 𝑙3\n3𝑙0\n2 −𝑙]\n𝑙0\n𝐿0\n= 𝑘𝐿0\n2 (𝐿0\n3 −𝑙0\n3\n3𝑙0\n2\n−(𝐿0 −𝑙0))\n= 𝑘𝐿0\n2\n2 (1 −𝛼3⁡\n3𝛼2\n−(1 −𝛼)) = 𝑘𝐿0\n2\n6𝛼2 (1 −𝛼)2(2𝛼+ 1)\n= 𝑀𝑔𝐿0\n(1 −𝛼)2(2𝛼+ 1)\n6𝛼\n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2019-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2019-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Zero-length springs and slinky coils"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A zero effective length spring (ZLS) is a spring for which the force is proportional to the spring’s length, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F = kL\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L > L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the minimal length of the spring as well as its unstretched length. Figure 1 shows the relation between the force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the spring length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for a ZLS, where the slope of the line is the spring constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2019-t1/2b8b6bc6e618aad2e837.png",
+                "alt": "ipho-2019-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 1: the relation between the force "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(F\\)"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " and the spring length "
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "\\(L\\)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A ZLS is useful in seismography and allows very accurate measurement of changes in the gravitational acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Here, we shall consider a homogenous ZLS, whose weight "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Mg\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " exceeds "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(kL_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We define a corresponding dimensionless ratio, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha = kL_0/Mg < 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to characterize the relative softness of the spring. The toy known as “slinky” may be (but not necessarily) such a ZLS."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A: Statics (3.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Consider a segment of length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the unstretched ZLS spring which is then stretched by a force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", under weightless conditions. What is the length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of this segment as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the parameters of the spring? 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "For a segment of length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", calculate the work "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta W\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " required to stretch it from its original length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to a length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Throughout this question, we will denote a point on the spring by its distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0 \\leq \\ell \\leq L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from the bottom of the spring when it is unstretched. In particular, for every point on the spring, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " remains unchanged as the spring stretches."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Suppose that we hang the spring by its top end, so that it stretches under its own weight. What is the total length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the suspended spring in equilibrium? Express your answers in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 2.0pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B: Dynamics (5.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Experiments show that when the spring is hung at rest and then released, it gradually contracts from the top, while the lower part remains stationary (see Figure 2). As time advances, the contracting part moves as a solid chunk and accumulates additional turns of the spring, while the stationary part becomes shorter. Every point on the spring begins to move only when the moving part reaches it. The bottom end of the spring starts moving only when the spring is fully collapsed and reaches its unstretched length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". After that, the contracted spring continues falling straight downwards, without tumbling, as a rigid body under the influence of gravity."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2019-t1/7d4d4c3562c76161bc31.png",
+                "alt": "ipho-2019-t1 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Figure 2: Left: a sequence of pictures taken during the free fall of slinky. Right: the moving part I and the stationary part II during the free fall of the spring."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the remaining parts of the question, you are asked to base your solution on this described model. You may neglect air resistance, but you are not allowed to neglect "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Calculate the time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " it takes from the moment the spring is released, until it fully collapses back to its minimal length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Express your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Compute the numerical value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for a spring with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 1.02\\,\\mathrm{N/m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0 = 0.055\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M = 0.201\\,\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", while taking "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(9.80\\,\\mathrm{m/s^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 2.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "In this task "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is used to denote the coordinate of the boundary between parts I (in figure 2, the moving part) and II (the stationary part). At a certain moment, while a stationary part still exists its mass is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m(\\ell) = \\frac{\\ell}{L_0}M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the moving part moves with uniform instantaneous velocity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_I(\\ell)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Show that at this moment (while there exists a stationary part) the velocity of the moving part is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_I(\\ell) = \\sqrt{A\\ell + B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Express the constants "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 2.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Based on B.2, find the minimum speed "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_{\\min}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the moving part of the spring in the course of its motion, after its release and before it hits the ground. Express your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C: Energetics (1.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Calculate the amount of mechanical energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Q\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that was lost by generating heat, from the moment the spring is released until just before the spring hits the ground. Express your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Zero-length springs and slinky coils\n\n\nA zero effective length spring (ZLS) is a spring for which the force is proportional to the spring’s length, \n\\(F = kL\\)\n for \n\\(L > L_0\\)\n where \n\\(L_0\\)\n is the minimal length of the spring as well as its unstretched length. Figure 1 shows the relation between the force \n\\(F\\)\n and the spring length \n\\(L\\)\n for a ZLS, where the slope of the line is the spring constant \n\\(k\\)\n.\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: the relation between the force \n\\(F\\)\n and the spring length \n\\(L\\)\n\n\n\n\nA ZLS is useful in seismography and allows very accurate measurement of changes in the gravitational acceleration \n\\(g\\)\n. Here, we shall consider a homogenous ZLS, whose weight \n\\(Mg\\)\n exceeds \n\\(kL_0\\)\n. We define a corresponding dimensionless ratio, \n\\(\\alpha = kL_0/Mg < 1\\)\n to characterize the relative softness of the spring. The toy known as “slinky” may be (but not necessarily) such a ZLS.\n\n\nPart A: Statics (3.0 points)\n\n\nA.1\nConsider a segment of length \n\\(\\Delta\\ell\\)\n of the unstretched ZLS spring which is then stretched by a force \n\\(F\\)\n, under weightless conditions. What is the length \n\\(\\Delta y\\)\n of this segment as a function of \n\\(F\\)\n, \n\\(\\Delta\\ell\\)\n and the parameters of the spring? 0.5pt\n\n\nA.2\nFor a segment of length \n\\(\\Delta\\ell\\)\n, calculate the work \n\\(\\Delta W\\)\n required to stretch it from its original length \n\\(\\Delta\\ell\\)\n to a length \n\\(\\Delta y\\)\n. 0.5pt\n\n\nThroughout this question, we will denote a point on the spring by its distance \n\\(0 \\leq \\ell \\leq L_0\\)\n from the bottom of the spring when it is unstretched. In particular, for every point on the spring, \n\\(\\ell\\)\n remains unchanged as the spring stretches.\n\n\nA.3\nSuppose that we hang the spring by its top end, so that it stretches under its own weight. What is the total length \n\\(H\\)\n of the suspended spring in equilibrium? Express your answers in terms of \n\\(L_0\\)\n and \n\\(\\alpha\\)\n. 2.0pt\n\n\nPart B: Dynamics (5.5 points)\n\n\nExperiments show that when the spring is hung at rest and then released, it gradually contracts from the top, while the lower part remains stationary (see Figure 2). As time advances, the contracting part moves as a solid chunk and accumulates additional turns of the spring, while the stationary part becomes shorter. Every point on the spring begins to move only when the moving part reaches it. The bottom end of the spring starts moving only when the spring is fully collapsed and reaches its unstretched length \n\\(L_0\\)\n. After that, the contracted spring continues falling straight downwards, without tumbling, as a rigid body under the influence of gravity.\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Left: a sequence of pictures taken during the free fall of slinky. Right: the moving part I and the stationary part II during the free fall of the spring.\n\n\n\n\nIn the remaining parts of the question, you are asked to base your solution on this described model. You may neglect air resistance, but you are not allowed to neglect \n\\(L_0\\)\n.\n\n\nB.1\nCalculate the time \n\\(t_c\\)\n it takes from the moment the spring is released, until it fully collapses back to its minimal length \n\\(L_0\\)\n. Express your answer in terms of \n\\(L_0\\)\n, \n\\(g\\)\n and \n\\(\\alpha\\)\n. Compute the numerical value of \n\\(t_c\\)\n for a spring with \n\\(k = 1.02\\,\\mathrm{N/m}\\)\n, \n\\(L_0 = 0.055\\,\\mathrm{m}\\)\n and \n\\(M = 0.201\\,\\mathrm{kg}\\)\n, while taking \n\\(g\\)\n to be \n\\(9.80\\,\\mathrm{m/s^2}\\)\n. 2.5pt\n\n\nB.2\nIn this task \n\\(\\ell\\)\n is used to denote the coordinate of the boundary between parts I (in figure 2, the moving part) and II (the stationary part). At a certain moment, while a stationary part still exists its mass is \n\\(m(\\ell) = \\frac{\\ell}{L_0}M\\)\n, and the moving part moves with uniform instantaneous velocity \n\\(v_I(\\ell)\\)\n. Show that at this moment (while there exists a stationary part) the velocity of the moving part is \n\\(v_I(\\ell) = \\sqrt{A\\ell + B}\\)\n. Express the constants \n\\(A\\)\n and \n\\(B\\)\n in terms of \n\\(L_0\\)\n, \n\\(g\\)\n and \n\\(\\alpha\\)\n. 2.5pt\n\n\nB.3\nBased on B.2, find the minimum speed \n\\(v_{\\min}\\)\n of the moving part of the spring in the course of its motion, after its release and before it hits the ground. Express your answer in terms of \n\\(L_0\\)\n, \n\\(\\alpha\\)\n, \n\\(A\\)\n and \n\\(B\\)\n. 0.5pt\n\n\nPart C: Energetics (1.5 points)\n\n\nC.1\nCalculate the amount of mechanical energy \n\\(Q\\)\n that was lost by generating heat, from the moment the spring is released until just before the spring hits the ground. Express your answer in terms of \n\\(L_0\\)\n, \n\\(M\\)\n, \n\\(g\\)\n and \n\\(\\alpha\\)\n. 1.5pt\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2019-t1/2b8b6bc6e618aad2e837.png",
+      "/corpus/figures/native/bulk/ipho-2019-t1/7d4d4c3562c76161bc31.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2019-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Zero-length springs and slinky coils – Solution"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A: Statics"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1 The force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " causes the spring to change its length from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Since equal parts of the spring are extended to equal lengths, we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{\\Delta y}{\\Delta l} = \\frac{L}{L_0} \\rightarrow \\Delta y = \\frac{L}{L_0}\\Delta l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L = \\max\\left\\{\\frac{F}{k}, L_0\\right\\}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta y = \\max\\left\\{\\frac{F}{kL_0}\\Delta l, \\Delta l\\right\\}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". From this result we see that any piece of length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " the spring behaves as a ZLS with spring constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k^* = k\\frac{L_0}{\\Delta l}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2 Let us compute the work of the force. From Task A.1: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dW = F(x)dx = \\frac{kL_0}{\\Delta l} x\\,dx\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta W = \\int_{\\Delta l}^{\\Delta y} \\frac{kL_0}{\\Delta l} x\\,dx = \\frac{kL_0}{\\Delta l}\\frac{x^2}{2}\\Big|_{\\Delta l}^{\\Delta y} = \\frac{kL_0}{2\\Delta l}(\\Delta y^2 - \\Delta l^2)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.3. At every point along the statically hanging spring the weight of the mass below is balanced by the tension from above. This implies that at the bottom of the spring there is a section of length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " whose turns are still touching each other, as their weight is insufficient to exceed the threshold force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(kL_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to pull them apart. The length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be derived from the equation: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{l_0}{L_0}Mg = kL_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_0 = \\frac{kL_0^2}{Mg} = \\alpha L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l > l_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", a segment of the unstretched spring between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l + \\mathrm{d}l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " feels a weight of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{l}{L_0}Mg\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " from beneath, which causes its length to stretch from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{d}l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dy = \\frac{F}{kL_0}dl = \\frac{l}{L_0}Mg\\frac{dl}{kL_0} = \\frac{Mg}{kL_0^2} l\\,dl = \\frac{l}{l_0} dl\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Integration of the last expression over the stretched region, up to the point "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", gives its height when the spring is stretched "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[H = l_0 + \\int_{l_0}^{L_0} \\frac{l}{l_0} dl = l_0 + \\frac{l^2}{2l_0}\\Big|_{l_0}^{L_0} = l_0 + \\frac{1}{2l_0}(L_0^2 - l_0^2) = \\frac{L_0^2}{2l_0} + \\frac{l_0}{2} = \\frac{L_0}{2}\\left(\\alpha + \\frac{1}{\\alpha}\\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B: Dynamics"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1. From Task A.3 we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H(l) = \\frac{l^2}{2l_0} + \\frac{l_0}{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We now calculate the position of the center of mass of the suspended spring. The contribution of the unstretched section of height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the bottom, having a mass of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{l_0}{L_0} M = \\alpha M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha M \\frac{l_0}{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The position of the center of mass is obtained by summing the contributions of its elements: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nH_{cm} &= \\frac{1}{M}\\left[\\frac{l_0}{2}\\alpha M + \\int_{l_0}^{L_0} H(l)\\,dm\\right] = \\frac{1}{M}\\left[\\frac{\\alpha L_0}{2}\\alpha M + \\int_{l_0}^{L_0}\\left(\\frac{l^2}{2l_0}+\\frac{l_0}{2}\\right)\\frac{M\\,dl}{L_0}\\right] \\\\\n&= \\frac{\\alpha^2 L_0}{2} + \\frac{1}{L_0}\\left[\\frac{l^3}{6l_0} + \\frac{l_0}{2} l\\right]_{l_0}^{L_0} = \\frac{\\alpha^2 L_0}{2} + \\frac{1}{L_0}\\left[\\frac{L_0^3 - l_0^3}{6l_0} + \\frac{l_0}{2}(L_0 - l_0)\\right]\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Where we have used "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dm = \\frac{dl}{L_0}M\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Substituting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_0 = \\alpha L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " yields "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[H_{cm} = L_0\\left[\\frac{1}{6\\alpha} - \\frac{\\alpha^2}{6} + \\frac{\\alpha}{2}\\right]\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " When the spring is contracted to its free length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", its center of mass is located at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{L_0}{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". From the falling of the center of mass at acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{g}{2}t_c^2 = H_{cm} - \\frac{L_0}{2} = L_0\\left[\\frac{1}{6\\alpha} - \\frac{\\alpha^2}{6} + \\frac{\\alpha}{2} - \\frac{1}{2}\\right] = \\frac{L_0}{6\\alpha}(1-\\alpha)^3\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Hence, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_c = \\sqrt{\\frac{L_0}{3g\\alpha}(1-\\alpha)^3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k = 1.02\\,\\mathrm{N/m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0 = 0.055\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M = 0.201\\,\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(g = 9.80\\,\\mathrm{m/s^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha = 0.0285\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_c = 0.245\\,\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2. The moving top section of the spring is pulled down by its own weight, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_{top}g = Mg\\frac{(L_0-l)}{L_0}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and also by the tension in the spring below, which is equal to the weight "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Mgl/L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the stationary section of the spring. Thus, the moving top section experiences a constant force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F = Mg\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " throughout its whole fall. Another way to see that, is that a total force of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Mg\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is exerted on the spring, but only the moving part experiences it. Let’s calculate the position of the center of mass at equilibrium of the upper part, i.e., all points with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l' > l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for some "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l > l_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". From part A, the position of a small portion "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta l'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with coordinate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l'\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H(l') = \\frac{l'^2}{2l_0} + \\frac{l_0}{2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the center of mass of this part is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nH_{cm-upper-i} &= \\frac{L_0}{M(L_0 - l)}\\int_l^{L_0} H(l')\\,dm = \\frac{L_0}{M(L_0-l)}\\int_l^{L_0}\\left(\\frac{l'^2}{2l_0}+\\frac{l_0}{2}\\right)dm \\\\\n&= \\frac{L_0}{M(L_0-l)}\\int_l^{L_0}\\left(\\frac{l'^2}{2l_0}+\\frac{l_0}{2}\\right)\\frac{M\\,dl'}{L_0} = \\frac{1}{(L_0-l)}\\int_l^{L_0}\\left(\\frac{l'^2}{2l_0}+\\frac{l_0}{2}\\right)dl' \\\\\n&= \\frac{1}{(L_0-l)}\\left[\\frac{l'^3}{6l_0}+\\frac{l_0 l'}{2}\\right]_l^{L\\_0} = \\frac{L_0^2+L_0 l+l^2}{6l_0}+\\frac{l_0}{2}\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " The position of the upper part of CM when it contracts to a length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0 - l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(H_{cm-upper-f} = \\frac{l^2}{2l_0} + \\frac{l_0}{2} + \\frac{1}{2}(L_0 - l)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The change in the CM during the contraction process is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta H_{cm-upper} = H_{cm-upper-i} - H_{cm-upper-f} = \\frac{L_0^2+L_0 l-2l^2}{6l_0} - \\frac{1}{2}(L_0 - l) = \\frac{(L_0-l)(L_0+2l)}{6l_0} - \\frac{1}{2}(L_0 - l)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The acceleration of the CM of the upper part is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a_{CM} = \\frac{FL_0}{M(L_0-l)} = \\frac{gL_0}{L_0-l}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". From the work energy theorem we get the equation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v^2_{upper-f} = 2a_{CM}\\Delta H_{cm-upper}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", hence "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nv^2_{upper-f} &= 2\\frac{gL_0}{L_0-l}\\left[\\frac{(L_0-l)(L_0+2l)}{6\\alpha L_0} - \\frac{1}{2}(L_0-l)\\right] = 2g\\left[\\frac{L_0+2l}{6\\alpha} - \\frac{1}{2}L_0\\right] \\\\\n&= \\frac{2g}{3\\alpha}l + \\left(\\frac{1}{3\\alpha} - 1\\right)gL_0\n\\end{align*}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A = \\frac{2g}{3\\alpha}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B = \\left(\\frac{1}{3\\alpha} - 1\\right)gL_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note that for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l = L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v^2_{upper-f} = L_0 g\\frac{1-\\alpha}{\\alpha}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l = l_0 = \\alpha L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we get "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v^2_{upper-f} = L_0 g\\frac{1-\\alpha}{3\\alpha}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", hence, the moment we release the spring its velocity is finite (not zero, the meaning is that it accumulate this velocity in time that is much shorter than the contracting time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(t_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and it decreases to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{1}{\\sqrt{3}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the initial value when "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l = l_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.3. Note that even though the center of mass of the spring accelerates downwards constantly, the moving top section actually decelerates, while the position of the center of mass moves down the spring. The speed of the top section "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v(l)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", calculated in Task B2, decreases and approaches the value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sqrt{A\\alpha L_0 + B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " immediately before it attaches to the bottom section of height "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_0 = \\alpha L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which was unstretched and at rest. Once the moving top section attaches to the resting bottom section, its momentum is shared between both sections, so the speed further decreases just before the whole spring starts accelerating downwards as a single mass. Thus, the minimum speed is that of the whole spring immediately after its full collapse. From momentum conservation, we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nM v_{min} &= m_{top} v(l_0) = M\\left(1 - \\frac{l_0}{L_0}\\right)\\sqrt{A\\alpha L_0 + B} \\\\\nv_{min} &= (1 - \\alpha)\\sqrt{A\\alpha L_0 + B}\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C: Energetics"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.1. From the moment the spring is released, the acceleration of its center of mass is governed by the external force "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(Mg\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and therefore the gravitational potential energy of the spring is fully converted into the kinetic energy of the center of mass of the spring, which just before hitting the ground is equal to the kinetic energy of the spring."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "All that is left is the elastic energy stored in the spring, which is converted into heat, sound, etc. To calculate it, we consider the elastic energy stored in a segment "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dh\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the stretched spring, which when unstretched lies between "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l + \\mathrm{d}l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", using the result of Task A.2, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta W = \\frac{kL_0}{2\\Delta l}(\\Delta l_2^2 - \\Delta l^2)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", by choosing "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta l = dl\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta l_2 = dy\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and using "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dy = \\frac{l}{l_0}dl\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (which was obtained in Task A.3), we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(dW = \\frac{kL_0}{2}\\left(\\frac{l^2}{l_0^2} - 1\\right)dl\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Integrating from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{align*}\nW &= \\int_{l_0}^{L_0} \\frac{kL_0}{2}\\left(\\frac{l^2}{l_0^2} - 1\\right)dl = \\frac{kL_0}{2}\\left[\\frac{l^3}{3l_0^2} - l\\right]_{l_0}^{L_0} = \\frac{kL_0}{2}\\left(\\frac{L_0^3 - l_0^3}{3l_0^2} - (L_0 - l_0)\\right) \\\\\n&= \\frac{kL_0^2}{2}\\left(\\frac{1 - \\alpha^3}{3\\alpha^2} - (1 - \\alpha)\\right) = \\frac{kL_0^2}{6\\alpha^2}(1 - \\alpha)^2(2\\alpha + 1) \\\\\n&= MgL_0\\frac{(1 - \\alpha)^2(2\\alpha + 1)}{6\\alpha}\n\\end{align*}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Zero-length springs and slinky coils – Solution\n\n\nPart A: Statics\n\n\nA.1 The force \n\\(F\\)\n causes the spring to change its length from \n\\(L_0\\)\n to \n\\(L\\)\n. Since equal parts of the spring are extended to equal lengths, we get: \n\\(\\frac{\\Delta y}{\\Delta l} = \\frac{L}{L_0} \\rightarrow \\Delta y = \\frac{L}{L_0}\\Delta l\\)\n.\n\n\nSince \n\\(L = \\max\\left\\{\\frac{F}{k}, L_0\\right\\}\\)\n, we get \n\\(\\Delta y = \\max\\left\\{\\frac{F}{kL_0}\\Delta l, \\Delta l\\right\\}\\)\n. From this result we see that any piece of length \n\\(\\Delta l\\)\n the spring behaves as a ZLS with spring constant \n\\(k^* = k\\frac{L_0}{\\Delta l}\\)\n.\n\n\nA.2 Let us compute the work of the force. From Task A.1: \n\\(dW = F(x)dx = \\frac{kL_0}{\\Delta l} x\\,dx\\)\n. Hence, \n\\(\\Delta W = \\int_{\\Delta l}^{\\Delta y} \\frac{kL_0}{\\Delta l} x\\,dx = \\frac{kL_0}{\\Delta l}\\frac{x^2}{2}\\Big|_{\\Delta l}^{\\Delta y} = \\frac{kL_0}{2\\Delta l}(\\Delta y^2 - \\Delta l^2)\\)\n .\n\n\nA.3. At every point along the statically hanging spring the weight of the mass below is balanced by the tension from above. This implies that at the bottom of the spring there is a section of length \n\\(l_0\\)\n whose turns are still touching each other, as their weight is insufficient to exceed the threshold force \n\\(kL_0\\)\n to pull them apart. The length \n\\(l_0\\)\n can be derived from the equation: \n\\(\\frac{l_0}{L_0}Mg = kL_0\\)\n, hence \n\\(l_0 = \\frac{kL_0^2}{Mg} = \\alpha L_0\\)\n.\n\n\nFor \n\\(l > l_0\\)\n, a segment of the unstretched spring between \n\\(l\\)\n and \n\\(l + \\mathrm{d}l\\)\n feels a weight of \n\\(\\frac{l}{L_0}Mg\\)\n from beneath, which causes its length to stretch from \n\\(\\mathrm{d}l\\)\n to \n\\(dy = \\frac{F}{kL_0}dl = \\frac{l}{L_0}Mg\\frac{dl}{kL_0} = \\frac{Mg}{kL_0^2} l\\,dl = \\frac{l}{l_0} dl\\)\n .\n\n\nIntegration of the last expression over the stretched region, up to the point \n\\(L_0\\)\n, gives its height when the spring is stretched \n\\[H = l_0 + \\int_{l_0}^{L_0} \\frac{l}{l_0} dl = l_0 + \\frac{l^2}{2l_0}\\Big|_{l_0}^{L_0} = l_0 + \\frac{1}{2l_0}(L_0^2 - l_0^2) = \\frac{L_0^2}{2l_0} + \\frac{l_0}{2} = \\frac{L_0}{2}\\left(\\alpha + \\frac{1}{\\alpha}\\right)\\]\n\n\nPart B: Dynamics\n\n\nB.1. From Task A.3 we have \n\\(H(l) = \\frac{l^2}{2l_0} + \\frac{l_0}{2}\\)\n. We now calculate the position of the center of mass of the suspended spring. The contribution of the unstretched section of height \n\\(l_0\\)\n at the bottom, having a mass of \n\\(\\frac{l_0}{L_0} M = \\alpha M\\)\n, is \n\\(\\alpha M \\frac{l_0}{2}\\)\n. The position of the center of mass is obtained by summing the contributions of its elements: \n\\[\\begin{align*}\nH_{cm} &= \\frac{1}{M}\\left[\\frac{l_0}{2}\\alpha M + \\int_{l_0}^{L_0} H(l)\\,dm\\right] = \\frac{1}{M}\\left[\\frac{\\alpha L_0}{2}\\alpha M + \\int_{l_0}^{L_0}\\left(\\frac{l^2}{2l_0}+\\frac{l_0}{2}\\right)\\frac{M\\,dl}{L_0}\\right] \\\\\n&= \\frac{\\alpha^2 L_0}{2} + \\frac{1}{L_0}\\left[\\frac{l^3}{6l_0} + \\frac{l_0}{2} l\\right]_{l_0}^{L_0} = \\frac{\\alpha^2 L_0}{2} + \\frac{1}{L_0}\\left[\\frac{L_0^3 - l_0^3}{6l_0} + \\frac{l_0}{2}(L_0 - l_0)\\right]\n\\end{align*}\\]\n Where we have used \n\\(dm = \\frac{dl}{L_0}M\\)\n. Substituting \n\\(l_0 = \\alpha L_0\\)\n yields \n\\[H_{cm} = L_0\\left[\\frac{1}{6\\alpha} - \\frac{\\alpha^2}{6} + \\frac{\\alpha}{2}\\right]\\]\n When the spring is contracted to its free length \n\\(L_0\\)\n, its center of mass is located at \n\\(\\frac{L_0}{2}\\)\n. From the falling of the center of mass at acceleration \n\\(g\\)\n we get: \n\\[\\frac{g}{2}t_c^2 = H_{cm} - \\frac{L_0}{2} = L_0\\left[\\frac{1}{6\\alpha} - \\frac{\\alpha^2}{6} + \\frac{\\alpha}{2} - \\frac{1}{2}\\right] = \\frac{L_0}{6\\alpha}(1-\\alpha)^3\\]\n Hence, \n\\(t_c = \\sqrt{\\frac{L_0}{3g\\alpha}(1-\\alpha)^3}\\)\n.\n\n\nFor \n\\(k = 1.02\\,\\mathrm{N/m}\\)\n, \n\\(L_0 = 0.055\\,\\mathrm{m}\\)\n, \n\\(M = 0.201\\,\\mathrm{kg}\\)\n, and \n\\(g = 9.80\\,\\mathrm{m/s^2}\\)\n, we have \n\\(\\alpha = 0.0285\\)\n, and \n\\(t_c = 0.245\\,\\mathrm{s}\\)\n.\n\n\nB.2. The moving top section of the spring is pulled down by its own weight, \n\\(m_{top}g = Mg\\frac{(L_0-l)}{L_0}\\)\n and also by the tension in the spring below, which is equal to the weight \n\\(Mgl/L_0\\)\n of the stationary section of the spring. Thus, the moving top section experiences a constant force \n\\(F = Mg\\)\n throughout its whole fall. Another way to see that, is that a total force of \n\\(Mg\\)\n is exerted on the spring, but only the moving part experiences it. Let’s calculate the position of the center of mass at equilibrium of the upper part, i.e., all points with \n\\(l' > l\\)\n for some \n\\(l > l_0\\)\n. From part A, the position of a small portion \n\\(\\Delta l'\\)\n with coordinate \n\\(l'\\)\n is: \n\\(H(l') = \\frac{l'^2}{2l_0} + \\frac{l_0}{2}\\)\n and the center of mass of this part is: \n\\[\\begin{align*}\nH_{cm-upper-i} &= \\frac{L_0}{M(L_0 - l)}\\int_l^{L_0} H(l')\\,dm = \\frac{L_0}{M(L_0-l)}\\int_l^{L_0}\\left(\\frac{l'^2}{2l_0}+\\frac{l_0}{2}\\right)dm \\\\\n&= \\frac{L_0}{M(L_0-l)}\\int_l^{L_0}\\left(\\frac{l'^2}{2l_0}+\\frac{l_0}{2}\\right)\\frac{M\\,dl'}{L_0} = \\frac{1}{(L_0-l)}\\int_l^{L_0}\\left(\\frac{l'^2}{2l_0}+\\frac{l_0}{2}\\right)dl' \\\\\n&= \\frac{1}{(L_0-l)}\\left[\\frac{l'^3}{6l_0}+\\frac{l_0 l'}{2}\\right]_l^{L\\_0} = \\frac{L_0^2+L_0 l+l^2}{6l_0}+\\frac{l_0}{2}\n\\end{align*}\\]\n The position of the upper part of CM when it contracts to a length \n\\(L_0 - l\\)\n is \n\\(H_{cm-upper-f} = \\frac{l^2}{2l_0} + \\frac{l_0}{2} + \\frac{1}{2}(L_0 - l)\\)\n. The change in the CM during the contraction process is: \n\\(\\Delta H_{cm-upper} = H_{cm-upper-i} - H_{cm-upper-f} = \\frac{L_0^2+L_0 l-2l^2}{6l_0} - \\frac{1}{2}(L_0 - l) = \\frac{(L_0-l)(L_0+2l)}{6l_0} - \\frac{1}{2}(L_0 - l)\\)\n.\n\n\nThe acceleration of the CM of the upper part is \n\\(a_{CM} = \\frac{FL_0}{M(L_0-l)} = \\frac{gL_0}{L_0-l}\\)\n. From the work energy theorem we get the equation \n\\(v^2_{upper-f} = 2a_{CM}\\Delta H_{cm-upper}\\)\n, hence \n\\[\\begin{align*}\nv^2_{upper-f} &= 2\\frac{gL_0}{L_0-l}\\left[\\frac{(L_0-l)(L_0+2l)}{6\\alpha L_0} - \\frac{1}{2}(L_0-l)\\right] = 2g\\left[\\frac{L_0+2l}{6\\alpha} - \\frac{1}{2}L_0\\right] \\\\\n&= \\frac{2g}{3\\alpha}l + \\left(\\frac{1}{3\\alpha} - 1\\right)gL_0\n\\end{align*}\\]\n Therefore, \n\\(A = \\frac{2g}{3\\alpha}\\)\n and \n\\(B = \\left(\\frac{1}{3\\alpha} - 1\\right)gL_0\\)\n.\n\n\nNote that for \n\\(l = L_0\\)\n, we have \n\\(v^2_{upper-f} = L_0 g\\frac{1-\\alpha}{\\alpha}\\)\n and for \n\\(l = l_0 = \\alpha L_0\\)\n, we get \n\\(v^2_{upper-f} = L_0 g\\frac{1-\\alpha}{3\\alpha}\\)\n, hence, the moment we release the spring its velocity is finite (not zero, the meaning is that it accumulate this velocity in time that is much shorter than the contracting time \n\\(t_c\\)\n) and it decreases to \n\\(\\frac{1}{\\sqrt{3}}\\)\n of the initial value when \n\\(l = l_0\\)\n.\n\n\nB.3. Note that even though the center of mass of the spring accelerates downwards constantly, the moving top section actually decelerates, while the position of the center of mass moves down the spring. The speed of the top section \n\\(v(l)\\)\n, calculated in Task B2, decreases and approaches the value \n\\(\\sqrt{A\\alpha L_0 + B}\\)\n immediately before it attaches to the bottom section of height \n\\(l_0 = \\alpha L_0\\)\n, which was unstretched and at rest. Once the moving top section attaches to the resting bottom section, its momentum is shared between both sections, so the speed further decreases just before the whole spring starts accelerating downwards as a single mass. Thus, the minimum speed is that of the whole spring immediately after its full collapse. From momentum conservation, we have \n\\[\\begin{align*}\nM v_{min} &= m_{top} v(l_0) = M\\left(1 - \\frac{l_0}{L_0}\\right)\\sqrt{A\\alpha L_0 + B} \\\\\nv_{min} &= (1 - \\alpha)\\sqrt{A\\alpha L_0 + B}\n\\end{align*}\\]\n\n\nPart C: Energetics\n\n\nC.1. From the moment the spring is released, the acceleration of its center of mass is governed by the external force \n\\(Mg\\)\n and therefore the gravitational potential energy of the spring is fully converted into the kinetic energy of the center of mass of the spring, which just before hitting the ground is equal to the kinetic energy of the spring.\n\n\nAll that is left is the elastic energy stored in the spring, which is converted into heat, sound, etc. To calculate it, we consider the elastic energy stored in a segment \n\\(dh\\)\n of the stretched spring, which when unstretched lies between \n\\(l\\)\n and \n\\(l + \\mathrm{d}l\\)\n, using the result of Task A.2, \n\\(\\Delta W = \\frac{kL_0}{2\\Delta l}(\\Delta l_2^2 - \\Delta l^2)\\)\n, by choosing \n\\(\\Delta l = dl\\)\n and \n\\(\\Delta l_2 = dy\\)\n, and using \n\\(dy = \\frac{l}{l_0}dl\\)\n (which was obtained in Task A.3), we get: \n\\(dW = \\frac{kL_0}{2}\\left(\\frac{l^2}{l_0^2} - 1\\right)dl\\)\n. Integrating from \n\\(l_0\\)\n to \n\\(L_0\\)\n we find \n\\[\\begin{align*}\nW &= \\int_{l_0}^{L_0} \\frac{kL_0}{2}\\left(\\frac{l^2}{l_0^2} - 1\\right)dl = \\frac{kL_0}{2}\\left[\\frac{l^3}{3l_0^2} - l\\right]_{l_0}^{L_0} = \\frac{kL_0}{2}\\left(\\frac{L_0^3 - l_0^3}{3l_0^2} - (L_0 - l_0)\\right) \\\\\n&= \\frac{kL_0^2}{2}\\left(\\frac{1 - \\alpha^3}{3\\alpha^2} - (1 - \\alpha)\\right) = \\frac{kL_0^2}{6\\alpha^2}(1 - \\alpha)^2(2\\alpha + 1) \\\\\n&= MgL_0\\frac{(1 - \\alpha)^2(2\\alpha + 1)}{6\\alpha}\n\\end{align*}\\]\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

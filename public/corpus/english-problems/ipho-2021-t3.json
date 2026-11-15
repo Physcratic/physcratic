@@ -1,1 +1,4476 @@
-{"id":"ipho-2021-t3","importedOn":"2026-11-14","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2021_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2021_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2021-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Theory\nQ3-1\nEnglish (Official)\nParticles and Waves (10 points)\nWave–particle duality, which states that each particle can be described as a wave and vice versa, is one\nof the central concepts of quantum mechanics. In this problem, we will rely on this notion and just a few\nother basic assumptions to explore a selection of quantum phenomena covering the two distinct types of\nparticles of the microworld—fermions and bosons.\nPart A. Quantum particle in a box (1.4 points)\nConsider a particle of mass 𝑚moving in a one-dimensional potential well, where its potential energy 𝑉(𝑥)\nis given by\n𝑉(𝑥) =\n{\n0,\n0 ≤𝑥≤𝐿;\n∞,\n𝑥< 0 or 𝑥> 𝐿.\n(1)\nWhile classical particle can move in such a potential having any kinetic energy, for quantum particle only\nsome specific positive discrete energy levels are allowed. In any such allowed state, the particle can be\ndescribed as a standing de Broglie wave with nodes at the walls.\nA.1\nDetermine the minimal possible energy 𝐸min of the quantum particle in the well.\nExpress your answer in terms of 𝑚, 𝐿, and the Planck’s constant ℎ.\n0.4pt\nThe particle’s state with minimal possible energy is called the ground state, and all the rest allowed states\nare called excited states. Let us sort all the possible energy values in the increasing order and denote them\nas 𝐸𝑛, starting from 𝐸1 for the ground state.\nA.2\nFind the general expression for the energy 𝐸𝑛(here 𝑛= 1, 2, 3, ...).\n0.6pt\nA.3\nParticle can undergo instantaneous transition from one state to another only by\nemitting or absorbing a photon of the corresponding energy difference. Find the\nwavelength 𝜆21 of the photon emitted during the transition of the particle from\nthe first excited state (𝐸2) to the ground state (𝐸1).\n0.4pt\nPart B. Optical properties of molecules (2.1 points)\nIn this part, we will study several optical properties of the cyanine Cy5 molecule—a widely used dye\nmolecule, schematically shown in Fig. 1a. Its optical properties are determined mainly by the carbon back-\nbone, composed of the alternating single and double bonds between carbon atoms, shown in Fig. 1b,\nwhile the influence of the rings at the molecule’s ends as well as radicals R is much smaller. Three of the\nfour valence electrons of each C atom (and of N atoms) in the backbone form the chemical bonds, while\nthe remaining valence electrons are “shared” and can move along the whole backbone. The net potential\nenergy of each such electron is shown with oscillating thin line in Fig. 1c, with minima corresponding to\nthe positions of the C and N atoms.\n\nTheory\nQ3-2\nEnglish (Official)\nFigure 1. (a) Chemical structure of the cyanine Cy5 molecule (for simplicity, hydrogen atoms\nare not shown, and R denote some radicals). (b) The backbone of the Cy5 molecule, with mean\ninter-atomic distance 𝑙. (c) Potential energy of the electron along the backbone (thin line) and\nits approximation by the step function given by Eq. 1 (thick line).\nFor simplicity, we will approximate this potential energy profile by a simple function given in Eq. 1 with\nthe width 𝐿= 10.5𝑙(see thick line in Fig. 1c), here 𝑙= 140 pm is the mean inter-atomic distance (see also\nFig. 1b). As a result, we obtain the “electronic gas” composed of 10 electrons (7 from C atoms, 2 from the\nN atom, and 1 from the N+ ion), moving in a one-dimensional potential well discussed in part A. In our\nevaluation, we can neglect the mutual interaction of these electrons; however, we should account for the\nfact that electrons are fermions and thus obey the Pauli exclusion principle. We also neglect the influence\nof other electrons as well as motion of the nuclei.\nB.1\nEvaluate the largest wavelength 𝜆of the photon that can be absorbed by the\nCy5 molecule assuming that the electron system is initially in its ground state.\nExpress your answer in terms of 𝑙, physical constants and some numerical pref-\nactor, and calculate the numerical value.\n0.8pt\nB.2\nAnother dye molecule Cy3 has similar structure, but its backbone is shorter by\n2 carbon atoms. Is its absorption spectrum shifted to the bluer or to the redder\nspectral region compared to the Cy5 molecule? Evaluate numerically the magni-\ntude Δ𝜆of this spectral shift. You can assume that removing two carbon atoms\ndoesn’t change the molecule shape and only makes the backbone length shorter\nby two interatomic distances.\n0.4pt\nBeing in the excited state, molecule can undergo a spontaneous transition to the ground state while emit-\nting photon. The mean rate 𝐾of such events (i.e. the relative decrease of the molecules being in the\nexcited state, d𝑁/𝑁, over time d𝑡, 𝐾=\n1\n𝑁\nd𝑁\nd𝑡) is determined by the wavelength 𝜆of the emitted photon,\nthe transition electrical dipole moment 𝑑(which is of the order of 𝑑≃𝑒𝑙, here 𝑒is elementary charge) as\nwell as vacuum permittivity 𝜀0 and Planck’s constant ℎ.\nB.3\nUsing dimension analysis, determine the expression for the rate of spontaneous\nemission in terms of 𝜀0, ℎ, 𝜆, and 𝑑. The numerical prefactor for your expression\nis = 16\n3 𝜋3.\n0.7pt\n\nTheory\nQ3-3\nEnglish (Official)\nB.4\nFor Cy5 molecule, 𝑑≈2.4 𝑒𝑙. Evaluate the mean fluorescence lifetime of the\nlowest excited state of Cy5 molecule, 𝜏Cy5, which is reciprocal to the rate of its\nemissive transition to the ground state.\n0.2pt\nPart C. Bose-Einstein condensation (1.5 points)\nThis part is not directly related to Parts A and B. Here, we will study the collective behaviour of bosonic par-\nticles. Bosons do not respect the Pauli exclusion principle, and—at low temperatures or high densities—\nexperience a dramatic phenomenon known as the Bose–Einstein condensation (BEC). This is a phase tran-\nsition to an intriguing collective quantum state: a large number of identical particles ‘condense’ into a\nsingle quantum state and start behaving as a single wave. The transition is typically reached by cooling a\nfixed number of particles below the critical temperature. In principle, it can also be induced by keeping\nthe temperature fixed and driving the particle density past its critical value.\nWe begin by exploring the relation between the temperature and the particle density at the transition. As\nit turns out, estimates of their critical values can be deduced from a simple observation: Bose-Einstein con-\ndensation takes place when the de Broglie wavelength corresponding to the mean square speed of the particles\nis equal to the characteristic distance between the particles in a gas.\nC.1\nGiven a non-interacting gas of 87Rb atoms in thermal equilibrium, write the ex-\npressions for their typical linear momentum 𝑝and the typical de Broglie wave-\nlength 𝜆dB as a function of atom’s mass 𝑚, temperature𝑇and physical constants.\n0.4pt\nC.2\nCalculate the typical distance between the particles in a gas, ℓ, as a function\nof particle density 𝑛. Hence deduce the critical temperature 𝑇𝑐as a function of\natom’s mass, their density and physical constants.\n0.5pt\nTo realize BEC in the lab, the experimentalists have to cool gases to temperatures as low as 𝑇𝑐= 100 nK.\nC.3\nWhat is the particle density of the Rb gas 𝑛𝑐if the transition takes place at such\na temperature? For the sake of comparison, calculate also the ‘ordinary’ particle\ndensity 𝑛0 of an ideal gas at the standard temperature and pressure (STP), i.e.\n𝑇0 = 300 K and 𝑝0 = 105 Pa. How many times is the ‘ordinary’ gas denser? You\nmay assume that the mass of the atoms is equal to 87 atomic mass units (𝑚amu).\n0.6pt\nPart D. Three-beam optical lattices (5 points)\nThe first Bose-Einstein condensates were produced back in 1995, and since then the experimental work\nhas branched out in diverse directions. In this part, you will investigate one particularly fruitful idea to load\nthe condensate into spatially periodic potentials created by interfering a number of coherent laser beams.\nDue to the periodic nature of the resulting interference patterns, they are referred to as optical lattices.\nThe potential energy 𝑉(®𝑟) of an atom moving in an optical lattice is proportional to the local intensity of\nthe light, and in your calculations you may assume that\n𝑉(®𝑟) = −𝛼\n⟨\n| ®𝐸(®𝑟, 𝑡)|2⟩\n.\n(2)\nHere, 𝛼is a positive constant, and the angle brackets indicate time-averaging which eliminates the rapidly\n\nTheory\nQ3-4\nEnglish (Official)\noscillating terms. The electric field produced by the i-th laser is described by\n®𝐸𝑖= 𝐸0,𝑖®𝜀𝑖cos(®𝑘𝑖· ®𝑟−𝜔𝑡),\n(3)\nwith the amplitude 𝐸0,𝑖, the wave vector ®𝑘𝑖, and the unit-length polarization vector ®𝜀𝑖.\nFigure 2. (a) Three-beam optical lattice: three plane waves with wave vectors ®𝑘1,2,3 intersect\nand interfere in the area indicated by the grey circle. (b) Symmetries of a regular hexagon:\nsolid and dashed lines show two sets of symmetry axes. (c) Saddle point: a point on a surface\nwhere the slopes in orthogonal directions are all zero, but which is not a local extremum of\nthe plotted function. Travelling along the trajectory marked by the full line one encounters an\napparent minimum. Additional analysis of the perpendicular direction (dashed line) is needed\nto distinguish a true minimum from a saddle point (shown).\nYour task is to study triangular optical lattices that are produced by interfering three coherent laser beams\nof equal intensity. A typical setup is shown in Fig. 2a. Here, all three beams are polarized in the 𝑧direction,\npropagate in the 𝑥𝑦plane and intersect at equal angles of 120°. Choose the direction of the 𝑥axis parallel\nto the wave vector ®𝑘1.\nD.1\nUsing Eqs. 2 and 3 obtain the expression for the potential energy 𝑉(®𝑟) as a func-\ntion of ®𝑟= (𝑥, 𝑦) in the plane of the beams.\nHint: the result can be neatly expressed as a constant term plus a sum of three\ncosine functions of arguments ®𝑏𝑖· ®𝑟. Please write your result in this form and\nidentify the vectors ®𝑏𝑖.\n1.4pt\nD.2\nThe resulting potential energy has a sixfold rotational symmetry axis, i.e., the\npotential distribution is invariant with respect to a rotation by a multiple of 60°\naround the origin. Provide a simple argument to prove that this is indeed the\ncase.\n0.5pt\nThe above observation of symmetry simplifies the analysis of the two-dimensional potential distribution\n𝑉(®𝑟). As shown in Fig. 2b, a regular hexagon has symmetry lines that, respectively, connect opposite ver-\ntices (solid lines) and midpoints of opposite edges (dashed lines). Therefore, in our situation one does not\nneed to produce and study two-dimensional potential plots as many insights can be deduced by focusing\non the coordinate axes 𝑥and 𝑦that run along the symmetry lines.\n\nTheory\nQ3-5\nEnglish (Official)\nD.3\nDerive the behavior of the potential 𝑉(®𝑟) along the coordinate axes, i.e., deter-\nmine the functions 𝑉𝑋(𝑥) ≡𝑉(𝑥, 0) and 𝑉𝑌( 𝑦) ≡𝑉(0, 𝑦). Identify the locations\nof the extrema of 𝑉𝑋(𝑥) and 𝑉𝑌( 𝑦) as functions of a single argument. As these\nfunctions are periodic, please include in your lists only one representative from\neach family of periodically repeated minima and maxima.\n1.2pt\nWe are interested in determining the locations of so-called lattice sites, i.e., the minima of the full two-\ndimensional potential 𝑉(®𝑟). The obtained minima of single-argument functions 𝑉𝑋and 𝑉𝑌identify their\nsuspected positions but still have to be checked to eliminate the saddle points. As shown in Fig. 2c, when\nstudied along a single line, saddle points may disguise as minima but they are not.\nD.4\nReview your results in the previous question to determine actual minima of the\noptical lattice: Identify all equivalent minima nearest to (but not coinciding with)\nthe origin. What is the distance 𝑎between the nearest minima, in other words—\nthe lattice constant of our optical lattice? Express the answer in terms of the laser\nwavelength 𝜆las.\n0.8pt\nCharge neutrality of ultracold atoms suggests that their interactions become relevant only when two or\nmore atoms occupy the same site of an optical lattice. However, experimentalists are also able to explore\nsetups that sustain long-range atomic interactions. A possible approach relies on creation of the so-called\nRydberg atoms that are physically large and feature other exaggerated properties. Rydberg atoms are\nexcited atoms with one electron promoted to a state with a very high principal quantum number 𝑛. The\nsize of a Rydberg atom can be estimated by calculating the radius of the classical circular orbit of that\nelectron with the orbital angular momentum 𝑛ℏ, here ℏis the reduced Planck constant.\nD.5\nCalculate the value of 𝑛that corresponds to the radius of the Rb Rydberg atom\ncomparable to the wavelength of laser light 𝜆las = 380 nm. Give your answer in\nterms of 𝜆las and physical constants and find its numerical value.\n1.1pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2021-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Theoretical Question 3 – Solution\nS3-1\nENGLISH\nParticles and Waves (10 points)\nPart A.\nQuantum particle in a box (1.4 points)\nA.1 (0.4 points)\nThe width of the potential well (𝐿) should be equal to the half of the wavelength of the de Broglie\nstanding wave 𝜆dB = ℎ/𝑝, here ℎis the Planck’s constant and 𝑝is the momentum of the particle.\nThus 𝑝= ℎ/𝜆dB = ℎ/(2𝐿), and the minimal possible energy of the particle is\n𝐸min = 𝑝2\n2𝑚=\nℎ2\n8𝑚𝐿2 .\nA.2 (0.6 points)\nThe potential well should fit an integer number of the de Broglie half-wavelengths: 𝐿= 1\n2𝜆(𝑛)\ndB · 𝑛,\n𝑛= 1, 2, . . . . Therefore, particle’s momentum, corresponding to the de Broglie wavelength 𝜆(𝑛)\ndB is\n𝑝𝑛=\nℎ\n𝜆(𝑛)\ndB\n= ℎ𝑛\n2𝐿,\nand the corresponding energy is\n𝐸𝑛= 𝑝2\n𝑛\n2𝑚= ℎ2𝑛2\n8𝑚𝐿2,\n𝑛= 1, 2, 3, . . . .\n(1)\nA.3 (0.4 points)\nThe energy of the emitted photon, 𝐸= ℎ𝑐/𝜆(here 𝑐is the speed of light and 𝜆is the photon’s\nwavelength) should be equal to the energy difference Δ𝐸= 𝐸2 −𝐸1, therefore\n𝜆21 =\nℎ𝑐\n𝐸2 −𝐸1\n= 8𝑚𝑐𝐿2\n3ℎ\n.\nPart B.\nOptical properties of molecules (2.1 points)\nB.1 (0.8 points)\nTaking into account the Pauli exclusion principle, each energy level 𝐸𝑛is occupied by two electrons\nwith spins oriented in the opposite directions. As a results, 10 electrons fill the lowest 5 states,\nand the absorption of the photon of the longest wavelength corresponds to the transition of one\nelectron from the occupied 𝐸5 to the unoccupied 𝐸6 energy state:\nℎ𝑐\n𝜆= 𝐸6 −𝐸5,\n\nTheoretical Question 3 – Solution\nS3-2\nENGLISH\nwhere 𝐸6 and 𝐸5 can be found from Eq. 1, where 𝑚is replaced with the electron mass 𝑚e. Hence\nwe obtain:\n𝜆= 𝑐· 8𝑚e𝐿2\nℎ(62 −52) = 10.52 · 8\n11\n𝑚e𝑐𝑙2\nℎ\n= 882\n11\n𝑚e𝑐𝑙2\nℎ\n≈647 nm.\nThis result correspond precisely to the experimental value the peak position of the Cy5 absorption\nspectrum.\nB.2 (0.4 points)\nIn the similar model for the Cy3 molecule, there are 8 electrons in the box of length 𝐿= 8.5𝑙,\nthus photon’s absorption corresponds to the 𝐸4 →𝐸5 transition. Taking into account the result of\nquestion B1, we obtain\n𝜆Cy3 = 8.52 · 8\n(52 −42)\n𝑚e𝑐𝑙2\nℎ\n≈518 nm,\ni. e. the absorption spectrum of the Cy3 molecule is shifted by Δ𝜆≈129 nm to the blue comparing\nto that of the Cy5 molecule. The experimental value is 𝜆(exp)\nCy3\n= 548 nm, so that our model catches\ngeneral properties of these dye molecules rather well.\nB.3 (0.7 points)\nLet us assume\n𝐾= 𝑘𝜀𝛼\n0ℎ𝛽𝜆𝛾𝑑𝛿.\n(2)\nThe SI units of the relevant quantities are:\n[𝜀0] = A2 · s4\nkg · m3,\n[ℎ] = kg · m2\ns\n,\n[𝜆] = m,\n[𝑑] = A · s · m,\n[𝐾] = s−1.\nBy plugging these expressions into Eq. 2 we obtain a simple system of linear equations for the\nunknown powers 𝛼, 𝛽, 𝛾, and 𝛿:\n2𝛼+ 𝛿= 0,\n−𝛼+ 𝛽= 0,\n4𝛼−𝛽+ 𝛿= −1,\n−3𝛼+ 2𝛽+ 𝛾+ 𝛿= 0.\nBy solving this system we get:\n𝛼= 𝛽= −1,\n𝛾= −3,\n𝛿= 2,\nso that the rate of spontaneous emission is\n𝐾= 16𝜋3\n3\n𝑑2\n𝜀0ℎ𝜆3 .\n(3)\nB.4 (0.2 points)\nBy using the result of question B.2 and expressing transition dipole moment as 𝑑= 2.4𝑒𝑙, we obtain\nfrom Eq. 3:\n𝜏Cy5 =\n3\n16𝜋3\n𝜀0ℎ\n2.42𝑙2𝑒2𝜆3 ≈3.3 ns.\n\nTheoretical Question 3 – Solution\nS3-3\nENGLISH\nPart C.\nBose-Einstein condensation (1.5 points)\nC.1 (0.4 points)\nAt temperature 𝑇, the average kinetic energy of translational motion is 3\n2𝑘B𝑇. Equating this result\nto 𝑝2/(2𝑚), we obtain typical momentum 𝑝= √3𝑚𝑘B𝑇and the de Broglie wavelength\n𝜆dB = ℎ\n𝑝=\nℎ\n√3𝑚𝑘B𝑇\n.\nC.2 (0.5 points)\nThe volume per particle 𝑉/𝑁is a good estimate for ℓ3. We obtain ℓ= 𝑛−1/3, with 𝑛= 𝑁/𝑉and\nequate ℓ= 𝜆dB to express 𝑇𝑐= ℎ2𝑛2/3/(3𝑚𝑘B).\nC.3 (0.6 points)\nUsing the answer to the previous question, we express𝑛𝑐= (3𝑚𝑘B𝑇𝑐)3/2/ℎ3. Equation of state for the\nideal gas gives 𝑛0 = 𝑝/(𝑘B𝑇). Numerical estimations yield 𝑛𝑐≈1.59 · 1018 m−3 and 𝑛0/𝑛𝑐≈1.5 · 107.\nPart D.\nThree-beam optical lattices (5.0 points)\nD.1 (1.4 points)\nWe sum the three electric fields (𝑧components)\n𝐸(®𝑟,𝑡) = 𝐸0\n3\n∑︁\n𝑖=1\ncos\n\u0010\n®𝑘𝑖· ®𝑟−𝜔𝑡\n\u0011\n,\n(4)\nand square the result\n𝐸2(®𝑟,𝑡) = 𝐸2\n0\n3\n∑︁\n𝑖=1\n3\n∑︁\n𝑗=1\ncos\n\u0010\n®𝑘𝑖· ®𝑟−𝜔𝑡\n\u0011\ncos\n\u0010\n®𝑘𝑗· ®𝑟−𝜔𝑡\n\u0011\n= 𝐸2\n0\n2\n3\n∑︁\n𝑖=1\n3\n∑︁\n𝑗=1\nn\ncos\nh\u0010\n®𝑘𝑖−®𝑘𝑗\n\u0011\n· ®𝑟\ni\n+ cos\nh\u0010\n®𝑘𝑖+ ®𝑘𝑗\n\u0011\n· ®𝑟−2𝜔𝑡\nio\n.\n(5)\nTime averaging gives\n⟨𝐸2(®𝑟,𝑡)⟩= 𝐸2\n0\n2\n3\n∑︁\n𝑖=1\n3\n∑︁\n𝑗=1\ncos\nh\u0010\n®𝑘𝑖−®𝑘𝑗\n\u0011\n· ®𝑟\ni\n,\n(6)\n\nTheoretical Question 3 – Solution\nS3-4\nENGLISH\nwe analyse the 9 terms and simplify to\n⟨𝐸2(®𝑟,𝑡)⟩= 𝐸2\n0\n \n3\n2 +\n3\n∑︁\n𝑗=1\ncos\n\u0010\n®𝑏𝑗· ®𝑟\n\u0011!\n.\n(7)\nHere\n®𝑏1 = ®𝑘2 −®𝑘3,\n®𝑏2 = ®𝑘3 −®𝑘1,\n®𝑏3 = ®𝑘1 −®𝑘2,\nor in terms of the Levi-Civita symbol, ®𝑏𝑘= 𝜀𝑖𝑗𝑘(®𝑘𝑖−®𝑘𝑗). Incidentally, they are known as the reciprocal\nlattice vectors.\nD.2 (0.5 points)\nArgument: Observe that rotation by 60◦maps the three vectors ®𝑏1,2,3 into the relabelled triplet of\n−®𝑏’s.\nD.3 (1.2 points)\nWe find\n𝑉(𝑥,𝑦) = −𝛼𝐸2\n0\n(\n3\n2 + cos\n\u0010\n𝑘𝑦\n√\n3\n\u0011\n+ cos\n \n3𝑘𝑥\n2\n+ 𝑘𝑦\n√\n3\n2\n!\n+ cos\n \n3𝑘𝑥\n2\n−𝑘𝑦\n√\n3\n2\n!)\n,\n(8)\nand deduce\n𝑉𝑋(𝑥) = −𝛼𝐸2\n0\n\u001a5\n2 + 2 cos 3𝑘𝑥\n2\n\u001b\n.\n(9)\nThe potential has a simple cosine form, and the origin in an obvious minimum. Its replica appear at\nmultiples of Δ𝑥= 4𝜋/(3𝑘). In the midpoint between any two minima, e.g. at 𝑥= Δ𝑥/2 = 2𝜋/(3𝑘),\nthe function 𝑉𝑋(𝑥) has its maxima.\nConcerning the behaviour along the 𝑦axis, we have\n𝑉𝑌(𝑦) = −𝛼𝐸2\n0\n\u001a3\n2 + cos 2𝜑+ 2 cos𝜑\n\u001b\n,\n𝜑=\n√\n3𝑘𝑦/2.\n(10)\nLooking for the extrema, we find the equation\nsin 2𝜑+ sin𝜑= 0.\n(11)\n◦𝜑= 0 (corresponding to 𝑦= 0) is the ‘deep’ minimum – the lattice site;\n◦𝜑= 𝜋(corresponding to 𝑦=\n2𝜋\n√\n3𝑘) is the ‘shallow’ minimum (later shown to be a saddle point\nof 𝑉(𝑥,𝑦));\n◦𝜑= 2𝜋/3 and 𝜑= 4𝜋/3 (corresponding to 𝑦=\n4𝜋\n3\n√\n3𝑘and 𝑦=\n8𝜋\n3\n√\n3𝑘, respectively) are maxima.\n\nTheoretical Question 3 – Solution\nS3-5\nENGLISH\nD.4 (0.8 points)\nWe review the minima found in the previous question and eliminate the saddle point at (0, 2𝜋/3\n√\n3𝑘).\nThe actual minima of the 2D potential landscape 𝑉(𝑥,𝑦) are:\n◦(0, 0) – at the origin;\n◦(4𝜋/(3𝑘), 0) – nearest to the origin in the positive direction along the 𝑥axis. On the grounds\nof symmetry we argue that there are six equivalent nearest minima in the directions 0◦, ±60◦,\n±120◦, and 180◦with respect to the 𝑥axis.\nDistance between nearest minima (the lattice constant) 𝑎= 4𝜋/(3𝑘). Given that the laser wave-\nlength is 𝜆las = 2𝜋/𝑘, we have 𝑎= Δ𝑥= 2𝜆las/3, thus 𝑎/𝜆las = 2/3.\nD.5 (1.1 points)\nThe atom’s core electrons (all but the one promoted to to a state with a high principal quantum\nnumber 𝑛) shield the electric field of the nucleus so that the effective potential for the outer electron\nresembles that of a hydrogen atom. The attractive force acting on that electron, 𝐹= 𝑒2/(4𝜋𝜀0𝑟2),\ngives rise to its centripetal acceleration 𝑎= 𝑣2/𝑟. Equating 𝐹= 𝑚e𝑎and using the expression\nfor the angular momentum 𝑚e𝑣𝑟= 𝑛ℏto eliminate the velocity, we find the quantum number 𝑛\ncorresponding to the orbit with the radius 𝑟= 𝜆las:\n𝑛= 𝑒\nℏ\n√︄\n𝑚e𝜆\n4𝜋𝜀0\n≈85.\n(12)\n","textExtraction":"available"}}
+{
+  "id": "ipho-2021-t3",
+  "importedOn": "2026-11-14",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2021-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Particles and Waves (10 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Wave–particle duality, which states that each particle can be described as a wave and vice versa, is one of the central concepts of quantum mechanics. In this problem, we will rely on this notion and just a few other basic assumptions to explore a selection of quantum phenomena covering the two distinct types of particles of the microworld—fermions and bosons."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Quantum particle in a box (1.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider a particle of mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " moving in a one-dimensional potential well, where its potential energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is given by"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nV(x) = \\begin{cases} 0, & 0 \\leq x \\leq L; \\\\ \\infty, & x < 0 \\text{ or } x > L. \\end{cases} \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "While classical particle can move in such a potential having any kinetic energy, for quantum particle only some specific positive discrete energy levels are allowed. In any such allowed state, the particle can be described as a standing de Broglie wave with nodes at the walls."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Determine the minimal possible energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_{\\min}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the quantum particle in the well. Express your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the Planck’s constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The particle’s state with minimal possible energy is called the ground state, and all the rest allowed states are called excited states. Let us sort all the possible energy values in the increasing order and denote them as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", starting from "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for the ground state."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Find the general expression for the energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n = 1, 2, 3, \\ldots\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). 0.6pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Particle can undergo instantaneous transition from one state to another only by emitting or absorbing a photon of the corresponding energy difference. Find the wavelength "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_{21}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the photon emitted during the transition of the particle from the first excited state ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") to the ground state ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). 0.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Optical properties of molecules (2.1 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this part, we will study several optical properties of the cyanine Cy5 molecule—a widely used dye molecule, schematically shown in Fig. 1a. Its optical properties are determined mainly by the carbon backbone, composed of the alternating single and double bonds between carbon atoms, shown in Fig. 1b, while the influence of the rings at the molecule’s ends as well as radicals R is much smaller. Three of the four valence electrons of each C atom (and of N atoms) in the backbone form the chemical bonds, while the remaining valence electrons are “shared” and can move along the whole backbone. The net potential energy of each such electron is shown with oscillating thin line in Fig. 1c, with minima corresponding to the positions of the C and N atoms."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t3/3d498975c5a8351096a3.png",
+                "alt": "ipho-2021-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 1. (a) Chemical structure of the cyanine Cy5 molecule (for simplicity, hydrogen atoms are not shown, and R denote some radicals). (b) The backbone of the Cy5 molecule, with mean inter-atomic distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". (c) Potential energy of the electron along the backbone (thin line) and its approximation by the step function given by Eq. 1 (thick line)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For simplicity, we will approximate this potential energy profile by a simple function given in Eq. 1 with the width "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L = 10.5\\,l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (see thick line in Fig. 1c), here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l = 140\\,\\mathrm{pm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the mean inter-atomic distance (see also Fig. 1b). As a result, we obtain the “electronic gas” composed of 10 electrons (7 from C atoms, 2 from the N atom, and 1 from the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{N}^+\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " ion), moving in a one-dimensional potential well discussed in part A. In our evaluation, we can neglect the mutual interaction of these electrons; however, we should account for the fact that electrons are fermions and thus obey the Pauli exclusion principle. We also neglect the influence of other electrons as well as motion of the nuclei."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Evaluate the largest wavelength "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the photon that can be absorbed by the Cy5 molecule assuming that the electron system is initially in its ground state. Express your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", physical constants and some numerical prefactor, and calculate the numerical value. 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Another dye molecule Cy3 has similar structure, but its backbone is shorter by 2 carbon atoms. Is its absorption spectrum shifted to the bluer or to the redder spectral region compared to the Cy5 molecule? Evaluate numerically the magnitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of this spectral shift. You can assume that removing two carbon atoms doesn’t change the molecule shape and only makes the backbone length shorter by two interatomic distances. 0.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Being in the excited state, molecule can undergo a spontaneous transition to the ground state while emitting photon. The mean rate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of such events (i.e. the relative decrease of the molecules being in the excited state, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{d}N/N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", over time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{d}t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(K = \\frac{1}{N}\\frac{\\mathrm{d}N}{\\mathrm{d}t}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is determined by the wavelength "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of the emitted photon, the transition electrical dipole moment "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (which is of the order of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d \\simeq el\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is elementary charge) as well as vacuum permittivity "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and Planck’s constant "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Using dimension analysis, determine the expression for the rate of spontaneous emission in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varepsilon_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The numerical prefactor for your expression is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(=\\frac{16}{3}\\pi^3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.7pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "For Cy5 molecule, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d \\approx 2.4\\,el\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Evaluate the mean fluorescence lifetime of the lowest excited state of Cy5 molecule, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_{\\mathrm{Cy5}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", which is reciprocal to the rate of its emissive transition to the ground state. 0.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C. Bose-Einstein condensation (1.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This part is not directly related to Parts A and B. Here, we will study the collective behaviour of bosonic particles. Bosons do not respect the Pauli exclusion principle, and—at low temperatures or high densities—experience a dramatic phenomenon known as the Bose–Einstein condensation (BEC). This is a phase transition to an intriguing collective quantum state: a large number of identical particles ‘condense’ into a single quantum state and start behaving as a single wave. The transition is typically reached by cooling a fixed number of particles below the critical temperature. In principle, it can also be induced by keeping the temperature fixed and driving the particle density past its critical value."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We begin by exploring the relation between the temperature and the particle density at the transition. As it turns out, estimates of their critical values can be deduced from a simple observation: "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Bose-Einstein condensation takes place when the de Broglie wavelength corresponding to the mean square speed of the particles is equal to the characteristic distance between the particles in a gas"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Given a non-interacting gas of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{87}\\mathrm{Rb}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " atoms in thermal equilibrium, write the expressions for their typical linear momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the typical de Broglie wavelength "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_{\\mathrm{dB}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of atom’s mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and physical constants. 0.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Calculate the typical distance between the particles in a gas, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", as a function of particle density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence deduce the critical temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of atom’s mass, their density and physical constants. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "To realize BEC in the lab, the experimentalists have to cool gases to temperatures as low as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_c = 100\\,\\mathrm{nK}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "What is the particle density of the Rb gas "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " if the transition takes place at such a temperature? For the sake of comparison, calculate also the ‘ordinary’ particle density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of an ideal gas at the standard temperature and pressure (STP), i.e. "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_0 = 300\\,\\mathrm{K}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p_0 = 10^5\\,\\mathrm{Pa}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". How many times is the ‘ordinary’ gas denser? You may assume that the mass of the atoms is equal to 87 atomic mass units ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_{\\mathrm{amu}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "). 0.6pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part D. Three-beam optical lattices (5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The first Bose-Einstein condensates were produced back in 1995, and since then the experimental work has branched out in diverse directions. In this part, you will investigate one particularly fruitful idea to load the condensate into spatially periodic potentials created by interfering a number of coherent laser beams. Due to the periodic nature of the resulting interference patterns, they are referred to as "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "optical lattices"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The potential energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\vec{r})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of an atom moving in an optical lattice is proportional to the local intensity of the light, and in your calculations you may assume that"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nV(\\vec{r}) = -\\alpha \\left\\langle |\\vec{E}(\\vec{r}, t)|^2 \\right\\rangle. \\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Here, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "positive"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " constant, and the angle brackets indicate time-averaging which eliminates the rapidly oscillating terms. The electric field produced by the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-th laser is described by"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\vec{E}_i = E_{0,i}\\,\\vec{\\varepsilon}_i \\cos(\\vec{k}_i \\cdot \\vec{r} - \\omega t), \\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "with the amplitude "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_{0,i}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the wave vector "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{k}_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the unit-length polarization vector "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{\\varepsilon}_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2021-t3/fbb36d92cb2ff713a629.png",
+                "alt": "ipho-2021-t3 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 2. (a) Three-beam optical lattice: three plane waves with wave vectors "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{k}_{1,2,3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " intersect and interfere in the area indicated by the grey circle. (b) Symmetries of a regular hexagon: solid and dashed lines show two sets of symmetry axes. (c) Saddle point: a point on a surface where the slopes in orthogonal directions are all zero, but which is not a local extremum of the plotted function. Travelling along the trajectory marked by the full line one encounters an apparent minimum. Additional analysis of the perpendicular direction (dashed line) is needed to distinguish a true minimum from a saddle point (shown)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Your task is to study "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "triangular optical lattices"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that are produced by interfering three coherent laser beams of equal intensity. A typical setup is shown in Fig. 2a. Here, all three beams are polarized in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " direction, propagate in the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\,y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " plane and intersect at equal angles of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(120^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Choose the direction of the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis parallel to the wave vector "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{k}_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Using Eqs. 2 and 3 obtain the expression for the potential energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\vec{r})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as a function of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{r} = (x, y)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " in the plane of the beams."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Hint"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": the result can be neatly expressed as a constant term plus a sum of three cosine functions of arguments "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{b}_i \\cdot \\vec{r}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Please write your result in this form and identify the vectors "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{b}_i\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 1.4pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The resulting potential energy has a sixfold rotational symmetry axis, i.e., the potential distribution is invariant with respect to a rotation by a multiple of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(60^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " around the origin. Provide a simple argument to prove that this is indeed the case. 0.5pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The above observation of symmetry simplifies the analysis of the two-dimensional potential distribution "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\vec{r})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". As shown in Fig. 2b, a regular hexagon has symmetry lines that, respectively, connect opposite vertices (solid lines) and midpoints of opposite edges (dashed lines). Therefore, in our situation one does not need to produce and study two-dimensional potential plots as many insights can be deduced by focusing on the coordinate axes "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that run along the symmetry lines."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Derive the behavior of the potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\vec{r})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " along the coordinate axes, i.e., determine the functions "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_X(x) \\equiv V(x, 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_Y(y) \\equiv V(0, y)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Identify the locations of the extrema of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_X(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_Y(y)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " as functions of a single argument. As these functions are periodic, please include in your lists only one representative from each family of periodically repeated minima and maxima. 1.2pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We are interested in determining the locations of so-called "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "lattice sites"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", i.e., the minima of the full two-dimensional potential "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(\\vec{r})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The obtained minima of single-argument functions "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_X\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_Y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " identify their suspected positions but still have to be checked to eliminate the saddle points. As shown in Fig. 2c, when studied along a single line, saddle points may disguise as minima but they are not."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Review your results in the previous question to determine actual minima of the optical lattice: Identify all equivalent minima nearest to (but not coinciding with) the origin. What is the distance "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " between the nearest minima, in other words—the "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "lattice constant"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of our optical lattice? Express the answer in terms of the laser wavelength "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_{\\mathrm{las}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 0.8pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Charge neutrality of ultracold atoms suggests that their interactions become relevant only when two or more atoms occupy the same site of an optical lattice. However, experimentalists are also able to explore setups that sustain long-range atomic interactions. A possible approach relies on creation of the so-called "
+          },
+          {
+            "type": "element",
+            "tag": "em",
+            "children": [
+              {
+                "type": "text",
+                "text": "Rydberg atoms"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that are physically large and feature other exaggerated properties. Rydberg atoms are excited atoms with one electron promoted to a state with a very high principal quantum number "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The size of a Rydberg atom can be estimated by calculating the radius of the classical circular orbit of that electron with the orbital angular momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the reduced Planck constant."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Calculate the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " that corresponds to the radius of the Rb Rydberg atom comparable to the wavelength of laser light "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_{\\mathrm{las}} = 380\\,\\mathrm{nm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Give your answer in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_{\\mathrm{las}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and physical constants and find its numerical value. 1.1pt"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Particles and Waves (10 points)\n\n\nWave–particle duality, which states that each particle can be described as a wave and vice versa, is one of the central concepts of quantum mechanics. In this problem, we will rely on this notion and just a few other basic assumptions to explore a selection of quantum phenomena covering the two distinct types of particles of the microworld—fermions and bosons.\n\n\nPart A. Quantum particle in a box (1.4 points)\n\n\nConsider a particle of mass \n\\(m\\)\n moving in a one-dimensional potential well, where its potential energy \n\\(V(x)\\)\n is given by\n\n\n\\[\\begin{equation}\nV(x) = \\begin{cases} 0, & 0 \\leq x \\leq L; \\\\ \\infty, & x < 0 \\text{ or } x > L. \\end{cases} \\tag{1}\n\\end{equation}\\]\n\n\nWhile classical particle can move in such a potential having any kinetic energy, for quantum particle only some specific positive discrete energy levels are allowed. In any such allowed state, the particle can be described as a standing de Broglie wave with nodes at the walls.\n\n\nA.1\nDetermine the minimal possible energy \n\\(E_{\\min}\\)\n of the quantum particle in the well. Express your answer in terms of \n\\(m\\)\n, \n\\(L\\)\n, and the Planck’s constant \n\\(h\\)\n. 0.4pt\n\n\nThe particle’s state with minimal possible energy is called the ground state, and all the rest allowed states are called excited states. Let us sort all the possible energy values in the increasing order and denote them as \n\\(E_n\\)\n, starting from \n\\(E_1\\)\n for the ground state.\n\n\nA.2\nFind the general expression for the energy \n\\(E_n\\)\n (here \n\\(n = 1, 2, 3, \\ldots\\)\n). 0.6pt\n\n\nA.3\nParticle can undergo instantaneous transition from one state to another only by emitting or absorbing a photon of the corresponding energy difference. Find the wavelength \n\\(\\lambda_{21}\\)\n of the photon emitted during the transition of the particle from the first excited state (\n\\(E_2\\)\n) to the ground state (\n\\(E_1\\)\n). 0.4pt\n\n\nPart B. Optical properties of molecules (2.1 points)\n\n\nIn this part, we will study several optical properties of the cyanine Cy5 molecule—a widely used dye molecule, schematically shown in Fig. 1a. Its optical properties are determined mainly by the carbon backbone, composed of the alternating single and double bonds between carbon atoms, shown in Fig. 1b, while the influence of the rings at the molecule’s ends as well as radicals R is much smaller. Three of the four valence electrons of each C atom (and of N atoms) in the backbone form the chemical bonds, while the remaining valence electrons are “shared” and can move along the whole backbone. The net potential energy of each such electron is shown with oscillating thin line in Fig. 1c, with minima corresponding to the positions of the C and N atoms.\n\n\n\n\n\n\n\n\n\nFigure 1. (a) Chemical structure of the cyanine Cy5 molecule (for simplicity, hydrogen atoms are not shown, and R denote some radicals). (b) The backbone of the Cy5 molecule, with mean inter-atomic distance \n\\(l\\)\n. (c) Potential energy of the electron along the backbone (thin line) and its approximation by the step function given by Eq. 1 (thick line).\n\n\nFor simplicity, we will approximate this potential energy profile by a simple function given in Eq. 1 with the width \n\\(L = 10.5\\,l\\)\n (see thick line in Fig. 1c), here \n\\(l = 140\\,\\mathrm{pm}\\)\n is the mean inter-atomic distance (see also Fig. 1b). As a result, we obtain the “electronic gas” composed of 10 electrons (7 from C atoms, 2 from the N atom, and 1 from the \n\\(\\mathrm{N}^+\\)\n ion), moving in a one-dimensional potential well discussed in part A. In our evaluation, we can neglect the mutual interaction of these electrons; however, we should account for the fact that electrons are fermions and thus obey the Pauli exclusion principle. We also neglect the influence of other electrons as well as motion of the nuclei.\n\n\nB.1\nEvaluate the largest wavelength \n\\(\\lambda\\)\n of the photon that can be absorbed by the Cy5 molecule assuming that the electron system is initially in its ground state. Express your answer in terms of \n\\(l\\)\n, physical constants and some numerical prefactor, and calculate the numerical value. 0.8pt\n\n\nB.2\nAnother dye molecule Cy3 has similar structure, but its backbone is shorter by 2 carbon atoms. Is its absorption spectrum shifted to the bluer or to the redder spectral region compared to the Cy5 molecule? Evaluate numerically the magnitude \n\\(\\Delta\\lambda\\)\n of this spectral shift. You can assume that removing two carbon atoms doesn’t change the molecule shape and only makes the backbone length shorter by two interatomic distances. 0.4pt\n\n\nBeing in the excited state, molecule can undergo a spontaneous transition to the ground state while emitting photon. The mean rate \n\\(K\\)\n of such events (i.e. the relative decrease of the molecules being in the excited state, \n\\(\\mathrm{d}N/N\\)\n, over time \n\\(\\mathrm{d}t\\)\n, \n\\(K = \\frac{1}{N}\\frac{\\mathrm{d}N}{\\mathrm{d}t}\\)\n) is determined by the wavelength \n\\(\\lambda\\)\n of the emitted photon, the transition electrical dipole moment \n\\(d\\)\n (which is of the order of \n\\(d \\simeq el\\)\n, here \n\\(e\\)\n is elementary charge) as well as vacuum permittivity \n\\(\\varepsilon_0\\)\n and Planck’s constant \n\\(h\\)\n.\n\n\nB.3\nUsing dimension analysis, determine the expression for the rate of spontaneous emission in terms of \n\\(\\varepsilon_0\\)\n, \n\\(h\\)\n, \n\\(\\lambda\\)\n, and \n\\(d\\)\n. The numerical prefactor for your expression is \n\\(=\\frac{16}{3}\\pi^3\\)\n. 0.7pt\n\n\nB.4\nFor Cy5 molecule, \n\\(d \\approx 2.4\\,el\\)\n. Evaluate the mean fluorescence lifetime of the lowest excited state of Cy5 molecule, \n\\(\\tau_{\\mathrm{Cy5}}\\)\n, which is reciprocal to the rate of its emissive transition to the ground state. 0.2pt\n\n\nPart C. Bose-Einstein condensation (1.5 points)\n\n\nThis part is not directly related to Parts A and B. Here, we will study the collective behaviour of bosonic particles. Bosons do not respect the Pauli exclusion principle, and—at low temperatures or high densities—experience a dramatic phenomenon known as the Bose–Einstein condensation (BEC). This is a phase transition to an intriguing collective quantum state: a large number of identical particles ‘condense’ into a single quantum state and start behaving as a single wave. The transition is typically reached by cooling a fixed number of particles below the critical temperature. In principle, it can also be induced by keeping the temperature fixed and driving the particle density past its critical value.\n\n\nWe begin by exploring the relation between the temperature and the particle density at the transition. As it turns out, estimates of their critical values can be deduced from a simple observation: \nBose-Einstein condensation takes place when the de Broglie wavelength corresponding to the mean square speed of the particles is equal to the characteristic distance between the particles in a gas\n.\n\n\nC.1\nGiven a non-interacting gas of \n\\({}^{87}\\mathrm{Rb}\\)\n atoms in thermal equilibrium, write the expressions for their typical linear momentum \n\\(p\\)\n and the typical de Broglie wavelength \n\\(\\lambda_{\\mathrm{dB}}\\)\n as a function of atom’s mass \n\\(m\\)\n, temperature \n\\(T\\)\n and physical constants. 0.4pt\n\n\nC.2\nCalculate the typical distance between the particles in a gas, \n\\(\\ell\\)\n, as a function of particle density \n\\(n\\)\n. Hence deduce the critical temperature \n\\(T_c\\)\n as a function of atom’s mass, their density and physical constants. 0.5pt\n\n\nTo realize BEC in the lab, the experimentalists have to cool gases to temperatures as low as \n\\(T_c = 100\\,\\mathrm{nK}\\)\n.\n\n\nC.3\nWhat is the particle density of the Rb gas \n\\(n_c\\)\n if the transition takes place at such a temperature? For the sake of comparison, calculate also the ‘ordinary’ particle density \n\\(n_0\\)\n of an ideal gas at the standard temperature and pressure (STP), i.e. \n\\(T_0 = 300\\,\\mathrm{K}\\)\n and \n\\(p_0 = 10^5\\,\\mathrm{Pa}\\)\n. How many times is the ‘ordinary’ gas denser? You may assume that the mass of the atoms is equal to 87 atomic mass units (\n\\(m_{\\mathrm{amu}}\\)\n). 0.6pt\n\n\nPart D. Three-beam optical lattices (5 points)\n\n\nThe first Bose-Einstein condensates were produced back in 1995, and since then the experimental work has branched out in diverse directions. In this part, you will investigate one particularly fruitful idea to load the condensate into spatially periodic potentials created by interfering a number of coherent laser beams. Due to the periodic nature of the resulting interference patterns, they are referred to as \noptical lattices\n. The potential energy \n\\(V(\\vec{r})\\)\n of an atom moving in an optical lattice is proportional to the local intensity of the light, and in your calculations you may assume that\n\n\n\\[\\begin{equation}\nV(\\vec{r}) = -\\alpha \\left\\langle |\\vec{E}(\\vec{r}, t)|^2 \\right\\rangle. \\tag{2}\n\\end{equation}\\]\n\n\nHere, \n\\(\\alpha\\)\n is a \npositive\n constant, and the angle brackets indicate time-averaging which eliminates the rapidly oscillating terms. The electric field produced by the \n\\(i\\)\n-th laser is described by\n\n\n\\[\\begin{equation}\n\\vec{E}_i = E_{0,i}\\,\\vec{\\varepsilon}_i \\cos(\\vec{k}_i \\cdot \\vec{r} - \\omega t), \\tag{3}\n\\end{equation}\\]\n\n\nwith the amplitude \n\\(E_{0,i}\\)\n, the wave vector \n\\(\\vec{k}_i\\)\n, and the unit-length polarization vector \n\\(\\vec{\\varepsilon}_i\\)\n.\n\n\n\n\n\n\n\n\n\nFigure 2. (a) Three-beam optical lattice: three plane waves with wave vectors \n\\(\\vec{k}_{1,2,3}\\)\n intersect and interfere in the area indicated by the grey circle. (b) Symmetries of a regular hexagon: solid and dashed lines show two sets of symmetry axes. (c) Saddle point: a point on a surface where the slopes in orthogonal directions are all zero, but which is not a local extremum of the plotted function. Travelling along the trajectory marked by the full line one encounters an apparent minimum. Additional analysis of the perpendicular direction (dashed line) is needed to distinguish a true minimum from a saddle point (shown).\n\n\nYour task is to study \ntriangular optical lattices\n that are produced by interfering three coherent laser beams of equal intensity. A typical setup is shown in Fig. 2a. Here, all three beams are polarized in the \n\\(z\\)\n direction, propagate in the \n\\(x\\,y\\)\n plane and intersect at equal angles of \n\\(120^\\circ\\)\n. Choose the direction of the \n\\(x\\)\n axis parallel to the wave vector \n\\(\\vec{k}_1\\)\n.\n\n\nD.1\nUsing Eqs. 2 and 3 obtain the expression for the potential energy \n\\(V(\\vec{r})\\)\n as a function of \n\\(\\vec{r} = (x, y)\\)\n in the plane of the beams.\n\n\nHint\n: the result can be neatly expressed as a constant term plus a sum of three cosine functions of arguments \n\\(\\vec{b}_i \\cdot \\vec{r}\\)\n. Please write your result in this form and identify the vectors \n\\(\\vec{b}_i\\)\n. 1.4pt\n\n\nD.2\nThe resulting potential energy has a sixfold rotational symmetry axis, i.e., the potential distribution is invariant with respect to a rotation by a multiple of \n\\(60^\\circ\\)\n around the origin. Provide a simple argument to prove that this is indeed the case. 0.5pt\n\n\nThe above observation of symmetry simplifies the analysis of the two-dimensional potential distribution \n\\(V(\\vec{r})\\)\n. As shown in Fig. 2b, a regular hexagon has symmetry lines that, respectively, connect opposite vertices (solid lines) and midpoints of opposite edges (dashed lines). Therefore, in our situation one does not need to produce and study two-dimensional potential plots as many insights can be deduced by focusing on the coordinate axes \n\\(x\\)\n and \n\\(y\\)\n that run along the symmetry lines.\n\n\nD.3\nDerive the behavior of the potential \n\\(V(\\vec{r})\\)\n along the coordinate axes, i.e., determine the functions \n\\(V_X(x) \\equiv V(x, 0)\\)\n and \n\\(V_Y(y) \\equiv V(0, y)\\)\n. Identify the locations of the extrema of \n\\(V_X(x)\\)\n and \n\\(V_Y(y)\\)\n as functions of a single argument. As these functions are periodic, please include in your lists only one representative from each family of periodically repeated minima and maxima. 1.2pt\n\n\nWe are interested in determining the locations of so-called \nlattice sites\n, i.e., the minima of the full two-dimensional potential \n\\(V(\\vec{r})\\)\n. The obtained minima of single-argument functions \n\\(V_X\\)\n and \n\\(V_Y\\)\n identify their suspected positions but still have to be checked to eliminate the saddle points. As shown in Fig. 2c, when studied along a single line, saddle points may disguise as minima but they are not.\n\n\nD.4\nReview your results in the previous question to determine actual minima of the optical lattice: Identify all equivalent minima nearest to (but not coinciding with) the origin. What is the distance \n\\(a\\)\n between the nearest minima, in other words—the \nlattice constant\n of our optical lattice? Express the answer in terms of the laser wavelength \n\\(\\lambda_{\\mathrm{las}}\\)\n. 0.8pt\n\n\nCharge neutrality of ultracold atoms suggests that their interactions become relevant only when two or more atoms occupy the same site of an optical lattice. However, experimentalists are also able to explore setups that sustain long-range atomic interactions. A possible approach relies on creation of the so-called \nRydberg atoms\n that are physically large and feature other exaggerated properties. Rydberg atoms are excited atoms with one electron promoted to a state with a very high principal quantum number \n\\(n\\)\n. The size of a Rydberg atom can be estimated by calculating the radius of the classical circular orbit of that electron with the orbital angular momentum \n\\(n\\hbar\\)\n, here \n\\(\\hbar\\)\n is the reduced Planck constant.\n\n\nD.5\nCalculate the value of \n\\(n\\)\n that corresponds to the radius of the Rb Rydberg atom comparable to the wavelength of laser light \n\\(\\lambda_{\\mathrm{las}} = 380\\,\\mathrm{nm}\\)\n. Give your answer in terms of \n\\(\\lambda_{\\mathrm{las}}\\)\n and physical constants and find its numerical value. 1.1pt\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2021-t3/3d498975c5a8351096a3.png",
+      "/corpus/figures/native/bulk/ipho-2021-t3/fbb36d92cb2ff713a629.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2021-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Particles and Waves (10 points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A. Quantum particle in a box (1.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1 (0.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The width of the potential well ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") should be equal to the half of the wavelength of the de Broglie standing wave "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_\\mathrm{dB} = h/p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the Planck’s constant and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the momentum of the particle. Thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p = h/\\lambda_\\mathrm{dB} = h/(2L)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the minimal possible energy of the particle is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E_\\mathrm{min} = \\frac{p^2}{2m} = \\frac{h^2}{8mL^2}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2 (0.6 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The potential well should fit an integer number of the de Broglie half-wavelengths: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L = \\frac{1}{2}\\lambda_\\mathrm{dB}^{(n)} \\cdot n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n = 1, 2, \\ldots\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Therefore, particle’s momentum, corresponding to the de Broglie wavelength "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_\\mathrm{dB}^{(n)}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[p_n = \\frac{h}{\\lambda_\\mathrm{dB}^{(n)}} = \\frac{hn}{2L},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the corresponding energy is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE_n = \\frac{p_n^2}{2m} = \\frac{h^2n^2}{8mL^2}, \\qquad n = 1, 2, 3, \\ldots. \\tag{1}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.3 (0.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The energy of the emitted photon, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E = hc/\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the speed of light and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the photon’s wavelength) should be equal to the energy difference "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E = E_2 - E_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", therefore "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\lambda_{21} = \\frac{hc}{E_2 - E_1} = \\frac{8mcL^2}{3h}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B. Optical properties of molecules (2.1 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1 (0.8 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Taking into account the Pauli exclusion principle, each energy level "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is occupied by two electrons with spins oriented in the opposite directions. As a results, 10 electrons fill the lowest 5 states, and the absorption of the photon of the longest wavelength corresponds to the transition of one electron from the occupied "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_5\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the unoccupied "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_6\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " energy state: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{hc}{\\lambda} = E_6 - E_5,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_6\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_5\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " can be found from Eq. 1, where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is replaced with the electron mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence we obtain: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\lambda = \\frac{c \\cdot 8m_\\mathrm{e}L^2}{h\\,(6^2 - 5^2)} = \\frac{10.5^2 \\cdot 8}{11}\\,\\frac{m_\\mathrm{e}cl^2}{h} = \\frac{882}{11}\\,\\frac{m_\\mathrm{e}cl^2}{h} \\approx 647\\,\\mathrm{nm}.\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " This result correspond precisely to the experimental value the peak position of the Cy5 absorption spectrum."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2 (0.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the similar model for the Cy3 molecule, there are 8 electrons in the box of length "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L = 8.5l\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", thus photon’s absorption corresponds to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_4 \\to E_5\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " transition. Taking into account the result of question B1, we obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\lambda_\\mathrm{Cy3} = \\frac{8.5^2 \\cdot 8}{(5^2 - 4^2)}\\,\\frac{m_\\mathrm{e}cl^2}{h} \\approx 518\\,\\mathrm{nm},\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " i. e. the absorption spectrum of the Cy3 molecule is shifted by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta\\lambda \\approx 129\\,\\mathrm{nm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the blue comparing to that of the Cy5 molecule. The experimental value is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda^{(\\mathrm{exp})}_\\mathrm{Cy3} = 548\\,\\mathrm{nm}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", so that our model catches general properties of these dye molecules rather well."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3 (0.7 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let us assume "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nK = k\\varepsilon_0^{\\alpha} h^{\\beta} \\lambda^{\\gamma} d^{\\delta}. \\tag{2}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The SI units of the relevant quantities are: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[[\\varepsilon_0] = \\frac{\\mathrm{A}^2 \\cdot \\mathrm{s}^4}{\\mathrm{kg} \\cdot \\mathrm{m}^3}, \\qquad [h] = \\frac{\\mathrm{kg} \\cdot \\mathrm{m}^2}{\\mathrm{s}}, \\qquad [\\lambda] = \\mathrm{m}, \\qquad [d] = \\mathrm{A} \\cdot \\mathrm{s} \\cdot \\mathrm{m}, \\qquad [K] = \\mathrm{s}^{-1}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "By plugging these expressions into Eq. 2 we obtain a simple system of linear equations for the unknown powers "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\beta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\delta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[2\\alpha + \\delta = 0, \\qquad -\\alpha + \\beta = 0, \\qquad 4\\alpha - \\beta + \\delta = -1, \\qquad -3\\alpha + 2\\beta + \\gamma + \\delta = 0.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "By solving this system we get: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\alpha = \\beta = -1, \\qquad \\gamma = -3, \\qquad \\delta = 2,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " so that the rate of spontaneous emission is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nK = \\frac{16\\pi^3}{3}\\,\\frac{d^2}{\\varepsilon_0 h\\lambda^3}. \\tag{3}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.4 (0.2 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "By using the result of question B.2 and expressing transition dipole moment as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d = 2.4\\,el\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we obtain from Eq. 3: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau_\\mathrm{Cy5} = \\frac{3}{16\\pi^3}\\,\\frac{\\varepsilon_0 h}{2.4^2 l^2 e^2}\\,\\lambda^3 \\approx 3.3\\,\\mathrm{ns}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C. Bose-Einstein condensation (1.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1 (0.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the average kinetic energy of translational motion is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{3}{2}k_\\mathrm{B}T\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Equating this result to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p^2/(2m)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we obtain typical momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(p = \\sqrt{3mk_\\mathrm{B}T}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the de Broglie wavelength "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\lambda_\\mathrm{dB} = \\frac{h}{p} = \\frac{h}{\\sqrt{3mk_\\mathrm{B}T}}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2 (0.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The volume per particle "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V/N\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is a good estimate for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell^3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We obtain "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell = n^{-1/3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n = N/V\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and equate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\ell = \\lambda_\\mathrm{dB}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_c = h^2n^{2/3}/(3mk_\\mathrm{B})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3 (0.6 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using the answer to the previous question, we express "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_c = (3mk_\\mathrm{B}T_c)^{3/2}/h^3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Equation of state for the ideal gas gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_0 = p/(k_\\mathrm{B}T)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Numerical estimations yield "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_c \\approx 1.59 \\cdot 10^{18}\\,\\mathrm{m}^{-3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_0/n_c \\approx 1.5 \\cdot 10^{7}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part D. Three-beam optical lattices (5.0 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.1 (1.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We sum the three electric fields ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " components) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nE(\\vec{r}, t) = E_0 \\sum_{i=1}^{3} \\cos\\left(\\vec{k}_i \\cdot \\vec{r} - \\omega t\\right), \\tag{4}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and square the result "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\begin{split}\nE^2(\\vec{r}, t) &= E_0^2 \\sum_{i=1}^{3} \\sum_{j=1}^{3} \\cos\\left(\\vec{k}_i \\cdot \\vec{r} - \\omega t\\right) \\cos\\left(\\vec{k}_j \\cdot \\vec{r} - \\omega t\\right) \\\\\n&= \\frac{E_0^2}{2} \\sum_{i=1}^{3} \\sum_{j=1}^{3} \\left\\{\\cos\\left[\\left(\\vec{k}_i - \\vec{k}_j\\right) \\cdot \\vec{r}\\right] + \\cos\\left[\\left(\\vec{k}_i + \\vec{k}_j\\right) \\cdot \\vec{r} - 2\\omega t\\right]\\right\\}\\,.\n\\end{split}\n\\tag{5}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Time averaging gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\langle E^2(\\vec{r}, t)\\rangle = \\frac{E_0^2}{2} \\sum_{i=1}^{3} \\sum_{j=1}^{3} \\cos\\left[\\left(\\vec{k}_i - \\vec{k}_j\\right) \\cdot \\vec{r}\\right], \\tag{6}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " we analyse the 9 terms and simplify to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\langle E^2(\\vec{r}, t)\\rangle = E_0^2 \\left(\\frac{3}{2} + \\sum_{j=1}^{3} \\cos\\left(\\vec{b}_j \\cdot \\vec{r}\\right)\\right)\\,. \\tag{7}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Here "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\vec{b}_1 = \\vec{k}_2 - \\vec{k}_3, \\qquad \\vec{b}_2 = \\vec{k}_3 - \\vec{k}_1, \\qquad \\vec{b}_3 = \\vec{k}_1 - \\vec{k}_2,\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " or in terms of the Levi-Civita symbol, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{b}_k = \\varepsilon_{ijk}(\\vec{k}_i - \\vec{k}_j)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Incidentally, they are known as the reciprocal lattice vectors."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.2 (0.5 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Argument: Observe that rotation by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(60^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " maps the three vectors "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\vec{b}_{1,2,3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " into the relabelled triplet of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\vec{b}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "’s."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.3 (1.2 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We find "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nV(x, y) = -\\alpha E_0^2 \\left\\{\\frac{3}{2} + \\cos\\left(ky\\sqrt{3}\\right) + \\cos\\left(\\frac{3kx}{2} + \\frac{ky\\sqrt{3}}{2}\\right) + \\cos\\left(\\frac{3kx}{2} - \\frac{ky\\sqrt{3}}{2}\\right)\\right\\}, \\tag{8}\n\\end{equation}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and deduce "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nV_X(x) = -\\alpha E_0^2 \\left\\{\\frac{5}{2} + 2 \\cos \\frac{3kx}{2}\\right\\}. \\tag{9}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The potential has a simple cosine form, and the origin in an obvious minimum. Its replica appear at multiples of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta x = 4\\pi/(3k)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". In the midpoint between any two minima, e.g. at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = \\Delta x/2 = 2\\pi/(3k)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the function "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_X(x)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " has its maxima."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Concerning the behaviour along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis, we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nV_Y(y) = -\\alpha E_0^2 \\left\\{\\frac{3}{2} + \\cos 2\\varphi + 2 \\cos \\varphi\\right\\}, \\qquad \\varphi = \\sqrt{3}ky/2. \\tag{10}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Looking for the extrema, we find the equation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\sin 2\\varphi + \\sin \\varphi = 0. \\tag{11}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (corresponding to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is the ’deep’ minimum – the lattice site;"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi = \\pi\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (corresponding to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y = \\frac{2\\pi}{\\sqrt{3}k}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is the ’shallow’ minimum (later shown to be a saddle point of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(x,y)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ");"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi = 2\\pi/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\varphi = 4\\pi/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (corresponding to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y = \\frac{4\\pi}{3\\sqrt{3}k}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(y = \\frac{8\\pi}{3\\sqrt{3}k}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", respectively) are maxima."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.4 (0.8 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We review the minima found in the previous question and eliminate the saddle point at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((0, 2\\pi/3\\sqrt{3}\\,k)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The actual minima of the 2D potential landscape "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V(x,y)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " are:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((0,0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " – at the origin;"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((4\\pi/(3k), 0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " – nearest to the origin in the positive direction along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis. On the grounds of symmetry we argue that there are six equivalent nearest minima in the directions "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(0^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\pm60^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\pm120^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(180^\\circ\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " with respect to the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " axis."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Distance between nearest minima (the lattice constant) "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a = 4\\pi/(3k)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Given that the laser wavelength is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\lambda_\\mathrm{las} = 2\\pi/k\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a = \\Delta x = 2\\lambda_\\mathrm{las}/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", thus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a/\\lambda_\\mathrm{las} = 2/3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.5 (1.1 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The atom’s core electrons (all but the one promoted to to a state with a high principal quantum number "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") shield the electric field of the nucleus so that the effective potential for the outer electron resembles that of a hydrogen atom. The attractive force acting on that electron, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F = e^2/(4\\pi\\varepsilon_0 r^2)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", gives rise to its centripetal acceleration "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(a = v^2/r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Equating "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F = m_\\mathrm{e}a\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and using the expression for the angular momentum "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{e}vr = n\\hbar\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to eliminate the velocity, we find the quantum number "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " corresponding to the orbit with the radius "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r = \\lambda_\\mathrm{las}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\nn = \\frac{e}{\\hbar}\\sqrt{\\frac{m_\\mathrm{e}\\lambda}{4\\pi\\varepsilon_0}} \\approx 85. \\tag{12}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Particles and Waves (10 points)\n\n\nPart A. Quantum particle in a box (1.4 points)\n\n\nA.1 (0.4 points)\n\n\nThe width of the potential well (\n\\(L\\)\n) should be equal to the half of the wavelength of the de Broglie standing wave \n\\(\\lambda_\\mathrm{dB} = h/p\\)\n, here \n\\(h\\)\n is the Planck’s constant and \n\\(p\\)\n is the momentum of the particle. Thus \n\\(p = h/\\lambda_\\mathrm{dB} = h/(2L)\\)\n, and the minimal possible energy of the particle is \n\\[E_\\mathrm{min} = \\frac{p^2}{2m} = \\frac{h^2}{8mL^2}.\\]\n\n\nA.2 (0.6 points)\n\n\nThe potential well should fit an integer number of the de Broglie half-wavelengths: \n\\(L = \\frac{1}{2}\\lambda_\\mathrm{dB}^{(n)} \\cdot n\\)\n, \n\\(n = 1, 2, \\ldots\\)\n. Therefore, particle’s momentum, corresponding to the de Broglie wavelength \n\\(\\lambda_\\mathrm{dB}^{(n)}\\)\n is \n\\[p_n = \\frac{h}{\\lambda_\\mathrm{dB}^{(n)}} = \\frac{hn}{2L},\\]\n and the corresponding energy is \n\\[\\begin{equation}\nE_n = \\frac{p_n^2}{2m} = \\frac{h^2n^2}{8mL^2}, \\qquad n = 1, 2, 3, \\ldots. \\tag{1}\n\\end{equation}\\]\n\n\nA.3 (0.4 points)\n\n\nThe energy of the emitted photon, \n\\(E = hc/\\lambda\\)\n (here \n\\(c\\)\n is the speed of light and \n\\(\\lambda\\)\n is the photon’s wavelength) should be equal to the energy difference \n\\(\\Delta E = E_2 - E_1\\)\n, therefore \n\\[\\lambda_{21} = \\frac{hc}{E_2 - E_1} = \\frac{8mcL^2}{3h}.\\]\n\n\nPart B. Optical properties of molecules (2.1 points)\n\n\nB.1 (0.8 points)\n\n\nTaking into account the Pauli exclusion principle, each energy level \n\\(E_n\\)\n is occupied by two electrons with spins oriented in the opposite directions. As a results, 10 electrons fill the lowest 5 states, and the absorption of the photon of the longest wavelength corresponds to the transition of one electron from the occupied \n\\(E_5\\)\n to the unoccupied \n\\(E_6\\)\n energy state: \n\\[\\frac{hc}{\\lambda} = E_6 - E_5,\\]\n where \n\\(E_6\\)\n and \n\\(E_5\\)\n can be found from Eq. 1, where \n\\(m\\)\n is replaced with the electron mass \n\\(m_\\mathrm{e}\\)\n. Hence we obtain: \n\\[\\lambda = \\frac{c \\cdot 8m_\\mathrm{e}L^2}{h\\,(6^2 - 5^2)} = \\frac{10.5^2 \\cdot 8}{11}\\,\\frac{m_\\mathrm{e}cl^2}{h} = \\frac{882}{11}\\,\\frac{m_\\mathrm{e}cl^2}{h} \\approx 647\\,\\mathrm{nm}.\\]\n This result correspond precisely to the experimental value the peak position of the Cy5 absorption spectrum.\n\n\nB.2 (0.4 points)\n\n\nIn the similar model for the Cy3 molecule, there are 8 electrons in the box of length \n\\(L = 8.5l\\)\n, thus photon’s absorption corresponds to the \n\\(E_4 \\to E_5\\)\n transition. Taking into account the result of question B1, we obtain \n\\[\\lambda_\\mathrm{Cy3} = \\frac{8.5^2 \\cdot 8}{(5^2 - 4^2)}\\,\\frac{m_\\mathrm{e}cl^2}{h} \\approx 518\\,\\mathrm{nm},\\]\n i. e. the absorption spectrum of the Cy3 molecule is shifted by \n\\(\\Delta\\lambda \\approx 129\\,\\mathrm{nm}\\)\n to the blue comparing to that of the Cy5 molecule. The experimental value is \n\\(\\lambda^{(\\mathrm{exp})}_\\mathrm{Cy3} = 548\\,\\mathrm{nm}\\)\n, so that our model catches general properties of these dye molecules rather well.\n\n\nB.3 (0.7 points)\n\n\nLet us assume \n\\[\\begin{equation}\nK = k\\varepsilon_0^{\\alpha} h^{\\beta} \\lambda^{\\gamma} d^{\\delta}. \\tag{2}\n\\end{equation}\\]\n\n\nThe SI units of the relevant quantities are: \n\\[[\\varepsilon_0] = \\frac{\\mathrm{A}^2 \\cdot \\mathrm{s}^4}{\\mathrm{kg} \\cdot \\mathrm{m}^3}, \\qquad [h] = \\frac{\\mathrm{kg} \\cdot \\mathrm{m}^2}{\\mathrm{s}}, \\qquad [\\lambda] = \\mathrm{m}, \\qquad [d] = \\mathrm{A} \\cdot \\mathrm{s} \\cdot \\mathrm{m}, \\qquad [K] = \\mathrm{s}^{-1}.\\]\n\n\nBy plugging these expressions into Eq. 2 we obtain a simple system of linear equations for the unknown powers \n\\(\\alpha\\)\n, \n\\(\\beta\\)\n, \n\\(\\gamma\\)\n, and \n\\(\\delta\\)\n: \n\\[2\\alpha + \\delta = 0, \\qquad -\\alpha + \\beta = 0, \\qquad 4\\alpha - \\beta + \\delta = -1, \\qquad -3\\alpha + 2\\beta + \\gamma + \\delta = 0.\\]\n\n\nBy solving this system we get: \n\\[\\alpha = \\beta = -1, \\qquad \\gamma = -3, \\qquad \\delta = 2,\\]\n so that the rate of spontaneous emission is \n\\[\\begin{equation}\nK = \\frac{16\\pi^3}{3}\\,\\frac{d^2}{\\varepsilon_0 h\\lambda^3}. \\tag{3}\n\\end{equation}\\]\n\n\nB.4 (0.2 points)\n\n\nBy using the result of question B.2 and expressing transition dipole moment as \n\\(d = 2.4\\,el\\)\n, we obtain from Eq. 3: \n\\[\\tau_\\mathrm{Cy5} = \\frac{3}{16\\pi^3}\\,\\frac{\\varepsilon_0 h}{2.4^2 l^2 e^2}\\,\\lambda^3 \\approx 3.3\\,\\mathrm{ns}.\\]\n\n\nPart C. Bose-Einstein condensation (1.5 points)\n\n\nC.1 (0.4 points)\n\n\nAt temperature \n\\(T\\)\n, the average kinetic energy of translational motion is \n\\(\\frac{3}{2}k_\\mathrm{B}T\\)\n. Equating this result to \n\\(p^2/(2m)\\)\n, we obtain typical momentum \n\\(p = \\sqrt{3mk_\\mathrm{B}T}\\)\n and the de Broglie wavelength \n\\[\\lambda_\\mathrm{dB} = \\frac{h}{p} = \\frac{h}{\\sqrt{3mk_\\mathrm{B}T}}.\\]\n\n\nC.2 (0.5 points)\n\n\nThe volume per particle \n\\(V/N\\)\n is a good estimate for \n\\(\\ell^3\\)\n. We obtain \n\\(\\ell = n^{-1/3}\\)\n, with \n\\(n = N/V\\)\n and equate \n\\(\\ell = \\lambda_\\mathrm{dB}\\)\n to express \n\\(T_c = h^2n^{2/3}/(3mk_\\mathrm{B})\\)\n.\n\n\nC.3 (0.6 points)\n\n\nUsing the answer to the previous question, we express \n\\(n_c = (3mk_\\mathrm{B}T_c)^{3/2}/h^3\\)\n. Equation of state for the ideal gas gives \n\\(n_0 = p/(k_\\mathrm{B}T)\\)\n. Numerical estimations yield \n\\(n_c \\approx 1.59 \\cdot 10^{18}\\,\\mathrm{m}^{-3}\\)\n and \n\\(n_0/n_c \\approx 1.5 \\cdot 10^{7}\\)\n.\n\n\nPart D. Three-beam optical lattices (5.0 points)\n\n\nD.1 (1.4 points)\n\n\nWe sum the three electric fields (\n\\(z\\)\n components) \n\\[\\begin{equation}\nE(\\vec{r}, t) = E_0 \\sum_{i=1}^{3} \\cos\\left(\\vec{k}_i \\cdot \\vec{r} - \\omega t\\right), \\tag{4}\n\\end{equation}\\]\n and square the result \n\\[\\begin{equation}\n\\begin{split}\nE^2(\\vec{r}, t) &= E_0^2 \\sum_{i=1}^{3} \\sum_{j=1}^{3} \\cos\\left(\\vec{k}_i \\cdot \\vec{r} - \\omega t\\right) \\cos\\left(\\vec{k}_j \\cdot \\vec{r} - \\omega t\\right) \\\\\n&= \\frac{E_0^2}{2} \\sum_{i=1}^{3} \\sum_{j=1}^{3} \\left\\{\\cos\\left[\\left(\\vec{k}_i - \\vec{k}_j\\right) \\cdot \\vec{r}\\right] + \\cos\\left[\\left(\\vec{k}_i + \\vec{k}_j\\right) \\cdot \\vec{r} - 2\\omega t\\right]\\right\\}\\,.\n\\end{split}\n\\tag{5}\n\\end{equation}\\]\n Time averaging gives \n\\[\\begin{equation}\n\\langle E^2(\\vec{r}, t)\\rangle = \\frac{E_0^2}{2} \\sum_{i=1}^{3} \\sum_{j=1}^{3} \\cos\\left[\\left(\\vec{k}_i - \\vec{k}_j\\right) \\cdot \\vec{r}\\right], \\tag{6}\n\\end{equation}\\]\n we analyse the 9 terms and simplify to \n\\[\\begin{equation}\n\\langle E^2(\\vec{r}, t)\\rangle = E_0^2 \\left(\\frac{3}{2} + \\sum_{j=1}^{3} \\cos\\left(\\vec{b}_j \\cdot \\vec{r}\\right)\\right)\\,. \\tag{7}\n\\end{equation}\\]\n Here \n\\[\\vec{b}_1 = \\vec{k}_2 - \\vec{k}_3, \\qquad \\vec{b}_2 = \\vec{k}_3 - \\vec{k}_1, \\qquad \\vec{b}_3 = \\vec{k}_1 - \\vec{k}_2,\\]\n or in terms of the Levi-Civita symbol, \n\\(\\vec{b}_k = \\varepsilon_{ijk}(\\vec{k}_i - \\vec{k}_j)\\)\n. Incidentally, they are known as the reciprocal lattice vectors.\n\n\nD.2 (0.5 points)\n\n\nArgument: Observe that rotation by \n\\(60^\\circ\\)\n maps the three vectors \n\\(\\vec{b}_{1,2,3}\\)\n into the relabelled triplet of \n\\(-\\vec{b}\\)\n’s.\n\n\nD.3 (1.2 points)\n\n\nWe find \n\\[\\begin{equation}\nV(x, y) = -\\alpha E_0^2 \\left\\{\\frac{3}{2} + \\cos\\left(ky\\sqrt{3}\\right) + \\cos\\left(\\frac{3kx}{2} + \\frac{ky\\sqrt{3}}{2}\\right) + \\cos\\left(\\frac{3kx}{2} - \\frac{ky\\sqrt{3}}{2}\\right)\\right\\}, \\tag{8}\n\\end{equation}\\]\n and deduce \n\\[\\begin{equation}\nV_X(x) = -\\alpha E_0^2 \\left\\{\\frac{5}{2} + 2 \\cos \\frac{3kx}{2}\\right\\}. \\tag{9}\n\\end{equation}\\]\n\n\nThe potential has a simple cosine form, and the origin in an obvious minimum. Its replica appear at multiples of \n\\(\\Delta x = 4\\pi/(3k)\\)\n. In the midpoint between any two minima, e.g. at \n\\(x = \\Delta x/2 = 2\\pi/(3k)\\)\n, the function \n\\(V_X(x)\\)\n has its maxima.\n\n\nConcerning the behaviour along the \n\\(y\\)\n axis, we have \n\\[\\begin{equation}\nV_Y(y) = -\\alpha E_0^2 \\left\\{\\frac{3}{2} + \\cos 2\\varphi + 2 \\cos \\varphi\\right\\}, \\qquad \\varphi = \\sqrt{3}ky/2. \\tag{10}\n\\end{equation}\\]\n\n\nLooking for the extrema, we find the equation \n\\[\\begin{equation}\n\\sin 2\\varphi + \\sin \\varphi = 0. \\tag{11}\n\\end{equation}\\]\n\n\n\\(\\circ\\)\n \n\\(\\varphi = 0\\)\n (corresponding to \n\\(y = 0\\)\n) is the ’deep’ minimum – the lattice site;\n\n\n\\(\\circ\\)\n \n\\(\\varphi = \\pi\\)\n (corresponding to \n\\(y = \\frac{2\\pi}{\\sqrt{3}k}\\)\n) is the ’shallow’ minimum (later shown to be a saddle point of \n\\(V(x,y)\\)\n);\n\n\n\\(\\circ\\)\n \n\\(\\varphi = 2\\pi/3\\)\n and \n\\(\\varphi = 4\\pi/3\\)\n (corresponding to \n\\(y = \\frac{4\\pi}{3\\sqrt{3}k}\\)\n and \n\\(y = \\frac{8\\pi}{3\\sqrt{3}k}\\)\n, respectively) are maxima.\n\n\nD.4 (0.8 points)\n\n\nWe review the minima found in the previous question and eliminate the saddle point at \n\\((0, 2\\pi/3\\sqrt{3}\\,k)\\)\n. The actual minima of the 2D potential landscape \n\\(V(x,y)\\)\n are:\n\n\n\\(\\circ\\)\n \n\\((0,0)\\)\n – at the origin;\n\n\n\\(\\circ\\)\n \n\\((4\\pi/(3k), 0)\\)\n – nearest to the origin in the positive direction along the \n\\(x\\)\n axis. On the grounds of symmetry we argue that there are six equivalent nearest minima in the directions \n\\(0^\\circ\\)\n, \n\\(\\pm60^\\circ\\)\n, \n\\(\\pm120^\\circ\\)\n, and \n\\(180^\\circ\\)\n with respect to the \n\\(x\\)\n axis.\n\n\nDistance between nearest minima (the lattice constant) \n\\(a = 4\\pi/(3k)\\)\n. Given that the laser wavelength is \n\\(\\lambda_\\mathrm{las} = 2\\pi/k\\)\n, we have \n\\(a = \\Delta x = 2\\lambda_\\mathrm{las}/3\\)\n, thus \n\\(a/\\lambda_\\mathrm{las} = 2/3\\)\n.\n\n\nD.5 (1.1 points)\n\n\nThe atom’s core electrons (all but the one promoted to to a state with a high principal quantum number \n\\(n\\)\n) shield the electric field of the nucleus so that the effective potential for the outer electron resembles that of a hydrogen atom. The attractive force acting on that electron, \n\\(F = e^2/(4\\pi\\varepsilon_0 r^2)\\)\n, gives rise to its centripetal acceleration \n\\(a = v^2/r\\)\n. Equating \n\\(F = m_\\mathrm{e}a\\)\n and using the expression for the angular momentum \n\\(m_\\mathrm{e}vr = n\\hbar\\)\n to eliminate the velocity, we find the quantum number \n\\(n\\)\n corresponding to the orbit with the radius \n\\(r = \\lambda_\\mathrm{las}\\)\n: \n\\[\\begin{equation}\nn = \\frac{e}{\\hbar}\\sqrt{\\frac{m_\\mathrm{e}\\lambda}{4\\pi\\varepsilon_0}} \\approx 85. \\tag{12}\n\\end{equation}\\]\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

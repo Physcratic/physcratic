@@ -1,1 +1,3241 @@
-{"id":"apho-2024-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2024_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2024_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2024-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8],"initialPage":1,"shared":false,"text":"The First Discovered Quasar: Unveiling the\nMysteries of the Astrophysical Source 3C 273\nPart A: Moon's Apparent Motion Against the Background Stars (1.8 points)\nThe Moon takes 27.3 days to complete 1 orbit of the Earth with respect to the stars, a period known as a\nsidereal month. Through a telescope, the moon’s motion is readily apparent, but to the eye, it requires\ncareful observation over several hours to notice the Moon’s changing position. Remembering that 3600\narceseconds = 60 arcminutes = 1 degree then, through how many degrees, arcminutes, and arcseconds\ndoes the Moon move against the background of stars in\nA.1\none hour? One minute? One second?\n1.3pt\nA.2\nHow long does it take the Moon to move a distance equal to its own diameter on\nthe sky? (Note: the angular diameter of the moon as viewed from Earth is 30\narcminutes)\n0.5pt\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 11 of 18\n\nPart B: Using Lunar Occultations to Precisely Determine Radio Source Positions: The Case of 3C\n273 (1.8 points)\nIn the late 1950s and early 1960s, radio position measurements with this precision were not available.\nWhile occultations had been used previously, Hazard was specifically interested in their ability to\ndetermine radio positions and structure with arcsecond precision. Such measurements were made in the\noptical reference frame thereby allowing reliable optical identifications. Hazard had noted that the\nstrong Class II radio source 3C 273 would be hiddeb by the Moon (also known as occultation) several\ntimes during 1962 and 1963.\nThe 1962 August 5 occultation was undertaken at 410 and 136 MHz. Both disappearance and\nreappearance were observed and the disappearance record revealed the presence of two components, A\nand B, in the source. The disappearance on the right and the reappearance records on the left, at 410\nMHz are plotted in Fig. 1.\nFig. 1: The 1962 August 5 disappearance and reappearance records at 410 MHz, taken from Hazard et\nal. (1963). Note that time increases from right to left, and that the Moon is also moving from right to\nleft. The bottom panel shows the positions of source components A and B relative to the limb of the\nMoon at disappearance and reappearance.\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 12 of 18\n\nB.1\nWhat is causing the oscillation in the observed intensity? \nA. The diffraction pattern of the telescope\nB. Instabilities in the mount of the telescope\nC. The features of the surface of the Moon\nD. Earth's atmospheric conditions\n0.6pt\nB.2\nWhy there is no extra bump for the B component in the left plot for the\nreappearance of the source? How does it help to understand the structure of the\nsource?\nA. The two components have been orbiting around the Moon.\nB. Our line-of-sight has changed with respect to the two components.\nC. Both components are aligned with the limb of the Moon when they reappear.\nD. The time scales of the physics behind the luminosity of the two components\nwere long enough to make one of them fade.\n0.6pt\nB.3\nBased on your answer in A.1 to  A.4, and the data in Fig. 1, estimate the\napproximate apparent (projected) angular separation between the two components\nof 3C 273.\n0.6pt\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 13 of 18\n\nPart C: The Breakthrough Discovery of 3C 273's True Nature (1.8 points)\nIn 1962, the year of these observations, Maarten Schmidt was working on the programme of optical\nidentification and spectroscopy of the optical objects identified with radio sources. Whiteoak mentions\nas an afterthought that the ‘current Caltech thinking’ is that the potential 3C 273 identification is with a\nstar and a strange jet. Given that no other bright star had been proposed as a radio source identification,\nhe assumed that the bright magnitude 13 ‘star’ (magnitude accounts as a way to measure how bright a\nstar is; the brighter the star, the smaller the number) was merely a confusing foreground very bright star.\nTo obtain a spectrum of the faint jet, which he saw as by far the most likely identification, it was\ninevitable that the bright confusing star some arcseconds away would spill over into any spectrum of the\njet he would obtain. To offset this, Maarten Schmidt had decided to first obtain a spectrum of this bright\nstar. On the night of December 29, he managed to obtain a spectrum of the bright ‘star’ which showed\nsome faint emission lines (Fig. 2), but with no obvious explanation in terms of any expected stellar\nlines. Only when Schmidt decided to compare the strange spectrum with the Balmer lines of hydrogen,\nthings became clear:\nFig. 2: Optical spectrum of 3C 273 (top) together with a comparison laboratory spectrum (bottom).\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 14 of 18\n\nC.1\nCompare the wavelength ratios of the lines shown in Fig. 2. Based on these ratios,\nwhat is the redshift \n of this source?\n0.6pt\nC.2\nConsider that this redshift is arising due to relativistic gravitational effects from\nthe mass of the object. In this case, we can estimate the gravitational redshift as \n. Prove that, whether you put 3C 273 at any distance (e.g, edge\nof the Milky Way, r ~ 100 kpc ~ \n m; edge of the Solar System, r ~ 100\nAU ~ \n m), the mass of 3C 273 would be so large it would disrupt the\nentire galaxy / solar system.\n0.6pt\nC.3\nHubble's law states that the farther the galaxies, the faster they are moving away\nfrom Earth. The Hubble's constant is the ratio between the speed and the distance\nof those galaxies, and equal to H=75 km/s/Mpc. With this idea in mind, we can\nconsider instead that the calculated redshift is due to the cosmological expansion,\nand we can approximate that z~v/c. In that case, what is the distance of this object?\nCompare this with the size of the Milky Way.\n0.6pt\nz = λ−λ0\nλ0\nz =\n1\n√1−2GM\nc2r\n−1\n3 × 1021\n1. 5 × 1013\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 15 of 18\n\nPart D: The Intrinsic Luminosity of the Radio Source 3C 273 (1.8 points)\nThe flux of the source 3C 273 has been measure across the radio spectrum and has been found to follow\nthe equation \n, where   is the observed frequency in Hertz and a Jansky is defined\nas \n. Of course, since the source is radiating over a sphere of radius the\ndistance from us, the intrinsic luminosity will be given by \n. With this,\nD.1\nWhat is the luminosity of the source per unit frequency?\n(help: \n)\n0.6pt\nD.2\nWhat is the total luminosity in the radio band (ie., from 10  Hz to 10  Hz)?\n0.6pt\nD.3\nHow does the luminosity of 3C 273 compare with the luminosity of the Sun (\n) and the Milky Way (\n) in the\nsame frequency range?\n0.6pt\nFν∼25000ν (−0.3)  Jy\nν\n1  Jy   =  10−26 W m−2  Hz−1\nLν = 4πd2Fν\n1 pc = 3. 09 × 1016 m\n7\n11\nLsun = 3. 82 × 1026 W\nLMW = 1. 5 × 1010Lsun\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 16 of 18\n\nPart E: The Power Source of 3C 273 (1.4 points)\nWe have seen that the brightness of 3C 273 is too large for a single star, even for an entire galaxy.\nTherefore, there should be another mechanism, other than stars, producing all this power.\nE.1\nCheck that the annihilation of matter with antimatter (e.g., \n) would\nnot explain this, since it would produce very energetic X-rays rays rather than\noptical and radio emission.\n0.7pt\nE.2\nSomething that was immediately proposed was the accretion of matter into a\nsupermassive black hole. Let’s check that potential energy can give all this energy:\nConsider that the black hole accretes one solar mass (\n) towards its\nSchwarzschild radius (\n) every year. What is the power that can be\nobtained for the accretion? Would this be enough to explain the observations\ndiscussed in D1 to D3?\n0.7pt\ne+ + e−→2γ\n2 × 1030  kg\nRs = 2GM\nc2\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 17 of 18\n\nPart F: Modern Observations and the Nature of 3C 273's Components (1.4 points)\nModern images from various telescopes (see e.g., Fig. 3) have found that the two components A and B\nthat were measured with the lunar occultation actually refer to a compact core, which hosts the black\nhole, and a jet that extends the distance that you calculated before. This jet is thought to be produced via\nacceleration of the accreted particles via the strong black hole magnetic field, in a similar way particles\nfrom the Solar wind hit the magnetic field of Earth to produce the auroras near the poles, but at much\nlarger scale.\nFig. 3: Radio image of 3C 273 taken with the MERLIN telescope.\nThe energy density required for the production of such jet can be written in terms of the magnetic fields\nas the sum of the particle energy density \n and the magnetic energy density \n.\nF.1\nShow that the minimum energy density is given by \n0.7pt\nF.2\nIf we assume that the total power of the 3C 273 jet is given by half of the energy\nreleased by 3C 273 in one second calculated in D.1 and D.2, and the jet has a\nvolume of \n, estimate the magnetic field of the jet.\n(hint: use that the magnetic permeability is \n)\n0.7pt\nUe∼B(−3/2)\nUB∼B2\nUe\nUB = 4\n3\n1045 m3\n4π × 10−7 T m A−1\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 18 of 18\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2024-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8,9],"initialPage":1,"shared":false,"text":"A.1\n[1.3pt]\nThe moon completes one orbit in about a month, or more quantitatively, moves\nthrough 360 degrees in 27.3 days. 360 divided by 27.3 = 13.19 degrees per day.\nEach day the moon will appear about 13deg to the east of its position at the same\ntime on the previous day.\nNow convert to motion per hour. 13.19 degrees/day divided by 24 hrs/day = 0.55\ndegrees/hr. The moon passes through a little more than ½ of a degree in one hour of\ntime.\nSince 1deg = 60 arcminutes, then 0.55deg = 33 arcminutes (this is a ratio, 1:60 as\n0.55:33). Therefore the moon moves through 33 arcminutes per hour of time.\nSince 1 arcminute = 60 arcseconds, then the moon moves through 33 x 60\narcseconds in a hour = 1978 arcsec per hour of time.\n[0.5pt]\nMoving 0.55 degrees / hr divided by 60 minutes per hr = 0.0092 degrees / min. The\nmoon moves through a small fraction of a degree in one minute of time.\nAs 1deg = 60 arcminutes, then 0.0092deg = 0.55 arcminutes. The moon moves\nthrough 0.55 arcminutes per minute of time.\nSince 1 arcminute = 60 arcseconds, the moon moves through 33 arcseconds per\nminute of time. \n[0.4pt]\nMoving 0.55 degrees per hour divided by 3600 seconds per hour = 0.000153\ndegrees in a second of time.\nIf the moon moves 0.55 arcminute per minute of time (from part b) then the moon\nwill move 0.55 / 60 = 0.0092 arcminutes in one second of time.\n0.0092 arcminutes X 60 arcseconds per arcminute = 0.55deg per second of time.\n[0.4pt]\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 23 of 31\n\nA.2\n[0.5pt]\nThe diameter of the moon = 30 arcminutes = 0.5 degree (given in the notes).\n \n[0.0pt]\nFrom part (b), the moon moves through 0.55 arcminutes per minute of time\n \n[0.0pt]\nThe time it takes to move a specific distance = that distance divided by\nthe rate of motion. The time it take the Moon to move one lunar diameter\n= distance traveled (30 arcminutes) / divided by rate (0.55 arcminutes per\nminute) = 54.5 minutes, just under an hour.\n \n[0.5pt]\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 24 of 31\n\nPart B: Using Lunar Occultations to Precisely Determine Radio Source Positions: The Case of 3C\n273\nB.1\n[0.6pt]\nThe correct answer is: A. The diffraction pattern of the telescope.\n[0.6pt]\nB.2\n[0.6pt]\nThe correct answer is: C. Both components are aligned with the limb of\nthe Moon when they reappear.\n[0.6pt]\nB.3\n[0.6pt]\nSince it was calculated that the moon travels at 33 arcsec per minute w.r.t\nthe background stars, and the panel shows about 1/2 minute between the\ncomponents A and B, this suggests that these two components are\nseparated about 15 arcsec. (any number within this estimation shall be\nconsidered valid as long as it is properly explained).\n[0.6pt]\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 25 of 31\n\nPart C: The Breakthrough Discovery of 3C 273's True Nature\nC.1\n[0.6pt]\nThe student can check the figure to estimate the wavelengths by eye\nwhere certain emission lines are happening. The reasoning shall be\nwritten. For example, one could say that the H-gamma line for 3C 273 is\nlocated almost at 500nm, so maybe 490 or 495 nm would be a good\nestimate. For the comparison spectrum, since it is closer to 400nm,\nmaybe the H-gamma of the comparison spectrum maybe be around\n440nm (actually, 434nm). \n[0.3pt]\nThe resulting redshift of 3C273 is (λ-λ )/λ  ~ 0.158. Other results that\nare similar to this one will be also considered correct as long as the\nwavelengths are reasonably estimated.\n[0.3pt]\nC.2\n[0.6pt]\nSolving for the mass, we have that M=(c r/2G)[1-1/(1+z) ]. \n[0.2pt]\nIf we put it at the edge of the Milky Way (at 100 kpc), then 𝑟∼\n m\nand 𝑀∼10 𝑀 (larger than the entire mass of the Milky Way!)\n[0.2pt]\nif we put it at the edge of the Solar System (at 100 au), then 𝑟∼\n  m and 𝑀∼10 𝑀 . This would totally disrupt the Solar\nSystem.\n[0.2pt]\n0\n0\n2\n2\n3 × 1021\n17\n⊙\n1. 5 × 1013\n9\n⊙\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 26 of 31\n\nC.3\n[0.6pt]\nSince z ~ v/c for small redshift and Hubble’s law is v = Hd, we can combine these\ntwo equations to obtain d = zc/H.\n \n[0.3pt]\nIf we use that H=75 km/s/Mpc, then d = 0.158*300 000 / 75 ~ 632 Mpc. (The\ncurrent estimation is that the distance is 749 Mpc). This is thousands of times farther\naway than the size of the Milky Way, and must therefore, be an independent object\nvery much farther away.\n \n[0.3pt]\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 27 of 31\n\nPart D: The Intrinsic Luminosity of the Radio Source 3C 273\nD.1\n[0.6pt]\nIf we use the distance of 632 Mpc that has been obtained before, that\ngives us \nm. Therefore, \n. \nThe \nLuminosity \nis \n. \n[0.6pt]\nD.2\n[0.6pt]\nThe total radio luminosity can be calculated by integrating for all\nfrequencies:\n[0.6pt]\nD.3\n[0.6pt]\nComparing with the Sun, \n. It’s almost a\ntrillion times brighter, and brighter than our Milky Way.\n[0.6pt]\nd = 2 × 1025\nSν = 2. 5 × 10−22ν −0.3\nL = 4πd2Sν= 4π(2 × 1025)\n2 ν −0.3\n= 1. 25 × 1030 ν −0.3 W m−2 Hz−1\nL = ∫1011\n107 Lν d ν= ( 1.25×1030\n0.7\n) \nν=1011\nν=107\nν 0.7\n= 9 × 1037 W\nL\nLsun =\n9×1037\n3.82×1026 ~2. 3 × 1011\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 28 of 31\n\nPart E: The Power Source of 3C 273\nE.1\n[0.7pt]\nWe are going to be using the mass-energy expression. Electrons have a\nmass-energy of 0.5 MeV (other units; e.g, \nJ will also be\nconsidered valid).\n[0.4pt]\nThis energy, converted into wavelength, goes into 0.000002 nm. (other\nunits, or solution expressed as frequency e.g, \n GHz will also\nbe considered valid). This is well within the X-rays.\n[0.3pt]\nE.2\n[0.7pt]\nThe gravitational potential energy of a mass m is given by W=-GMm/r.\nSince the smallest radius the particle reaches is the Schwarzschild radius,\nW = -GMmc /2GM = -mc /2. Therefore, one solar mass provides ~\nJ/yr ~\n J/s. This is still an order of magnitude more\nthan what is needed to power 3C273, so it even leaves room for a certain\nefficiency.\n[0.7pt]\n8 × 1014\n1. 5 × 1014\n2\n2\n1. 8 × 1047\n5. 7 × 1039\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 29 of 31\n\nPart F: Modern Observations and the Nature of 3C 273's Components\nF.1\n[0.7pt]\nTo calculate the minimum we have to derive and equal to zero\n[0.0pt]\nTherefore,\n[0.0pt]\n[0.2pt]\nDoing each of the terms separately,\n[0.0pt]\n[0.0pt]\n[0.0pt]\nTherefore, \n[0.5pt]\ndU\ndB = 0 →dUe\ndB + dUb\ndB = 0\ndUe\ndB = −3\n2 B−5/2 = −3\n2\nUe\nB\ndUb\ndB = 2B = 2Ub\nB\ndU\ndB = −3\n2\nUe\nB + 2Ub\nB = 0→Ue\nUb = 4\n3\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 30 of 31\n\nF.2\n[0.7pt]\nThe total energy, from the calculations in terms of the magnetic energy is\n.\n \n[0.0pt]\nTherefore, If \n, then the magnetic energy will be \n J.\n \n[0.3pt]\nFor a volume of \n, the energy density will be \n  =\n.\n \n[0.2pt]\nNow, \nsince \n, \nwith \n \n= \nmagnetic \npermeability \n= \n, \nwe \nhave \nthat \n ~ \n Tesla.\n[0.2pt]\nU = 7\n3 Ub\nU = 1\n2 × 1038 J\nUb =\n3\n14 × 1038\n1045 m3\nub =\n3\n14 ×1038 J\n1045 m3\n0. 21 × 10−7 J/m3\nu = B2\n2μ\nμ\n4π × 10−7 Tm/A\nB = √2 × 4π × 10−7 × 0. 21 × 10−7\n2. 3 × 10−7\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 31 of 31\n","textExtraction":"available"}}
+{
+  "id": "apho-2024-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2024_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2024_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2024-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "The First Discovered Quasar: Unveiling the Mysteries of the Astrophysical Source 3C 273"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part A: Moon's Apparent Motion Against the Background Stars (1.8 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The Moon takes 27.3 days to complete 1 orbit of the Earth with respect to the stars, a period known as a sidereal month. Through a telescope, the moon’s motion is readily apparent, but to the eye, it requires careful observation over several hours to notice the Moon’s changing position. Remembering that 3600 arceseconds = 60 arcminutes = 1 degree then, through how many degrees, arcminutes, and arcseconds does the Moon move against the background of stars in"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "one hour? One minute? One second? "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.3pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "How long does it take the Moon to move a distance equal to its own diameter on the sky? (Note: the angular diameter of the moon as viewed from Earth is 30 arcminutes) "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B: Using Lunar Occultations to Precisely Determine Radio Source Positions: The Case of 3C 273 (1.8 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the late 1950s and early 1960s, radio position measurements with this precision were not available. While occultations had been used previously, Hazard was specifically interested in their ability to determine radio positions and structure with arcsecond precision. Such measurements were made in the optical reference frame thereby allowing reliable optical identifications. Hazard had noted that the strong Class II radio source 3C 273 would be hiddeb by the Moon (also known as occultation) several times during 1962 and 1963."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The 1962 August 5 occultation was undertaken at 410 and 136 MHz. Both disappearance and reappearance were observed and the disappearance record revealed the presence of two components, A and B, in the source. The disappearance on the right and the reappearance records on the left, at 410 MHz are plotted in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2024-t3/48531d4b77b0668ff84e.png",
+                "alt": "apho-2024-t3 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 1"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": The 1962 August 5 disappearance and reappearance records at 410 MHz, taken from Hazard et al. (1963). Note that time increases from right to left, and that the Moon is also moving from right to left. The bottom panel shows the positions of source components A and B relative to the limb of the Moon at disappearance and reappearance."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.6pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "What is causing the oscillation in the observed intensity?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A. The diffraction pattern of the telescope"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B. Instabilities in the mount of the telescope"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C. The features of the surface of the Moon"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "D. Earth's atmospheric conditions"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.6pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Why there is no extra bump for the B component in the left plot for the reappearance of the source? How does it help to understand the structure of the source?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A. The two components have been orbiting around the Moon."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "B. Our line-of-sight has changed with respect to the two components."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "C. Both components are aligned with the limb of the Moon when they reappear."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "D. The time scales of the physics behind the luminosity of the two components were long enough to make one of them fade."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Based on your answer in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the data in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", estimate the approximate apparent (projected) angular separation between the two components of 3C 273. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.6pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C: The Breakthrough Discovery of 3C 273's True Nature (1.8 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In 1962, the year of these observations, Maarten Schmidt was working on the programme of optical identification and spectroscopy of the optical objects identified with radio sources. Whiteoak mentions as an afterthought that the ‘current Caltech thinking’ is that the potential 3C 273 identification is with a star and a strange jet. Given that no other bright star had been proposed as a radio source identification, he assumed that the bright magnitude 13 ‘star’ (magnitude accounts as a way to measure how bright a star is; the brighter the star, the smaller the number) was merely a confusing foreground very bright star. To obtain a spectrum of the faint jet, which he saw as by far the most likely identification, it was inevitable that the bright confusing star some arcseconds away would spill over into any spectrum of the jet he would obtain. To offset this, Maarten Schmidt had decided to first obtain a spectrum of this bright star. On the night of December 29, he managed to obtain a spectrum of the bright ‘star’ which showed some faint emission lines ("
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "), but with no obvious explanation in terms of any expected stellar lines. Only when Schmidt decided to compare the strange spectrum with the Balmer lines of hydrogen, things became clear:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2024-t3/9fc5d7b01d146a7c4d63.png",
+                "alt": "apho-2024-t3 original source figure 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 2"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": Optical spectrum of 3C 273 (top) together with a comparison laboratory spectrum (bottom)."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Compare the wavelength ratios of the lines shown in "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Based on these ratios, what is the redshift "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = \\frac{\\lambda-\\lambda_0}{\\lambda_0}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of this source? "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.6pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Consider that this redshift is arising due to relativistic gravitational effects from the mass of the object. In this case, we can estimate the gravitational redshift as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z = \\frac{1}{\\sqrt{1-\\frac{2GM}{c^2r}}} - 1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Prove that, whether you put 3C 273 at any distance (e.g, edge of the Milky Way, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 100 kpc "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(3 \\times 10^{21}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m; edge of the Solar System, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 100 AU "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1.\\,5 \\times 10^{13}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m), the mass of 3C 273 would be so large it would disrupt the entire galaxy / solar system. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.6pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Hubble's law states that the farther the galaxies, the faster they are moving away from Earth. The Hubble's constant is the ratio between the speed and the distance of those galaxies, and equal to H=75 km/s/Mpc. With this idea in mind, we can consider instead that the calculated redshift is due to the cosmological expansion, and we can approximate that z"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "v/c. In that case, what is the distance of this object? Compare this with the size of the Milky Way. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.6pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part D: The Intrinsic Luminosity of the Radio Source 3C 273 (1.8 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The flux of the source 3C 273 has been measure across the radio spectrum and has been found to follow the equation "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(F_\\nu{\\sim}25000\\nu^{(-0.3)}\\ \\mathrm{Jy}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the observed frequency in Hertz and a Jansky is defined as "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1\\ \\mathrm{Jy}\\ \\ =\\ \\ 10^{-26}\\ \\mathrm{W\\ m^{-2}\\ Hz^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Of course, since the source is radiating over a sphere of radius the distance from us, the intrinsic luminosity will be given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_\\nu = 4\\pi d^2 F_\\nu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". With this,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "What is the luminosity of the source per unit frequency? "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.6pt"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n(help: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1\\ \\mathrm{pc} = 3.\\,09 \\times 10^{16}\\ \\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "What is the total luminosity in the radio band (ie., from 10"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{7}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Hz to 10"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^{11}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Hz)? "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.6pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "How does the luminosity of 3C 273 compare with the luminosity of the Sun ( "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_{sun} = 3.\\,82 \\times 10^{26}\\ \\mathrm{W}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and the Milky Way ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_{MW} = 1.\\,5 \\times 10^{10} L_{sun}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") in the same frequency range? "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.6pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part E: The Power Source of 3C 273 (1.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We have seen that the brightness of 3C 273 is too large for a single star, even for an entire galaxy. Therefore, there should be another mechanism, other than stars, producing all this power."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Check that the annihilation of matter with antimatter (e.g., "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{e}^{+} + \\mathrm{e}^{-} \\to 2\\gamma\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") would not explain this, since it would produce very energetic X-rays rays rather than optical and radio emission. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.7pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Something that was immediately proposed was the accretion of matter into a supermassive black hole. Let’s check that potential energy can give all this energy: Consider that the black hole accretes one solar mass ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(2 \\times 10^{30}\\ \\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") towards its Schwarzschild radius ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_s = \\frac{2GM}{c^2}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") every year. What is the power that can be obtained for the accretion? Would this be enough to explain the observations discussed in D1 to D3? "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.7pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part F: Modern Observations and the Nature of 3C 273's Components (1.4 points)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Modern images from various telescopes (see e.g., "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") have found that the two components A and B that were measured with the lunar occultation actually refer to a compact core, which hosts the black hole, and a jet that extends the distance that you calculated before. This jet is thought to be produced via acceleration of the accreted particles via the strong black hole magnetic field, in a similar way particles from the Solar wind hit the magnetic field of Earth to produce the auroras near the poles, but at much larger scale."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/apho-2024-t3/61e73f597063d7f17d68.jpg",
+                "alt": "apho-2024-t3 original source figure 3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Fig. 3"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ": Radio image of 3C 273 taken with the MERLIN telescope."
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The energy density required for the production of such jet can be written in terms of the magnetic fields as the sum of the particle energy density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U_e{\\sim}B^{(-{}^{3}\\!/_{2})}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the magnetic energy density "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U_B{\\sim}B^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "F.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.7pt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Show that the minimum energy density is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{U_e}{U_B} = \\frac{4}{3}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "F.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "If we assume that the total power of the 3C 273 jet is given by half of the energy released by 3C 273 in one second calculated in D.1 and D.2, and the jet has a volume of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(10^{45}\\ \\mathrm{m}^3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", estimate the magnetic field of the jet. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.7pt"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n(hint: use that the magnetic permeability is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(4\\pi \\times 10^{-7}\\ \\mathrm{T\\ m\\ A^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "The First Discovered Quasar: Unveiling the Mysteries of the Astrophysical Source 3C 273\n\n\nPart A: Moon's Apparent Motion Against the Background Stars (1.8 points)\n\n\nThe Moon takes 27.3 days to complete 1 orbit of the Earth with respect to the stars, a period known as a sidereal month. Through a telescope, the moon’s motion is readily apparent, but to the eye, it requires careful observation over several hours to notice the Moon’s changing position. Remembering that 3600 arceseconds = 60 arcminutes = 1 degree then, through how many degrees, arcminutes, and arcseconds does the Moon move against the background of stars in\n\n\nA.1\none hour? One minute? One second? \n1.3pt\n\n\nA.2\nHow long does it take the Moon to move a distance equal to its own diameter on the sky? (Note: the angular diameter of the moon as viewed from Earth is 30 arcminutes) \n0.5pt\n\n\nPart B: Using Lunar Occultations to Precisely Determine Radio Source Positions: The Case of 3C 273 (1.8 points)\n\n\nIn the late 1950s and early 1960s, radio position measurements with this precision were not available. While occultations had been used previously, Hazard was specifically interested in their ability to determine radio positions and structure with arcsecond precision. Such measurements were made in the optical reference frame thereby allowing reliable optical identifications. Hazard had noted that the strong Class II radio source 3C 273 would be hiddeb by the Moon (also known as occultation) several times during 1962 and 1963.\n\n\nThe 1962 August 5 occultation was undertaken at 410 and 136 MHz. Both disappearance and reappearance were observed and the disappearance record revealed the presence of two components, A and B, in the source. The disappearance on the right and the reappearance records on the left, at 410 MHz are plotted in \nFig. 1\n.\n\n\n\n\n\n\n\n\n\n\n\nFig. 1\n: The 1962 August 5 disappearance and reappearance records at 410 MHz, taken from Hazard et al. (1963). Note that time increases from right to left, and that the Moon is also moving from right to left. The bottom panel shows the positions of source components A and B relative to the limb of the Moon at disappearance and reappearance.\n\n\n\n\nB.1\n \n0.6pt\n\n\nWhat is causing the oscillation in the observed intensity?\n\n\nA. The diffraction pattern of the telescope\n\n\nB. Instabilities in the mount of the telescope\n\n\nC. The features of the surface of the Moon\n\n\nD. Earth's atmospheric conditions\n\n\nB.2\n \n0.6pt\n\n\nWhy there is no extra bump for the B component in the left plot for the reappearance of the source? How does it help to understand the structure of the source?\n\n\nA. The two components have been orbiting around the Moon.\n\n\nB. Our line-of-sight has changed with respect to the two components.\n\n\nC. Both components are aligned with the limb of the Moon when they reappear.\n\n\nD. The time scales of the physics behind the luminosity of the two components were long enough to make one of them fade.\n\n\nB.3\nBased on your answer in \nA.1\n to \nA.4\n, and the data in \nFig. 1\n, estimate the approximate apparent (projected) angular separation between the two components of 3C 273. \n0.6pt\n\n\nPart C: The Breakthrough Discovery of 3C 273's True Nature (1.8 points)\n\n\nIn 1962, the year of these observations, Maarten Schmidt was working on the programme of optical identification and spectroscopy of the optical objects identified with radio sources. Whiteoak mentions as an afterthought that the ‘current Caltech thinking’ is that the potential 3C 273 identification is with a star and a strange jet. Given that no other bright star had been proposed as a radio source identification, he assumed that the bright magnitude 13 ‘star’ (magnitude accounts as a way to measure how bright a star is; the brighter the star, the smaller the number) was merely a confusing foreground very bright star. To obtain a spectrum of the faint jet, which he saw as by far the most likely identification, it was inevitable that the bright confusing star some arcseconds away would spill over into any spectrum of the jet he would obtain. To offset this, Maarten Schmidt had decided to first obtain a spectrum of this bright star. On the night of December 29, he managed to obtain a spectrum of the bright ‘star’ which showed some faint emission lines (\nFig. 2\n), but with no obvious explanation in terms of any expected stellar lines. Only when Schmidt decided to compare the strange spectrum with the Balmer lines of hydrogen, things became clear:\n\n\n\n\n\n\n\n\n\n\n\nFig. 2\n: Optical spectrum of 3C 273 (top) together with a comparison laboratory spectrum (bottom).\n\n\n\n\nC.1\nCompare the wavelength ratios of the lines shown in \nFig. 2\n. Based on these ratios, what is the redshift \n\\(z = \\frac{\\lambda-\\lambda_0}{\\lambda_0}\\)\n of this source? \n0.6pt\n\n\nC.2\nConsider that this redshift is arising due to relativistic gravitational effects from the mass of the object. In this case, we can estimate the gravitational redshift as \n\\(z = \\frac{1}{\\sqrt{1-\\frac{2GM}{c^2r}}} - 1\\)\n. Prove that, whether you put 3C 273 at any distance (e.g, edge of the Milky Way, \n\\(r\\)\n \n\\(\\sim\\)\n 100 kpc \n\\(\\sim\\)\n \n\\(3 \\times 10^{21}\\)\n m; edge of the Solar System, \n\\(r\\)\n \n\\(\\sim\\)\n 100 AU \n\\(\\sim\\)\n \n\\(1.\\,5 \\times 10^{13}\\)\n m), the mass of 3C 273 would be so large it would disrupt the entire galaxy / solar system. \n0.6pt\n\n\nC.3\nHubble's law states that the farther the galaxies, the faster they are moving away from Earth. The Hubble's constant is the ratio between the speed and the distance of those galaxies, and equal to H=75 km/s/Mpc. With this idea in mind, we can consider instead that the calculated redshift is due to the cosmological expansion, and we can approximate that z\n\\(\\sim\\)\nv/c. In that case, what is the distance of this object? Compare this with the size of the Milky Way. \n0.6pt\n\n\nPart D: The Intrinsic Luminosity of the Radio Source 3C 273 (1.8 points)\n\n\nThe flux of the source 3C 273 has been measure across the radio spectrum and has been found to follow the equation \n\\(F_\\nu{\\sim}25000\\nu^{(-0.3)}\\ \\mathrm{Jy}\\)\n, where \n\\(\\nu\\)\n is the observed frequency in Hertz and a Jansky is defined as \n\\(1\\ \\mathrm{Jy}\\ \\ =\\ \\ 10^{-26}\\ \\mathrm{W\\ m^{-2}\\ Hz^{-1}}\\)\n. Of course, since the source is radiating over a sphere of radius the distance from us, the intrinsic luminosity will be given by \n\\(L_\\nu = 4\\pi d^2 F_\\nu\\)\n. With this,\n\n\nD.1\nWhat is the luminosity of the source per unit frequency? \n0.6pt\n\n\n(help: \n\\(1\\ \\mathrm{pc} = 3.\\,09 \\times 10^{16}\\ \\mathrm{m}\\)\n)\n\n\nD.2\nWhat is the total luminosity in the radio band (ie., from 10\n\\(^{7}\\)\n Hz to 10\n\\(^{11}\\)\n Hz)? \n0.6pt\n\n\nD.3\nHow does the luminosity of 3C 273 compare with the luminosity of the Sun ( \n\\(L_{sun} = 3.\\,82 \\times 10^{26}\\ \\mathrm{W}\\)\n) and the Milky Way (\n\\(L_{MW} = 1.\\,5 \\times 10^{10} L_{sun}\\)\n) in the same frequency range? \n0.6pt\n\n\nPart E: The Power Source of 3C 273 (1.4 points)\n\n\nWe have seen that the brightness of 3C 273 is too large for a single star, even for an entire galaxy. Therefore, there should be another mechanism, other than stars, producing all this power.\n\n\nE.1\nCheck that the annihilation of matter with antimatter (e.g., \n\\(\\mathrm{e}^{+} + \\mathrm{e}^{-} \\to 2\\gamma\\)\n) would not explain this, since it would produce very energetic X-rays rays rather than optical and radio emission. \n0.7pt\n\n\nE.2\nSomething that was immediately proposed was the accretion of matter into a supermassive black hole. Let’s check that potential energy can give all this energy: Consider that the black hole accretes one solar mass (\n\\(2 \\times 10^{30}\\ \\mathrm{kg}\\)\n) towards its Schwarzschild radius (\n\\(R_s = \\frac{2GM}{c^2}\\)\n) every year. What is the power that can be obtained for the accretion? Would this be enough to explain the observations discussed in D1 to D3? \n0.7pt\n\n\nPart F: Modern Observations and the Nature of 3C 273's Components (1.4 points)\n\n\nModern images from various telescopes (see e.g., \nFig. 3\n) have found that the two components A and B that were measured with the lunar occultation actually refer to a compact core, which hosts the black hole, and a jet that extends the distance that you calculated before. This jet is thought to be produced via acceleration of the accreted particles via the strong black hole magnetic field, in a similar way particles from the Solar wind hit the magnetic field of Earth to produce the auroras near the poles, but at much larger scale.\n\n\n\n\n\n\n\n\n\n\n\nFig. 3\n: Radio image of 3C 273 taken with the MERLIN telescope.\n\n\n\n\nThe energy density required for the production of such jet can be written in terms of the magnetic fields as the sum of the particle energy density \n\\(U_e{\\sim}B^{(-{}^{3}\\!/_{2})}\\)\n and the magnetic energy density \n\\(U_B{\\sim}B^2\\)\n.\n\n\nF.1\n \n0.7pt\n\n\nShow that the minimum energy density is given by \n\\(\\frac{U_e}{U_B} = \\frac{4}{3}\\)\n\n\nF.2\nIf we assume that the total power of the 3C 273 jet is given by half of the energy released by 3C 273 in one second calculated in D.1 and D.2, and the jet has a volume of \n\\(10^{45}\\ \\mathrm{m}^3\\)\n, estimate the magnetic field of the jet. \n0.7pt\n\n\n(hint: use that the magnetic permeability is \n\\(4\\pi \\times 10^{-7}\\ \\mathrm{T\\ m\\ A^{-1}}\\)\n)\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/apho-2024-t3/48531d4b77b0668ff84e.png",
+      "/corpus/figures/native/bulk/apho-2024-t3/9fc5d7b01d146a7c4d63.png",
+      "/corpus/figures/native/bulk/apho-2024-t3/61e73f597063d7f17d68.jpg"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2024-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[1.3pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The moon completes one orbit in about a month, or more quantitatively, moves through "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "360 degrees in 27.3 days"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". 360 divided by 27.3 = 13.19 degrees per day. Each day the moon will appear about "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "13deg"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " to the "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "east"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of its position at the same time on the previous day."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now convert to motion per hour. 13.19 degrees/day divided by 24 hrs/day = 0.55 degrees/hr. The moon passes through a little more than ½ of a degree in one hour of time. [0.5pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since 1deg = 60 arcminutes, then 0.55deg = 33 arcminutes (this is a ratio, 1:60 as 0.55:33). Therefore the moon moves through 33 arcminutes per hour of time."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since 1 arcminute = 60 arcseconds, then the moon moves through 33 x 60 arcseconds in a hour = 1978 arcsec per hour of time."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Moving 0.55 degrees / hr divided by 60 minutes per hr = 0.0092 degrees / min. The moon moves through a small fraction of a degree in one minute of time."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As 1deg = 60 arcminutes, then 0.0092deg = 0.55 arcminutes. The moon moves through 0.55 arcminutes per minute of time. [0.4pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since 1 arcminute = 60 arcseconds, the moon moves through 33 arcseconds per minute of time."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Moving 0.55 degrees per hour divided by 3600 seconds per hour = 0.000153 degrees in a second of time."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If the moon moves 0.55 arcminute per minute of time (from part b) then the moon will move 0.55 / 60 = 0.0092 arcminutes in one second of time. [0.4pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "0.0092 arcminutes X 60 arcseconds per arcminute = 0.55deg per second of time."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.5pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The diameter of the moon = 30 arcminutes = 0.5 degree (given in the notes)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From part (b), the moon moves through 0.55 arcminutes per minute of time"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The time it takes to move a specific distance = that distance divided by the rate of motion. The time it take the Moon to move one lunar diameter = distance traveled (30 arcminutes) / divided by rate (0.55 arcminutes per minute) = 54.5 minutes, just under an hour. [0.5pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part B: Using Lunar Occultations to Precisely Determine Radio Source Positions: The Case of 3C 273"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.6pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The correct answer is: A. The diffraction pattern of the telescope. [0.6pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.6pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The correct answer is: C. Both components are aligned with the limb of the Moon when they reappear. [0.6pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.6pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Since it was calculated that the moon travels at 33 arcsec per minute w.r.t the background stars, and the panel shows about 1/2 minute between the components A and B, this suggests that these two components are separated about 15 arcsec. (any number within this estimation shall be considered valid as long as it is properly explained). [0.6pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part C: The Breakthrough Discovery of 3C 273’s True Nature"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.6pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The student can check the figure to estimate the wavelengths by eye where certain emission lines are happening. The reasoning shall be written. For example, one could say that the H-gamma line for 3C 273 is located almost at 500nm, so maybe 490 or 495 nm would be a good estimate. For the comparison spectrum, since it is closer to 400nm, maybe the H-gamma of the comparison spectrum maybe be around 440nm (actually, 434nm). [0.3pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The resulting redshift of 3C273 is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\((\\lambda-\\lambda_0)/\\lambda_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 0.158. Other results that are similar to this one will be also considered correct as long as the wavelengths are reasonably estimated. [0.3pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.6pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Solving for the mass, we have that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{M}{=}(\\mathrm{c}^2\\mathrm{r}/2\\mathrm{G})[1-1/(1+\\mathrm{z})^2]\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If we put it at the edge of the Milky Way (at 100 kpc), then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r{\\sim}3\\times 10^{21}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M{\\sim}10^{17}M_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (larger than the entire mass of the Milky Way!) [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "if we put it at the edge of the Solar System (at 100 au), then "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(r{\\sim}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1.\\,5\\times 10^{13}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " m and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M{\\sim}10^9M_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " . This would totally disrupt the Solar System. [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "C.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.6pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Since z "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " v/c for small redshift and Hubble’s law is v = Hd, we can combine these two equations to obtain d = zc/H. [0.3pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If we use that H=75 km/s/Mpc, then d = 0.158*300 000 / 75 "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " 632 Mpc. (The current estimation is that the distance is 749 Mpc). This is thousands of times farther away than the size of the Milky Way, and must therefore, be an independent object very much farther away. [0.3pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part D: The Intrinsic Luminosity of the Radio Source 3C 273"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.6pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "If we use the distance of 632 Mpc that has been obtained before, that gives us "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d=2\\times 10^{25}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "m. Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(S_\\nu=2.\\,5\\times 10^{-22}\\nu^{-0.3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The Luminosity is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L=4\\pi d^2S_\\nu{=}\\ 4\\pi\\bigl(2\\times 10^{25}\\bigr)^2\\ \\nu^{-0.3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(=1.\\,25\\times 10^{30}\\ \\nu^{-0.3}\\ \\mathrm{W\\ m^{-2}\\ Hz^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [0.6pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.6pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The total radio luminosity can be calculated by integrating for all frequencies: [0.6pt] "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[L=\\textstyle\\int_{10^7}^{10^{11}}L_\\nu\\ \\mathrm{d}\\ \\nu{=}\\ \\left(\\tfrac{1.25\\times 10^{30}}{0.7}\\right)\\ \\nu^{0.7}\\,|_{\\nu=10^7}^{\\nu=10^{11}}=9\\times 10^{37}\\ \\mathrm{W}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "D.3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.6pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Comparing with the Sun, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\frac{L}{L_{\\mathrm{sun}}}=\\frac{9\\times 10^{37}}{3.82\\times 10^{26}}{\\sim}2.\\,3\\times 10^{11}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". It’s almost a trillion times brighter, and brighter than our Milky Way. [0.6pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part E: The Power Source of 3C 273"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.7pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "We are going to be using the mass-energy expression. Electrons have a mass-energy of 0.5 MeV (other units; e.g, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(8\\times 10^{14}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "J will also be considered valid). [0.4pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This energy, converted into wavelength, goes into 0.000002 nm. (other units, or solution expressed as frequency e.g, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1.\\,5\\times 10^{14}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " GHz will also be considered valid). This is well within the X-rays. [0.3pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "E.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.7pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The gravitational potential energy of a mass m is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{W}{=}{-}\\mathrm{GMm/r}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Since the smallest radius the particle reaches is the Schwarzschild radius, W = "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "GMmc"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "/2GM = "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(-\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "mc"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "/2. Therefore, one solar mass provides "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1.\\,8\\times 10^{47}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "J/yr "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\sim\\)"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(5.\\,7\\times 10^{39}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " J/s. This is still an order of magnitude more than what is needed to power 3C273, so it even leaves room for a certain efficiency. [0.7pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Part F: Modern Observations and the Nature of 3C 273’s Components"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "F.1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.7pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "To calculate the minimum we have to derive and equal to zero"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{equation}\n\\tfrac{\\mathrm{d}U}{\\mathrm{d}B}=0\\rightarrow\\tfrac{\\mathrm{d}U_e}{\\mathrm{d}B}+\\tfrac{\\mathrm{d}U_b}{\\mathrm{d}B}=0 \\tag*{[0.2pt]}\n\\end{equation}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Doing each of the terms separately, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tfrac{\\mathrm{d}U_e}{\\mathrm{d}B}=-\\tfrac{3}{2}B^{-5/2}=-\\tfrac{3}{2}\\tfrac{U_e}{B}\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tfrac{\\mathrm{d}U_b}{\\mathrm{d}B}=2B=\\tfrac{2U_b}{B}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tfrac{\\mathrm{d}U}{\\mathrm{d}B}=-\\tfrac{3}{2}\\tfrac{U_e}{B}+\\tfrac{2U_b}{B}=0{\\rightarrow}\\,\\tfrac{U_e}{U_b}=\\tfrac{4}{3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " [0.5pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "F.2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "[0.7pt]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The total energy, from the calculations in terms of the magnetic energy is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U=\\tfrac{7}{3}U_b\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore, If "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U=\\tfrac{1}{2}\\times 10^{38}\\ \\mathrm{J}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", then the magnetic energy will be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(U_b=\\tfrac{3}{14}\\times 10^{38}\\ \\mathrm{J}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [0.3pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For a volume of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(10^{45}\\ \\mathrm{m}^3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", the energy density will be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u_b=\\frac{\\frac{3}{14}\\times 10^{38}\\ \\mathrm{J}}{10^{45}\\ \\mathrm{m}^3}=0.\\,21\\times 10^{-7}\\ \\mathrm{J/m}^3\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now, since "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u=\\tfrac{B^2}{2\\mu}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", with "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " = magnetic permeability = "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(4\\pi\\times 10^{-7}\\ \\mathrm{Tm/A}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", we have that "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(B=\\sqrt{2\\times 4\\pi\\times 10^{-7}\\times 0.\\,21\\times 10^{-7}}\\sim 2.\\,3\\times 10^{-7}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " Tesla. [0.2pt]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "A.1\n \n[1.3pt]\nThe moon completes one orbit in about a month, or more quantitatively, moves through \n360 degrees in 27.3 days\n. 360 divided by 27.3 = 13.19 degrees per day. Each day the moon will appear about \n13deg\n to the \neast\n of its position at the same time on the previous day.\n\n\nNow convert to motion per hour. 13.19 degrees/day divided by 24 hrs/day = 0.55 degrees/hr. The moon passes through a little more than ½ of a degree in one hour of time. [0.5pt]\n\n\nSince 1deg = 60 arcminutes, then 0.55deg = 33 arcminutes (this is a ratio, 1:60 as 0.55:33). Therefore the moon moves through 33 arcminutes per hour of time.\n\n\nSince 1 arcminute = 60 arcseconds, then the moon moves through 33 x 60 arcseconds in a hour = 1978 arcsec per hour of time.\n\n\nMoving 0.55 degrees / hr divided by 60 minutes per hr = 0.0092 degrees / min. The moon moves through a small fraction of a degree in one minute of time.\n\n\nAs 1deg = 60 arcminutes, then 0.0092deg = 0.55 arcminutes. The moon moves through 0.55 arcminutes per minute of time. [0.4pt]\n\n\nSince 1 arcminute = 60 arcseconds, the moon moves through 33 arcseconds per minute of time.\n\n\nMoving 0.55 degrees per hour divided by 3600 seconds per hour = 0.000153 degrees in a second of time.\n\n\nIf the moon moves 0.55 arcminute per minute of time (from part b) then the moon will move 0.55 / 60 = 0.0092 arcminutes in one second of time. [0.4pt]\n\n\n0.0092 arcminutes X 60 arcseconds per arcminute = 0.55deg per second of time.\n\n\nA.2\n \n[0.5pt]\nThe diameter of the moon = 30 arcminutes = 0.5 degree (given in the notes).\n\n\nFrom part (b), the moon moves through 0.55 arcminutes per minute of time\n\n\nThe time it takes to move a specific distance = that distance divided by the rate of motion. The time it take the Moon to move one lunar diameter = distance traveled (30 arcminutes) / divided by rate (0.55 arcminutes per minute) = 54.5 minutes, just under an hour. [0.5pt]\n\n\nPart B: Using Lunar Occultations to Precisely Determine Radio Source Positions: The Case of 3C 273\n\n\nB.1\n \n[0.6pt]\nThe correct answer is: A. The diffraction pattern of the telescope. [0.6pt]\n\n\nB.2\n \n[0.6pt]\nThe correct answer is: C. Both components are aligned with the limb of the Moon when they reappear. [0.6pt]\n\n\nB.3\n \n[0.6pt]\nSince it was calculated that the moon travels at 33 arcsec per minute w.r.t the background stars, and the panel shows about 1/2 minute between the components A and B, this suggests that these two components are separated about 15 arcsec. (any number within this estimation shall be considered valid as long as it is properly explained). [0.6pt]\n\n\nPart C: The Breakthrough Discovery of 3C 273’s True Nature\n\n\nC.1\n \n[0.6pt]\nThe student can check the figure to estimate the wavelengths by eye where certain emission lines are happening. The reasoning shall be written. For example, one could say that the H-gamma line for 3C 273 is located almost at 500nm, so maybe 490 or 495 nm would be a good estimate. For the comparison spectrum, since it is closer to 400nm, maybe the H-gamma of the comparison spectrum maybe be around 440nm (actually, 434nm). [0.3pt]\n\n\nThe resulting redshift of 3C273 is \n\\((\\lambda-\\lambda_0)/\\lambda_0\\)\n \n\\(\\sim\\)\n 0.158. Other results that are similar to this one will be also considered correct as long as the wavelengths are reasonably estimated. [0.3pt]\n\n\nC.2\n \n[0.6pt]\nSolving for the mass, we have that \n\\(\\mathrm{M}{=}(\\mathrm{c}^2\\mathrm{r}/2\\mathrm{G})[1-1/(1+\\mathrm{z})^2]\\)\n. [0.2pt]\n\n\nIf we put it at the edge of the Milky Way (at 100 kpc), then \n\\(r{\\sim}3\\times 10^{21}\\)\n m and \n\\(M{\\sim}10^{17}M_\\odot\\)\n (larger than the entire mass of the Milky Way!) [0.2pt]\n\n\nif we put it at the edge of the Solar System (at 100 au), then \n\\(r{\\sim}\\)\n \n\\(1.\\,5\\times 10^{13}\\)\n m and \n\\(M{\\sim}10^9M_\\odot\\)\n . This would totally disrupt the Solar System. [0.2pt]\n\n\nC.3\n \n[0.6pt]\nSince z \n\\(\\sim\\)\n v/c for small redshift and Hubble’s law is v = Hd, we can combine these two equations to obtain d = zc/H. [0.3pt]\n\n\nIf we use that H=75 km/s/Mpc, then d = 0.158*300 000 / 75 \n\\(\\sim\\)\n 632 Mpc. (The current estimation is that the distance is 749 Mpc). This is thousands of times farther away than the size of the Milky Way, and must therefore, be an independent object very much farther away. [0.3pt]\n\n\nPart D: The Intrinsic Luminosity of the Radio Source 3C 273\n\n\nD.1\n \n[0.6pt]\nIf we use the distance of 632 Mpc that has been obtained before, that gives us \n\\(d=2\\times 10^{25}\\)\nm. Therefore, \n\\(S_\\nu=2.\\,5\\times 10^{-22}\\nu^{-0.3}\\)\n.\n\n\nThe Luminosity is \n\\(L=4\\pi d^2S_\\nu{=}\\ 4\\pi\\bigl(2\\times 10^{25}\\bigr)^2\\ \\nu^{-0.3}\\)\n \n\\(=1.\\,25\\times 10^{30}\\ \\nu^{-0.3}\\ \\mathrm{W\\ m^{-2}\\ Hz^{-1}}\\)\n. [0.6pt]\n\n\nD.2\n \n[0.6pt]\nThe total radio luminosity can be calculated by integrating for all frequencies: [0.6pt] \n\\[L=\\textstyle\\int_{10^7}^{10^{11}}L_\\nu\\ \\mathrm{d}\\ \\nu{=}\\ \\left(\\tfrac{1.25\\times 10^{30}}{0.7}\\right)\\ \\nu^{0.7}\\,|_{\\nu=10^7}^{\\nu=10^{11}}=9\\times 10^{37}\\ \\mathrm{W}\\]\n\n\nD.3\n \n[0.6pt]\nComparing with the Sun, \n\\(\\frac{L}{L_{\\mathrm{sun}}}=\\frac{9\\times 10^{37}}{3.82\\times 10^{26}}{\\sim}2.\\,3\\times 10^{11}\\)\n. It’s almost a trillion times brighter, and brighter than our Milky Way. [0.6pt]\n\n\nPart E: The Power Source of 3C 273\n\n\nE.1\n \n[0.7pt]\nWe are going to be using the mass-energy expression. Electrons have a mass-energy of 0.5 MeV (other units; e.g, \n\\(8\\times 10^{14}\\)\nJ will also be considered valid). [0.4pt]\n\n\nThis energy, converted into wavelength, goes into 0.000002 nm. (other units, or solution expressed as frequency e.g, \n\\(1.\\,5\\times 10^{14}\\)\n GHz will also be considered valid). This is well within the X-rays. [0.3pt]\n\n\nE.2\n \n[0.7pt]\nThe gravitational potential energy of a mass m is given by \n\\(\\mathrm{W}{=}{-}\\mathrm{GMm/r}\\)\n. Since the smallest radius the particle reaches is the Schwarzschild radius, W = \n\\(-\\)\nGMmc\n\\(^2\\)\n/2GM = \n\\(-\\)\nmc\n\\(^2\\)\n/2. Therefore, one solar mass provides \n\\(\\sim\\)\n \n\\(1.\\,8\\times 10^{47}\\)\nJ/yr \n\\(\\sim\\)\n\\(5.\\,7\\times 10^{39}\\)\n J/s. This is still an order of magnitude more than what is needed to power 3C273, so it even leaves room for a certain efficiency. [0.7pt]\n\n\nPart F: Modern Observations and the Nature of 3C 273’s Components\n\n\nF.1\n \n[0.7pt]\nTo calculate the minimum we have to derive and equal to zero\n\n\nTherefore, \n\\[\\begin{equation}\n\\tfrac{\\mathrm{d}U}{\\mathrm{d}B}=0\\rightarrow\\tfrac{\\mathrm{d}U_e}{\\mathrm{d}B}+\\tfrac{\\mathrm{d}U_b}{\\mathrm{d}B}=0 \\tag*{[0.2pt]}\n\\end{equation}\\]\n\n\nDoing each of the terms separately, \n\\[\\tfrac{\\mathrm{d}U_e}{\\mathrm{d}B}=-\\tfrac{3}{2}B^{-5/2}=-\\tfrac{3}{2}\\tfrac{U_e}{B}\\]\n \n\\[\\tfrac{\\mathrm{d}U_b}{\\mathrm{d}B}=2B=\\tfrac{2U_b}{B}\\]\n\n\nTherefore, \n\\(\\tfrac{\\mathrm{d}U}{\\mathrm{d}B}=-\\tfrac{3}{2}\\tfrac{U_e}{B}+\\tfrac{2U_b}{B}=0{\\rightarrow}\\,\\tfrac{U_e}{U_b}=\\tfrac{4}{3}\\)\n [0.5pt]\n\n\nF.2\n \n[0.7pt]\nThe total energy, from the calculations in terms of the magnetic energy is \n\\(U=\\tfrac{7}{3}U_b\\)\n.\n\n\nTherefore, If \n\\(U=\\tfrac{1}{2}\\times 10^{38}\\ \\mathrm{J}\\)\n, then the magnetic energy will be \n\\(U_b=\\tfrac{3}{14}\\times 10^{38}\\ \\mathrm{J}\\)\n. [0.3pt]\n\n\nFor a volume of \n\\(10^{45}\\ \\mathrm{m}^3\\)\n, the energy density will be \n\\(u_b=\\frac{\\frac{3}{14}\\times 10^{38}\\ \\mathrm{J}}{10^{45}\\ \\mathrm{m}^3}=0.\\,21\\times 10^{-7}\\ \\mathrm{J/m}^3\\)\n. [0.2pt]\n\n\nNow, since \n\\(u=\\tfrac{B^2}{2\\mu}\\)\n, with \n\\(\\mu\\)\n = magnetic permeability = \n\\(4\\pi\\times 10^{-7}\\ \\mathrm{Tm/A}\\)\n, we have that \n\\(B=\\sqrt{2\\times 4\\pi\\times 10^{-7}\\times 0.\\,21\\times 10^{-7}}\\sim 2.\\,3\\times 10^{-7}\\)\n Tesla. [0.2pt]\n\n",
+    "figures": [],
+    "shared": false
+  }
+}

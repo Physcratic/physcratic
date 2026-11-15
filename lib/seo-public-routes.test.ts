@@ -41,7 +41,7 @@ describe("public route registry", () => {
     const archive = allProblemPages().filter((p) => p.kind === "archive");
     assert.equal(archive.length, catalogProblems.length)
     for (const p of archive) assert.equal(indexableRoutes.some((r) => r.path === p.path), !p.thin, p.path);
-    assert.deepEqual(archive.filter((p) => p.thin).map((p) => p.id), ["ipho-2017-t2", "ipho-2017-t3"]);
+    assert.deepEqual(archive.filter((p) => p.thin).map((p) => p.id), ["eupho-2025-t3", "eupho-2021-t1"]);
     for (const p of allProblemPages().filter((x) => x.kind !== "archive")) assert.ok(indexableRoutes.some((r) => r.path === p.path), p.path);
     assert.equal(publicRoutes.filter((r) => r.group === "archive").length, catalogProblems.length, "all pages stay in the registry")
   });

@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## Complete native archive format migration (15 November 2026)
+
+Continuation of #179 at `22d8429` converts all remaining 97 PDF-based records and adds self-review controls to the three existing IPhO 2026 records. Inventory: **112 native, zero PDF-based canonical records**, with original downloads retained. The 978 new fields are explicitly self-review, temporary page state, with no saved progress or ELO. Prior verified stateless checks remain. All new documents are parsed and KaTeX validated; full page comparison, subpart audit and verified automatic keys remain pending. [Source provenance, reproduction and limitations](NATIVE_ARCHIVE_COMPLETE.md). Browser CI is sharded across all records; retained PDF regression uses authentic bytes and original metadata in an isolated harness. Actual exact-head checks belong to the stacked PR. No merge or deployment.
+
 ## Native archive EuPhO 2020 conversion (15 November 2026)
 
 Continuation of #178 at `6884fb3` adds EuPhO 2020 T1/T2/T3 with native LaTeX, nine original crops, worked alternatives and six automatic fields plus one graph self-review field. Archive: 112 records, 15 native, **97 PDFs remaining**. Earlier nine conversions, identities, ratings, original PDFs and account persistence are preserved. [Source conventions, checks and environment limits](NATIVE_ARCHIVE_BATCH_3.md) and third-batch ledgers record the evidence. Six local production-reader/sampled-checker physics and source tests pass. Full schema/type/build/integration CI and browser results must be taken from the follow-up PR, not inferred from local execution. No merge or deployment.

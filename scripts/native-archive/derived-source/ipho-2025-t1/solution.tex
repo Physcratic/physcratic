@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,graphicx}
+\begin{document}
+\section*{Hydrogen and galaxies: worked solution}
+This readable derivation follows the retained official solution. Its detailed examiner marking tables remain available in the original PDF.
+\subsection*{A.1}
+The Coulomb force supplies centripetal acceleration:
+\[m_e v^2/r=e^2/(4\pi\varepsilon_0r^2),\qquad v=\sqrt{e^2/(4\pi\varepsilon_0m_er)}.\]
+\subsection*{A.2}
+Combining $m_e r_n v_n=n\hbar$ with the previous force balance gives
+\[r_n=\frac{n^2\hbar}{\alpha m_ec}=n^2r_1,\quad r_1=\frac{\hbar}{\alpha m_ec}=5.31\times10^{-11}\,\mathrm m,\quad v_1=\alpha c.\]
+\subsection*{A.3}
+Add kinetic and Coulomb potential energies:
+\[E_n=\frac12m_ev_n^2-\frac{e^2}{4\pi\varepsilon_0r_n}=-\frac{e^2}{8\pi\varepsilon_0n^2r_1},\qquad E_1=-\frac12\alpha^2m_ec^2=-13.6\,\mathrm{eV}.\]
+\subsection*{A.4}
+In the electron frame, the proton's period is $2\pi r_1/v_1$ and its equivalent current is $i=e\alpha c/(2\pi r_1)$. The centre field of a circular current loop is
+\[B_1=\frac{\mu_0i}{2r_1}=\frac{\mu_0e\alpha c}{4\pi r_1^2}.\]
+\subsection*{A.5}
+The interaction energy is $-\mathbf M_s\cdot\mathbf B_1$. Reversing the moment changes it by $2M_sB_1$. Hence
+\[\Delta E_{\mathrm F}=-4\alpha^2E_1,\quad \Delta E_{\mathrm{HF}}=3.72\frac{m_e}{m_p}\Delta E_{\mathrm F},\quad \lambda_{\mathrm{HF}}=\frac{2\pi\hbar c}{\Delta E_{\mathrm{HF}}}\simeq21\,\mathrm{cm}.\]
+\subsection*{B.1}
+The radial gravitational force is $-m\,d\varphi/dr$. Equating its magnitude to the circular-orbit centripetal force gives $v_c=\sqrt{r\,d\varphi/dr}$.
+\subsection*{B.2}
+Spherical symmetry gives $g=GM_{\mathrm{int}}/r^2$. Outside the bulge, $M_{\mathrm{int}}=M_b$, so $M_b=v_c^2r/G$. Reading the red curve at $r=10\,\mathrm{kpc}$ gives $v_c\simeq20\,\mathrm{km/s}$ and $M_b\simeq9\times10^8M_\odot$. The official marking scheme allows 25 percent graph-reading uncertainty.
+\subsection*{B.3}
+Integrate the density over spherical shells:
+\[M_m(r)=4\pi C_m\left[r-r_m\arctan(r/r_m)\right],\quad v_{c,m}^2=4\pi GC_m\left[1-\frac{r_m}{r}\arctan(r/r_m)\right].\]
+Thus $k_1=4\pi GC_m$ and $k_2=4\pi GC_mr_m$. Expanding the arctangent for $r\ll r_m$ gives $v_{c,m}\simeq r\sqrt{4\pi GC_m/(3r_m^2)}$. For $r\gg r_m$, $v_{c,m}\simeq\sqrt{4\pi GC_m}$ and $M_m(r)\simeq4\pi C_mr$. The outer speed near $160\,\mathrm{km/s}$ gives $C_m\simeq3\times10^{19}\,\mathrm{kg/m}$. Using the pictured radius near $9\,\mathrm{kpc}$ gives a mass of order $10^{11}M_\odot$, much greater than the bulge estimate.
+\subsection*{C.1}
+Differentiate the stated potential at fixed $r$:
+\[\ddot z=\frac{2z\varphi_0}{z_0^2}\ln(r/r_0)\exp[-(z/z_0)^2].\]
+For small $z$, the exponential is approximately one. Since $r<r_0$, the logarithm is negative and the motion is stable, with $\omega_0=\sqrt{2\varphi_0|\ln(r/r_0)|/z_0^2}$.
+\subsection*{C.2}
+For $r\gg r_m$, the density model gives $g_m=-4\pi GC_m/r$. Integration gives $\varphi_G(r,0)=4\pi GC_m\ln(r/r_0)$ after choosing the additive constant. Thus $\varphi_0=4\pi GC_m$ and $v_c=\sqrt{\varphi_0}$.
+\subsection*{C.3}
+Project both orbital velocities along the line of sight. Similar triangles give $\cos\beta=R_\odot\sin\ell/R$, while the Sun's projection is $v_\odot\sin\ell$. Because the circular speeds have equal magnitudes,
+\[v_{rE/S}=v_\odot(R_\odot/R-1)\sin\ell,\qquad R=\frac{R_\odot}{1+v_{rE/S}/(v_\odot\sin\ell)}.\]
+\subsection*{C.4}
+The three measured frequency shifts are approximately $0.03$, $0.15$ and $0.26\,\mathrm{MHz}$. Using the official solution's Doppler sign convention and $f_0=1420\,\mathrm{MHz}$ gives the reported radial velocities $6.33$, $31.7$ and $54.9\,\mathrm{km/s}$. The corresponding galactocentric radii are $0.95R_\odot$, $0.78R_\odot$ and $0.67R_\odot$.
+\subsection*{C.5}
+Draw the line of sight from the Sun at $\ell=30^\circ$, tangent to the circle of radius $R_\odot/2$. Draw the three circles centred on the galactic centre with radii from C.4. Each intersects the sight line at a near and a far point. The official answer draws the nearer intersections. Measurements at varying longitude can distinguish structures and trace the galaxy's spiral mass distribution. \begin{center}\includegraphics[width=0.7\linewidth]{figures/official-solution-c5.png}\end{center}
+\subsection*{D.1}
+Eliminating $C_m$ between $M_{\mathrm{tot}}\simeq4\pi C_mR$ and $v_{c,\infty}^2=4\pi GC_m$ gives $M_{\mathrm{tot}}=(R/G)v_{c,\infty}^2$. Thus $\eta=R/G$ and $\gamma=2$. The plotted Tully-Fisher slope is about $(12-9)/(2.6-1.8)=3.75$, rather than two.
+\subsection*{D.2}
+At an outer radius near $5\,\mathrm{kpc}$ and speed near $160\,\mathrm{km/s}$, $a_m=v_c^2/r\simeq1.5\times10^{-10}\,\mathrm{m/s^2}$, of the scale at which MOND is proposed to apply.
+\subsection*{D.3}
+For $a\ll a_0$, the modified force law becomes $GM/r^2=a^2/a_0$. Circular acceleration $a=v_c^2/r$ therefore gives $v_{c,\infty}^4=a_0GM$, so the mass-velocity exponent is four. Reading the plotted mass at the measured velocity gives $a_0=v_{c,\infty}^4/(GM)$ of order $1.5\times10^{-10}\,\mathrm{m/s^2}$.
+\subsection*{D.4}
+Let $M_i(r)=M(r/R_b)^3$ inside the homogeneous sphere and $M_i(r)=M$ outside. With $\mu(x)=x/(1+x)$, the circular-orbit equation becomes
+\[v_c^4-\frac{GM_i(r)}r v_c^2-a_0GM_i(r)=0.\]
+The nonnegative speed is
+\[v_c(r)=\sqrt{\frac{GM_i(r)}{2r}\left(1+\sqrt{1+\frac{4a_0r^2}{GM_i(r)}}\right)}\quad(r>0).\]
+Substituting the appropriate interior or exterior mass gives both requested branches. They meet at $R_b$. The interior speed tends to zero at the centre. The exterior speed tends to $(a_0GM)^{1/4}$ at infinity.
+\end{document}

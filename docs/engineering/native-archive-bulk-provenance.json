@@ -1,0 +1,2729 @@
+[
+  {
+    "id": "ipho-2025-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2025_Q1_tex.zip",
+    "zipSha256": "50d3f0cd04a3e61e780cab11bacbedbfa2f28184631b9c4d2345b0bd9eb8809e",
+    "documents": {
+      "statement": {
+        "texSha256": "846df21679e9132587e13e61128836cf132159e0bcd3704de9280d103ae304ba",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2025-t1/160baabef51b9d828f0a.png",
+          "/corpus/figures/native/bulk/ipho-2025-t1/6d1907fa0f10aaa56f95.png",
+          "/corpus/figures/native/bulk/ipho-2025-t1/979418f8d4c1afea2f08.png",
+          "/corpus/figures/native/bulk/ipho-2025-t1/eda02206d087537ca0b7.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "3471751a9163d5b464117e92e69a640955896dfcf290fd33ca6d04341bb3b3a6",
+        "origin": "readable-derivation-from-original-pdf",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2025-t1/5e6d23b9aa5b62e8db0e.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2025-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2025_Q2_tex.zip",
+    "zipSha256": "fc8e65f6333c9988a79975f386cc52e4868b20e3cf985a68feb0883fead2ba9b",
+    "documents": {
+      "statement": {
+        "texSha256": "233e58377e833259b6675ed18d75a9cb464f0367c928525cb82793c29d240a0e",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2025-t2/19a87761f54fa5d8143e.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/337c378887c8e79f70a0.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/4aa535b2457dd3d330c1.jpg",
+          "/corpus/figures/native/bulk/ipho-2025-t2/838680d25150295b4cf2.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/9be480fc2e68b301ab27.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/9fe935c176b704f3db0d.jpg",
+          "/corpus/figures/native/bulk/ipho-2025-t2/a5e8b701ed49e0b3f5fc.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "bb8e417bb851875b4bc22b9ae92b2cfc3ad01886e94a2f97a065662d4d30f47c",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2025-t2/21a16aa450121e9fda67.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/370006a57ba4ad635003.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/4aa535b2457dd3d330c1.jpg",
+          "/corpus/figures/native/bulk/ipho-2025-t2/4b152558093288513ff9.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/6a90688bcaebd403c5d3.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/83f4be591308b735a055.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/876b4908ff34cd1fe3c6.jpg",
+          "/corpus/figures/native/bulk/ipho-2025-t2/9f19e9051901a6498501.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/9f5134884ca08d121857.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/aafd2db2cdfdf97d1155.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/ad6e0e0797f221338981.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/b45798a5f28dbe8f5c55.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/bcbec4337261c533d3b4.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/c2950980d569dd1df6d9.png",
+          "/corpus/figures/native/bulk/ipho-2025-t2/f386943cbda76d85ebec.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2025-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2025_Q3_tex.zip",
+    "zipSha256": "98b7e97254297f1312fbe4ede39d65f1a1c6162d0a01b066d80b8f1c006e5dde",
+    "documents": {
+      "statement": {
+        "texSha256": "00ab6e37a16c1434c9f1a50ebcbcec11f37f92a12a927730aced9ecd5e9b5886",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2025-t3/25b59376d33110e09e64.png",
+          "/corpus/figures/native/bulk/ipho-2025-t3/35a09c0135c95a7bc68f.png",
+          "/corpus/figures/native/bulk/ipho-2025-t3/87b0dc150ac7a887bf2c.jpg",
+          "/corpus/figures/native/bulk/ipho-2025-t3/a7fd05ab95effc8c40f7.png",
+          "/corpus/figures/native/bulk/ipho-2025-t3/b3457951602bcd44eeac.png",
+          "/corpus/figures/native/bulk/ipho-2025-t3/fc255ea221abfeae11c3.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "52c8f4cc0230d308ef3a59a485a6903fab6b52addbf5c7c53c8edd82be591d9d",
+        "origin": "readable-derivation-from-original-pdf",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2024-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2024_Q1_tex.zip",
+    "zipSha256": "0835b2fdf58f4adc1bda5f284adf362b91469afd73de923dd7ff89746aeee757",
+    "documents": {
+      "statement": {
+        "texSha256": "295193c414e6566ceb75795c6535b3acc4d9ba5c82b2e02b916d370d452f9b3a",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2024-t1/d811b7228bb5a7329de0.png",
+          "/corpus/figures/native/bulk/ipho-2024-t1/e22aa367648c1f7d77c3.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "51860181d568c90605a9581e4249620d944acf946774dd4a663a3bff6101863f",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2024-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2024_Q2_tex.zip",
+    "zipSha256": "c4b6851f2cbfe83026bcc8214749f8add7c3c09bafc5e944719bdaa0ddcb6294",
+    "documents": {
+      "statement": {
+        "texSha256": "72e50e375a8246e5dafb3b1d546fdcee453304bd11daa5d586c697f382fc744d",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2024-t2/3e621e5a3f18eeeffe66.png",
+          "/corpus/figures/native/bulk/ipho-2024-t2/74d97a81a636953b5946.png",
+          "/corpus/figures/native/bulk/ipho-2024-t2/c5ccbb3cb8b731e582cc.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "c2b36791c275d9e6fd1c306ad402b98d0b6128a6e0210dff636571b2f2f320a6",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2024-t2/4bb62c8df0526298acaa.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2024-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2024_Q3_tex.zip",
+    "zipSha256": "fe14372288a9d588af58be765ba909ca1bed53e57ba45d95997900d862c4dca6",
+    "documents": {
+      "statement": {
+        "texSha256": "8779fcaf94345525360c33b121cc893c4ce59d394392ef785ae1c19530b9899a",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2024-t3/b28d0fb3140e733a6dfe.jpg",
+          "/corpus/figures/native/bulk/ipho-2024-t3/d366342a972900224835.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "98fe4eb324d798b03b44eb6542c96e0bc4709ac6fadbab410a20e2e8a51f384e",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2024-t3/01bfd118a067595454f4.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2023-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2023_Q1_tex.zip",
+    "zipSha256": "5c5687893276edcc05d6d75a68b08654bd846e1f719ea9d424b01559e8fad8ae",
+    "documents": {
+      "statement": {
+        "texSha256": "0e6dbd9eccf3adbf97b224a11dec53f91775c615be49ba3d326d1ceb4038ae59",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2023-t1/00c7cb42e514f318e77d.png",
+          "/corpus/figures/native/bulk/ipho-2023-t1/04632faf9be802e4c829.png",
+          "/corpus/figures/native/bulk/ipho-2023-t1/27c0079d6c33ce3ad6e1.png",
+          "/corpus/figures/native/bulk/ipho-2023-t1/2cf7508b04184e152e53.png",
+          "/corpus/figures/native/bulk/ipho-2023-t1/358e2803fe87a698d3e1.png",
+          "/corpus/figures/native/bulk/ipho-2023-t1/6aa0994fd16d65f4f984.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "3fc3b8daf4a4bddf0ad524740e123572af3d40c1ef28f81d599bda118e86670f",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2023-t1/015f464a43560eb87daa.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2023-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2023_Q2_tex.zip",
+    "zipSha256": "a3afa258f1dd9235352d6073362ee5d42ac8c93ddad5f372f553fff5eba9ed4d",
+    "documents": {
+      "statement": {
+        "texSha256": "eb0bd64ca5781b46972413d689666d0c78809b6079cd587dbfb1c89ad6878ab4",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2023-t2/20c75f168214b542651b.png",
+          "/corpus/figures/native/bulk/ipho-2023-t2/34312a7b8f91613a60d1.png",
+          "/corpus/figures/native/bulk/ipho-2023-t2/9dbb548f14e77a9603fa.png",
+          "/corpus/figures/native/bulk/ipho-2023-t2/ee8910fe899b92017e18.png",
+          "/corpus/figures/native/bulk/ipho-2023-t2/f94e1744315fa8ac864b.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "bc42b236b2c0106b8d705ba21a6e3d94c46e6d21a77e497839e1c63358cb05b5",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2023-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2023_Q3_tex.zip",
+    "zipSha256": "92f1222faa1714c7dec1a2ea353f5a6c726f5a5575dfa69a883dcf2d715b92b5",
+    "documents": {
+      "statement": {
+        "texSha256": "4db5d7632a73a493ac15c120aee9ce1d06b50f32676920cedd1ee5130b335814",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2023-t3/15f5efcdbcf4a6d6976b.png",
+          "/corpus/figures/native/bulk/ipho-2023-t3/4bac9380dd7fca45bc20.png",
+          "/corpus/figures/native/bulk/ipho-2023-t3/569d59e6855f447f18ff.png",
+          "/corpus/figures/native/bulk/ipho-2023-t3/f453462c0474de994728.png",
+          "/corpus/figures/native/bulk/ipho-2023-t3/fa8fbfd7d855afa73e6b.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "792f6c3af6da6b238f510048e4b5205a3ac79eb561b9f26f02bf89c9b209bc6f",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2023-t3/0a3f5350073fae315737.png",
+          "/corpus/figures/native/bulk/ipho-2023-t3/358c42b7164e9acc9017.png",
+          "/corpus/figures/native/bulk/ipho-2023-t3/5bcaec0ae3908f3d35df.png",
+          "/corpus/figures/native/bulk/ipho-2023-t3/a86469c0b847d485cfd3.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2022-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2022_Q1_tex.zip",
+    "zipSha256": "b8861d743a2c8b2d78078c2ab57f8c727c3d743bc094eb2b9e12ba7ef39976c0",
+    "documents": {
+      "statement": {
+        "texSha256": "003d9fcbd84dc27ee578d0e389a45b38f1319d700f0f5651b2178a51eee6d818",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2022-t1/0635b1463957398f0916.png",
+          "/corpus/figures/native/bulk/ipho-2022-t1/2ae0ff1138b1953dfee3.jpg",
+          "/corpus/figures/native/bulk/ipho-2022-t1/56420ab3021a02872846.jpg",
+          "/corpus/figures/native/bulk/ipho-2022-t1/9de533c3eb99ea1b08e5.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "c0b21cb07907db8f8f595fb2d4bab080b3d70bc368610751252272754db88d3d",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2022-t1/03160d103d1f689c2da4.png",
+          "/corpus/figures/native/bulk/ipho-2022-t1/0324880d490d2b4476f8.png",
+          "/corpus/figures/native/bulk/ipho-2022-t1/22a606e886aa951b2b47.png",
+          "/corpus/figures/native/bulk/ipho-2022-t1/385ba526a71a970fa87f.png",
+          "/corpus/figures/native/bulk/ipho-2022-t1/4724cd05554554648d0d.png",
+          "/corpus/figures/native/bulk/ipho-2022-t1/a775a455b94102abc2cc.png",
+          "/corpus/figures/native/bulk/ipho-2022-t1/c6611f22fab24dc0e6a0.png",
+          "/corpus/figures/native/bulk/ipho-2022-t1/f7028f469cffe7a22ad8.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2022-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2022_Q2_tex.zip",
+    "zipSha256": "4acfe04c3a6909c4c58e78a8b383d44d575ba563661b9d78ef403b6ab9e0a65c",
+    "documents": {
+      "statement": {
+        "texSha256": "0cd33223b3a327b90aba9aa02d7116df1147bd3d240367b275165818ffd2eee5",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2022-t2/1d7e46c277e765e5bc4a.png",
+          "/corpus/figures/native/bulk/ipho-2022-t2/2c269579a49642d597bb.png",
+          "/corpus/figures/native/bulk/ipho-2022-t2/7ac7b1f7e642f58f19de.png",
+          "/corpus/figures/native/bulk/ipho-2022-t2/f179f7ba5bd6ab7b93db.png",
+          "/corpus/figures/native/bulk/ipho-2022-t2/f17ef86f671a07fc8683.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "611a4211bc1058ea6ab2515cbb0b31d89b919f12d6f644d1683a67e5bc3e2b99",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2022-t2/10f7e5bcf42bb3fe44ff.png",
+          "/corpus/figures/native/bulk/ipho-2022-t2/23fbc7736b3ce3e79815.png",
+          "/corpus/figures/native/bulk/ipho-2022-t2/c5def638659eec3dca62.png",
+          "/corpus/figures/native/bulk/ipho-2022-t2/d59c444c72e8adc553e2.png",
+          "/corpus/figures/native/bulk/ipho-2022-t2/e248e955ef6fa6621a83.png",
+          "/corpus/figures/native/bulk/ipho-2022-t2/e2743365359faf1a5a33.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2022-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2022_Q3_tex.zip",
+    "zipSha256": "fb32f26e1da371e934ec5a72386daf37a68427138d45b4de3cd43a40cac750ee",
+    "documents": {
+      "statement": {
+        "texSha256": "88bd6a5c419a62a6f98e5f992d4ec3b84170a802ac77c12467fc76a970348f2c",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2022-t3/6234b8213ee23f5d2382.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "73188dd52ee9e42a0a2287d1f6d2f47fca2ef3c38d73aa9f729d1f2aca0ab47b",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2022-t3/b3f1f18e28f3bcd72dc1.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2021-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2021_Q1_tex.zip",
+    "zipSha256": "f8c4102c94a46dfc3a5bcc2dea8430c2992326d5e92a6adb3ac54ba58a9450e0",
+    "documents": {
+      "statement": {
+        "texSha256": "14d00a12bdb93caafa6338c72185214c5b2401935b849adcc56853e2744467ca",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2021-t1/4f3890920e726a740703.png",
+          "/corpus/figures/native/bulk/ipho-2021-t1/814e5347e8e706f68bda.png",
+          "/corpus/figures/native/bulk/ipho-2021-t1/d1aa12efd289a42bef42.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "4281e78017631b66befc4bd70fa53023ead819e44b37cf014716cdcc0b42eaf9",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2021-t1/5f9ff0d40afdac6a6eef.png",
+          "/corpus/figures/native/bulk/ipho-2021-t1/9a71bbd0782ccaed74f0.png",
+          "/corpus/figures/native/bulk/ipho-2021-t1/ea72cca2169de3f0b439.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2021-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2021_Q2_tex.zip",
+    "zipSha256": "52ba1bfd685360ba5b43408db86faeb3926ae042ab5380acb2ce7464e8f15011",
+    "documents": {
+      "statement": {
+        "texSha256": "d6111d6e56bf23d5c7990549bf94a717574e900a5ff2091334855e03e18aedbe",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2021-t2/36f03fe8ece015af267f.png",
+          "/corpus/figures/native/bulk/ipho-2021-t2/7d5f8764d57a92446d48.png",
+          "/corpus/figures/native/bulk/ipho-2021-t2/df2df01e30a5c7bd4004.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "22f7c1801c602bc34629f530caabbca01aa9d11e08248fc1f164150efc25ba87",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2021-t2/2114f396522afebf4510.png",
+          "/corpus/figures/native/bulk/ipho-2021-t2/4468ac6a49e7e291f0f7.png",
+          "/corpus/figures/native/bulk/ipho-2021-t2/5615224a5fa2f45e9abb.png",
+          "/corpus/figures/native/bulk/ipho-2021-t2/c835f33714a23288ae52.png",
+          "/corpus/figures/native/bulk/ipho-2021-t2/f019c2e7e6e615267e70.png",
+          "/corpus/figures/native/bulk/ipho-2021-t2/f8e344e5a2e7fe1234e1.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2021-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2021_Q3_tex.zip",
+    "zipSha256": "889299a2955c9034454f821e407b7812314639071d68cbdbf8861e5a1d3b37f9",
+    "documents": {
+      "statement": {
+        "texSha256": "75e3e16e016e504a008ddc2de4519eb30d69deeb7ca9cefaf12756005001aee8",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2021-t3/3d498975c5a8351096a3.png",
+          "/corpus/figures/native/bulk/ipho-2021-t3/fbb36d92cb2ff713a629.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "775558a04b70e5e7105c07238305bdecb7507e6c17dec3aefceef25d25ea79b9",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2019-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2019_Q1_tex.zip",
+    "zipSha256": "3459bb777efaa6dcccd3574244ac8e7ac8698f7346349fd5a30f1ff475005398",
+    "documents": {
+      "statement": {
+        "texSha256": "4df4e006171b07b18bab3bfcf78737a3a89e3ffef8e5061e6ba637859bd9195a",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2019-t1/2b8b6bc6e618aad2e837.png",
+          "/corpus/figures/native/bulk/ipho-2019-t1/7d4d4c3562c76161bc31.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "38d0872fdc65f7d67c51c0832bbbcc9d5c80306d9f07db5d3b023e490c3aef2f",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2019-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2019_Q2_tex.zip",
+    "zipSha256": "c4386d24308e76943cd90954bbb58f999b46aefe4b78ec483ae68ec8b959d401",
+    "documents": {
+      "statement": {
+        "texSha256": "22abd5902a0e09175a30aa5f3cd29ea0e8e363a3aa8ce3fb16f41f6035097785",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2019-t2/025aa7e84911ce0afffc.png",
+          "/corpus/figures/native/bulk/ipho-2019-t2/225db12ba19006348085.png",
+          "/corpus/figures/native/bulk/ipho-2019-t2/37250777a8e3f8e3c5dd.png",
+          "/corpus/figures/native/bulk/ipho-2019-t2/3b0a01c61584c1f4a491.png",
+          "/corpus/figures/native/bulk/ipho-2019-t2/9438dfed401c8f6030d7.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "cbc65edbd87c540d06ffca93f8b2420eb4a8352b7ce035872fef26ed46863041",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2019-t2/39351c82f376a81e3051.png",
+          "/corpus/figures/native/bulk/ipho-2019-t2/548664d776e2042402f3.png",
+          "/corpus/figures/native/bulk/ipho-2019-t2/ab78181f3913e8adfdd9.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2019-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2019_Q3_tex.zip",
+    "zipSha256": "af866701156cd8ce479b769cc482964a3617fdaa62cbc491206812726a9467e4",
+    "documents": {
+      "statement": {
+        "texSha256": "64dbf2f34b04f7be5b74f9b96490c62361cabf126caa996e054e3c57556ce627",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2019-t3/68592aae0d588e67781e.png",
+          "/corpus/figures/native/bulk/ipho-2019-t3/76467bbdec762cdbac34.png",
+          "/corpus/figures/native/bulk/ipho-2019-t3/9fc4062a64a675ecaaae.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "a1626a1d9f3d24ab43731c4ea8709a3dfb1d4ac2b91322c3dc72517b8a10ff3e",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2018-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2018_Q1_tex.zip",
+    "zipSha256": "73ba6f5df4d565de8123a0063a8eeb13ee57eac7847bd42dd7e268951412acc0",
+    "documents": {
+      "statement": {
+        "texSha256": "cb8246efc1ed0001401f4f3b5f7f33f1c102ce31bc86218b2b7730f993152d03",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2018-t1/9ffe8b0c39c5e15c7860.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "318c7aadd456303c2a4d0db1757e4ee521fcdc3c211fd51c0425dc471d7b254d",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2018-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2018_Q2_tex.zip",
+    "zipSha256": "09728fe2097edcaabad60635857515fdf67b9594ce0639835b70bf86deabad25",
+    "documents": {
+      "statement": {
+        "texSha256": "1fae9562baf7942174e10d99922260538480b2a66d126d8acbaea8fc935bf25a",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2018-t2/767a928cede180f49ec7.png",
+          "/corpus/figures/native/bulk/ipho-2018-t2/ef9ccb6968f018598319.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "58b59bf8cd848f403533cb3e0174d6a2f5670f543216b1dba4da0da419fe6cff",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2018-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2018_Q3_tex.zip",
+    "zipSha256": "17833c5fae7f6f06b4d6d3239d325a334c0b4bd97e30ffc24b18e5d979a616e2",
+    "documents": {
+      "statement": {
+        "texSha256": "a05cd5e5adb43ee33e7f5de775be390450b46b7ee9848a12eb84cb09e31ba12d",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2018-t3/7427e7d566b573c5d79b.png",
+          "/corpus/figures/native/bulk/ipho-2018-t3/b4f5354a0ed0ad953dad.png",
+          "/corpus/figures/native/bulk/ipho-2018-t3/fbd0d169d562a9de2161.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "4bc631c6db8b29d3c0731c829ce4bc3386acc9ec3cff9ec270ef48a52a32829c",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2008-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2008_Q1_tex.zip",
+    "zipSha256": "7c9e249d12f3b4e1a9dab96be50618bda77c4746725828fcbba737b52ba5d3f0",
+    "documents": {
+      "statement": {
+        "texSha256": "144b451644e12cb595203984a13904e0062e8611f6bdcf43d5e6b38787b09685",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2008-t1/829d4d74b6a1f736f4a7.jpg",
+          "/corpus/figures/native/bulk/ipho-2008-t1/f6ecf211a41bde36d22f.png",
+          "/corpus/figures/native/bulk/ipho-2008-t1/f9119eb18fe645570b85.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "44051b5b48b72e0e062cbf4a91af59bcc9f5db7e6358e3a6feed3726ecf99eba",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2008-t1/0fd7090ae326c32436d0.png",
+          "/corpus/figures/native/bulk/ipho-2008-t1/9e84166f8d2afc2e42c2.png",
+          "/corpus/figures/native/bulk/ipho-2008-t1/d17492d500f4d76fc8ca.png",
+          "/corpus/figures/native/bulk/ipho-2008-t1/db0a6effa638d36deb78.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2017-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2017_Q2_tex.zip",
+    "zipSha256": "df0fe9a54c3c242282559b8c541d54f23b9d3993cebddac697dec7823b9be94f",
+    "documents": {
+      "statement": {
+        "texSha256": "621aa6c24b164554223b804e362ee7cbd353bda5726f96d71ee453631d0ee35d",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2017-t2/3822a8e5de28e2e1d50a.png",
+          "/corpus/figures/native/bulk/ipho-2017-t2/72f307414f9f1570cbbd.png",
+          "/corpus/figures/native/bulk/ipho-2017-t2/a3d38cfdb85aa201a881.jpg",
+          "/corpus/figures/native/bulk/ipho-2017-t2/e2945e4aeccf883b9471.png",
+          "/corpus/figures/native/bulk/ipho-2017-t2/fcad60258cc49789799f.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "f5532ef9332e0403f210dea75c67bd705e024d28f5d3b0931971ee2e14b0614a",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2017-t2/15da277336805d55c635.png",
+          "/corpus/figures/native/bulk/ipho-2017-t2/4cab99f144eb64e439b4.png",
+          "/corpus/figures/native/bulk/ipho-2017-t2/4f3755cd134ffb8c65f4.png",
+          "/corpus/figures/native/bulk/ipho-2017-t2/5cde4bfcb28c88f20539.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2017-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2017_Q3_tex.zip",
+    "zipSha256": "8fc65cd9bae142f74e730c05f5e7bf84e97d0562cdea53867e7613a01b2e924e",
+    "documents": {
+      "statement": {
+        "texSha256": "4d329244ab7f195a71b1229a7b0e2f03262338f004bd4ee6f653ac77d3b018af",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2017-t3/bc712024825a35fa4b8a.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "5922e306870c25035d948714671e535dde17abc20355962ba70526c6b65b064b",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2016-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2016_Q2_tex.zip",
+    "zipSha256": "6bc9c54516f935587a58c73a9cfd34df0e60281c155d3bbd9e9953c80347e68b",
+    "documents": {
+      "statement": {
+        "texSha256": "bddb377a8316385036659eaecf343687886dbf0080ed25876000c8c297090424",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2016-t2/10e523663363d49b3fa9.png",
+          "/corpus/figures/native/bulk/ipho-2016-t2/209fff48bb88bc270a78.png",
+          "/corpus/figures/native/bulk/ipho-2016-t2/2df4cc5766ca3daf1564.png",
+          "/corpus/figures/native/bulk/ipho-2016-t2/7df7c07b5a6ca7a81985.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "ca2978b0a96fb28f8f3e4dc31f4fbdf67e648fd348b229ca383522cf7ae9e51d",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2016-t2/1d8f438c2897f9dde4ad.png",
+          "/corpus/figures/native/bulk/ipho-2016-t2/3e8fc154053f12d4ecb2.png",
+          "/corpus/figures/native/bulk/ipho-2016-t2/8f1a1b789f4a721b3e6f.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2005-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2005_Q1_tex.zip",
+    "zipSha256": "dfd076ddc84c719979cc384c5bdd626b4d1ad6ab0cd137887aa60b37c5325a1b",
+    "documents": {
+      "statement": {
+        "texSha256": "dd58216639708ba6f8d2287cf21b838ef5596fe01ed22b1c0af43d1bffdc83aa",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2005-t1/32c897be517de70fb89d.png",
+          "/corpus/figures/native/bulk/ipho-2005-t1/842ad36fe50bc6fa785c.jpg",
+          "/corpus/figures/native/bulk/ipho-2005-t1/b6c95d20bdd3c4401d18.png",
+          "/corpus/figures/native/bulk/ipho-2005-t1/c64d790966c64a5a42c1.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "9f8b624bfcfa7c980901374526c823c115ad1394aa4a39e158cd262d8a0eba44",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2005-t1/b97032d1c0041b691bec.png",
+          "/corpus/figures/native/bulk/ipho-2005-t1/cc60bfdf9447d1662640.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2015-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2015_Q1_tex.zip",
+    "zipSha256": "af1f33f7a5fd5b0f1e4dfee2224244e03b71bf2ad06765a6b7406ca6bda750e7",
+    "documents": {
+      "statement": {
+        "texSha256": "502816d3593eb92a8acc7b544278e980de9e6507f7c91e01b3fa4da6a67e4f3a",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "51486095a40190a35c0663542d2f76c7faa73e5cfb1388471cba2603747bbde3",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2015-t1/6134b36d0660a0887c53.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2015-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2015_Q2_tex.zip",
+    "zipSha256": "460a826d0c3c2a8306dfab47917bdc1b783520074c9db9e7c8145e27a44c51e3",
+    "documents": {
+      "statement": {
+        "texSha256": "bf5d9e37619e31246486be1b1200ffc65f2824c552f34ac16976c47fe44b80c4",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2015-t2/03ac03bbdc39cf859c5e.png",
+          "/corpus/figures/native/bulk/ipho-2015-t2/1a66b69a3762aaf3e5bf.png",
+          "/corpus/figures/native/bulk/ipho-2015-t2/ae18fcff76c5035857b4.png",
+          "/corpus/figures/native/bulk/ipho-2015-t2/b75df0d7bd462b768865.png",
+          "/corpus/figures/native/bulk/ipho-2015-t2/f3e21cb1527fbe4265db.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "08eb3e45e31f2747fb15ec4580f0b0e26c6a061c0e7ec454ea5f4624c7f4f633",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2015-t2/0e4be0d094231ed841ae.png",
+          "/corpus/figures/native/bulk/ipho-2015-t2/2a68e969b379595b2e63.png",
+          "/corpus/figures/native/bulk/ipho-2015-t2/77149962ea6e6ce4f010.png",
+          "/corpus/figures/native/bulk/ipho-2015-t2/9a189325c358f9ea1275.png",
+          "/corpus/figures/native/bulk/ipho-2015-t2/ba782d826f6ea3e79a00.png",
+          "/corpus/figures/native/bulk/ipho-2015-t2/c29a0c9a95248f91e33f.png",
+          "/corpus/figures/native/bulk/ipho-2015-t2/f906c74cb88e9acb9230.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2015-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2015_Q3_tex.zip",
+    "zipSha256": "5d466b1c81ca11e435ce5fca07ced5bb34a3a3edbd54c63343fce9e6930c357b",
+    "documents": {
+      "statement": {
+        "texSha256": "6944e0aee400ba85d1af54eecce3ae97c320e69685382bdc9cf3dd44ce1c0f16",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2015-t3/021c831b2148ce822735.png",
+          "/corpus/figures/native/bulk/ipho-2015-t3/3123f51ca53497b3bba3.png",
+          "/corpus/figures/native/bulk/ipho-2015-t3/c7b6c00aa087b85744c0.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "fdf1c75a702f9ebd01b4d4ac74bbf01b92e205d91671bea8ca6a4a23eb0dad38",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2015-t3/02ce9d7ed21d91321615.png",
+          "/corpus/figures/native/bulk/ipho-2015-t3/21a1b67574f5dc1055cc.png",
+          "/corpus/figures/native/bulk/ipho-2015-t3/4775c8ba8326c06fc98a.png",
+          "/corpus/figures/native/bulk/ipho-2015-t3/f87ce5dd03fd126ebf54.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2016-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2016_Q1_tex.zip",
+    "zipSha256": "570a8999ae24ad4097f9910a831b5e65e3102b11633ef73e986da47877a287e7",
+    "documents": {
+      "statement": {
+        "texSha256": "cc4b325ea55668c996058d08870f1190a19d6aca7bcf9501751d10630a428416",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2016-t1/45a4bbfebb9957c4cc57.png",
+          "/corpus/figures/native/bulk/ipho-2016-t1/7c7abe44f7bf963d730f.png",
+          "/corpus/figures/native/bulk/ipho-2016-t1/99e15037c149190a2ccf.png",
+          "/corpus/figures/native/bulk/ipho-2016-t1/ca998c5136f7ce5ed3ef.png",
+          "/corpus/figures/native/bulk/ipho-2016-t1/d9d233e0168c4978dd24.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "07590ac39cbce0a93bc6a350d922bcb12128811e4330d88a0ac5059ab27da47b",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2016-t1/0e7e292e0a2d1ca636a0.png",
+          "/corpus/figures/native/bulk/ipho-2016-t1/273c6742fde4123abe50.png",
+          "/corpus/figures/native/bulk/ipho-2016-t1/4a4b58bcfa338a2bd436.png",
+          "/corpus/figures/native/bulk/ipho-2016-t1/52ee49803fbcdcc9037b.png",
+          "/corpus/figures/native/bulk/ipho-2016-t1/7b0df4dac15261cbb1a3.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2014-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2014_Q3_tex.zip",
+    "zipSha256": "c3ca611b6052b4f584bf301371947203edc8b5a7d8230375c6f1ed7ac80a43f8",
+    "documents": {
+      "statement": {
+        "texSha256": "a7d4e8c0a4209cf836e476f4ac72028b254216fd47e8153f284ed56ff87ea011",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2014-t3/c8e00641750a77fefedf.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "be911db1df694cc5f959bcbd11689ec65a8fbe9119813d5515c17e046e4994f6",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2013-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2013_Q1_tex.zip",
+    "zipSha256": "97eb2d54dd561ac0d1844da80e5b06c865854eeda3630d5f847d0b1dbdbc7e79",
+    "documents": {
+      "statement": {
+        "texSha256": "33ca0892b18e514e317394382df8b3bb067e8fb1c05faee91e7a2bde5bb220f4",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2013-t1/37ca1349b50a49e94e5a.png",
+          "/corpus/figures/native/bulk/ipho-2013-t1/9169748000cbdff7c67a.png",
+          "/corpus/figures/native/bulk/ipho-2013-t1/acc78329bbf4301e90e8.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "37516607da6328cc518dc9d1b66a7119771197f456319bec02b87f87c8dd01c5",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2013-t1/dd369137ef76d0ca7b75.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2013-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2013_Q2_tex.zip",
+    "zipSha256": "015c212ceb1d3ac70bb131facecf04fdb2e2153f8f590398ca7032e9f097673d",
+    "documents": {
+      "statement": {
+        "texSha256": "9e5ca8d8b4b1a73773c0a67db2a417218e5475bb2835113f3ee54921b7a31ac6",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2013-t2/c6c064b1345650421755.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "fd074c28c4664def3c05d17a9585998ba8e303535fd41d746141e5142d6a3bf1",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2013-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2013_Q3_tex.zip",
+    "zipSha256": "2cd74af2067d9c76b08e33dae010766cc4473af8dc2e53c51bce2e7a4d9a4146",
+    "documents": {
+      "statement": {
+        "texSha256": "fe2a0fef07ec5c4d602b6094ca541b4e65bf40f3d53c8048109e9d2f24e837a2",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2013-t3/1b0bd8f0b36be90c72f6.png",
+          "/corpus/figures/native/bulk/ipho-2013-t3/a6f3c2eed28a26d3ee3f.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "6eb1eb8d1a83a0225bcc0506bc8d0103aa0b6ef3019047df0e11cbfa842f61e2",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2013-t3/4a5ecba0f0aeb107a860.png",
+          "/corpus/figures/native/bulk/ipho-2013-t3/c0dc0fdba3f89eb39dee.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2011-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2011_Q1_tex.zip",
+    "zipSha256": "4e5bc257f72a8780cb47a876137f9bcdce53381ce09f6ef2e66a2e78fdf8829e",
+    "documents": {
+      "statement": {
+        "texSha256": "6182615b2db2935c2817849cd6434170a69b4b1f636078156e9e8fa7e54368b0",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2011-t1/593a5b59ac6a49bce5fe.png",
+          "/corpus/figures/native/bulk/ipho-2011-t1/9f768e85a5f9f5aa7198.png",
+          "/corpus/figures/native/bulk/ipho-2011-t1/edcb75d311056c89d348.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "85415b2e4907d5ec586abfe54998ce5d3a12753e0fb87ecc4f2608281a510ee7",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2011-t1/1f6bd93c74674545491e.png",
+          "/corpus/figures/native/bulk/ipho-2011-t1/77c038f0249efcf6426b.png",
+          "/corpus/figures/native/bulk/ipho-2011-t1/e825a5581aabfb069344.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2010-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2010_Q1_tex.zip",
+    "zipSha256": "849fc6b524f64a4a3fcd493fdcb8532c46ab327010c5d964d5ca39420db999c1",
+    "documents": {
+      "statement": {
+        "texSha256": "fadd52be5f97bbb29139f1934d861447b47d70d2b65cf1dd9bef5710c9bdfef8",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2010-t1/1e20770159f32a77784b.png",
+          "/corpus/figures/native/bulk/ipho-2010-t1/2a6190456aac0b41e83c.png",
+          "/corpus/figures/native/bulk/ipho-2010-t1/72ce4f96426e35204795.png",
+          "/corpus/figures/native/bulk/ipho-2010-t1/b862415d7250d26c336c.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "5d791129ef01d51ba38d4e48027792be4cea42b8c6a40cc12b00ee5e4b65cef8",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2010-t1/195f2207de669414b0cd.png",
+          "/corpus/figures/native/bulk/ipho-2010-t1/ede246ced75df65841e9.png",
+          "/corpus/figures/native/bulk/ipho-2010-t1/efb5df98ea9e902a7a91.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2010-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2010_Q2_tex.zip",
+    "zipSha256": "9ac64dd4fbf261de52ae72c4a798e648ace6846c14000607ecb28588cec283a9",
+    "documents": {
+      "statement": {
+        "texSha256": "70201765d77d005978dcca6c63d52bc16952ec3dab70201dcdc080361476cabb",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2010-t2/17b1b188982398351ea9.png",
+          "/corpus/figures/native/bulk/ipho-2010-t2/a0d693b54a0bf21228ec.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "a745517e3925f96925c61d208e30eda89c75ebf526807e471301f73faf74ecdd",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2008-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2008_Q2_tex.zip",
+    "zipSha256": "83f95a0afd6e6c21664b20fe0462beeb972b4bac37711553dafcdcb5f7fdeb99",
+    "documents": {
+      "statement": {
+        "texSha256": "7418009a350a01004ea7abc8c825e08736ce978bd05c25e5fe1d9dfef2805d48",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2008-t2/9433817d38cc65d55bd2.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "666ab0631a80d1c3f3f071ad90cdc4429d38906e9dd4a868ce24653949a017b6",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2008-t2/203048b174e7ed47b3a4.png",
+          "/corpus/figures/native/bulk/ipho-2008-t2/6453ebfe336237a321fe.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2007-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2007_Q2_tex.zip",
+    "zipSha256": "a48826835dbe6b5ebfcc7be1325a85c8f08579f2ad311884b6b4fecfb27c8114",
+    "documents": {
+      "statement": {
+        "texSha256": "ae6f8bc7954e28cd436c8019b37c069a257c4225df26cb4ea19c39482ddce888",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2007-t2/3551746abdb73a140c6c.png",
+          "/corpus/figures/native/bulk/ipho-2007-t2/df4daa2fa8f2aa5b4755.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "db8062ad8a4578a068864dd8131ff80bea96d5a71d44c38fceb55bd2dc6ce16b",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2009-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2009_Q1_tex.zip",
+    "zipSha256": "3275aacc09ff15bdabdecf90df991a7bb31a1d669f1b76cd7125cce353ebfd6f",
+    "documents": {
+      "statement": {
+        "texSha256": "38b7ae1ce6808970116d8de88f8dcadf044d31807dcdf3038331b0cf26565e8f",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2009-t1/3a1199d54ab7204b10e8.png",
+          "/corpus/figures/native/bulk/ipho-2009-t1/4237825016050b11c7c8.png",
+          "/corpus/figures/native/bulk/ipho-2009-t1/eebebcc30a1c4c8144df.png",
+          "/corpus/figures/native/bulk/ipho-2009-t1/f1f7504c093e00e9945e.jpg"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "5327ca10a877e7001c7d0f567bbd695e0ef3b889f4bbc317e5d3e51fa161464d",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2005-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2005_Q2_tex.zip",
+    "zipSha256": "4e975ac7e9ef758754c7b5c4e704e178ff1031ac7abcb7358a19735a167aa803",
+    "documents": {
+      "statement": {
+        "texSha256": "22762e9ef6fec63b5456e59a9dcf88e5cc90dc9aa3655f0afbfdfa08340bc74b",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2005-t2/6f6ed5d4fa14cdec09b2.png",
+          "/corpus/figures/native/bulk/ipho-2005-t2/96fbff8de0bd7f9529ba.png",
+          "/corpus/figures/native/bulk/ipho-2005-t2/c2c26ab8aba78783c26a.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "8c107196427a551c570d732f5d1d42e15d76d3f089705df67f53eb92c54f21bd",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2005-t2/0cdbd6c0495cecc4015b.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2009-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2009_Q2_tex.zip",
+    "zipSha256": "20e79bfd6eaaea6633347cf6f38100d240ddb5e9d8055a88a4daba010276529b",
+    "documents": {
+      "statement": {
+        "texSha256": "0a94c3cbc455f0a612380a427f96cf2f285a2367770203607ebd86321d6e157f",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2009-t2/17739903e03f9c134bfb.png",
+          "/corpus/figures/native/bulk/ipho-2009-t2/4a6d6f9b090548292c97.png",
+          "/corpus/figures/native/bulk/ipho-2009-t2/6c7d09d2ccc6f9922be1.jpg"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "3996a5660aa6ccfdd6deaacdc57783e98509e83f56b6b2d5c844aa1184869d66",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "ipho-2004-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/ipho/IPhO_2004_Q3_tex.zip",
+    "zipSha256": "a41135cab2937afb2c35922b5635c53c191e80d328abd9741b5f7da49422b61a",
+    "documents": {
+      "statement": {
+        "texSha256": "724cb0ff937d3c8ecc2c2d0dddc80e78cbd83b37cfea199e51782dd9f21597e1",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/ipho-2004-t3/85e1fd757142b095a1b5.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "2a93112f6b9cf83a0a6ab749d51b6067948ca58b3e2b9ca84106c34e77d47e05",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2025-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2025_Q1_tex.zip",
+    "zipSha256": "1d1644022c74a0957711298b77ae7cccc5d7526845600f185f20acbbeff3a1ab",
+    "documents": {
+      "statement": {
+        "texSha256": "69e73e2df5cb12b25254ae12536ef094f93bef9af38aa5e09d5a4a1d270e1dad",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2025-t1/02b432a4be1fdf8f5a02.png",
+          "/corpus/figures/native/bulk/apho-2025-t1/b729e02e25d5b2df2bef.png",
+          "/corpus/figures/native/bulk/apho-2025-t1/c2ff63e06eb82c5a5b61.png",
+          "/corpus/figures/native/bulk/apho-2025-t1/ef782ae6e5fa8cca6ce6.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "fdaf6d4b28d33679092e622e91980981da97d17eccfac263973dea461125dcaa",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2025-t1/3d1a65fcaf0e1eda5f3a.png",
+          "/corpus/figures/native/bulk/apho-2025-t1/767e02ef9ce3f2a0f4e5.png",
+          "/corpus/figures/native/bulk/apho-2025-t1/bd4fb0c1942134439643.png",
+          "/corpus/figures/native/bulk/apho-2025-t1/cdf6705d662877aa6076.png",
+          "/corpus/figures/native/bulk/apho-2025-t1/da92425bdeff2b7696fa.png",
+          "/corpus/figures/native/bulk/apho-2025-t1/fa19e88fc327e70fdea2.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2025-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2025_Q2_tex.zip",
+    "zipSha256": "0eb4792edccf62a5a3f029352b3d728b440db09a96365009cde0490a47960b9b",
+    "documents": {
+      "statement": {
+        "texSha256": "cf1852e253f062194ad1ec735ebd4f00be1dca12a2969e85089df6e2a13aff76",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2025-t2/2fafee9eefc69f198e05.png",
+          "/corpus/figures/native/bulk/apho-2025-t2/693c88441e73851dbacc.png",
+          "/corpus/figures/native/bulk/apho-2025-t2/757489f3d01e4c4f1cc4.png",
+          "/corpus/figures/native/bulk/apho-2025-t2/9f3fdad36b30d7a8ef9d.png",
+          "/corpus/figures/native/bulk/apho-2025-t2/b99d33a6ee0972f2c194.png",
+          "/corpus/figures/native/bulk/apho-2025-t2/ef5c7ec4c256f5ffb5bf.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "a960a4336ebe8f25ebc7c28d13b13765921d0ffb51ed6c195030743b3141022b",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2025-t2/9641b086cd4bfdc886ee.png",
+          "/corpus/figures/native/bulk/apho-2025-t2/a2cdaef8d6164abf2a33.png",
+          "/corpus/figures/native/bulk/apho-2025-t2/df0fc9193076b934f5d4.png",
+          "/corpus/figures/native/bulk/apho-2025-t2/fd52aae1cab382f6787f.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2025-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2025_Q3_tex.zip",
+    "zipSha256": "be64229afd1119e8ed3abacb5d6cf1ee7c19aa00973385e37fa951b4b0fd3898",
+    "documents": {
+      "statement": {
+        "texSha256": "a03418edb6ce41289d1d54edb30b05e101ef96852db25ae574b9b3572be3c890",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2025-t3/3021760644bb0323b485.png",
+          "/corpus/figures/native/bulk/apho-2025-t3/42e995f77d83c24ecdff.png",
+          "/corpus/figures/native/bulk/apho-2025-t3/5666353c54035bd474c2.png",
+          "/corpus/figures/native/bulk/apho-2025-t3/980065279c22a145cb75.png",
+          "/corpus/figures/native/bulk/apho-2025-t3/fd802b42c25911d3be9a.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "0ada064bf7ba3b3384a8fb87ef5d56f01e69b8d0cb1a9526b21c548ff84f2de5",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2025-t3/3ebcf77eb2295440a188.png",
+          "/corpus/figures/native/bulk/apho-2025-t3/dc725374eb73ee59796b.png",
+          "/corpus/figures/native/bulk/apho-2025-t3/e8af1408aecfc9f04af2.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2024-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2024_Q1_tex.zip",
+    "zipSha256": "4110c30fdaf28315c136f03d7717ad01610cef64f6261796d38b5b3837f2aa99",
+    "documents": {
+      "statement": {
+        "texSha256": "077ee14a1363178830aed5ddec571dd38c23b418d1da6461a8356f49fe34f4bd",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2024-t1/f6e32b00f47a52bbd800.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "6e64a0addbddcd5b5d614fd2a697d604741f8e8340a79f4d03af6fc998d6a9b6",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2024-t1/05a811ec763130ce8207.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2024-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2024_Q2_tex.zip",
+    "zipSha256": "e8c9bc848d713f75d6041d8bc89c8a03ab99a55e9e2308a793e55d624a5d0d93",
+    "documents": {
+      "statement": {
+        "texSha256": "7d1e4e81ab41bbb266af183d858980facccc43dce01d9a93ece64b224e54f2f1",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2024-t2/3ac8c48e429aba476139.png",
+          "/corpus/figures/native/bulk/apho-2024-t2/44b6c55d5c8cb571b328.png",
+          "/corpus/figures/native/bulk/apho-2024-t2/605c80f908a7ae26cf98.png",
+          "/corpus/figures/native/bulk/apho-2024-t2/671cb76cb3d1a2406c55.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "7843d248daa40097207249addb5817fe747a5b826e508898a898727e452e6591",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2024-t2/5c4c108e085ef7d431a5.png",
+          "/corpus/figures/native/bulk/apho-2024-t2/71a77fcd3d860ee09109.png",
+          "/corpus/figures/native/bulk/apho-2024-t2/fd4e14b22ed5bf0354c4.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2024-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2024_Q3_tex.zip",
+    "zipSha256": "728fd3dac081b6282e5f7cfa34ef3ca35773876b34723690548637fdc265e003",
+    "documents": {
+      "statement": {
+        "texSha256": "c32392734e864c26b1bdc98701c749d996612a828f37a7348e8be5724b5351ad",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2024-t3/48531d4b77b0668ff84e.png",
+          "/corpus/figures/native/bulk/apho-2024-t3/61e73f597063d7f17d68.jpg",
+          "/corpus/figures/native/bulk/apho-2024-t3/9fc5d7b01d146a7c4d63.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "982526a26b3eb2eca00462348ffda558f34a505fcd19b53818e16c4593149723",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2023-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2023_Q1_tex.zip",
+    "zipSha256": "76e2fee8f70d7d5b6490eea05655261892b683a1c5833c71b48f7228a16fa579",
+    "documents": {
+      "statement": {
+        "texSha256": "83b9da45a8f74aa6a42a5a29cb31d586078c9764bc875b0bf05f5fad94560253",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2023-t1/13b60cf51f2199fd0ed7.png",
+          "/corpus/figures/native/bulk/apho-2023-t1/93fc1dbc88c8f0e9a02e.jpg",
+          "/corpus/figures/native/bulk/apho-2023-t1/be5ad54d9f9ee4b7ae76.png",
+          "/corpus/figures/native/bulk/apho-2023-t1/c3b4c5d19571c1d57f5e.jpg",
+          "/corpus/figures/native/bulk/apho-2023-t1/e16b995abc78c2169bd1.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "f14635d0b0eba3734e9d6fc4b7a70b69bed9b748f4f8028e058f01252cb33499",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2023-t1/2aef8ea562ba6ba4698d.png",
+          "/corpus/figures/native/bulk/apho-2023-t1/474a239493ac38522ebc.png",
+          "/corpus/figures/native/bulk/apho-2023-t1/a1d59f8703e65d3c43eb.jpg",
+          "/corpus/figures/native/bulk/apho-2023-t1/b82553a0d88cb6ed8aa8.png",
+          "/corpus/figures/native/bulk/apho-2023-t1/fa1ff10c0d008dc2fa57.jpg"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2023-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2023_Q2_tex.zip",
+    "zipSha256": "6e418c71de427a0bd18f4685c220f877053666ea79b1a8fc642a20bb7ca79c86",
+    "documents": {
+      "statement": {
+        "texSha256": "59024ba95e00ec9562c784e046cfa0643b94c69821adffee25aa27238133a651",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2023-t2/d2b5f22597609bb8fc65.png",
+          "/corpus/figures/native/bulk/apho-2023-t2/e54efbf80a4169825e8f.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "c18b2f6971312a9cc7d61a31d2f27bbe356ae43847048b332b57cc55440589b7",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2023-t2/356ec82ea7efd0ceba7e.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2023-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2023_Q3_tex.zip",
+    "zipSha256": "df9650d7f76c45a4b7b57bd71955e4a5a743ee41cc4354487c598e08e1a61625",
+    "documents": {
+      "statement": {
+        "texSha256": "8e07cc9442cdb003fd9231cc4f575dc03f9864f1bd379c6b3fb960087e429679",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2023-t3/782abc7038c1ebf35a78.jpg",
+          "/corpus/figures/native/bulk/apho-2023-t3/8a5aae984adb20c65d88.png",
+          "/corpus/figures/native/bulk/apho-2023-t3/ce7ac053388c84f53945.png",
+          "/corpus/figures/native/bulk/apho-2023-t3/fe2e7a44229517fdebf2.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "a3737c24269a9785f711fc47935bbdc61cb2dffdc5d112c7ef7ec3e5083e9564",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2023-t3/5939cfba1f6fc5693c6d.png",
+          "/corpus/figures/native/bulk/apho-2023-t3/cd80a2a0370e1eba438f.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2011-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2011_Q2_tex.zip",
+    "zipSha256": "847ee7866a9602f0219246f53b7e59b463574a3714e3e397116cf87604d0afde",
+    "documents": {
+      "statement": {
+        "texSha256": "1f8ab860b46d4e4df7d607d67a956a20f08870349ee9ce895318a9148e87a494",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2011-t2/60b8bbc568b3425b878d.png",
+          "/corpus/figures/native/bulk/apho-2011-t2/a8e18a4dd55a7db0de4b.png",
+          "/corpus/figures/native/bulk/apho-2011-t2/f6ef05e04867cb0b564e.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "471d7801abc13aa759a5fbe71f4cbccb6ea748d1d4169527748357fe073bd35c",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2011-t2/9d0bb99b4e22dc0aeeec.png",
+          "/corpus/figures/native/bulk/apho-2011-t2/e59cfe750fd606e6dcb3.png",
+          "/corpus/figures/native/bulk/apho-2011-t2/f2ddb45106c3c6d9f585.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2022-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2022_Q1_tex.zip",
+    "zipSha256": "c097d0dd0ffb7e8a602d3c244144385f1dd844de9cdb0ad169d683a242c65478",
+    "documents": {
+      "statement": {
+        "texSha256": "2ef33b002c6bc3252a65b8f623a1f1be18a113e6ca634f32de0d9c2ecacd626c",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2022-t1/476a0e6ec47280e7b95c.png",
+          "/corpus/figures/native/bulk/apho-2022-t1/808b5baa57612109421c.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "59ea0d18054355ccd4fd3a5ec2d85f207a691ad3e5be8cebe046d023577b1fa4",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2022-t1/b239ec78a0e0d7ca5be0.png",
+          "/corpus/figures/native/bulk/apho-2022-t1/fc283cd21af2334fbd89.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2022-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2022_Q2_tex.zip",
+    "zipSha256": "a4b6874303a5cf03a671481c7e3469edddfa3ccc4a1160164aab7ea00aae4a52",
+    "documents": {
+      "statement": {
+        "texSha256": "9c49791daca4b9e267a4b9c742012373f5eaf414aa8db0b571b68e5ab99a25d0",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2022-t2/0471706eb928b11b736d.png",
+          "/corpus/figures/native/bulk/apho-2022-t2/de20faa2c75312f33120.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "0c000b97a01d63eca9d792d9a21d4e33568129cf46e41374b447e7149e87a479",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2022-t2/027b407fa7c90a451162.png",
+          "/corpus/figures/native/bulk/apho-2022-t2/0ef1b6382f5b206e57c6.png",
+          "/corpus/figures/native/bulk/apho-2022-t2/61a31192300aa0d54aae.png",
+          "/corpus/figures/native/bulk/apho-2022-t2/82712cba53181bf3a6a9.png",
+          "/corpus/figures/native/bulk/apho-2022-t2/b673b5075405056a3098.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2022-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2022_Q3_tex.zip",
+    "zipSha256": "4e63cafc2fd9a9046f0ede2dce534b153f6d2d78ca3f57f376f28b56da3803ad",
+    "documents": {
+      "statement": {
+        "texSha256": "d502cee211a7a7f1039dea423358a91f3e0cef9e13ec8813f573cb59905eb630",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2022-t3/27ecdf29b926b3fefd5a.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "41946297f58ee351b18dc45a034e8726e96c56d9f26c8def60a1e1a8454b90d4",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2022-t3/3f775be0c7c341d1467f.png",
+          "/corpus/figures/native/bulk/apho-2022-t3/b91987e4cfe633b26c76.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2021-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2021_Q1_tex.zip",
+    "zipSha256": "bef78466503c2517c5c911cd11d4ea6177ec802558f16a7e0fd9f206e70f2faf",
+    "documents": {
+      "statement": {
+        "texSha256": "20c5de83db35ba8436b9490c132168c6a4334d378d2174d1ad44edeae2da9605",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2021-t1/5730a38a5a0308f71b33.png",
+          "/corpus/figures/native/bulk/apho-2021-t1/8c978565b563e2cedda1.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "75e2014d92d1404eafb231f0412182a6c5428887eaf15bc11f0678cb305cdc0f",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2021-t1/7a1ad5e666e38f1c5e4a.png",
+          "/corpus/figures/native/bulk/apho-2021-t1/d58cca77d2312f175d21.png",
+          "/corpus/figures/native/bulk/apho-2021-t1/d8bb984392c053aa3c97.png",
+          "/corpus/figures/native/bulk/apho-2021-t1/e09f5f4ddb9d7402cd03.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2021-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2021_Q2_tex.zip",
+    "zipSha256": "4ea967e96e92735d44b3f0479dae17fd9cca2ea4ec2e2f4abb61d75d52c72b73",
+    "documents": {
+      "statement": {
+        "texSha256": "19bb56f92940e77dd9b50e91452ab0c36050b4c78e4808ffdb463b982406852d",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2021-t2/427ab0691e94eec98b33.png",
+          "/corpus/figures/native/bulk/apho-2021-t2/aa7a0a989403ea72ab77.png",
+          "/corpus/figures/native/bulk/apho-2021-t2/c4357ca859ffbfa5fcbe.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "8a4a9bd8246824d5732814db23dcce2ef9097ad99c5a442e3ff6222cf556b6a1",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2021-t2/45eced6930ccfa530015.png",
+          "/corpus/figures/native/bulk/apho-2021-t2/f06360c907469cc1ba08.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2021-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2021_Q3_tex.zip",
+    "zipSha256": "01ec4dfc3c7abf44d3e3cc242eaa3be7147d4db71255e1eed9fd67b6aa36161e",
+    "documents": {
+      "statement": {
+        "texSha256": "af3d965a91b07a190c504e7aa8fa110480e51db0d818738cff1051db69ad1780",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2021-t3/1504e1c8de7c95783388.png",
+          "/corpus/figures/native/bulk/apho-2021-t3/60c5e211ee32e2055900.png",
+          "/corpus/figures/native/bulk/apho-2021-t3/d7bcf06912a503256b9e.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "5a9886f7777c28ac9c59a226513df8431c1bb52196390d3ec2b11bbf377ae287",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2021-t3/34dafc9b88ddbde80a1b.png",
+          "/corpus/figures/native/bulk/apho-2021-t3/b82df21f9d200f2d1940.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2019-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2019_Q1_tex.zip",
+    "zipSha256": "b71ead7aeedb4c3d1c1c05ff1bcd93a0e4fcd54eaf74734af48fc9b3000fd844",
+    "documents": {
+      "statement": {
+        "texSha256": "b80e8d1988d673f454da7df8edb21cf0536ee416f88552151c058f2f7da26d3c",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2019-t1/06f1f09eee54efe5fd6f.png",
+          "/corpus/figures/native/bulk/apho-2019-t1/210a4e8d1609bd86cd33.png",
+          "/corpus/figures/native/bulk/apho-2019-t1/56dd14a2ca87d9a2d0df.png",
+          "/corpus/figures/native/bulk/apho-2019-t1/571cf42dab8958858f93.png",
+          "/corpus/figures/native/bulk/apho-2019-t1/840db8cd9e7f5ffb66d3.png",
+          "/corpus/figures/native/bulk/apho-2019-t1/aee5af9634c8ff1f72bb.png",
+          "/corpus/figures/native/bulk/apho-2019-t1/bfad5348d3e88512f016.png",
+          "/corpus/figures/native/bulk/apho-2019-t1/c33659de9952f0e4479b.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "506ff6c35bae8eff257e94f66422e6bfd7e7e64cb66d1be6b70aefc2a23582e7",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2019-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2019_Q2_tex.zip",
+    "zipSha256": "c5d1cbd758d4fb6aad94f536fe64999479f2f468a3d30754b4f75112f7928926",
+    "documents": {
+      "statement": {
+        "texSha256": "74478ce3de7058a3f9e6bce79167ae57cb07d123da5eff9387f89e358621b8ca",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2019-t2/1fb0bacbe904caa62672.png",
+          "/corpus/figures/native/bulk/apho-2019-t2/7bd6e413f65fdfb2e1a3.png",
+          "/corpus/figures/native/bulk/apho-2019-t2/cd2d3593b8bb4b38247f.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "1490dc64474227c83d2056de85f85019731e3cefe9fffb1a138355bf355b164a",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2019-t2/f46565df09e6775bce19.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2019-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2019_Q3_tex.zip",
+    "zipSha256": "717cea8c260d3743654dbb0e9be4607ca31ee3e8461a6f808ccb78508dc5d0f0",
+    "documents": {
+      "statement": {
+        "texSha256": "e25cb2061aea9bb4b7631cf04375e9b6c9cc68807c54a61cbc0ce457f7f588b6",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2019-t3/48326af7bfd13b77804a.png",
+          "/corpus/figures/native/bulk/apho-2019-t3/8288f01308ed43a7c520.png",
+          "/corpus/figures/native/bulk/apho-2019-t3/ae35ce92792c980d15ed.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "78650741f37ac30a185acf99b8255f66210086c04bf58bf86ecc06996695271d",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2019-t3/a46c9b2db089dac31b44.png",
+          "/corpus/figures/native/bulk/apho-2019-t3/a9c03f5b7c51c38ffde0.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2018-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2018_Q1_tex.zip",
+    "zipSha256": "78dc757d63fbba9cdfeb34b99151346d5471544bc323b030e43d834e58993a82",
+    "documents": {
+      "statement": {
+        "texSha256": "fc0038d1721d137d825bef2a0170ef8d05c4b5022036e8091bf4011637f775f0",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2018-t1/90cee3c1b105a46a2a34.png",
+          "/corpus/figures/native/bulk/apho-2018-t1/d634fd60edfa6767a19f.png",
+          "/corpus/figures/native/bulk/apho-2018-t1/fa40c3fbd135396d6a09.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "dfa4b4ed40b639d36ac924a609c8d57fcd3a26a7bf665f770fe3c618e7467926",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2018-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2018_Q2_tex.zip",
+    "zipSha256": "196abd23c61f1789002ac3ade25fffe0714019ef340342a2c89633eed9a7a150",
+    "documents": {
+      "statement": {
+        "texSha256": "60edffd8393349ea718eb680ca2ea902a6c12b0aeaef193c9b6d922751d82cef",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2018-t2/0d6223b17138bfa1e2fe.png",
+          "/corpus/figures/native/bulk/apho-2018-t2/1218d31f29a372f2d759.png",
+          "/corpus/figures/native/bulk/apho-2018-t2/582344f8ab4775e6b758.png",
+          "/corpus/figures/native/bulk/apho-2018-t2/65009a68fd8b1332a537.png",
+          "/corpus/figures/native/bulk/apho-2018-t2/bad63e22ef95dc015117.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "89a915f6f9c4a7d695fb5bc93f08d347956da733b76f2dad9f49bf6e935cfba2",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2018-t2/d968c6bc5427a1395419.png",
+          "/corpus/figures/native/bulk/apho-2018-t2/e9565d4514ffc7a05605.png",
+          "/corpus/figures/native/bulk/apho-2018-t2/ec796e34b61bcb3a10ab.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2018-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2018_Q3_tex.zip",
+    "zipSha256": "2b2f6cb315ca1a837c15825e5f5d633b1c873c850473529eb45e1a2ceb5cc333",
+    "documents": {
+      "statement": {
+        "texSha256": "192e3bb04f27d4e3ed221ab67195648de1222c3d49e4691fbb6e793555151297",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2018-t3/84a9278b6d0a159a24ed.png",
+          "/corpus/figures/native/bulk/apho-2018-t3/8a10b37d68dcc3e7a7f3.png",
+          "/corpus/figures/native/bulk/apho-2018-t3/9d245b491fa992b2614a.png",
+          "/corpus/figures/native/bulk/apho-2018-t3/f1e7759f2cedb457ebd8.png",
+          "/corpus/figures/native/bulk/apho-2018-t3/f4757ffcb84c855df5bb.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "384dba68731aa119cadffdc9decd4836c9c067000a063d94fd60a15a5916be9b",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2017-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2017_Q1_tex.zip",
+    "zipSha256": "c0cd1ce83017f6480dcec5d223d500c6ccbfa48de081f6f8e1000a9ae4348d26",
+    "documents": {
+      "statement": {
+        "texSha256": "c090a9468a6ccca7a0e5221bd172c42304ebb9ef62c74dccb9361780d18428da",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2017-t1/0269f518a212b2b96fc4.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/15174cd65ad5bc431614.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/20115f79b355080c9d59.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/385861a5c378f4c43d58.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/3de7b287dbc763f3c663.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/480aef8510953f5acaf4.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/5ddba8720c63347cc79e.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/bbac2acb4e0754491fc6.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/be65e8f318a6dc4b2d57.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/c4396b0494349aac0b40.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/d7e0bb08ba9fff006b47.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/e5956b692a96aefafcee.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "09a35d867f39a7b3305464c5ba13b9be63527d60f805c5975f94b87c3e96a0d0",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2017-t1/06415a3eb911dd47f0c2.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/38b204ce5d1f1ddb7cfd.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/9d777d53768de11a2505.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/a3d508e04220071ee195.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/a4c0bf39126902d6d9a0.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/acc6c87a08b32bb9cc21.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/c4ea5e20ac31f2c60bd0.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/c59dccf6dca8ab748d8c.png",
+          "/corpus/figures/native/bulk/apho-2017-t1/d790c33c3eb493297526.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2017-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2017_Q2_tex.zip",
+    "zipSha256": "3ba951c50032bcf5a68493d9bbd47e238177dc3ffed1d579fe7428af3ddbbb89",
+    "documents": {
+      "statement": {
+        "texSha256": "cbccc394c76e1cb12eddb6892c351a5e278de6dd158d137448f3e14f4c538a2e",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2017-t2/dfe115cda05a7cab76cd.png",
+          "/corpus/figures/native/bulk/apho-2017-t2/fe596046967676fb3488.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "a9a64073f96f8ca24fd7aa21a41f8cdecaf868b048fc922b69b8162c4069abcb",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2017-t2/df2f73df71097cf1568a.png",
+          "/corpus/figures/native/bulk/apho-2017-t2/eeae3ec5d6bffce9aca8.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2017-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2017_Q3_tex.zip",
+    "zipSha256": "b902b29c2d8fcbbbd4b7ddcb04764925295279cf55b920e52f86fd1cba571b31",
+    "documents": {
+      "statement": {
+        "texSha256": "ff8f665e23f9cbfb2188b705ace814eca8a0f95399ab56c6c09a3a39f067819b",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2017-t3/0a49a319d14a3e8422c7.png",
+          "/corpus/figures/native/bulk/apho-2017-t3/0c015f2f56962e2a669a.png",
+          "/corpus/figures/native/bulk/apho-2017-t3/19463d760dc4554adaeb.png",
+          "/corpus/figures/native/bulk/apho-2017-t3/a74c01d2654493c5df95.png",
+          "/corpus/figures/native/bulk/apho-2017-t3/b62cd2c921f40992052a.png",
+          "/corpus/figures/native/bulk/apho-2017-t3/c2f7594c03831540b3e6.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "ea52b6620a500556b235b5df4eb7d0b7a34776845f47b1b6bd57416085a57d1f",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2017-t3/85b353860742d1a3b988.png",
+          "/corpus/figures/native/bulk/apho-2017-t3/89daae0c784b786041d3.png",
+          "/corpus/figures/native/bulk/apho-2017-t3/91a6354fc1d1365d1c55.png",
+          "/corpus/figures/native/bulk/apho-2017-t3/b2ae7b114e6357551be5.png",
+          "/corpus/figures/native/bulk/apho-2017-t3/deed31d6a4972886000f.png",
+          "/corpus/figures/native/bulk/apho-2017-t3/f4305d52d37751bd4be8.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2016-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2016_Q1_tex.zip",
+    "zipSha256": "63f18ee366920e0a134fb7097950740e8f126a0f357fe3469f72d62eb21d080e",
+    "documents": {
+      "statement": {
+        "texSha256": "8690c7ce11458723b2379db63b88ddf79d2bffb615da016d211ec253d35d2a7b",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2016-t1/199dbf14ef1da5c77bd2.png",
+          "/corpus/figures/native/bulk/apho-2016-t1/1f05c91a8d5512459474.png",
+          "/corpus/figures/native/bulk/apho-2016-t1/93d9c2802ee122dfcc40.png",
+          "/corpus/figures/native/bulk/apho-2016-t1/ed46195942e4ca9a85e8.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "3178edcf4a6d7ee03995fc586348fb44cd6bfc10ae19d71b42decc8a10f21e31",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2016-t1/25b5daab74018ef3b0b5.png",
+          "/corpus/figures/native/bulk/apho-2016-t1/56c1dc4b608cc897fe5e.png",
+          "/corpus/figures/native/bulk/apho-2016-t1/ee02e71ca591da7c2e11.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2009-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2009_Q1_tex.zip",
+    "zipSha256": "1588c99b4fe939f1a4ca1928f34a2a8fa16bfd4bd92e5eca9d8702c0dc4e39e5",
+    "documents": {
+      "statement": {
+        "texSha256": "47776b30f65740551505409bce22db9893f4af09d26d55ed4a051cda582046d7",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2009-t1/fca12de57d465f84cdc2.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "3652fbc265cbf5462d8ded1083640d9b0968aa27dcd0bf4680cfb1ddb41e5183",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2009-t1/27a98a150bf0a4157c8b.png",
+          "/corpus/figures/native/bulk/apho-2009-t1/3cf5f5b64107048e33cf.png",
+          "/corpus/figures/native/bulk/apho-2009-t1/7a1f104f8d5197c5015d.png",
+          "/corpus/figures/native/bulk/apho-2009-t1/feaee4c644c93b9806ec.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2016-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2016_Q3_tex.zip",
+    "zipSha256": "596fb05dc7eb2103620b2c6faec770001d4cab031fc73c5aa09531ca947fa1b8",
+    "documents": {
+      "statement": {
+        "texSha256": "727b14a4cb80ca3343e133f142d232517aa64eacf8fb9849187a0ec1795b8c45",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2016-t3/01a92adbfee725c51362.png",
+          "/corpus/figures/native/bulk/apho-2016-t3/6aa3bebbcb98fc70c0e3.png",
+          "/corpus/figures/native/bulk/apho-2016-t3/e0f733eabb008e7c89eb.png",
+          "/corpus/figures/native/bulk/apho-2016-t3/fb4b50dca5c0fe911f12.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "46e97e3e54cbd333638ce94baec998fbc500d530752892a2a35138f251a79c39",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2015-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2015_Q1_tex.zip",
+    "zipSha256": "ac5853023318d2eaa069fc3ec1ea42dc11e7dd2f9d69a56c0a82d562e38a983f",
+    "documents": {
+      "statement": {
+        "texSha256": "45004dbefbdc22a2685140404faf414ca6045eb16efa018cc2f93cfc0acfd0c6",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2015-t1/9fefeb77c7bb9be3bd22.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "26e9422111bbe387b167a28edbf932b46c7d3ad54f45206d77ccdeef81b488e7",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2015-t1/2b5dcc61c40e4ede2dfc.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2015-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2015_Q2_tex.zip",
+    "zipSha256": "d6b959e9877be56165850ecdde712bfd3cce8eae60acb22419f8fb7b6ae68567",
+    "documents": {
+      "statement": {
+        "texSha256": "dfe4d4ff7185571f8dd4701497fe756333a54e095a48fd775dcfbe647d83a67c",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2015-t2/00b0982c1503f4719d16.jpg",
+          "/corpus/figures/native/bulk/apho-2015-t2/26522445566d0b99e055.png",
+          "/corpus/figures/native/bulk/apho-2015-t2/4762274a28948c33cd5c.png",
+          "/corpus/figures/native/bulk/apho-2015-t2/682e74becbdd3f3106a9.jpg",
+          "/corpus/figures/native/bulk/apho-2015-t2/ca28a63d0fd3c34f6f41.png",
+          "/corpus/figures/native/bulk/apho-2015-t2/d64113f35f4b969969d5.png",
+          "/corpus/figures/native/bulk/apho-2015-t2/db5572ce3cae781ad6fe.png",
+          "/corpus/figures/native/bulk/apho-2015-t2/e27376409a0385a2bc4b.png",
+          "/corpus/figures/native/bulk/apho-2015-t2/f7901117cb04788d7c38.jpg"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "8469b4fde300b1e25cfab608db6b43448ed85853add2193ae9a772472928029a",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2015-t2/0cb4e8c2a4aa9f1891af.png",
+          "/corpus/figures/native/bulk/apho-2015-t2/b98626f5709b668cc753.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2015-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2015_Q3_tex.zip",
+    "zipSha256": "525d2f1fbcb5682d70e5d569fdcb32c8188fc98f6c517f09816f2c7244fa0e69",
+    "documents": {
+      "statement": {
+        "texSha256": "31575b1d5133011282f155960ba5a96c1fb37e99c1591d758fa64bc0d9f9f66d",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2015-t3/244d7692a593ddf3a570.png",
+          "/corpus/figures/native/bulk/apho-2015-t3/6e7c85219b28577f1358.png",
+          "/corpus/figures/native/bulk/apho-2015-t3/e1971aecdeeb5325390d.png",
+          "/corpus/figures/native/bulk/apho-2015-t3/fbbf4778e02d0310d27b.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "cf9b3629bc636a88679a3993850ef9197577a66b9448e0ef0a801845b70bfc33",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2015-t3/105867cc6ad11a79c708.png",
+          "/corpus/figures/native/bulk/apho-2015-t3/9d09f4e5eae715025d34.png",
+          "/corpus/figures/native/bulk/apho-2015-t3/ca898b695c3cef6a6dc5.png",
+          "/corpus/figures/native/bulk/apho-2015-t3/e28d4bbf6969534e2931.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2006-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2006_Q2_tex.zip",
+    "zipSha256": "96e8e186ef0227d8d23a048715f92358480a6886906be0d48e973c0412fb1050",
+    "documents": {
+      "statement": {
+        "texSha256": "84824dc389243c7146c2cd13a541f6cd29157b7f8bc0ace138eaef067f80a43a",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2006-t2/44c7d6caaaaba4740ad0.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "b0a1a62cbec979f5ead07c653a2a254f7cc1417b4096814ed920a2dfd76d25b7",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2006-t2/01e63621b3b564d78e20.png",
+          "/corpus/figures/native/bulk/apho-2006-t2/0e6ced8eec12ce5ef62c.png",
+          "/corpus/figures/native/bulk/apho-2006-t2/7fe5f93e28e295ef2c3a.png",
+          "/corpus/figures/native/bulk/apho-2006-t2/c8537cf54b0c2ae40436.png",
+          "/corpus/figures/native/bulk/apho-2006-t2/e3dc6df09ca04eee5544.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2014-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2014_Q2_tex.zip",
+    "zipSha256": "9585a2d2ab82d79d4e7decd12cb9a750534c0a707673f5fa73fe6527cc1b0b34",
+    "documents": {
+      "statement": {
+        "texSha256": "8f12e7674220ecbf236651a1e1a6e5ee00560f5c82d0e6404dee057251765148",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2014-t2/d80a62d6457ad18f2c32.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "fbf1b8c0a6dcac95a5669887660387a26416eedaacf10f2d5b84ead0d03f61e9",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2014-t2/dbc610bfb56ad1ae2077.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2014-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2014_Q3_tex.zip",
+    "zipSha256": "c7b0eb4cfb265c5132be4988f31a982d2e04b30534020e507ed447e7ede3db14",
+    "documents": {
+      "statement": {
+        "texSha256": "82fc2d99059e94671a85dcef109a6ca21582c25f2d3c5c63b3bdd7833e7ee47f",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "0468c690b73cb46a62ad1c33059b163386600bb6780c3ba00d48b6557c37e42b",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2014-t3/1b257af8748cbb7ac11b.png",
+          "/corpus/figures/native/bulk/apho-2014-t3/29cfa774e8201eea1459.png",
+          "/corpus/figures/native/bulk/apho-2014-t3/549dcb3d694f2fc9cf03.png",
+          "/corpus/figures/native/bulk/apho-2014-t3/ffc6d8451d90b9931100.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2013-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2013_Q1_tex.zip",
+    "zipSha256": "5e674f622dd281ef43639a6a0c3ef32e820272161b125b5b0af280075640b914",
+    "documents": {
+      "statement": {
+        "texSha256": "6b7d161b03251dd8d6cfd5a42d39b4644bf54ddf951b24a3dc8067764c658758",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "25f02453ecce176171404e1c9845093dd1ebc4b13fd2f2afb6bcfe127e9d6978",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2013-t1/09c2ed5cef5db6b8a133.png",
+          "/corpus/figures/native/bulk/apho-2013-t1/247a39abc8656662cf09.png",
+          "/corpus/figures/native/bulk/apho-2013-t1/bbc7390ad299a0f6644e.png",
+          "/corpus/figures/native/bulk/apho-2013-t1/c7c94ab4ab456f24512d.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "apho-2013-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/apho/APhO_2013_Q3_tex.zip",
+    "zipSha256": "9c1542e7092e73ea671339b4ad0dccfe688bd882c107a6145623ecba7525022d",
+    "documents": {
+      "statement": {
+        "texSha256": "8e75fa748ee63f4903bb078426476b7e910afb8826fef710506839cece9ec057",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2013-t3/ed09bd18abd2bc03c3c1.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "3fee83e34e77807401910a93ee36eb3402f404f0aaed3fc4e78bf1576629391a",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/apho-2013-t3/2ac222d1f4da3fe8d37c.png",
+          "/corpus/figures/native/bulk/apho-2013-t3/57b73d51411f522081b7.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2025-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2025_Q1_tex.zip",
+    "zipSha256": "e1435590d93b6b764ab4bcf84a69075326187ada42534d6abcc5461c987459c3",
+    "documents": {
+      "statement": {
+        "texSha256": "574da1f8bb0f977235dfa521e235dcc99e2836883d28b9a51d7563dce98bcefc",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2025-t1/950aea00322ce76404cf.jpg",
+          "/corpus/figures/native/bulk/eupho-2025-t1/9620dd30913ec43c36f6.jpg"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "32c2664a9e57ef7f8c3111784ed0a4b2556c1af37e6e1a5bf849e84cf0760d95",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2025-t1/1c27d5cb5f4c3a3ade9a.png",
+          "/corpus/figures/native/bulk/eupho-2025-t1/5669401e5b8ca9654751.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2025-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2025_Q2_tex.zip",
+    "zipSha256": "6dfb7e0e6a1a4a95634d76262474c5171f74dacaa2a33e2300d1124e73df1514",
+    "documents": {
+      "statement": {
+        "texSha256": "70b70ecf552a5ce4d196b52c67ef70544a14fcd13523e5a50194259f0459f972",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2025-t2/ee6801b3175455bf435d.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "d7b202eef55055f494c0ebf700f883bccd9736cee03e6a48b6f5c574e485e91d",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2025-t2/05ff1287aab9712a1bcd.png",
+          "/corpus/figures/native/bulk/eupho-2025-t2/272ef922b5bc85af9df9.png",
+          "/corpus/figures/native/bulk/eupho-2025-t2/2c6b9bd446a18f394953.png",
+          "/corpus/figures/native/bulk/eupho-2025-t2/4685ee02e3ce6b85934a.png",
+          "/corpus/figures/native/bulk/eupho-2025-t2/58b745d743c7b97137c4.png",
+          "/corpus/figures/native/bulk/eupho-2025-t2/8a85bd752b77b3eac857.png",
+          "/corpus/figures/native/bulk/eupho-2025-t2/f9073ae2897e0130d0a2.png",
+          "/corpus/figures/native/bulk/eupho-2025-t2/fe2bb564f7f15389af8c.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2025-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2025_Q3_tex.zip",
+    "zipSha256": "6f4601037141e9c0cdc38eaeafdd73508a6e3550662d800e1ea361beabb242d2",
+    "documents": {
+      "statement": {
+        "texSha256": "12bd7429629ddeb9f67fe87be132654664d22428a5fb9890f5fbfea24b121edb",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2025-t3/82164d11789af35e3270.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "869296e9fa21ea372d6d6e9b91d7bc73cfcd494ba0c4de9d31b8a4a97e73672a",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2025-t3/044dcb1356995e65d853.png",
+          "/corpus/figures/native/bulk/eupho-2025-t3/4fcf729771e6c08e9858.png",
+          "/corpus/figures/native/bulk/eupho-2025-t3/60e09e67e3b446c4a16d.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2024-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2024_Q1_tex.zip",
+    "zipSha256": "179acf6a3aaf1588f34e806a9ae14716397dbfa3ecafa8ff053e56b975a3a96b",
+    "documents": {
+      "statement": {
+        "texSha256": "dacf1e278b6efa6ec2639b5253423eac5901e2e96075c0a31ec29b95c3c3cf27",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2024-t1/e30388b0d50998762bb7.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "d45506bc2ded678b771af78483fd5782ab90c249d0f015b8755fe16089011d6a",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2024-t1/152ab458ea7c76f78530.png",
+          "/corpus/figures/native/bulk/eupho-2024-t1/6c366472d5e12455c644.png",
+          "/corpus/figures/native/bulk/eupho-2024-t1/846a8ff885b27bb1ba27.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2024-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2024_Q2_tex.zip",
+    "zipSha256": "bceecbe1009d4c36984a55abc21c927452bba438d793ab9965f157eac4f1141c",
+    "documents": {
+      "statement": {
+        "texSha256": "8d56bd942e2529428a23fcee4e884f818d7a81d8493a5d41180bd247134ec533",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "f76062ab811f9b9c13d4a113a175b9f270d87a1d6ad416f988614051ccbd9418",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2024-t2/044c2c1885ab2f24b363.png",
+          "/corpus/figures/native/bulk/eupho-2024-t2/11401d8a0ecdd770a175.png",
+          "/corpus/figures/native/bulk/eupho-2024-t2/75578bb3a9937fe9099b.png",
+          "/corpus/figures/native/bulk/eupho-2024-t2/7ea28d3f1aad94a1e28a.png",
+          "/corpus/figures/native/bulk/eupho-2024-t2/9c2e6503e17dd61f991c.png",
+          "/corpus/figures/native/bulk/eupho-2024-t2/d0d78c24c0ccdc463621.png",
+          "/corpus/figures/native/bulk/eupho-2024-t2/e008eb36a3e63bb1edfd.png",
+          "/corpus/figures/native/bulk/eupho-2024-t2/e61d0fe7dde12e1481af.png",
+          "/corpus/figures/native/bulk/eupho-2024-t2/f9fbcb4f1a115236b6dd.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2024-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2024_Q3_tex.zip",
+    "zipSha256": "b042ee407b7a6452dc0cb42fe554fca491bda33db916352aee5d96aa0c1f71d6",
+    "documents": {
+      "statement": {
+        "texSha256": "6dee78390658af10bd74130a8c2f412ca211eeb6251457cd2d5a7f6bd6e48cb1",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2024-t3/d3617b337cb84f1edc41.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "9fbc661c40a28dcfaec7a88e72c4ac45ef4977457cacb8ffc4baed74d88a91db",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2024-t3/1655950d648238a827c6.png",
+          "/corpus/figures/native/bulk/eupho-2024-t3/8ee2e8be57072f90da86.png",
+          "/corpus/figures/native/bulk/eupho-2024-t3/9ab6f6519bfef321daae.png",
+          "/corpus/figures/native/bulk/eupho-2024-t3/9b8ef141272332b55854.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2023-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2023_Q1_tex.zip",
+    "zipSha256": "b633ecd7126b46a34cc4a64a14f294d58358c577f497fc76bc4ae973e26bb208",
+    "documents": {
+      "statement": {
+        "texSha256": "74ee0233a16f8940bdfc872ea1e97ec3180082aa287591f2c2559f76f05df0a5",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2023-t1/ea7c7127877caf8eea6c.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "ff497c91837ff7f01e7cf872a9dcc792f4b7c00425fdc27e974d02443bf40027",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2023-t1/0f71930f52067ce5106d.png",
+          "/corpus/figures/native/bulk/eupho-2023-t1/835539595ac83b6b1c79.png",
+          "/corpus/figures/native/bulk/eupho-2023-t1/c3bd2a027c6bd7e94626.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2023-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2023_Q2_tex.zip",
+    "zipSha256": "28ed42715a80be6a7f71ff075658e8baff419f592ffe1a9b7abdf9cd7cb0a5e7",
+    "documents": {
+      "statement": {
+        "texSha256": "aa14f8b10fa4e57eb018a9a8ef95a1b7494c0430e7ffbd4add4b5c83824eba60",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2023-t2/ae66ce050b2b514ad7c5.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "d5a74334c9970d055dbe9cb5c0fd7d991acec4f1ddec0e80b621005f617962c0",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2023-t2/211234ac779dfe8615ed.png",
+          "/corpus/figures/native/bulk/eupho-2023-t2/21a16845336a9c8c1e35.png",
+          "/corpus/figures/native/bulk/eupho-2023-t2/35a968a7053398049df3.png",
+          "/corpus/figures/native/bulk/eupho-2023-t2/439174b3c0904ae761f2.png",
+          "/corpus/figures/native/bulk/eupho-2023-t2/44db738e83c512138f4e.png",
+          "/corpus/figures/native/bulk/eupho-2023-t2/5987bce899f744709ffb.png",
+          "/corpus/figures/native/bulk/eupho-2023-t2/8070bc1db4a58967da79.png",
+          "/corpus/figures/native/bulk/eupho-2023-t2/9b8be8be1cb270d759f1.png",
+          "/corpus/figures/native/bulk/eupho-2023-t2/da4fd003c737cb3ba1fc.png",
+          "/corpus/figures/native/bulk/eupho-2023-t2/dd17f440113ae2b2e39c.png",
+          "/corpus/figures/native/bulk/eupho-2023-t2/de5fb77b17ea84f76f8f.png",
+          "/corpus/figures/native/bulk/eupho-2023-t2/e0b8bfe676eafa60adf0.png",
+          "/corpus/figures/native/bulk/eupho-2023-t2/f80710e32b15026c9973.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2023-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2023_Q3_tex.zip",
+    "zipSha256": "2c0dd583b955da77886f5c1fc053f10b1b122db0f70aaa8a7c5d0cc1126ea4c2",
+    "documents": {
+      "statement": {
+        "texSha256": "3e0a696c57eede6c0537fad4f4005cb42b37282f7026fe48b2cf1020739c63d3",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2023-t3/c876c307db6c3e273fbe.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "a38ea0070f9ebdb55ec257570895e7e82e5803a9b775881b89b1ec399153cd80",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2023-t3/2ddac3c8263569625019.png",
+          "/corpus/figures/native/bulk/eupho-2023-t3/53377882f4a570ccb175.png",
+          "/corpus/figures/native/bulk/eupho-2023-t3/5635bebc024f68eb8f18.png",
+          "/corpus/figures/native/bulk/eupho-2023-t3/b44104664138c02fba95.png",
+          "/corpus/figures/native/bulk/eupho-2023-t3/bb356ae1dfa86f39692a.png",
+          "/corpus/figures/native/bulk/eupho-2023-t3/e0e03d70b579d060031b.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2022-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2022_Q1_tex.zip",
+    "zipSha256": "e2d0541802594861ff80135c70794f11d8df47395c4e8cceb888d2df1c8777b6",
+    "documents": {
+      "statement": {
+        "texSha256": "80e70f4769246653afc59c989d8e2826c3c6d730105f7bb288a83a2465dba4b6",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "93445c4fd6a537312031f8188292c9c120edec34dad700e64362f00141456b00",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2022-t1/738da92c92f9481b6b3d.png",
+          "/corpus/figures/native/bulk/eupho-2022-t1/809898499977b19a43f8.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2022-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2022_Q2_tex.zip",
+    "zipSha256": "83e7e55622c398ab9b89f1ab2ef1bf4d886e8165c56d4fd68d9ba970540b46f2",
+    "documents": {
+      "statement": {
+        "texSha256": "3e751d1527b304cc90a2aa1db22c7f343ebd5ef675f52b689e7fdf3ec48778a8",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2022-t2/aae95e20c3e986562894.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "ea7dd7c1d9f13001f6a53dbc80509a348f24b03d6883ed23e4a38e531f8c49be",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2022-t2/1b202f26be60270996ea.png",
+          "/corpus/figures/native/bulk/eupho-2022-t2/390001cdbceb08193861.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2022-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2022_Q3_tex.zip",
+    "zipSha256": "4d1ff8ab5441d5a893abd7b027bce5abf6a0bf7aa360f9ea04be9050151a0826",
+    "documents": {
+      "statement": {
+        "texSha256": "adf43f2429cf5e76dcc61863ad492ecbae0ab775200c20eac4e7d52f32ee0973",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2022-t3/cb10b24c3bc2b17fc663.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "4f3144b264e2a5c8b3b5e40f776e93748dcfacca7f64b95d018d84b55f049fe7",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2022-t3/c3ddc47edb007d637c62.png",
+          "/corpus/figures/native/bulk/eupho-2022-t3/ef858b5aeb381f2ef246.png",
+          "/corpus/figures/native/bulk/eupho-2022-t3/fe04fc7f506250f9780b.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2021-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2021_Q1_tex.zip",
+    "zipSha256": "25b4d19f5823e162cd6aa5172d3b4cc50a5e3e76e28d141cf48fe84218b92383",
+    "documents": {
+      "statement": {
+        "texSha256": "bfa71ab45120675cad567316312a8baa132fa6a14864be67bfb94c1d060e5be2",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2021-t1/681bb000657d67110244.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "2a7738377b692ba24c3cf7ffe75450cbe4882371d2ba2df32558b473240372bf",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2021-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2021_Q2_tex.zip",
+    "zipSha256": "accb682b225e069cb14727758230d78236db8605d65a9246afa9dde1fa6b4d04",
+    "documents": {
+      "statement": {
+        "texSha256": "4acffaf1ade5db44a1a3366181115152ce6767a36fda59fdcaffedb166e0c951",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2021-t2/83ae984fc8e5ceaf518a.jpg"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "fd271284a58569362fe3aef1a77b1e4c40861137986abe26d226001dec1e1d81",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2021-t2/4b30461bf6375eed84e6.png",
+          "/corpus/figures/native/bulk/eupho-2021-t2/ca708d3fe87813f7b0ae.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2021-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2021_Q3_tex.zip",
+    "zipSha256": "687802a4fc9cdb1f4c8690a2b03252c09eb914f8fee600b511e99a5eaf2aaff0",
+    "documents": {
+      "statement": {
+        "texSha256": "8d974553387f47627c64a2c57552b3d8cf4fa982133091222fa03e8c1c74c72c",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2021-t3/1c072d7011daeea85b1b.jpg",
+          "/corpus/figures/native/bulk/eupho-2021-t3/729eaa0f0773230e260a.jpg",
+          "/corpus/figures/native/bulk/eupho-2021-t3/d7d306d73456f0ae52f9.jpg"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "7f9db79e83c9b4406b6c366d139922b6321070ac3e5fb58ee68f61460ed3b175",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2021-t3/2d779026669e4590a209.png",
+          "/corpus/figures/native/bulk/eupho-2021-t3/4cf8bb5b713eee48323b.png",
+          "/corpus/figures/native/bulk/eupho-2021-t3/89bf33f2a01c7356e9f1.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2017-t1",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2017_Q1_tex.zip",
+    "zipSha256": "7dcb2ff9205e9b5fd66f33247d5310f9b45a1aafa3a6d3a1e7e7772c3ad0b9cf",
+    "documents": {
+      "statement": {
+        "texSha256": "58d9f53a06ad4058a191cd129317b23b7a8c6c9c43047444c81a0850e0a9c40f",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2017-t1/77449bfb08a7d6661ffc.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "5c0bb229ead95b8e4313d8e3fa64ade7ee50f08c3cdeae001d784d955fbe3430",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [
+          "/corpus/figures/native/bulk/eupho-2017-t1/40b4af20994dcf6bf0dd.png"
+        ],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2017-t2",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2017_Q2_tex.zip",
+    "zipSha256": "50de4dca7d451451a9660cab94fa9c41d9274746d944d226688fa032b62e9543",
+    "documents": {
+      "statement": {
+        "texSha256": "68ca155aca90cd230e45fda754cc5cc7f0f48e89947dfa257fd4348bc5bf87b1",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "bab6b4a6a6c46ff72279269593a39b1a46d91a0e5fa821a277c37f521138286c",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  },
+  {
+    "id": "eupho-2017-t3",
+    "transcriptionUrl": "https://olimpicos.net/files/eupho/EuPhO_2017_Q3_tex.zip",
+    "zipSha256": "cebf8447f779b7bfe24cdedd7b36e6b103d48a32f0f86d722f8829906f00b242",
+    "documents": {
+      "statement": {
+        "texSha256": "f7929946d055724a31df269cb8fcf776f811e5812993b61d02414545502c5d08",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      },
+      "solution": {
+        "texSha256": "c281759554d7fe1681de4db67cfe3cc3fa90a642cb09b706b2bf92c2f03612f1",
+        "origin": "olimpicos-latex-transcription",
+        "figures": [],
+        "validation": "parsed-and-katex-validated",
+        "pageComparison": "pending"
+      }
+    }
+  }
+]

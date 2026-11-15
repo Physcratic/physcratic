@@ -1,1 +1,6008 @@
-{"id":"ipho-2015-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2015_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2015_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2015-t1-statement/document.pdf","pages":[],"sourcePages":[1,2],"initialPage":1,"shared":false,"text":" \n \nPage 1 of 2 \nT-1 \nQ \n \nParticles from the Sun1 \n(Total Marks: 10) \n \nPhotons from the surface of the Sun and neutrinos from its core can tell us about solar temperatures and also \nconfirm that the Sun shines because of nuclear reactions. \nThroughout this problem, take the mass of the Sun to be                , its radius,         \n     , its luminosity (radiation energy emitted per unit time),               , and the Earth-Sun \ndistance,               . \nNote: \n   ∫       ( \n   \n  )               \n    ∫        (  \n    \n    \n  )               \n     ∫        (  \n     \n     \n    \n  )               \n \nA Radiation from the sun : \n \nA1 \nAssume that the Sun radiates like a perfect blackbody. Use this fact to calculate the temperature,   , of the \nsolar surface. \n0.3 \n \nThe spectrum of solar radiation can be approximated well by the Wien distribution law. Accordingly, the \nsolar energy incident on any surface on the Earth per unit time per unit frequency interval,     , is given by \n        \n \n  \n \n   \n                   \nwhere   is the frequency and    is the area of the surface normal to the direction of the incident radiation. \nNow, consider a solar cell which consists of a thin disc of semiconducting material of area,  , placed \nperpendicular to the direction of the Sun’  rays. \n \nA2 \nUsing the Wien approximation, express the total radiated solar power,    , incident on the surface of the \nsolar cell, in terms of  ,   ,   ,    and the fundamental constants  ,  ,   . \n0.3 \nA3 \nExpress the number of photons,      , per unit time per unit frequency interval incident on the surface of \nthe solar cell in terms of  ,   ,   ,   ,   and the fundamental constants  ,  ,   . \n0.2 \n \nTh         du          r  l  f  h    l r   ll h     “b  d    ”  f    r y,   . We assume the following \nmodel.  Every photon of energy      excites an electron across the band gap. This electron contributes an \nenergy,   , as the useful output energy, and any extra energy is dissipated as heat (not converted to useful \nenergy). \n \nA4 \nDefine             where       . Express the useful output power of the cell,   u , in terms of   ,  , \n  ,   ,    and the fundamental constants  ,  ,   . \n1.0 \nA5 \nExpress the efficiency,  , of this solar cell in terms of    . \n0.2 \nA6 \nMake a qualitative sketch of   versus   . The values at       and       should be clearly shown. What \nis the slope of       at       and      ? \n1.0 \nA7 \nLet    be the value of     for which   is maximum. Obtain the cubic equation that gives   . Estimate the \nvalue of    within an accuracy of       . Hence calculate      . \n1.0 \nA8 \nThe band gap of pure silicon is           . Calculate the efficiency,    , of a silicon solar cell using this \nvalue. \n0.2 \n                                                 \n1 Amol Dighe (TIFR), Anwesh Mazumdar (HBCSE-TIFR) and  Vijay A. Singh  (ex-National Coordinator, Science Olympiads) \nwere the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group and the \nInternational Board are gratefully acknowledged. \n\n \n \nPage 2 of 2 \nT-1 \nQ \nIn the late nineteenth century, Kelvin and Helmholtz (KH) proposed a hypothesis to explain how the Sun \nshines. They postulated that starting as a very large cloud of matter of mass,   , and negligible density, the \nSun has been shrinking continuously. The shining of the Sun would then be due to the release of \ngravitational potential energy through this slow contraction. \nA9 \nLet us assume that the density of matter is uniform inside the Sun. Find the total gravitational potential \nenergy,  , of the Sun at present, in terms of G,    and   . \n0.3 \nA10 Estimate the maximum possible time,     (in years), for which the Sun could have been shining, according \nto the KH hypothesis. Assume that the luminosity of the Sun has been constant throughout this period. \n0.5 \n \nThe     calculated above does not match the age of the solar system estimated from studies of meteorites. \nThis shows that the energy source of the Sun cannot be purely gravitational. \n \nB Neutrinos from the Sun : \nIn 1938, Hans Bethe proposed that nuclear fusion of hydrogen into helium in the core of the Sun is the source \nof its energy. The net nuclear reaction is: \n                 \n \n \n \nTh  “ l   r     u r    ”,   , produced in this reaction may be taken to be massless. They escape  the Sun \nand their detection  on the  Earth  confirms  the  occurrence  of  nuclear  reactions  inside the  Sun. Energy carried \naway by the neutrinos can be neglected in this problem. \n \nB1 \nCalculate the flux density,   , of the number of neutrinos arriving at the Earth, in units of          The \nenergy released in the above reaction is               . Assume that the energy radiated by the Sun is \nentirely due to this reaction.  \n0.6 \n \nTravelling from the core of the Sun to the Earth, some of the electron neutrinos,   , are converted to other \ntypes of neutrinos,   . The efficiency of the detector for detecting    is 1/6 of its efficiency for detecting   . \nIf there is no neutrino conversion, we expect to detect an average of    neutrinos in a year. However, due to \nthe conversion, an average of    neutrinos (   and    combined) are actually detected per year. \n \nB2 \nIn terms of     and   , calculate what fraction,   , of    is converted to   . \n0.4 \n \nIn order to detect neutrinos, large detectors filled with water are constructed. Although the interactions of \nneutrinos with matter are very rare, occasionally they knock out electrons from water molecules in the \ndetector. These energetic electrons move through water at high speeds, emitting electromagnetic radiation \nin the process. As long as the speed of such an electron is greater than the speed of light in water (refractive \nindex,  ), this radiation, called Cherenkov radiation, is emitted in the shape of a cone. \n \nB3 \nAssume that an electron knocked out by a neutrino loses energy at a constant rate of   per unit time, while it \ntravels through water. If this electron emits Cherenkov radiation for a time,   , determine the energy \nimparted to this electron (     r  d  by the neutrino, in terms of  ,   , n,    and  . (Assume the electron to \nbe at rest before its interaction with the neutrino.) \n2.0 \n \nThe fusion of H into He inside the Sun takes place in several steps. Nucleus of \n  \n \n (rest mass,    ) is \nproduced in one of these intermediate steps. Subsequently, it can absorb an electron, producing \na    \n \nnucleus (rest mass,     <    ) and emitting a   . The corresponding nuclear reaction is: \n        \n       \n \n \n \n \n \nWhen a Be nucleus                      is at rest and absorbs an electron also at rest, the emitted \nneutrino has energy                . However, the    nuclei are in random thermal motion due to the \ntemperature    at the core of the Sun, and act as moving neutrino sources. As a result, the energy of emitted \nneutrinos fluctuates with a root mean square (rms) value      . \n \nB4 \nIf      =           , calculate the rms speed of the Be nuclei,    , and hence estimate   . (Hint:       \ndepends on the rms value of the component of velocity along the line of sight). \n2.0 \n \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2015-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"Theoretical Task 1 (T-1) : Solutions\n1 of 7\nParticles from the Sun1\nPhotons from the surface of the Sun and neutrinos from its core can tell us about solar temperatures\nand also conﬁrm that the Sun shines because of nuclear reactions.\nThroughout this problem, take the mass of the Sun to be M⊙= 2.00 × 1030 kg, its radius, R⊙=\n7.00 × 108 m, its luminosity (radiation energy emitted per unit time), L⊙= 3.85 × 1026 W, and the\nEarth-Sun distance, d⊙= 1.50 × 1011 m.\nNote:\n(i)\nZ\nxeaxdx =\n\u0012x\na −1\na2\n\u0013\neax + constant\n(ii)\nZ\nx2eaxdx =\n\u0012x2\na −2x\na2 + 2\na3\n\u0013\neax + constant\n(iii)\nZ\nx3eaxdx =\n\u0012x3\na −3x2\na2 + 6x\na3 −6\na4\n\u0013\neax + constant\nA. Radiation from the Sun :\n(A1) Assume that the Sun radiates like a perfect blackbody. Use this fact to calculate the temperature,\nTs , of the solar surface.\n[0.3]\nSolution:\nStefan’s law: L⊙= (4πR2\n⊙)(σT 4\ns )\nTs =\n\u0012\nL⊙\n4πR2\n⊙σ\n\u00131/4\n= 5.76 × 103 K\nThe spectrum of solar radiation can be approximated well by the Wien distribution law. Accordingly,\nthe solar energy incident on any surface on the Earth per unit time per unit frequency interval, u(ν),\nis given by\nu(ν) = A R2\n⊙\nd2\n⊙\n2πh\nc2 ν3 exp(−hν/kBTs),\nwhere A is the area of the surface normal to the direction of the incident radiation.\nNow, consider a solar cell which consists of a thin disc of semiconducting material of area, A, placed\nperpendicular to the direction of the Sun’s rays.\n(A2) Using the Wien approximation, express the total power, Pin, incident on the surface of the solar\ncell, in terms of A, R⊙, d⊙, Ts and the fundamental constants c, h, kB.\n[0.3]\n1Amol Dighe (TIFR), Anwesh Mazumdar (HBCSE-TIFR) and Vijay A. Singh (ex-National Coordinator, Science\nOlympiads) were the principal authors of this problem. The contributions of the Academic Committee, Academic De-\nvelopment Group and the International Board are gratefully acknowledged.\n\nTheoretical Task 1 (T-1) : Solutions\n2 of 7\nSolution:\nPin =\nZ ∞\n0\nu(ν)dν =\nZ ∞\n0\nA R2\n⊙\nd2\n⊙\n2πh\nc2 ν3 exp(−hν/kBTs)dν\nLet x = hν\nkBTs\n. Then, ν = kBTs\nh x\ndν = kBTs\nh dx.\nPin = 2πhAR2\n⊙\nc2d2\n⊙\n(kBTs)4\nh4\nZ ∞\n0\nx3e−xdx = 2πk4\nB\nc2h3 Ts\n4 A R2\n⊙\nd2\n⊙\n· 6 = 12πk4\nB\nc2h3 Ts\n4 A R2\n⊙\nd2\n⊙\n(A3) Express the number of photons, nγ(ν), per unit time per unit frequency interval incident on the\nsurface of the solar cell in terms of A, R⊙, d⊙, Ts ν and the fundamental constants c, h, kB.\n[0.2]\nSolution:\nnγ(ν)\n=\nu(ν)\nhν\n=\nA R2\n⊙\nd2\n⊙\n2π\nc2 ν2 exp(−hν/kBTs)\nThe semiconducting material of the solar cell has a “band gap” of energy, Eg. We assume the follow-\ning model. Every photon of energy E ≥Eg excites an electron across the band gap. This electron\ncontributes an energy, Eg , as the useful output energy, and any extra energy is dissipated as heat (not\nconverted to useful energy).\n(A4) Deﬁne xg = hνg/kBTs where Eg = hνg. Express the useful output power of the cell, Pout, in\nterms of xg, A, R⊙, d⊙, Ts and the fundamental constants c, h, kB.\n[1.0]\nSolution:\nThe useful power output is the useful energy quantum per photon, Eg ≡hνg, multiplied by\nthe number of photons with energy, E ≥Eg.\nPout\n=\nhνg\nZ ∞\nνg\nnγ(ν)dν\n=\nhνg A R2\n⊙\nd2\n⊙\n2π\nc2\nZ ∞\nνg\nν2 exp(−hν/kBTs)dν\n=\nkBTsxg A R2\n⊙\nd2\n⊙\n2π\nc2\n\u0012kBTs\nh\n\u00133 Z ∞\nxg\nx2e−xdx\n=\n2πk4\nB\nc2h3 Ts\n4 A R2\n⊙\nd2\n⊙\nxg(x2\ng + 2xg + 2)e−xg\n(A5) Express the efﬁciency, η, of this solar cell in terms of xg.\n[0.2]\n\nTheoretical Task 1 (T-1) : Solutions\n3 of 7\nSolution:\nEfﬁciency η = Pout\nPin\n= xg\n6 (x2\ng + 2xg + 2)e−xg\n(A6) Make a qualitative sketch of η versus xg. The values at xg = 0 and xg →∞should be clearly\nshown. What is the slope of η(xg) at xg = 0 and xg →∞?\n[1.0]\nSolution:\nη = 1\n6 (x3\ng + 2x2\ng + 2xg)e−xg\nPut limiting values, η(0) = 0\nη(∞) = 0.\nSince the polynomial has all positive coefﬁcients, it increases monotonically; the exponential\nfunction decreases monotonically. Therefore, η has only one maximum.\ndη\ndxg\n= 1\n6(−x3\ng + x2\ng + 2xg + 2)e−xg\ndη\ndxg\n\f\f\f\f\nxg=0\n= 1\n3\ndη\ndxg\n\f\f\f\f\nxg→∞\n= 0\nxg\nη\n(A7) Let x0 be the value of xg for which η is maximum. Obtain the cubic equation that gives x0.\nEstimate the value of x0 within an accuracy of ±0.25. Hence calculate η(x0).\n[1.0]\nSolution:\nThe maximum will be for dη\ndxg\n= 1\n6(−x3\ng + x2\ng + 2xg + 2)e−xg = 0\n⇒p(xg) ≡x3\ng −x2\ng −2xg −2 = 0\nA Numerical Solution by the Bisection Method:\nNow,\np(0)\n=\n−2\np(1)\n=\n−4\np(2)\n=\n−2\np(3)\n=\n10\n⇒\n2 < x0 < 3\np(2.5)\n=\n2.375\n⇒\n2 < x0 < 2.5\np(2.25)\n=\n−0.171\n⇒\n2.25 < x0 < 2.5\nThe approximate value of xg where η is maximum is x0 = 2.27.\n\nTheoretical Task 1 (T-1) : Solutions\n4 of 7\nAlternative methods leading to the same result are acceptable.\nη(2.27) = 0.457\n(A8) The band gap of pure silicon is Eg = 1.11 eV. Calculate the efﬁciency, ηSi, of a silicon solar cell\nusing this value.\n[0.2]\nSolution:\nxg = 1.11 × 1.60 × 10−19\n1.38 × 10−23 × 5763 = 2.23\nηSi = xg\n6 (x2\ng + 2xg + 2)e−xg = 0.457\nIn the late nineteenth century, Kelvin and Helmholtz (KH) proposed a hypothesis to explain how the\nSun shines. They postulated that starting as a very large cloud of matter of mass, M⊙, and negligible\ndensity, the Sun has been shrinking continuously. The shining of the Sun would then be due to the\nrelease of gravitational energy through this slow contraction.\n(A9) Let us assume that the density of matter is uniform inside the Sun. Find the total gravitational\npotential energy, Ω, of the Sun at present, in terms of G, M⊙and R⊙.\n[0.3]\nSolution:\nThe total gravitational potential energy of the Sun: Ω= −\nZ M⊙\n0\nGm dm\nr\nFor constant density, ρ = 3M⊙\n4πR3\n⊙\nm = 4\n3πr3ρ\ndm = 4πr2ρdr\nΩ= −\nZ R⊙\n0\nG\n\u00124\n3πr3ρ\n\u0013 \u00004πr2ρ\n\u0001 dr\nr = −16π2Gρ2\n3\nR5\n⊙\n5\n= −3\n5\nGM 2\n⊙\nR⊙\n(A10) Estimate the maximum possible time τKH (in years), for which the Sun could have been shin-\ning, according to the KH hypothesis. Assume that the luminosity of the Sun has been constant\nthroughout this period.\n[0.5]\nSolution:\nτKH = −Ω\nL⊙\nτKH = 3GM 2\n⊙\n5R⊙L⊙\n= 1.88 × 107years\nThe τKH calculated above does not match the age of the solar system estimated from studies of mete-\norites. This shows that the energy source of the Sun cannot be purely gravitational.\n\nTheoretical Task 1 (T-1) : Solutions\n5 of 7\nB. Neutrinos from the Sun:\nIn 1938, Hans Bethe proposed that nuclear fusion of hydrogen into helium in the core of the Sun is\nthe source of its energy. The net nuclear reaction is:\n41H −→4He + 2e+ + 2νe\nThe “electron neutrinos”, νe, produced in this reaction may be taken to be massless. They escape the\nSun and their detection on Earth conﬁrms the occurrence of nuclear reactions inside the Sun. Energy\ncarried away by the neutrinos can be neglected in this problem.\n(B1) Calculate the ﬂux density, Φν, of the number of neutrinos arriving at the Earth, in units of\nm−2 s−1. The energy released in the above reaction is ∆E = 4.0 × 10−12 J. Assume that the\nenergy radiated by the Sun is almost entirely due to this reaction.\n[0.6]\nSolution:\n4.0 × 10−12 J ↔2ν\n⇒Φν =\nL⊙\n4πd2\n⊙δE × 2 =\n3.85 × 1026\n4π × (1.50 × 1011)2 × 4.0 × 10−12 × 2 = 6.8 × 1014 m−2 s−1.\nTravelling from the core of the Sun to the Earth, some of the electron neutrinos, νe, are converted to\nother types of neutrinos, νx. The efﬁciency of the detector for detecting νx is 1/6th of its efﬁciency\nfor detecting νe. If there is no neutrino conversion, we expect to detect an average of N1 neutrinos in\na year. However, due to the conversion, an average of N2 neutrinos (νe and νx combined) are actually\ndetected per year.\n(B2) In terms of N1 and N2, calculate what fraction, f, of νe is converted to νx.\n[0.4]\nSolution:\nN1\n=\nϵN0\nNe\n=\nϵN0(1 −f)\nNx\n=\nϵN0f/6\nN2\n=\nNe + Nx\nOR\n(1 −f)N1 + f\n6N1 = N2\n⇒f = 6\n5\n\u0012\n1 −N2\nN1\n\u0013\n\nTheoretical Task 1 (T-1) : Solutions\n6 of 7\nIn order to detect neutrinos, large detectors ﬁlled with water are constructed. Although the interactions\nof neutrinos with matter are very rare, occasionally they knock out electrons from water molecules in\nthe detector. These energetic electrons move through water at high speeds, emitting electromagnetic\nradiation in the process. As long as the speed of such an electron is greater than the speed of light\nin water (refractive index, n), this radiation, called Cherenkov radiation, is emitted in the shape of a\ncone.\n(B3) Assume that an electron knocked out by a neutrino loses energy at a constant rate of α per\nunit time, while it travels through water. If this electron emits Cherenkov radiation for a time\n∆t, determine the energy imparted to this electron (Eimparted) by the neutrino, in terms of\nα, ∆t, n, me, c. (Assume the electron to be at rest before its interaction with the neutrino.)\n[2.0]\nSolution:\nWhen the electron stops emitting Cherenkov radiation, its speed has reduced to vstop = c/n.\nIts total energy at this time is\nEstop =\nmec2\nq\n1 −v2\nstop/c2 =\nnmec2\n√\nn2 −1\nThe energy of the electron when it was knocked out is\nEstart = α∆t + nmec2\n√\nn2 −1\nBefore interacting, the energy of the electron was equal to mec2.\nThus, the energy imparted by the neutrino is\nEimparted = Estart −mec2 = α∆t +\n\u0012\nn\n√\nn2 −1 −1\n\u0013\nmec2\nThe fusion of H into He inside the Sun takes place in several steps. Nucleus of 7Be (rest mass, mBe)\nis produced in one of these intermediate steps. Subsequently, it can absorb an electron, producing a\n7Li nucleus (rest mass mLi < mBe) and emitting a νe. The corresponding nuclear reaction is:\n7Be + e−−→7Li + νe .\nWhen a Be nucleus (mBe = 11.65×10−27 kg) is at rest and absorbs an electron also at rest, the emitted\nneutrino has energy Eν = 1.44 × 10−13 J. However, the Be nuclei are in random thermal motion due\nto the temperature Tc at the core of the Sun, and act as moving neutrino sources. As a result, the\nenergy of emitted neutrinos ﬂuctuates with a root mean square value ∆Erms.\n(B4) If ∆Erms = 5.54 × 10−17 J, calculate the rms speed of the Be nuclei, VBe and hence estimate Tc.\n(Hint: ∆Erms depends on the rms value of the component of velocity along the line of sight.)\n[2.0]\n\nTheoretical Task 1 (T-1) : Solutions\n7 of 7\nSolution:\nMoving 7Be nuclei give rise to Doppler effect for neutrinos. Since the fractional change\nin energy (∆Erms/Eν ∼10−4) is small, the Doppler shift may be considered in the non-\nrelativistic limit (a relativistic treatment gives almost same answer). Taking the line of sight\nalong the z-direction,\n∆Erms\nEν\n=\nvz,rms\nc\n=\n3.85 × 10−4\n= 1\n√\n3\nVBe\nc\n⇒VBe =\n√\n3 × 3.85 × 10−4 × 3.00 × 108 m s−1 = 2.01 × 105 m s−1.\nThe average temperature is obtained by equating the average kinetic energy to the thermal\nenergy.\n1\n2mBeV 2\nBe = 3\n2kBTc\n⇒\nTc = 1.13 × 107 K\n","textExtraction":"available"}}
+{
+  "id": "ipho-2015-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2015-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Particles from the Sun"
+                  },
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "sup",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "1"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "(Total Marks: 10)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Photons from the surface of the Sun and neutrinos from its core can tell us about solar temperatures and also confirm that the Sun shines because of nuclear reactions."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Throughout this problem, take the mass of the Sun to be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\odot = 2.00\\times10^{30}\\,\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", its radius, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot = 7.00\\times10^{8}\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", its luminosity (radiation energy emitted per unit time), "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_\\odot = 3.85\\times10^{26}\\,\\mathrm{W}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the Earth-Sun distance, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d_\\odot = 1.50\\times10^{11}\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i)"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\int xe^{ax}\\,dx = \\left(\\frac{x}{a}-\\frac{1}{a^2}\\right)e^{ax} + \\mathrm{constant}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii)"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\int x^2e^{ax}\\,dx = \\left(\\frac{x^2}{a}-\\frac{2x}{a^2}+\\frac{2}{a^3}\\right)e^{ax} + \\mathrm{constant}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(iii)"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\int x^3e^{ax}\\,dx = \\left(\\frac{x^3}{a}-\\frac{3x^2}{a^2}+\\frac{6x}{a^3}-\\frac{6}{a^4}\\right)e^{ax} + \\mathrm{constant}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A Radiation from the sun :"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Assume that the Sun radiates like a perfect blackbody. Use this fact to calculate the temperature, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of the solar surface. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The spectrum of solar radiation can be approximated well by the Wien distribution law. Accordingly, the solar energy incident on any surface on the Earth per unit time per unit frequency interval, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(\\nu)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is given by "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[u(\\nu) = A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,\\frac{2\\pi h}{c^2}\\,\\nu^3\\exp(-h\\nu/k_\\mathrm{B}T_\\mathrm{s}),\\]"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the frequency and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the area of the surface normal to the direction of the incident radiation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now, consider a solar cell which consists of a thin disc of semiconducting material of area, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", placed perpendicular to the direction of the Sun’s rays."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Using the Wien approximation, express the total radiated solar power, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\mathrm{in}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", incident on the surface of the solar cell, in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the fundamental constants "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_\\mathrm{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Express the number of photons, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_\\gamma(\\nu)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", per unit time per unit frequency interval incident on the surface of the solar cell in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the fundamental constants "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_\\mathrm{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The semiconducting material of the solar cell has a “band gap” of energy, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We assume the following model. Every photon of energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E \\geq E_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " excites an electron across the band gap. This electron contributes an energy, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", as the useful output energy, and any extra energy is dissipated as heat (not converted to useful energy)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Define "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g} = h\\nu_\\mathrm{g}/k_\\mathrm{B}T_\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{g} = h\\nu_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Express the useful output power of the cell, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\mathrm{out}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the fundamental constants "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_\\mathrm{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.0"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A5"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Express the efficiency, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of this solar cell in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A6"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Make a qualitative sketch of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " versus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The values at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g} \\to \\infty\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " should be clearly shown. What is the slope of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta(x_\\mathrm{g})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g} \\to \\infty\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.0"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A7"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for which "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is maximum. Obtain the cubic equation that gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Estimate the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " within an accuracy of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\pm0.25\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence calculate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta(x_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "1.0"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A8"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "The band gap of pure silicon is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{g} = 1.11\\,\\mathrm{eV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Calculate the efficiency, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta_\\mathrm{Si}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of a silicon solar cell using this value. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A9"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Let us assume that the density of matter is uniform inside the Sun. Find the total gravitational potential energy, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of the Sun at present, in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the late nineteenth century, Kelvin and Helmholtz (KH) proposed a hypothesis to explain how the Sun shines. They postulated that starting as a very large cloud of matter of mass, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and negligible density, the Sun has been shrinking continuously. The shining of the Sun would then be due to the release of gravitational potential energy through this slow contraction."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A10"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Estimate the maximum possible time, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_\\mathrm{KH}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (in years), for which the Sun could have been shining, according to the KH hypothesis. Assume that the luminosity of the Sun has been constant throughout this period. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.5"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_\\mathrm{KH}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " calculated above does not match the age of the solar system estimated from studies of meteorites. This shows that the energy source of the Sun cannot be purely gravitational."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B Neutrinos from the Sun :"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In 1938, Hans Bethe proposed that nuclear fusion of hydrogen into helium in the core of the Sun is the source of its energy. The net nuclear reaction is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[4\\,{}^1\\mathrm{H} \\longrightarrow {}^4\\mathrm{He} + 2\\mathrm{e}^+ + 2\\nu_\\mathrm{e}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The “electron neutrinos”, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", produced in this reaction may be taken to be massless. They escape the Sun and their detection on the Earth confirms the occurrence of nuclear reactions inside the Sun. Energy carried away by the neutrinos can be neglected in this problem."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Calculate the flux density, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Phi_\\nu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of the number of neutrinos arriving at the Earth, in units of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{m^{-2}s^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The energy released in the above reaction is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E = 4.0\\times10^{-12}\\,\\mathrm{J}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Assume that the energy radiated by the Sun is entirely due to this reaction. "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.6"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Travelling from the core of the Sun to the Earth, some of the electron neutrinos, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_e\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", are converted to other types of neutrinos, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The efficiency of the detector for detecting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(1/6\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " of its efficiency for detecting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". If there is no neutrino conversion, we expect to detect an average of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " neutrinos in a year. However, due to the conversion, an average of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " neutrinos ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " combined) are actually detected per year."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "In terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", calculate what fraction, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is converted to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "0.4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In order to detect neutrinos, large detectors filled with water are constructed. Although the interactions of neutrinos with matter are very rare, occasionally they knock out electrons from water molecules in the detector. These energetic electrons move through water at high speeds, emitting electromagnetic radiation in the process. As long as the speed of such an electron is greater than the speed of light in water (refractive index, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "), this radiation, called Cherenkov radiation, is emitted in the shape of a cone."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Assume that an electron knocked out by a neutrino loses energy at a constant rate of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " per unit time, while it travels through water. If this electron emits Cherenkov radiation for a time, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", determine the energy imparted to this electron ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{imparted}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") by the neutrino, in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". (Assume the electron to be at rest before its interaction with the neutrino.) "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2.0"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The fusion of H into He inside the Sun takes place in several steps. Nucleus of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^7\\mathrm{Be}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (rest mass, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{Be}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is produced in one of these intermediate steps. Subsequently, it can absorb an electron, producing a "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^7\\mathrm{Li}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " nucleus (rest mass, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{Li} < m_\\mathrm{Be}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and emitting a "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The corresponding nuclear reaction is: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[{}^7\\mathrm{Be} + \\mathrm{e}^- \\longrightarrow {}^7\\mathrm{Li} + \\nu_\\mathrm{e}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When a Be nucleus ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{Be} = 11.65\\times10^{-27}\\,\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is at rest and absorbs an electron also at rest, the emitted neutrino has energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\nu = 1.44\\times10^{-13}\\,\\mathrm{J}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". However, the Be nuclei are in random thermal motion due to the temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the core of the Sun, and act as moving neutrino sources. As a result, the energy of emitted neutrinos fluctuates with a root mean square (rms) value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_{rms}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B4"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "If "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_{rms}=5.54\\times10^{-17}\\,\\mathrm{J}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", calculate the rms speed of the Be nuclei, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{Be}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and hence estimate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". (Hint: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_{rms}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " depends on the rms value of the component of velocity along the line of sight). "
+          },
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "2.0"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "span",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "hr",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "ol",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "em",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Amol Dighe (TIFR), Anwesh Mazumdar (HBCSE-TIFR) and Vijay A. Singh (ex-National Coordinator, Science Olympiads) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group and the International Board are gratefully acknowledged."
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "↩︎"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "Particles from the Sun\n1\n(Total Marks: 10)\n\n\nPhotons from the surface of the Sun and neutrinos from its core can tell us about solar temperatures and also confirm that the Sun shines because of nuclear reactions.\n\n\nThroughout this problem, take the mass of the Sun to be \n\\(M_\\odot = 2.00\\times10^{30}\\,\\mathrm{kg}\\)\n, its radius, \n\\(R_\\odot = 7.00\\times10^{8}\\,\\mathrm{m}\\)\n, its luminosity (radiation energy emitted per unit time), \n\\(L_\\odot = 3.85\\times10^{26}\\,\\mathrm{W}\\)\n, and the Earth-Sun distance, \n\\(d_\\odot = 1.50\\times10^{11}\\,\\mathrm{m}\\)\n.\n\n\nNote:\n\n\n(i)\n\\(\\int xe^{ax}\\,dx = \\left(\\frac{x}{a}-\\frac{1}{a^2}\\right)e^{ax} + \\mathrm{constant}\\)\n\n\n(ii)\n\\(\\int x^2e^{ax}\\,dx = \\left(\\frac{x^2}{a}-\\frac{2x}{a^2}+\\frac{2}{a^3}\\right)e^{ax} + \\mathrm{constant}\\)\n\n\n(iii)\n\\(\\int x^3e^{ax}\\,dx = \\left(\\frac{x^3}{a}-\\frac{3x^2}{a^2}+\\frac{6x}{a^3}-\\frac{6}{a^4}\\right)e^{ax} + \\mathrm{constant}\\)\n\n\nA Radiation from the sun :\n\n\nA1\nAssume that the Sun radiates like a perfect blackbody. Use this fact to calculate the temperature, \n\\(T_\\mathrm{s}\\)\n, of the solar surface. \n0.3\n\n\nThe spectrum of solar radiation can be approximated well by the Wien distribution law. Accordingly, the solar energy incident on any surface on the Earth per unit time per unit frequency interval, \n\\(u(\\nu)\\)\n, is given by \n\\[u(\\nu) = A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,\\frac{2\\pi h}{c^2}\\,\\nu^3\\exp(-h\\nu/k_\\mathrm{B}T_\\mathrm{s}),\\]\n where \n\\(\\nu\\)\n is the frequency and \n\\(A\\)\n is the area of the surface normal to the direction of the incident radiation.\n\n\nNow, consider a solar cell which consists of a thin disc of semiconducting material of area, \n\\(A\\)\n, placed perpendicular to the direction of the Sun’s rays.\n\n\nA2\nUsing the Wien approximation, express the total radiated solar power, \n\\(P_\\mathrm{in}\\)\n, incident on the surface of the solar cell, in terms of \n\\(A\\)\n, \n\\(R_\\odot\\)\n, \n\\(d_\\odot\\)\n, \n\\(T_\\mathrm{s}\\)\n and the fundamental constants \n\\(c\\)\n, \n\\(h\\)\n, \n\\(k_\\mathrm{B}\\)\n. \n0.3\n\n\nA3\nExpress the number of photons, \n\\(n_\\gamma(\\nu)\\)\n, per unit time per unit frequency interval incident on the surface of the solar cell in terms of \n\\(A\\)\n, \n\\(R_\\odot\\)\n, \n\\(d_\\odot\\)\n, \n\\(T_\\mathrm{s}\\)\n, \n\\(\\nu\\)\n and the fundamental constants \n\\(c\\)\n, \n\\(h\\)\n, \n\\(k_\\mathrm{B}\\)\n. \n0.2\n\n\nThe semiconducting material of the solar cell has a “band gap” of energy, \n\\(E_\\mathrm{g}\\)\n. We assume the following model. Every photon of energy \n\\(E \\geq E_\\mathrm{g}\\)\n excites an electron across the band gap. This electron contributes an energy, \n\\(E_\\mathrm{g}\\)\n, as the useful output energy, and any extra energy is dissipated as heat (not converted to useful energy).\n\n\nA4\nDefine \n\\(x_\\mathrm{g} = h\\nu_\\mathrm{g}/k_\\mathrm{B}T_\\mathrm{s}\\)\n where \n\\(E_\\mathrm{g} = h\\nu_\\mathrm{g}\\)\n. Express the useful output power of the cell, \n\\(P_\\mathrm{out}\\)\n, in terms of \n\\(x_\\mathrm{g}\\)\n, \n\\(A\\)\n, \n\\(R_\\odot\\)\n, \n\\(d_\\odot\\)\n, \n\\(T_\\mathrm{s}\\)\n and the fundamental constants \n\\(c\\)\n, \n\\(h\\)\n, \n\\(k_\\mathrm{B}\\)\n. \n1.0\n\n\nA5\nExpress the efficiency, \n\\(\\eta\\)\n, of this solar cell in terms of \n\\(x_\\mathrm{g}\\)\n. \n0.2\n\n\nA6\nMake a qualitative sketch of \n\\(\\eta\\)\n versus \n\\(x_\\mathrm{g}\\)\n. The values at \n\\(x_\\mathrm{g} = 0\\)\n and \n\\(x_\\mathrm{g} \\to \\infty\\)\n should be clearly shown. What is the slope of \n\\(\\eta(x_\\mathrm{g})\\)\n at \n\\(x_\\mathrm{g} = 0\\)\n and \n\\(x_\\mathrm{g} \\to \\infty\\)\n? \n1.0\n\n\nA7\nLet \n\\(x_0\\)\n be the value of \n\\(x_\\mathrm{g}\\)\n for which \n\\(\\eta\\)\n is maximum. Obtain the cubic equation that gives \n\\(x_0\\)\n. Estimate the value of \n\\(x_0\\)\n within an accuracy of \n\\(\\pm0.25\\)\n. Hence calculate \n\\(\\eta(x_0)\\)\n. \n1.0\n\n\nA8\nThe band gap of pure silicon is \n\\(E_\\mathrm{g} = 1.11\\,\\mathrm{eV}\\)\n. Calculate the efficiency, \n\\(\\eta_\\mathrm{Si}\\)\n, of a silicon solar cell using this value. \n0.2\n\n\nA9\nLet us assume that the density of matter is uniform inside the Sun. Find the total gravitational potential energy, \n\\(\\Omega\\)\n, of the Sun at present, in terms of \n\\(G\\)\n, \n\\(M_\\odot\\)\n and \n\\(R_\\odot\\)\n. \n0.3\n\n\nIn the late nineteenth century, Kelvin and Helmholtz (KH) proposed a hypothesis to explain how the Sun shines. They postulated that starting as a very large cloud of matter of mass, \n\\(M_\\odot\\)\n, and negligible density, the Sun has been shrinking continuously. The shining of the Sun would then be due to the release of gravitational potential energy through this slow contraction.\n\n\nA10\nEstimate the maximum possible time, \n\\(\\tau_\\mathrm{KH}\\)\n (in years), for which the Sun could have been shining, according to the KH hypothesis. Assume that the luminosity of the Sun has been constant throughout this period. \n0.5\n\n\nThe \n\\(\\tau_\\mathrm{KH}\\)\n calculated above does not match the age of the solar system estimated from studies of meteorites. This shows that the energy source of the Sun cannot be purely gravitational.\n\n\nB Neutrinos from the Sun :\n\n\nIn 1938, Hans Bethe proposed that nuclear fusion of hydrogen into helium in the core of the Sun is the source of its energy. The net nuclear reaction is: \n\\[4\\,{}^1\\mathrm{H} \\longrightarrow {}^4\\mathrm{He} + 2\\mathrm{e}^+ + 2\\nu_\\mathrm{e}\\]\n\n\nThe “electron neutrinos”, \n\\(\\nu_\\mathrm{e}\\)\n, produced in this reaction may be taken to be massless. They escape the Sun and their detection on the Earth confirms the occurrence of nuclear reactions inside the Sun. Energy carried away by the neutrinos can be neglected in this problem.\n\n\nB1\nCalculate the flux density, \n\\(\\Phi_\\nu\\)\n, of the number of neutrinos arriving at the Earth, in units of \n\\(\\mathrm{m^{-2}s^{-1}}\\)\n. The energy released in the above reaction is \n\\(\\Delta E = 4.0\\times10^{-12}\\,\\mathrm{J}\\)\n. Assume that the energy radiated by the Sun is entirely due to this reaction. \n0.6\n\n\nTravelling from the core of the Sun to the Earth, some of the electron neutrinos, \n\\(\\nu_e\\)\n, are converted to other types of neutrinos, \n\\(\\nu_\\mathrm{x}\\)\n. The efficiency of the detector for detecting \n\\(\\nu_\\mathrm{x}\\)\n is \n\\(1/6\\)\n of its efficiency for detecting \n\\(\\nu_\\mathrm{e}\\)\n. If there is no neutrino conversion, we expect to detect an average of \n\\(N_1\\)\n neutrinos in a year. However, due to the conversion, an average of \n\\(N_2\\)\n neutrinos (\n\\(\\nu_\\mathrm{e}\\)\n and \n\\(\\nu_\\mathrm{x}\\)\n combined) are actually detected per year.\n\n\nB2\nIn terms of \n\\(N_1\\)\n and \n\\(N_2\\)\n, calculate what fraction, \n\\(f\\)\n, of \n\\(\\nu_\\mathrm{e}\\)\n is converted to \n\\(\\nu_\\mathrm{x}\\)\n. \n0.4\n\n\nIn order to detect neutrinos, large detectors filled with water are constructed. Although the interactions of neutrinos with matter are very rare, occasionally they knock out electrons from water molecules in the detector. These energetic electrons move through water at high speeds, emitting electromagnetic radiation in the process. As long as the speed of such an electron is greater than the speed of light in water (refractive index, \n\\(n\\)\n), this radiation, called Cherenkov radiation, is emitted in the shape of a cone.\n\n\nB3\nAssume that an electron knocked out by a neutrino loses energy at a constant rate of \n\\(\\alpha\\)\n per unit time, while it travels through water. If this electron emits Cherenkov radiation for a time, \n\\(\\Delta t\\)\n, determine the energy imparted to this electron (\n\\(E_\\mathrm{imparted}\\)\n) by the neutrino, in terms of \n\\(\\alpha\\)\n, \n\\(\\Delta t\\)\n, \n\\(n\\)\n, \n\\(m_\\mathrm{e}\\)\n and \n\\(c\\)\n. (Assume the electron to be at rest before its interaction with the neutrino.) \n2.0\n\n\nThe fusion of H into He inside the Sun takes place in several steps. Nucleus of \n\\({}^7\\mathrm{Be}\\)\n (rest mass, \n\\(m_\\mathrm{Be}\\)\n) is produced in one of these intermediate steps. Subsequently, it can absorb an electron, producing a \n\\({}^7\\mathrm{Li}\\)\n nucleus (rest mass, \n\\(m_\\mathrm{Li} < m_\\mathrm{Be}\\)\n) and emitting a \n\\(\\nu_\\mathrm{e}\\)\n. The corresponding nuclear reaction is: \n\\[{}^7\\mathrm{Be} + \\mathrm{e}^- \\longrightarrow {}^7\\mathrm{Li} + \\nu_\\mathrm{e}\\]\n\n\nWhen a Be nucleus (\n\\(m_\\mathrm{Be} = 11.65\\times10^{-27}\\,\\mathrm{kg}\\)\n) is at rest and absorbs an electron also at rest, the emitted neutrino has energy \n\\(E_\\nu = 1.44\\times10^{-13}\\,\\mathrm{J}\\)\n. However, the Be nuclei are in random thermal motion due to the temperature \n\\(T_\\mathrm{c}\\)\n at the core of the Sun, and act as moving neutrino sources. As a result, the energy of emitted neutrinos fluctuates with a root mean square (rms) value \n\\(\\Delta E_{rms}\\)\n.\n\n\nB4\nIf \n\\(\\Delta E_{rms}=5.54\\times10^{-17}\\,\\mathrm{J}\\)\n, calculate the rms speed of the Be nuclei, \n\\(V_\\mathrm{Be}\\)\n, and hence estimate \n\\(T_\\mathrm{c}\\)\n. (Hint: \n\\(\\Delta E_{rms}\\)\n depends on the rms value of the component of velocity along the line of sight). \n2.0\n\n\n\n\n\n\n\n\n\nAmol Dighe (TIFR), Anwesh Mazumdar (HBCSE-TIFR) and Vijay A. Singh (ex-National Coordinator, Science Olympiads) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group and the International Board are gratefully acknowledged.\n↩︎\n\n\n\n\n\n",
+    "figures": [],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2015-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "strong",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "u",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Particles from the Sun"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "sup",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Photons from the surface of the Sun and neutrinos from its core can tell us about solar temperatures and also confirm that the Sun shines because of nuclear reactions."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Throughout this problem, take the mass of the Sun to be "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\odot = 2.00\\times10^{30}\\,\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", its radius, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot = 7.00\\times10^{8}\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", its luminosity (radiation energy emitted per unit time), "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_\\odot = 3.85\\times10^{26}\\,\\mathrm{W}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", and the Earth-Sun distance, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d_\\odot = 1.50\\times10^{11}\\,\\mathrm{m}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(i)"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\int xe^{ax}\\,dx = \\left(\\frac{x}{a}-\\frac{1}{a^2}\\right)e^{ax} + \\text{constant}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(ii)"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\int x^2e^{ax}\\,dx = \\left(\\frac{x^2}{a}-\\frac{2x}{a^2}+\\frac{2}{a^3}\\right)e^{ax} + \\text{constant}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(iii)"
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\displaystyle \\int x^3e^{ax}\\,dx = \\left(\\frac{x^3}{a}-\\frac{3x^2}{a^2}+\\frac{6x}{a^3}-\\frac{6}{a^4}\\right)e^{ax} + \\text{constant}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "A. Radiation from the Sun :"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(A1) Assume that the Sun radiates like a perfect blackbody. Use this fact to calculate the temperature, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , of the solar surface. [0.3]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Stefan’s law: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(L_\\odot = (4\\pi R_\\odot^2)(\\sigma T_\\mathrm{s}^4)\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[T_\\mathrm{s} = \\left(\\frac{L_\\odot}{4\\pi R_\\odot^2\\sigma}\\right)^{1/4} = 5.76\\times10^{3}\\,\\mathbf{K}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The spectrum of solar radiation can be approximated well by the Wien distribution law. Accordingly, the solar energy incident on any surface on the Earth per unit time per unit frequency interval, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(u(\\nu)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", is given by"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[u(\\nu) = A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,\\frac{2\\pi h}{c^2}\\,\\nu^3\\exp(-h\\nu/k_\\mathrm{B}T_\\mathrm{s}),\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is the area of the surface normal to the direction of the incident radiation."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now, consider a solar cell which consists of a thin disc of semiconducting material of area, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", placed perpendicular to the direction of the Sun’s rays."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(A2) Using the Wien approximation, express the total power, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\mathrm{in}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", incident on the surface of the solar cell, in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the fundamental constants "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_\\mathrm{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [0.3]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[P_\\mathrm{in} = \\int_0^\\infty u(\\nu)\\,d\\nu = \\int_0^\\infty A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,\\frac{2\\pi h}{c^2}\\,\\nu^3\\exp(-h\\nu/k_\\mathrm{B}T_\\mathrm{s})\\,d\\nu\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x = \\dfrac{h\\nu}{k_\\mathrm{B}T_\\mathrm{s}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Then, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu = \\dfrac{k_\\mathrm{B}T_\\mathrm{s}}{h}x \\qquad d\\nu = \\dfrac{k_\\mathrm{B}T_\\mathrm{s}}{h}\\,dx\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[P_\\mathrm{in} = \\frac{2\\pi hAR_\\odot^2}{c^2d_\\odot^2}\\,\\frac{(k_\\mathrm{B}T_\\mathrm{s})^4}{h^4}\\int_0^\\infty x^3e^{-x}\\,dx = \\frac{2\\pi k_\\mathrm{B}^4}{c^2h^3}\\,T_\\mathrm{s}^4\\,A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\cdot 6 = \\frac{12\\pi k_\\mathrm{B}^4}{c^2h^3}\\,T_\\mathrm{s}^4\\,A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(A3) Express the number of photons, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n_\\gamma(\\nu)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", per unit time per unit frequency interval incident on the surface of the solar cell in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the fundamental constants "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_\\mathrm{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [0.2]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{aligned} n_\\gamma(\\nu) &= \\frac{u(\\nu)}{h\\nu} \\\\ &= A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,\\frac{2\\pi}{c^2}\\,\\nu^2\\exp(-h\\nu/k_\\mathrm{B}T_\\mathrm{s}) \\end{aligned}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The semiconducting material of the solar cell has a “band gap” of energy, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". We assume the following model. Every photon of energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E \\geq E_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " excites an electron across the band gap. This electron contributes an energy, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , as the useful output energy, and any extra energy is dissipated as heat (not converted to useful energy)."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(A4) Define "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g} = h\\nu_\\mathrm{g}/k_\\mathrm{B}T_\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{g} = h\\nu_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Express the useful output power of the cell, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(P_\\mathrm{out}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(A\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(d_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{s}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and the fundamental constants "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(h\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(k_\\mathrm{B}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [1.0]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The useful power output is the useful energy quantum per photon, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{g} \\equiv h\\nu_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", multiplied by the number of photons with energy, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E \\geq E_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{aligned} P_\\mathrm{out} &= h\\nu_\\mathrm{g}\\int_{\\nu_\\mathrm{g}}^\\infty n_\\gamma(\\nu)\\,d\\nu \\\\ &= h\\nu_\\mathrm{g}\\,A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,\\frac{2\\pi}{c^2}\\int_{\\nu_\\mathrm{g}}^\\infty \\nu^2\\exp(-h\\nu/k_\\mathrm{B}T_\\mathrm{s})\\,d\\nu \\\\ &= k_\\mathrm{B}T_\\mathrm{s}x_\\mathrm{g}\\,A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,\\frac{2\\pi}{c^2}\\left(\\frac{k_\\mathrm{B}T_\\mathrm{s}}{h}\\right)^3\\int_{x_\\mathrm{g}}^\\infty x^2e^{-x}\\,dx \\\\ &= \\frac{2\\pi k_\\mathrm{B}^4}{c^2h^3}\\,T_\\mathrm{s}^4\\,A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,x_\\mathrm{g}(x_\\mathrm{g}^2+2x_\\mathrm{g}+2)e^{-x_\\mathrm{g}} \\end{aligned}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(A5) Express the efficiency, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of this solar cell in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [0.2]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Efficiency "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta = \\dfrac{P_\\mathrm{out}}{P_\\mathrm{in}} = \\dfrac{x_\\mathrm{g}}{6}\\,(x_\\mathrm{g}^2+2x_\\mathrm{g}+2)e^{-x_\\mathrm{g}}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(A6) Make a qualitative sketch of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " versus "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The values at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g} \\to \\infty\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " should be clearly shown. What is the slope of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta(x_\\mathrm{g})\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g} = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g} \\to \\infty\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "? [1.0]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\eta = \\frac{1}{6}\\,(x_\\mathrm{g}^3+2x_\\mathrm{g}^2+2x_\\mathrm{g})e^{-x_\\mathrm{g}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Put limiting values, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta(0) = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta(\\infty) = 0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "element",
+            "tag": "br",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nSince the polynomial has all positive coefficients, it increases monotonically; the exponential function decreases monotonically. Therefore, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " has only one maximum."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{\\mathrm{d}\\eta}{\\mathrm{d}x_\\mathrm{g}} = \\frac{1}{6}(-x_\\mathrm{g}^3+x_\\mathrm{g}^2+2x_\\mathrm{g}+2)e^{-x_\\mathrm{g}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\left.\\frac{\\mathrm{d}\\eta}{\\mathrm{d}x_\\mathrm{g}}\\right|_{x_\\mathrm{g}=0} = \\frac{1}{3} \\qquad \\left.\\frac{\\mathrm{d}\\eta}{\\mathrm{d}x_\\mathrm{g}}\\right|_{x_\\mathrm{g}\\to\\infty} = 0\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "src": "/corpus/figures/native/bulk/ipho-2015-t1/6134b36d0660a0887c53.png",
+                "alt": "ipho-2015-t1 original source figure 1"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(A7) Let "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " be the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " for which "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is maximum. Obtain the cubic equation that gives "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Estimate the value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_0\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " within an accuracy of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\pm0.25\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Hence calculate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta(x_0)\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [1.0]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The maximum will be for "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\dfrac{\\mathrm{d}\\eta}{\\mathrm{d}x_\\mathrm{g}} = \\dfrac{1}{6}(-x_\\mathrm{g}^3+x_\\mathrm{g}^2+2x_\\mathrm{g}+2)e^{-x_\\mathrm{g}} = 0\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Rightarrow p(x_\\mathrm{g}) \\equiv x_\\mathrm{g}^3-x_\\mathrm{g}^2-2x_\\mathrm{g}-2 = 0\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "u",
+            "children": [
+              {
+                "type": "text",
+                "text": "A Numerical Solution by the Bisection Method"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{aligned} p(0) &= -2 \\\\ p(1) &= -4 \\\\ p(2) &= -2 \\\\ p(3) &= 10 \\qquad \\Rightarrow \\qquad 2 < x_0 < 3 \\\\ p(2.5) &= 2.375 \\qquad \\Rightarrow \\qquad 2 < x_0 < 2.5 \\\\ p(2.25) &= -0.171 \\qquad \\Rightarrow \\qquad 2.25 < x_0 < 2.5 \\end{aligned}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The approximate value of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_\\mathrm{g}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " where "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is maximum is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(x_0 = 2.27\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Alternative methods leading to the same result are acceptable."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta(2.27) = 0.457\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(A8) The band gap of pure silicon is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{g} = 1.11\\,\\mathrm{eV}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Calculate the efficiency, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\eta_\\mathrm{Si}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of a silicon solar cell using this value. [0.2]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[x_\\mathrm{g} = \\frac{1.11\\times1.60\\times10^{-19}}{1.38\\times10^{-23}\\times5763} = 2.23\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\eta_\\mathrm{Si} = \\frac{x_\\mathrm{g}}{6}(x_\\mathrm{g}^2+2x_\\mathrm{g}+2)e^{-x_\\mathrm{g}} = 0.457\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the late nineteenth century, Kelvin and Helmholtz (KH) proposed a hypothesis to explain how the Sun shines. They postulated that starting as a very large cloud of matter of mass, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " , and negligible density, the Sun has been shrinking continuously. The shining of the Sun would then be due to the release of gravitational energy through this slow contraction."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(A9) Let us assume that the density of matter is uniform inside the Sun. Find the total gravitational potential energy, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of the Sun at present, in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(G\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(M_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(R_\\odot\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [0.3]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The total gravitational potential energy of the Sun: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Omega = -\\displaystyle\\int_0^{M_\\odot} \\frac{Gm\\,\\mathrm{d}m}{r}\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For constant density, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\rho = \\dfrac{3M_\\odot}{4\\pi R_\\odot^3}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m = \\dfrac{4}{3}\\pi r^3\\rho\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{d}m = 4\\pi r^2\\rho\\,\\mathrm{d}r\\)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Omega = -\\int_0^{R_\\odot} G\\left(\\frac{4}{3}\\pi r^3\\rho\\right)\\left(4\\pi r^2\\rho\\right)\\frac{\\mathrm{d}r}{r} = -\\frac{16\\pi^2G\\rho^2}{3}\\,\\frac{R_\\odot^5}{5} = -\\frac{3}{5}\\frac{GM_\\odot^2}{R_\\odot}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(A10) Estimate the maximum possible time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_\\mathrm{KH}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (in years), for which the Sun could have been shining, according to the KH hypothesis. Assume that the luminosity of the Sun has been constant throughout this period. [0.5]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau_\\mathrm{KH} = \\frac{-\\Omega}{L_\\odot}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\tau_\\mathrm{KH} = \\frac{3GM_\\odot^2}{5R_\\odot L_\\odot} = 1.88\\times10^{7}\\,\\mathrm{years}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\tau_\\mathrm{KH}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " calculated above does not match the age of the solar system estimated from studies of meteorites. This shows that the energy source of the Sun cannot be purely gravitational."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "B. Neutrinos from the Sun:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In 1938, Hans Bethe proposed that nuclear fusion of hydrogen into helium in the core of the Sun is the source of its energy. The net nuclear reaction is:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[4\\,{}^{1}\\mathrm{H} \\longrightarrow {}^{4}\\mathrm{He} + 2\\mathrm{e}^+ + 2\\nu_\\mathrm{e}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The “electron neutrinos”, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", produced in this reaction may be taken to be massless. They escape the Sun and their detection on Earth confirms the occurrence of nuclear reactions inside the Sun. Energy carried away by the neutrinos can be neglected in this problem."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(B1) Calculate the flux density, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Phi_\\nu\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of the number of neutrinos arriving at the Earth, in units of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\mathrm{m^{-2}\\,s^{-1}}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The energy released in the above reaction is "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E = 4.0\\times10^{-12}\\,\\mathrm{J}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Assume that the energy radiated by the Sun is almost entirely due to this reaction. [0.6]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[4.0\\times10^{-12}\\,\\mathrm{J} \\leftrightarrow 2\\nu\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Rightarrow \\Phi_\\nu = \\frac{L_\\odot}{4\\pi d_\\odot^2\\,\\delta E} \\times 2 = \\frac{3.85\\times10^{26}}{4\\pi \\times (1.50\\times10^{11})^2 \\times 4.0\\times10^{-12}} \\times 2 = 6.8\\times10^{14}\\,\\mathrm{m^{-2}\\,s^{-1}}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Travelling from the core of the Sun to the Earth, some of the electron neutrinos, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", are converted to other types of neutrinos, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The efficiency of the detector for detecting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is 1/6th of its efficiency for detecting "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". If there is no neutrino conversion, we expect to detect an average of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " neutrinos in a year. However, due to the conversion, an average of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " neutrinos ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " combined) are actually detected per year."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(B2) In terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_1\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(N_2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", calculate what fraction, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(f\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " is converted to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{x}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". [0.4]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{aligned} N_1 &= \\epsilon N_0 \\\\ N_e &= \\epsilon N_0(1-f) \\\\ N_x &= \\epsilon N_0 f/6 \\\\ N_2 &= N_e + N_x \\end{aligned}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "OR"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[(1-f)N_1 + \\frac{f}{6}N_1 = N_2\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Rightarrow f = \\frac{6}{5}\\left(1-\\frac{N_2}{N_1}\\right)\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In order to detect neutrinos, large detectors filled with water are constructed. Although the interactions of neutrinos with matter are very rare, occasionally they knock out electrons from water molecules in the detector. These energetic electrons move through water at high speeds, emitting electromagnetic radiation in the process. As long as the speed of such an electron is greater than the speed of light in water (refractive index, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "), this radiation, called Cherenkov radiation, is emitted in the shape of a cone."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(B3) Assume that an electron knocked out by a neutrino loses energy at a constant rate of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " per unit time, while it travels through water. If this electron emits Cherenkov radiation for a time "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta t\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", determine the energy imparted to this electron ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\mathrm{imparted}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") by the neutrino, in terms of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\alpha, \\Delta t, n, m_\\mathrm{e}, c\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". (Assume the electron to be at rest before its interaction with the neutrino.) [2.0]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When the electron stops emitting Cherenkov radiation, its speed has reduced to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(v_\\mathrm{stop} = c/n\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". Its total energy at this time is"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E_\\mathrm{stop} = \\frac{m_\\mathrm{e}c^2}{\\sqrt{1-v_\\mathrm{stop}^2/c^2}} = \\frac{nm_\\mathrm{e}c^2}{\\sqrt{n^2-1}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The energy of the electron when it was knocked out is"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E_\\mathrm{start} = \\alpha\\Delta t + \\frac{nm_\\mathrm{e}c^2}{\\sqrt{n^2-1}}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Before interacting, the energy of the electron was equal to "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{e}c^2\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus, the energy imparted by the neutrino is"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[E_\\mathrm{imparted} = E_\\mathrm{start} - m_\\mathrm{e}c^2 = \\alpha\\Delta t + \\left(\\frac{n}{\\sqrt{n^2-1}} - 1\\right)m_\\mathrm{e}c^2\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The fusion of H into He inside the Sun takes place in several steps. Nucleus of "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{7}\\mathrm{Be}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " (rest mass, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{Be}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is produced in one of these intermediate steps. Subsequently, it can absorb an electron, producing a "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{7}\\mathrm{Li}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " nucleus (rest mass "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{Li} < m_\\mathrm{Be}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") and emitting a "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\nu_\\mathrm{e}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". The corresponding nuclear reaction is:"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[{}^{7}\\mathrm{Be} + \\mathrm{e}^- \\longrightarrow {}^{7}\\mathrm{Li} + \\nu_\\mathrm{e}\\,.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When a Be nucleus ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(m_\\mathrm{Be} = 11.65\\times10^{-27}\\,\\mathrm{kg}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is at rest and absorbs an electron also at rest, the emitted neutrino has energy "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(E_\\nu = 1.44\\times10^{-13}\\,\\mathrm{J}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". However, the Be nuclei are in random thermal motion due to the temperature "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " at the core of the Sun, and act as moving neutrino sources. As a result, the energy of emitted neutrinos fluctuates with a root mean square value "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_\\mathrm{rms}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(B4) If "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_\\mathrm{rms} = 5.54\\times10^{-17}\\,\\mathrm{J}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", calculate the rms speed of the Be nuclei, "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(V_\\mathrm{Be}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and hence estimate "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(T_\\mathrm{c}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ". (Hint: "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_\\mathrm{rms}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " depends on the rms value of the component of velocity along the line of sight.)"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "[2.0]"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "strong",
+            "children": [
+              {
+                "type": "text",
+                "text": "Solution:"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Moving "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\({}^{7}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Be nuclei give rise to Doppler effect for neutrinos. Since the fractional change in energy ("
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(\\Delta E_\\mathrm{rms}/E_\\nu \\sim 10^{-4}\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") is small, the Doppler shift may be considered in the non-relativistic limit (a relativistic treatment gives almost same answer). Taking the line of sight along the "
+          },
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\(z\\)"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "-direction,"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\begin{aligned} \\frac{\\Delta E_\\mathrm{rms}}{E_\\nu} &= \\frac{v_{z,rms}}{c} \\\\ &= 3.85\\times10^{-4} \\\\ &= \\frac{1}{\\sqrt{3}}\\,\\frac{V_\\mathrm{Be}}{c} \\end{aligned}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Rightarrow V_\\mathrm{Be} = \\sqrt{3}\\times3.85\\times10^{-4}\\times3.00\\times10^{8}\\,\\mathrm{m\\,s^{-1}} = 2.01\\times10^{5}\\,\\mathrm{m\\,s^{-1}}.\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The average temperature is obtained by equating the average kinetic energy to the thermal energy."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\frac{1}{2}m_\\mathrm{Be}V_\\mathrm{Be}^2 = \\frac{3}{2}k_\\mathrm{B}T_\\mathrm{c}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "element",
+            "tag": "span",
+            "children": [
+              {
+                "type": "text",
+                "text": "\\[\\Rightarrow \\quad T_\\mathrm{c} = 1.13\\times10^{7}\\,\\mathbf{K}\\]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      },
+      {
+        "type": "element",
+        "tag": "span",
+        "children": [
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "hr",
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "type": "element",
+            "tag": "ol",
+            "children": [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "element",
+                "tag": "li",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "em",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Amol Dighe (TIFR), Anwesh Mazumdar (HBCSE-TIFR) and Vijay A. Singh (ex-National Coordinator, Science Olympiads) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group and the International Board are gratefully acknowledged."
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "↩︎"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": "\n"
+      }
+    ],
+    "text": "\n\nParticles from the Sun\n1\n\n\n\n\nPhotons from the surface of the Sun and neutrinos from its core can tell us about solar temperatures and also confirm that the Sun shines because of nuclear reactions.\n\n\nThroughout this problem, take the mass of the Sun to be \n\\(M_\\odot = 2.00\\times10^{30}\\,\\mathrm{kg}\\)\n, its radius, \n\\(R_\\odot = 7.00\\times10^{8}\\,\\mathrm{m}\\)\n, its luminosity (radiation energy emitted per unit time), \n\\(L_\\odot = 3.85\\times10^{26}\\,\\mathrm{W}\\)\n, and the Earth-Sun distance, \n\\(d_\\odot = 1.50\\times10^{11}\\,\\mathrm{m}\\)\n.\n\n\nNote:\n\n\n(i)\n\\(\\displaystyle \\int xe^{ax}\\,dx = \\left(\\frac{x}{a}-\\frac{1}{a^2}\\right)e^{ax} + \\text{constant}\\)\n\n\n(ii)\n\\(\\displaystyle \\int x^2e^{ax}\\,dx = \\left(\\frac{x^2}{a}-\\frac{2x}{a^2}+\\frac{2}{a^3}\\right)e^{ax} + \\text{constant}\\)\n\n\n(iii)\n\\(\\displaystyle \\int x^3e^{ax}\\,dx = \\left(\\frac{x^3}{a}-\\frac{3x^2}{a^2}+\\frac{6x}{a^3}-\\frac{6}{a^4}\\right)e^{ax} + \\text{constant}\\)\n\n\nA. Radiation from the Sun :\n\n\n(A1) Assume that the Sun radiates like a perfect blackbody. Use this fact to calculate the temperature, \n\\(T_\\mathrm{s}\\)\n , of the solar surface. [0.3]\n\n\nSolution:\n\n\nStefan’s law: \n\\(L_\\odot = (4\\pi R_\\odot^2)(\\sigma T_\\mathrm{s}^4)\\)\n\n\n\\[T_\\mathrm{s} = \\left(\\frac{L_\\odot}{4\\pi R_\\odot^2\\sigma}\\right)^{1/4} = 5.76\\times10^{3}\\,\\mathbf{K}\\]\n\n\nThe spectrum of solar radiation can be approximated well by the Wien distribution law. Accordingly, the solar energy incident on any surface on the Earth per unit time per unit frequency interval, \n\\(u(\\nu)\\)\n, is given by\n\n\n\\[u(\\nu) = A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,\\frac{2\\pi h}{c^2}\\,\\nu^3\\exp(-h\\nu/k_\\mathrm{B}T_\\mathrm{s}),\\]\n\n\nwhere \n\\(A\\)\n is the area of the surface normal to the direction of the incident radiation.\n\n\nNow, consider a solar cell which consists of a thin disc of semiconducting material of area, \n\\(A\\)\n, placed perpendicular to the direction of the Sun’s rays.\n\n\n(A2) Using the Wien approximation, express the total power, \n\\(P_\\mathrm{in}\\)\n, incident on the surface of the solar cell, in terms of \n\\(A\\)\n, \n\\(R_\\odot\\)\n, \n\\(d_\\odot\\)\n, \n\\(T_\\mathrm{s}\\)\n and the fundamental constants \n\\(c\\)\n, \n\\(h\\)\n, \n\\(k_\\mathrm{B}\\)\n. [0.3]\n\n\nSolution:\n\n\n\\[P_\\mathrm{in} = \\int_0^\\infty u(\\nu)\\,d\\nu = \\int_0^\\infty A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,\\frac{2\\pi h}{c^2}\\,\\nu^3\\exp(-h\\nu/k_\\mathrm{B}T_\\mathrm{s})\\,d\\nu\\]\n\n\nLet \n\\(x = \\dfrac{h\\nu}{k_\\mathrm{B}T_\\mathrm{s}}\\)\n. Then, \n\\(\\nu = \\dfrac{k_\\mathrm{B}T_\\mathrm{s}}{h}x \\qquad d\\nu = \\dfrac{k_\\mathrm{B}T_\\mathrm{s}}{h}\\,dx\\)\n.\n\n\n\\[P_\\mathrm{in} = \\frac{2\\pi hAR_\\odot^2}{c^2d_\\odot^2}\\,\\frac{(k_\\mathrm{B}T_\\mathrm{s})^4}{h^4}\\int_0^\\infty x^3e^{-x}\\,dx = \\frac{2\\pi k_\\mathrm{B}^4}{c^2h^3}\\,T_\\mathrm{s}^4\\,A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\cdot 6 = \\frac{12\\pi k_\\mathrm{B}^4}{c^2h^3}\\,T_\\mathrm{s}^4\\,A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\]\n\n\n(A3) Express the number of photons, \n\\(n_\\gamma(\\nu)\\)\n, per unit time per unit frequency interval incident on the surface of the solar cell in terms of \n\\(A\\)\n, \n\\(R_\\odot\\)\n, \n\\(d_\\odot\\)\n, \n\\(T_\\mathrm{s}\\)\n \n\\(\\nu\\)\n and the fundamental constants \n\\(c\\)\n, \n\\(h\\)\n, \n\\(k_\\mathrm{B}\\)\n. [0.2]\n\n\nSolution:\n\n\n\\[\\begin{aligned} n_\\gamma(\\nu) &= \\frac{u(\\nu)}{h\\nu} \\\\ &= A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,\\frac{2\\pi}{c^2}\\,\\nu^2\\exp(-h\\nu/k_\\mathrm{B}T_\\mathrm{s}) \\end{aligned}\\]\n\n\nThe semiconducting material of the solar cell has a “band gap” of energy, \n\\(E_\\mathrm{g}\\)\n. We assume the following model. Every photon of energy \n\\(E \\geq E_\\mathrm{g}\\)\n excites an electron across the band gap. This electron contributes an energy, \n\\(E_\\mathrm{g}\\)\n , as the useful output energy, and any extra energy is dissipated as heat (not converted to useful energy).\n\n\n(A4) Define \n\\(x_\\mathrm{g} = h\\nu_\\mathrm{g}/k_\\mathrm{B}T_\\mathrm{s}\\)\n where \n\\(E_\\mathrm{g} = h\\nu_\\mathrm{g}\\)\n. Express the useful output power of the cell, \n\\(P_\\mathrm{out}\\)\n, in terms of \n\\(x_\\mathrm{g}\\)\n, \n\\(A\\)\n, \n\\(R_\\odot\\)\n, \n\\(d_\\odot\\)\n, \n\\(T_\\mathrm{s}\\)\n and the fundamental constants \n\\(c\\)\n, \n\\(h\\)\n, \n\\(k_\\mathrm{B}\\)\n. [1.0]\n\n\nSolution:\n\n\nThe useful power output is the useful energy quantum per photon, \n\\(E_\\mathrm{g} \\equiv h\\nu_\\mathrm{g}\\)\n, multiplied by the number of photons with energy, \n\\(E \\geq E_\\mathrm{g}\\)\n.\n\n\n\\[\\begin{aligned} P_\\mathrm{out} &= h\\nu_\\mathrm{g}\\int_{\\nu_\\mathrm{g}}^\\infty n_\\gamma(\\nu)\\,d\\nu \\\\ &= h\\nu_\\mathrm{g}\\,A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,\\frac{2\\pi}{c^2}\\int_{\\nu_\\mathrm{g}}^\\infty \\nu^2\\exp(-h\\nu/k_\\mathrm{B}T_\\mathrm{s})\\,d\\nu \\\\ &= k_\\mathrm{B}T_\\mathrm{s}x_\\mathrm{g}\\,A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,\\frac{2\\pi}{c^2}\\left(\\frac{k_\\mathrm{B}T_\\mathrm{s}}{h}\\right)^3\\int_{x_\\mathrm{g}}^\\infty x^2e^{-x}\\,dx \\\\ &= \\frac{2\\pi k_\\mathrm{B}^4}{c^2h^3}\\,T_\\mathrm{s}^4\\,A\\,\\frac{R_\\odot^2}{d_\\odot^2}\\,x_\\mathrm{g}(x_\\mathrm{g}^2+2x_\\mathrm{g}+2)e^{-x_\\mathrm{g}} \\end{aligned}\\]\n\n\n(A5) Express the efficiency, \n\\(\\eta\\)\n, of this solar cell in terms of \n\\(x_\\mathrm{g}\\)\n. [0.2]\n\n\nSolution:\n\n\nEfficiency \n\\(\\eta = \\dfrac{P_\\mathrm{out}}{P_\\mathrm{in}} = \\dfrac{x_\\mathrm{g}}{6}\\,(x_\\mathrm{g}^2+2x_\\mathrm{g}+2)e^{-x_\\mathrm{g}}\\)\n\n\n(A6) Make a qualitative sketch of \n\\(\\eta\\)\n versus \n\\(x_\\mathrm{g}\\)\n. The values at \n\\(x_\\mathrm{g} = 0\\)\n and \n\\(x_\\mathrm{g} \\to \\infty\\)\n should be clearly shown. What is the slope of \n\\(\\eta(x_\\mathrm{g})\\)\n at \n\\(x_\\mathrm{g} = 0\\)\n and \n\\(x_\\mathrm{g} \\to \\infty\\)\n? [1.0]\n\n\nSolution:\n\n\n\\[\\eta = \\frac{1}{6}\\,(x_\\mathrm{g}^3+2x_\\mathrm{g}^2+2x_\\mathrm{g})e^{-x_\\mathrm{g}}\\]\n\n\nPut limiting values, \n\\(\\eta(0) = 0\\)\n \n\\(\\eta(\\infty) = 0\\)\n.\n\n\nSince the polynomial has all positive coefficients, it increases monotonically; the exponential function decreases monotonically. Therefore, \n\\(\\eta\\)\n has only one maximum.\n\n\n\\[\\frac{\\mathrm{d}\\eta}{\\mathrm{d}x_\\mathrm{g}} = \\frac{1}{6}(-x_\\mathrm{g}^3+x_\\mathrm{g}^2+2x_\\mathrm{g}+2)e^{-x_\\mathrm{g}}\\]\n\n\n\\[\\left.\\frac{\\mathrm{d}\\eta}{\\mathrm{d}x_\\mathrm{g}}\\right|_{x_\\mathrm{g}=0} = \\frac{1}{3} \\qquad \\left.\\frac{\\mathrm{d}\\eta}{\\mathrm{d}x_\\mathrm{g}}\\right|_{x_\\mathrm{g}\\to\\infty} = 0\\]\n\n\n\n\n\n\n\n\n\n(A7) Let \n\\(x_0\\)\n be the value of \n\\(x_\\mathrm{g}\\)\n for which \n\\(\\eta\\)\n is maximum. Obtain the cubic equation that gives \n\\(x_0\\)\n. Estimate the value of \n\\(x_0\\)\n within an accuracy of \n\\(\\pm0.25\\)\n. Hence calculate \n\\(\\eta(x_0)\\)\n. [1.0]\n\n\nSolution:\n\n\nThe maximum will be for \n\\(\\dfrac{\\mathrm{d}\\eta}{\\mathrm{d}x_\\mathrm{g}} = \\dfrac{1}{6}(-x_\\mathrm{g}^3+x_\\mathrm{g}^2+2x_\\mathrm{g}+2)e^{-x_\\mathrm{g}} = 0\\)\n\n\n\\[\\Rightarrow p(x_\\mathrm{g}) \\equiv x_\\mathrm{g}^3-x_\\mathrm{g}^2-2x_\\mathrm{g}-2 = 0\\]\n\n\nA Numerical Solution by the Bisection Method\n:\n\n\nNow,\n\n\n\\[\\begin{aligned} p(0) &= -2 \\\\ p(1) &= -4 \\\\ p(2) &= -2 \\\\ p(3) &= 10 \\qquad \\Rightarrow \\qquad 2 < x_0 < 3 \\\\ p(2.5) &= 2.375 \\qquad \\Rightarrow \\qquad 2 < x_0 < 2.5 \\\\ p(2.25) &= -0.171 \\qquad \\Rightarrow \\qquad 2.25 < x_0 < 2.5 \\end{aligned}\\]\n\n\nThe approximate value of \n\\(x_\\mathrm{g}\\)\n where \n\\(\\eta\\)\n is maximum is \n\\(x_0 = 2.27\\)\n.\n\n\nAlternative methods leading to the same result are acceptable.\n\n\n\\(\\eta(2.27) = 0.457\\)\n\n\n(A8) The band gap of pure silicon is \n\\(E_\\mathrm{g} = 1.11\\,\\mathrm{eV}\\)\n. Calculate the efficiency, \n\\(\\eta_\\mathrm{Si}\\)\n, of a silicon solar cell using this value. [0.2]\n\n\nSolution:\n\n\n\\[x_\\mathrm{g} = \\frac{1.11\\times1.60\\times10^{-19}}{1.38\\times10^{-23}\\times5763} = 2.23\\]\n\n\n\\[\\eta_\\mathrm{Si} = \\frac{x_\\mathrm{g}}{6}(x_\\mathrm{g}^2+2x_\\mathrm{g}+2)e^{-x_\\mathrm{g}} = 0.457\\]\n\n\nIn the late nineteenth century, Kelvin and Helmholtz (KH) proposed a hypothesis to explain how the Sun shines. They postulated that starting as a very large cloud of matter of mass, \n\\(M_\\odot\\)\n , and negligible density, the Sun has been shrinking continuously. The shining of the Sun would then be due to the release of gravitational energy through this slow contraction.\n\n\n(A9) Let us assume that the density of matter is uniform inside the Sun. Find the total gravitational potential energy, \n\\(\\Omega\\)\n, of the Sun at present, in terms of \n\\(G\\)\n, \n\\(M_\\odot\\)\nand \n\\(R_\\odot\\)\n. [0.3]\n\n\nSolution:\n\n\nThe total gravitational potential energy of the Sun: \n\\(\\Omega = -\\displaystyle\\int_0^{M_\\odot} \\frac{Gm\\,\\mathrm{d}m}{r}\\)\n\n\nFor constant density, \n\\(\\rho = \\dfrac{3M_\\odot}{4\\pi R_\\odot^3}\\)\n \n\\(m = \\dfrac{4}{3}\\pi r^3\\rho\\)\n \n\\(\\mathrm{d}m = 4\\pi r^2\\rho\\,\\mathrm{d}r\\)\n\n\n\\[\\Omega = -\\int_0^{R_\\odot} G\\left(\\frac{4}{3}\\pi r^3\\rho\\right)\\left(4\\pi r^2\\rho\\right)\\frac{\\mathrm{d}r}{r} = -\\frac{16\\pi^2G\\rho^2}{3}\\,\\frac{R_\\odot^5}{5} = -\\frac{3}{5}\\frac{GM_\\odot^2}{R_\\odot}\\]\n\n\n(A10) Estimate the maximum possible time \n\\(\\tau_\\mathrm{KH}\\)\n (in years), for which the Sun could have been shining, according to the KH hypothesis. Assume that the luminosity of the Sun has been constant throughout this period. [0.5]\n\n\nSolution:\n\n\n\\[\\tau_\\mathrm{KH} = \\frac{-\\Omega}{L_\\odot}\\]\n\n\n\\[\\tau_\\mathrm{KH} = \\frac{3GM_\\odot^2}{5R_\\odot L_\\odot} = 1.88\\times10^{7}\\,\\mathrm{years}\\]\n\n\nThe \n\\(\\tau_\\mathrm{KH}\\)\n calculated above does not match the age of the solar system estimated from studies of meteorites. This shows that the energy source of the Sun cannot be purely gravitational.\n\n\nB. Neutrinos from the Sun:\n\n\nIn 1938, Hans Bethe proposed that nuclear fusion of hydrogen into helium in the core of the Sun is the source of its energy. The net nuclear reaction is:\n\n\n\\[4\\,{}^{1}\\mathrm{H} \\longrightarrow {}^{4}\\mathrm{He} + 2\\mathrm{e}^+ + 2\\nu_\\mathrm{e}\\]\n\n\nThe “electron neutrinos”, \n\\(\\nu_\\mathrm{e}\\)\n, produced in this reaction may be taken to be massless. They escape the Sun and their detection on Earth confirms the occurrence of nuclear reactions inside the Sun. Energy carried away by the neutrinos can be neglected in this problem.\n\n\n(B1) Calculate the flux density, \n\\(\\Phi_\\nu\\)\n, of the number of neutrinos arriving at the Earth, in units of \n\\(\\mathrm{m^{-2}\\,s^{-1}}\\)\n. The energy released in the above reaction is \n\\(\\Delta E = 4.0\\times10^{-12}\\,\\mathrm{J}\\)\n. Assume that the energy radiated by the Sun is almost entirely due to this reaction. [0.6]\n\n\nSolution:\n\n\n\\[4.0\\times10^{-12}\\,\\mathrm{J} \\leftrightarrow 2\\nu\\]\n\n\n\\[\\Rightarrow \\Phi_\\nu = \\frac{L_\\odot}{4\\pi d_\\odot^2\\,\\delta E} \\times 2 = \\frac{3.85\\times10^{26}}{4\\pi \\times (1.50\\times10^{11})^2 \\times 4.0\\times10^{-12}} \\times 2 = 6.8\\times10^{14}\\,\\mathrm{m^{-2}\\,s^{-1}}.\\]\n\n\nTravelling from the core of the Sun to the Earth, some of the electron neutrinos, \n\\(\\nu_\\mathrm{e}\\)\n, are converted to other types of neutrinos, \n\\(\\nu_\\mathrm{x}\\)\n. The efficiency of the detector for detecting \n\\(\\nu_\\mathrm{x}\\)\n is 1/6th of its efficiency for detecting \n\\(\\nu_\\mathrm{e}\\)\n. If there is no neutrino conversion, we expect to detect an average of \n\\(N_1\\)\n neutrinos in a year. However, due to the conversion, an average of \n\\(N_2\\)\n neutrinos (\n\\(\\nu_\\mathrm{e}\\)\n and \n\\(\\nu_\\mathrm{x}\\)\n combined) are actually detected per year.\n\n\n(B2) In terms of \n\\(N_1\\)\n and \n\\(N_2\\)\n, calculate what fraction, \n\\(f\\)\n, of \n\\(\\nu_\\mathrm{e}\\)\n is converted to \n\\(\\nu_\\mathrm{x}\\)\n. [0.4]\n\n\nSolution:\n\n\n\\[\\begin{aligned} N_1 &= \\epsilon N_0 \\\\ N_e &= \\epsilon N_0(1-f) \\\\ N_x &= \\epsilon N_0 f/6 \\\\ N_2 &= N_e + N_x \\end{aligned}\\]\n\n\n\n\nOR\n\n\n\n\n\\[(1-f)N_1 + \\frac{f}{6}N_1 = N_2\\]\n\n\n\\[\\Rightarrow f = \\frac{6}{5}\\left(1-\\frac{N_2}{N_1}\\right)\\]\n\n\nIn order to detect neutrinos, large detectors filled with water are constructed. Although the interactions of neutrinos with matter are very rare, occasionally they knock out electrons from water molecules in the detector. These energetic electrons move through water at high speeds, emitting electromagnetic radiation in the process. As long as the speed of such an electron is greater than the speed of light in water (refractive index, \n\\(n\\)\n), this radiation, called Cherenkov radiation, is emitted in the shape of a cone.\n\n\n(B3) Assume that an electron knocked out by a neutrino loses energy at a constant rate of \n\\(\\alpha\\)\n per unit time, while it travels through water. If this electron emits Cherenkov radiation for a time \n\\(\\Delta t\\)\n, determine the energy imparted to this electron (\n\\(E_\\mathrm{imparted}\\)\n) by the neutrino, in terms of \n\\(\\alpha, \\Delta t, n, m_\\mathrm{e}, c\\)\n. (Assume the electron to be at rest before its interaction with the neutrino.) [2.0]\n\n\nSolution:\n\n\nWhen the electron stops emitting Cherenkov radiation, its speed has reduced to \n\\(v_\\mathrm{stop} = c/n\\)\n. Its total energy at this time is\n\n\n\\[E_\\mathrm{stop} = \\frac{m_\\mathrm{e}c^2}{\\sqrt{1-v_\\mathrm{stop}^2/c^2}} = \\frac{nm_\\mathrm{e}c^2}{\\sqrt{n^2-1}}\\]\n\n\nThe energy of the electron when it was knocked out is\n\n\n\\[E_\\mathrm{start} = \\alpha\\Delta t + \\frac{nm_\\mathrm{e}c^2}{\\sqrt{n^2-1}}\\]\n\n\nBefore interacting, the energy of the electron was equal to \n\\(m_\\mathrm{e}c^2\\)\n.\n\n\nThus, the energy imparted by the neutrino is\n\n\n\\[E_\\mathrm{imparted} = E_\\mathrm{start} - m_\\mathrm{e}c^2 = \\alpha\\Delta t + \\left(\\frac{n}{\\sqrt{n^2-1}} - 1\\right)m_\\mathrm{e}c^2\\]\n\n\nThe fusion of H into He inside the Sun takes place in several steps. Nucleus of \n\\({}^{7}\\mathrm{Be}\\)\n (rest mass, \n\\(m_\\mathrm{Be}\\)\n) is produced in one of these intermediate steps. Subsequently, it can absorb an electron, producing a \n\\({}^{7}\\mathrm{Li}\\)\n nucleus (rest mass \n\\(m_\\mathrm{Li} < m_\\mathrm{Be}\\)\n) and emitting a \n\\(\\nu_\\mathrm{e}\\)\n. The corresponding nuclear reaction is:\n\n\n\\[{}^{7}\\mathrm{Be} + \\mathrm{e}^- \\longrightarrow {}^{7}\\mathrm{Li} + \\nu_\\mathrm{e}\\,.\\]\n\n\nWhen a Be nucleus (\n\\(m_\\mathrm{Be} = 11.65\\times10^{-27}\\,\\mathrm{kg}\\)\n) is at rest and absorbs an electron also at rest, the emitted neutrino has energy \n\\(E_\\nu = 1.44\\times10^{-13}\\,\\mathrm{J}\\)\n. However, the Be nuclei are in random thermal motion due to the temperature \n\\(T_\\mathrm{c}\\)\n at the core of the Sun, and act as moving neutrino sources. As a result, the energy of emitted neutrinos fluctuates with a root mean square value \n\\(\\Delta E_\\mathrm{rms}\\)\n.\n\n\n(B4) If \n\\(\\Delta E_\\mathrm{rms} = 5.54\\times10^{-17}\\,\\mathrm{J}\\)\n, calculate the rms speed of the Be nuclei, \n\\(V_\\mathrm{Be}\\)\n and hence estimate \n\\(T_\\mathrm{c}\\)\n. (Hint: \n\\(\\Delta E_\\mathrm{rms}\\)\n depends on the rms value of the component of velocity along the line of sight.)\n\n\n[2.0]\n\n\nSolution:\n\n\nMoving \n\\({}^{7}\\)\nBe nuclei give rise to Doppler effect for neutrinos. Since the fractional change in energy (\n\\(\\Delta E_\\mathrm{rms}/E_\\nu \\sim 10^{-4}\\)\n) is small, the Doppler shift may be considered in the non-relativistic limit (a relativistic treatment gives almost same answer). Taking the line of sight along the \n\\(z\\)\n-direction,\n\n\n\\[\\begin{aligned} \\frac{\\Delta E_\\mathrm{rms}}{E_\\nu} &= \\frac{v_{z,rms}}{c} \\\\ &= 3.85\\times10^{-4} \\\\ &= \\frac{1}{\\sqrt{3}}\\,\\frac{V_\\mathrm{Be}}{c} \\end{aligned}\\]\n\n\n\\[\\Rightarrow V_\\mathrm{Be} = \\sqrt{3}\\times3.85\\times10^{-4}\\times3.00\\times10^{8}\\,\\mathrm{m\\,s^{-1}} = 2.01\\times10^{5}\\,\\mathrm{m\\,s^{-1}}.\\]\n\n\nThe average temperature is obtained by equating the average kinetic energy to the thermal energy.\n\n\n\\[\\frac{1}{2}m_\\mathrm{Be}V_\\mathrm{Be}^2 = \\frac{3}{2}k_\\mathrm{B}T_\\mathrm{c}\\]\n\n\n\\[\\Rightarrow \\quad T_\\mathrm{c} = 1.13\\times10^{7}\\,\\mathbf{K}\\]\n\n\n\n\n\n\n\n\n\nAmol Dighe (TIFR), Anwesh Mazumdar (HBCSE-TIFR) and Vijay A. Singh (ex-National Coordinator, Science Olympiads) were the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group and the International Board are gratefully acknowledged.\n↩︎\n\n\n\n\n\n",
+    "figures": [
+      "/corpus/figures/native/bulk/ipho-2015-t1/6134b36d0660a0887c53.png"
+    ],
+    "shared": false
+  }
+}
