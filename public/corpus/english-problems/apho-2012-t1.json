@@ -1,1 +1,984 @@
-{"id":"apho-2012-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2012_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2012_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2012-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"Theory Question-I \nPage 1 of 3 \n \n13th Asian Physics Olympiad  \nMay 01-07, 2012, New Delhi \nFigure 2 \n \n \nThe Drag on a Falling Magnet \nA clear and detailed discussion on eddy currents was first provided by the British \nphysicist Sir James H. Jeans (1877-1946)  in his celebrated book The mathematical \ntheory of electricity and magnetism (1925). The present problem is based on electricity \nand magnetism. \n \n \n \n \nA small size magnet with dipole moment of \nmagnitude 𝑝 and mass 𝑚 is dropped through a very \nlong vertically held non-magnetic metallic tube as \nshown in Fig. (1) (figure is not to scale). In general \nthe fall is governed by  \n \n \nHere 𝑔 is the acceleration due to gravity. Note \nthat the damping parameter 𝑘 is due to the       \ngeneration of eddy currents in the tube.  \n \nI.1 \nObtain the terminal velocity (𝑣𝑇) of the magnet. \n          \n[0.5 point] \n \nI.2 \nObtain 𝑧(𝑡), i.e. position of the magnet at time 𝑡. Take 𝑣(𝑡= 0) = 0 and \n𝑧(𝑡= 0) = 0.    \n \n \n \n \n \n \n[1.0 point] \n  \n \nWe shall attempt to understand the dynamics of the fall. In order \nto do this we consider in part (I.3) – part (I.8) a simplified problem \nof the magnet falling axially towards a fixed non-magnetic \nmetallic ring of radius 𝑎,  resistance 𝑅 and inductance 𝐿 as \nshown in Fig. (2). In this problem, we shall ignore radiation \neffects. \nIn our case it is convenient to change the reference coordinates to \na set of cylindrical ones (𝜌, 𝜑, 𝑧) as shown in Fig. (2) where 𝑧-axis \nis the ring axis, the magnet is initially at rest at the origin and the \ncenter of the ring is at distance 𝑧0 from the origin. Cartesian axes \n(𝑥, 𝑦, 𝑧) are also shown in the figure. The magnet has dipole \nmoment 𝑝  in the positive 𝑧 direction (𝑝 = 𝑝𝑘 ) where 𝑘  is unit \nvector in 𝑧 direction. We will assume that during the fall, \nmagnetic moment remains in the same direction. The axial \ncomponent (𝐵𝑧) and radial component (𝐵𝜌) of the magnetic \nfield at an arbitrary point (𝜌, 𝜑, 𝑧) when the magnet is at the \norigin are given by \n𝑚𝑧 = 𝑚𝑔−𝑘𝑧  \n…………………(1) \nJames H. Jeans \n(1877-1946) \nFigure 1 \n \n\nTheory Question-I \nPage 2 of 3 \n \n13th Asian Physics Olympiad  \nMay 01-07, 2012, New Delhi \n                                                               \n𝐵𝑧= 𝜇0\n4𝜋\n𝑝\n 𝜌2 + 𝑧2 \n3\n2\n \n3𝑧2\n𝜌2 + 𝑧2 −1  \n𝐵𝜌= 𝜇0\n4𝜋\n3𝑝𝑧𝜌\n(𝜌2 + 𝑧2)5/2 \nwhere 𝜇0 is the permeability of free space. \n \nI.3 \nLet the instantaneous speed of the magnet be 𝑣. Obtain the magnitude of the  \ninduced emf (𝑒𝑖) in the ring.  \n \n \n \n \n \n[1.5 points] \n \nI.4 \nThis emf will give rise to an induced current (𝑖) in the ring. Obtain the magnitude                \nof the instantaneous electromagnetic force (𝑓𝑒𝑚) on the ring in terms of 𝑖.                 \n[1.0 point] \n \nI.5 \nWhat is the magnitude of the force on the magnet due to this ring?   \n   \n \n \n \n \n \n \n [0.5 point] \n \nI.6 \nExpress the emf in the ring in terms of  L, R and i. Do not solve for 𝑖. [0.5 point] \n \nI.7 \nAs the magnet falls it loses gravitational potential energy. Identify the three main \nforms of energy into which the gravitational potential energy is converted and \nwrite down the expressions you would use to calculate each of the three \ncontributions. \n \n \n \n \n \n \n \n [1.0 point] \nI.8 \nDoes the magnetic field of the magnet do any work in this process? Tick in the \nappropriate box.  \n \n \n \n \n \n \n [0.5 point] \n \n \n \nNext we will estimate the damping parameter 𝑘 due to the \npipe (see Eq. (1)). Take an infinitely long pipe with radius 𝑎, \nsmall thickness 𝑤, and electrical conductivity 𝜍. For this and \nlater part, we take inductance of the pipe to be negligible. It \nwould help if you considered the pipe to be made of many \nrings each of height ∆𝑧′, radius 𝑎, small thickness 𝑤 and \nelectrical conductivity 𝜍 (see Fig. (3)). For simplicity, the two \nends of the pipe are at 𝑧= −∞ and at 𝑧= ∞, respectively. \n \n \nI.9 \nObtain the resistance of an individual ring. \n[0.5 point] \n \n \n \n \nFigure 3 \n\nTheory Question-I \nPage 3 of 3 \n \n13th Asian Physics Olympiad  \nMay 01-07, 2012, New Delhi \n \nI.10 Obtain the damping parameter 𝑘 due to the entire pipe in terms of 𝑝, 𝜍 and \ngeometrical parameters of the ring. Since each ring is very thin, you may take  \nmagnetic field to be constant over the thickness of the ring and equal to 𝐵𝜌(𝜌=\n𝑎). Assume that at an instant 𝑡, the magnet has a coordinate 𝑧(𝑡) with an \ninstantaneous speed 𝑧 . You should leave your answer in terms of a dimensionless \nintegral 𝐼, involving a dimensionless variable 𝑢= (𝑧−𝑧′)/𝑎.  \n[2.0 points] \n \n \nI.11 Assume that the damping constant 𝑘 depends on the following  \n𝑘= 𝑓(𝜇0, 𝑝, 𝑅0, 𝑎) \nwhere 𝑅0 is the effective resistance of a long pipe. Use dimensional analysis to \nobtain an expression for 𝑘. Take the dimensionless constant to be unity.[1.0 point]\n \n \n \n \n \n \n \n \n \n \n \n \nThe following integral may be useful: \n \n \n𝑢𝑑𝑢\n 𝑢2 + 𝑎2 𝑛= 1\n2\n 𝑎2 + 𝑢2 1−𝑛\n1 −𝑛\n+ Constant      (n > 1) \n \n \n \n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2012-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"13th Asian Physics Olympiad\nMay 01-07, 2012\nDetailed Answer &\nGrading Scheme\nTheory Question I\nPage 1 of 3\nI.1. Equation of motion for the magnet is\nm¨z = mg −k ˙z\n(1)\nFor terminal velocity\n¨z = 0\n0.2 mark\nwhich gives\nvT = ˙z = mg\nk\n0.3 mark\nI.2. Rewriting Eq. (1)\ndv\ndt = g −k\nmv(t)\nGiven that v(t = 0) = 0; z(t = 0) = 0 which yields\nv(t) = mg\nk (1 −e−kt/m) = dz\ndt\n0.5 mark\nZ z\n0\ndz =\nZ t\n0\nmg\nk (1 −e−kt/m)dt\nz(t) = mg\nk\nh\nt + m\nk (e−kt/m −1)\ni\n0.5 mark\nI.3. Method - I : Because of the relative speed v between the magnet and the ring, in\nthe \u001celd ⃗B = Bzˆk + Bρˆρ of the magnet, the induced emf is given by\nei =\nZ\n(⃗v × ⃗B).d⃗l\n0.8 mark\nei = vBa2πa\n0.4 mark\nwhere\nBa = µ0\n4π\n3pa(z0 −z)\n[a2 + (z0 −z)2]5/2\n(2)\n0.3 mark\nMethod - II :Magnetic \u001dux (φ) through the ring is\nφ =\nZ a\n0\nBz2πρdρ\n0.2 mark\n= 2π\nZ a\n0\nµ0\n4π\nρp\n(ρ2 + (z0 −z)2)3/2\n\u0014\n3(z0 −z)2\nρ2 + (z0 −z)2 −1\n\u0015\ndρ\n0.2 mark\nφ =\nµ0pa2\n2(a2 + (z0 −z)2)3/2\n0.3 mark\nInduced emf\nei = −dφ\ndt\n= −vdφ\ndz\n0.4 mark\nwhich gives\nei =\nµ03pa2v(z0 −z)\n2[a2 + (z0 −z)2]5/2\n0.4 mark\n\n13th Asian Physics Olympiad\nMay 01-07, 2012\nDetailed Answer &\nGrading Scheme\nTheory Question I\nPage 2 of 3\nI.4. Bz component will cause a radially outward force on the ring and by symmetry this\nyields a null force.\n0.4 mark\nOnly Bρ will contribute to\n⃗df em = i(d⃗l × ⃗B)\n\f\f\f⃗fem\n\f\f\f = i2πaBa\n0.6 mark\nwhere Ba is given by Eq. (2).\nI.5. By Newton's third law, equal and opposite force will be exerted by the ring on the\nmagnet. Hence the magnitude of the force on the magnet by the ring is fem.\n0.5 mark\nI.6. ei = Ldi\ndt + iR\n0.5 mark\nI.7. Potential energy is converted to three parts:\n(a) mv2/2 (kinetic energy)\n0.3 mark\n(b) Li2/2 (magnetic energy)\n0.3 mark\n(c) i2R∆t (Joule loss due to the current in time ∆t).\n0.4 mark\nI.8. The magnetic \u001celd does no work in the process.\nYes\nNo\n✓\n0.5 mark\nI.9. Resistance of the ring\n∆R =\n2πa\nσw∆z′\n0.5 mark\nI.10. Now, the net force on the magnet, due to one ring at z′ is given by\nfem = (2πa)iB′\na\nwhere\nB′\na = µ0\n4π\n3pa(z′ −z)\n(a2 + (z′ −z)2)5/2\n0.3 mark\nand i is the induced current in the ring which is given by\ni = ei\n∆R = σwei\n2πa ∆z′\n0.5 mark\nThen the net force on the magnet due to the entire pipe is given by\nF =\nZ ∞\n−∞\nfem =\nZ ∞\n−∞\nB′2\na (2πa)wσdz′. ˙z\n0.2 mark\n\n13th Asian Physics Olympiad\nMay 01-07, 2012\nDetailed Answer &\nGrading Scheme\nTheory Question I\nPage 3 of 3\nSince the pipe is very long the limits of integration can be taken as −∞and ∞.\nSubstituting B′\na, we get\nF =\n\u0010µ0\n4π\n\u00112\n18p2a3πwσ ˙z\nZ ∞\n−∞\n(z′ −z)2\n((z′ −z)2 + a2)5dz′\n0.5 mark\nLet u = (z′ −z)/a. Finally,\nF =\n\u0010µ0\n4π\n\u00112 18p2πσw ˙z\na4\nZ ∞\n−∞\nu2\n(1 + u2)5du\nThus damping parameter\nk =\n\u0010µ0\n4π\n\u00112 18p2πσw\na4\nZ ∞\n−∞\nu2\n(1 + u2)5du\n0.5 mark\nI.11. Given that,\nk = f(µ0, p, R0, a)\nDimensions of various parameters involved are\n[µ0] = I−2MLT −2\n0.2 mark\n[p] = IL2\n0.1 mark\n[R0] = I−2ML2T −3\n0.2 mark\n[a] = L\n[k] == MT −1\nwhich gives\nk = p2µ2\no\na4R0\n0.5 mark\n","textExtraction":"available"}}
+{
+  "id": "apho-2012-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2012_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2012_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2012-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "The Drag on a Falling Magnet"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A clear and detailed discussion of eddy currents was first provided by the British physicist Sir James H. Jeans (1877–1946) in The mathematical theory of electricity and magnetism (1925). The present problem is based on electricity and magnetism."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/apho-2012-jeans.png",
+        "alt": "Original portrait of James H. Jeans, 1877 to 1946."
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/apho-2012-tube.png",
+        "alt": "Figure 1: a small magnet falls down the axis of a vertical metallic tube, with the z direction downward."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A small magnet with dipole moment of magnitude \\(p\\) and mass \\(m\\) is dropped through a very long vertically held non-magnetic metallic tube as shown in Figure 1, which is not to scale. In general the fall is governed by"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[m\\ddot z=mg-k\\dot z.\\tag{1}\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Here \\(g\\) is gravitational acceleration. The damping parameter \\(k\\) is due to the generation of eddy currents in the tube."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.1 (0.5 point)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Obtain the terminal velocity \\(v_T\\) of the magnet."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.2 (1.0 point)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Obtain the position \\(z(t)\\) of the magnet at time \\(t\\). Take \\(v(0)=0\\) and \\(z(0)=0\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "To understand the fall, consider in I.3 to I.8 a simplified problem: the magnet falls axially towards a fixed non-magnetic metallic ring of radius \\(a\\), resistance \\(R\\), and inductance \\(L\\), as shown in Figure 2. Ignore radiation effects."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/apho-2012-ring.png",
+        "alt": "Figure 2: cylindrical coordinates rho, phi, z around the falling dipole p pointing along positive z, with the ring centre at z_0 and ring diameter 2a."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use cylindrical coordinates \\((\\rho,\\varphi,z)\\). The \\(z\\)-axis is the ring axis, the magnet is initially at rest at the origin, and the ring centre is at distance \\(z_0\\) from the origin. Cartesian axes \\((x,y,z)\\) are also shown. The dipole moment is \\(\\mathbf p=p\\hat{\\mathbf k}\\), where \\(\\hat{\\mathbf k}\\) is the unit vector in the positive \\(z\\) direction. Assume the magnetic moment remains in that direction. When the magnet is at the origin, the axial and radial field components at \\((\\rho,\\varphi,z)\\) are"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[B_z=\\frac{\\mu_0}{4\\pi}\\frac{p}{(\\rho^2+z^2)^{3/2}}\\left(\\frac{3z^2}{\\rho^2+z^2}-1\\right),\\qquad B_\\rho=\\frac{\\mu_0}{4\\pi}\\frac{3pz\\rho}{(\\rho^2+z^2)^{5/2}},\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where \\(\\mu_0\\) is the permeability of free space."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.3 (1.5 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let the instantaneous speed of the magnet be \\(v\\). Obtain the magnitude of the induced emf \\(e_i\\) in the ring."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.4 (1.0 point)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This emf gives rise to an induced current \\(i\\) in the ring. Obtain the magnitude of the instantaneous electromagnetic force \\(f_{\\mathrm{em}}\\) on the ring in terms of \\(i\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.5 (0.5 point)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "What is the magnitude of the force on the magnet due to this ring?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.6 (0.5 point)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Express the emf in terms of \\(L\\), \\(R\\), and \\(i\\). Do not solve for \\(i\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.7 (1.0 point)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As the magnet falls it loses gravitational potential energy. Identify the three main forms of energy into which it is converted, and write down the expressions used to calculate each contribution."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.8 (0.5 point)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Does the magnet's magnetic field do any work in this process? Answer yes or no."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Next estimate the damping parameter \\(k\\) due to the pipe in Eq. (1). Take an infinitely long pipe of radius \\(a\\), small thickness \\(w\\), and electrical conductivity \\(\\sigma\\) (printed as the variant sigma \\(\\varsigma\\) in the statement). In this and the following part, take the pipe's inductance to be negligible. Consider it as many rings, each of height \\(\\Delta z'\\), radius \\(a\\), thickness \\(w\\), and conductivity \\(\\sigma\\), as in Figure 3. Its two ends are at \\(z=-\\infty\\) and \\(z=\\infty\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/apho-2012-slice.png",
+        "alt": "Figure 3: a thin ring cut from the conducting pipe at z', with thickness w, height delta z', radius a, and the falling dipole at z(t)."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.9 (0.5 point)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Obtain the resistance of an individual ring."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.10 (2.0 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Obtain the damping parameter \\(k\\) of the entire pipe in terms of \\(p\\), \\(\\sigma\\), and the ring's geometrical parameters. Since each ring is very thin, take the field as constant over its thickness and equal to \\(B_\\rho(\\rho=a)\\). At time \\(t\\), the magnet has coordinate \\(z(t)\\) and instantaneous speed \\(\\dot z\\). Leave your answer in terms of a dimensionless integral \\(I\\), involving \\(u=(z-z')/a\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.11 (1.0 point)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Assume the damping constant depends on \\(k=f(\\mu_0,p,R_0,a)\\), where \\(R_0\\) is the effective resistance of a long pipe. Use dimensional analysis to obtain an expression for \\(k\\). Take the dimensionless constant to be unity."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The following integral may be useful"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\int\\frac{u\\,du}{(u^2+a^2)^n}=\\frac12\\frac{(a^2+u^2)^{1-n}}{1-n}+\\mathrm{Constant},\\qquad n>1.\\]"
+          }
+        ]
+      }
+    ],
+    "text": "The Drag on a Falling Magnet\nA clear and detailed discussion of eddy currents was first provided by the British physicist Sir James H. Jeans (1877–1946) in The mathematical theory of electricity and magnetism (1925). The present problem is based on electricity and magnetism.\n\n\nA small magnet with dipole moment of magnitude \\(p\\) and mass \\(m\\) is dropped through a very long vertically held non-magnetic metallic tube as shown in Figure 1, which is not to scale. In general the fall is governed by\n\\[m\\ddot z=mg-k\\dot z.\\tag{1}\\]\nHere \\(g\\) is gravitational acceleration. The damping parameter \\(k\\) is due to the generation of eddy currents in the tube.\nI.1 (0.5 point)\nObtain the terminal velocity \\(v_T\\) of the magnet.\nI.2 (1.0 point)\nObtain the position \\(z(t)\\) of the magnet at time \\(t\\). Take \\(v(0)=0\\) and \\(z(0)=0\\).\nTo understand the fall, consider in I.3 to I.8 a simplified problem: the magnet falls axially towards a fixed non-magnetic metallic ring of radius \\(a\\), resistance \\(R\\), and inductance \\(L\\), as shown in Figure 2. Ignore radiation effects.\n\nUse cylindrical coordinates \\((\\rho,\\varphi,z)\\). The \\(z\\)-axis is the ring axis, the magnet is initially at rest at the origin, and the ring centre is at distance \\(z_0\\) from the origin. Cartesian axes \\((x,y,z)\\) are also shown. The dipole moment is \\(\\mathbf p=p\\hat{\\mathbf k}\\), where \\(\\hat{\\mathbf k}\\) is the unit vector in the positive \\(z\\) direction. Assume the magnetic moment remains in that direction. When the magnet is at the origin, the axial and radial field components at \\((\\rho,\\varphi,z)\\) are\n\\[B_z=\\frac{\\mu_0}{4\\pi}\\frac{p}{(\\rho^2+z^2)^{3/2}}\\left(\\frac{3z^2}{\\rho^2+z^2}-1\\right),\\qquad B_\\rho=\\frac{\\mu_0}{4\\pi}\\frac{3pz\\rho}{(\\rho^2+z^2)^{5/2}},\\]\nwhere \\(\\mu_0\\) is the permeability of free space.\nI.3 (1.5 points)\nLet the instantaneous speed of the magnet be \\(v\\). Obtain the magnitude of the induced emf \\(e_i\\) in the ring.\nI.4 (1.0 point)\nThis emf gives rise to an induced current \\(i\\) in the ring. Obtain the magnitude of the instantaneous electromagnetic force \\(f_{\\mathrm{em}}\\) on the ring in terms of \\(i\\).\nI.5 (0.5 point)\nWhat is the magnitude of the force on the magnet due to this ring?\nI.6 (0.5 point)\nExpress the emf in terms of \\(L\\), \\(R\\), and \\(i\\). Do not solve for \\(i\\).\nI.7 (1.0 point)\nAs the magnet falls it loses gravitational potential energy. Identify the three main forms of energy into which it is converted, and write down the expressions used to calculate each contribution.\nI.8 (0.5 point)\nDoes the magnet's magnetic field do any work in this process? Answer yes or no.\nNext estimate the damping parameter \\(k\\) due to the pipe in Eq. (1). Take an infinitely long pipe of radius \\(a\\), small thickness \\(w\\), and electrical conductivity \\(\\sigma\\) (printed as the variant sigma \\(\\varsigma\\) in the statement). In this and the following part, take the pipe's inductance to be negligible. Consider it as many rings, each of height \\(\\Delta z'\\), radius \\(a\\), thickness \\(w\\), and conductivity \\(\\sigma\\), as in Figure 3. Its two ends are at \\(z=-\\infty\\) and \\(z=\\infty\\).\n\nI.9 (0.5 point)\nObtain the resistance of an individual ring.\nI.10 (2.0 points)\nObtain the damping parameter \\(k\\) of the entire pipe in terms of \\(p\\), \\(\\sigma\\), and the ring's geometrical parameters. Since each ring is very thin, take the field as constant over its thickness and equal to \\(B_\\rho(\\rho=a)\\). At time \\(t\\), the magnet has coordinate \\(z(t)\\) and instantaneous speed \\(\\dot z\\). Leave your answer in terms of a dimensionless integral \\(I\\), involving \\(u=(z-z')/a\\).\nI.11 (1.0 point)\nAssume the damping constant depends on \\(k=f(\\mu_0,p,R_0,a)\\), where \\(R_0\\) is the effective resistance of a long pipe. Use dimensional analysis to obtain an expression for \\(k\\). Take the dimensionless constant to be unity.\nThe following integral may be useful\n\\[\\int\\frac{u\\,du}{(u^2+a^2)^n}=\\frac12\\frac{(a^2+u^2)^{1-n}}{1-n}+\\mathrm{Constant},\\qquad n>1.\\]",
+    "figures": [
+      "/corpus/figures/native/apho-2012-jeans.png",
+      "/corpus/figures/native/apho-2012-tube.png",
+      "/corpus/figures/native/apho-2012-ring.png",
+      "/corpus/figures/native/apho-2012-slice.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2012-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Detailed answer and grading scheme"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.1"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The equation of motion is \\(m\\ddot z=mg-k\\dot z\\). At terminal velocity \\(\\ddot z=0\\) (0.2 mark), giving"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[v_T=\\dot z=\\frac{mg}{k}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Terminal velocity: 0.3 mark."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.2"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\frac{dv}{dt}=g-\\frac{k}{m}v(t),\\qquad v(0)=z(0)=0,\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[v(t)=\\frac{mg}{k}(1-e^{-kt/m})=\\frac{dz}{dt}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Velocity: 0.5 mark. Integrating"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\int_0^z dz=\\int_0^t\\frac{mg}{k}(1-e^{-kt/m})\\,dt,\\qquad z(t)=\\frac{mg}{k}\\left[t+\\frac{m}{k}(e^{-kt/m}-1)\\right].\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Position: 0.5 mark."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.3. Method I"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Because of the relative speed \\(v\\) between the magnet and ring in the magnet's field \\(\\mathbf B=B_z\\hat{\\mathbf k}+B_\\rho\\hat{\\boldsymbol\\rho}\\), the induced emf is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[e_i=\\int(\\mathbf v\\times\\mathbf B)\\cdot d\\mathbf l=vB_a\\,2\\pi a,\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The integral and substitution receive 0.8 and 0.4 mark, respectively, where"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[B_a=\\frac{\\mu_0}{4\\pi}\\frac{3pa(z_0-z)}{[a^2+(z_0-z)^2]^{5/2}}.\\tag{2}\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Field expression: 0.3 mark."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.3. Method II"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The magnetic flux through the ring is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\phi=\\int_0^a B_z\\,2\\pi\\rho\\,d\\rho=2\\pi\\int_0^a\\frac{\\mu_0}{4\\pi}\\frac{\\rho p}{[\\rho^2+(z_0-z)^2]^{3/2}}\\left[\\frac{3(z_0-z)^2}{\\rho^2+(z_0-z)^2}-1\\right]d\\rho,\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\phi=\\frac{\\mu_0pa^2}{2[a^2+(z_0-z)^2]^{3/2}},\\qquad e_i=-\\frac{d\\phi}{dt}=-v\\frac{d\\phi}{dz},\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[e_i=\\frac{3\\mu_0pa^2v(z_0-z)}{2[a^2+(z_0-z)^2]^{5/2}}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The flux integral, its substitution, integrated flux, Faraday-law step, and final emf receive 0.2, 0.2, 0.3, 0.4, and 0.4 mark. The source prints a signed expression while the question requests a magnitude. Magnitudes use absolute values when the magnet has passed the ring."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.4"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The \\(B_z\\) component causes radially outward forces on the ring, with zero net force by symmetry (0.4 mark). Only \\(B_\\rho\\) contributes"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[d\\mathbf f_{\\mathrm{em}}=i(d\\mathbf l\\times\\mathbf B),\\qquad |\\mathbf f_{\\mathrm{em}}|=i\\,2\\pi aB_a,\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where \\(B_a\\) is given by Eq. (2). Force: 0.6 mark."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.5"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "By Newton's third law, the ring exerts an equal and opposite force on the magnet. Its magnitude is \\(f_{\\mathrm{em}}\\) (0.5 mark)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.6"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[e_i=L\\frac{di}{dt}+iR.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Circuit equation: 0.5 mark."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.7"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Potential energy is converted into kinetic energy \\(mv^2/2\\) (0.3 mark), magnetic energy \\(Li^2/2\\) (0.3 mark), and Joule loss \\(i^2R\\Delta t\\) in time \\(\\Delta t\\) (0.4 mark)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.8"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The magnetic field does no work in the process. The source ticks No (0.5 mark)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.9"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\Delta R=\\frac{2\\pi a}{\\sigma w\\Delta z'}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Ring resistance: 0.5 mark."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.10"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For one ring at \\(z'\\), the force is \\(f_{\\mathrm{em}}=(2\\pi a)iB'_a\\), where"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[B'_a=\\frac{\\mu_0}{4\\pi}\\frac{3pa(z'-z)}{[a^2+(z'-z)^2]^{5/2}}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Field: 0.3 mark. The induced current is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[i=\\frac{e_i}{\\Delta R}=\\frac{\\sigma we_i}{2\\pi a}\\Delta z'.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Current: 0.5 mark. Therefore the force from the entire pipe is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[F=\\int_{-\\infty}^{\\infty}f_{\\mathrm{em}}=\\int_{-\\infty}^{\\infty}(B'_a)^2(2\\pi a)w\\sigma\\,dz'\\,\\dot z.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Force integral: 0.2 mark. For the very long pipe the limits can be taken as infinite. Substitution gives"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[F=\\left(\\frac{\\mu_0}{4\\pi}\\right)^2 18p^2a^3\\pi w\\sigma\\dot z\\int_{-\\infty}^{\\infty}\\frac{(z'-z)^2}{[(z'-z)^2+a^2]^5}\\,dz'.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Substitution: 0.5 mark. Let \\(u=(z'-z)/a\\). This is the opposite sign to the variable defined in the question, which leaves this even integral unchanged."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[F=\\left(\\frac{\\mu_0}{4\\pi}\\right)^2\\frac{18p^2\\pi\\sigma w\\dot z}{a^4}\\int_{-\\infty}^{\\infty}\\frac{u^2}{(1+u^2)^5}\\,du,\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[k=\\left(\\frac{\\mu_0}{4\\pi}\\right)^2\\frac{18p^2\\pi\\sigma w}{a^4}\\int_{-\\infty}^{\\infty}\\frac{u^2}{(1+u^2)^5}\\,du.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Damping parameter: 0.5 mark."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "I.11"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Given \\(k=f(\\mu_0,p,R_0,a)\\), the dimensions are"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[[\\mu_0]=I^{-2}MLT^{-2},\\quad[p]=IL^2,\\quad[R_0]=I^{-2}ML^2T^{-3},\\quad[a]=L,\\quad[k]=MT^{-1}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The first three dimension statements receive 0.2, 0.1, and 0.2 mark. They give"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[k=\\frac{p^2\\mu_0^2}{a^4R_0}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Final expression: 0.5 mark."
+          }
+        ]
+      }
+    ],
+    "text": "Detailed answer and grading scheme\nI.1\nThe equation of motion is \\(m\\ddot z=mg-k\\dot z\\). At terminal velocity \\(\\ddot z=0\\) (0.2 mark), giving\n\\[v_T=\\dot z=\\frac{mg}{k}.\\]\nTerminal velocity: 0.3 mark.\nI.2\n\\[\\frac{dv}{dt}=g-\\frac{k}{m}v(t),\\qquad v(0)=z(0)=0,\\]\n\\[v(t)=\\frac{mg}{k}(1-e^{-kt/m})=\\frac{dz}{dt}.\\]\nVelocity: 0.5 mark. Integrating\n\\[\\int_0^z dz=\\int_0^t\\frac{mg}{k}(1-e^{-kt/m})\\,dt,\\qquad z(t)=\\frac{mg}{k}\\left[t+\\frac{m}{k}(e^{-kt/m}-1)\\right].\\]\nPosition: 0.5 mark.\nI.3. Method I\nBecause of the relative speed \\(v\\) between the magnet and ring in the magnet's field \\(\\mathbf B=B_z\\hat{\\mathbf k}+B_\\rho\\hat{\\boldsymbol\\rho}\\), the induced emf is\n\\[e_i=\\int(\\mathbf v\\times\\mathbf B)\\cdot d\\mathbf l=vB_a\\,2\\pi a,\\]\nThe integral and substitution receive 0.8 and 0.4 mark, respectively, where\n\\[B_a=\\frac{\\mu_0}{4\\pi}\\frac{3pa(z_0-z)}{[a^2+(z_0-z)^2]^{5/2}}.\\tag{2}\\]\nField expression: 0.3 mark.\nI.3. Method II\nThe magnetic flux through the ring is\n\\[\\phi=\\int_0^a B_z\\,2\\pi\\rho\\,d\\rho=2\\pi\\int_0^a\\frac{\\mu_0}{4\\pi}\\frac{\\rho p}{[\\rho^2+(z_0-z)^2]^{3/2}}\\left[\\frac{3(z_0-z)^2}{\\rho^2+(z_0-z)^2}-1\\right]d\\rho,\\]\n\\[\\phi=\\frac{\\mu_0pa^2}{2[a^2+(z_0-z)^2]^{3/2}},\\qquad e_i=-\\frac{d\\phi}{dt}=-v\\frac{d\\phi}{dz},\\]\n\\[e_i=\\frac{3\\mu_0pa^2v(z_0-z)}{2[a^2+(z_0-z)^2]^{5/2}}.\\]\nThe flux integral, its substitution, integrated flux, Faraday-law step, and final emf receive 0.2, 0.2, 0.3, 0.4, and 0.4 mark. The source prints a signed expression while the question requests a magnitude. Magnitudes use absolute values when the magnet has passed the ring.\nI.4\nThe \\(B_z\\) component causes radially outward forces on the ring, with zero net force by symmetry (0.4 mark). Only \\(B_\\rho\\) contributes\n\\[d\\mathbf f_{\\mathrm{em}}=i(d\\mathbf l\\times\\mathbf B),\\qquad |\\mathbf f_{\\mathrm{em}}|=i\\,2\\pi aB_a,\\]\nwhere \\(B_a\\) is given by Eq. (2). Force: 0.6 mark.\nI.5\nBy Newton's third law, the ring exerts an equal and opposite force on the magnet. Its magnitude is \\(f_{\\mathrm{em}}\\) (0.5 mark).\nI.6\n\\[e_i=L\\frac{di}{dt}+iR.\\]\nCircuit equation: 0.5 mark.\nI.7\nPotential energy is converted into kinetic energy \\(mv^2/2\\) (0.3 mark), magnetic energy \\(Li^2/2\\) (0.3 mark), and Joule loss \\(i^2R\\Delta t\\) in time \\(\\Delta t\\) (0.4 mark).\nI.8\nThe magnetic field does no work in the process. The source ticks No (0.5 mark).\nI.9\n\\[\\Delta R=\\frac{2\\pi a}{\\sigma w\\Delta z'}.\\]\nRing resistance: 0.5 mark.\nI.10\nFor one ring at \\(z'\\), the force is \\(f_{\\mathrm{em}}=(2\\pi a)iB'_a\\), where\n\\[B'_a=\\frac{\\mu_0}{4\\pi}\\frac{3pa(z'-z)}{[a^2+(z'-z)^2]^{5/2}}.\\]\nField: 0.3 mark. The induced current is\n\\[i=\\frac{e_i}{\\Delta R}=\\frac{\\sigma we_i}{2\\pi a}\\Delta z'.\\]\nCurrent: 0.5 mark. Therefore the force from the entire pipe is\n\\[F=\\int_{-\\infty}^{\\infty}f_{\\mathrm{em}}=\\int_{-\\infty}^{\\infty}(B'_a)^2(2\\pi a)w\\sigma\\,dz'\\,\\dot z.\\]\nForce integral: 0.2 mark. For the very long pipe the limits can be taken as infinite. Substitution gives\n\\[F=\\left(\\frac{\\mu_0}{4\\pi}\\right)^2 18p^2a^3\\pi w\\sigma\\dot z\\int_{-\\infty}^{\\infty}\\frac{(z'-z)^2}{[(z'-z)^2+a^2]^5}\\,dz'.\\]\nSubstitution: 0.5 mark. Let \\(u=(z'-z)/a\\). This is the opposite sign to the variable defined in the question, which leaves this even integral unchanged.\n\\[F=\\left(\\frac{\\mu_0}{4\\pi}\\right)^2\\frac{18p^2\\pi\\sigma w\\dot z}{a^4}\\int_{-\\infty}^{\\infty}\\frac{u^2}{(1+u^2)^5}\\,du,\\]\n\\[k=\\left(\\frac{\\mu_0}{4\\pi}\\right)^2\\frac{18p^2\\pi\\sigma w}{a^4}\\int_{-\\infty}^{\\infty}\\frac{u^2}{(1+u^2)^5}\\,du.\\]\nDamping parameter: 0.5 mark.\nI.11\nGiven \\(k=f(\\mu_0,p,R_0,a)\\), the dimensions are\n\\[[\\mu_0]=I^{-2}MLT^{-2},\\quad[p]=IL^2,\\quad[R_0]=I^{-2}ML^2T^{-3},\\quad[a]=L,\\quad[k]=MT^{-1}.\\]\nThe first three dimension statements receive 0.2, 0.1, and 0.2 mark. They give\n\\[k=\\frac{p^2\\mu_0^2}{a^4R_0}.\\]\nFinal expression: 0.5 mark.",
+    "figures": [],
+    "shared": false
+  }
+}

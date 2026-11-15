@@ -1,0 +1,16 @@
+{
+  "problemId": "eupho-2019-t3",
+  "version": "d052b19a876505fe690eb95c9ade48e2a9e1362fe1a6a28591ed10a3c61f6ff2",
+  "parts": [
+    {
+      "id": "speed",
+      "sourcePart": "Answer",
+      "label": "Water exit speed",
+      "kind": "numeric",
+      "unit": "m/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter metres per second. The graph-reading tolerance is 0.3 m/s."
+    }
+  ]
+}

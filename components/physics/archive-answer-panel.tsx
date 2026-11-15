@@ -38,7 +38,7 @@ const shortHelp = 60;
  * An expression is typed in one maths field with a palette under it. A number is a plain box. A problem counts as
  * solved in this browser when every part with an answer box is correct.
  */
-type PanelProps = { problemId: string; onCorrect?: () => void; onSeeHint?: () => void; nextHref?: string; resetToken?: number };
+type PanelProps = { problemId: string; onCorrect?: () => void; onSeeHint?: () => void; nextHref?: string; resetToken?: number; saveProgress?: boolean };
 export function ArchiveAnswerPanel(props: PanelProps) {
   const { data, error, mutate } = useSWRImmutable(`/corpus/grading/${encodeURIComponent(props.problemId)}.json`, loadMetadata);
   const session = authClient.useSession();
@@ -50,13 +50,13 @@ export function ArchiveAnswerPanel(props: PanelProps) {
   if (!session.isPending || account !== "guest") {
     boundary.current.ready = true; boundary.current.account = account;
   }
-  const saveAccount = !session.isPending && !session.error && session.data?.user.emailVerified ? account : undefined;
+  const saveAccount = props.saveProgress !== false && !session.isPending && !session.error && session.data?.user.emailVerified ? account : undefined;
   if (!data && !error) return <div role="status" className="flex min-w-0 flex-col gap-4"><span className="sr-only">Loading answer fields…</span><Skeleton className="h-11 w-full" /></div>;
   if (error || !data || data.problemId !== props.problemId) return <Alert variant="destructive"><AlertTitle>Answer fields unavailable</AlertTitle><AlertDescription><Button variant="outline" className="min-h-11" onClick={() => mutate()}>Retry loading fields</Button></AlertDescription></Alert>;
   return <ArchiveAnswerWorkspace key={`${boundary.current.epoch}:${data.problemId}:${data.version}`} {...props} data={data} account={account} saveAccount={saveAccount} resolving={session.isPending} refreshMetadata={() => { void mutate(); }} />;
 }
 
-function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, resetToken, data, account, saveAccount, resolving, refreshMetadata }: PanelProps & { data: ArchiveMetadata; account: string; saveAccount?: string; resolving: boolean; refreshMetadata: () => void }) {
+function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, resetToken, saveProgress, data, account, saveAccount, resolving, refreshMetadata }: PanelProps & { data: ArchiveMetadata; account: string; saveAccount?: string; resolving: boolean; refreshMetadata: () => void }) {
   const [journal, setJournal] = useState(() => new PracticeCheckJournal(account, problemId, data.version, practiceSessionStorage()));
   const [answers, setAnswers] = useState<Record<string, string>>(() => journal.book.answers);
   const currentAnswers = useRef(answers);
@@ -173,7 +173,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
           const feedback = result?.results.find((item) => item.partId === part.id);
           const invalid = feedback?.status === "invalid" || feedback?.status === "incorrect";
           const card = `min-w-0 rounded-lg border bg-card p-4 text-card-foreground ${partBorder}`;
-          if (part.kind === "self-review") return <div key={part.id} style={partStyle(colors[position])} className={card}><Alert><AlertTitle className="flex flex-wrap items-center gap-2"><PartChip index={colors[position]}>{part.sourcePart}</PartChip>{part.label}</AlertTitle><AlertDescription>Check this one yourself. {part.help} Compare your reasoning with the worked solution. It is not graded.</AlertDescription></Alert></div>;
+          if (part.kind === "self-review") return <div key={part.id} style={partStyle(colors[position])} className={card}><Alert><AlertTitle className="flex flex-wrap items-center gap-2"><PartChip index={colors[position]}>{part.sourcePart}</PartChip>{part.label}</AlertTitle><AlertDescription>Check this one yourself. {part.help} Compare your reasoning with the worked solution. It is not graded.</AlertDescription></Alert>{saveProgress === false && <Field className="mt-4"><FieldLabel htmlFor={id}>Your reasoning for {part.sourcePart}</FieldLabel><textarea id={id} className="min-h-28 w-full rounded-md border border-input bg-background p-3 text-base" value={answers[part.id] ?? ""} maxLength={archiveAnswerLimit} onChange={event => set(part.id, event.target.value)} disabled={busy} /></Field>}</div>;
           const conditions = formatConditions(part.symbolConditions);
           return <div key={part.id} data-tour={position === 0 ? "answer-box" : undefined} style={partStyle(colors[position])} className={card}><Field data-invalid={invalid} data-disabled={busy}>
             <FieldLabel id={`${id}-label`} htmlFor={id} className="flex-wrap items-center"><PartChip index={colors[position]}>{part.sourcePart}</PartChip><span className="text-base font-medium">{part.label}{part.unit && <span className="font-normal text-muted-foreground"> ({part.unit})</span>}</span></FieldLabel>
