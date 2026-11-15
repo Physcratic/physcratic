@@ -17,6 +17,15 @@ await mkdir(output,{recursive:true});
 const pages = allProblemPages().filter(p=>p.kind==='archive');
 const expected = ['IPhO','APhO','EuPhO'].flatMap(c=>pages.filter(p=>p.competition===c).sort((a,b)=>b.year-a.year||a.number-b.number));
 let checks=0;const ok=(condition,message)=>{assert.ok(condition,message);checks++;};
+async function checkCards(page,records,message){
+ const ids=records.map(p=>p.id);
+ // App Router history and Link transitions can finish the URL change before React commits the results.
+ await page.waitForFunction(expected=>{
+  const actual=[...document.querySelectorAll('[data-problem-card]')].map(e=>e.dataset.problemCard);
+  return actual.length===expected.length&&actual.every((id,i)=>id===expected[i]);
+ },ids,{timeout:15000});
+ assert.deepEqual(await page.locator('[data-problem-card]').evaluateAll(es=>es.map(e=>e.dataset.problemCard)),ids,message);checks++;
+}
 const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
 try {
  for(const theme of ['light','dark'])for(const width of [375,768,1440]){
@@ -55,7 +64,7 @@ try {
   ok(await page.getByRole('button',{name:'Show problems',exact:true}).evaluate(e=>e===document.activeElement),'keyboard moves from edition to submit');
   await page.keyboard.press('Enter');await page.waitForURL('**/problems/archive?edition=IPhO-2025#archive-results');
   const selected=expected.filter(p=>p.competition==='IPhO'&&p.year===2025);
-  assert.deepEqual(await page.locator('[data-problem-card]').evaluateAll(es=>es.map(e=>e.dataset.problemCard)),selected.map(p=>p.id));checks++;
+  await checkCards(page,selected,'selected edition records');
   ok(await select.inputValue()==='IPhO-2025','current edition retained');
   ok((await page.locator('#archive-results').textContent()).includes(`${selected.length} problems`),'result count matches');
   ok(await page.locator('#archive-results').evaluate(e=>e.getBoundingClientRect().top>=72),'results clear sticky header');
@@ -66,17 +75,17 @@ try {
   const axe=await new AxeBuilder({page}).analyze();ok(!axe.violations.some(v=>['serious','critical'].includes(v.impact)),JSON.stringify(axe.violations));
   await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:`${output}/filtered-${session}-${width}-${theme}.png`});
   await page.reload();ok(await select.inputValue()==='IPhO-2025','reload retains edition');
-  await page.goBack();ok(await page.locator('[data-problem-card]').count()===expected.length,'back restores all results');
-  await page.goForward();ok(await page.locator('[data-problem-card]').count()===selected.length,'forward restores filtered results');
+  await page.goBack();await checkCards(page,expected,'back restores all results');
+  await page.goForward();await checkCards(page,selected,'forward restores filtered results');
   await page.locator(`[data-problem-card="${selected[0].id}"]`).getByRole('link',{name:/^Open problem/}).click();
   ok(new URL(page.url()).pathname===selected[0].path,'selected problem opens its existing reader');
-  await page.goBack();ok(await select.inputValue()==='IPhO-2025','return from reader retains selection');
+  await page.goBack();await checkCards(page,selected,'return from reader restores selected records');ok(await select.inputValue()==='IPhO-2025','return from reader retains selection');
   await page.getByRole('link',{name:'Show full archive',exact:true}).click();
-  ok(await page.locator('[data-problem-card]').count()===expected.length,'reset restores complete archive');
+  await checkCards(page,expected,'reset restores complete archive');
   ok(await select.inputValue()==='','reset also clears the select after client navigation');
   await select.selectOption('APhO');await page.getByRole('button',{name:'Show problems',exact:true}).click();
   await page.waitForURL('**/problems/archive?edition=APhO#archive-results');
-  ok(await page.locator('[data-problem-card]').count()===expected.filter(p=>p.competition==='APhO').length,'all years of one olympiad');
+  await checkCards(page,expected.filter(p=>p.competition==='APhO'),'all years of one olympiad');
   ok(errors.length===0,errors.join(';'));await context.close();
  }
  const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:375,height:1000}});
@@ -99,11 +108,11 @@ try {
  await page.getByLabel('Olympiad and year',{exact:true}).selectOption('EuPhO-2025');
  await page.getByRole('button',{name:'Show problems',exact:true}).click();
  await page.waitForURL('**/problems/archive?edition=EuPhO-2025#archive-results');
- ok(await page.locator('[data-problem-card]').count()===expected.filter(p=>p.competition==='EuPhO'&&p.year===2025).length,'no-JS filtering');
+ await checkCards(page,expected.filter(p=>p.competition==='EuPhO'&&p.year===2025),'no-JS filtering');
  await page.locator('[data-problem-card]').first().getByRole('link',{name:/^Open problem/}).click();
  ok(new URL(page.url()).pathname===expected.find(p=>p.competition==='EuPhO'&&p.year===2025).path,'no-JS filtered reader navigation');
  await page.goBack();await page.getByRole('link',{name:'Show full archive',exact:true}).click();
- ok(await page.locator('[data-problem-card]').count()===expected.length,'no-JS reset');
+ await checkCards(page,expected,'no-JS reset');
  for(const query of ['edition=IPhO-1900','edition=IPhO&edition=APhO']){
   await page.goto(origin+'/problems/archive?'+query);
   ok(await page.locator('[data-problem-card]').count()===expected.length,'invalid query recovers to full archive');
