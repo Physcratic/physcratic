@@ -8,6 +8,9 @@ import "../lib/olympiad/native-2012";
 import "../lib/olympiad/native-2019";
 import "../lib/olympiad/native-pancharatnam";
 import "../lib/olympiad/native-2020";
+import "../lib/olympiad/native-batch-4";
+import "../lib/olympiad/native-batch-5";
+import { batchFiveParts } from "../lib/olympiad/keys-batch-5";
 import { olympiadDefinitions } from "../lib/olympiad/keys";
 import { publicArchiveMetadata } from "../lib/archive-grading/catalog";
 
@@ -57,7 +60,7 @@ for (const asset of changedAssets) {
   byPath.set(asset, { path: asset, bytes: data.length, sha256: hash(data) });
 }
 save("lib/corpus/import-manifest.json", { ...manifest, problems: index.problems, assets: [...byPath.values()].sort((a, b) => (a as { path: string }).path.localeCompare((b as { path: string }).path, "en")) });
-save("docs/engineering/native-archive-batch-1-sources.json", ledger.filter(item => !/^(eupho-2019|eupho-2020|apho-2012-t3)/.test(item.id)));
+save("docs/engineering/native-archive-batch-1-sources.json", ledger.filter(item => /^(eupho-2018-|ipho-2012-t2$|apho-2012-t1$)/.test(item.id)));
 save("docs/engineering/native-archive-batch-2-sources.json", ledger.filter(item => /^(eupho-2019|apho-2012-t3)/.test(item.id)));
 save("docs/engineering/native-archive-batch-3-sources.json", ledger.filter(item => /^eupho-2020/.test(item.id)));
 save("docs/engineering/native-archive-inventory.json", {
@@ -72,3 +75,7 @@ save("docs/engineering/native-archive-inventory.json", {
 });
 console.log("Built " + Object.keys(nativeOlympiadContent).length + " native olympiad records and their public answer metadata. Originals retained.");
 
+
+save("docs/engineering/native-archive-batch-4-sources.json", ledger.filter(item => /^(eupho-2017-|eupho-202[12]-|eupho-2023-t1$)/.test(item.id)));
+
+save("docs/engineering/native-archive-batch-5-sources.json", ledger.filter(item => Object.hasOwn(batchFiveParts, item.id)));

@@ -1,0 +1,32 @@
+{
+  "problemId": "eupho-2021-t2",
+  "version": "9fd6c22ca0784d5ddfd888a8148917354473633d2b3cf085c9ddda022d7631ca",
+  "parts": [
+    {
+      "id": "length",
+      "sourcePart": "Answer",
+      "label": "Critical loop length L_0",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R",
+        "\\mu"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use R and mu. Write the inverse hyperbolic sine using ln(x+sqrt(1+x^2)). Assume mu>0. The zero-friction limit is reviewed in the solution."
+    }
+  ]
+}

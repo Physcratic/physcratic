@@ -1,0 +1,156 @@
+{
+  "problemId": "eupho-2022-t2",
+  "version": "c24abbbbc4d0fba2862cd090cf8290ef5740d755f3aa5132ca1fb7f8f2c4009d",
+  "parts": [
+    {
+      "id": "a.low",
+      "sourcePart": "a.low",
+      "label": "Lower critical voltage V_1",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R_1",
+        "\\alpha",
+        "T_c",
+        "T_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_c",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 350,
+          "max": 450
+        },
+        {
+          "symbol": "T_0",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 250,
+          "max": 300
+        }
+      ],
+      "help": "Use R_1, alpha, T_c and T_0. Assume T_c>T_0."
+    },
+    {
+      "id": "a.high",
+      "sourcePart": "a.high",
+      "label": "Upper critical voltage V_2",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R_2",
+        "\\alpha",
+        "T_c",
+        "T_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R_2",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_c",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 350,
+          "max": 450
+        },
+        {
+          "symbol": "T_0",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 250,
+          "max": 300
+        }
+      ],
+      "help": "Use R_2, alpha, T_c and T_0. Assume T_c>T_0."
+    },
+    {
+      "id": "b.graph",
+      "sourcePart": "b.graph",
+      "label": "Temperature versus time graph",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Sketch T(t), label T_c and the extrema, and show what happens to current and temperature at each phase transition. The graph is self-review."
+    },
+    {
+      "id": "b.ratio",
+      "sourcePart": "b.ratio",
+      "label": "Temperature-rise ratio",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R_1",
+        "R_2"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_2",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter (T_max-T_0)/(T_min-T_0). Use R_1 and R_2."
+    },
+    {
+      "id": "c",
+      "sourcePart": "c",
+      "label": "Oscillation period",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "L",
+        "R_1"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_1",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use L and R_1. This field uses the specified voltage and R_2=16R_1. Use ln for natural logarithms."
+    }
+  ]
+}

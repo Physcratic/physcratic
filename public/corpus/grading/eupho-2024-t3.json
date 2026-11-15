@@ -1,0 +1,113 @@
+{
+  "problemId": "eupho-2024-t3",
+  "version": "05724f62feb0baec44092ba43225747cab4cb3cab108cb3447b5b1509c0a63b2",
+  "parts": [
+    {
+      "id": "a",
+      "sourcePart": "a",
+      "label": "Nonzero relative mirror phase",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Show why reflected and transmitted amplitudes cannot have the same phase. The source defines phi as their relative phase. This proof is self-review."
+    },
+    {
+      "id": "b",
+      "sourcePart": "b",
+      "label": "Relative phase magnitude",
+      "kind": "numeric",
+      "unit": "rad",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the magnitude in radians, using the official reflected-versus-transmitted phase convention. pi/2 is accepted."
+    },
+    {
+      "id": "c",
+      "sourcePart": "c",
+      "label": "Returning pulse energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "L",
+        "P",
+        "c",
+        "R"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "P",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.97,
+          "max": 0.999
+        }
+      ],
+      "help": "Use intensity reflectivity R, not amplitude reflectivity. Enter the leading high-reflectivity result. The exact ideal abrupt-switch result is also accepted."
+    },
+    {
+      "id": "d",
+      "sourcePart": "d",
+      "label": "Energy-envelope decay time",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "L",
+        "c",
+        "R"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.97,
+          "max": 0.999
+        }
+      ],
+      "help": "Use the leading energy-envelope e-folding time. The exact round-trip logarithmic time is also accepted. Other stated pulse-duration conventions require self-review."
+    },
+    {
+      "id": "d.convention",
+      "sourcePart": "d.convention",
+      "label": "Pulse-duration convention",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "State whether your duration refers to the energy envelope, amplitude envelope or another width. A different justified convention must be compared with the source rather than treated as an automatically wrong estimate."
+    }
+  ]
+}

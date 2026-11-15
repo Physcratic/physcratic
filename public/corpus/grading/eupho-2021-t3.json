@@ -1,0 +1,36 @@
+{
+  "problemId": "eupho-2021-t3",
+  "version": "fd6e3d00c993d9d3ed5dbc4742b357037d5950abb4b0dcb87093979186b3d27e",
+  "parts": [
+    {
+      "id": "a",
+      "sourcePart": "a",
+      "label": "Closed-loop ray diagram",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Explain the two rays from each visible thread point and where their images merge. Draw a labelled ray diagram and compare with the solution. This is self-review."
+    },
+    {
+      "id": "b",
+      "sourcePart": "b",
+      "label": "Red refractive index n_R",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Read the supplied original photograph. The absolute tolerance is 0.03, matching the source's full-credit measurement range."
+    },
+    {
+      "id": "c",
+      "sourcePart": "c",
+      "label": "Index difference n_V minus n_R",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the index difference, not a percentage. Absolute tolerance 0.003 accepts both official constructions. Explain your measured width in your workings."
+    }
+  ]
+}

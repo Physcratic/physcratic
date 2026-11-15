@@ -1,0 +1,110 @@
+{
+  "problemId": "eupho-2017-t2",
+  "version": "346b9f2b296a9e29693c15f40d8fdff780605e0cb32ee0e2492715b54908343c",
+  "parts": [
+    {
+      "id": "acceleration",
+      "sourcePart": "Acceleration",
+      "label": "Initial acceleration scale",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "S",
+        "\\rho",
+        "k_B",
+        "T_0",
+        "T_1",
+        "m",
+        "M"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "This field checks the scaling estimate with order-one prefactors set to one. Use k_B, T_0, T_1 and the other statement symbols."
+    },
+    {
+      "id": "speed",
+      "sourcePart": "Speed",
+      "label": "Maximum speed scale",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k_B",
+        "T_0",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the thermal-speed scaling estimate with the order-one prefactor set to one."
+    },
+    {
+      "id": "reasoning",
+      "sourcePart": "Reasoning",
+      "label": "Pressure bias and slow cooling",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Explain the molecular momentum flux, speed limit and cooling timescale. The formula checks only compare the scaling estimates, not the reasoning or a kinetic-theory prefactor."
+    }
+  ]
+}
