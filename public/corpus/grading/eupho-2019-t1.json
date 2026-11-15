@@ -1,0 +1,26 @@
+{
+  "problemId": "eupho-2019-t1",
+  "version": "b2b071d58093ac0b2ab07abd63cf9a4e57a22f1a64e1181589c47463d9360384",
+  "parts": [
+    {
+      "id": "a",
+      "sourcePart": "a",
+      "label": "Frozen mass fraction",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the mass fraction from 0 to 1, not a percentage. Tolerance is 0.005."
+    },
+    {
+      "id": "b",
+      "sourcePart": "b",
+      "label": "Droplet temperature at ground",
+      "kind": "numeric",
+      "unit": "degrees Celsius",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter degrees Celsius. Both source estimates, 7.9 with thermal lag and 8.0 with dissipation, are accepted within 0.15 degrees. Explain your approximation in your workings."
+    }
+  ]
+}

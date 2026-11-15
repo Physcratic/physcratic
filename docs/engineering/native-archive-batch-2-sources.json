@@ -1,0 +1,98 @@
+[
+  {
+    "id": "eupho-2019-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2019-statement/document.pdf",
+    "originalSha256": "b3f2dbbe54979f53cffaa4f9755162a6f25d6657e9f7e1e0345bc6896589ccbb",
+    "nodes": 11,
+    "figures": [
+      "/corpus/figures/native/eupho-2019-temperature.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2019-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2019-solution/document.pdf",
+    "originalSha256": "1f4748031b50ef3ec9089c0f49fbc3202ed84828ad8009aef1ce23f7a6f720c4",
+    "nodes": 27,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2019-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2019-statement/document.pdf",
+    "originalSha256": "b3f2dbbe54979f53cffaa4f9755162a6f25d6657e9f7e1e0345bc6896589ccbb",
+    "nodes": 5,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2019-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2019-solution/document.pdf",
+    "originalSha256": "1f4748031b50ef3ec9089c0f49fbc3202ed84828ad8009aef1ce23f7a6f720c4",
+    "nodes": 30,
+    "figures": [
+      "/corpus/figures/native/eupho-2019-ball.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2019-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2019-statement/document.pdf",
+    "originalSha256": "b3f2dbbe54979f53cffaa4f9755162a6f25d6657e9f7e1e0345bc6896589ccbb",
+    "nodes": 5,
+    "figures": [
+      "/corpus/figures/native/eupho-2019-hose.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2019-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2019-solution/document.pdf",
+    "originalSha256": "1f4748031b50ef3ec9089c0f49fbc3202ed84828ad8009aef1ce23f7a6f720c4",
+    "nodes": 20,
+    "figures": [
+      "/corpus/figures/native/eupho-2019-envelope.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2012-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2012-t3-statement/document.pdf",
+    "originalSha256": "c96a44cdc5476b3b921d0dd2b0253daff1ced71b28e13aa5e29f3905bdea42f9",
+    "nodes": 44,
+    "figures": [
+      "/corpus/figures/native/apho-2012-pancharatnam.png",
+      "/corpus/figures/native/apho-2012-slits.png",
+      "/corpus/figures/native/apho-2012-polarizers.png",
+      "/corpus/figures/native/apho-2012-ellipse.png",
+      "/corpus/figures/native/apho-2012-poincare.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2012-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2012-t3-solution/document.pdf",
+    "originalSha256": "b3a5406b544b2a96ad06726006c899a24d949c8b1ce2fe9d2611617dd9b92460",
+    "nodes": 42,
+    "figures": [
+      "/corpus/figures/native/apho-2012-triangle.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  }
+]

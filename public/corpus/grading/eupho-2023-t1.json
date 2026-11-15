@@ -1,0 +1,56 @@
+{
+  "problemId": "eupho-2023-t1",
+  "version": "d8e98c9532b6a4054ecccfa7955b67f7a95d1bdf3995721d41d90413bb8d52c7",
+  "parts": [
+    {
+      "id": "a",
+      "sourcePart": "a",
+      "label": "Radial temperature graph",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Sketch T(r) with the central tangent, illuminated and outer regions, matching at sigma and rim temperature T_h. This sketch is self-review."
+    },
+    {
+      "id": "b.temperature",
+      "sourcePart": "b.temperature",
+      "label": "Central temperature T_c",
+      "kind": "numeric",
+      "unit": "degrees Celsius",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter degrees Celsius. The tolerance includes the official rounded value 41."
+    },
+    {
+      "id": "b.curvature",
+      "sourcePart": "b.curvature",
+      "label": "Quadratic coefficient m",
+      "kind": "numeric",
+      "unit": "K/m^2",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use metres for r in T(r)=T_c+m*r^2. Enter the signed coefficient in K/m^2."
+    },
+    {
+      "id": "c.focus",
+      "sourcePart": "c.focus",
+      "label": "Focal distance f",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter metres. Use the thin-plate, paraxial approximation."
+    },
+    {
+      "id": "c.proof",
+      "sourcePart": "c.proof",
+      "label": "Common focal point",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Show why every illuminated radius gives the same focal distance, using optical paths or ray tracing. A numerical focal-length check does not assess this proof."
+    }
+  ]
+}

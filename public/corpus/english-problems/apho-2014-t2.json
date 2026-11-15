@@ -1,1 +1,473 @@
-{"id":"apho-2014-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2014_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2014_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2014-t2-statement/document.pdf","pages":[],"sourcePages":[1,2],"initialPage":1,"shared":false,"text":"Page 1 of 2 \n \n \nQuestion 2 \n \nThe two-slit electron interference experiment was first performed by Möllenstedt et al, Merli-\nMissiroli and Pozzi in 1974 and Tonomura et al in 1989. In the two-slit electron interference \nexperiment, a monochromatic electron point source emits particles at S that first passes \nthrough an electron “biprism” before impinging on an observational plane; S1 and S2 are \nvirtual sources at distance d. In the diagram, the filament is pointing into the page. Note that \nit is a very thin filament (not drawn to scale in the diagram).  \n \n \nThe electron “biprism” consists of a grounded cylindrical wire mesh with a fine filament F at \nthe center. The distance between the source and the “biprism” is ℓ, and the distance between \nthe distance between the “biprism” and the screen is L. \n\nPage 2 of 2 \n \n(a) \n(2 points) Taking the center of the circular cross section of the filament as the \norigin O, find the electric potential at any point (x,z) very near the filament in \nterms of Va, a and b where Va is the electric potential of the surface of the \nfilament, a is the radius of the filament and b is the distance between the center of \nthe filament and the cylindrical wire mesh. (Ignore mirror charges.) \n \n(b) \n(4 points) An incoming electron plane wave with wave vector kz is deflected by \nthe “biprism” due to the x-component of the force exerted on the electron. \nDetermine kx the x-component of the wave vector due to the “biprism” in terms of \nthe electron charge, e, vz, Va, kz, a and b, where e and vz are the charge and the  \nz-component of the velocity of the electrons (kx kz). Note that  ⃗  \n   \n  where h \nis the Planck constant. \n \n(c) \nBefore the point S, electrons are emitted from a field emission tip and accelerated \nthrough a potential V0. Determine the wavelength of the electron in terms of the \n(rest) mass m, charge   and V0, \n(i) \n(2 points) assuming relativistic effects can be ignored, and \n(ii) \n(3 points) taking relativistic effects into consideration. \n \n(d) \nIn Tonomura et al experiment, \nvz   \n=   c/2,  \n  \nVa  \n=   10 V,  \nV0  \n=   50 kV,  \na  \n=   0.5 m,  \nb \n=   5 mm, \nℓ \n=   25 cm, \nL \n=   1.5 m, \nh \n=   6.6 x 10-34 Js, \nelectron charge,   = 1.6 x 10-19 C, \nmass of electron, m0 = 9.1 x 10-31 kg, \nand the speed of light in vacuo, c = 3 x 108 ms-1  \n \n(i) \n(2 points) calculate the value of kx,  \n(ii) \n(2 points) determine the fringe separation of the interference pattern on the \nscreen, \n(iii) (1 point) If the electron wave is a spherical wave instead of a plane wave, is \nthe fringe spacing larger, the same or smaller than the fringe spacing \ncalculated in (ii)? \n(iv) (2 points) In part (c), determine the percentage error in the wavelength of \nthe electron using non-relativistic approximation.  \n(v) \n(2 points) the distance d between the apparent double slits. \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2014-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6],"initialPage":1,"shared":false,"text":"Page 1 of 6 \n \n \nQuestion 2 \n \nThe two-slit electron interference experiment was first performed by Möllenstedt et al, Merli-\nMissiroli and Pozzi in 1974 and Tonomura et al in 1989. In the two-slit electron interference \nexperiment, a monochromatic electron point source emits particles at S that first passes \nthrough an electron “biprism” before impinging on an observational plane; S1 and S2 are \nvirtual sources at distance d. In the diagram, the filament is pointing into the page. Note that \nit is a very thin filament (not drawn to scale in the diagram).  \n \n \nThe electron “biprism” consists of a grounded cylindrical wire mesh with a fine filament F at \nthe center. The distance between the source and the “biprism” is ℓ, and the distance between \nthe distance between the “biprism” and the screen is L. \n\nPage 2 of 6 \n \n(a) \n(2 points) Taking the center of the circular cross section of the filament as the \norigin O, find the electric potential at any point (x,z) very near the filament in \nterms of Va, a and b where Va is the electric potential of the surface of the \nfilament, a is the radius of the filament and b is the distance between the center of \nthe filament and the cylindrical wire mesh. (Ignore mirror charges.) \n \n \n \n \n \n \n \n \n \n \n \n   \n \n    \n   \n  \nWriting out |E| = \n \n        \n \n   ( ) \n                                     \n \n  \n \n      \n \n   (1 point) \nNote that \n ( )  \n \n      \n \n   (= 0 at the mesh) \nAlso at the edge of the filament, Va =  (   ) , so \nGiving together \n ( )    \n  (   )\n  (   )  where   √      \n(1 point for final expression) \n\nPage 3 of 6 \n \n(b) \n(4 points) An incoming electron plane wave with wave vector kz is deflected by \nthe “biprism” due to the x-component of the force exerted on the electron. \nDetermine kx the x-component of the wave vector due to the “biprism” in terms of \nthe electron charge, e, vz, Va, kz, a and b, where e and vz are the charge and the  \nz-component of the velocity of the electrons (kx kz). Note that  ⃗  \n   \n  where \nh is the Planck constant. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n         \n  \n∫(   )\n \n  \n(   (    )\n  \n)         \n   \n  \n∫\n      \n(      )    \n \n \n  \n        \n      \n     \n \n \n            \n      \n \n \n  \n   \n  \n        \n  \n   \n    \n       \n \n \nThere are several ways to work out the solution: \nA charge in an electric field will experience a force and hence a change in \nmomentum. Note that potential energy of the electron (charge =    ) is \n    ( )  Using impulse acting on the electron due to the electric field,  \n(2 points) \n(2 points for final expression) \n \nThe alternative solution is to write down the equations of motion for the \nelectrons (2 points) and determine the deflection of the electron as it passes \nthrough the “biprism”: \nSince    \n \n      \n \n , \n(2 points for final expression) \n\nPage 4 of 6 \n \n(c) \nBefore the point S, the electrons are emitted from a field emission tip and \naccelerated through a potential V0. Determine the wavelength of the electron in \nterms of the (rest) mass m, charge –    and V0, \n(i) \n(2 points) assuming relativistic effects can be ignored. \n \n \n \n \n(ii) \n(3 points) taking relativistic effects into consideration. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n   (  )  (   )  \n ( \n  )\n \n (   )  \n    \n  \n (           )  (   )  \n         (      \n     ) \n  \n \n√      (      \n     )\n \n(\n                                            \n                                                 \n                                                             \n) \nConsider \n \n  √          \n  \n \n√      \n \nEquating the kinetic energy to eV0 (1 point) \n(1 point for final expression) \n\nPage 5 of 6 \n \n(d) \nIn Tonomura et al experiment, \nvz   \n=   c/2,  \n  \nVa  \n=   10 V,  \nV0  \n=   50 kV,  \na  \n=   0.5 m,  \nb \n=   5 mm, \nℓ \n=   25 cm, \nL \n=   1.5 m, \nh \n=   6.6 x 10-34 Js, \nelectron charge,    =  1.6 x 10-19 C, \nmass of electron, m = 9.1 x 10-31 kg, \nand the speed of light in vacuo, c = 3 x 108 ms-1  \n \n(i) \n(2 points) calculate the value of kx ,  \n \n \n \n \n \n \n \n \n \n \n \n \n \n(ii) \n(2 points) determine the fringe separation of the interference pattern on   \nthe screen, \n \n \n \n \n \n(iii) (1 point) If the electron wave is a spherical wave instead of a plane wave, is \nthe fringe spacing larger, the same or smaller than the fringe spacing \ncalculated in (ii)? \n \n \n \n        \n      \n \n \n   \n \n                      \nPrevious equation: \nPlugging the relevant numbers into the equation gives: \n(1 point for plugging the correct values) \n   \n \n \n      (1 point for final expression) \n(                                      \n \n                                       \n \n) \nFringe separation is given by \n \n \n  \n        \nLarger. (1 point for the correct answer) \n\nPage 6 of 6 \n \n(iv) (2 points) In part (c), determine the percentage error in the wavelength of \nthe electron using non-relativistic approximation.  \n \n \n \n \n \n \n \n \n \n \n \n \n \n(v) \n(2 points) Calculate the distance d between the apparent double slits. \n \n \n \n \n \n \n \n \n \n \n \n    (   )\n \n \n             \n(\n \n                                                \n                                  \n \n) \nThe double slit formula is given by \nwhere m is the order and y is the distance for maximum intensity \nfrom the central fringe. \nIn this case, since the fringe spacing is 907Å, \n \n  √       \n        \n \n√      \n \n               \n     \n \n√     (  \n   \n     )\n \n               \n                  \n    \n \n       \n(\n \n                                                                    \n                                                                                                             \n \n) \nNon-relativistic: \nRelativistic: \nPercentage error: \nor 2.4 percent. \n","textExtraction":"available"}}
+{
+  "id": "apho-2014-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2014_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2014_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2014-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question 2: Electron biprism"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In the two-slit electron interference experiment, a monochromatic point source \\(S\\) emits electrons through an electron biprism onto a screen. The biprism consists of a grounded cylindrical wire mesh with a thin central filament \\(F\\), directed into the figure. \\(S_1,S_2\\) are virtual sources separated by \\(d\\). The source-to-biprism distance is \\(\\ell\\), and the biprism-to-screen distance is \\(L\\). The diagram is not to scale. Experiments were performed by Mollenstedt and colleagues, Merli, Missiroli and Pozzi, and Tonomura and colleagues."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/apho-2014-biprism.png",
+        "alt": "Original electron biprism ray diagram: source S and virtual sources S1 and S2 separated by d, filament F in grounded mesh, distances ell and L, screen, transverse x axis, propagation z axis, filament radius a and mesh radius b."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Take the filament cross-section centre as origin \\(O\\). Find the potential \\(V(x,z)\\) near the filament in terms of filament surface potential \\(V_a\\), filament radius \\(a\\), and mesh radius \\(b\\). Ignore mirror charges."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An incoming electron plane wave has wave-vector component \\(k_z\\). Find its induced transverse component \\(k_x\\) due to the biprism in terms of electron charge, \\(v_z,V_a,k_z,a,b\\), with \\(|k_x|\\ll k_z\\). Use \\(\\mathbf k=2\\pi\\mathbf p/h\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c.i"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Before \\(S\\), electrons are accelerated from a field-emission tip through potential \\(V_0\\). Find the nonrelativistic wavelength using rest mass \\(m\\), charge and \\(V_0\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c.ii"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the wavelength including relativity."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use \\(v_z=c/2\\), \\(V_a=10\\,\\mathrm V\\), \\(V_0=50\\,\\mathrm{kV}\\), \\(a=0.5\\,\\mu\\mathrm m\\), \\(b=5\\,\\mathrm{mm}\\), \\(\\ell=25\\,\\mathrm{cm}\\), \\(L=1.5\\,\\mathrm m\\), \\(h=6.6\\times10^{-34}\\,\\mathrm{J\\,s}\\), electron charge magnitude \\(e=1.6\\times10^{-19}\\,\\mathrm C\\), rest mass \\(m=9.1\\times10^{-31}\\,\\mathrm{kg}\\), and \\(c=3\\times10^8\\,\\mathrm{m/s}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "d.i"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Calculate \\(k_x\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "d.ii"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the interference fringe spacing on the screen."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "d.iii"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If the electron wave is spherical instead of planar, is its fringe spacing larger, equal or smaller than in d.ii?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "d.iv"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the percentage wavelength error caused by using the nonrelativistic approximation in part c."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "d.v"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the separation \\(d\\) of the apparent double slits."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Conventions: use positive e for the electron-charge magnitude. The transverse deflection changes sign on opposite sides of the filament, so the automatic k_x fields ask for its magnitude. Retain the supplied v_z for deflection and V_0 for wavelengths, as the official calculation does."
+          }
+        ]
+      }
+    ],
+    "text": "Question 2: Electron biprism\nIn the two-slit electron interference experiment, a monochromatic point source \\(S\\) emits electrons through an electron biprism onto a screen. The biprism consists of a grounded cylindrical wire mesh with a thin central filament \\(F\\), directed into the figure. \\(S_1,S_2\\) are virtual sources separated by \\(d\\). The source-to-biprism distance is \\(\\ell\\), and the biprism-to-screen distance is \\(L\\). The diagram is not to scale. Experiments were performed by Mollenstedt and colleagues, Merli, Missiroli and Pozzi, and Tonomura and colleagues.\n\na\nTake the filament cross-section centre as origin \\(O\\). Find the potential \\(V(x,z)\\) near the filament in terms of filament surface potential \\(V_a\\), filament radius \\(a\\), and mesh radius \\(b\\). Ignore mirror charges.\nb\nAn incoming electron plane wave has wave-vector component \\(k_z\\). Find its induced transverse component \\(k_x\\) due to the biprism in terms of electron charge, \\(v_z,V_a,k_z,a,b\\), with \\(|k_x|\\ll k_z\\). Use \\(\\mathbf k=2\\pi\\mathbf p/h\\).\nc.i\nBefore \\(S\\), electrons are accelerated from a field-emission tip through potential \\(V_0\\). Find the nonrelativistic wavelength using rest mass \\(m\\), charge and \\(V_0\\).\nc.ii\nFind the wavelength including relativity.\nUse \\(v_z=c/2\\), \\(V_a=10\\,\\mathrm V\\), \\(V_0=50\\,\\mathrm{kV}\\), \\(a=0.5\\,\\mu\\mathrm m\\), \\(b=5\\,\\mathrm{mm}\\), \\(\\ell=25\\,\\mathrm{cm}\\), \\(L=1.5\\,\\mathrm m\\), \\(h=6.6\\times10^{-34}\\,\\mathrm{J\\,s}\\), electron charge magnitude \\(e=1.6\\times10^{-19}\\,\\mathrm C\\), rest mass \\(m=9.1\\times10^{-31}\\,\\mathrm{kg}\\), and \\(c=3\\times10^8\\,\\mathrm{m/s}\\).\nd.i\nCalculate \\(k_x\\).\nd.ii\nFind the interference fringe spacing on the screen.\nd.iii\nIf the electron wave is spherical instead of planar, is its fringe spacing larger, equal or smaller than in d.ii?\nd.iv\nFind the percentage wavelength error caused by using the nonrelativistic approximation in part c.\nd.v\nFind the separation \\(d\\) of the apparent double slits.\nConventions: use positive e for the electron-charge magnitude. The transverse deflection changes sign on opposite sides of the filament, so the automatic k_x fields ask for its magnitude. Retain the supplied v_z for deflection and V_0 for wavelengths, as the official calculation does.",
+    "figures": [
+      "/corpus/figures/native/apho-2014-biprism.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2014-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Question 2: Electron biprism"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a. Cylindrical potential"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For line charge density \\(\\lambda_q\\), Gauss's law gives \\(E_r=\\lambda_q/(2\\pi\\epsilon_0r)\\). Integrate with \\(V(b)=0\\) and eliminate \\(\\lambda_q\\) using \\(V(a)=V_a\\):"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[V(r)=\\frac{\\lambda_q}{2\\pi\\epsilon_0}\\ln\\frac br=V_a\\frac{\\ln(b/r)}{\\ln(b/a)},\\qquad r=\\sqrt{x^2+z^2}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b. Transverse impulse"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "With electron charge \\(-e\\), the force is \\(F_x=e\\,\\partial V/\\partial x=-eV_ax/[(x^2+z^2)\\ln(b/a)]\\). To leading small-deflection order, treat \\(x\\) and \\(v_z\\) as constant during transit. The near-filament straight-line approximation extends the impulse integral to infinite limits:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\Delta p_x=\\frac1{v_z}\\int_{-\\infty}^{\\infty}F_x\\,dz=-\\operatorname{sgn}(x)\\frac{\\pi eV_a}{v_z\\ln(b/a)}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[|k_x|=\\frac{2\\pi}{h}|\\Delta p_x|=\\frac{2\\pi^2 eV_a}{hv_z\\ln(b/a)}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Equivalently, solve the transverse equation of motion for the small slope \\(|dx/dz|=\\pi eV_a/[mv_z^2\\ln(b/a)]\\) in a nonrelativistic trajectory treatment, then use \\(k_x/k_z\\simeq dx/dz\\). In the relativistic form use \\(p_z=\\gamma mv_z\\), so the same impulse-to-wave-vector result follows. The positive source result is the magnitude, although an intermediate impulse is evaluated at positive \\(x\\) with an inconsistent sign."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c. de Broglie wavelengths"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Nonrelativistically, \\(p^2/(2m)=eV_0\\). Relativistically, total energy is \\(mc^2+eV_0\\), so \\(p^2c^2=(mc^2+eV_0)^2-m^2c^4\\). Hence"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\lambda_\\mathrm{nr}=\\frac h{\\sqrt{2meV_0}},\\qquad \\lambda_\\mathrm{rel}=\\frac h{\\sqrt{2meV_0\\left(1+\\dfrac{eV_0}{2mc^2}\\right)}}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "d. Numerical results and geometry"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[|k_x|\\simeq3.46\\times10^7\\,\\mathrm{m^{-1}}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The two symmetric plane-wave components have transverse wave vectors \\(+k_x\\) and \\(-k_x\\), so their interference phase difference is \\(2k_xx\\). The fringe spacing is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[s=\\frac\\pi{|k_x|}\\simeq9.07\\times10^{-8}\\,\\mathrm m=90.7\\,\\mathrm{nm}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "With a spherical incident wave, geometric divergence makes the fringe spacing larger than the plane-wave result. This qualitative comparison remains self-review."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\lambda_\\mathrm{nr}\\simeq5.47\\times10^{-12}\\,\\mathrm m,\\qquad\\lambda_\\mathrm{rel}\\simeq5.34\\times10^{-12}\\,\\mathrm m,\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[100\\frac{\\lambda_\\mathrm{nr}-\\lambda_\\mathrm{rel}}{\\lambda_\\mathrm{rel}}\\simeq2.4\\%.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The official apparent-double-slit estimate inserts its d.ii fringe spacing and relativistic wavelength into \\(s=\\lambda_\\mathrm{rel}(\\ell+L)/d\\), giving \\(d\\simeq1.03\\times10^{-4}\\,\\mathrm m\\). The numerical field explicitly follows that substitution."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Source-model caveat: the source mixes the plane-wave fringe spacing with the virtual-point-source formula in the last estimate. A self-consistent spherical-source geometry instead gives \\(d=2\\ell|k_x|/k_z\\) and a larger spacing \\(s=\\pi(\\ell+L)/(\\ell|k_x|)\\). Using the supplied relativistic wavelength gives \\(d\\simeq1.47\\times10^{-5}\\,\\mathrm m\\). Thus the last source value is an official estimate under its stated substitution, not a claim that both wavefront models have the same spacing. The supplied \\(v_z=c/2\\) and \\(V_0=50\\,\\mathrm{kV}\\) are also independent approximate inputs in the source. Do not derive one from the other when reproducing its numbers. The reference PDF retains the original equations and scoring notes."
+          }
+        ]
+      }
+    ],
+    "text": "Question 2: Electron biprism\na. Cylindrical potential\nFor line charge density \\(\\lambda_q\\), Gauss's law gives \\(E_r=\\lambda_q/(2\\pi\\epsilon_0r)\\). Integrate with \\(V(b)=0\\) and eliminate \\(\\lambda_q\\) using \\(V(a)=V_a\\):\n\\[V(r)=\\frac{\\lambda_q}{2\\pi\\epsilon_0}\\ln\\frac br=V_a\\frac{\\ln(b/r)}{\\ln(b/a)},\\qquad r=\\sqrt{x^2+z^2}.\\]\nb. Transverse impulse\nWith electron charge \\(-e\\), the force is \\(F_x=e\\,\\partial V/\\partial x=-eV_ax/[(x^2+z^2)\\ln(b/a)]\\). To leading small-deflection order, treat \\(x\\) and \\(v_z\\) as constant during transit. The near-filament straight-line approximation extends the impulse integral to infinite limits:\n\\[\\Delta p_x=\\frac1{v_z}\\int_{-\\infty}^{\\infty}F_x\\,dz=-\\operatorname{sgn}(x)\\frac{\\pi eV_a}{v_z\\ln(b/a)}.\\]\n\\[|k_x|=\\frac{2\\pi}{h}|\\Delta p_x|=\\frac{2\\pi^2 eV_a}{hv_z\\ln(b/a)}.\\]\nEquivalently, solve the transverse equation of motion for the small slope \\(|dx/dz|=\\pi eV_a/[mv_z^2\\ln(b/a)]\\) in a nonrelativistic trajectory treatment, then use \\(k_x/k_z\\simeq dx/dz\\). In the relativistic form use \\(p_z=\\gamma mv_z\\), so the same impulse-to-wave-vector result follows. The positive source result is the magnitude, although an intermediate impulse is evaluated at positive \\(x\\) with an inconsistent sign.\nc. de Broglie wavelengths\nNonrelativistically, \\(p^2/(2m)=eV_0\\). Relativistically, total energy is \\(mc^2+eV_0\\), so \\(p^2c^2=(mc^2+eV_0)^2-m^2c^4\\). Hence\n\\[\\lambda_\\mathrm{nr}=\\frac h{\\sqrt{2meV_0}},\\qquad \\lambda_\\mathrm{rel}=\\frac h{\\sqrt{2meV_0\\left(1+\\dfrac{eV_0}{2mc^2}\\right)}}.\\]\nd. Numerical results and geometry\n\\[|k_x|\\simeq3.46\\times10^7\\,\\mathrm{m^{-1}}.\\]\nThe two symmetric plane-wave components have transverse wave vectors \\(+k_x\\) and \\(-k_x\\), so their interference phase difference is \\(2k_xx\\). The fringe spacing is\n\\[s=\\frac\\pi{|k_x|}\\simeq9.07\\times10^{-8}\\,\\mathrm m=90.7\\,\\mathrm{nm}.\\]\nWith a spherical incident wave, geometric divergence makes the fringe spacing larger than the plane-wave result. This qualitative comparison remains self-review.\n\\[\\lambda_\\mathrm{nr}\\simeq5.47\\times10^{-12}\\,\\mathrm m,\\qquad\\lambda_\\mathrm{rel}\\simeq5.34\\times10^{-12}\\,\\mathrm m,\\]\n\\[100\\frac{\\lambda_\\mathrm{nr}-\\lambda_\\mathrm{rel}}{\\lambda_\\mathrm{rel}}\\simeq2.4\\%.\\]\nThe official apparent-double-slit estimate inserts its d.ii fringe spacing and relativistic wavelength into \\(s=\\lambda_\\mathrm{rel}(\\ell+L)/d\\), giving \\(d\\simeq1.03\\times10^{-4}\\,\\mathrm m\\). The numerical field explicitly follows that substitution.\nSource-model caveat: the source mixes the plane-wave fringe spacing with the virtual-point-source formula in the last estimate. A self-consistent spherical-source geometry instead gives \\(d=2\\ell|k_x|/k_z\\) and a larger spacing \\(s=\\pi(\\ell+L)/(\\ell|k_x|)\\). Using the supplied relativistic wavelength gives \\(d\\simeq1.47\\times10^{-5}\\,\\mathrm m\\). Thus the last source value is an official estimate under its stated substitution, not a claim that both wavefront models have the same spacing. The supplied \\(v_z=c/2\\) and \\(V_0=50\\,\\mathrm{kV}\\) are also independent approximate inputs in the source. Do not derive one from the other when reproducing its numbers. The reference PDF retains the original equations and scoring notes.",
+    "figures": [],
+    "shared": false
+  }
+}

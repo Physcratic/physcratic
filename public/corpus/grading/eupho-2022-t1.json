@@ -1,0 +1,16 @@
+{
+  "problemId": "eupho-2022-t1",
+  "version": "48aad5d87243a595e4c22d8c5e8f02436f3dd55943fefa9889b8ca7706ddffd8",
+  "parts": [
+    {
+      "id": "period",
+      "sourcePart": "Answer",
+      "label": "Oscillation period",
+      "kind": "numeric",
+      "unit": "s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter seconds. Include the inertia of the liquid flowing in the narrow gap."
+    }
+  ]
+}

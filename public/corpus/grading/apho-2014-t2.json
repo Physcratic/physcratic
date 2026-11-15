@@ -1,0 +1,252 @@
+{
+  "problemId": "apho-2014-t2",
+  "version": "8935b3f64cc011c1852619c3a4ca7d9afa439ecd10248b7d4b0255be1b075caf",
+  "parts": [
+    {
+      "id": "a",
+      "sourcePart": "a",
+      "label": "Near-filament potential V(x,z)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "V_a",
+        "b",
+        "x",
+        "z",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "V_a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "x",
+          "assumptions": [],
+          "min": 0.2,
+          "max": 0.4
+        },
+        {
+          "symbol": "z",
+          "assumptions": [],
+          "min": 0.5,
+          "max": 1
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.05,
+          "max": 0.1
+        }
+      ],
+      "help": "Use V_a for filament potential. This is the cylindrical near-filament approximation in the region a<sqrt(x^2+z^2)<b, with grounded mesh."
+    },
+    {
+      "id": "b",
+      "sourcePart": "b",
+      "label": "Transverse wave-vector magnitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "V_a",
+        "h",
+        "v_z",
+        "b",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v_z",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.05,
+          "max": 0.1
+        }
+      ],
+      "help": "Enter |k_x|, with e the positive charge magnitude and h Planck's constant. Use the straight-line, small-deflection near-filament approximation. Sign reverses on opposite sides."
+    },
+    {
+      "id": "c.i",
+      "sourcePart": "c.i",
+      "label": "Nonrelativistic wavelength",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "h",
+        "m",
+        "e",
+        "V_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use h, rest mass m, positive charge magnitude e and accelerating voltage V_0."
+    },
+    {
+      "id": "c.ii",
+      "sourcePart": "c.ii",
+      "label": "Relativistic wavelength",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "h",
+        "m",
+        "e",
+        "V_0",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use c for light speed and m for electron rest mass."
+    },
+    {
+      "id": "d.i",
+      "sourcePart": "d.i",
+      "label": "Transverse wave-vector magnitude",
+      "kind": "numeric",
+      "unit": "1/m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter |k_x| in inverse metres, using the supplied v_z=c/2."
+    },
+    {
+      "id": "d.ii",
+      "sourcePart": "d.ii",
+      "label": "Plane-wave fringe spacing",
+      "kind": "numeric",
+      "unit": "nm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter nanometres. Both +k_x and -k_x contribute to the phase difference."
+    },
+    {
+      "id": "d.iii",
+      "sourcePart": "d.iii",
+      "label": "Spherical-wave comparison",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "State whether the fringe spacing becomes larger, equal or smaller for a spherical incident wave, and explain the geometry. This is self-review."
+    },
+    {
+      "id": "d.iv",
+      "sourcePart": "d.iv",
+      "label": "Nonrelativistic wavelength error",
+      "kind": "numeric",
+      "unit": "%",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter percentage points, using 100*(lambda_nr-lambda_rel)/lambda_rel."
+    },
+    {
+      "id": "d.v",
+      "sourcePart": "d.v",
+      "label": "Apparent double-slit separation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Give your virtual-source geometry and d. Compare the official substitution with the consistent spherical-wave model described in the worked solution. The source mixes these models, so no unique automatic numerical key is enforced."
+    }
+  ]
+}

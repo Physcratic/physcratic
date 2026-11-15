@@ -1,4 +1,5 @@
 import "server-only";
+import { olympiadDefinitions } from "../olympiad/keys";
 import { createHash } from "node:crypto";
 import { archiveMetadataSchema, type ArchiveMetadata } from "../archive-grading-contracts";
 import { problems } from "../physics";
@@ -27,7 +28,7 @@ export const archiveDefinitions: ArchiveDefinition[] = [
     { ...numeric("answer", "Final answer", problem.answer, problem.unit, { sourcePart: "Answer", help: "Answers within 1% are accepted." }), sourceReference: `lib/physics.ts: ${problem.id}, worked solution` },
   ] })),
 ];
-const byId = new Map(archiveDefinitions.map((definition) => [definition.problemId, definition]));
+const byId = new Map([...archiveDefinitions, ...olympiadDefinitions].map((definition) => [definition.problemId, definition]));
 export function getArchiveDefinition(problemId: string) { return byId.get(problemId); }
 export function archiveVersion(definition: ArchiveDefinition): string {
   return createHash("sha256").update(JSON.stringify({ engine: "sampled-v1", ...definition })).digest("hex");

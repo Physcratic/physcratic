@@ -1,0 +1,84 @@
+{
+  "problemId": "eupho-2021-t1",
+  "version": "6b7636e1cce6d1915b9a4a511f061d0711a0fd71cac1372628e83c703fbce35c",
+  "parts": [
+    {
+      "id": "a",
+      "sourcePart": "a",
+      "label": "Leak-onset volume V_0",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "V",
+        "x"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "V",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "x",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use x=mgH/(pV) and V for the initial volume of either chamber."
+    },
+    {
+      "id": "b",
+      "sourcePart": "b",
+      "label": "Final upper-chamber temperature T_1",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "T",
+        "x"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "x",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use x=mgH/(pV) and T for the initial temperature."
+    },
+    {
+      "id": "c",
+      "sourcePart": "c",
+      "label": "Limiting lower-chamber temperature T_2",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "T",
+        "x"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "x",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use x=mgH/(pV). Enter the limiting temperature before contact."
+    }
+  ]
+}

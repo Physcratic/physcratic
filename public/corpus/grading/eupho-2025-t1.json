@@ -1,0 +1,76 @@
+{
+  "problemId": "eupho-2025-t1",
+  "version": "4ecef274c17bcdb609aa34fa23d3f49ce259c57aa6883b0a5a28991470dabfc9",
+  "parts": [
+    {
+      "id": "a",
+      "sourcePart": "a",
+      "label": "Illuminance surplus I(r,theta)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "I_0",
+        "a",
+        "r",
+        "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "I_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.05,
+          "max": 0.1
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 10,
+          "max": 20
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [],
+          "min": 0.1,
+          "max": 6.1
+        }
+      ],
+      "help": "Use I_0 for the A-B illuminance difference and the figure's polar-angle convention, 0<=theta<=2*pi. Enter the leading result for r much larger than a."
+    },
+    {
+      "id": "b",
+      "sourcePart": "b",
+      "label": "Middle-ring radial excess",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "a",
+        "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [],
+          "min": 0.1,
+          "max": 6.1
+        }
+      ],
+      "help": "Enter R(theta)-R_min to first order in a/R_min. Use the full polar angle shown in the photograph."
+    }
+  ]
+}
