@@ -82,3 +82,7 @@ jobs:
         run: |
           node --require ./tests/server-only-register.cjs --import tsx tests/practice-progress.browser.mjs
           node --require ./tests/server-only-register.cjs --import tsx tests/practice-check.browser.mjs
+      - name: Archive note account boundaries and delayed-save isolation
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
+        run: node --require ./tests/server-only-register.cjs --import tsx tests/archive-progress.browser.mjs

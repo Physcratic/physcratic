@@ -210,10 +210,14 @@ test('current-feature runtime proposal on isolated PostgreSQL 18.7 LOGIN', { ski
 
     await t.test('existing progress/public reads and deny disabled/frozen capabilities', async () => {
       const archive = await import('../../app/api/archive-progress/route');
+      const archiveRequest = (body?: unknown) => { const request = req('/api/archive-progress', cookie, body); request.headers.set('X-Practice-Account', userId); return request; };
+      await ok(await archive.GET(req('/api/archive-progress', cookie)), 409);
+      const wrongAccount = archiveRequest(); wrongAccount.headers.set('X-Practice-Account', 'another-account');
+      await ok(await archive.GET(wrongAccount), 409);
       const { iphoSubproblems } = await import('../../lib/ipho-archive');
-      await ok(await archive.POST(req('/api/archive-progress', cookie, { taskId: iphoSubproblems[0].id, notes: 'Synthetic notes', answer: '2', reviewed: false })));
-      await ok(await archive.POST(req('/api/archive-progress', cookie, { taskId: iphoSubproblems[0].id, notes: 'Updated', answer: '3', reviewed: true })));
-      await ok(await archive.GET(req('/api/archive-progress', cookie)));
+      await ok(await archive.POST(archiveRequest({ taskId: iphoSubproblems[0].id, notes: 'Synthetic notes', answer: '2', reviewed: false })));
+      await ok(await archive.POST(archiveRequest({ taskId: iphoSubproblems[0].id, notes: 'Updated', answer: '3', reviewed: true })));
+      await ok(await archive.GET(archiveRequest()));
       for (const path of ['../../app/api/dashboard/route', '../../app/api/progress/route', '../../app/api/rankings/route', '../../app/api/arena/collection/route']) {
         const route = await import(path); await ok(await route.GET(req('/api', cookie)));
       }

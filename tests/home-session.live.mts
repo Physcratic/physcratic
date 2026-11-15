@@ -138,10 +138,15 @@ try {
       for (const privateValue of [user.id, user.email, secondUser.id, secondUser.email, token, secondToken, ...libraryNotes]) ok(!body.includes(privateValue), "public library HTML/RSC excludes private identities and progress");
     }
     for (const [index, cookie] of [memberCookie, secondCookie].entries()) {
-      const response = await fetch(`${origin}/api/archive-progress`, { headers: { cookie } });
+      const account = index === 0 ? user.id : secondUser.id;
+      const otherAccount = index === 0 ? secondUser.id : user.id;
+      const response = await fetch(`${origin}/api/archive-progress`, { headers: { cookie, "X-Practice-Account": account } });
       const body = await response.text();
       ok(response.status === 200 && body.includes(libraryNotes[index]) && !body.includes(libraryNotes[1-index]), "real private progress API is account-isolated");
       ok(/private/.test(response.headers.get("cache-control") ?? "") && /no-store/.test(response.headers.get("cache-control") ?? ""), "private progress is not cacheable");
+      const stale = await fetch(`${origin}/api/archive-progress`, { headers: { cookie, "X-Practice-Account": otherAccount } });
+      const staleBody = await stale.text();
+      ok(stale.status === 409 && libraryNotes.every(note => !staleBody.includes(note)), "stale displayed account cannot read either student's notes");
     }
     const journey = spawn(process.execPath, ["--import", "tsx", "tests/public-library.browser.mjs"], {
       env: { ...process.env, BROWSER_TEST_ORIGIN: origin, LIBRARY_SESSION_A: signed, LIBRARY_SESSION_B: secondSigned }, stdio: ["ignore", "pipe", "pipe"],

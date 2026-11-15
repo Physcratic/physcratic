@@ -231,8 +231,9 @@ No arbitrary retention duration or promise of immediate backup erasure is added.
    procedure. Restore only to an approved isolated target under separate approval.
    Before any restored copy can serve traffic, reconcile all relevant deletion
    obligations, restrict access and verify the synthetic deleted subject does not
-   return. Capture counts/booleans, target/SHA/checksum and receipt references,
-   never answers, notes, raw account identifiers, passwords, URLs with credentials
+   return. Capture counts/booleans, target/SHA/checksum and nonsecret receipt/job IDs,
+   never answers, notes, raw account identifiers, request nonces/session tokens,
+   passwords, URLs with credentials
    or object contents. A restore has not been qualified by this audit.
 5. Only after independent evidence acceptance, obtain a separate owner approval
    for the exact `PRACTICE_CHECKS_ENABLED=true` change, serving SHA, restricted
@@ -243,7 +244,7 @@ No arbitrary retention duration or promise of immediate backup erasure is added.
    checks through the served app, dashboard refresh, second session, stale version,
    original-key uncertain-commit retry, A/B isolation, sign-out and unsaved guest
    fallback. Confirm actual own progress against the acknowledged receipt.
-   Stop on account mismatch/leakage, unexpected rights, unqualified erasure,
+   Stop on accepted mismatched-account requests/leakage, unexpected rights, unqualified erasure,
    restore ambiguity or unconfirmed save. Do not edit counters to force a pass.
 7. Roll back exposure by the approved flag-OFF configuration and normal owner
    release mechanism. Verify the serving configuration, disabled private routes
@@ -251,13 +252,18 @@ No arbitrary retention duration or promise of immediate backup erasure is added.
    keys. Flag rollback is not erasure, schema rollback or proof a write failed.
    No DOWN migration, automatic restore or reconstruction of historical progress.
 
-An adjacent source audit found that legacy archive-note reads/writes lack the
-rejection-only displayed-account header used by practice progress. Runtime
-reproduction was not completed because independent review capacity became
-unavailable. This is a separate, unqualified account-binding concern, not a new
-practice-ledger defect or authorization to modify official problem content.
-Track a bounded reproduction/security review before claiming full legacy-note
-session-isolation readiness.
+The adjacent archive-note account-binding gap was subsequently reproduced by
+the implementation engineer with the actual handler, Drizzle and disposable
+PostgreSQL. A B session with displayed-A input returned B notes and wrote the
+input under B. The separate stacked correction now requires the displayed
+account header before archive-note reads/writes, while SQL still uses only session identity.
+Old clients without the header fail closed409 and must reload. The hook clears
+private cached output during pending/error/sign-out boundaries and scopes save
+feedback to the exact account generation, including A-to-B-to-A transitions.
+Actual handler/hook browser tests cover before-archive-query denial, delayed responses,
+commit-acknowledgement failure and explicit retry. No grader, permission, official
+content or erasure contract changes. Final independent diff review remains
+blocked by reviewer capacity, so neither scoped PR is claimed release-approved.
 
 **NO-GO for Production persistence activation.** The delivery channel, approved
 policy/provider/restore evidence, current restricted binding/grants, final release

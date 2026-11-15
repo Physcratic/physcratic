@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## Archive note account isolation (15 November 2026)
+
+Actual handler/Drizzle/disposable-PG reproduction confirms a stale displayed account could read or write under a different cookie identity. The separate stacked fix rejects missing/mismatched account headers before archive-note SQL, masks unresolved private cache and scopes delayed save feedback by session generation. Real hook/route browser coverage includes A-to-B-to-A and committed-but-unconfirmed retry. No grading, permission, content, schema or Production change. Final review/CI evidence belongs to the focused PR, with independent final review still unavailable.
+
 ## Practice progress readiness (15 November 2026)
 
 Current saved-practice catalogue excludes retired readers while preserving exact historical replay. Legacy test fixtures remain explicit and grading/migration bytes are unchanged. [Audit, live metadata, owner choices and bounded activation/rollback gates](POST_B6_PROFILES_PRACTICE.md#practice-readiness-evidence-and-owner-gates-15-november-2026). Practice/deletion stay OFF by default. No Production SQL, grant, binding, provider, deployment or flag operation. Final SHA/CI and review limitations belong to the focused PR.
