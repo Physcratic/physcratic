@@ -110,3 +110,23 @@ Final B2B feedback review: the old pure summary always said Nothing is saved. Co
 ## B5 whole-account readiness (10 November 2026)
 
 The owner has approved account-wide erasure/de-identification and preservation of appropriately licensed published content and other students' work. [B5 readiness](ACCOUNT_DELETION_READINESS.md) now identifies the narrower remaining stop: immutable, mixed-subject evidence needs verified operator redaction/adjudication or a defined limited-retention exception. A shared principal or ID replacement alone does not remove freeform PII. The [prospective publication licence design](PUBLICATION_LICENSE_PROPOSAL.md) is inactive and does not infer retroactive consent. PR #140 remains a bounded draft, not an implemented deletion feature. Resolve that privacy mechanism before the complete default-OFF workflow, then qualify migrations/grants, actual backup/restore facts, ledger, rollback and synthetic behavior before separate Production authorization.
+
+## Current-catalogue readiness correction, 15 November 2026
+
+The default persistence catalogue now excludes the retired identities supplied by
+`lib/legacy-practice.ts`. Their grading definitions, versions and immutable
+records remain intact. Existing exact-key receipts replay before the current
+catalogue check. A new save for a retired identity returns404. Current completion
+lists omit withdrawn problems, while `savedChecks` still counts retained saved
+records across versions. No browser-local or legacy `practice_attempt` record is
+backfilled. Native imported archive checks remain explicitly unsaved through
+`saveProgress={false}`. This correction does not add their identities to the
+persistence contract or enable the flag.
+
+The retained legacy reader is still used by historical compatibility tests.
+Those tests now inject an explicit test-only legacy catalogue rather than
+requiring retired identities in the application's current catalogue. Real auth,
+erasure and loopback-only upgrade rehearsals seed a retained Arena problem.
+No historical migration, grading definition, reviewed operator package/checksum,
+Production grant or configuration is changed. See the dated readiness and owner
+decisions in [the post-B6 procedure](POST_B6_PROFILES_PRACTICE.md#practice-readiness-evidence-and-owner-gates-15-november-2026).

@@ -1,5 +1,17 @@
 # Beta readiness log
 
+## Account deletion release qualification (15 November 2026)
+
+Actual auth/0018/disposable-PG qualification retains the existing erasure design. A reproduced known-account-switch bug left password/confirmation in the deletion form. The minimal keyed workspace clears old consent while preserving original receipt recovery. Tests add real restricted login roles and the component/API/PG lifecycle in mobile/desktop light/dark, including lost acknowledgement, late responses and provider retry. [Implemented capabilities, owner evidence, acceptance, delivery choice and restore/rollback gates](ACCOUNT_DELETION_READINESS.md#release-qualification-15-november-2026). Live metadata confirms six-hour Neon history plus a separate manual snapshot and retained branches. It does not establish complete backup expiry. Deletion and practice activation remain **NO-GO**, source defaults OFF. No Production SQL, grant, provider, flag or deployment change. Exact SHA, independent review and CI evidence belong to the draft PR. Security-sensitive merge requires explicit owner approval.
+
+## Archive note account isolation (15 November 2026)
+
+Actual handler/Drizzle/disposable-PG reproduction confirms a stale displayed account could read or write under a different cookie identity. The separate stacked fix rejects missing/mismatched account headers before archive-note SQL, masks unresolved private cache and scopes delayed save feedback by session generation. Real hook/route browser coverage includes A-to-B-to-A and committed-but-unconfirmed retry. No grading, permission, content, schema or Production change. Final review/CI evidence belongs to the focused PR, with independent final review still unavailable.
+
+## Practice progress readiness (15 November 2026)
+
+Current saved-practice catalogue excludes retired readers while preserving exact historical replay. Legacy test fixtures remain explicit and grading/migration bytes are unchanged. [Audit, live metadata, owner choices and bounded activation/rollback gates](POST_B6_PROFILES_PRACTICE.md#practice-readiness-evidence-and-owner-gates-15-november-2026). Practice/deletion stay OFF by default. No Production SQL, grant, binding, provider, deployment or flag operation. Final SHA/CI and review limitations belong to the focused PR.
+
 ## Authored solution response visibility (15 November 2026)
 
 A follow-up to the initial investigation reproduces approved solutions and denial messages below the viewport after confirmation. Explicit response focus/scroll now exposes the result in mobile flow and the desktop answer rail, preserving confirmation, permission, assistance and privacy clearing. [Evidence and policy](AUTHORED_STUDENT_UI.md#worked-solution-policy-and-evidence). Separate draft stacked on math-input fix #176. No merge/deployment or API, grading, migration, Production, official-reader or SEO change.

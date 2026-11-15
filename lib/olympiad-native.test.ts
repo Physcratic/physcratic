@@ -59,10 +59,11 @@ test("independently rearranged source results agree and common physical errors d
   const currentKA = 0.2 / 6000 * Math.sqrt(2 * 101000 / (9.04e-6 * 12.57e-7)) / 1000;
   assert.equal(checkArchivePart(olympiadDefinitions.find(d => d.problemId === "eupho-2018-t2")!.parts[0], String(currentKA), "eupho-2018-t2").status, "correct");
 });
-test("the existing account-persistence catalogue is unchanged and excludes stateless olympiad checks", () => {
-  // One entry for each Arena problem in the catalogue and each Quick practice problem, and no olympiad problem.
+test("the account-persistence catalogue excludes retired practice and stateless olympiad checks", () => {
+  // One definition for each Arena problem in the catalogue and each Quick practice problem. The catalogue keeps the Arena ones.
   assert.equal(archiveDefinitions.length, arenaIndex.count + practiceProblems.length);
-  assert.equal(practiceCheckCatalog().length, archiveDefinitions.length);
+  assert.ok(practiceCheckCatalog().every(entry => entry.kind === "arena"));
+  assert.equal(practiceCheckCatalog().length, arenaIndex.count);
   assert.ok(practiceCheckCatalog().every(p => !(nativeOlympiadIds as readonly string[]).includes(p.metadata.problemId)));
 });
 const index = JSON.parse(readFileSync("lib/corpus/import-index.json", "utf8"));
