@@ -276,10 +276,10 @@ try {
   );
   version++;
   await publish();
-  await build({
+  const output = await build({
     entryPoints: ["tests/authored-student-harness.tsx"],
-    outfile: join(temp, "bundle.js"),
-    bundle: true,
+    outdir: temp, entryNames: "bundle", chunkNames: "lazy-[name]-[hash]",
+    bundle: true, splitting: true, metafile: true, format: "esm",
     platform: "browser",
     jsx: "automatic",
     alias: { "@": process.cwd() },
@@ -291,7 +291,11 @@ try {
     ["-i", "app/globals.css", "-o", join(temp, "style.css")],
     { stdio: "pipe" },
   );
-  const bundle = await readFile(join(temp, "bundle.js"), "utf8");
+  const assets = new Set(Object.keys(output.metafile.outputs).map(path => "/" + basename(path)));
+  const mathAsset = Object.entries(output.metafile.outputs).find(([, value]) => value.entryPoint?.includes("mathlive"));
+  assert.ok(mathAsset, "MathLive stays lazy for real loading/fallback tests");
+  const mathPath = "/" + basename(mathAsset[0]);
+  const bundle = (await Promise.all([...assets].filter(path => path.endsWith(".js")).map(path => readFile(join(temp, basename(path)), "utf8")))).join("\n");
   for (const secret of [
     "createAuthoredGrader",
     "authored_revision_private_part",
@@ -385,7 +389,7 @@ try {
         res.end(Buffer.from(await response.arrayBuffer()));
         return;
       }
-      if (["/bundle.js", "/style.css"].includes(url.pathname)) {
+      if (assets.has(url.pathname) || url.pathname === "/style.css") {
         res.setHeader(
           "Content-Type",
           url.pathname.endsWith("js") ? "application/javascript" : "text/css",
@@ -414,7 +418,7 @@ try {
           : { state: "guest" };
       res.setHeader("Content-Type", "text/html");
       res.end(
-        `<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Physcratic solving test</title><style>:root{--font-plex-sans:Arial,sans-serif}body{font-family:Arial,sans-serif}</style><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/katex.css"></head><body><div id="root"></div><script>window.__student=${JSON.stringify({ problemId, viewer })}</script><script src="/bundle.js"></script></body></html>`,
+        `<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Physcratic solving test</title><style>:root{--font-plex-sans:Arial,sans-serif}body{font-family:Arial,sans-serif}</style><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/katex.css"></head><body><div id="root"></div><script>window.__student=${JSON.stringify({ problemId, viewer })}</script><script type="module" src="/bundle.js"></script></body></html>`,
       );
     } catch (error) {
       console.error(error);
@@ -511,6 +515,50 @@ try {
     0,
   );
   console.log("PASS public reading, media and account gates");
+  // A stalled lazy import must leave a usable, durable fallback, then hand over only after editing ends.
+  for (const mobile of [false, true]) {
+  const draft = mobile ? "\\frac{x}{2}" : "x^2";
+  const slowContext = await browser.newContext({ viewport: { width: mobile ? 375 : 1440, height: 900 }, isMobile: mobile, hasTouch: mobile });
+  await slowContext.addCookies([{ name: "viewer", value: "A", url: origin }]);
+  let releaseMath;
+  const mathGate = new Promise(resolve => { releaseMath = resolve; });
+  await slowContext.route("**" + mathPath, async route => { await mathGate; await route.continue(); });
+  try {
+    const slow = await slowContext.newPage();
+    slow.on("pageerror", error => errors.push(error.message));
+    await slow.goto(`${origin}/dashboard/authored/${problemId}`);
+    await slow.getByLabel("Numerical answer", { exact: true }).waitFor();
+    await slow.clock.install();
+    await slow.getByLabel("Choose part", { exact: true }).selectOption({ index: 1 });
+    await slow.getByRole("status").filter({ hasText: "Loading math editor…" }).waitFor();
+    await slow.clock.runFor(11000);
+    const fallback = slow.getByLabel("Expression answer", { exact: true });
+    assert.equal(await fallback.count(), 1, "A stalled editor must expose its fallback within eleven seconds");
+    await fallback.fill(draft);
+    const fallbackAudit = await new AxeBuilder({ page: slow }).analyze();
+    assert.deepEqual(fallbackAudit.violations, [], "The editable fallback remains accessible");
+    await fallback.dispatchEvent("compositionstart", { bubbles: true });
+    releaseMath();
+    await slow.waitForFunction(() => Boolean(customElements.get("math-field")));
+    assert.equal(await slow.locator("math-field").count(), 0, "Do not replace active fallback composition");
+    await fallback.dispatchEvent("compositionend", { bubbles: true });
+    assert.equal(await fallback.inputValue(), draft);
+    await fallback.blur();
+    await slow.clock.runFor(100);
+    await slow.locator("math-field").waitFor();
+    assert.equal(await slow.locator("math-field").evaluate(el => el.value), draft);
+    assert.equal(await slow.locator("math-field").count(), 1);
+    assert.equal(await slow.locator('input[id="' + await slow.locator("math-field").getAttribute("id") + '"]').count(), 0);
+    await slow.clock.resume();
+    await slow.reload();
+    await slow.getByLabel("Choose part", { exact: true }).selectOption({ index: 1 });
+    await slow.locator("math-field").waitFor();
+    assert.equal(await slow.locator("math-field").evaluate(el => el.value), draft);
+    assert.equal(postBodies.length, 0, "Loading, handover and reload never submit an answer");
+    console.log("PASS stalled MathLive fallback, composition-safe handover and recovery on published PostgreSQL problem");
+  } finally { releaseMath(); await slowContext.close(); }
+  }
+
   await account("A");
   await page.getByLabel("Numerical answer", { exact: true }).fill("2");
   await page.getByLabel("Units", { exact: true }).fill("1");

@@ -46,3 +46,29 @@ Desktop has a statement column and sticky answer card; mobile stacks them with p
 - Browser coverage includes guests/unverified accounts, all answer modes, math/media, multipart focus, input recovery, lost committed response/reload/replay, duplicate guards, HTTP faults/read errors,50+ history with submission/cursor reset, IDOR/account switch, stale/reload/focus race, unpublish, private isolation, desktop/mobile axe, keyboard scrolling and375px overflow.
 - API auth sessions are injected into the production factories; the production Better Auth shell/Next route are typechecked/read-reviewed. Live Better Auth/Vercel staging, real Blob and a production build remain outside this harness. See status for inherited check blockers. No production services/data/migrations are used.
 - `no-reveal-v1` continues to prevent automatic disclosure after submission/grading. A separately authorized future explicit worked-solution feature remains possible; none is implemented here. No comments/stars/social/Elo changes.
+
+
+## Solving reliability investigation (15 November 2026)
+
+Baseline: fresh main `bcc132eb44b01d67402910015972b594b08810c2`, preserving the concurrent Studio changes. The existing expression suite passes 47 checks and the published-problem/PostgreSQL browser suite passes. Empty/restored expression fields normally become MathLive editors. Numeric fields and manual text are deliberately different answer modes. A plain expression field after an import failure is an intentional fallback, not a different grading contract.
+
+A new real lazy-chunk/PostgreSQL reproduction finds one concrete availability defect: an import that stays pending never rejects and leaves “Loading math editor…” indefinitely, with no editable fallback. Authored expression fields now opt into a 10-second deadline. If the editor is still pending, the existing plain-expression/LaTeX fallback becomes available. A later import still waits for focus and composition to leave the fallback before mounting. Draft/retry storage, expression limits, submission keys and grading are unchanged. The timer is cancelled on mount, failure and unmount. Other callers, including the official archive reader, omit this optional deadline and retain their existing behavior.
+
+The PostgreSQL browser harness now uses actual lazy ESM chunks and scans every generated JavaScript chunk for private grading sentinels. New desktop/touch cases prove the bounded fallback, plain/LaTeX draft preservation, composition-safe late handover, one editor instance, reload recovery and zero automatic submissions. The expression harness also verifies an explicit fallback submission is accepted exactly once by the existing expression reader/grader. CI includes both suites and triggers when the shared input changes.
+
+### Worked-solution policy and evidence
+
+No solution service or permission-policy change is justified by the synthetic reproduction. Existing policy already allows an explicit reveal before submission. The current solution API's 12 disposable-PostgreSQL test groups and the rendered browser suite pass, including text, maths, approved images/PDFs, error handling and assistance recording. The reported real-world intermittent failure is not reproduced and its affected permission/account state is UNKNOWN. Additional owner-provided symptoms are needed to attribute that incident.
+
+| State | Existing result |
+| --- | --- |
+| Verified student, current publication/part, approved unexpired grant | Explicit reveal allowed before or after submission |
+| Guest or unverified student | Sign-in/verification required, no private solution |
+| No author approval, revoked/expired grant, unpublished problem | Denied without private content |
+| Stale revision | Reload required, no retargeted solution |
+| Another user's receipt, unapproved/private media or old grant generation | Denied |
+| Grade/submission alone | Never reveals or automatically grants permission |
+
+The documented focus/blur/visibility clearing is a privacy safeguard. A native-dialog timing race is a hypothesis, not an observed defect in Chromium, and is not changed. Making all published solutions public, allowing unverified/guest access, auto-approving a new revision or retaining private content across privacy boundaries requires a separate owner policy decision. Current publication does not itself grant solution access. See [solution access](AUTHORED_SOLUTION_ACCESS.md) and [solution UI](AUTHORED_SOLUTION_UI.md).
+
+Actual commands, red/green reproduction, QA counts, independent review, exact head and CI evidence belong to the scoped draft PR. Synthetic APIs use real production factories/grading and disposable PostgreSQL with memory media storage. Real affected user data, physical mobile keyboards, live Better Auth/Blob and non-Chromium behavior are not established. Do not merge or deploy this investigation without owner review. No migration, Production setting, SEO, permission, rating or publication change.
