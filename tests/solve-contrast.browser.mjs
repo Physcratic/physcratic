@@ -219,6 +219,11 @@ if (sessionCookie) {
   );
   if (process.env.AUTHORED_PROBLEM_ID) stages.push(["signed in: authored student page", async (page) => { await page.goto(`${origin}/dashboard/authored/${process.env.AUTHORED_PROBLEM_ID}`, { waitUntil: "networkidle" }); await page.getByRole("heading", { name: "Submit an answer" }).waitFor({ timeout: 20000 }); }]);
 }
+// These public routes are available with and without a session. The archive flow's CI runs only these stages.
+stages.push(
+  ["archive browse: all years", async (page) => { await page.goto(`${origin}/problems/archive`, { waitUntil: "networkidle" }); }],
+  ["archive browse: selected edition", async (page) => { await page.goto(`${origin}/problems/archive?edition=IPhO-2025`, { waitUntil: "networkidle" }); }],
+);
 // STAGE_FILTER="admin" (with INCLUDE_ADMIN=1) runs only the stages whose name matches.
 if (process.env.STAGE_FILTER) { const only = new RegExp(process.env.STAGE_FILTER, "i"); for (let i = stages.length - 1; i >= 0; i--) if (!only.test(stages[i][0])) stages.splice(i, 1); }
 let lowestText = 99, lowestBorder = 99, failures = 0;

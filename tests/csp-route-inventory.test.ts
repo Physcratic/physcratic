@@ -1,7 +1,17 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {appRoute,classifyInventory,assertQualified,responseKind,checkResponse} from '../scripts/csp/route-inventory.mjs';
+import {NONCE_MATCHERS} from '../scripts/csp/policy-artifact.mjs';
 const base=()=>({pages:['/learn','/dashboard'],sourcePages:['/learn','/dashboard'],prerender:{routes:{'/learn':{dataRoute:'/learn.rsc'}} as Record<string,{dataRoute:string;srcRoute?:string}>,dynamicRoutes:{} as Record<string,{fallback:boolean|null}>},matchers:['/dashboard/:path*'],hashRoutes:['/learn']});
+test('request-rendered archive requires exact nonce coverage without exempting adjacent routes',()=>{
+ const b=base();b.pages.push('/problems/archive');b.sourcePages.push('/problems/archive');b.matchers=[...NONCE_MATCHERS];
+ const inventory=classifyInventory(b);assertQualified(inventory);
+ assert.equal(inventory.documents.find(d=>d.route==='/problems/archive')?.strategy,'request-nonce');
+ assert.throws(()=>assertQualified(classifyInventory({...b,matchers:b.matchers.filter(m=>m!=='/problems/archive')})),/Unclassified HTML/);
+ for(const route of ['/problems','/problems/archive/unknown']){
+  assert.throws(()=>assertQualified(classifyInventory({...b,pages:[...b.pages,route],sourcePages:[...b.sourcePages,route]})),/Unclassified HTML/);
+ }
+});
 test('new static, dynamic, admin and source-only pages cannot silently pass',()=>{
  assertQualified(classifyInventory(base()));
  for(const route of ['/settings','/admin/moderation','/admin/verification','/new/[id]','/_not-found']){
