@@ -11,7 +11,8 @@ import { gradeArchiveAnswers, checkArchivePart, ArchiveGradeRequestError } from 
 import { practiceCheckCatalog } from "./practice-check-catalog";
 import firstLedger from "../docs/engineering/native-archive-batch-1-sources.json";
 import secondLedger from "../docs/engineering/native-archive-batch-2-sources.json";
-const ledger = [...firstLedger, ...secondLedger];
+import thirdLedger from "../docs/engineering/native-archive-batch-3-sources.json";
+const ledger = [...firstLedger, ...secondLedger, ...thirdLedger];
 
 for (const definition of olympiadDefinitions) {
   test(definition.problemId + " has bounded typed fields and accepts the verified reference forms", () => {
@@ -95,3 +96,4 @@ test("shared EuPhO source papers are split by actual problem, with source errors
   assert.equal(get("apho-2012-t1").statement.nodes.filter((n: ImportedNode) => n.type === "element" && n.tag === "h3").length, 11);
   assert.equal(get("ipho-2012-t2").statement.nodes.filter((n: ImportedNode) => n.type === "element" && n.tag === "h3").length, 6);
 });
+

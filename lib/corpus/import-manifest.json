@@ -1877,8 +1877,8 @@
       "id": "eupho-2020-t1",
       "path": "/corpus/problems/eupho-2020-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2020_Theory.pdf",
@@ -1894,8 +1894,8 @@
       "id": "eupho-2020-t2",
       "path": "/corpus/problems/eupho-2020-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2020_Theory.pdf",
@@ -1911,8 +1911,8 @@
       "id": "eupho-2020-t3",
       "path": "/corpus/problems/eupho-2020-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2020_Theory.pdf",
@@ -2466,8 +2466,8 @@
     },
     {
       "path": "/corpus/collection.json",
-      "bytes": 2930099,
-      "sha256": "359835a9d37977f2d4d5b263f8ec0d75d92451dbc35808b4be89ef10832b1af1"
+      "bytes": 2845298,
+      "sha256": "b65a0bfdd8aa6c1cd9a162bc6fc77c39304a21f7ce9c845b656041d8b326e5ee"
     },
     {
       "path": "/corpus/documents/english-apho-2006-t2-solution/document.pdf",
@@ -7370,6 +7370,51 @@
       "sha256": "62b5f19bd076e861db503b7562214589d3cd29650245b9923c326d8f6980d33c"
     },
     {
+      "path": "/corpus/figures/native/eupho-2020-accelerator-frames.png",
+      "bytes": 34565,
+      "sha256": "37427ba252c187214f33129f5b2dd9e51c2f2729663e12c7f3b8f7a0b0fb2772"
+    },
+    {
+      "path": "/corpus/figures/native/eupho-2020-accelerator.png",
+      "bytes": 16830,
+      "sha256": "9e97c4201cbccb6e5ffb8d3fec6be3814ebd069f7e9e5612219604d9b5ef0150"
+    },
+    {
+      "path": "/corpus/figures/native/eupho-2020-cat-centres.png",
+      "bytes": 134314,
+      "sha256": "bc2371c0268b3525c5e12dffd5d15b7c2a77d634087efc8706771795b2bcd2f3"
+    },
+    {
+      "path": "/corpus/figures/native/eupho-2020-cat-graph.png",
+      "bytes": 33609,
+      "sha256": "b393a170bd2cbf45cd6b0f61aa70b2be48d059346595e1becd98ed82c7074ce4"
+    },
+    {
+      "path": "/corpus/figures/native/eupho-2020-cat-photos.png",
+      "bytes": 167762,
+      "sha256": "1e32723ac96b1cf7942c8079189f250d04f027f8479c905695589e05b4b4778b"
+    },
+    {
+      "path": "/corpus/figures/native/eupho-2020-cat-rays.png",
+      "bytes": 117093,
+      "sha256": "910dfd8702e5fec0f2faa164ed99829b9aab0539bc8b87f438f2183972830c23"
+    },
+    {
+      "path": "/corpus/figures/native/eupho-2020-cat-setup.png",
+      "bytes": 13876,
+      "sha256": "1c0c9946f3a49fd42796e573fa833dec5e9668d2c2e8f66c886fc671369305a2"
+    },
+    {
+      "path": "/corpus/figures/native/eupho-2020-current.png",
+      "bytes": 37028,
+      "sha256": "0422bfb5346b9fbcdae17f14f5d5bac9b887a53294c846d49276d9d685d0384f"
+    },
+    {
+      "path": "/corpus/figures/native/eupho-2020-solenoid.png",
+      "bytes": 36334,
+      "sha256": "e59f13099ab292853c8bd45c2d28075e37048e1ff2b3ff661ebfab4ac1c62faa"
+    },
+    {
       "path": "/corpus/figures/native/ipho-2012-drop.png",
       "bytes": 12438,
       "sha256": "c750eb1987953540028a4fb26ff3f11754bdef7fbf70ac6c1002ecb389574f6b"
@@ -7518,6 +7563,21 @@
       "path": "/corpus/grading/eupho-2019-t3.json",
       "bytes": 410,
       "sha256": "5da3e553dde51ad473790da332d394254d314ef7b193923903764ee8ffa0267f"
+    },
+    {
+      "path": "/corpus/grading/eupho-2020-t1.json",
+      "bytes": 6068,
+      "sha256": "ee15d91bbe216d2aa5b97229cedb11cda972c4f29983338566ee70770bcd9c60"
+    },
+    {
+      "path": "/corpus/grading/eupho-2020-t2.json",
+      "bytes": 709,
+      "sha256": "9aea9aac9cb7e9f728ec03e7b5e826aa0c91331456d58ef4d8b0f67fea329725"
+    },
+    {
+      "path": "/corpus/grading/eupho-2020-t3.json",
+      "bytes": 442,
+      "sha256": "120c6603003e0f9dd06d619a63f7de80864c93385cccf95215cb0671fe310dc9"
     },
     {
       "path": "/corpus/grading/first-law.json",
@@ -7796,18 +7856,18 @@
     },
     {
       "path": "/corpus/problems/eupho-2020-t1.json",
-      "bytes": 50994,
-      "sha256": "89dc34c894657b41bfa062724bcc641ac3aa40262f55f29384f8b5a310a2db32"
+      "bytes": 29140,
+      "sha256": "b108ddf9341cdc67ce1dd305ed82fbf089ec658110d2f9a759bc7091acb16fea"
     },
     {
       "path": "/corpus/problems/eupho-2020-t2.json",
-      "bytes": 50994,
-      "sha256": "c4f4b86c44d339e9a064f002acdf658e77d80e11313e190023513a748972c28a"
+      "bytes": 13911,
+      "sha256": "82b96b3c1e0fcfc439dc82d5b20d2872bd046dae39e3a4f992bd6accca2ad943"
     },
     {
       "path": "/corpus/problems/eupho-2020-t3.json",
-      "bytes": 50994,
-      "sha256": "7f98ff49713b3994b79468d361082b1596b6c92650a80ff515a811cb8b65cb3a"
+      "bytes": 23430,
+      "sha256": "2dab024e26c0cc74117378cac1c3fe227b6f24030a11abd35c66202ec4cd038c"
     },
     {
       "path": "/corpus/problems/eupho-2021-t1.json",

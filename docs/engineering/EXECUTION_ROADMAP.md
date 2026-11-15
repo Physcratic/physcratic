@@ -1,5 +1,10 @@
 # Execution roadmap
 
+## Native archive EuPhO 2020 conversion (15 November 2026)
+
+Continuation of #178 at `6884fb3` adds EuPhO 2020 T1/T2/T3 with native LaTeX, nine original crops, worked alternatives and six automatic fields plus one graph self-review field. Archive: 112 records, 15 native, **97 PDFs remaining**. Earlier nine conversions, identities, ratings, original PDFs and account persistence are preserved. [Source conventions, checks and environment limits](NATIVE_ARCHIVE_BATCH_3.md) and third-batch ledgers record the evidence. Six local production-reader/sampled-checker physics and source tests pass. Full schema/type/build/integration CI and browser results must be taken from the follow-up PR, not inferred from local execution. No merge or deployment.
+
+
 ## Native olympiad archive, batch 2 (15 November 2026)
 
 Continues draft PR #178 from reviewed head 3ed4b1857efb77a6ccda4d6591aa4a2211c1a34e. Adds EuPhO 2019 T1-T3 and APhO 2012 T3 using the existing native reader and stateless answer controls. Total archive remains 112 records, now 12 native and 100 PDF-based. The first five conversions and other 103 records are unchanged. [Sources, answer conventions, validation and remaining work](NATIVE_ARCHIVE_BATCH_2.md). Exact-head full CI is recorded in the PR. No saved progress, ELO, database, flag, provider, merge or manual deployment action.
