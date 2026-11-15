@@ -101,8 +101,8 @@ export async function rehearse(raw) {
     const {createPracticeCheckApi}=await import('../../lib/practice-check-api.ts');
     const {practiceCheckCatalog}=await import('../../lib/practice-check-catalog.ts');
     const checker=createPracticeCheckApi({pool:web,user:async()=>({id:'synthetic-user-0',emailVerified:true}),origin:()=>true});
-    const selection=practiceCheckCatalog().find(x=>x.metadata.problemId==='incline').metadata;
-    const intent={problemId:'incline',version:selection.version,idempotencyKey:randomUUID(),answers:[{partId:'answer',latex:'4.9'}]};
+    const selection=practiceCheckCatalog().find(x=>x.metadata.problemId==='arena-mind-the-gap').metadata;
+    const intent={problemId:selection.problemId,version:selection.version,idempotencyKey:randomUUID(),answers:[{partId:selection.parts[0].id,latex:'0'}]};
     const checkRequest=()=>new Request('http://localhost:3000/api/practice-checks',{method:'POST',headers:{origin:'http://localhost:3000','content-type':'application/json','X-Practice-Account':'synthetic-user-0'},body:JSON.stringify(intent)});
     const saved=await checker('submit',checkRequest());assert.equal(saved.status,201,await saved.clone().text());
     const replay=await checker('submit',checkRequest());assert.equal(replay.status,200,await replay.clone().text());
