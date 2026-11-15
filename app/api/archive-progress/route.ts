@@ -25,10 +25,19 @@ const progressSchema = z.object({
   reviewed: z.boolean(),
 });
 export const runtime = "nodejs";
+const privateHeaders = { "Cache-Control": "private, no-store", Vary: "Cookie, X-Practice-Account", "X-Content-Type-Options": "nosniff" };
+function accountChanged(request: Request, userId: string) {
+  return request.headers.get("x-practice-account") === userId ? null : Response.json(
+    { error: "Copy any unsaved notes, then reload to confirm your account." },
+    { status: 409, headers: privateHeaders },
+  );
+}
 export async function GET(request: Request) {
   try {
     const user = await submissionUser(request);
     if (!user) return submissionError("Sign in to view archive progress.", 401);
+    const changed = accountChanged(request, user.id);
+    if (changed) return changed;
     const progress = await db
       .select({
         taskId: archiveProgress.taskId,
@@ -40,7 +49,7 @@ export async function GET(request: Request) {
       .where(eq(archiveProgress.userId, user.id));
     return Response.json(
       { progress },
-      { headers: { "Cache-Control": "private, no-store" } },
+      { headers: privateHeaders },
     );
   } catch {
     return submissionError(
@@ -55,6 +64,8 @@ export async function POST(request: Request) {
       return submissionError("Request origin rejected.", 403);
     const user = await submissionUser(request);
     if (!user) return submissionError("Sign in to save archive progress.", 401);
+    const changed = accountChanged(request, user.id);
+    if (changed) return changed;
     let body: unknown;
     try {
       body = await readSubmissionJson(request);
@@ -78,11 +89,11 @@ export async function POST(request: Request) {
       });
     return Response.json(
       { saved: true },
-      { headers: { "Cache-Control": "private, no-store" } },
+      { headers: privateHeaders },
     );
   } catch {
     return submissionError(
-      "Archive progress could not be saved. Your notes are unchanged. Please retry.",
+      "Archive progress could not be confirmed. Keep your notes and retry.",
       503,
     );
   }
