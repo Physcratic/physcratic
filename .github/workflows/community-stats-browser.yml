@@ -76,3 +76,9 @@ jobs:
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
         run: node tests/staff-actions.browser.cjs
+      - name: Private practice progress, recovery and OFF-state regression
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
+        run: |
+          node --require ./tests/server-only-register.cjs --import tsx tests/practice-progress.browser.mjs
+          node --require ./tests/server-only-register.cjs --import tsx tests/practice-check.browser.mjs
