@@ -1,0 +1,108 @@
+{
+  "problemId": "eupho-2019-t2",
+  "version": "803ccfa4104f0890bb4c46f2eec16c8202be0195570284216caa92ac9707caec",
+  "parts": [
+    {
+      "id": "speed",
+      "sourcePart": "Motion",
+      "label": "Speed of the centre",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use v_0 for the initial speed."
+    },
+    {
+      "id": "radius",
+      "sourcePart": "Trajectory",
+      "label": "Circular path radius",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "v_0",
+        "Q",
+        "B"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "Q",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use positive Q for the magnitude of the charge, B for field magnitude and v_0 for initial speed."
+    },
+    {
+      "id": "omega",
+      "sourcePart": "Trajectory",
+      "label": "Angular speed of the circular path",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Q",
+        "B",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "Q",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use positive Q for charge magnitude. This is the angular speed of the centre's path, not the rolling angular speed."
+    },
+    {
+      "id": "description",
+      "sourcePart": "Motion",
+      "label": "Describe the trajectory and circulation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "State the shape, speed and circulation direction. Explain why the speed stays constant and compare with the official solution. This reasoning is not automatically graded."
+    }
+  ]
+}

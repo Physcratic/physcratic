@@ -1,0 +1,77 @@
+[
+  {
+    "id": "eupho-2020-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2020-statement/document.pdf",
+    "originalSha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12",
+    "nodes": 7,
+    "figures": [
+      "/corpus/figures/native/eupho-2020-solenoid.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2020-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2020-solution/document.pdf",
+    "originalSha256": "a6cfffa08852197b55ba923f8ffbab42005c9fe74d479b245d924ebb60198ccf",
+    "nodes": 49,
+    "figures": [
+      "/corpus/figures/native/eupho-2020-current.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2020-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2020-statement/document.pdf",
+    "originalSha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12",
+    "nodes": 4,
+    "figures": [
+      "/corpus/figures/native/eupho-2020-accelerator.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2020-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2020-solution/document.pdf",
+    "originalSha256": "a6cfffa08852197b55ba923f8ffbab42005c9fe74d479b245d924ebb60198ccf",
+    "nodes": 23,
+    "figures": [
+      "/corpus/figures/native/eupho-2020-accelerator-frames.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2020-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2020-statement/document.pdf",
+    "originalSha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12",
+    "nodes": 8,
+    "figures": [
+      "/corpus/figures/native/eupho-2020-cat-photos.png",
+      "/corpus/figures/native/eupho-2020-cat-setup.png",
+      "/corpus/figures/native/eupho-2020-cat-graph.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2020-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2020-solution/document.pdf",
+    "originalSha256": "a6cfffa08852197b55ba923f8ffbab42005c9fe74d479b245d924ebb60198ccf",
+    "nodes": 31,
+    "figures": [
+      "/corpus/figures/native/eupho-2020-cat-rays.png",
+      "/corpus/figures/native/eupho-2020-cat-centres.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  }
+]

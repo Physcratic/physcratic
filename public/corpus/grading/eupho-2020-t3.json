@@ -1,0 +1,16 @@
+{
+  "problemId": "eupho-2020-t3",
+  "version": "4ee0f96da920c215868f1a2a7db3fde69ba4a23c142dcbdf0401af3cd3bea4f0",
+  "parts": [
+    {
+      "id": "answer",
+      "sourcePart": "Answer",
+      "label": "Lamp-to-camera separation h",
+      "kind": "numeric",
+      "unit": "mm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter h in mm. Estimates within 20 percent of the official 80 mm result are accepted."
+    }
+  ]
+}

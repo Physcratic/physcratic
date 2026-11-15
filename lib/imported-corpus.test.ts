@@ -7,6 +7,7 @@ import {
   importedProblemSchema,
   type ImportedNode,
 } from "./imported-corpus-schema";
+import { hasOlympiadAnswerFields } from "./olympiad/catalog";
 import manifest from "./corpus/import-manifest.json";
 
 const readLocal = (path: string) => readFileSync(`public${path}`);
@@ -107,13 +108,15 @@ test("2019 official solutions are split by the actual solution code, not the rep
   }
 });
 
-test("all IPhO and APhO imports use original English problem and solution PDFs", () => {
+test("all IPhO and APhO imports retain original English problem and solution PDF references", () => {
   const originals = content.filter((record) => /^(ipho|apho)-/.test(record.id) && !record.id.startsWith("ipho-2026-"))
   assert.equal(originals.length, catalogProblems.filter((problem) => problem.competition !== "EuPhO" && problem.year < 2026).length);
   for (const problem of originals) {
     assert.equal(problem.language, "en", problem.id);
-    assert.equal(problem.statement.format, "pdf", problem.id);
-    assert.equal(problem.solution.format, "pdf", problem.id);
+    for (const doc of [problem.statement, problem.solution]) {
+      if (hasOlympiadAnswerFields(problem.id)) { assert.equal(doc.format, "html"); if (doc.format === "html") assert.match(doc.referencePdf!, /^\/corpus\/documents\/english-/); }
+      else assert.equal(doc.format, "pdf", problem.id);
+    }
     for (const source of problem.sources) {
       assert.match(source.url, /^https:\/\/olimpicos\.net\/files\/(ipho|apho)\//);
       assert.doesNotMatch(source.url, /_tex\.pdf$/);

@@ -1,0 +1,32 @@
+{
+  "problemId": "eupho-2020-t2",
+  "version": "17cd45392da208b047818c94fd538044fecb052ef77be3f894bd6084eeb3ef5c",
+  "parts": [
+    {
+      "id": "answer",
+      "sourcePart": "Answer",
+      "label": "Maximum speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "u",
+        "N"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "u",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use u for the pulling speed and N for the number of turns. Include motion after the thread leaves the cylinder."
+    }
+  ]
+}
