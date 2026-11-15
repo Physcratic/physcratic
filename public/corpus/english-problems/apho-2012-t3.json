@@ -1,1 +1,879 @@
-{"id":"apho-2012-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2012_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2012_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2012-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Theory Question \nPage 1 of 4 \n \n \n \n13th Asian Physics Olympiad  \nMay 01-07, 2012, New Delhi \nIII \nPancharatnam Phase \nThis problem deals with the two beam phenomena associated with light, its \ninterference, polarization and superposition. The particular context of the problem \nwas studied by the Indian physicist S. Pancharatnam (1934–1969). \n \n \n \n \n \n \nConsider the experimental set up as shown in Fig. (1). Two coherent monochromatic light \nbeams (marked as beam 1 and 2), travelling in the 𝑧 direction, are incident on two narrow \nslits and separated by a distance 𝑑 (𝑆1𝑆2 = 𝑑). After passing through the slits the two \nbeams interfere and the pattern is observed on the screen 𝑆. The distance between the slits \nand the screen is 𝐷 and 𝐷≫𝑑. Assume that the width of each slit 𝑆1 and 𝑆2 is much \nsmaller than the wavelength of light. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nIII.1. Let the beams 1 and 2 be linearly polarized at 𝑧= 0. The corresponding \nelectric field vectors are given by \n \n \n \nwhere 𝑖  is the unit vector along the 𝑥-axis, 𝜔 is angular frequency of light and 𝐸0 is \nthe amplitude. Find the expression for the intensity of the light 𝐼 𝜃 , that will be \nobserved on the screen where 𝜃 is the angle shown in Fig. (1). Express your answer \nin terms of 𝜃, 𝑑, 𝐸0, 𝑐 and 𝜔 where 𝑐 is the speed of light. Also, note that the \nintensity is proportional to the time average of the square of the electric field. Here \nyou make take the proportionality constant to be 𝛽. You may ignore the attenuation \nin the magnitude of the electric fields with distance from the slits to any point on \nthe screen. \n[1.0 point] \nIII.2. A perfectly transparent glass slab of thickness 𝑤 and refractive index 𝜇 is \n𝐸  1 = 𝑖 𝐸0 cos(𝜔𝑡) \n…………………(1a) \n𝐸  2 = 𝑖 𝐸0 cos(𝜔𝑡) \n…………………(1b) \nFigure 1 \nS. Pancharatnam \n(1934–1969) \n\nTheory Question \nPage 2 of 4 \n \n \n \n13th Asian Physics Olympiad  \nMay 01-07, 2012, New Delhi \nIII \nintroduced in the path of beam 1 before the slits. Find the expression for the \nintensity of the light 𝐼 𝜃  that will be observed on the screen. Express your answer  \nin terms of 𝜃, 𝑑, 𝐸0, 𝑐, 𝜔, 𝜇 and 𝑤. \n[1.0 point] \nIII.3. An optical device (known as quarter wave plate (QWP)) is introduced in the \npath of beam 1, before the slits, replacing the glass slab. This device changes the \npolarization of the beam from the linear polarization state \n \n \nto a circular polarization state which is given by \nwhere 𝑗  is the unit vector along the 𝑦-axis. \nAssume that the device does not introduce any additional path difference and that \nit is perfectly transparent. Note that the tip of the electric field vector traces a \ncircle as time elapses and hence, the beam is said to be circularly polarized. We \nassume that the angle  𝜃 is small enough so that intensity from slit one does not \ndepend on the angle  𝜃  even for  𝑗  polarization. \n \n \n  \nIII.3.a. Find the expression for the intensity 𝐼 𝜃  of the light that will be observed \non the screen. Express your answer in terms of  𝜃, 𝑑, 𝐸0, 𝑐 and 𝜔. \nIII.3.b. What is the maximum intensity (𝐼𝑚𝑎𝑥)? \nIII.3.c. What is the minimum intensity (𝐼𝑚𝑖𝑛)? \n [2.0 points] \n \nIII.4. \n \n \n \n \n \n     Now, consider the experimental setup (see Fig. (2)) in which the beam 1 is subjected to \n the device (QWP) described in part 3 and, \n a linear polarizer (marked as I), between 𝑧= 𝑎 and 𝑧= 𝑏 which allows only \nthe component of the electric field parallel to an axis (𝑖 ′) to pass through. The \n𝐸  1 = 𝑖 𝐸0 cos(𝜔𝑡) \n𝐸  1 = 1\n 2\n 𝑖 𝐸0 cos(𝜔𝑡) + 𝑗 𝐸0 sin(𝜔𝑡)  \n…………………(2) \nFigure 2 \n\nTheory Question \nPage 3 of 4 \n \n \n \n13th Asian Physics Olympiad  \nMay 01-07, 2012, New Delhi \nIII \nunit vector 𝑖 ′ is defined as \n𝑖 ′ = 𝑖 cos γ + 𝑗 sin 𝛾 \nand, \n another linear polarizer (marked as II) between 𝑧= 𝑏 and 𝑧= 𝑐 which \npolarizes the beam back to 𝑖  direction. \nThus the beam 1 is back to its original state of polarization. Assume that the \npolarizers do not introduce any path difference and are perfectly transparent.  \nIII.4.a. \nWrite down the expression for the electric field of beam 1 after the first \npolarizer at 𝑧= 𝑏 [𝐸  1(𝑧= 𝑏)]. \nIII.4.b. \nWrite down the expression for the electric field of beam 1 after the \nsecond polarizer at 𝑧= 𝑐 [𝐸  1(𝑧= 𝑐)].  \n  \nIII.4.c. \n  What is the phase difference (𝛼) between the two beams at the slits? \n[2.0 points] \n \n \nThe most general type of polarization is elliptical polarization. A convenient way of \nexpressing elliptical polarization is to consider it as a superposition of two orthogonal \nlinearly polarized components i.e. \n \nwhere 𝑖 ′ and 𝑗 ′ and this state of polarization are depicted in Fig. 3.  \n \n \nThe tip of the electric field vector traces an ellipse \nas time elapses. Here 𝑒 represents the ellipticity \nand is given by \ntan 𝑒= Semi-minor axis of the ellipse\nSemi-major axis of the ellipse   \n \nLinear polarization (Eqs. (1)) and circular \npolarization (Eq. (2)) are special cases of elliptical \npolarization (Eq. (3)). The two parameters \n 𝛾(∈[0, 𝜋])and 𝑒(∈[−𝜋/4, 𝜋/4]) completely \ndescribe the state of polarization. \n \n \n𝐸  = 𝑖 ′𝐸0 cos 𝑒cos(𝜔𝑡) + 𝑗 ′𝐸0 sin 𝑒sin(𝜔𝑡) \n…………………(3) \nFigure 3 \n\nTheory Question \nPage 4 of 4 \n \n \n \n13th Asian Physics Olympiad  \nMay 01-07, 2012, New Delhi \nIII \n \nThe polarization state can also be represented by \na point on a sphere of unit radius called the \nPoincare sphere. The polarization of the beam \ndescribed in Eq. (3) is represented by a point 𝑃 \non the Poincare sphere (see Fig. 4), then latitude \n∠𝑃𝐶𝐷= 2𝑒 and longitude ∠𝐴𝐶𝐷= 2𝛾. Here 𝐶 \nis the center. \n \n \n \n \n \n \n \nIII.5. \nConsider a point on the equator of the Poincare sphere.  \nIII.5.a. \nWrite down the electric field (𝐸  Eq) corresponding to this point.  \nIII.5.b. \nWhat is its state of polarization? \n[0.5 point] \nIII.6. Consider a point at the north pole of the Poincare sphere. \nIII.6.a \nWrite down the electric field (𝐸  NP) corresponding to this point. \nIII.6.b \nWhat is its state of polarization? \n[0.5 point] \n \nIII.7. Now, consider the three polarization states of beam 1 as given in part 4. Let \nthe initial polarization (at 𝑧= 0) be represented by a point 𝐴1 on the Poincare \nsphere; after the optical device, let the state (at 𝑧= 𝑎) be represented by point 𝐴2 \nand after the first polarizer (say, at 𝑧= 𝑏), the state be represented by point 𝐴3. At \n𝑧= 𝑐, the polarization returns to its original state which is represented by 𝐴1. \nLocate these points (𝐴1, 𝐴2, and 𝐴3) on the Poincare sphere. \n[1.5 points] \nIII.8. If these three points (𝐴1, 𝐴2, and 𝐴3 from the part (III.7)) are joined by great \ncircles on the sphere, a triangle on the surface of the sphere is obtained  (Note: A \ngreat circle is a circle on the sphere whose center coincides with the center of the \nsphere). The phase difference 𝛼 obtained in part 4 and the area 𝑆 of the curved \nsurface enclosed by the triangle are related to each other. Relate 𝑆 to 𝛼. \nThis relationship is general and was obtained by Pancharatnam and the phase difference is called \nthe Pancharatnam phase.  \n \n \n \n \n \n      [1.5 points] \nFigure 4 \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2012-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"13th Asian Physics Olympiad\nMay 01-07, 2012\nDetailed Answer\nTheory Question-III\nPage 1 of 3\nIII.1. [1.0 mark] Let the phase di\u001berence between two rays making an angle θ with z\ndirection be δ. Clearly\nδ = ω∆t = ωd sin θ/c\n(1)\nThen the intensity is given by\nI (θ) = β|E1 + E2|2\nHere\n|E1 + E2|2\n=\n|E0 cos(ωt) + E0 cos(ωt + δ)|2\n=\n|E0 cos(ωt) (1 + cos δ) −E0 sin(ωt) sin δ|2\n=\nE2\n0\n\u0002\ncos2 (ωt)\n\u00001 + 2 cos δ + cos2 δ\n\u0001\n+ sin2 (ωt) sin2 δ\n−2 cos(ωt) (1 + cos δ) sin(ωt) sin δ]\nSince cos2 ωt = sin2 ωt = 1/2 and sin(ωt) cos(ωt) = 0, we get the intesity to be\nI(θ) = βE2\n0 (1 + cos δ)\nwhere δ is given by Eq. (1).\n(a) Alternate:\n|E1 + E2|2\n=\n|E0 cos(ωt) + E0 cos(ωt + δ)|2\n=\n|E0 cos(ωt) (1 + cos δ) + E0 sin(ωt) sin δ|2\n=\n|E0A cos(ωt −φ)|2\nwhere\nA2\n=\n(1 + cos δ)2 + sin2 δ\n=\n2 (1 + cos δ)\nSince cos2(ωt −φ) = 1/2, we have\nI(θ) = β\n2 E2\n0A2 = βE2\n0 (1 + cos δ)\nwhere δ is given by Eq. (1).\nIII.2. [1.0 marks] The beam 1 has travelled extra optical path = (µ −1) w. Thus the\nnet phase di\u001berence between two beams when they emerge at the angle θ is\nδ = ω\nc (d sin θ −(µ −1) w)\nand I(θ) = βE2\n0 (1 + cos δ).\n\n13th Asian Physics Olympiad\nMay 01-07, 2012\nDetailed Answer\nTheory Question-III\nPage 2 of 3\nIII.3. [2.0 marks] The two beams have travelled exactly same paths upto the slits. Thus\nwhen they emerge at an angle θ, they have a net phase di\u001berence of δ = ωd sin θ/c.\nThen, notice\n|E1 + E2|2\n=\n\f\f\f\fi\n\u0014 E0\n√\n2 cos(ωt) + E0 cos(ωt + δ)\n\u0015\n+ j\n\u0014 E0\n√\n2 sin(ωt)\n\u0015\f\f\f\f\n2\n=\n\f\f\f\fE0 cos(ωt)\n\u0012 1\n√\n2 + cos δ\n\u0013\n+ E0 sin(ωt) sin δ\n\f\f\f\f\n2\n+ E2\n0\n2 sin2 (ωt)\n=\nE2\n0\n\u0014\ncos2 (ωt)\n\u00121\n2 +\n√\n2 cos δ + cos2 δ\n\u0013\n+ sin2 (ωt) sin2 δ\n+2 cos(ωt)\n\u0012 1\n√\n2 + cos δ\n\u0013\nsin(ωt) sin δ\n\u0015\n+ E2\n0\n2 sin2 (ωt)\nThus, after taking time averages, the intesity will be\nI(θ)\n=\nβE2\n0\n\u00141\n2\n\u00121\n2 +\n√\n2 cos δ + cos2 δ\n\u0013\n+ 1\n2 sin2 δ\n\u0015\n+ β E2\n0\n4\n=\nβE2\n0\n\u0014\n1 + 1\n√\n2 cos δ\n\u0015\n=\nβE2\n0\n\u0014\n1 + 1\n√\n2 cos\n\u0012ωd sin θ\nc\n\u0013\u0015\nThe maximum value of the intensity is βE2\n0\nh\n1 +\n1\n√\n2\ni\n.\nThe minimum value of the intensity is βE2\n0\nh\n1 −\n1\n√\n2\ni\n.\nIII.4. [2.0 marks] The electric \u001celd at z = b is given by\nE1(z = b)\n=\n\u0012 E0\n√\n2 (cos (ωt −kb) i · i′ + sin (ωt −kb) j · i′)\n\u0013\ni′\n=\n1\n√\n2 [E0 cos γ cos (ωt −kb) + E0 sin γ sin (ωt −kb)] i′\n=\n1\n√\n2 [E0 cos (ωt −kb −γ)] i′\nand at z = c\nE1(z = c)\n=\nE0\n√\n2 (cos (ωt −kc −γ) i′ · i) i\n=\n1\n√\n2 cos γE0 cos (ωt −kc −γ) i\nWhere as\nE2 (z = c) = E0 cos (ωt −kc) i\nSo, the net phase di\u001berence between beam 1 and beam 2 is now\nPhase di\u001berence α = γ.\nIII.5. [0.5 marks]\n\n13th Asian Physics Olympiad\nMay 01-07, 2012\nDetailed Answer\nTheory Question-III\nPage 3 of 3\n(a) At equator e = 0. Then\nE = EEq = i′E0 cos (ωt) .\n(b) Clearly the beam is linearly polarised along i′.\nIII.6. [0.5 marks]\n(a) At north pole e = π/4 and γ can be taken to be 0. Then i′ = i and j′ = j. The\nelectric \u001celd\nENP = i E0\n√\n2 cos (ωt) + j E0\n√\n2 sin (ωt) ,\n(b) Which represents circular polarisation.\nIII.7. [1.5 marks]\nIII.8. [1.5 mark] From \u001cgure it is clear that the area of the spherical triangle A1A2A3 is\n2π ×\n\u0000 2γ\n2π\n\u0001\n= 2γ and the phase di\u001berence was γ. Thus the phase di\u001berence is half\nthe area of the spherical triangle A1A2A3 on Poincare sphere.\nThus S = 2α.\nHere, the beam 1 passes through various states of polarization and returns to its\noriginal state. Though there has been no additional path di\u001berence, the beam has\npicked up a phase γ with respect to the beam 2. This is called as Pancharatnam\nphase.\n","textExtraction":"available"}}
+{
+  "id": "apho-2012-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2012_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2012_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2012-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Pancharatnam Phase"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This problem deals with the two beam phenomena associated with light, its interference, polarization and superposition. The particular context of the problem was studied by the Indian physicist S. Pancharatnam (1934-1969)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/apho-2012-pancharatnam.png",
+        "alt": "Original portrait and caption of the Indian physicist S. Pancharatnam, 1934-1969."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider the experimental set up as shown in Fig. (1). Two coherent monochromatic light beams (marked as beam 1 and 2), travelling in the \\(z\\) direction, are incident on two narrow slits and separated by a distance \\(d\\) (\\(S_1S_2=d\\)). After passing through the slits the two beams interfere and the pattern is observed on the screen \\(S\\). The distance between the slits and the screen is \\(D\\) and \\(D\\gg d\\). Assume that the width of each slit \\(S_1\\) and \\(S_2\\) is much smaller than the wavelength of light."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/apho-2012-slits.png",
+        "alt": "Figure 1. Two coherent beams travel along z through slits S1 and S2 separated by d. Screen S is a distance D away. Theta is measured from the z direction for the outgoing rays."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.1. Two linearly polarized beams (1.0 point)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let the beams 1 and 2 be linearly polarized at \\(z=0\\). The corresponding electric field vectors are given by"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\vec E_1=\\hat i E_0\\cos(\\omega t),\\tag{1a}\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\vec E_2=\\hat i E_0\\cos(\\omega t),\\tag{1b}\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where \\(\\hat i\\) is the unit vector along the x-axis, \\(\\omega\\) is angular frequency of light and \\(E_0\\) is the amplitude. Find the expression for the intensity of the light \\(I(\\theta)\\) that will be observed on the screen where \\(\\theta\\) is the angle shown in Fig. (1). Express your answer in terms of \\(\\theta,d,E_0,c\\) and \\(\\omega\\), where \\(c\\) is the speed of light. Also, note that the intensity is proportional to the time average of the square of the electric field. Here you may take the proportionality constant to be \\(\\beta\\). You may ignore the attenuation in the magnitude of the electric fields with distance from the slits to any point on the screen."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.2. Glass slab (1.0 point)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A perfectly transparent glass slab of thickness \\(w\\) and refractive index \\(\\mu\\) is introduced in the path of beam 1 before the slits. Find the expression for the intensity of the light \\(I(\\theta)\\) that will be observed on the screen. Express your answer in terms of \\(\\theta,d,E_0,c,\\omega,\\mu\\) and \\(w\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.3. Quarter wave plate (2.0 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An optical device (known as quarter wave plate (QWP)) is introduced in the path of beam 1, before the slits, replacing the glass slab. This device changes the polarization of the beam from the linear polarization state \\(\\vec E_1=\\hat i E_0\\cos(\\omega t)\\) to a circular polarization state which is given by"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\vec E_1=\\frac1{\\sqrt2}[\\hat i E_0\\cos(\\omega t)+\\hat j E_0\\sin(\\omega t)].\\tag{2}\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Here \\(\\hat j\\) is the unit vector along the y-axis. Assume that the device does not introduce any additional path difference and that it is perfectly transparent. Note that the tip of the electric field vector traces a circle as time elapses and hence, the beam is said to be circularly polarized. We assume that the angle \\(\\theta\\) is small enough so that intensity from slit one does not depend on the angle \\(\\theta\\) even for \\(\\hat j\\) polarization."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.3.a. Find the expression for the intensity \\(I(\\theta)\\) of the light that will be observed on the screen. Express your answer in terms of \\(\\theta,d,E_0,c\\) and \\(\\omega\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.3.b. What is the maximum intensity \\(I_{\\max}\\)?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.3.c. What is the minimum intensity \\(I_{\\min}\\)?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.4. Two polarizers (2.0 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/apho-2012-polarizers.png",
+        "alt": "Figure 2. Beam 1 passes a quarter wave plate at z=a, polarizer I between a and b, and polarizer II between b and c before slit S1. Beam 2 travels directly to slit S2."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now consider the experimental setup (see Fig. (2)) in which beam 1 is subjected to the device (QWP) described in part 3 and a linear polarizer (marked as I), between \\(z=a\\) and \\(z=b\\), which allows only the component of the electric field parallel to an axis \\(\\hat i'\\) to pass through. The unit vector \\(\\hat i'\\) is defined as"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\hat i'=\\hat i\\cos\\gamma+\\hat j\\sin\\gamma.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Another linear polarizer (marked as II) between \\(z=b\\) and \\(z=c\\) polarizes the beam back to \\(\\hat i\\) direction. Thus beam 1 is back to its original state of polarization. Assume that the polarizers do not introduce any path difference and are perfectly transparent."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.4.a. Write down the expression for the electric field of beam 1 after the first polarizer at \\(z=b\\), \\(\\vec E_1(z=b)\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.4.b. Write down the expression for the electric field of beam 1 after the second polarizer at \\(z=c\\), \\(\\vec E_1(z=c)\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.4.c. What is the phase difference \\(\\alpha\\) between the two beams at the slits?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The most general type of polarization is elliptical polarization. A convenient way of expressing elliptical polarization is to consider it as a superposition of two orthogonal linearly polarized components, i.e."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\vec E=\\hat i'E_0\\cos e\\cos(\\omega t)+\\hat j'E_0\\sin e\\sin(\\omega t),\\tag{3}\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where \\(\\hat i'\\) and \\(\\hat j'\\) and this state of polarization are depicted in Fig. 3."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/apho-2012-ellipse.png",
+        "alt": "Figure 3. The electric-field tip traces an ellipse with principal axes i-prime and j-prime. The semiaxes are E0 cos e and E0 sin e, and the principal frame is rotated relative to i and j."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The tip of the electric field vector traces an ellipse as time elapses. Here \\(e\\) represents the ellipticity and is given by \\(\\tan e=\\text{Semi-minor axis of the ellipse}/\\text{Semi-major axis of the ellipse}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Linear polarization (Eqs. (1)) and circular polarization (Eq. (2)) are special cases of elliptical polarization (Eq. (3)). The two parameters \\(\\gamma\\in[0,\\pi]\\) and \\(e\\in[-\\pi/4,\\pi/4]\\) completely describe the state of polarization."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The polarization state can also be represented by a point on a sphere of unit radius called the Poincare sphere. The polarization of the beam described in Eq. (3) is represented by a point \\(P\\) on the Poincare sphere (see Fig. 4), then latitude \\(\\angle PCD=2e\\) and longitude \\(\\angle ACD=2\\gamma\\). Here \\(C\\) is the center."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/apho-2012-poincare.png",
+        "alt": "Figure 4. Unit Poincare sphere centered at C. ACD is the longitude 2 gamma and DCP is the latitude 2 e of polarization point P. D lies on the equator beneath P."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.5. Equator (0.5 point)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider a point on the equator of the Poincare sphere. III.5.a. Write down the electric field \\(\\vec E_{\\rm Eq}\\) corresponding to this point. III.5.b. What is its state of polarization?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.6. North pole (0.5 point)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider a point at the north pole of the Poincare sphere. III.6.a. Write down the electric field \\(\\vec E_{\\rm NP}\\) corresponding to this point. III.6.b. What is its state of polarization?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.7. Polarization cycle (1.5 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now consider the three polarization states of beam 1 as given in part 4. Let the initial polarization (at \\(z=0\\)) be represented by a point \\(A_1\\) on the Poincare sphere, after the optical device let the state (at \\(z=a\\)) be represented by point \\(A_2\\), and after the first polarizer (say, at \\(z=b\\)) let the state be represented by point \\(A_3\\). At \\(z=c\\), the polarization returns to its original state which is represented by \\(A_1\\). Locate these points (\\(A_1,A_2,A_3\\)) on the Poincare sphere."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.8. Geometric phase (1.5 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If these three points (\\(A_1,A_2,A_3\\) from part (III.7)) are joined by great circles on the sphere, a triangle on the surface of the sphere is obtained. A great circle is a circle on the sphere whose center coincides with the center of the sphere. The phase difference \\(\\alpha\\) obtained in part 4 and the area \\(S\\) of the curved surface enclosed by the triangle are related to each other. Relate \\(S\\) to \\(\\alpha\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This relationship is general and was obtained by Pancharatnam and the phase difference is called the Pancharatnam phase."
+          }
+        ]
+      }
+    ],
+    "text": "Pancharatnam Phase\nThis problem deals with the two beam phenomena associated with light, its interference, polarization and superposition. The particular context of the problem was studied by the Indian physicist S. Pancharatnam (1934-1969).\n\nConsider the experimental set up as shown in Fig. (1). Two coherent monochromatic light beams (marked as beam 1 and 2), travelling in the \\(z\\) direction, are incident on two narrow slits and separated by a distance \\(d\\) (\\(S_1S_2=d\\)). After passing through the slits the two beams interfere and the pattern is observed on the screen \\(S\\). The distance between the slits and the screen is \\(D\\) and \\(D\\gg d\\). Assume that the width of each slit \\(S_1\\) and \\(S_2\\) is much smaller than the wavelength of light.\n\nIII.1. Two linearly polarized beams (1.0 point)\nLet the beams 1 and 2 be linearly polarized at \\(z=0\\). The corresponding electric field vectors are given by\n\\[\\vec E_1=\\hat i E_0\\cos(\\omega t),\\tag{1a}\\]\n\\[\\vec E_2=\\hat i E_0\\cos(\\omega t),\\tag{1b}\\]\nwhere \\(\\hat i\\) is the unit vector along the x-axis, \\(\\omega\\) is angular frequency of light and \\(E_0\\) is the amplitude. Find the expression for the intensity of the light \\(I(\\theta)\\) that will be observed on the screen where \\(\\theta\\) is the angle shown in Fig. (1). Express your answer in terms of \\(\\theta,d,E_0,c\\) and \\(\\omega\\), where \\(c\\) is the speed of light. Also, note that the intensity is proportional to the time average of the square of the electric field. Here you may take the proportionality constant to be \\(\\beta\\). You may ignore the attenuation in the magnitude of the electric fields with distance from the slits to any point on the screen.\nIII.2. Glass slab (1.0 point)\nA perfectly transparent glass slab of thickness \\(w\\) and refractive index \\(\\mu\\) is introduced in the path of beam 1 before the slits. Find the expression for the intensity of the light \\(I(\\theta)\\) that will be observed on the screen. Express your answer in terms of \\(\\theta,d,E_0,c,\\omega,\\mu\\) and \\(w\\).\nIII.3. Quarter wave plate (2.0 points)\nAn optical device (known as quarter wave plate (QWP)) is introduced in the path of beam 1, before the slits, replacing the glass slab. This device changes the polarization of the beam from the linear polarization state \\(\\vec E_1=\\hat i E_0\\cos(\\omega t)\\) to a circular polarization state which is given by\n\\[\\vec E_1=\\frac1{\\sqrt2}[\\hat i E_0\\cos(\\omega t)+\\hat j E_0\\sin(\\omega t)].\\tag{2}\\]\nHere \\(\\hat j\\) is the unit vector along the y-axis. Assume that the device does not introduce any additional path difference and that it is perfectly transparent. Note that the tip of the electric field vector traces a circle as time elapses and hence, the beam is said to be circularly polarized. We assume that the angle \\(\\theta\\) is small enough so that intensity from slit one does not depend on the angle \\(\\theta\\) even for \\(\\hat j\\) polarization.\nIII.3.a. Find the expression for the intensity \\(I(\\theta)\\) of the light that will be observed on the screen. Express your answer in terms of \\(\\theta,d,E_0,c\\) and \\(\\omega\\).\nIII.3.b. What is the maximum intensity \\(I_{\\max}\\)?\nIII.3.c. What is the minimum intensity \\(I_{\\min}\\)?\nIII.4. Two polarizers (2.0 points)\n\nNow consider the experimental setup (see Fig. (2)) in which beam 1 is subjected to the device (QWP) described in part 3 and a linear polarizer (marked as I), between \\(z=a\\) and \\(z=b\\), which allows only the component of the electric field parallel to an axis \\(\\hat i'\\) to pass through. The unit vector \\(\\hat i'\\) is defined as\n\\[\\hat i'=\\hat i\\cos\\gamma+\\hat j\\sin\\gamma.\\]\nAnother linear polarizer (marked as II) between \\(z=b\\) and \\(z=c\\) polarizes the beam back to \\(\\hat i\\) direction. Thus beam 1 is back to its original state of polarization. Assume that the polarizers do not introduce any path difference and are perfectly transparent.\nIII.4.a. Write down the expression for the electric field of beam 1 after the first polarizer at \\(z=b\\), \\(\\vec E_1(z=b)\\).\nIII.4.b. Write down the expression for the electric field of beam 1 after the second polarizer at \\(z=c\\), \\(\\vec E_1(z=c)\\).\nIII.4.c. What is the phase difference \\(\\alpha\\) between the two beams at the slits?\nThe most general type of polarization is elliptical polarization. A convenient way of expressing elliptical polarization is to consider it as a superposition of two orthogonal linearly polarized components, i.e.\n\\[\\vec E=\\hat i'E_0\\cos e\\cos(\\omega t)+\\hat j'E_0\\sin e\\sin(\\omega t),\\tag{3}\\]\nwhere \\(\\hat i'\\) and \\(\\hat j'\\) and this state of polarization are depicted in Fig. 3.\n\nThe tip of the electric field vector traces an ellipse as time elapses. Here \\(e\\) represents the ellipticity and is given by \\(\\tan e=\\text{Semi-minor axis of the ellipse}/\\text{Semi-major axis of the ellipse}\\).\nLinear polarization (Eqs. (1)) and circular polarization (Eq. (2)) are special cases of elliptical polarization (Eq. (3)). The two parameters \\(\\gamma\\in[0,\\pi]\\) and \\(e\\in[-\\pi/4,\\pi/4]\\) completely describe the state of polarization.\nThe polarization state can also be represented by a point on a sphere of unit radius called the Poincare sphere. The polarization of the beam described in Eq. (3) is represented by a point \\(P\\) on the Poincare sphere (see Fig. 4), then latitude \\(\\angle PCD=2e\\) and longitude \\(\\angle ACD=2\\gamma\\). Here \\(C\\) is the center.\n\nIII.5. Equator (0.5 point)\nConsider a point on the equator of the Poincare sphere. III.5.a. Write down the electric field \\(\\vec E_{\\rm Eq}\\) corresponding to this point. III.5.b. What is its state of polarization?\nIII.6. North pole (0.5 point)\nConsider a point at the north pole of the Poincare sphere. III.6.a. Write down the electric field \\(\\vec E_{\\rm NP}\\) corresponding to this point. III.6.b. What is its state of polarization?\nIII.7. Polarization cycle (1.5 points)\nNow consider the three polarization states of beam 1 as given in part 4. Let the initial polarization (at \\(z=0\\)) be represented by a point \\(A_1\\) on the Poincare sphere, after the optical device let the state (at \\(z=a\\)) be represented by point \\(A_2\\), and after the first polarizer (say, at \\(z=b\\)) let the state be represented by point \\(A_3\\). At \\(z=c\\), the polarization returns to its original state which is represented by \\(A_1\\). Locate these points (\\(A_1,A_2,A_3\\)) on the Poincare sphere.\nIII.8. Geometric phase (1.5 points)\nIf these three points (\\(A_1,A_2,A_3\\) from part (III.7)) are joined by great circles on the sphere, a triangle on the surface of the sphere is obtained. A great circle is a circle on the sphere whose center coincides with the center of the sphere. The phase difference \\(\\alpha\\) obtained in part 4 and the area \\(S\\) of the curved surface enclosed by the triangle are related to each other. Relate \\(S\\) to \\(\\alpha\\).\nThis relationship is general and was obtained by Pancharatnam and the phase difference is called the Pancharatnam phase.",
+    "figures": [
+      "/corpus/figures/native/apho-2012-pancharatnam.png",
+      "/corpus/figures/native/apho-2012-slits.png",
+      "/corpus/figures/native/apho-2012-polarizers.png",
+      "/corpus/figures/native/apho-2012-ellipse.png",
+      "/corpus/figures/native/apho-2012-poincare.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2012-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Pancharatnam Phase"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.1. Two linearly polarized beams (1.0 mark)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let the phase difference between two rays making an angle \\(\\theta\\) with z direction be \\(\\delta\\). Clearly"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\delta=\\omega\\Delta t=\\omega d\\sin\\theta/c.\\tag{1}\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Then the intensity is given by \\(I(\\theta)=\\beta\\overline{|\\mathbf E_1+\\mathbf E_2|^2}\\). Here"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\begin{aligned}|\\mathbf E_1+\\mathbf E_2|^2&=|E_0\\cos(\\omega t)+E_0\\cos(\\omega t+\\delta)|^2\\\\&=|E_0\\cos(\\omega t)(1+\\cos\\delta)-E_0\\sin(\\omega t)\\sin\\delta|^2\\\\&=E_0^2[\\cos^2(\\omega t)(1+2\\cos\\delta+\\cos^2\\delta)+\\sin^2(\\omega t)\\sin^2\\delta\\\\&\\qquad-2\\cos(\\omega t)(1+\\cos\\delta)\\sin(\\omega t)\\sin\\delta].\\end{aligned}\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since \\(\\overline{\\cos^2\\omega t}=\\overline{\\sin^2\\omega t}=1/2\\) and \\(\\overline{\\sin(\\omega t)\\cos(\\omega t)}=0\\), we get the intensity to be"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[I(\\theta)=\\beta E_0^2(1+\\cos\\delta),\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where \\(\\delta\\) is given by Eq. (1)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.1. Alternate solution"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The alternate derivation in the original PDF prints the following positive sine term:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\begin{aligned}|\\mathbf E_1+\\mathbf E_2|^2&=|E_0\\cos(\\omega t)+E_0\\cos(\\omega t+\\delta)|^2\\\\&=|E_0\\cos(\\omega t)(1+\\cos\\delta)+E_0\\sin(\\omega t)\\sin\\delta|^2\\\\&=|E_0 A\\cos(\\omega t-\\phi)|^2.\\end{aligned}\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Here \\(A^2=(1+\\cos\\delta)^2+\\sin^2\\delta=2(1+\\cos\\delta)\\). Since \\(\\overline{\\cos^2(\\omega t-\\phi)}=1/2\\), we have \\(I(\\theta)=(\\beta/2)E_0^2A^2=\\beta E_0^2(1+\\cos\\delta)\\), where \\(\\delta\\) is given by Eq. (1)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Source note: the alternate expansion changes the sign of the sine term compared with cos(omega t plus delta). That intermediate equality is not exact as printed. Its squared amplitude and the time-averaged intensity are unchanged. The same sign issue appears in the printed expansion in III.3 below."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.2. Glass slab (1.0 mark)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Beam 1 has travelled extra optical path \\((\\mu-1)w\\). Thus the net phase difference between two beams when they emerge at the angle \\(\\theta\\) is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\delta=\\frac\\omega c[d\\sin\\theta-(\\mu-1)w],\\qquad I(\\theta)=\\beta E_0^2(1+\\cos\\delta).\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.3. Quarter wave plate (2.0 marks)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The two beams have travelled exactly the same paths up to the slits. Thus when they emerge at an angle \\(\\theta\\), they have a net phase difference of \\(\\delta=\\omega d\\sin\\theta/c\\). The following expansion is transcribed as printed, subject to the sine-sign note above:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\begin{aligned}|\\mathbf E_1+\\mathbf E_2|^2&=\\left|\\mathbf i\\left[\\frac{E_0}{\\sqrt2}\\cos(\\omega t)+E_0\\cos(\\omega t+\\delta)\\right]+\\mathbf j\\left[\\frac{E_0}{\\sqrt2}\\sin(\\omega t)\\right]\\right|^2\\\\&=\\left|E_0\\cos(\\omega t)\\left(\\frac1{\\sqrt2}+\\cos\\delta\\right)+E_0\\sin(\\omega t)\\sin\\delta\\right|^2+\\frac{E_0^2}{2}\\sin^2(\\omega t)\\\\&=E_0^2\\left[\\cos^2(\\omega t)\\left(\\frac12+\\sqrt2\\cos\\delta+\\cos^2\\delta\\right)+\\sin^2(\\omega t)\\sin^2\\delta\\right.\\\\&\\left.\\qquad+2\\cos(\\omega t)\\left(\\frac1{\\sqrt2}+\\cos\\delta\\right)\\sin(\\omega t)\\sin\\delta\\right]+\\frac{E_0^2}{2}\\sin^2(\\omega t).\\end{aligned}\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus, after taking time averages, the intensity will be"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\begin{aligned}I(\\theta)&=\\beta E_0^2\\left[\\frac12\\left(\\frac12+\\sqrt2\\cos\\delta+\\cos^2\\delta\\right)+\\frac12\\sin^2\\delta\\right]+\\frac{\\beta E_0^2}{4}\\\\&=\\beta E_0^2\\left[1+\\frac1{\\sqrt2}\\cos\\delta\\right]=\\beta E_0^2\\left[1+\\frac1{\\sqrt2}\\cos\\left(\\frac{\\omega d\\sin\\theta}{c}\\right)\\right].\\end{aligned}\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The maximum value of the intensity is \\(\\beta E_0^2[1+1/\\sqrt2]\\). The minimum value of the intensity is \\(\\beta E_0^2[1-1/\\sqrt2]\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.4. Two polarizers (2.0 marks)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The electric field at \\(z=b\\) is given by"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\begin{aligned}\\mathbf E_1(z=b)&=\\frac{E_0}{\\sqrt2}[\\cos(\\omega t-kb)\\,\\mathbf i\\cdot\\mathbf i'+\\sin(\\omega t-kb)\\,\\mathbf j\\cdot\\mathbf i']\\,\\mathbf i'\\\\&=\\frac1{\\sqrt2}[E_0\\cos\\gamma\\cos(\\omega t-kb)+E_0\\sin\\gamma\\sin(\\omega t-kb)]\\,\\mathbf i'\\\\&=\\frac1{\\sqrt2}[E_0\\cos(\\omega t-kb-\\gamma)]\\,\\mathbf i'.\\end{aligned}\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At \\(z=c\\),"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\begin{aligned}\\mathbf E_1(z=c)&=\\frac{E_0}{\\sqrt2}[\\cos(\\omega t-kc-\\gamma)\\,\\mathbf i'\\cdot\\mathbf i]\\,\\mathbf i\\\\&=\\frac1{\\sqrt2}\\cos\\gamma E_0\\cos(\\omega t-kc-\\gamma)\\,\\mathbf i.\\end{aligned}\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Whereas \\(\\mathbf E_2(z=c)=E_0\\cos(\\omega t-kc)\\,\\mathbf i\\). So the net phase difference between beam 1 and beam 2 is now \\(\\alpha=\\gamma\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Convention note: c in z=c is a position label, whereas c in the intensity formulas denotes the speed of light. The source keeps cos(gamma) as a signed amplitude when quoting alpha=gamma. For a positive-amplitude phase convention, the automatic III.4.c field is restricted to 0<gamma<pi/2. At gamma=pi/2 beam 1 is extinguished and its relative phase is undefined. Beyond that, an additional pi phase and an oriented-area convention must be considered. The source's full gamma range is retained in the statement."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.5. Equator (0.5 mark)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(a) At the equator \\(e=0\\). Then \\(\\mathbf E=\\mathbf E_{\\rm Eq}=\\mathbf i'E_0\\cos(\\omega t)\\). (b) Clearly the beam is linearly polarized along \\(\\mathbf i'\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.6. North pole (0.5 mark)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(a) At the north pole \\(e=\\pi/4\\) and \\(\\gamma\\) can be taken to be 0. Then \\(\\mathbf i'=\\mathbf i\\) and \\(\\mathbf j'=\\mathbf j\\). The electric field is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\mathbf E_{\\rm NP}=\\mathbf i\\frac{E_0}{\\sqrt2}\\cos(\\omega t)+\\mathbf j\\frac{E_0}{\\sqrt2}\\sin(\\omega t).\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "(b) This represents circular polarization."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.7. Polarization cycle (1.5 marks)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/apho-2012-triangle.png",
+        "alt": "Official answer diagram on the Poincare sphere. A1 is on the equator on the X side, A2 is at the north pole Z, and A3 is on the equator at longitude 2 gamma from A1. The three great-circle arcs form the spherical triangle."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "III.8. Geometric phase (1.5 marks)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From the figure it is clear that the area of the spherical triangle \\(A_1A_2A_3\\) is \\(2\\pi\\times(2\\gamma/(2\\pi))=2\\gamma\\) and the phase difference was \\(\\gamma\\). Thus the phase difference is half the area of the spherical triangle \\(A_1A_2A_3\\) on the Poincare sphere. Thus \\(S=2\\alpha\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Here beam 1 passes through various states of polarization and returns to its original state. Though there has been no additional path difference, the beam has picked up a phase \\(\\gamma\\) with respect to beam 2. This is called the Pancharatnam phase."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The III.8 answer field uses the source's positive-area branch, with 0<alpha<pi/2. Vector expressions, polarization descriptions and the sphere construction are retained as self-review responses rather than being reduced to an automatic scalar check."
+          }
+        ]
+      }
+    ],
+    "text": "Pancharatnam Phase\nIII.1. Two linearly polarized beams (1.0 mark)\nLet the phase difference between two rays making an angle \\(\\theta\\) with z direction be \\(\\delta\\). Clearly\n\\[\\delta=\\omega\\Delta t=\\omega d\\sin\\theta/c.\\tag{1}\\]\nThen the intensity is given by \\(I(\\theta)=\\beta\\overline{|\\mathbf E_1+\\mathbf E_2|^2}\\). Here\n\\[\\begin{aligned}|\\mathbf E_1+\\mathbf E_2|^2&=|E_0\\cos(\\omega t)+E_0\\cos(\\omega t+\\delta)|^2\\\\&=|E_0\\cos(\\omega t)(1+\\cos\\delta)-E_0\\sin(\\omega t)\\sin\\delta|^2\\\\&=E_0^2[\\cos^2(\\omega t)(1+2\\cos\\delta+\\cos^2\\delta)+\\sin^2(\\omega t)\\sin^2\\delta\\\\&\\qquad-2\\cos(\\omega t)(1+\\cos\\delta)\\sin(\\omega t)\\sin\\delta].\\end{aligned}\\]\nSince \\(\\overline{\\cos^2\\omega t}=\\overline{\\sin^2\\omega t}=1/2\\) and \\(\\overline{\\sin(\\omega t)\\cos(\\omega t)}=0\\), we get the intensity to be\n\\[I(\\theta)=\\beta E_0^2(1+\\cos\\delta),\\]\nwhere \\(\\delta\\) is given by Eq. (1).\nIII.1. Alternate solution\nThe alternate derivation in the original PDF prints the following positive sine term:\n\\[\\begin{aligned}|\\mathbf E_1+\\mathbf E_2|^2&=|E_0\\cos(\\omega t)+E_0\\cos(\\omega t+\\delta)|^2\\\\&=|E_0\\cos(\\omega t)(1+\\cos\\delta)+E_0\\sin(\\omega t)\\sin\\delta|^2\\\\&=|E_0 A\\cos(\\omega t-\\phi)|^2.\\end{aligned}\\]\nHere \\(A^2=(1+\\cos\\delta)^2+\\sin^2\\delta=2(1+\\cos\\delta)\\). Since \\(\\overline{\\cos^2(\\omega t-\\phi)}=1/2\\), we have \\(I(\\theta)=(\\beta/2)E_0^2A^2=\\beta E_0^2(1+\\cos\\delta)\\), where \\(\\delta\\) is given by Eq. (1).\nSource note: the alternate expansion changes the sign of the sine term compared with cos(omega t plus delta). That intermediate equality is not exact as printed. Its squared amplitude and the time-averaged intensity are unchanged. The same sign issue appears in the printed expansion in III.3 below.\nIII.2. Glass slab (1.0 mark)\nBeam 1 has travelled extra optical path \\((\\mu-1)w\\). Thus the net phase difference between two beams when they emerge at the angle \\(\\theta\\) is\n\\[\\delta=\\frac\\omega c[d\\sin\\theta-(\\mu-1)w],\\qquad I(\\theta)=\\beta E_0^2(1+\\cos\\delta).\\]\nIII.3. Quarter wave plate (2.0 marks)\nThe two beams have travelled exactly the same paths up to the slits. Thus when they emerge at an angle \\(\\theta\\), they have a net phase difference of \\(\\delta=\\omega d\\sin\\theta/c\\). The following expansion is transcribed as printed, subject to the sine-sign note above:\n\\[\\begin{aligned}|\\mathbf E_1+\\mathbf E_2|^2&=\\left|\\mathbf i\\left[\\frac{E_0}{\\sqrt2}\\cos(\\omega t)+E_0\\cos(\\omega t+\\delta)\\right]+\\mathbf j\\left[\\frac{E_0}{\\sqrt2}\\sin(\\omega t)\\right]\\right|^2\\\\&=\\left|E_0\\cos(\\omega t)\\left(\\frac1{\\sqrt2}+\\cos\\delta\\right)+E_0\\sin(\\omega t)\\sin\\delta\\right|^2+\\frac{E_0^2}{2}\\sin^2(\\omega t)\\\\&=E_0^2\\left[\\cos^2(\\omega t)\\left(\\frac12+\\sqrt2\\cos\\delta+\\cos^2\\delta\\right)+\\sin^2(\\omega t)\\sin^2\\delta\\right.\\\\&\\left.\\qquad+2\\cos(\\omega t)\\left(\\frac1{\\sqrt2}+\\cos\\delta\\right)\\sin(\\omega t)\\sin\\delta\\right]+\\frac{E_0^2}{2}\\sin^2(\\omega t).\\end{aligned}\\]\nThus, after taking time averages, the intensity will be\n\\[\\begin{aligned}I(\\theta)&=\\beta E_0^2\\left[\\frac12\\left(\\frac12+\\sqrt2\\cos\\delta+\\cos^2\\delta\\right)+\\frac12\\sin^2\\delta\\right]+\\frac{\\beta E_0^2}{4}\\\\&=\\beta E_0^2\\left[1+\\frac1{\\sqrt2}\\cos\\delta\\right]=\\beta E_0^2\\left[1+\\frac1{\\sqrt2}\\cos\\left(\\frac{\\omega d\\sin\\theta}{c}\\right)\\right].\\end{aligned}\\]\nThe maximum value of the intensity is \\(\\beta E_0^2[1+1/\\sqrt2]\\). The minimum value of the intensity is \\(\\beta E_0^2[1-1/\\sqrt2]\\).\nIII.4. Two polarizers (2.0 marks)\nThe electric field at \\(z=b\\) is given by\n\\[\\begin{aligned}\\mathbf E_1(z=b)&=\\frac{E_0}{\\sqrt2}[\\cos(\\omega t-kb)\\,\\mathbf i\\cdot\\mathbf i'+\\sin(\\omega t-kb)\\,\\mathbf j\\cdot\\mathbf i']\\,\\mathbf i'\\\\&=\\frac1{\\sqrt2}[E_0\\cos\\gamma\\cos(\\omega t-kb)+E_0\\sin\\gamma\\sin(\\omega t-kb)]\\,\\mathbf i'\\\\&=\\frac1{\\sqrt2}[E_0\\cos(\\omega t-kb-\\gamma)]\\,\\mathbf i'.\\end{aligned}\\]\nAt \\(z=c\\),\n\\[\\begin{aligned}\\mathbf E_1(z=c)&=\\frac{E_0}{\\sqrt2}[\\cos(\\omega t-kc-\\gamma)\\,\\mathbf i'\\cdot\\mathbf i]\\,\\mathbf i\\\\&=\\frac1{\\sqrt2}\\cos\\gamma E_0\\cos(\\omega t-kc-\\gamma)\\,\\mathbf i.\\end{aligned}\\]\nWhereas \\(\\mathbf E_2(z=c)=E_0\\cos(\\omega t-kc)\\,\\mathbf i\\). So the net phase difference between beam 1 and beam 2 is now \\(\\alpha=\\gamma\\).\nConvention note: c in z=c is a position label, whereas c in the intensity formulas denotes the speed of light. The source keeps cos(gamma) as a signed amplitude when quoting alpha=gamma. For a positive-amplitude phase convention, the automatic III.4.c field is restricted to 0<gamma<pi/2. At gamma=pi/2 beam 1 is extinguished and its relative phase is undefined. Beyond that, an additional pi phase and an oriented-area convention must be considered. The source's full gamma range is retained in the statement.\nIII.5. Equator (0.5 mark)\n(a) At the equator \\(e=0\\). Then \\(\\mathbf E=\\mathbf E_{\\rm Eq}=\\mathbf i'E_0\\cos(\\omega t)\\). (b) Clearly the beam is linearly polarized along \\(\\mathbf i'\\).\nIII.6. North pole (0.5 mark)\n(a) At the north pole \\(e=\\pi/4\\) and \\(\\gamma\\) can be taken to be 0. Then \\(\\mathbf i'=\\mathbf i\\) and \\(\\mathbf j'=\\mathbf j\\). The electric field is\n\\[\\mathbf E_{\\rm NP}=\\mathbf i\\frac{E_0}{\\sqrt2}\\cos(\\omega t)+\\mathbf j\\frac{E_0}{\\sqrt2}\\sin(\\omega t).\\]\n(b) This represents circular polarization.\nIII.7. Polarization cycle (1.5 marks)\n\nIII.8. Geometric phase (1.5 marks)\nFrom the figure it is clear that the area of the spherical triangle \\(A_1A_2A_3\\) is \\(2\\pi\\times(2\\gamma/(2\\pi))=2\\gamma\\) and the phase difference was \\(\\gamma\\). Thus the phase difference is half the area of the spherical triangle \\(A_1A_2A_3\\) on the Poincare sphere. Thus \\(S=2\\alpha\\).\nHere beam 1 passes through various states of polarization and returns to its original state. Though there has been no additional path difference, the beam has picked up a phase \\(\\gamma\\) with respect to beam 2. This is called the Pancharatnam phase.\nThe III.8 answer field uses the source's positive-area branch, with 0<alpha<pi/2. Vector expressions, polarization descriptions and the sphere construction are retained as self-review responses rather than being reduced to an automatic scalar check.",
+    "figures": [
+      "/corpus/figures/native/apho-2012-triangle.png"
+    ],
+    "shared": false
+  }
+}

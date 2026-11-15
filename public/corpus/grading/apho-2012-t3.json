@@ -1,0 +1,328 @@
+{
+  "problemId": "apho-2012-t3",
+  "version": "edaf16c9d3ff3b17dadd6ef616bd6c56b1e82fd91dd1cb73e25482dae601c96f",
+  "parts": [
+    {
+      "id": "iii.1",
+      "sourcePart": "III.1",
+      "label": "Intensity with two linear beams",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\beta",
+        "E_0",
+        "\\omega",
+        "d",
+        "\\theta",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use beta, E_0, omega, d, theta and c for the speed of light. Angles are in radians."
+    },
+    {
+      "id": "iii.2",
+      "sourcePart": "III.2",
+      "label": "Intensity with the glass slab",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\beta",
+        "E_0",
+        "\\omega",
+        "d",
+        "\\theta",
+        "\\mu",
+        "w",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "w",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use mu for the refractive index and w for slab thickness. c is the speed of light."
+    },
+    {
+      "id": "iii.3.a",
+      "sourcePart": "III.3.a",
+      "label": "Intensity after the quarter wave plate",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\beta",
+        "E_0",
+        "\\omega",
+        "d",
+        "\\theta",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use the same symbols as III.1. Include beta."
+    },
+    {
+      "id": "iii.3.b",
+      "sourcePart": "III.3.b",
+      "label": "Maximum intensity",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\beta",
+        "E_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use beta and E_0."
+    },
+    {
+      "id": "iii.3.c",
+      "sourcePart": "III.3.c",
+      "label": "Minimum intensity",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\beta",
+        "E_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use beta and E_0."
+    },
+    {
+      "id": "iii.4.a",
+      "sourcePart": "III.4.a",
+      "label": "Vector field after polarizer I",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write the full vector field at z=b, including the direction i-prime. Compare the projection and phase with the official solution."
+    },
+    {
+      "id": "iii.4.b",
+      "sourcePart": "III.4.b",
+      "label": "Vector field after polarizer II",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write the full vector field at z=c, including the amplitude projection cos(gamma) and the direction i. This vector response is for self-review."
+    },
+    {
+      "id": "iii.4.c",
+      "sourcePart": "III.4.c",
+      "label": "Relative phase",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\gamma"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.05,
+          "max": 1.5
+        }
+      ],
+      "help": "Use gamma in radians. This check uses the positive-amplitude branch 0<gamma<pi/2, away from the extinguished beam at pi/2."
+    },
+    {
+      "id": "iii.5.a",
+      "sourcePart": "III.5.a",
+      "label": "Electric field on the equator",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write the full field vector for e=0. This vector response is for self-review."
+    },
+    {
+      "id": "iii.5.b",
+      "sourcePart": "III.5.b",
+      "label": "Polarization on the equator",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Name the polarization and its direction. This qualitative response is for self-review."
+    },
+    {
+      "id": "iii.6.a",
+      "sourcePart": "III.6.a",
+      "label": "Electric field at the north pole",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write the full field vector for e=pi/4. You may choose gamma=0 as in the official solution."
+    },
+    {
+      "id": "iii.6.b",
+      "sourcePart": "III.6.b",
+      "label": "Polarization at the north pole",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Name the polarization. This qualitative response is for self-review."
+    },
+    {
+      "id": "iii.7",
+      "sourcePart": "III.7",
+      "label": "Locate A1, A2 and A3",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Describe or sketch the points on the Poincare sphere, with their latitudes and relative longitudes. Compare with the official answer diagram."
+    },
+    {
+      "id": "iii.8",
+      "sourcePart": "III.8",
+      "label": "Spherical triangle area",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\alpha"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.05,
+          "max": 1.5
+        }
+      ],
+      "help": "Use alpha in radians. Enter the area on the unit sphere in the source's positive-area branch 0<alpha<pi/2."
+    }
+  ]
+}

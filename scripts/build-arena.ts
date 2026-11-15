@@ -8,11 +8,12 @@ import { source04 } from "../lib/arena/source-04";
 import { source05 } from "../lib/arena/source-05";
 import { source06 } from "../lib/arena/source-06";
 
+import { olympiadDefinitions } from "../lib/olympiad/keys";
 import { archiveDefinitions, publicArchiveMetadata } from "../lib/archive-grading/catalog";
 
 const gradingFolder = join(process.cwd(), "public/corpus/grading");
 mkdirSync(gradingFolder, { recursive: true });
-for (const definition of archiveDefinitions) {
+for (const definition of [...archiveDefinitions, ...olympiadDefinitions]) {
   writeFileSync(join(gradingFolder, `${definition.problemId}.json`), JSON.stringify(publicArchiveMetadata(definition), null, 2) + "\n");
 }
 

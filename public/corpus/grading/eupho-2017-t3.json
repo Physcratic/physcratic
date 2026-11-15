@@ -1,0 +1,46 @@
+{
+  "problemId": "eupho-2017-t3",
+  "version": "91e6e2fed433c363985b9d532ce2020114f65047b2723439a7b6f811090a162b",
+  "parts": [
+    {
+      "id": "force",
+      "sourcePart": "Force",
+      "label": "Signed normal force",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "m",
+        "a",
+        "b"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Positive force points away from the mesh. Use mu_0 for vacuum permeability. Include both trapped-flux image dipoles."
+    }
+  ]
+}

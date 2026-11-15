@@ -1,0 +1,4 @@
+/** Native transcriptions with checked final-answer fields. Keys stay in the server-only module. */
+export const nativeOlympiadIds = ["eupho-2018-t1", "eupho-2018-t2", "eupho-2018-t3", "ipho-2012-t2", "apho-2012-t1", "eupho-2019-t1", "eupho-2019-t2", "eupho-2019-t3", "apho-2012-t3", "eupho-2020-t1", "eupho-2020-t2", "eupho-2020-t3", "eupho-2017-t1", "eupho-2017-t2", "eupho-2017-t3", "eupho-2021-t1", "eupho-2021-t2", "eupho-2021-t3", "eupho-2022-t1", "eupho-2022-t2", "eupho-2022-t3", "eupho-2023-t1", "eupho-2023-t2", "eupho-2023-t3", "eupho-2024-t1", "eupho-2024-t2", "eupho-2024-t3", "eupho-2025-t1", "eupho-2025-t2", "eupho-2025-t3", "ipho-2010-t2", "apho-2014-t2"] as const;
+export function hasOlympiadAnswerFields(id: string) { return (nativeOlympiadIds as readonly string[]).includes(id); }
+

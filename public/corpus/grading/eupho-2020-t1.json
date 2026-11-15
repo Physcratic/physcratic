@@ -1,0 +1,302 @@
+{
+  "problemId": "eupho-2020-t1",
+  "version": "42563fe0c21d1b000c42900ae469ce22c9a3386b4273233d0a0458b4a4597eb4",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a",
+      "label": "Force F_1 along z",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "N",
+        "I",
+        "A",
+        "E",
+        "\\ell",
+        "R",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\ell",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the signed z component. Use E for the battery emf and ell for solenoid length. Use the long, thin solenoid approximation."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a",
+      "label": "Force F_2 along z",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "N",
+        "I",
+        "A",
+        "E",
+        "\\ell",
+        "R",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\ell",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the signed z component. Use E for the battery emf and ell for solenoid length. Use the long, thin solenoid approximation."
+    },
+    {
+      "id": "b.min",
+      "sourcePart": "b",
+      "label": "Minimum loop current",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "N",
+        "I",
+        "A",
+        "E",
+        "\\ell",
+        "R",
+        "r",
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\ell",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use E for emf, ell for solenoid length and v for speed. Enter the leading long-solenoid result."
+    },
+    {
+      "id": "b.max",
+      "sourcePart": "b",
+      "label": "Maximum loop current",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "N",
+        "I",
+        "A",
+        "E",
+        "\\ell",
+        "R",
+        "r",
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\ell",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use E for emf, ell for solenoid length and v for speed. Enter the leading long-solenoid result."
+    },
+    {
+      "id": "b.graph",
+      "sourcePart": "b",
+      "label": "Labelled current versus time graph",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Draw J(t) and label its baseline, dip, peak and time scales. Take t=0 when the solenoid centre passes the loop centre. Compare with the worked solution. The checker does not assess drawings."
+    }
+  ]
+}

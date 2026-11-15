@@ -1,0 +1,303 @@
+{
+  "problemId": "ipho-2010-t2",
+  "version": "b3c5f0c001a18933166ac26900aa960c2eeeecb295cb46e4b2e7216afe08fc0d",
+  "parts": [
+    {
+      "id": "1.a",
+      "sourcePart": "1.a",
+      "label": "Minimum chimney height",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "B",
+        "T_a",
+        "g",
+        "A",
+        "d_T"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d_T",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use T_a for absolute ambient temperature and d_T for the positive temperature difference. A is chimney cross-section and B is furnace volume rate."
+    },
+    {
+      "id": "1.b",
+      "sourcePart": "1.b",
+      "label": "Warm-region chimney height",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter metres. Convert the source temperatures to kelvin before forming ratios."
+    },
+    {
+      "id": "1.c",
+      "sourcePart": "1.c",
+      "label": "Velocity profile",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Sketch velocity versus height, showing the entry point and the idealized change from furnace to chimney. This graph is self-review."
+    },
+    {
+      "id": "1.d",
+      "sourcePart": "1.d",
+      "label": "Smoke pressure p(z)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "p_0",
+        "\\rho_a",
+        "\\rho_s",
+        "g",
+        "h",
+        "z"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "p_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_a",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1.2,
+          "max": 1.4
+        },
+        {
+          "symbol": "\\rho_s",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.7,
+          "max": 1
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 10,
+          "max": 20
+        },
+        {
+          "symbol": "z",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 5
+        }
+      ],
+      "help": "Use p_0 for ambient pressure at ground, rho_a and rho_s for air and smoke densities. Enter the chimney-interior pressure, 0<z<h."
+    },
+    {
+      "id": "2.a",
+      "sourcePart": "2.a",
+      "label": "Ideal solar-chimney efficiency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "g",
+        "h",
+        "c",
+        "T_a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use c for air specific heat and T_a for absolute ambient temperature. Enter a fraction, not percent."
+    },
+    {
+      "id": "2.b",
+      "sourcePart": "2.b",
+      "label": "Efficiency versus height",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Sketch and label efficiency versus h with the other parameters fixed. State the model's domain. This graph is self-review."
+    },
+    {
+      "id": "3.a",
+      "sourcePart": "3.a",
+      "label": "Prototype efficiency",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter a fraction, not a percentage. Use the supplied prototype dimensions and temperatures."
+    },
+    {
+      "id": "3.b",
+      "sourcePart": "3.b",
+      "label": "Prototype available power",
+      "kind": "numeric",
+      "unit": "kW",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter kilowatts of ideal available kinetic power using the problem's efficiency definition."
+    },
+    {
+      "id": "3.c",
+      "sourcePart": "3.c",
+      "label": "Energy for eight sunny hours",
+      "kind": "numeric",
+      "unit": "kWh",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "The statement does not specify sunlight duration. This field uses the official eight-hour assumption. For another duration compare E=P*t in your workings."
+    },
+    {
+      "id": "4.a.formula",
+      "sourcePart": "4.a.formula",
+      "label": "General air-temperature rise",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "S",
+        "T_a",
+        "g",
+        "h",
+        "A",
+        "c",
+        "\\rho_h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_h",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use S for collector area, A for chimney cross-section, G for irradiance, c for specific heat, T_a in kelvin and rho_h for hot-air density."
+    },
+    {
+      "id": "4.a.value",
+      "sourcePart": "4.a.value",
+      "label": "Prototype temperature rise",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the temperature rise in kelvin."
+    },
+    {
+      "id": "4.b",
+      "sourcePart": "4.b",
+      "label": "Prototype mass flow rate",
+      "kind": "numeric",
+      "unit": "kg/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter kilograms per second. Use the source's supplied hot-air density."
+    }
+  ]
+}
