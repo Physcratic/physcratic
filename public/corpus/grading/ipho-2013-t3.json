@@ -1,0 +1,252 @@
+{
+  "problemId": "ipho-2013-t3",
+  "version": "3fe1f59de1db1f4f71929ec5ec028698beed9d6443a3f741f2197b47e39e17ca",
+  "parts": [
+    {
+      "id": "3.1",
+      "sourcePart": "3.1",
+      "label": "Hydrostatic pressure",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho_i",
+        "g",
+        "H",
+        "z"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho_i",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "H",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\rho_i, g, H, z. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3.2a",
+      "sourcePart": "3.2a",
+      "label": "Slab force balance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho_i",
+        "g"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho_i",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\rho_i, g. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3.2b",
+      "sourcePart": "3.2b",
+      "label": "Ice height profile",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "3.2c",
+      "sourcePart": "3.2c",
+      "label": "Volume scaling exponent",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "3.3",
+      "sourcePart": "3.3",
+      "label": "Horizontal ice velocity",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c",
+        "x",
+        "H_m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "H_m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use c, x, H_m. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3.4",
+      "sourcePart": "3.4",
+      "label": "Vertical ice velocity",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c",
+        "z",
+        "H_m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "H_m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use c, z, H_m. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3.5",
+      "sourcePart": "3.5",
+      "label": "Particle trajectory",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "H_m",
+        "x_i",
+        "x"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "H_m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "x_i",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use H_m, x_i, x. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3.6",
+      "sourcePart": "3.6",
+      "label": "Age at the divide",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "H_m",
+        "c",
+        "z"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "H_m",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "z",
+          "assumptions": [],
+          "min": 0.1,
+          "max": 1
+        }
+      ],
+      "help": "Use H_m, c, z. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3.7a",
+      "sourcePart": "3.7a",
+      "label": "Accumulation rates",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "3.7b",
+      "sourcePart": "3.7b",
+      "label": "Temperature transition",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in K, without a unit suffix."
+    },
+    {
+      "id": "3.8",
+      "sourcePart": "3.8",
+      "label": "Uniform sea level rise",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m, without a unit suffix."
+    },
+    {
+      "id": "3.9",
+      "sourcePart": "3.9",
+      "label": "Local gravitational tide",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "problemId": "ipho-2018-t1",
+  "version": "770c8140b008a8603a0e60618f68135be8babf3350e8e2c3888260c7f5c8e3d2",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Newtonian acceleration",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M_1",
+        "M_2"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_2",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter alpha. Also state and justify the exponent n in your working."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Binary kinetic energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu",
+        "L",
+        "\\Omega"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\Omega",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu, L, \\Omega. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Circular energy coefficient",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Time-dependent quadrupole",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Radiated power coefficient",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "b.3",
+      "label": "Chirp mass",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu",
+        "M"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu, M. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "b.4",
+      "label": "Chirp integration",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "b.5",
+      "label": "Mass from the measured chirp",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.6",
+      "sourcePart": "b.6",
+      "label": "Compactness and orbital speed",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

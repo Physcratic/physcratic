@@ -1,0 +1,126 @@
+{
+  "problemId": "ipho-2016-t2",
+  "version": "45f8f714d2df72e03b865a92d5bfd55a63c5e30405a55c498203204a419f964c",
+  "parts": [
+    {
+      "id": "a1",
+      "sourcePart": "a1",
+      "label": "Characteristic parameters",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a2",
+      "sourcePart": "a2",
+      "label": "Number of stationary states",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a3",
+      "sourcePart": "a3",
+      "label": "Series operating point",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a4",
+      "sourcePart": "a4",
+      "label": "Inductive stability",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b1",
+      "sourcePart": "b1",
+      "label": "Capacitive limit cycle",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b2",
+      "sourcePart": "b2",
+      "label": "Oscillation period",
+      "kind": "numeric",
+      "unit": "μs",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter total period in microseconds. Both dwell times and their derivation require comparison with the solution."
+    },
+    {
+      "id": "b3",
+      "sourcePart": "b3",
+      "label": "Power estimate",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b4",
+      "sourcePart": "b4",
+      "label": "Transmitter antenna",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m, without a unit suffix."
+    },
+    {
+      "id": "c1",
+      "sourcePart": "c1",
+      "label": "Neuristor pulse sketches",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c2",
+      "sourcePart": "c2",
+      "label": "Critical pulse duration",
+      "kind": "numeric",
+      "unit": "μs",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in μs, without a unit suffix."
+    },
+    {
+      "id": "c3",
+      "sourcePart": "c3",
+      "label": "Firing decision",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

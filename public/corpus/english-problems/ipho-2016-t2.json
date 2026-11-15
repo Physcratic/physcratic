@@ -1,1 +1,534 @@
-{"id":"ipho-2016-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2016_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2016_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2016-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Theory\nEnglish (Oﬃcial)\nQ2-1\nNonlinear Dynamics in Electric Circuits (10 points)\nPlease read the general instructions in the separate envelope before you start this problem.\nIntroduction\nBistable non-linear semiconducting elements (e.g. thyristors) are widely used in electronics as switches\nand generators of electromagnetic oscillations. The primary ﬁeld of applications of thyristors is con-\ntrolling alternating currents in power electronics, for instance rectiﬁcation of AC current to DC at the\nmegawatt scale. Bistable elements may also serve as model systems for self-organization phenomena\nin physics (this topic is covered in part B of the problem), biology (see part C) and other ﬁelds of modern\nnonlinear science.\nGoals\nTo study instabilities and nontrivial dynamics of circuits including elements with non-linear 𝐼−𝑉charac-\nteristics. To discover possible applications of such circuits in engineering and in modeling of biological\nsystems.\nPart A. Stationary states and instabilities (3 points)\nFig. 1 shows the so-called S-shaped 𝐼−𝑉characteristics of a non-linear element 𝑋. In the voltage\nrange between 𝑈h = 4.00 V (the holding voltage) and 𝑈th = 10.0 V (the threshold voltage) this 𝐼−𝑉\ncharacteristics is multivalued. For simplicity, the graph on Fig. 1 is chosen to be piece-wise linear (each\nbranch is a segment of a straight line). In particular, the line in the upper branch touches the origin if it\nis extended. This approximation gives a good description of real thyristors.\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\nU [V]\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\nUh\nUth\nI [A]\nFigure 1: 𝐼−𝑉characteristics of the non-linear element 𝑋.\n\nTheory\nEnglish (Oﬃcial)\nQ2-2\nA.1\nUsing the graph, determine the resistance 𝑅on of the element 𝑋on the upper\nbranch of the 𝐼−𝑉characteristics, and 𝑅off on the lower branch, respectively.\nThe middle branch is described by the equation\n𝐼= 𝐼0 −𝑈\n𝑅int\n.\n(1)\nFind the values of the parameters 𝐼0 and 𝑅int.\n0.4pt\nThe element 𝑋is connected in series (see Fig.2) with a resistor 𝑅, an inductor 𝐿and an ideal voltage\nsource ℰ. One says that the circuit is in a stationary state if the current is constant in time, 𝐼(𝑡) = const.\nℰ\nR\nL\nFigure 2: Circuit with element 𝑋, resistor 𝑅, inductor 𝐿and voltage source ℰ.\nA.2\nWhat are the possible numbers of stationary states that the circuit of Fig. 2 may\nhave for a ﬁxed value of ℰand for 𝑅= 3.00 Ω? How does the answer change for\n𝑅= 1.00 Ω?\n1pt\nA.3\nLet 𝑅= 3.00 Ω, 𝐿= 1.00 𝜇H and ℰ= 15.0 V in the circuit shown in Fig. 2.\nDetermine the values of the current 𝐼stationary and the voltage 𝑉stationary on the\nnon-linear element 𝑋in the stationary state.\n0.6pt\nThe circuit in Fig. 2 is in the stationary state with 𝐼(𝑡) = 𝐼stationary. This stationary state is said to be\nstable if after a small displacement (increase or decrease in the current), the current returns towards the\nstationary state. And if the system keeps moving away from the stationary state, it is said to be unstable.\nA.4\nUse numerical values of the question A.3 and study the stability of the stationary\nstate with 𝐼(𝑡) = 𝐼stationary. Is it stable or unstable?\n1pt\nPart B. Bistable non-linear elements in physics: radio transmitter (5 points)\nWe now investigate a new circuit conﬁguration (see Fig. 3). This time, the non-linear element 𝑋is con-\nnected in parallel to a capacitor of capacitance 𝐶= 1.00 𝜇F. This block is then connected in series to a\nresistor of resistance 𝑅= 3.00 Ω and an ideal constant voltage source of voltage ℰ= 15.0 V. It turns out\nthat this circuit undergoes oscillations with the non-linear element 𝑋jumping from one branch of the\n𝐼−𝑉characteristics to another over the course of one cycle.\n\nTheory\nEnglish (Oﬃcial)\nQ2-3\nC\nℰ\nR\nFigure 3: Circuit with element 𝑋, capacitor 𝐶, resistor 𝑅and voltage source ℰ.\nB.1\nDraw the oscillation cycle on the 𝐼−𝑉graph, including its direction (clockwise\nor anticlockwise). Justify your answer with equations and sketches.\n1.8pt\nB.2\nFind expressions for the times 𝑡1 and 𝑡2 that the system spends on each branch\nof the 𝐼−𝑉graph during the oscillation cycle. Determine their numerical val-\nues. Find the numerical value of the oscillation period 𝑇assuming that the time\nneeded for jumps between the branches of the 𝐼−𝑉graph is negligible.\n1.9pt\nB.3\nEstimate the average power 𝑃dissipated by the non-linear element over the\ncourse of one oscillation. An order of magnitude is suﬃcient.\n0.7pt\nThe circuit in Fig. 3 is used to build a radio transmitter. For this purpose, the element 𝑋is attached to\none end of a linear antenna (a long straight wire) of length 𝑠. The other end of the wire is free. In the\nantenna, an electromagnetic standing wave is formed. The speed of electromagnetic waves along the\nantenna is the same as in vacuum. The transmitter is using the main harmonic of the system, which has\nperiod 𝑇of question B.2.\nB.4\nWhat is the optimal value of 𝑠assuming that it cannot exceed 1 km?\n0.6pt\nPart C. Bistable non-linear elements in biology: neuristor (2 points)\nIn this part of the problem, we consider an application of bistable non-linear elements to modeling of\nbiological processes. A neuron in a human brain has the following property: when excited by an external\nsignal, it makes one single oscillation and then returns to its initial state. This feature is called excitability.\nDue to this property, pulses can propagate in the network of coupled neurons constituting the nerve\nsystems. A semiconductor chip designed to mimic excitability and pulse propagation is called a neuristor\n(from neuron and transistor).\nWe attempt to model a simple neuristor using a circuit that includes the non-linear element 𝑋that we\ninvestigated previously. To this end, the voltage ℰin the circuit of Fig. 3 is decreased to the value ℰ′ =\n12.0 V. The oscillations stop, and the system reaches its stationary state. Then, the voltage is rapidly\nincreased back to the value ℰ= 15.0 V, and after a period of time 𝜏(with 𝜏< 𝑇) is set again to the value\nℰ′ (see Fig. 4). It turns out that there is a certain critical value 𝜏crit., and the system shows qualitatively\ndifferent behavior for 𝜏< 𝜏crit and for 𝜏> 𝜏crit.\n\nTheory\nEnglish (Oﬃcial)\nQ2-4\nt\n11\n12\n13\n14\n15\n16\nℰ [V]\nt0\nt0 + τ\nFigure 4: Voltage of the voltage source as a function of time.\nC.1\nSketch the graphs of the time dependence of the current 𝐼𝑋(𝑡) on the non-linear\nelement 𝑋for 𝜏< 𝜏crit and for 𝜏> 𝜏crit.\n1.2pt\nC.2\nFind the expression and the numerical value of the critical time 𝜏crit for which\nthe scenario switches.\n0.6pt\nC.3\nIs the circuit with 𝜏= 1.00 × 10−6 s a neuristor?\n0.2pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2016-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"Problem 2 : Solution/marking scheme – Nonlinear Dynamics in Electric Circuits\n(10 points)\nPart A. Stationary states and instabilities (3 points)\nSolution A1:\n[0.4]\nBy looking at the I −V graph, we obtain\nRoﬀ= 10.0 Ω,\n0.1\nRon = 1.00 Ω,\n0.1\nRint = 2.00 Ω,\n0.1\nI0 = 6.00 A.\n0.1\nNote: No penalty for the number of digits in this question\nSolution A2:\n[1]\nKirchoﬀlaw for the circuit (U is the voltage of the bistable element):\nE = IR + U\n0.1\nThis yields\nI = E −U\nR\n0.1\nHence, stationary states of the circuit are intersections of the line deﬁned by this equation\nand the I −V graph of X\n0.2\n.\nFor R = 3.00 Ω, one always gets exactly one intersection.\n0.2\nFor R = 1.00 Ω, one gets 1, 2 or 3 intersections depending on the value of E.\n0.4\nThe following table summarizes the number of points granted for possible answers to the\nlast subquestion with R = 1.00 Ω:\nPossible answer\n1\n2\n3\n1,3\n1,2\n2,3\n1,2,3\nPoints\n0\n0\n0.2\n0.3\n0\n0.2\n0.4\nSolution A3:\n[0.6]\nThe stationary state is on the intermediate branch, one can thus use the corresponding\nequation:\n0.2\n1\n\nIstationary\n=\nE −RintI0\nR −Rint\n0.1\n=\n3.00 A\n0.1\nUstationary\n=\nRint(I0 −I)\n0.1\n=\n6.00 V\n0.1\nExtra (non-physical) stationary states on the switched on and/or switched oﬀbranches\nlead to a penalty of 0.2 point.\nSolution A4:\n[1]\nAny correct modeling such as the following:\n0.5\nThe Kirchoﬀlaw for the circuit reads\nE = IR + UX + LdI\ndt = IR + (I0 −I)Rint + LdI\ndt\nThis implies\nLdI\ndt = E −I0Rint −(R −Rint)I\nThe separation between two cases is of importance, especially because of the relative sign\nof dI/dt:\nIf I > Istationary, we have dI/dt < 0 and I decreases.\n0.2\nIf I < Istationary, we have dI/dt > 0 and I increases.\n0.2\nNote: Formulas with time derivatives are not essential, any other correct justiﬁcation is\naccepted.\nWe conclude that the stationary state is stable.\n0.1\nNote: The checkbox gives 0.1 points if “stable” is checked, regardless of the previous rea-\nsoning (also if there is nothing). A wrong reasoning leading to check the “unstable” option\ndoesn’t however give any point for the checkbox.\nPart B. Bistable non-linear elements in physics and engineering: radio transmitter (5 points)\nSolution B1:\n[1.8]\nA correctly drawn cycle gives 1.2 points, distributed as follows:\n• Switched on branch is part of the cycle\n0.2\n• Switched oﬀbranch is part of the cycle\n0.2\n• Jumps are vertical (constant U)\n0.2\n• Jumps are positioned at Uh and Uth\n0.2\n• The system moves to the left on the switched on branch\n0.2\n2\n\n• The system moves to the right on the switched oﬀbranch\n0.2\nEach of the following observations individually gives up to 0.2 points, but their total\ncannot exceed 0.6:\n• U constant during jumps because the charge on the capacitor cannot change in-\nstantaneously\n0.2\n• The intermediate branch cannot be part of the cycle because there is a stationary\nstate on it\n0.2\n• Jumps occur at corners of the IV graph because at those points the system has\nnowhere else to go\n0.2\n• The system moves moves to the left on the switched on branch because it approaches\nthe stable stationary state (which is located outside the IV graph), or argument with\nthe Kirchoﬀlaw\n0.2\n• The system moves moves to the right on the switched oﬀbranch because it ap-\nproaches the stable stationary state (which is located outside the IV graph), or\nargument with the Kirchoﬀlaw\n0.2\n^\nIIA\n)\n\"\n:\noscillation\ncycle\n8 ⇒\n: =\nstationary\nI\nit\nstate\nI\n3\n÷l¥\nIn\n=÷\n=\n \n0\n \n2\n \n3\n 45\n6\n7\n 85:\nth\nSolution B2:\n[1.9]\nSince the non-linear element is oscillating between the switched on and switched\noﬀbranches we can put UX = Ron/oﬀIX. On either of the branches, the circuit behaves\nas a standard RC-circuit with conductance C and resistance Ron/oﬀR/(Ron/oﬀ+ R) (the\nresistor and the element X being connected in parallel).\n0.5\nAnother way to express it is to\n3\n\nwrite the Kirchhoﬀlaw for the switched on and switched oﬀbranches\nRon/oﬀRC dIX\ndt = E −(Ron/oﬀ+ R)IX\nThe time constant of the circuit is\nRon/oﬀR\nRon/oﬀ+ R C.\nIf the branch in question (switched on or switched oﬀ) extended indeﬁnitely, after a long\ntime the system would have landed in a stationary state with the voltage\nUon/oﬀ=\nRon/oﬀ\nRon/oﬀ+ R E.\nThen, the time dependence of the voltage drop on the non-linear element is a sum of the\nconstant term Uon/oﬀand of the exponentially decaying term:\nUX(t) =\nRon/oﬀ\nRon/oﬀ+ R E +\n\u0012\nUon/oﬀ−\nRon/oﬀ\nRon/oﬀ+ R E\n\u0013\ne\n−\nRon/oﬀ+R\nRon/oﬀRC t\nThere are 0.5 points distributed as follow for UX(t):\n• Correct exponential\n0.2\n• Correct constant term (t →∞)\n0.1\n• Correct coeﬃcient in front of the exponential\n0.1\n• Correct equation for UX(t)\n0.1\nTime spent by the system on the switched on branch during one cycle:\nton =\nRonR\nRon + R C log\n\u0012Uth −Uon\nUh −Uon\n\u0013\n= 2.41 · 10−6 s,\n0.4\nTime spent by the system on the switched oﬀbranch during one cycle:\ntoﬀ=\nRoﬀR\nRoﬀ+ R C log\n\u0012 Uoﬀ−Uh\nUoﬀ−Uth\n\u0013\n= 3.71 · 10−6 s.\n0.4\nThe total period of oscillations:\nT = ton + toﬀ= 6.12 · 10−6 s\n0.1\nNote: Correct ﬁnal answers give full points. One may earn points for intermediate steps\n(see above) for partial answers.\nSolution B3:\n[0.7]\nNeglect the energy consumed on the switched oﬀbranch.\nThe energy consumed\n4\n\non the switched on branch during the cycle is estimated by\nE =\n1\nRon\n\u0012Uh + Uth\n2\n\u00132\nton = 1.18 · 10−4 J.\n0.4\nFor the power, this gives an estimate of\nP ∼E\nT = 19.3 W.\n0.3\nNote:\n• Formula + answer inside 5 W ≤P ≤50 W give full points\n• Formula + answer outside the range above but inside 1 W ≤P ≤100 W give 0.5\npoints\n• answer outside range but good formula gives 0.4 points\nAlso, the proposed formula is only an example, any other reasonable approximation of the\nintegral of the upper branch should be accepted.\nSolution B4:\n[0.6]\nThe wave length of the radio signal is given by λ = cT = 1.82 · 103 m.\n0.2\nThe optimal length of the antenna is λ/4 (or 3λ/4, 5λ/4 etc.)\n0.3\nThe only choice which is below 1 km is s = λ/4 = 459 m.\n0.1\nNote: The correct answer s = λ/4 = 459 m gives full points, and the mistake s = λ/2 =\n918 m only 0.4 pts.\nPart C. Bistable non-linear elements in biology: neuristor (2 points)\nSolution C1:\n[1.2]\nFor\n˜E\n=\n12.0 V, the steady state of the system is located on the switched oﬀ\nbranch:\n˜U =\nRoﬀ\nR + Roﬀ\n˜E = 9.23 V.\nWhen the voltage is increased to E = 15.0 V, the system starts moving to the right along\nthe switched oﬀbranch (in the same way it did in task B).\nIf the voltage drops again before the system reaches the threshold voltage, it will simply\nreturn to the stationary state.\nIf system reaches the threshold voltage, it will jump to the switched on branch, and it\nwill make one oscillations (since τ < T) before the voltage drops again and it returns to\nthe stationary state.\n5\n\n^\nI\nx\nT\n<\nto\n0\nreturn\nto\nthe\noriginal\nstationary\nstate\nosier\n:h÷:#\n.\n⇐÷\n>\nto\ntote\nt\n1. Approach to the new stationary state\n0.2\n2. Return to the old stationary state\n0.2\n' '\nT\n-\nX\n!5!\nevolution\non\nJi\nf\nupper\nbranch\nT\n>\nTent\n!4!\njump\nto\ni\nupper\nbranch \\\n!6!\njump\nto\n,\nlower\nbranch\n:\n, )\napprach\ni\nL\n!7!\nreturn\nto\n!3!\nnew\nstate\n,\n:\nStationary\n¥\n, (\nstate\n.\n-\n'\n✓\n.\n!#\n.\ni\nI\n)\nto\ntot\nT\nt\n3. Approach to the new stationary state\n0.1\n4. Jump to the upper branche before t0 + τ\n0.2\n5. Evolution on the upper branch\n0.2\n6. Jump to the lower branche below the old stationary state\n0.1\n7. Return to the old stationary state (from below)\n0.2\n6\n\nSolution C2:\n[0.6]\nThe time needed to reach the threshold voltage is given by\nτcrit =\nRoﬀR\nRoﬀ+ R C log\n \nUoﬀ−˜U\nUoﬀ−Uth\n!\n= 9.36 · 10−7 s.\nNote: This is the same formula as for toﬀin task B2, with Uh replaced by ˜U.\n• Correct time constant\n0.2\n• Correct choice of voltages\n0.2\n• Correct ﬁnal formula\n0.1\n• Correct numerical value\n0.1\nNote: Correct ﬁnal answers give full points. One may earn points for intermediate steps\n(see above) for partial answers.\nSolution C3:\n[0.2]\nSince τ > τcrit, the system will make one oscillation.\nWe conclude that the sys-\ntem is a neuristor.\n0.2\nNote: 0.2 are given only if “Yes” is checked, regardless of the development of the other\ntasks.\n7\n","textExtraction":"available"}}
+{
+  "id": "ipho-2016-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2016_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2016_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2016-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Nonlinear Dynamics in Electric Circuits"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A bistable element X has the piecewise-linear I to U characteristic in the figure. The lower branch goes from (0 V,0 A) to (10 V,1 A). The intermediate branch joins (10 V,1 A) to (4 V,4 A). The upper branch starts at (4 V,4 A) and its extension passes through the origin. Holding voltage Uh=4.00 V and threshold Uth=10.0 V. The supplied circuits use ideal components. All numerical evaluations below use R=3.00 Ω, E=15.0 V, L=1.00 μH for part A and C=1.00 μF for parts B and C. Switching between branches is instantaneous."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch7-bistable-curve.png",
+        "alt": "Original piecewise-linear multivalued current-voltage characteristic with holding voltage 4 V and threshold 10 V."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a1. Characteristic parameters"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find Roff, Ron, Rint and I0 in the intermediate-branch equation \\(I=I_0-U/R_{int}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a2. Number of stationary states"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch7-inductive-circuit.png",
+        "alt": "Original series non-linear element X, resistor R, inductor L and voltage source E."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Connect E, R, L and X in series. Show graphically how stationary states are found. How many are possible as E varies for R=3 Ω and R=1 Ω?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a3. Series operating point"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For R=3 Ω and E=15 V calculate stationary I and U."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a4. Inductive stability"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Determine and justify the stability of the part A3 stationary state."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b1. Capacitive limit cycle"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch7-capacitive-circuit.png",
+        "alt": "Original capacitor C in parallel with element X, fed by a voltage source E through resistor R."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now remove L and connect C in parallel with X, fed by E through R. Draw the closed oscillation cycle on the I to U diagram, with directions and reasons for the jumps."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b2. Oscillation period"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Derive the voltage evolution on each branch, its dwell time and total period."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b3. Power estimate"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Estimate the mean power dissipated in X to order of magnitude and explain the estimate."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b4. Transmitter antenna"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The oscillation feeds an antenna with a free end. Find its optimal length s below 1 km using c=3.00×10^8 m/s."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c1. Neuristor pulse sketches"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch7-neuristor-pulse.png",
+        "alt": "Original supply voltage changing from 12 V to 15 V at t0 and back after duration tau."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Initially the capacitive circuit is stationary at Etilde=12.0 V. At t0 increase the supply to 15.0 V for duration τ<T, then return to 12.0 V. Sketch IX(t) for τ below and above a critical duration, and explain the difference."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c2. Critical pulse duration"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Derive and evaluate the duration needed to first reach Uth."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c3. Firing decision"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For τ=1.00 μs, does the circuit act as a neuristor? Justify."
+          }
+        ]
+      }
+    ],
+    "text": "Nonlinear Dynamics in Electric Circuits\nA bistable element X has the piecewise-linear I to U characteristic in the figure. The lower branch goes from (0 V,0 A) to (10 V,1 A). The intermediate branch joins (10 V,1 A) to (4 V,4 A). The upper branch starts at (4 V,4 A) and its extension passes through the origin. Holding voltage Uh=4.00 V and threshold Uth=10.0 V. The supplied circuits use ideal components. All numerical evaluations below use R=3.00 Ω, E=15.0 V, L=1.00 μH for part A and C=1.00 μF for parts B and C. Switching between branches is instantaneous.\n\na1. Characteristic parameters\nFind Roff, Ron, Rint and I0 in the intermediate-branch equation \\(I=I_0-U/R_{int}\\).\na2. Number of stationary states\n\nConnect E, R, L and X in series. Show graphically how stationary states are found. How many are possible as E varies for R=3 Ω and R=1 Ω?\na3. Series operating point\nFor R=3 Ω and E=15 V calculate stationary I and U.\na4. Inductive stability\nDetermine and justify the stability of the part A3 stationary state.\nb1. Capacitive limit cycle\n\nNow remove L and connect C in parallel with X, fed by E through R. Draw the closed oscillation cycle on the I to U diagram, with directions and reasons for the jumps.\nb2. Oscillation period\nDerive the voltage evolution on each branch, its dwell time and total period.\nb3. Power estimate\nEstimate the mean power dissipated in X to order of magnitude and explain the estimate.\nb4. Transmitter antenna\nThe oscillation feeds an antenna with a free end. Find its optimal length s below 1 km using c=3.00×10^8 m/s.\nc1. Neuristor pulse sketches\n\nInitially the capacitive circuit is stationary at Etilde=12.0 V. At t0 increase the supply to 15.0 V for duration τ<T, then return to 12.0 V. Sketch IX(t) for τ below and above a critical duration, and explain the difference.\nc2. Critical pulse duration\nDerive and evaluate the duration needed to first reach Uth.\nc3. Firing decision\nFor τ=1.00 μs, does the circuit act as a neuristor? Justify.",
+    "figures": [
+      "/corpus/figures/native/batch7-bistable-curve.png",
+      "/corpus/figures/native/batch7-inductive-circuit.png",
+      "/corpus/figures/native/batch7-capacitive-circuit.png",
+      "/corpus/figures/native/batch7-neuristor-pulse.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2016-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Nonlinear Dynamics in Electric Circuits"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a1. Characteristic parameters"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The lower and upper slopes give \\(R_{off}=10.0\\,\\Omega\\), \\(R_{on}=1.00\\,\\Omega\\). The middle slope is −0.5 A/V, so \\(R_{int}=2.00\\,\\Omega\\), \\(I_0=6.00\\,\\mathrm A\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a2. Number of stationary states"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At a stationary state \\(E=RI+U\\). Intersections of \\(I=(E-U)/R\\) with the characteristic give the states. For R=3 Ω there is exactly one. For R=1 Ω there may be one, two at a corner, or three. The two-state corner cases must not be omitted."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a3. Series operating point"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The physical intersection lies on the intermediate branch. \\(I=(E-R_{int}I_0)/(R-R_{int})=3.00\\,\\mathrm A\\), and \\(U=R_{int}(I_0-I)=6.00\\,\\mathrm V\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a4. Inductive stability"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Kirchhoff's law gives \\(L\\dot I=E-R_{int}I_0-(R-R_{int})I\\). A perturbation obeys \\(L\\delta\\dot I=-(R-R_{int})\\delta I\\). Because R−Rint=1 Ω>0 the state is stable, with decay time L/(R−Rint)=1 μs."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b1. Capacitive limit cycle"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Voltage is continuous across the capacitor, so jumps are vertical. On the off branch voltage increases from Uh to Uth, jumps to the on branch at Uth, decreases to Uh, then jumps to the off branch. The middle-branch stationary state is unstable in this capacitive circuit. The branch equilibria lie outside the allowed branch intervals, so motion continues to each corner."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b2. Oscillation period"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For branch resistance r, \\(C\\dot U=(E-U)/R-U/r\\). Define \\(U_r=Er/(R+r)\\), \\(t_r=CRr/(R+r)\\). Then \\(U(t)=U_r+[U(0)-U_r]e^{-t/t_r}\\). Thus \\[t_{on}=t_{R_{on}}\\ln\\frac{U_{th}-U_{on}}{U_h-U_{on}}=2.41\\,\\mu s,\\quad t_{off}=t_{R_{off}}\\ln\\frac{U_{off}-U_h}{U_{off}-U_{th}}=3.71\\,\\mu s.\\] Their sum is T=6.12 μs."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b3. Power estimate"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The on branch dominates. Estimating U by (Uh+Uth)/2 gives \\(\\overline P\\sim[(U_h+U_{th})/2]^2t_{on}/(R_{on}T)\\simeq19\\,\\mathrm W\\). The source accepts justified estimates between 5 and 50 W. This is an estimate rather than an exact integral."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b4. Transmitter antenna"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For the fundamental quarter-wave mode, \\(s=cT/4=459\\,\\mathrm m\\). Other odd quarter-wave lengths exceed 1 km."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c1. Neuristor pulse sketches"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Initially \\(\\widetilde U=12R_{off}/(R+R_{off})=9.23\\,\\mathrm V\\). A short pulse raises U on the off branch but does not reach Uth, so current returns smoothly from above to its original value. A longer pulse reaches Uth, jumps to the on branch, decays there and jumps back at Uh. It then approaches the original off-branch state from below. The firing pulse is an all-or-nothing large excursion."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c2. Critical pulse duration"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using the off-branch exponential, \\[\\tau_{crit}=\\frac{CRR_{off}}{R+R_{off}}\\ln\\frac{U_{off}-\\widetilde U}{U_{off}-U_{th}}=0.936\\,\\mu s.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c3. Firing decision"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Yes. Since 1.00 μs exceeds 0.936 μs, the threshold is crossed and one large current excursion occurs before the original stationary state is recovered."
+          }
+        ]
+      }
+    ],
+    "text": "Nonlinear Dynamics in Electric Circuits\na1. Characteristic parameters\nThe lower and upper slopes give \\(R_{off}=10.0\\,\\Omega\\), \\(R_{on}=1.00\\,\\Omega\\). The middle slope is −0.5 A/V, so \\(R_{int}=2.00\\,\\Omega\\), \\(I_0=6.00\\,\\mathrm A\\).\na2. Number of stationary states\nAt a stationary state \\(E=RI+U\\). Intersections of \\(I=(E-U)/R\\) with the characteristic give the states. For R=3 Ω there is exactly one. For R=1 Ω there may be one, two at a corner, or three. The two-state corner cases must not be omitted.\na3. Series operating point\nThe physical intersection lies on the intermediate branch. \\(I=(E-R_{int}I_0)/(R-R_{int})=3.00\\,\\mathrm A\\), and \\(U=R_{int}(I_0-I)=6.00\\,\\mathrm V\\).\na4. Inductive stability\nKirchhoff's law gives \\(L\\dot I=E-R_{int}I_0-(R-R_{int})I\\). A perturbation obeys \\(L\\delta\\dot I=-(R-R_{int})\\delta I\\). Because R−Rint=1 Ω>0 the state is stable, with decay time L/(R−Rint)=1 μs.\nb1. Capacitive limit cycle\nVoltage is continuous across the capacitor, so jumps are vertical. On the off branch voltage increases from Uh to Uth, jumps to the on branch at Uth, decreases to Uh, then jumps to the off branch. The middle-branch stationary state is unstable in this capacitive circuit. The branch equilibria lie outside the allowed branch intervals, so motion continues to each corner.\nb2. Oscillation period\nFor branch resistance r, \\(C\\dot U=(E-U)/R-U/r\\). Define \\(U_r=Er/(R+r)\\), \\(t_r=CRr/(R+r)\\). Then \\(U(t)=U_r+[U(0)-U_r]e^{-t/t_r}\\). Thus \\[t_{on}=t_{R_{on}}\\ln\\frac{U_{th}-U_{on}}{U_h-U_{on}}=2.41\\,\\mu s,\\quad t_{off}=t_{R_{off}}\\ln\\frac{U_{off}-U_h}{U_{off}-U_{th}}=3.71\\,\\mu s.\\] Their sum is T=6.12 μs.\nb3. Power estimate\nThe on branch dominates. Estimating U by (Uh+Uth)/2 gives \\(\\overline P\\sim[(U_h+U_{th})/2]^2t_{on}/(R_{on}T)\\simeq19\\,\\mathrm W\\). The source accepts justified estimates between 5 and 50 W. This is an estimate rather than an exact integral.\nb4. Transmitter antenna\nFor the fundamental quarter-wave mode, \\(s=cT/4=459\\,\\mathrm m\\). Other odd quarter-wave lengths exceed 1 km.\nc1. Neuristor pulse sketches\nInitially \\(\\widetilde U=12R_{off}/(R+R_{off})=9.23\\,\\mathrm V\\). A short pulse raises U on the off branch but does not reach Uth, so current returns smoothly from above to its original value. A longer pulse reaches Uth, jumps to the on branch, decays there and jumps back at Uh. It then approaches the original off-branch state from below. The firing pulse is an all-or-nothing large excursion.\nc2. Critical pulse duration\nUsing the off-branch exponential, \\[\\tau_{crit}=\\frac{CRR_{off}}{R+R_{off}}\\ln\\frac{U_{off}-\\widetilde U}{U_{off}-U_{th}}=0.936\\,\\mu s.\\]\nc3. Firing decision\nYes. Since 1.00 μs exceeds 0.936 μs, the threshold is crossed and one large current excursion occurs before the original stationary state is recovered.",
+    "figures": [],
+    "shared": false
+  }
+}

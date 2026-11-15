@@ -1,0 +1,337 @@
+{
+  "problemId": "apho-2025-t1",
+  "version": "b69105190cb7be43b2f97f6d0b75b3571421260c1032246a5647c0053056d31b",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Flattening dimensions",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Flattening estimate",
+      "kind": "numeric",
+      "unit": "km",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in km, without a unit suffix."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Ring field on its axis",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M_S",
+        "z",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "z",
+          "assumptions": [],
+          "min": -1,
+          "max": 1
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 30,
+          "max": 50
+        }
+      ],
+      "help": "Use d for d_SE. Enter the signed z component."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Ring field in its plane",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M_S",
+        "r",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, M_S, r, d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Mass of one removed cap",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "M_E",
+        "h",
+        "R_p"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "M_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_p",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use h for h_max."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "c.2",
+      "label": "Solar torque",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M_E",
+        "M_S",
+        "R",
+        "h",
+        "\\alpha",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 1.3
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use h for h_max and d for d_SE. Enter magnitude, then state the torque direction."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "d.1",
+      "label": "Solar-only precession period",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "d",
+        "R",
+        "\\omega",
+        "G",
+        "M_S",
+        "h",
+        "\\alpha"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 1.3
+        }
+      ],
+      "help": "Use d for d_SE and h for h_max."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "d.2",
+      "label": "Solar-only numerical period",
+      "kind": "numeric",
+      "unit": "years",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in years, without a unit suffix."
+    },
+    {
+      "id": "e.1",
+      "sourcePart": "e.1",
+      "label": "Lunar correction factor",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "M_S",
+        "d_S",
+        "M_M",
+        "d_M"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "M_S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d_S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d_M",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use M_S, d_S, M_M, d_M. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "e.2",
+      "sourcePart": "e.2",
+      "label": "Combined numerical period",
+      "kind": "numeric",
+      "unit": "years",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in years, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

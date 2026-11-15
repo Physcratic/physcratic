@@ -1,0 +1,412 @@
+{
+  "problemId": "apho-2018-t1",
+  "version": "296ce77edf518cd086828174f60c17c4da38f06f71c84a5ce6d9feb6498dd386",
+  "parts": [
+    {
+      "id": "1.1",
+      "sourcePart": "1.1",
+      "label": "Power absorbed by induced dipole",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "1.2",
+      "sourcePart": "1.2",
+      "label": "Static induced potential",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2.1",
+      "sourcePart": "2.1",
+      "label": "Mean optical potential",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\alpha",
+        "I",
+        "\\phi",
+        "\\epsilon_0",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\phi",
+          "assumptions": [],
+          "min": -3,
+          "max": -0.1
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\alpha, I, \\phi, \\epsilon_0, c. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3.1",
+      "sourcePart": "3.1",
+      "label": "Photon scattering rate",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\alpha",
+        "I",
+        "\\phi",
+        "\\hbar",
+        "\\epsilon_0",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\phi",
+          "assumptions": [],
+          "min": -3,
+          "max": -0.1
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\alpha, I, \\phi, \\hbar, \\epsilon_0, c. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "4.1",
+      "sourcePart": "4.1",
+      "label": "Oscillator polarizability",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "m_e",
+        "\\omega_0",
+        "\\omega",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use d for gamma_omega. Enter positive amplitude alpha, then compare both phase relations."
+    },
+    {
+      "id": "5.1",
+      "sourcePart": "5.1",
+      "label": "Radiative damping",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "\\omega",
+        "\\epsilon_0",
+        "m_e",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use e, \\omega, \\epsilon_0, m_e, c. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "6.1",
+      "sourcePart": "6.1",
+      "label": "Trap-to-scattering ratio",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\omega_0",
+        "\\omega",
+        "\\gamma"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\omega_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\omega_0, \\omega, \\gamma. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "7.1",
+      "sourcePart": "7.1",
+      "label": "Gaussian trap depth",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c",
+        "\\gamma",
+        "P",
+        "\\omega_0",
+        "\\omega",
+        "D_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "P",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_0",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.5,
+          "max": 1.5
+        },
+        {
+          "symbol": "D_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use c, \\gamma, P, \\omega_0, \\omega, D_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "7.2",
+      "sourcePart": "7.2",
+      "label": "Equivalent trap temperature",
+      "kind": "numeric",
+      "unit": "μK",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in μK, without a unit suffix."
+    },
+    {
+      "id": "8.1",
+      "sourcePart": "8.1",
+      "label": "Trap frequencies",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "9.1",
+      "sourcePart": "9.1",
+      "label": "Condensate size estimate",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "9.2",
+      "sourcePart": "9.2",
+      "label": "Lowest energy estimate",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "9.3",
+      "sourcePart": "9.3",
+      "label": "Characteristic velocity",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "10.1",
+      "sourcePart": "10.1",
+      "label": "Initial condensate aspect ratio",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "10.2",
+      "sourcePart": "10.2",
+      "label": "Condensate expansion velocity ratio",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "10.3",
+      "sourcePart": "10.3",
+      "label": "Late condensate aspect ratio",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "10.4",
+      "sourcePart": "10.4",
+      "label": "Late thermal-cloud shape",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

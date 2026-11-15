@@ -1,5 +1,10 @@
 # Beta readiness log
 
+## Another twenty native archive problems on PR #181 (15 November 2026)
+
+Continued `codex/archive-next-20` from pushed `c6e4ec6`. Adds 13 IPhO and seven APhO problems, 251 source subparts, 48 source crops and explicit result versus working review. The archive now has **75 native, 37 PDF problems**, with 72 native answer-field definitions. All other 92 records and original PDFs are preserved. [Scope, source corrections and validation](NATIVE_ARCHIVE_BATCH_7.md). Guest and verified native browser checks run in separate CI jobs with full problem/theme/viewport coverage. Exact-head CI evidence belongs to the updated [PR #181](https://github.com/Physcratic/physcratic/pull/181). No merge or deployment. Separate full source expert review remains pending.
+
+
 ## Additional ten native archive problems (15 November 2026)
 
 Stacked locally on batch four `234ed8a`, this user-requested batch adds EuPhO 2023 T2-T3, all 2024/2025 T1-T3, IPhO 2010 T2 and APhO 2014 T2. **35 native, 77 PDFs remain** out of 112. Every EuPhO archive problem is now native. Adds 41 original crops, 36 automatic fields and 11 self-review fields. The previous ten conversions and all other 102 collection records are preserved. [Source conventions, corrections, QA and publication boundary](NATIVE_ARCHIVE_BATCH_5.md). Focused91, server986 pass/31 skip/one TODO and components204 pass, typecheck/lint/offline guards/final build pass. Browser/DB/Actions results remain unverified. Public push remains blocked by automatic approval review pending explicit user publication approval. Local implementation `9c717a6` on `codex/archive-next-10`. No PR, merge, deployment or live-data operation.

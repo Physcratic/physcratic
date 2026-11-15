@@ -1,1 +1,767 @@
-{"id":"apho-2018-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2018_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2018_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2018-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6],"initialPage":1,"shared":false,"text":"Theory\nQ1-1\nEnglish (Oﬃcial)\nOptical trap of neutral atoms (12 points)\nOptical traps are versatile tools to create ultracold atom systems that nowadays play very important role\nin quantum physics and are believed to have highly nontrivial applications in technology as well as in\nquantum measurements. By shining a laser beam onto an assembly of neutral atoms, we are able to\ncapture and cool these atoms. When atoms are cooled to near absolute zero temperature, they reveal\nthe whole fascinating quantum behavior, in particular their Bose-Einstein condensation (BEC).\nIn this problem you will study basic concepts of an optical trap of neutral atoms and one of the signatures\nto recognize the BEC in experiments on sodium atoms.\nAn neutral sodium atom can be well described as a core with positive charge e surrounded by a homoge-\nnous electron cloud with negative charge -e. The mass of the core is much larger than the mass of the\nelectron cloud. In the absence of an external electric ﬁeld, the core and the cloud centers coincide. The\nelectric ﬁeld of a laser beam interacts with the positive core as well as the electron cloud of the atom, so\nan electric dipole is induced. In turn, this induced dipole will interact with the electric ﬁeld of the laser\nbeam and thereby gives rise to a dipole potential energy of the atom. The atom is said to feel an optical\npotential. The later depends on the intensity proﬁle 𝐼( ⃗𝑟) as well as the frequency of the laser beam in\nuse. By choosing an appropriate laser intensity and frequency, one may form a trap-like potential well\nto conﬁne the neutral atoms.\nWe start off by considering the polarization of a neutral atom that is placed in a uniform external electric\nﬁeld\n⃗𝐸0 = 𝐸0 ̂𝑢, where\n̂𝑢is a unit vector and 𝐸0 is the ﬁeld magnitude. Then, a dipole moment\n⃗𝑝0 = 𝑒ℓ̂𝑢=\n𝛼𝐸0 ̂𝑢is induced. Here, ℓis distance between the negative and positive charge centers, and 𝛼is called\npolarizability.\nFigure 1. Electron cloud distribution. [1] Spherical distribution of electron cloud about the\natomic core; [2] Shifted electron cloud (separation of + and - within the atom) in an electric\nﬁeld.\n1 (1.5 points)\nInitially the external ﬁeld is turned off. Then the ﬁeld magnitude is increased from zero to 𝐸0 very slowly\nso that the electric ﬁeld can be considered effectively time-independent in this question. The instanta-\nneous value of the external ﬁeld is denoted by\n⃗𝐸= 𝐸̂𝑢,\n1.1\nFind the instantaneous power absorbed by the atom from the external ﬁeld in\nterms of ⃗⃗⃗⃗\n𝐸and ̇⃗𝑝, where ̇⃗𝑝is the rate change of the induced dipole moment.\n0.75pt\n\nTheory\nQ1-2\nEnglish (Oﬃcial)\n1.2\nFind the total work done by the external ﬁeld on the atom when the electric ﬁeld\nis increased from zero to 𝐸= 𝐸0. Hence deduce an expression for the induced\ndipole potential energy 𝑈𝑖𝑛𝑑𝑢𝑐𝑒𝑑in terms of\n⃗\n𝐸𝑜and\n⃗𝑝𝑜.\n0.75pt\nNote that when the external electric ﬁeld is turned off, the electron cloud oscillates with a natural fre-\nquency 𝜔0 due to its inertia and the Coulomb restoring force.\n2 (1.0 point)\nIn the following we will study the case where the neutral atoms are placed in an external laser ﬁeld that\nvaries in time and space as\n⃗𝐸( ⃗𝑟, 𝑡) = ̂𝑢.𝐸0( ⃗𝑟)cos 𝜔𝑡. The induced dipole moments ⃗𝑝will oscillate with the\ndriving laser ﬁeld frequency 𝜔. It is well known that an oscillating dipole itself emits electromagnetic\nradiation. By doing so, electron receives some recoil momentum that causes an electromagnetic friction\nresulting in a phase shift between the applied electric ﬁeld and the induced dipole moment. Therefore,\nthe induced dipole moment takes the form ⃗𝑝( ⃗𝑟, 𝑡) = ̂𝑢𝐸0( ⃗𝑟)𝛼(𝜔) cos[𝜔𝑡+𝜑(𝜔)]. Here, both the polarizability\n𝛼and the phase shift 𝜑depend on the driving frequency 𝜔. Due to the oscillating nature, all physical\nquantities of our interest reveal themselves only via the corresponding time-averaged values over a pe-\nriod 2𝜋/𝜔of the laser ﬁeld. The time-averaged value of a periodically varying quantity is deﬁned as\n⟨𝑓(𝑡)⟩=\n𝜔\n2𝜋\n2𝜋/𝜔\n∫\n0\n𝑓(𝑡) 𝑑𝑡. Hereafter, the notation ⟨...⟩means time-average of the enclosed quantity.\nLaser intensity 𝐼( ⃗𝑟) is related to amplitude of the laser electric ﬁeld 𝐸0 as 𝐼( ⃗𝑟)= 𝜀0𝑐𝐸2\n0( ⃗𝑟)\n2\n, where 𝜖0 is the\npermittivity of free space and 𝑐is the speed of light.\n2.1\nFind the induced dipole potential energy 𝑈𝑑𝑖𝑝( ⃗𝑟) = ⟨𝑈𝑖𝑛𝑑𝑢𝑐𝑒𝑑( ⃗𝑟, 𝑡)⟩in term of\n𝛼, 𝜑, 𝜀0, 𝑐, and 𝐼( ⃗𝑟).\n1.0pt\n3 (1.0 point)\nBesides capturing neutral atoms in the trap via the induced dipole potential energy, the oscillating elec-\ntric ﬁeld may cause a scattering force on atoms that arises from absorption and emission of light. The\nlight scattering processes lead either to heating or to losses of atoms from the trap and may be charac-\nterized by the scattering rate, that is related to the number of photons scattered by an atom in unit time\nand is deﬁned by Γ𝑠𝑐( ⃗𝑟) = ⟨𝑃𝑎𝑏𝑠( ⃗𝑟)⟩\nℏ𝜔\n. Here, ⟨𝑃𝑎𝑏𝑠( ⃗𝑟)⟩is the time-averaged power absorbed from the laser\nﬁeld, and ħ𝜔is the photon energy (ħ = ℎ/2𝜋) .\n3.1\nFind the scattering rate Γ𝑠𝑐( ⃗𝑟) in term of 𝛼, 𝜑, 𝜀0, 𝑐, 𝐼( ⃗𝑟), ħ and 𝜔.\n1.0pt\n4 (2.0 points)\nBoth quantities 𝑈𝑑𝑖𝑝and Γ𝑠𝑐( ⃗𝑟) depend on the polarizability 𝛼. In order to calculate the polarizability 𝛼, we\nwill adopt the one dimensional oscillator model under the presence of an electric ﬁeld\n⃗𝐸(𝑡) = ̂𝑢𝐸0 cos 𝜔𝑡.\nLet 𝑂𝑥the axis parallel to the unit vector\n̂𝑢. In this model motion of the electron is determined by three\nforces:\ni) The restoring force −𝑚𝑒𝜔2\n0𝑥⋅\n̂𝑢that describes the free oscillation with the natural frequency 𝜔0 corre-\nsponding to the atomic optical transition frequency. We use x to denote the displacement of the negative\ncharge center from the positive one, which is assumed to be at rest.\nii) The driving force of the laser ﬁeld −𝑒𝐸0𝑐𝑜𝑠𝜔𝑡. ̂𝑢\n\nTheory\nQ1-3\nEnglish (Oﬃcial)\niii) The damping force −𝑚𝑒𝛾𝜔̇𝑥. ̂𝑢that originates from the radiation of the accelerating charge, and is\ncharacterized by the frequency-dependent damping rate 𝛾𝜔.\nTherefore, the equation of motion of the electron is given as\n̈𝑥+ 𝛾𝜔̇𝑥+ 𝜔2\n0𝑥= −𝑒𝐸0 cos 𝜔𝑡\n𝑚𝑒\n. The solution to\nthis equation is 𝑥= 𝑥0 cos(𝜔𝑡+ 𝜑). Here 𝑥0 and 𝜑are to be determined.\n4.1\nFind the polarizability 𝛼in term of 𝛾𝜔, 𝑒, 𝑚𝑒, 𝜔0, and 𝜔.\n2.0pt\n5 (1.0 point)\nIn fact the energy damping rate 𝛾𝜔is independent of the electron orbits. Therefore we will adopt another\nsimple model where the electron cloud center performs a circular motion in the absence of the laser ﬁeld\nbut with the frequency 𝜔and speed 𝑣. Being accelerated, the electron radiates an electromagnectic wave\nwith power given by the Larmor formula 𝑃𝐿=\n1\n6𝜋𝜀0\n𝑒2𝑎2\n𝑐3\nwith 𝑎denoting acceleration. The damping force\nis supposed to be related to the damping rate 𝛾𝜔as 𝐹𝑑= −𝑚𝑒𝛾𝜔𝑣. We also assume that the total energy\nof the electron is large compared with the energy loss per cycle.\n5.1\nFind the energy damping rate 𝛾𝜔in term of 𝑒, 𝜖0, 𝑐, 𝑚𝑒, and 𝜔.\n1.0pt\n6 (0.5 point)\nWhen the driving frequency 𝜔is close to the natural frequency 𝜔0, then the polarizability gets larger,\nleading to a larger value of the dipole potential as well as an increased scattering rate. Therefore, by\nconsidering the ratio 𝑈𝑑𝑖𝑝( ⃗𝑟)/ħΓ𝑠𝑐( ⃗𝑟), one can ﬁnd an appropriate laser frequency to reduce the scatter-\ning rate while maintaining a reasonably deep trapping potential.\n6.1\nIntroducing the damping rate at 𝜔= 𝜔0, as 𝛾≡𝛾𝜔0, ﬁnd the ratio 𝑈𝑑𝑖𝑝( ⃗𝑟)/ħΓ𝑠𝑐( ⃗𝑟)\nin terms of 𝜔, 𝜔0, and 𝛾.\n0.5pt\n7 (1.5 points)\nFrom the above result we can see that it is possible to simultaneously achieve a deep trapping potential\nand low heating rates by choosing the laser frequency 𝜔not to be too close to the atomic optical transition\n𝜔0, as well as high laser intensity. Because the scattering rate Γ𝑠𝑐( ⃗𝑟) is positive, and from the above\nobtained ratio 𝑈𝑑𝑖𝑝( ⃗𝑟)/ħΓ𝑠𝑐( ⃗𝑟), if 𝜔< 𝜔0 then the dipole potential is negative and the atoms are captured\nin a focused region of laser beam with maximum intensity. Once atoms are captured in the trap, by\nreducing the trapping well depth to remove high energy atoms, one may cool the conﬁned atom gas to\nultracold temperatures, enabling formation of BEC. A breakthrough progress in BEC physics had been\nachieved with sodium atoms 23Na in the late nineties (D. M. Stamper-Kurn et al., Phys.Rev.Lett. 80, 2027\n(1998)).\nThe physics of BEC can be understood as follows. In nature, there are two kinds of particles: bosons\nwith integer spin and fermions with half integer spin. Two identical fermions cannot exist in the same\nquantum state. In contrast, multiple bosons are not forbidden to occupy one quantum state: at ultralow\ntemperatures a large fraction of bosons can condensate into the state with lowest possible energy and\nform a condensate cloud (condensate bosons), while the rest bosons are in the excited state with higher\nenergy (noncondensate or thermal bosons). Let us analyse a practical example of a dilute gas of sodium\natoms, which are bosons, conﬁned in the optical trap created by a Gaussian laser beam (Fig 2a). The\nlaser beam has the wavelength 𝜆corresponding to the frequency 𝜔(with 𝜔< 𝜔0). The beam propagates\nalong the z-axis with the intensity proﬁle 𝐼(𝜌, 𝑧) =\n2𝑃\n𝜋𝐷(𝑧)2 exp(−2𝜌2\n𝐷(𝑧)2 ), where 𝜌= √𝑥2 + 𝑦2 and the waist\n\nTheory\nQ1-4\nEnglish (Oﬃcial)\nsize is 𝐷(𝑧) = 𝐷0√1 + 𝑧2/𝑧2\n𝑅with 𝑧𝑅= 𝜋𝐷2\n0/𝜆denoting the Rayleigh length. The total laser power P\nand the beam waist parameter 𝐷0 determine the parameters of the optical trapping potential, one of\nwhich is the potential depth 𝑈𝑑𝑒𝑝𝑡ℎ. The later is deﬁned by the absolute value of the local minimum of\nthe potential energy, taking as a reference the potential energy energy to be zero at inﬁnity (Fig 2b).\nFigure 2. (a) Gaussian beam. The envelope represents the beam waist 𝐷(𝑧) at the plane\n𝑧= 𝑐𝑜𝑛𝑠𝑡. (Adopted from wikipedia); (b) Illustration of optical trap along x-axis created by\na Gaussian beam with 𝜔< 𝜔0. The dashed line corresponds to a harmonic approximation\nnear the trap bottom.\n7.1\nFind the expression for the dipole potential depth 𝑈𝑑𝑒𝑝𝑡ℎin terms of 𝑐, 𝜔, 𝜔0, 𝛾, 𝑃,\nand 𝐷0.\n0.5pt\n7.2\nGiven laser power 𝑃= 4 mW, laser wavelength 𝜆= 985 nm, 𝐷0 = 6𝜇m, and nat-\nural wave length for sodium 𝜆0 = 589 nm, evaluate the potential depth 𝑈𝑑𝑒𝑝𝑡ℎ.\nExpress your answer as an equivalent temperature 𝑇0, at which thermal energy\nof the non-trapped atom is equal to the trap depth.\n1.0pt\n8 (0.5 point)\nWhen the cloud temperature 𝑇is much smaller than equivalent temperature 𝑇0, the optical potential can\nbe well approximated by a cylindrically symmetric harmonic potential 𝑈𝑑𝑖𝑝(𝜌, 𝑧) = −𝑈𝑑𝑒𝑝𝑡ℎ+ 1\n2𝑚Ω2\n𝜌𝜌2 +\n1\n2𝑚Ω2\n𝑧𝑧2, where m is the mass of a sodium atom and Ω𝜌, Ω𝑧are oscillation frequencies in the correspond-\ning directions.\n8.1\nFind the expression for Ω𝜌, Ω𝑧in terms of 𝑇0, 𝑚, 𝐷0, 𝑧𝑅and 𝑘𝐵. Here 𝑘𝐵is the\nBoltzmann constant.\n0.5pt\nRecall that at ultralow temperatures, the sodium atom cloud consists of condensate atoms and thermal\natoms. Condensate bosons behave according to the uncertainty principle that can be used for estimating\nthe spatial size or the momentum distribution of the cloud. On the other hand, thermal bosons are\ndescribed by classical physics, in particular, they obey the Maxwell-Boltzmann distribution law.\nWe estimate the size of the condensate cloud, that is, the mean distance of the condensate sodium\n\nTheory\nQ1-5\nEnglish (Oﬃcial)\natoms from the trap center. Moving inside this cloud, each condensate atom has potential energy as\nwell as kinetic energy. The potential energy is a monotonically increasing function of the cloud size,\nand the particle tries to reduce it to reach the lowest energy level. On the other hand, as the cloud size\ndecreases, the uncertainty principle requires an increase in the particle momentum, that results in an\nincrease of kinetic energy. The particle therefore ﬁnds an optimal cloud size to balance the two opposite\ntendencies of the two different energy contributions.\n9 (1.0 point)\nFor simplicity, let us consider the simplest case of one dimensional trap potential 𝑈(𝑧) = 𝑐𝑜𝑛𝑠𝑡+ 1\n2𝑚Ω2\n𝑧𝑧2.\n9.1\nEstimate the size 𝑧0 of the condensate fraction in terms of 𝑚, ħ, Ω𝑧.\n0.5pt\n9.2\nFind the expression for 𝐸𝑚𝑖𝑛- the lowest energy level, in terms of ħ, Ω𝑧.\n0.25pt\n9.3\nFind the average particle velocity 𝜈0 in terms of 𝑚, ħ, Ω𝑧.\n0.25pt\nIn what follows we will ﬁgure out how to differentiate the condensate cloud from the thermal one by\nswitching off the conﬁning trap. It is neccesary to capture the image of the cloud density proﬁle.\nThe thermal gas will show an isotropic Maxwell velocity distribution even if the trap is anisotropic. In\ncontrast, the velocity distribution of a BEC is anisotropic. More precisely, the BEC expands faster along\nthe axis of strong conﬁnement than along the axis of weak conﬁnement. The expansion predominantly\noccurs in the radial direction, and the initially cigar-shaped condensate becomes pancake-shaped. There-\nfore the density proﬁle after a long time of ﬂight will be anisotropic and inverted with respect to the shape\nof the cloud in the trap.\nFigure 3. Cloud shape. [1] Before switching off the trap; [2] A very long time after switching\noff the trap.\n10 (2.0 points)\nNow we extend the previous results to the three-dimensional potential which is the case of the optical\ntrap in a Gaussian laser beam.\n\nTheory\nQ1-6\nEnglish (Oﬃcial)\n10.1\nFind the aspect ratio 𝑧0\n𝜌0 in terms of Ω𝜌, Ω𝑧, where 𝑧0 and 𝜌0 are the initial sizes\nof the condensate cloud.\n0.5pt\n10.2\nWhen the trap is turned off, the condensate will be expanding in different direc-\ntions with different initial velocities 𝑣𝜌and 𝑣𝑧. Determine the ratio 𝑣𝜌\n𝑣𝑧in terms\nof Ω𝜌, Ω𝑧.\n0.5pt\n10.3\nAssuming that the velocities of the cloud expansion remain unchanged during\nthe expansion, ﬁnd aspect ratio of the condensate cloud after a long period of\ntime 𝑧𝐿\n𝜌𝐿when the cloud size is much greater than its initial size, that is 𝑧𝐿≫𝑧0\nand 𝜌𝐿≫𝜌0.\n0.5pt\n10.4\nSame as question 10.3., ﬁnd the aspect ratio of the thermal cloud after a long\nperiod of time 𝑧𝑇,𝐿\n𝜌𝑇,𝐿when the cloud size is much greater than its initial size, that\nis 𝑧𝑇,𝐿≫𝑧0 and 𝜌𝑇,𝐿≫𝜌0.\n0.5pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2018-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Page 1 \nTheory Q1 \nOptical trap of neutral atoms (12 points), \nSolution and Marking Scheme \n \n1.1 \n0.75pt At the instance when the seperation between charge centers is ,x  the external field E\n\n exerts \non them opposite forces \n.\nF\neE\n\n\n\n  \nAfter a time interval \n,\ndt  the seperation is changed to \n,\n\n\n\nx\ndx  work done by the external field \non the charges is thus dW\nFdx\nF\nedx E\ndp E\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \nThe power received by the atomic dipole  \nabs\ndW\ndp\nP\nE\np E\ndt\ndt\n\n\n\n\n\n\n\n\n\n \n \n0.15 \n \n \n0.3 \n \n \n0.3 \n1.2 \n0.75pt \nTotal work can be obtained by integration \n0\n0\n2\n0\n0\n0\n0\n0\n1\n1\n2\n2\nE\nE\nW\ndp E\ndE E\nE\np E\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \nPotential energy of the dipole is \n0\n0\n1\n2\ndip\nU\nW\np E\n\n\n\n\n \nIf the sign of Udip is incorrect or the factor 1/2 is missing, students get 0pt. \n0. 5 \n \n \n \n \n0.25 \n \n2.1 \n1.0pt \nThe time average of any time dependent function is denoted by\n\n\n2 /\n0\n2\n\n\nf t\nf t dt\n\n\n\n \n\n\n\n2\n0\n1\ncos .\n4\ndip\nU\nr\nE\nr\n\n\n\n\n                                                                                 (1) \n\n\n\n0\ncos .\n2\ndip\nI r\nU\nr\nc\n\n\n\n\n\n\n  \n \n \n \n \n \n \n \n(2) \nIf student gets directly to eq. (2) – full mark (1.0pt) \nIf the answer is still correct but expressed in any quantity other than those requested – 0.5 pt. \n \n \n \n0.5 \n \n \n0.5 \n \n3.1 \n1.0pt \nThe power absorbed by the oscillator from the driving field (and re-emitted as dipole \nradiation) is given by \n\n\n\n2\n0\nsin .\n2\nabs\nP\nr\npE\nE\nr\n\n\n\n\n\n\n \n \n\n\n\n0\nsin .\nabs\nP\nr\nI r\nc\n\n\n\n\n                                                         \n \n             (3) \nThe corresponding scattering rate is \n\n\n\n0\nsin\n.\nabs\nsc\nP\nr\nI r\nc\n\n\n\n\n\n\n\n\n\n\n\n   \n        \n(4) \n \n \n \n0.5 \n \n \n0.25 \n \n0.25 \n \n4.1 \n2.0pt \nIn one dimensional Lorentz’s model, we replace \n\n\n\n\n,\n,\nE r t\nE x t\n\n\n. One can find the solution \nof the form \n\n\n0 cos\n\n\nx\nx\nt\n\n thus from the equation of motion, \n\n\n\n\n\n\n2\n0\n0\n2\n2\n0\n0\n0\n0\ncos\n/\ncos\nsin\ncos\n/\ne\ne\nx\nx\nx\neE\nt m\nx\nt\nx\nt\neE\nt m\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n \n \n \n \n \n0.25 \n \n \n \n\nPage 2 \n\n\n\n\n\n\n2\n2\n2\n2\n0\n0\n0\n0\ncos\nsin\ncos\nsin\ncos\nsin\ncos\n/\ne\nx\nt\nt\neE\nt m\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \nComparing coefficients before cos t\n andsin\nt\n on both sides, one has \n\n\n\n\n2\n2\n0\n0\n0\n2\n2\n0\ncos\nsin\nsin\ncos\n0\ne\neE\nm x\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n\n0\n0\n2\n2\n2\n2\n2\n0\n/\n;\ne\neE\nm\nx\n\n\n\n\n\n\n\n \n\n\n2\n2\n2\n2\n2\n0\nsin\n\n\n\n\n\n\n\n\n\n\n                                                                                                                        (4)   \n\n\n2\n2\n0\n2\n2\n2\n2\n2\n0\n(\n)\ncos\n\n\n\n\n\n\n\n\n\n\n\n                                                                                               \n(5) \n0\n0\ncos(\n)\ncos(\n)\np\nex\nex\nt\nE\nt\n\n\n\n\n\n\n\n\n\n\n                                                                       (6)\n \n\n\n\n2\n2\n2\n2\n2\n2\n0\ne\ne\nm\n\n\n\n\n\n\n\n\n \n \n \n \n \n \n \n            (7) \nNote: students can obtain  via any of sin, cos, tan functions: full mark (0.25 pt) \n0.25 \n \n \n \n \n \n0.5 \n \n \n \n \n0.25 \n \n \n \n \n \n0.25 \n \n \n \n \n0.25 \n \n \n0.25 \n \n \n5.1 \n1.0pt \nThe power radiated due to the damping force, thus \n2\n2\n3\n0\n2\n2\n2\n2\n3\n0\n1\n.\n6\n1\n(\n)\n(\n)\n,\n6\ne\ne\ne a\nm\nv v\nc\ne\nr\nm\nr\nc\n\n\n\n\n\n\n\n\n\n\n\n\n  \n2\n2\n3\n0\n1\n6\n\ne\ne\nm c\n\n\n\n\n. \n \n \n \n \n \n \n \n \n             (8) \n \n \n0.25 \n \n0.25 \n \n \n0.5 \n \n6.1 \n0.5pt Substituting \n2\n3\n2\n0\n6\n/\n\ne\ne\nc\nm\n\n\n\n the on-resonance damping rate \n\n\n0\n2\n0 /\n.\n\n\n\n\n\n\n\n\n\n \nUsing Eq. (1), (4), (5) and (6) one has \n\n\n\n\n\n\n2\n2\n0\n0\n3\n2\n0\n0\n1\ncos\n2\n1\n1\n1\nsin\n2 tan\n2\n/\ndip\nsc\nU\nr\nc\nr\nc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n,    \n \n \n \n \n \n \n \n0.5 \n \n7.1 \n0.5pt \nFrom (1), (5) and (6) one has \n \n \n\nPage 3 \n\n\n\n\n\n\n\n\n\n2\n2\n2\n0\n0\n2\n0\n2\n2\n6\n2\n2\n2\n2\n0\n0\n0\n0\n0\n4\n0\n/\ncos\n0,0\ncos\n2\n6\n2\n2\ndepth\nI\nP\nP\nU\nU\nc\nc\nc\nD\nD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n \n0.5 \n7.2 \n1.0pt \nTrap depth when \n4\n,\n\nP\nmW  laser wavelength \n985\n,\n\nnm\n\n and \n0\n6\n.\nD\nm\n\n\n For sodium \n0\n589\n\nnm\n\n. \nOne has: \n0\n0\n2\n2\n;\n\n\nc\nc\n\n\n\n\n\n\n; \nAnd \n2\n2\n2\n7\n1\n0\n3\n2\n0\n0\n0\n1\n2\n6.4 10\n6\n3\n\n\n\n\n\ne\ne\ne\ne\ns\nm c\nm c\n\n\n\n\n\n\n \n0\ndepth\nB\nU\nf k T\n\n             (factors f = 3/2, 1/2,1 are all accepted)\n \n0\n.\n4.13\nf T\nK\n\n\n\n \n \n \n \n \n \n \n \n \n0.5 \n \n \n0.25 \n \n0.25 \n \n8.1 \n0.5pt Using linear expansion, we have \n0\n2\n0\n4\nB\nk fT\nmD\n\n\n  \nand \n0\n2\n2\nB\nz\nR\nk fT\nmz\n\n \n0.25 \n \n \n \n0.25 \n \n9.1 \n0.5pt \nMean potential enery \n2\n2\n0\n0\n1\n(\n)\n.\n2\nz\nU z\nconst\nm\nz\n\n\n\n \nTo estimate the particle momentum, we assume \n0\n~\n,\n~\n.\np\np\nz\nz\n\n\n  \nThe uncertainty principle is written now \n0\n.\n\n\np\nz\n \nKinetic energy \n2\n2\n2\n0\n.\n2\n2\np\nK\nm\nmz\n\n\n\n \nTotal energy of the particle \n2\n2\n2\n0\n2\n0\n1\n2\n2\nz\nE\nm\nz\nconst\nmz\n\n\n\n\n\n \nMinimal energy corresponds to the energy balance \n2\n2\n2\n0\n2\n0\n1\n2\n2\nz\nm\nz\nmz\n\n\n\n \n0\n.\nz\nz\nm\n\n\n\n\n \nIf the student followed a correct analysis any obtained correct answer upto some \nmultiplication factor: full mark  \nIf the student obtained correct answer using dimensional analysis: only 0.1 pt is granted \n \n \n0.2 \n \n0.1 \n \n \n \n \n0.1 \n \n \n0.1 \n \n \n \n \n9.2 \n0.25pt Insert the expression of the cloud size \n0\nz\nz\nm\n\n\n\nto the energy expression \n2\n2\n2\nmin\n0\n2\n0\n1\n2\n2\nz\nE\nm\nz\nconst\nmz\n\n\n\n\n\n one obtains \nmin\n.\nz\nE\nconst\n\n\n \nIf the student obtained the  answer\nz\nmin\nE\n2\n\n\n  by using \nn\nz\n1\nE\nn\n2\n\n\n\n\n\n\n\n\n\n :  full mark \n \n \n \n0.25 \n9.3 \nFrom the uncertainty principle, the particle velocity therefore is estimated to be \n0.25 \n\nPage 4 \n0.25pt \n0\n.\nz\nz\nz\nz\nmv\nm\nv\nz\nm\n\n\n\n\n\n\n\n\n \nAlternative estimation is constructed from kinetic energy: \n2\n1\n1\n2\n2\nz\nz\nz\nz\nmv\nK\nv\nm\n\n\n\n\n\n\n\n \n \n10.1 \n0.5pt \nFor the three dimendional trap, one has: \n0\n.\n\n\n\nz\nz\nm\n \nSimilarly for ,x y coordinates \n0\n0\n\n\n\n\nx\ny\nm\n\n and thus\n2\n2\n0\n0\n0\n2\n.\n\n\n\n\n\nx\ny\nm\n\n\n \nThe condensate aspect ratio: \n0\n0\n.\n2\n\n\nz\nz\n\n\n \nStudent may use either \n0\n0\n,\nx y  or \n0\n in estimating the radial size of the cloud. Correct \nanswers upto multiplication factor: full mark \n0.2 \n \n \n0.2 \n \n \n \n0.1 \n \n10.2 \n0.5pt \nz\nzv\nm\n\n\n\n, \nx\ny\nv\nv\nm\n\n\n\n\n\n, \n2\n2\n2\n~\n,\nx\ny\nv\nv\nv\nm\n\n\n\n\n\n\n\n  \n2\n~\n.\nz\nz\nv\nv\n\n\n\n\n \nStudent may use either \n,\nx\ny\nv v  or v in estimating expansion velocity in the radial direction. \nCorrect answers upto some multiplication factor: full mark \n \n \n \n0.25 \n \n \n0.25 \n10.3 \n0.5pt \nAfter the time ,t  the sizes of the condensate cloud are:\n \n0\n\n\n\nL\nz\nz\nz\nz\nv t\nv t  \n0\n\n\n\nL\nv t\nv t\n\n\n\n\n. \nThe cloud aspect ratio after the time ,t  \n~\n1.\n2\nL\nz\nz\nL\nz\nv\nv\n\n\n\n\n\n\n \nCorrect final answers upto some multiplication factor: full mark \n0. \n25 \n \n \n0.25 \n10.4 \n0.5pt \nDue to isotropic nature of thermal cloud, described by the Maxwell distribution: \n,\n,\n,\n,\n1.\nT\nT z\nT\nT z\nv\nv\nv\nv\n\n\n\n\n\n \none can easily find \n,\n0\nT L\nz\nz\nz\nz\nv t\nv t\n\n\n\n, \n,\n0\nT L\nv t\nv t\n\n\n\n\n\n\n\n. \nAfter a very long time, the aspect ratio of the thermal cloud therefore: \n,\n,\n:\n~ 1\nT L\nT L\nz\n\n \nNote: students use different velocities (arithmetrical, rms, projection….etc.) to \nestimate the expansion of the cloud, as long as they give the correct ratio \n:\n~ 1,\nL\nTz\n\n full \nmark of this sub question is granted. In this question, the correct multiplication factor is \nrequested. For incorrect multiplication factor: zero mark\n \n \n0.2 \n \n0.2 \n \n0.1 \n \n","textExtraction":"available"}}
+{
+  "id": "apho-2018-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2018_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2018_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2018-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Optical trap of neutral atoms"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Model a neutral sodium atom as a massive +e core and a −e electron cloud. In a static field E0 uhat its induced moment is p0=αE0 uhat. In a laser field E(r,t)=E0(r)cos(ωt)uhat, write the moment as p=α(ω)E0(r)cos[ωt+φ(ω)]uhat. Use the positive-amplitude convention α≥0 and phase −π≤φ≤0, so a passive response lags the field. This is equivalent to the source's signed-amplitude convention. Intensity is I=ε0cE0²/2. The electron equation is \\(\\ddot x+\\gamma_\\omega\\dot x+\\omega_0^2x=-eE_0\\cos\\omega t/m_e\\), and p=−ex. Larmor power is \\(P_L=e^2a^2/(6\\pi\\epsilon_0c^3)\\). Use e=1.602×10^−19 C, me=9.109×10^−31 kg, ε0=8.854×10^−12 F/m, c=2.998×10^8 m/s, kB=1.381×10^−23 J/K and ħ=1.055×10^−34 J s."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch7-electron-cloud.png",
+        "alt": "Original coincident positive core and negative cloud centres and their separation in an electric field."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1. Power absorbed by induced dipole"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Increase a uniform field very slowly from zero. Find instantaneous absorbed power in E and pdot."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2. Static induced potential"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find total work in raising the field from zero to E0 and the induced potential energy."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.1. Mean optical potential"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the time-averaged induced potential in α,φ,ε0,c,I."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.1. Photon scattering rate"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The scattering rate is mean absorbed power divided by ħω. Find it."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.1. Oscillator polarizability"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Solve the driven oscillator for α and the phase relations in the stated positive-amplitude convention."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "5.1. Radiative damping"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An electron moves in a circular orbit of angular frequency ω and speed v. Equate Larmor radiation to the work of damping force −me γω v and find γω."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.1. Trap-to-scattering ratio"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Define γ=γω0. Find Udip/(ħΓsc) in terms of ω,ω0,γ."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "7.1. Gaussian trap depth"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch7-gaussian-trap.png",
+        "alt": "Original Gaussian laser beam envelope with waist D0 and Rayleigh length zR beside the trapping potential and its harmonic approximation."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For ω<ω0 a Gaussian beam has \\(I(\\rho,z)=2P\\exp[-2\\rho^2/D(z)^2]/[\\pi D(z)^2]\\), \\(D(z)=D_0\\sqrt{1+z^2/z_R^2}\\), \\(z_R=\\pi D_0^2/\\lambda\\). Find the positive trap depth in c,ω,ω0,γ,P,D0."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "7.2. Equivalent trap temperature"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use P=4 mW, λ=985 nm, D0=6 μm, sodium λ0=589 nm. Evaluate depth as temperature using the explicit convention Udepth=kBT0."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "8.1. Trap frequencies"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Expand the Gaussian potential near its bottom as \\(-U_{depth}+m\\Omega_\\rho^2\\rho^2/2+m\\Omega_z^2z^2/2\\). Find both frequencies using Udepth=kBT0."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "9.1. Condensate size estimate"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For U(z)=Umin+mΩz²z²/2 estimate size z0 by balancing potential energy against uncertainty kinetic energy. State your width convention."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "9.2. Lowest energy estimate"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the lowest energy scale and distinguish the uncertainty estimate from the exact oscillator ground-state value."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "9.3. Characteristic velocity"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Estimate a characteristic condensate speed along z."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "10.1. Initial condensate aspect ratio"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch7-cloud-inversion.png",
+        "alt": "Original initial elongated trapped condensate and flattened condensate after a long free expansion."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Extend the oscillator estimate to 3D and find radial-to-axial size ratio. State whether radial width denotes one transverse axis or √〈x²+y²〉."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "10.2. Condensate expansion velocity ratio"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the radial-to-axial characteristic expansion-speed ratio using the same convention as 10.1."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "10.3. Late condensate aspect ratio"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Assume free expansion with constant characteristic velocities and final dimensions much larger than their initial values. Find the late aspect ratio."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "10.4. Late thermal-cloud shape"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the late thermal-cloud aspect ratio and compare with the condensate."
+          }
+        ]
+      }
+    ],
+    "text": "Optical trap of neutral atoms\nModel a neutral sodium atom as a massive +e core and a −e electron cloud. In a static field E0 uhat its induced moment is p0=αE0 uhat. In a laser field E(r,t)=E0(r)cos(ωt)uhat, write the moment as p=α(ω)E0(r)cos[ωt+φ(ω)]uhat. Use the positive-amplitude convention α≥0 and phase −π≤φ≤0, so a passive response lags the field. This is equivalent to the source's signed-amplitude convention. Intensity is I=ε0cE0²/2. The electron equation is \\(\\ddot x+\\gamma_\\omega\\dot x+\\omega_0^2x=-eE_0\\cos\\omega t/m_e\\), and p=−ex. Larmor power is \\(P_L=e^2a^2/(6\\pi\\epsilon_0c^3)\\). Use e=1.602×10^−19 C, me=9.109×10^−31 kg, ε0=8.854×10^−12 F/m, c=2.998×10^8 m/s, kB=1.381×10^−23 J/K and ħ=1.055×10^−34 J s.\n\n1.1. Power absorbed by induced dipole\nIncrease a uniform field very slowly from zero. Find instantaneous absorbed power in E and pdot.\n1.2. Static induced potential\nFind total work in raising the field from zero to E0 and the induced potential energy.\n2.1. Mean optical potential\nFind the time-averaged induced potential in α,φ,ε0,c,I.\n3.1. Photon scattering rate\nThe scattering rate is mean absorbed power divided by ħω. Find it.\n4.1. Oscillator polarizability\nSolve the driven oscillator for α and the phase relations in the stated positive-amplitude convention.\n5.1. Radiative damping\nAn electron moves in a circular orbit of angular frequency ω and speed v. Equate Larmor radiation to the work of damping force −me γω v and find γω.\n6.1. Trap-to-scattering ratio\nDefine γ=γω0. Find Udip/(ħΓsc) in terms of ω,ω0,γ.\n7.1. Gaussian trap depth\n\nFor ω<ω0 a Gaussian beam has \\(I(\\rho,z)=2P\\exp[-2\\rho^2/D(z)^2]/[\\pi D(z)^2]\\), \\(D(z)=D_0\\sqrt{1+z^2/z_R^2}\\), \\(z_R=\\pi D_0^2/\\lambda\\). Find the positive trap depth in c,ω,ω0,γ,P,D0.\n7.2. Equivalent trap temperature\nUse P=4 mW, λ=985 nm, D0=6 μm, sodium λ0=589 nm. Evaluate depth as temperature using the explicit convention Udepth=kBT0.\n8.1. Trap frequencies\nExpand the Gaussian potential near its bottom as \\(-U_{depth}+m\\Omega_\\rho^2\\rho^2/2+m\\Omega_z^2z^2/2\\). Find both frequencies using Udepth=kBT0.\n9.1. Condensate size estimate\nFor U(z)=Umin+mΩz²z²/2 estimate size z0 by balancing potential energy against uncertainty kinetic energy. State your width convention.\n9.2. Lowest energy estimate\nFind the lowest energy scale and distinguish the uncertainty estimate from the exact oscillator ground-state value.\n9.3. Characteristic velocity\nEstimate a characteristic condensate speed along z.\n10.1. Initial condensate aspect ratio\n\nExtend the oscillator estimate to 3D and find radial-to-axial size ratio. State whether radial width denotes one transverse axis or √〈x²+y²〉.\n10.2. Condensate expansion velocity ratio\nFind the radial-to-axial characteristic expansion-speed ratio using the same convention as 10.1.\n10.3. Late condensate aspect ratio\nAssume free expansion with constant characteristic velocities and final dimensions much larger than their initial values. Find the late aspect ratio.\n10.4. Late thermal-cloud shape\nFind the late thermal-cloud aspect ratio and compare with the condensate.",
+    "figures": [
+      "/corpus/figures/native/batch7-electron-cloud.png",
+      "/corpus/figures/native/batch7-gaussian-trap.png",
+      "/corpus/figures/native/batch7-cloud-inversion.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2018-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Optical trap of neutral atoms"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1. Power absorbed by induced dipole"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The two charge forces do total work \\(dW=\\mathbf E\\cdot d\\mathbf p\\), giving \\(P_{abs}=\\mathbf E\\cdot\\dot{\\mathbf p}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2. Static induced potential"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For p=αE, \\(W=\\int_0^{E_0}E\\alpha dE=\\alpha E_0^2/2=\\mathbf p_0\\cdot\\mathbf E_0/2\\). The induced mechanical trapping potential is \\(U_{ind}=-\\mathbf p_0\\cdot\\mathbf E_0/2\\). The factor one half accounts for inducing the dipole."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "2.1. Mean optical potential"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Average \\(-\\mathbf p\\cdot\\mathbf E/2\\): \\[U_{dip}=-\\alpha E_0^2\\cos\\phi/4=-\\frac{\\alpha I\\cos\\phi}{2\\epsilon_0c}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.1. Photon scattering rate"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(\\langle\\mathbf E\\cdot\\dot{\\mathbf p}\\rangle=-\\alpha\\omega E_0^2\\sin\\phi/2\\). Thus \\[\\Gamma_{sc}=-\\frac{\\alpha I\\sin\\phi}{\\hbar\\epsilon_0c}.\\] With the lag convention sinφ≤0, this is nonnegative."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.1. Oscillator polarizability"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Put \\(D=\\sqrt{(\\omega_0^2-\\omega^2)^2+\\gamma_\\omega^2\\omega^2}\\). Then \\[\\alpha=\\frac{e^2}{m_eD},\\quad\\cos\\phi=\\frac{\\omega_0^2-\\omega^2}{D},\\quad\\sin\\phi=-\\frac{\\gamma_\\omega\\omega}{D}.\\] The source instead permits a negative α and shifts φ by π. The observable products αcosφ and αsinφ agree."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "5.1. Radiative damping"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since a=ωv, \\(m_e\\gamma_\\omega v^2=e^2\\omega^2v^2/(6\\pi\\epsilon_0c^3)\\), giving \\(\\gamma_\\omega=e^2\\omega^2/(6\\pi\\epsilon_0m_ec^3)\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.1. Trap-to-scattering ratio"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The ratio is \\(\\tfrac12\\cot\\phi=-(\\omega_0^2-\\omega^2)/(2\\gamma_\\omega\\omega)\\). With \\(\\gamma_\\omega=\\gamma(\\omega/\\omega_0)^2\\), \\[\\frac{U_{dip}}{\\hbar\\Gamma_{sc}}=-\\frac{\\omega_0^2(\\omega_0^2-\\omega^2)}{2\\gamma\\omega^3}.\\] It is negative for red detuning ω<ω0."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "7.1. Gaussian trap depth"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The deepest point is ρ=z=0. Replace e²/(ε0me) by 6πc³γ/ω0² to obtain \\[U_{depth}=\\frac{6c^2\\gamma P(\\omega_0^2-\\omega^2)}{\\omega_0^2D_0^2[(\\omega_0^2-\\omega^2)^2+\\gamma^2\\omega^6/\\omega_0^4]}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "7.2. Equivalent trap temperature"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(\\omega=2\\pi c/\\lambda\\), \\(\\omega_0=2\\pi c/\\lambda_0\\), γ≈6.4×10^7 s^−1. These give Udepth/kB≈4.13 μK. The source also accepts thermal-energy conventions f kBT0, with f=1/2 or 3/2, but this field fixes f=1."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "8.1. Trap frequencies"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Expansion gives \\(U=-U_{depth}+2U_{depth}\\rho^2/D_0^2+U_{depth}z^2/z_R^2\\). Thus \\(\\Omega_\\rho=\\sqrt{4k_BT_0/(mD_0^2)}\\), \\(\\Omega_z=\\sqrt{2k_BT_0/(mz_R^2)}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "9.1. Condensate size estimate"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using the source's estimate pz0≈ħ gives \\(E-U_{min}\\sim m\\Omega_z^2z_0^2/2+\\hbar^2/(2mz_0^2)\\), minimized at \\(z_0\\sim\\sqrt{\\hbar/(m\\Omega_z)}\\). If z0 means exact rms width, use Δz=√[ħ/(2mΩz)]. Numerical width factors depend on this choice."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "9.2. Lowest energy estimate"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The source's pz0≈ħ estimate yields \\(E_{min}-U_{min}\\sim\\hbar\\Omega_z\\). The exact quantum harmonic oscillator gives \\(E_{min}-U_{min}=\\hbar\\Omega_z/2\\). Both convey the requested scale and the source accepts the exact result."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "9.3. Characteristic velocity"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The uncertainty estimate gives \\(v_z\\sim\\hbar/(mz_0)\\sim\\sqrt{\\hbar\\Omega_z/m}\\). This is a typical or rms scale, not signed mean velocity, which vanishes. The exact rms speed is √[ħΩz/(2m)]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "10.1. Initial condensate aspect ratio"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For per-axis widths, \\(x_0/z_0=\\sqrt{\\Omega_z/\\Omega_\\rho}\\). If \\(\\rho_0=\\sqrt{x_0^2+y_0^2}\\), then \\(\\rho_0/z_0=\\sqrt{2\\Omega_z/\\Omega_\\rho}\\). The initially tighter radial confinement makes a cigar-shaped cloud. The source accepts either explicit width convention."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "10.2. Condensate expansion velocity ratio"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For one transverse component, \\(v_x/v_z=\\sqrt{\\Omega_\\rho/\\Omega_z}\\). For combined radial rms speed, \\(v_\\rho/v_z=\\sqrt{2\\Omega_\\rho/\\Omega_z}\\). Confinement and velocity width vary oppositely."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "10.3. Late condensate aspect ratio"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The late width ratio is the velocity ratio. Per-axis \\(x_L/z_L\\to\\sqrt{\\Omega_\\rho/\\Omega_z}\\), or combined radial \\(\\rho_L/z_L\\to\\sqrt{2\\Omega_\\rho/\\Omega_z}\\). The condensate expands faster in the initially tightly confined direction, reversing the visible anisotropy."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "10.4. Late thermal-cloud shape"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Maxwell velocities have equal Cartesian rms components. Thus late per-axis widths satisfy xL/zL=1 and the cloud is spherical, unlike the condensate. A combined radial rms width √〈x²+y²〉 divided by axial rms width is √2 even for a sphere. This geometric convention must not be confused with visible anisotropy. The source's quoted ratio 1 refers to equal widths along individual directions."
+          }
+        ]
+      }
+    ],
+    "text": "Optical trap of neutral atoms\n1.1. Power absorbed by induced dipole\nThe two charge forces do total work \\(dW=\\mathbf E\\cdot d\\mathbf p\\), giving \\(P_{abs}=\\mathbf E\\cdot\\dot{\\mathbf p}\\).\n1.2. Static induced potential\nFor p=αE, \\(W=\\int_0^{E_0}E\\alpha dE=\\alpha E_0^2/2=\\mathbf p_0\\cdot\\mathbf E_0/2\\). The induced mechanical trapping potential is \\(U_{ind}=-\\mathbf p_0\\cdot\\mathbf E_0/2\\). The factor one half accounts for inducing the dipole.\n2.1. Mean optical potential\nAverage \\(-\\mathbf p\\cdot\\mathbf E/2\\): \\[U_{dip}=-\\alpha E_0^2\\cos\\phi/4=-\\frac{\\alpha I\\cos\\phi}{2\\epsilon_0c}.\\]\n3.1. Photon scattering rate\n\\(\\langle\\mathbf E\\cdot\\dot{\\mathbf p}\\rangle=-\\alpha\\omega E_0^2\\sin\\phi/2\\). Thus \\[\\Gamma_{sc}=-\\frac{\\alpha I\\sin\\phi}{\\hbar\\epsilon_0c}.\\] With the lag convention sinφ≤0, this is nonnegative.\n4.1. Oscillator polarizability\nPut \\(D=\\sqrt{(\\omega_0^2-\\omega^2)^2+\\gamma_\\omega^2\\omega^2}\\). Then \\[\\alpha=\\frac{e^2}{m_eD},\\quad\\cos\\phi=\\frac{\\omega_0^2-\\omega^2}{D},\\quad\\sin\\phi=-\\frac{\\gamma_\\omega\\omega}{D}.\\] The source instead permits a negative α and shifts φ by π. The observable products αcosφ and αsinφ agree.\n5.1. Radiative damping\nSince a=ωv, \\(m_e\\gamma_\\omega v^2=e^2\\omega^2v^2/(6\\pi\\epsilon_0c^3)\\), giving \\(\\gamma_\\omega=e^2\\omega^2/(6\\pi\\epsilon_0m_ec^3)\\).\n6.1. Trap-to-scattering ratio\nThe ratio is \\(\\tfrac12\\cot\\phi=-(\\omega_0^2-\\omega^2)/(2\\gamma_\\omega\\omega)\\). With \\(\\gamma_\\omega=\\gamma(\\omega/\\omega_0)^2\\), \\[\\frac{U_{dip}}{\\hbar\\Gamma_{sc}}=-\\frac{\\omega_0^2(\\omega_0^2-\\omega^2)}{2\\gamma\\omega^3}.\\] It is negative for red detuning ω<ω0.\n7.1. Gaussian trap depth\nThe deepest point is ρ=z=0. Replace e²/(ε0me) by 6πc³γ/ω0² to obtain \\[U_{depth}=\\frac{6c^2\\gamma P(\\omega_0^2-\\omega^2)}{\\omega_0^2D_0^2[(\\omega_0^2-\\omega^2)^2+\\gamma^2\\omega^6/\\omega_0^4]}.\\]\n7.2. Equivalent trap temperature\n\\(\\omega=2\\pi c/\\lambda\\), \\(\\omega_0=2\\pi c/\\lambda_0\\), γ≈6.4×10^7 s^−1. These give Udepth/kB≈4.13 μK. The source also accepts thermal-energy conventions f kBT0, with f=1/2 or 3/2, but this field fixes f=1.\n8.1. Trap frequencies\nExpansion gives \\(U=-U_{depth}+2U_{depth}\\rho^2/D_0^2+U_{depth}z^2/z_R^2\\). Thus \\(\\Omega_\\rho=\\sqrt{4k_BT_0/(mD_0^2)}\\), \\(\\Omega_z=\\sqrt{2k_BT_0/(mz_R^2)}\\).\n9.1. Condensate size estimate\nUsing the source's estimate pz0≈ħ gives \\(E-U_{min}\\sim m\\Omega_z^2z_0^2/2+\\hbar^2/(2mz_0^2)\\), minimized at \\(z_0\\sim\\sqrt{\\hbar/(m\\Omega_z)}\\). If z0 means exact rms width, use Δz=√[ħ/(2mΩz)]. Numerical width factors depend on this choice.\n9.2. Lowest energy estimate\nThe source's pz0≈ħ estimate yields \\(E_{min}-U_{min}\\sim\\hbar\\Omega_z\\). The exact quantum harmonic oscillator gives \\(E_{min}-U_{min}=\\hbar\\Omega_z/2\\). Both convey the requested scale and the source accepts the exact result.\n9.3. Characteristic velocity\nThe uncertainty estimate gives \\(v_z\\sim\\hbar/(mz_0)\\sim\\sqrt{\\hbar\\Omega_z/m}\\). This is a typical or rms scale, not signed mean velocity, which vanishes. The exact rms speed is √[ħΩz/(2m)].\n10.1. Initial condensate aspect ratio\nFor per-axis widths, \\(x_0/z_0=\\sqrt{\\Omega_z/\\Omega_\\rho}\\). If \\(\\rho_0=\\sqrt{x_0^2+y_0^2}\\), then \\(\\rho_0/z_0=\\sqrt{2\\Omega_z/\\Omega_\\rho}\\). The initially tighter radial confinement makes a cigar-shaped cloud. The source accepts either explicit width convention.\n10.2. Condensate expansion velocity ratio\nFor one transverse component, \\(v_x/v_z=\\sqrt{\\Omega_\\rho/\\Omega_z}\\). For combined radial rms speed, \\(v_\\rho/v_z=\\sqrt{2\\Omega_\\rho/\\Omega_z}\\). Confinement and velocity width vary oppositely.\n10.3. Late condensate aspect ratio\nThe late width ratio is the velocity ratio. Per-axis \\(x_L/z_L\\to\\sqrt{\\Omega_\\rho/\\Omega_z}\\), or combined radial \\(\\rho_L/z_L\\to\\sqrt{2\\Omega_\\rho/\\Omega_z}\\). The condensate expands faster in the initially tightly confined direction, reversing the visible anisotropy.\n10.4. Late thermal-cloud shape\nMaxwell velocities have equal Cartesian rms components. Thus late per-axis widths satisfy xL/zL=1 and the cloud is spherical, unlike the condensate. A combined radial rms width √〈x²+y²〉 divided by axial rms width is √2 even for a sphere. This geometric convention must not be confused with visible anisotropy. The source's quoted ratio 1 refers to equal widths along individual directions.",
+    "figures": [],
+    "shared": false
+  }
+}

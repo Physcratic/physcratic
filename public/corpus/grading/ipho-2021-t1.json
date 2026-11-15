@@ -1,0 +1,257 @@
+{
+  "problemId": "ipho-2021-t1",
+  "version": "c4931722a15841e063ccf7847461ae0ac8bc6a13383caf52db2af40c2a789aab",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Oil force on a plate",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho_0",
+        "g",
+        "h",
+        "w",
+        "\\rho_o"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho_0",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "w",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_o",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "help": "Use rho_o for oil density. State the direction separately."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Thermal density law",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k_l"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "k_l",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter k. Compare the full density law and its expansion separately."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Asymptotic crust thickness",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "h",
+        "k",
+        "\\rho_0",
+        "\\rho_1"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_0",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 2
+        },
+        {
+          "symbol": "\\rho_1",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "help": "Use h, k, \\rho_0, \\rho_1. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "a.4",
+      "label": "Horizontal force on the crust",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "g",
+        "L",
+        "h",
+        "\\rho_1",
+        "\\rho_0",
+        "k"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use g, L, h, \\rho_1, \\rho_0, k. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "a.5",
+      "label": "Thermal relaxation time",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Returning seismic ray",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "z_0",
+        "\\theta_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\theta_0",
+          "assumptions": [],
+          "min": 0.2,
+          "max": 1.2
+        }
+      ],
+      "help": "Use z_0, \\theta_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Absorbed seismic energy density",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "E",
+        "z_0",
+        "x"
+      ],
+      "symbolConditions": [],
+      "help": "Enter energy density. Include the symmetric sketch and normalization in your working."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "b.3",
+      "label": "Furthest shadow zone",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "z_0",
+        "\\theta_0",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\theta_0",
+          "assumptions": [],
+          "min": 0.2,
+          "max": 1.2
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.001,
+          "max": 0.01
+        }
+      ],
+      "help": "Use d for the angular width delta theta_0."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

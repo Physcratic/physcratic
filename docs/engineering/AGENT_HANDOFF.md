@@ -1,5 +1,10 @@
 # Agent handoff
 
+## Another twenty native archive problems on PR #181 (15 November 2026)
+
+Continued `codex/archive-next-20` from pushed `c6e4ec6`. Adds 13 IPhO and seven APhO problems, 251 source subparts, 48 source crops and explicit result versus working review. The archive now has **75 native, 37 PDF problems**, with 72 native answer-field definitions. All other 92 records and original PDFs are preserved. [Scope, source corrections and validation](NATIVE_ARCHIVE_BATCH_7.md). Guest and verified native browser checks run in separate CI jobs with full problem/theme/viewport coverage. Exact-head CI evidence belongs to the updated [PR #181](https://github.com/Physcratic/physcratic/pull/181). No merge or deployment. Separate full source expert review remains pending.
+
+
 ## Twenty more native archive problems (15 November 2026)
 
 From merged PR #180 (`8d49ce8`), branch `codex/archive-next-20` converts 15 IPhO and five APhO problems. Archive: **55 native, 57 PDFs remaining**, 112 total. Adds 235 native source subparts, 182 automatic fields, 53 source self-review fields plus twenty working-review fields, and 36 original crops. Exactly twenty collection records change, with other records, metadata and retained PDFs preserved. [Source conventions, corrections and validation](NATIVE_ARCHIVE_BATCH_6.md). The previous two ten-problem batches were pushed and merged through #180, superseding their historical publication-blocked notes below. The existing stateless native browser harness now loads production KaTeX CSS, retains separate guest/verified screenshots and has a 25-minute CI budget for 52 problems. Local focused124 and component204 tests pass. Local server1030 and component204 tests, typecheck, lint, offline guards and production build pass. Exact-head CI evidence belongs to the delivery PR. No live operation, deployment or merge.

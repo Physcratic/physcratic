@@ -1,0 +1,155 @@
+{
+  "problemId": "apho-2019-t3",
+  "version": "390d94012d670bdada1cf31f447a91bd4023087e89c85ff89fe54434ac236077",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Force diagram",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Torque about centre of mass",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "No vertical contact velocity",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "a.4",
+      "label": "Angular velocity in both frames",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "a.5",
+      "label": "Energy in contact variables",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.6",
+      "sourcePart": "a.6",
+      "label": "Vertical angular momentum rate",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\alpha",
+        "R",
+        "\\theta",
+        "F_y"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "F_y",
+          "assumptions": [],
+          "min": -2,
+          "max": 2
+        }
+      ],
+      "help": "Use \\alpha, R, \\theta, F_y. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.7",
+      "sourcePart": "a.7",
+      "label": "Energy transfer and dissipation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.8",
+      "sourcePart": "a.8",
+      "label": "Energy sketches through inversion",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.9",
+      "sourcePart": "a.9",
+      "label": "Transverse inertia identity",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "I_1"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "I_1",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use I_1. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.10",
+      "sourcePart": "a.10",
+      "label": "Jellett integral",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

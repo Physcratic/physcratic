@@ -1,0 +1,218 @@
+{
+  "problemId": "ipho-2018-t3",
+  "version": "ba56dbd731ff36dec52a88e8a355177453d064bd0864f6a3c8befa745af62abf",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Flow in each generation",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "P",
+        "r_0",
+        "i",
+        "N",
+        "l_0",
+        "\\eta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "P",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "i",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "l_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\eta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use P for the whole-tree pressure drop and l_0 for initial vessel length."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Numerical inlet flow",
+      "kind": "numeric",
+      "unit": "mL/hour",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in mL/hour, without a unit suffix."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Pressure amplitude transfer",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\omega",
+        "L",
+        "C",
+        "R"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "C",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the amplitude ratio. Derive and compare the separate material condition."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "a.4",
+      "label": "Wall thickness bound",
+      "kind": "numeric",
+      "unit": "μm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in μm, without a unit suffix."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Tumour volume fraction",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu",
+        "\\kappa"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\kappa",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.9
+        }
+      ],
+      "help": "Enter the physical volume fraction. A rationalized form also works at equal bulk moduli."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Central temperature",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "T_b",
+        "P",
+        "R_T",
+        "k"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "T_b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "P",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use T_b, P, R_T, k. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "b.3",
+      "label": "Heating all tumour cells",
+      "kind": "numeric",
+      "unit": "kW/m³",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in kW/m³, without a unit suffix."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "b.4",
+      "label": "Flow reduction under compression",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}
