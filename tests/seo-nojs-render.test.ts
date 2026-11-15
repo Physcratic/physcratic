@@ -94,6 +94,8 @@ describe("public library links", () => {
     for (const page of allProblemPages().filter(page => page.kind === "archive")) {
       assert.equal(html.includes(`href="${page.path}"`), page.competition === "IPhO" && page.year === 2025, page.id);
     }
+    const single = renderToStaticMarkup(createElement(ArchiveDirectory, { edition: "IPhO-2004" }));
+    assert.ok(decode(single).includes("1 problem · IPhO 2004"));
   });
   it("keeps problem and topic anchors in the server-rendered library pages", async () => {
     const { PublicProblemDirectory: Library } = await import("../components/problems/public-problem-directory");

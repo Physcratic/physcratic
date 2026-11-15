@@ -30,7 +30,7 @@ export function ArchiveDirectory({ edition }: { edition?: string | string[] }) {
       {browse.value && <Link href="/problems/archive#archive-results" className={problemLinkClass}>Show full archive</Link>}
     </form>
     <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
-      <p id="archive-results" tabIndex={-1} className="scroll-mt-24 text-sm text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{archive.length} problems · {browse.label}</p>
+      <p id="archive-results" tabIndex={-1} className="scroll-mt-24 text-sm text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{archive.length} {archive.length === 1 ? "problem" : "problems"} · {browse.label}</p>
       <Link href="/problems" className={problemLinkClass}>Search by topic or difficulty</Link>
     </div>
     {!browse.value && <nav aria-label="Olympiads" className="flex flex-wrap gap-x-6">
