@@ -7,7 +7,11 @@ import {authClient} from '@/lib/auth-client';
 import {deletionReceiptSchema} from '@/lib/account-deletion/contracts';
 const journalKey='physcratic.account-deletion.pending.v1';
 type Pending={requestToken:string;accountId?:string};
-export function AccountDeletionSection({accountId,verified}:{accountId?:string;verified:boolean}){
+type AccountDeletionProps={accountId?:string;verified:boolean};
+export function AccountDeletionSection(props:AccountDeletionProps){
+ return <AccountDeletionWorkspace key={props.accountId??'guest'} {...props}/>;
+}
+function AccountDeletionWorkspace({accountId,verified}:AccountDeletionProps){
  const [password,setPassword]=useState(''),[confirmation,setConfirmation]=useState(''),[pending,setPending]=useState<Pending|null>(null),[message,setMessage]=useState(''),[busy,setBusy]=useState(false),[complete,setComplete]=useState(false);
  useEffect(()=>{try{const raw=sessionStorage.getItem(journalKey);if(raw){const parsed=JSON.parse(raw);if(/^[a-f0-9]{64}$/.test(parsed.requestToken))setPending(parsed);}}catch{setMessage('Recovery is unavailable. Account deletion cannot start in this browser.');}},[]);
  async function send(statusOnly=false){
