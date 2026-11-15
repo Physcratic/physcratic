@@ -1111,6 +1111,7 @@ function AnswerFields({
           symbols={symbols}
           maxLength={null}
           upgradeOnBlur
+          loadTimeoutMs={10000}
           invalid={Boolean(error)}
           describedBy={`${expressionId}-limit`}
           checkSymbols={!error}

@@ -5,7 +5,9 @@ on:
     paths:
       - 'components/authoring/editor-fields.tsx'
       - 'components/authored/**'
+      - 'components/physics/math-answer-field.tsx'
       - 'tests/authored-student.browser.mjs'
+      - 'tests/authored-expression.browser.mjs'
       - 'tests/authored-student-harness.tsx'
       - 'lib/authored-*.ts'
       - 'lib/problem-authoring*.ts'
@@ -50,3 +52,7 @@ jobs:
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/authored-browser-tools
         run: node --require ./tests/server-only-register.cjs --import tsx tests/authored-student.browser.mjs
+      - name: Authored expression recovery and MathLive fallback
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/authored-browser-tools
+        run: node --require ./tests/server-only-register.cjs --import tsx tests/authored-expression.browser.mjs
