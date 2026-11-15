@@ -9,7 +9,7 @@ import {resolve} from 'node:path';
 
 export async function documentHeaders(local, artifact, inventory, enforced) {
   const results=[];
-  for(const route of ['/', '/_not-found', '/x3e-missing-document', '/learn/x3e-missing-slug', '/settings', '/admin/moderation', '/admin/verification', '/forgot-password', '/reset-password', '/email-change']) {
+  for(const route of ['/', '/_not-found', '/x3e-missing-document', '/learn/x3e-missing-slug', '/settings', '/admin/moderation', '/admin/verification', '/forgot-password', '/reset-password', '/email-change', '/problems/archive', '/problems/archive?edition=IPhO-2025']) {
     const nonces=[];
     for(let i=0;i<2;i++) {
       const response=await fetch(local.origin+route,{redirect:'manual'}), html=await response.text();
@@ -38,8 +38,9 @@ export async function documentHeaders(local, artifact, inventory, enforced) {
   assert.equal(checkResponse(inventory,'/settings/',{status:redirect.status,location:redirect.headers.get('location')}),'redirect');
   assert.equal(new URL(redirect.headers.get('location'),local.origin).pathname,'/settings');
   results.push({route:'/settings/',status:redirect.status,strategy:'redirect, destination tested separately'});
-  for(const route of ['/', '/_not-found', '/settings', '/admin/moderation', '/admin/verification']){
-    const response=await fetch(local.origin+route+'?_rsc=synthetic',{headers:{rsc:'1'}});
+  for(const route of ['/', '/_not-found', '/settings', '/admin/moderation', '/admin/verification', '/problems/archive', '/problems/archive?edition=IPhO-2025']){
+    const url=new URL(route,local.origin);url.searchParams.set('_rsc','synthetic');
+    const response=await fetch(url,{headers:{rsc:'1'}});
     const kind=checkResponse(inventory,route,{status:response.status,contentType:response.headers.get('content-type'),headers:{rsc:'1'}});
     assert.equal(kind,'rsc','Expected an RSC representation: '+route);
     await response.text();results.push({route,status:response.status,strategy:'RSC, not an HTML exemption'});
@@ -65,7 +66,8 @@ export async function documentBrowsers({browser,name,local,root,artifact,invento
     ['/admin/verification','member','Verification review is temporarily unavailable.'],
   ]:[['/',null,null],['/_not-found',null,'Page not found'],['/x3e-missing-document',null,'Page not found'],
     ['/learn/x3e-missing-slug',null,'Page not found'],['/settings',null,'Account Settings'],
-    ['/admin/moderation',null,'Moderation review is not available yet.'],['/admin/verification',null,'Verification review is not available yet.']];
+    ['/admin/moderation',null,'Moderation review is not available yet.'],['/admin/verification',null,'Verification review is not available yet.'],
+    ['/problems/archive',null,'Olympiad problem archive'],['/problems/archive?edition=IPhO-2025',null,'Olympiad problem archive']];
   for(const [route,state,expected] of cases) {
     const context=await browser.newContext({serviceWorkers:'block',extraHTTPHeaders:state?{'x-csp-document-fixture':state,cookie:'better-auth.session_token=synthetic-document-fixture'}:{}});
     try{
@@ -85,6 +87,12 @@ export async function documentBrowsers({browser,name,local,root,artifact,invento
       if(expected)await page.getByText(expected,{exact:true}).first().waitFor();
       assert.ok(await page.locator('h1:visible').count(),'Document heading did not render');
       assert.equal(await page.locator('html').evaluate(e=>e.classList.contains('dark')),true,'Theme bootstrap did not execute');
+      if(route.startsWith('/problems/archive')){
+        const edition=new URL(route,local.origin).searchParams.get('edition')||'';
+        assert.equal(await page.getByLabel('Olympiad and year',{exact:true}).inputValue(),edition);
+        assert.ok(await page.locator('[data-problem-card]').count()>0,'Archive results did not render');
+        if(edition)assert.equal(await page.locator('[data-problem-card]').count(),3,'Filtered archive results');
+      }
       if(route==='/settings'&&state==='member')await page.getByText('Synthetic CSP user',{exact:true}).first().waitFor();
       if(route==='/settings'){
         // A real React control proves hydration, beyond server-rendered text.
