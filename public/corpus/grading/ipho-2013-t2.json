@@ -1,0 +1,345 @@
+{
+  "problemId": "ipho-2013-t2",
+  "version": "0b2d87969a51011e9d6d218f5f455e4d0523dd96b032c8eb0c007b4716582c59",
+  "parts": [
+    {
+      "id": "2.1",
+      "sourcePart": "2.1",
+      "label": "Particle and electron properties",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2.2",
+      "sourcePart": "2.2",
+      "label": "Neutral cavity field",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "2.3",
+      "sourcePart": "2.3",
+      "label": "Restoring force and work",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2.4",
+      "sourcePart": "2.4",
+      "label": "Static displacement and separated charge",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2.5a",
+      "sourcePart": "2.5a",
+      "label": "Equivalent capacitance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\epsilon_0",
+        "R"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\epsilon_0, R. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2.5b",
+      "sourcePart": "2.5b",
+      "label": "Equivalent voltage",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R",
+        "E_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use R, E_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2.6a",
+      "sourcePart": "2.6a",
+      "label": "Kinetic energy and current",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2.6b",
+      "sourcePart": "2.6b",
+      "label": "Equivalent inductance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m_e",
+        "R",
+        "n",
+        "e"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m_e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m_e, R, n, e. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2.7a",
+      "sourcePart": "2.7a",
+      "label": "Plasmon angular frequency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "n",
+        "e",
+        "\\epsilon_0",
+        "m_e"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_e",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use n, e, \\epsilon_0, m_e. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2.7b",
+      "sourcePart": "2.7b",
+      "label": "Resonance values",
+      "kind": "numeric",
+      "unit": "nm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter wavelength in nm. Also give angular frequency in your working."
+    },
+    {
+      "id": "2.8a",
+      "sourcePart": "2.8a",
+      "label": "Collision heating",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2.8b",
+      "sourcePart": "2.8b",
+      "label": "Heating resistance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m_e",
+        "n",
+        "e",
+        "R",
+        "\\tau"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m_e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m_e, n, e, R, \\tau. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2.9",
+      "sourcePart": "2.9",
+      "label": "Scattering resistance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\omega_p",
+        "R",
+        "\\epsilon_0",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\omega_p",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\omega_p, R, \\epsilon_0, c. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2.10a",
+      "sourcePart": "2.10a",
+      "label": "Resonant absorbed and scattered power",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2.10b",
+      "sourcePart": "2.10b",
+      "label": "Illumination values",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2.11a",
+      "sourcePart": "2.11a",
+      "label": "Steam mass rate",
+      "kind": "numeric",
+      "unit": "kg/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in kg/s, without a unit suffix."
+    },
+    {
+      "id": "2.11b",
+      "sourcePart": "2.11b",
+      "label": "Steam efficiency",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

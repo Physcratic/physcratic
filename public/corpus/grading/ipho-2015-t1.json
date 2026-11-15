@@ -1,0 +1,410 @@
+{
+  "problemId": "ipho-2015-t1",
+  "version": "5ca578842b47ab17867ee5b6ad57807829a80ead6096ced772ed3ef272aa2541",
+  "parts": [
+    {
+      "id": "a1",
+      "sourcePart": "A1",
+      "label": "Solar surface temperature",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in K, without a unit suffix."
+    },
+    {
+      "id": "a2",
+      "sourcePart": "A2",
+      "label": "Incident cell power",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "A",
+        "R",
+        "k_B",
+        "T_s",
+        "d",
+        "c",
+        "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_s",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use A, R, k_B, T_s, d, c, h. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a3",
+      "sourcePart": "A3",
+      "label": "Photon spectrum",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "A",
+        "R",
+        "\\nu",
+        "h",
+        "k_B",
+        "T_s",
+        "d",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\nu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_s",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use A, R, \\nu, h, k_B, T_s, d, c. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a4",
+      "sourcePart": "A4",
+      "label": "Useful cell power",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "A",
+        "R",
+        "k_B",
+        "T_s",
+        "x_g",
+        "d",
+        "c",
+        "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_s",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "x_g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use A, R, k_B, T_s, x_g, d, c, h. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a5",
+      "sourcePart": "A5",
+      "label": "Efficiency function",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "x_g"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "x_g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use x_g. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a6",
+      "sourcePart": "A6",
+      "label": "Efficiency graph",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a7",
+      "sourcePart": "A7",
+      "label": "Best gap and efficiency",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the optimal dimensionless gap. Include the cubic and maximum efficiency in your working."
+    },
+    {
+      "id": "a8",
+      "sourcePart": "A8",
+      "label": "Silicon efficiency",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "a9",
+      "sourcePart": "A9",
+      "label": "Gravitational solar energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M",
+        "R"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, M, R. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a10",
+      "sourcePart": "A10",
+      "label": "Kelvin-Helmholtz lifetime",
+      "kind": "numeric",
+      "unit": "yr",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in yr, without a unit suffix."
+    },
+    {
+      "id": "b1",
+      "sourcePart": "B1",
+      "label": "Solar neutrino flux",
+      "kind": "numeric",
+      "unit": "1/(m^2 s)",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in 1/(m^2 s), without a unit suffix."
+    },
+    {
+      "id": "b2",
+      "sourcePart": "B2",
+      "label": "Converted neutrino fraction",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "N_2",
+        "N_1"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "N_2",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "N_1",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use N_2, N_1. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b3",
+      "sourcePart": "B3",
+      "label": "Energy transferred to an electron",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\alpha",
+        "t",
+        "m_e",
+        "c",
+        "n"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "t",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1.1,
+          "max": 2
+        }
+      ],
+      "help": "Use t for Delta t."
+    },
+    {
+      "id": "b4",
+      "sourcePart": "B4",
+      "label": "Core temperature from line broadening",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter core temperature. Include rms speed and the line-of-sight factor in your working."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

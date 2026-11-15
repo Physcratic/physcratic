@@ -1,0 +1,252 @@
+{
+  "problemId": "apho-2011-t2",
+  "version": "4d5b3dfbb71c03661107d23075d440d4b7cd4c54320d188d43c6c86a02274cdf",
+  "parts": [
+    {
+      "id": "a1",
+      "sourcePart": "a1",
+      "label": "Pure-slip period and amplitude",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a2",
+      "sourcePart": "a2",
+      "label": "Elongation sketch",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b",
+      "sourcePart": "b",
+      "label": "Stick-slip velocity sketch",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c",
+      "sourcePart": "c",
+      "label": "Mean elongation",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_k",
+        "m",
+        "g",
+        "k"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu_k, m, g, k. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "d",
+      "sourcePart": "d",
+      "label": "Stick-slip period",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "k",
+        "\\mu_s",
+        "\\mu_k",
+        "g",
+        "u"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu_s",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.6,
+          "max": 0.9
+        },
+        {
+          "symbol": "\\mu_k",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.3
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "u",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, k, \\mu_s, \\mu_k, g, u. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "e",
+      "sourcePart": "e",
+      "label": "Critical driving speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_s",
+        "\\mu_k",
+        "g",
+        "m",
+        "k",
+        "\\eta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_s",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.6,
+          "max": 0.9
+        },
+        {
+          "symbol": "\\mu_k",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.3
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\eta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu_s, \\mu_k, g, m, k, \\eta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "f",
+      "sourcePart": "f",
+      "label": "Hinge torsional stiffness",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "r",
+        "d_r",
+        "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d_r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use d_r for wall thickness Delta r."
+    },
+    {
+      "id": "g",
+      "sourcePart": "g",
+      "label": "Audible door speed",
+      "kind": "numeric",
+      "unit": "rad/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in rad/s, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

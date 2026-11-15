@@ -1,0 +1,403 @@
+{
+  "problemId": "ipho-2005-t2",
+  "version": "b92c9fe08056a024d8c64cce6a50533021b1f8cfcdbbad2b9604c02a1dbbca47",
+  "parts": [
+    {
+      "id": "1.emf",
+      "sourcePart": "1.emf",
+      "label": "Induced emf",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "N",
+        "a",
+        "B_0",
+        "\\omega",
+        "t"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "t",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use N, a, B_0, \\omega, t. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "1.power",
+      "sourcePart": "1.power",
+      "label": "Average power",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "N",
+        "a",
+        "B_0",
+        "\\omega",
+        "R"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use N, a, B_0, \\omega, R. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2",
+      "sourcePart": "2",
+      "label": "Kelvin resistance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "N",
+        "a",
+        "\\omega",
+        "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.01,
+          "max": 0.04
+        }
+      ],
+      "help": "Use \\mu_0, N, a, \\omega, \\theta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3",
+      "sourcePart": "3",
+      "label": "Two-disc emf",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "N",
+        "b",
+        "\\omega",
+        "I",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu_0, N, b, \\omega, I, a. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "4",
+      "sourcePart": "4",
+      "label": "Lorenz resistance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "N",
+        "b",
+        "\\omega",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu_0, N, b, \\omega, a. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "5",
+      "sourcePart": "5",
+      "label": "Force between neighbouring coils",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "a",
+        "I",
+        "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu_0, a, I, h. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "6",
+      "sourcePart": "6",
+      "label": "Current from balance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "g",
+        "h",
+        "x",
+        "\\mu_0",
+        "a",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, g, h, x, \\mu_0, a, d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "7",
+      "sourcePart": "7",
+      "label": "Restoring displacement",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "M",
+        "l",
+        "h",
+        "m",
+        "x",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "l",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use M, l, h, m, x, d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

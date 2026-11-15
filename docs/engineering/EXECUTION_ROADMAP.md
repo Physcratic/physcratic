@@ -1,5 +1,10 @@
 # Execution roadmap
 
+## Twenty more native archive problems (15 November 2026)
+
+From merged PR #180 (`8d49ce8`), branch `codex/archive-next-20` converts 15 IPhO and five APhO problems. Archive: **55 native, 57 PDFs remaining**, 112 total. Adds 235 native source subparts, 182 automatic fields, 53 source self-review fields plus twenty working-review fields, and 36 original crops. Exactly twenty collection records change, with other records, metadata and retained PDFs preserved. [Source conventions, corrections and validation](NATIVE_ARCHIVE_BATCH_6.md). The previous two ten-problem batches were pushed and merged through #180, superseding their historical publication-blocked notes below. The existing stateless native browser harness now loads production KaTeX CSS, retains separate guest/verified screenshots and has a 25-minute CI budget for 52 problems. Local focused124 and component204 tests pass. Local server1030 and component204 tests, typecheck, lint, offline guards and production build pass. Exact-head CI evidence belongs to the delivery PR. No live operation, deployment or merge.
+
+
 ## Additional ten native archive problems (15 November 2026)
 
 Stacked locally on batch four `234ed8a`, this user-requested batch adds EuPhO 2023 T2-T3, all 2024/2025 T1-T3, IPhO 2010 T2 and APhO 2014 T2. **35 native, 77 PDFs remain** out of 112. Every EuPhO archive problem is now native. Adds 41 original crops, 36 automatic fields and 11 self-review fields. The previous ten conversions and all other 102 collection records are preserved. [Source conventions, corrections, QA and publication boundary](NATIVE_ARCHIVE_BATCH_5.md). Focused91, server986 pass/31 skip/one TODO and components204 pass, typecheck/lint/offline guards/final build pass. Browser/DB/Actions results remain unverified. Public push remains blocked by automatic approval review pending explicit user publication approval. Local implementation `9c717a6` on `codex/archive-next-10`. No PR, merge, deployment or live-data operation.

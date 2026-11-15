@@ -1,0 +1,159 @@
+{
+  "problemId": "ipho-2015-t3",
+  "version": "a1bac298a1b497d1d7f735266a10490b5a943af0e23d035950e70728ee9f8046",
+  "parts": [
+    {
+      "id": "a1",
+      "sourcePart": "A1",
+      "label": "Fission energy",
+      "kind": "numeric",
+      "unit": "MeV",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in MeV, without a unit suffix."
+    },
+    {
+      "id": "a2",
+      "sourcePart": "A2",
+      "label": "Fissile number density",
+      "kind": "numeric",
+      "unit": "1/m^3",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in 1/m^3, without a unit suffix."
+    },
+    {
+      "id": "a3",
+      "sourcePart": "A3",
+      "label": "Volumetric heating",
+      "kind": "numeric",
+      "unit": "W/m^3",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in W/m^3, without a unit suffix."
+    },
+    {
+      "id": "a4",
+      "sourcePart": "A4",
+      "label": "Fuel temperature scale",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Q",
+        "a",
+        "\\lambda"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\lambda",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use Q, a, \\lambda. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a5",
+      "sourcePart": "A5",
+      "label": "Largest fuel pin radius",
+      "kind": "numeric",
+      "unit": "mm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in mm, without a unit suffix."
+    },
+    {
+      "id": "b1",
+      "sourcePart": "B1",
+      "label": "Centre-of-mass collision drawing",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b2",
+      "sourcePart": "B2",
+      "label": "Post-collision CM speeds",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b3",
+      "sourcePart": "B3",
+      "label": "Neutron energy ratio",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\alpha",
+        "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\alpha, \\theta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b4",
+      "sourcePart": "B4",
+      "label": "Maximum moderator energy loss",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "c1",
+      "sourcePart": "C1",
+      "label": "Efficient reactor dimensions",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c2",
+      "sourcePart": "C2",
+      "label": "Fuel channels and mass",
+      "kind": "numeric",
+      "unit": "kg",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter fuel mass in kg. Also give estimated channel count in your working."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

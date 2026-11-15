@@ -1,0 +1,255 @@
+{
+  "problemId": "ipho-2023-t3",
+  "version": "d28dd21da83d04bcb15e9b8fcde093907ae5e4e8324ad80510c4eb4628d84eca",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Coalescing drop jump",
+      "kind": "numeric",
+      "unit": "m/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m/s, without a unit suffix."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Hydrostatic pressure",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "P_0",
+        "\\rho",
+        "g",
+        "z"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "P_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use P_0, \\rho, g, z. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Pressure force on a surface block",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "g",
+        "z_2",
+        "z_1"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\rho, g, z_2, z_1. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Surface tension balance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\gamma",
+        "\\theta_1",
+        "\\theta_2"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta_2",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\gamma, \\theta_1, \\theta_2. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "B.4",
+      "label": "Capillary first integral",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "B.5",
+      "label": "Small-slope meniscus",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "l",
+        "\\theta_0",
+        "x"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "l",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use l for capillary length ell."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Force on the right rod",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "g",
+        "z_b",
+        "z_a",
+        "\\gamma",
+        "\\theta_b",
+        "\\theta_a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta_b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta_a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\rho, g, z_b, z_a, \\gamma, \\theta_b, \\theta_a. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Force from midpoint height",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "g",
+        "z_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\rho, g, z_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "C.3",
+      "label": "Midpoint level",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "z_a",
+        "x_a",
+        "l"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "x_a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "l",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use l for capillary length ell."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

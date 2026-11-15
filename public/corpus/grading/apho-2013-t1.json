@@ -1,0 +1,242 @@
+{
+  "problemId": "apho-2013-t1",
+  "version": "cb7128ceccc4b20eacf654feb711374f4f6215f6026a9fc113452d1eb20b4792",
+  "parts": [
+    {
+      "id": "1",
+      "sourcePart": "1",
+      "label": "Line-charge field",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\lambda",
+        "\\epsilon_0",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\lambda",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the signed outward radial component."
+    },
+    {
+      "id": "2",
+      "sourcePart": "2",
+      "label": "Line-charge potential",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\lambda",
+        "r",
+        "\\epsilon_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\lambda",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use the source convention f(r) = -lambda ln(r)/(2 pi epsilon_0). The arbitrary length scale is absorbed into K."
+    },
+    {
+      "id": "3",
+      "sourcePart": "3",
+      "label": "Two-line potential and surfaces",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\lambda",
+        "\\epsilon_0",
+        "x",
+        "b",
+        "y"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\lambda",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\lambda, \\epsilon_0, x, b, y. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "4",
+      "sourcePart": "4",
+      "label": "Conducting-cylinder potential",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "5",
+      "sourcePart": "5",
+      "label": "Cylinder capacitance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\epsilon_0",
+        "l"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "l",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\epsilon_0, l. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "6",
+      "sourcePart": "6",
+      "label": "Leakage current",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\sigma",
+        "l",
+        "V_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "l",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\sigma, l, V_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "7.r",
+      "sourcePart": "7.R",
+      "label": "Pair resistance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\sigma",
+        "l"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "l",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\sigma, l. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "7.rc",
+      "sourcePart": "7.RC",
+      "label": "Resistance-capacitance product",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\epsilon_0",
+        "\\sigma"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\epsilon_0, \\sigma. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "8",
+      "sourcePart": "8",
+      "label": "Magnetic field",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

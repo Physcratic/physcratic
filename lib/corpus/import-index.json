@@ -197,8 +197,8 @@
       "id": "ipho-2023-t2",
       "path": "/corpus/english-problems/ipho-2023-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -216,8 +216,8 @@
       "id": "ipho-2023-t3",
       "path": "/corpus/english-problems/ipho-2023-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -273,8 +273,8 @@
       "id": "ipho-2022-t3",
       "path": "/corpus/english-problems/ipho-2022-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -349,8 +349,8 @@
       "id": "ipho-2019-t1",
       "path": "/corpus/english-problems/ipho-2019-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -387,8 +387,8 @@
       "id": "ipho-2019-t3",
       "path": "/corpus/english-problems/ipho-2019-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -539,8 +539,8 @@
       "id": "ipho-2005-t1",
       "path": "/corpus/english-problems/ipho-2005-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -558,8 +558,8 @@
       "id": "ipho-2015-t1",
       "path": "/corpus/english-problems/ipho-2015-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -577,8 +577,8 @@
       "id": "ipho-2015-t2",
       "path": "/corpus/english-problems/ipho-2015-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -596,8 +596,8 @@
       "id": "ipho-2015-t3",
       "path": "/corpus/english-problems/ipho-2015-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -634,8 +634,8 @@
       "id": "ipho-2014-t3",
       "path": "/corpus/english-problems/ipho-2014-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -653,8 +653,8 @@
       "id": "ipho-2013-t1",
       "path": "/corpus/english-problems/ipho-2013-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -672,8 +672,8 @@
       "id": "ipho-2013-t2",
       "path": "/corpus/english-problems/ipho-2013-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -748,8 +748,8 @@
       "id": "ipho-2010-t1",
       "path": "/corpus/english-problems/ipho-2010-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -824,8 +824,8 @@
       "id": "ipho-2009-t1",
       "path": "/corpus/english-problems/ipho-2009-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -843,8 +843,8 @@
       "id": "ipho-2005-t2",
       "path": "/corpus/english-problems/ipho-2005-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1071,8 +1071,8 @@
       "id": "apho-2011-t2",
       "path": "/corpus/english-problems/apho-2011-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1280,8 +1280,8 @@
       "id": "apho-2018-t2",
       "path": "/corpus/english-problems/apho-2018-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1489,8 +1489,8 @@
       "id": "apho-2006-t2",
       "path": "/corpus/english-problems/apho-2006-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1527,8 +1527,8 @@
       "id": "apho-2014-t3",
       "path": "/corpus/english-problems/apho-2014-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1546,8 +1546,8 @@
       "id": "apho-2013-t1",
       "path": "/corpus/english-problems/apho-2013-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",

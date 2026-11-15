@@ -1,0 +1,192 @@
+{
+  "problemId": "apho-2006-t2",
+  "version": "4a14ff7b93506c142c2e01268eddc073df6abec0f180a2dfbdb7801b7092fc7a",
+  "parts": [
+    {
+      "id": "a1",
+      "sourcePart": "A1",
+      "label": "Reflections between walls",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a2a",
+      "sourcePart": "A2a",
+      "label": "Harmonic phase ellipse",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a2b",
+      "sourcePart": "A2b",
+      "label": "Harmonic portrait",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a3",
+      "sourcePart": "A3",
+      "label": "Pendulum phase portrait",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter number of types. The portrait and energy conditions require self-review."
+    },
+    {
+      "id": "b1",
+      "sourcePart": "B1",
+      "label": "Sliding-friction equation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b2",
+      "sourcePart": "B2",
+      "label": "Damped phase portrait and equilibria",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b3",
+      "sourcePart": "B3",
+      "label": "Stopping interval",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu",
+        "m",
+        "g",
+        "k"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu, m, g, k. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b4.drop",
+      "sourcePart": "B4.drop",
+      "label": "Amplitude drop per cycle",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu",
+        "m",
+        "g",
+        "k"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu, m, g, k. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b4.time",
+      "sourcePart": "B4.time",
+      "label": "Time between maxima",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "k"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the interval between positive maxima. Include the amplitude sequence in your working."
+    },
+    {
+      "id": "b5",
+      "sourcePart": "B5",
+      "label": "Motion graph and cycle count",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

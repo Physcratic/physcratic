@@ -1,0 +1,195 @@
+{
+  "problemId": "apho-2014-t3",
+  "version": "3ef838336695fc7d1d8fff8d7cbe7fd3c728ba4607b3acc83f8578552c1f26ac",
+  "parts": [
+    {
+      "id": "a",
+      "sourcePart": "a",
+      "label": "Aligned lens geometry",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b",
+      "sourcePart": "b",
+      "label": "Perfect alignment image",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c",
+      "sourcePart": "c",
+      "label": "Misalignment image",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.escape",
+      "sourcePart": "d.escape",
+      "label": "Newtonian escape speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, M, r. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "d.radius",
+      "sourcePart": "d.radius",
+      "label": "Schwarzschild radius",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, M, c. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "e",
+      "sourcePart": "e",
+      "label": "Radius from deflection",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\alpha",
+        "r_E"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_E",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\alpha, r_E. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "f",
+      "sourcePart": "f",
+      "label": "Angular approximation choice",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "g",
+      "sourcePart": "g",
+      "label": "Radius from measurable distances",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\theta_E",
+        "D_L",
+        "D_S"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\theta_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "D_L",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 3
+        },
+        {
+          "symbol": "D_S",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "help": "Use \\theta_E, D_L, D_S. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "h",
+      "sourcePart": "h",
+      "label": "Einstein angular radius",
+      "kind": "numeric",
+      "unit": "rad",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in rad, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}
