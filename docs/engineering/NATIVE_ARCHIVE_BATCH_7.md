@@ -1,6 +1,6 @@
 # Native archive batch seven
 
-15 November 2026. Continued on `codex/archive-next-20`, PR #181, from pushed head `c6e4ec668f4dfce6df336f5d25695aef72b348fd`. This is the second twenty-problem addition on that branch. Main is unchanged.
+15 November 2026. Continued on `codex/archive-next-20`, PR #181, from pushed head `c6e4ec668f4dfce6df336f5d25695aef72b348fd`. This is the second twenty-problem addition on that branch. No write to main was performed. Before delivery, main advanced to `57286c4145bc39120465764f317aff0efe868ccb` with authored-input and solution-visibility fixes. It was merged into this branch, resolving only the three documentation-heading conflicts by preserving both sets of entries. The native conversion records were unchanged by that integration.
 
 ## Scope
 
