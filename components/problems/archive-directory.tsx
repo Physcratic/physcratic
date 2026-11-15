@@ -27,7 +27,7 @@ export function ArchiveDirectory({ edition }: { edition?: string | string[] }) {
         </select>
       </div>
       <Button type="submit">Show problems</Button>
-      {browse.value && <Link href="/problems/archive#archive-results" className={problemLinkClass}>Show all years</Link>}
+      {browse.value && <Link href="/problems/archive#archive-results" className={problemLinkClass}>Show full archive</Link>}
     </form>
     <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
       <p id="archive-results" tabIndex={-1} className="scroll-mt-24 text-sm text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{archive.length} problems · {browse.label}</p>

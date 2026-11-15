@@ -6,7 +6,7 @@
 
 Find an olympiad edition and open a problem. Previously the archive displayed every card with separate year jump lists under each competition. APhO/EuPhO students first jumped down the long list, then chose another jump link to reach a year.
 
-One labelled native select offers all olympiads, all years of one olympiad, or a specific edition, newest first within each competition. “Show problems” submits an ordinary GET to `/problems/archive?edition=IPhO-2025#archive-results`. Only matching cards render, with the result count and selected edition. “Show all years” resets the list. The select is keyed by the server selection so a client-side reset clears its displayed value too.
+One labelled native select offers all olympiads, all years of one olympiad, or a specific edition, newest first within each competition. “Show problems” submits an ordinary GET to `/problems/archive?edition=IPhO-2025#archive-results`. Only matching cards render, with the result count and selected edition. “Show full archive” resets the list. The select is keyed by the server selection so a client-side reset clears its displayed value too.
 
 ## Reasons for the elements
 
@@ -16,7 +16,7 @@ One labelled native select offers all olympiads, all years of one olympiad, or a
 | All-years choices | Browse a competition without choosing a year. |
 | Explicit Show problems button | Commit a choice with keyboard, touch or a screen reader without navigation while exploring options. |
 | GET query and results fragment | Share, reload and revisit the selection, landing at results below the sticky header. |
-| Show all years link | Recover the complete list with one action. |
+| Show full archive link | Recover the complete list with one action. |
 | Topic/difficulty search link | Reach the existing library for a different search task. |
 | Three competition jump links in the complete list | Keep navigation useful when browsing everything. Historical year fragment targets remain. |
 

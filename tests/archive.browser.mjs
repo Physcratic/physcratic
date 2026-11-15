@@ -71,7 +71,7 @@ try {
   await page.locator(`[data-problem-card="${selected[0].id}"]`).getByRole('link',{name:/^Open problem/}).click();
   ok(new URL(page.url()).pathname===selected[0].path,'selected problem opens its existing reader');
   await page.goBack();ok(await select.inputValue()==='IPhO-2025','return from reader retains selection');
-  await page.getByRole('link',{name:'Show all years',exact:true}).click();
+  await page.getByRole('link',{name:'Show full archive',exact:true}).click();
   ok(await page.locator('[data-problem-card]').count()===expected.length,'reset restores complete archive');
   ok(await select.inputValue()==='','reset also clears the select after client navigation');
   await select.selectOption('APhO');await page.getByRole('button',{name:'Show problems',exact:true}).click();
@@ -102,7 +102,7 @@ try {
  ok(await page.locator('[data-problem-card]').count()===expected.filter(p=>p.competition==='EuPhO'&&p.year===2025).length,'no-JS filtering');
  await page.locator('[data-problem-card]').first().getByRole('link',{name:/^Open problem/}).click();
  ok(new URL(page.url()).pathname===expected.find(p=>p.competition==='EuPhO'&&p.year===2025).path,'no-JS filtered reader navigation');
- await page.goBack();await page.getByRole('link',{name:'Show all years',exact:true}).click();
+ await page.goBack();await page.getByRole('link',{name:'Show full archive',exact:true}).click();
  ok(await page.locator('[data-problem-card]').count()===expected.length,'no-JS reset');
  for(const query of ['edition=IPhO-1900','edition=IPhO&edition=APhO']){
   await page.goto(origin+'/problems/archive?'+query);

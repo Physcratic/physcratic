@@ -89,7 +89,7 @@ describe("public library links", () => {
     assert.match(html, /action="\/problems\/archive#archive-results" method="get"/);
     assert.match(html, /<label for="archive-edition"/);
     assert.match(html, /<option value="IPhO-2025" selected=""/);
-    assert.match(html, /Show all years/);
+    assert.match(html, /Show full archive/);
     assert.match(html, /id="ipho-2025"/);
     for (const page of allProblemPages().filter(page => page.kind === "archive")) {
       assert.equal(html.includes(`href="${page.path}"`), page.competition === "IPhO" && page.year === 2025, page.id);
