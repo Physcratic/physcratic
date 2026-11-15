@@ -1,0 +1,260 @@
+[
+  {
+    "id": "eupho-2023-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2023-statement/document.pdf",
+    "originalSha256": "160e0caa8018b81910ed4e347a271c1253478d05ea12226e50f3ffb87041c7db",
+    "nodes": 7,
+    "figures": [
+      "/corpus/figures/native/eupho-2023-brick.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2023-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2023-solution/document.pdf",
+    "originalSha256": "bbfefa159262b696980648a1696ed5553fc63915120a20d6f59a90e3653d8859",
+    "nodes": 15,
+    "figures": [
+      "/corpus/figures/native/eupho-2023-brick-equal.png",
+      "/corpus/figures/native/eupho-2023-brick-general.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2023-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2023-statement/document.pdf",
+    "originalSha256": "160e0caa8018b81910ed4e347a271c1253478d05ea12226e50f3ffb87041c7db",
+    "nodes": 9,
+    "figures": [
+      "/corpus/figures/native/eupho-2023-plate.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2023-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2023-solution/document.pdf",
+    "originalSha256": "bbfefa159262b696980648a1696ed5553fc63915120a20d6f59a90e3653d8859",
+    "nodes": 23,
+    "figures": [
+      "/corpus/figures/native/eupho-2023-streamlines.png",
+      "/corpus/figures/native/eupho-2023-polarized-cylinder.png",
+      "/corpus/figures/native/eupho-2023-current-profile.png",
+      "/corpus/figures/native/eupho-2023-current-circles.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2024-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2024-statement/document.pdf",
+    "originalSha256": "b133e366dbae9a412098b33271fca7bd5cb420471c9a576d163f0c7a2f52d57a",
+    "nodes": 7,
+    "figures": [
+      "/corpus/figures/native/eupho-2024-puck.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2024-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2024-solution/document.pdf",
+    "originalSha256": "3552bfea2e675a9124633aff27b5399436615ab56292e8e38ca4364d58a1c467",
+    "nodes": 15,
+    "figures": [
+      "/corpus/figures/native/eupho-2024-puck-forces.png",
+      "/corpus/figures/native/eupho-2024-puck-time.png",
+      "/corpus/figures/native/eupho-2024-puck-friction.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2024-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2024-statement/document.pdf",
+    "originalSha256": "b133e366dbae9a412098b33271fca7bd5cb420471c9a576d163f0c7a2f52d57a",
+    "nodes": 8,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2024-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2024-solution/document.pdf",
+    "originalSha256": "3552bfea2e675a9124633aff27b5399436615ab56292e8e38ca4364d58a1c467",
+    "nodes": 23,
+    "figures": [
+      "/corpus/figures/native/eupho-2024-gift-spacing.png",
+      "/corpus/figures/native/eupho-2024-arrival-worldlines.png",
+      "/corpus/figures/native/eupho-2024-incoming-gifts.png",
+      "/corpus/figures/native/eupho-2024-outgoing-gifts.png",
+      "/corpus/figures/native/eupho-2024-visible-worldlines.png",
+      "/corpus/figures/native/eupho-2024-ict-spacing.png",
+      "/corpus/figures/native/eupho-2024-ict-visible.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2024-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2024-statement/document.pdf",
+    "originalSha256": "b133e366dbae9a412098b33271fca7bd5cb420471c9a576d163f0c7a2f52d57a",
+    "nodes": 12,
+    "figures": [
+      "/corpus/figures/native/eupho-2024-interferometer.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2024-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2024-solution/document.pdf",
+    "originalSha256": "3552bfea2e675a9124633aff27b5399436615ab56292e8e38ca4364d58a1c467",
+    "nodes": 27,
+    "figures": [
+      "/corpus/figures/native/eupho-2024-phase-triangle.png",
+      "/corpus/figures/native/eupho-2024-mirror-left.png",
+      "/corpus/figures/native/eupho-2024-mirror-right.png",
+      "/corpus/figures/native/eupho-2024-mirror-superposed.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2025-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2025-statement/document.pdf",
+    "originalSha256": "49d08947fe41354aa57bfa745c2dfa494e08613ddac3c485a71ee288911b0e36",
+    "nodes": 8,
+    "figures": [
+      "/corpus/figures/native/eupho-2025-sunny-photo.png",
+      "/corpus/figures/native/eupho-2025-sunny-rings.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2025-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2025-solution/document.pdf",
+    "originalSha256": "0faca703487040c3e4d5c19fde4208a0cbacc8769d33401f810309a60f6deb9f",
+    "nodes": 16,
+    "figures": [
+      "/corpus/figures/native/eupho-2025-sunny-top.png",
+      "/corpus/figures/native/eupho-2025-sunny-side.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2025-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2025-statement/document.pdf",
+    "originalSha256": "49d08947fe41354aa57bfa745c2dfa494e08613ddac3c485a71ee288911b0e36",
+    "nodes": 8,
+    "figures": [
+      "/corpus/figures/native/eupho-2025-table-grid.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2025-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2025-solution/document.pdf",
+    "originalSha256": "0faca703487040c3e4d5c19fde4208a0cbacc8769d33401f810309a60f6deb9f",
+    "nodes": 21,
+    "figures": [
+      "/corpus/figures/native/eupho-2025-table-forces.png",
+      "/corpus/figures/native/eupho-2025-table-displaced.png",
+      "/corpus/figures/native/eupho-2025-table-geometry.png",
+      "/corpus/figures/native/eupho-2025-table-velocities.png",
+      "/corpus/figures/native/eupho-2025-table-accelerations.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2025-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2025-statement/document.pdf",
+    "originalSha256": "49d08947fe41354aa57bfa745c2dfa494e08613ddac3c485a71ee288911b0e36",
+    "nodes": 8,
+    "figures": [
+      "/corpus/figures/native/eupho-2025-wires.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2025-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2025-solution/document.pdf",
+    "originalSha256": "0faca703487040c3e4d5c19fde4208a0cbacc8769d33401f810309a60f6deb9f",
+    "nodes": 19,
+    "figures": [
+      "/corpus/figures/native/eupho-2025-wire-helix.png",
+      "/corpus/figures/native/eupho-2025-flux-tube.png",
+      "/corpus/figures/native/eupho-2025-wire-components.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2010-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2010-t2-statement/document.pdf",
+    "originalSha256": "04358456d1e6541487927ff56142df9615213af4453a5c3872994865fb504c0f",
+    "nodes": 31,
+    "figures": [
+      "/corpus/figures/native/ipho-2010-chimney.png",
+      "/corpus/figures/native/ipho-2010-solar-chimney.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2010-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2010-t2-solution/document.pdf",
+    "originalSha256": "6c28269b658ecd0dd4feef3cbdc3905d0f9e980d315442b4e964223a56b3575d",
+    "nodes": 24,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2014-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2014-t2-statement/document.pdf",
+    "originalSha256": "36457730acc639e286c2e447277876fdd3edd71cf8fd01bd7b038f33f57b9b43",
+    "nodes": 23,
+    "figures": [
+      "/corpus/figures/native/apho-2014-biprism.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2014-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2014-t2-solution/document.pdf",
+    "originalSha256": "2cc4f79bba40e23017ab263939eed3d6a4ab2d9019aee5868142dbd9bfbd9e43",
+    "nodes": 21,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  }
+]

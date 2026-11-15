@@ -1,0 +1,61 @@
+{
+  "problemId": "eupho-2024-t2",
+  "version": "d2eef99145ad63f1627b07e164cb7296470bf730c8190ddb9ed61aa81aa6cfd5",
+  "parts": [
+    {
+      "id": "a.i",
+      "sourcePart": "a.i",
+      "label": "Gift spacing in Bob's frame",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c",
+        "t_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "t_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use t_0 for Delta t_0 and c for light speed. This is a simultaneous spacing in Bob's frame."
+    },
+    {
+      "id": "a.ii",
+      "sourcePart": "a.ii",
+      "label": "Gift arrival interval at Bob",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "t_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "t_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use t_0 for Delta t_0. Enter the arrival interval in Bob's frame."
+    },
+    {
+      "id": "b",
+      "sourcePart": "b",
+      "label": "Visible outgoing-to-incoming gift ratio",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter N_out/N_in for gifts Alice sees at one instant. Include the light travel time when deriving the counts."
+    }
+  ]
+}

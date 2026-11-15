@@ -12,7 +12,9 @@ import { practiceCheckCatalog } from "./practice-check-catalog";
 import firstLedger from "../docs/engineering/native-archive-batch-1-sources.json";
 import secondLedger from "../docs/engineering/native-archive-batch-2-sources.json";
 import thirdLedger from "../docs/engineering/native-archive-batch-3-sources.json";
-const ledger = [...firstLedger, ...secondLedger, ...thirdLedger];
+import fourthLedger from "../docs/engineering/native-archive-batch-4-sources.json";
+import fifthLedger from "../docs/engineering/native-archive-batch-5-sources.json";
+const ledger = [...firstLedger, ...secondLedger, ...thirdLedger, ...fourthLedger, ...fifthLedger];
 
 for (const definition of olympiadDefinitions) {
   test(definition.problemId + " has bounded typed fields and accepts the verified reference forms", () => {

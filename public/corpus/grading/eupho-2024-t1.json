@@ -1,0 +1,73 @@
+{
+  "problemId": "eupho-2024-t1",
+  "version": "786248a65e0eff9bab167c7227f0527eb5b323c9a40dd5d92c85b121d174c9dd",
+  "parts": [
+    {
+      "id": "a.sliding",
+      "sourcePart": "a.sliding",
+      "label": "Exit speed on the sliding branch",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v_0",
+        "\\mu"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "nonnegative"
+          ],
+          "min": 0.001,
+          "max": 0.12
+        }
+      ],
+      "help": "Enter the exit speed when pi*mu <= ln(3/2). Use v_0 and mu. State the piecewise condition in your reasoning."
+    },
+    {
+      "id": "a.rolling",
+      "sourcePart": "a.rolling",
+      "label": "Exit speed after rolling begins",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the exit speed when pi*mu >= ln(3/2). Use v_0."
+    },
+    {
+      "id": "b.threshold",
+      "sourcePart": "b.threshold",
+      "label": "Critical friction coefficient",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the transition value of mu. Use ln for natural logarithms."
+    },
+    {
+      "id": "b.graph",
+      "sourcePart": "b.graph",
+      "label": "Exit-speed graph and branch conditions",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Sketch v_e(mu), label the zero-friction intercept, threshold, corner and plateau. Include the conditions for both branches. These are self-review."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "problemId": "eupho-2023-t2",
+  "version": "978f1874d0b9080e34dd45881b18d2bfbe43ca1cc08219da848a970a91f94d20",
+  "parts": [
+    {
+      "id": "a",
+      "sourcePart": "a",
+      "label": "Final speed for equal plane speeds",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "u"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "u",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use u for either plane's common speed."
+    },
+    {
+      "id": "b",
+      "sourcePart": "b",
+      "label": "Final speed for unequal plane speeds",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "u_1",
+        "u_2"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "u_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "u_2",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use u_1 and u_2 for positive plane speeds. Substitute any D or delta shorthand before submitting."
+    }
+  ]
+}
