@@ -62,7 +62,7 @@ test("unknown tags and meaningful scientific distinctions survive", () => {
 
 test("all actual collection values are inventoried and all shared filters agree", () => {
   const collections = [problems, arena.problems, corpusProblems, catalogProblems];
-  assert.deepEqual(collections.map((ps) => ps.length), [12, 33, 5, catalogProblems.length])
+  assert.deepEqual(collections.map((ps) => ps.length), [12, arena.count, 5, catalogProblems.length])
   const methods = new Set<string>();
   for (const ps of collections) {
     for (const p of ps) {
@@ -87,7 +87,7 @@ test("all actual collection values are inventoried and all shared filters agree"
     }
   }
   assert.equal(filterProblemsByTag(problems, "Mechanics").length, 3);
-  assert.equal(filterArena(arena.problems as ArenaCatalogEntry[], { topic: "Optics" }).length, 4);
+  assert.equal(filterArena(arena.problems as ArenaCatalogEntry[], { topic: "Optics" }).length, arena.problems.filter((problem) => problem.topic === "Optics").length);
   assert.equal(filterCatalog({ topic: "English" }).length, catalogProblems.length)
   assert.deepEqual(filterCorpus({ query: "Blackbody radiation" }), filterCorpus({ query: "Black-body radiation" }));
   assert.deepEqual(filterArena(arena.problems as ArenaCatalogEntry[], { query: "Quantum tunnelling" }), filterArena(arena.problems as ArenaCatalogEntry[], { query: "Quantum tunneling" }));

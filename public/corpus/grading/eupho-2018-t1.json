@@ -1,0 +1,25 @@
+{
+  "problemId": "eupho-2018-t1",
+  "version": "fd9e42f3d83dc904f2477a269263d92711a5ec26cb06252bc84ec00daae3557d",
+  "parts": [
+    {
+      "id": "answer",
+      "sourcePart": "Answer",
+      "label": "Minimum separation d",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\ell"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\ell",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use ell for the length of either rod."
+    }
+  ]
+}

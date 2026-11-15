@@ -1,0 +1,155 @@
+{
+  "problemId": "eupho-2023-t3",
+  "version": "a71395b16c0c733c245d4de5b9e84eda80777af07faec09d20d924c74e99c9fd",
+  "parts": [
+    {
+      "id": "a",
+      "sourcePart": "a",
+      "label": "Current streamlines",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Sketch the closed current loops, label x and y, show circulation and the kinks at the circular patch boundary. This drawing is self-review."
+    },
+    {
+      "id": "b.inside",
+      "sourcePart": "b.inside",
+      "label": "Current density j_x inside the patch",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v",
+        "B",
+        "\\varrho"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\varrho",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the signed x component for |y|<R. The plate moves along +y and the field points along +z. Use varrho for resistivity."
+    },
+    {
+      "id": "b.outside",
+      "sourcePart": "b.outside",
+      "label": "Current density j_x outside the patch",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v",
+        "B",
+        "R",
+        "\\varrho",
+        "y"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.5,
+          "max": 1
+        },
+        {
+          "symbol": "\\varrho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "y",
+          "assumptions": [],
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "help": "Enter the signed x component at x=0 for |y|>R. Use varrho for resistivity. Do not submit the force or current magnitude."
+    },
+    {
+      "id": "b.graph",
+      "sourcePart": "b.graph",
+      "label": "Current-density graph",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Plot j_x against y, including both rims, signs, interior plateau and far-field decay. The two algebraic fields do not assess the graph."
+    },
+    {
+      "id": "c",
+      "sourcePart": "c",
+      "label": "Required pulling force magnitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R",
+        "\\delta",
+        "B",
+        "v",
+        "\\varrho"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\varrho",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the positive magnitude of the force maintaining motion along +y. Use delta for plate thickness and varrho for resistivity."
+    }
+  ]
+}

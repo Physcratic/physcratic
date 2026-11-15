@@ -1,5 +1,28 @@
 # Execution roadmap
 
+## Additional ten native archive problems (15 November 2026)
+
+Stacked locally on batch four `234ed8a`, this user-requested batch adds EuPhO 2023 T2-T3, all 2024/2025 T1-T3, IPhO 2010 T2 and APhO 2014 T2. **35 native, 77 PDFs remain** out of 112. Every EuPhO archive problem is now native. Adds 41 original crops, 36 automatic fields and 11 self-review fields. The previous ten conversions and all other 102 collection records are preserved. [Source conventions, corrections, QA and publication boundary](NATIVE_ARCHIVE_BATCH_5.md). Focused91, server986 pass/31 skip/one TODO and components204 pass, typecheck/lint/offline guards/final build pass. Browser/DB/Actions results remain unverified. Public push remains blocked by automatic approval review pending explicit user publication approval. Local implementation `9c717a6` on `codex/archive-next-10`. No PR, merge, deployment or live-data operation.
+
+
+## Native archive ten-problem conversion (15 November 2026)
+
+Following merged #179 at `81d9cc5`, this batch converts exactly EuPhO 2017 T1-T3, 2021 T1-T3, 2022 T1-T3 and 2023 T1. The archive has 112 records: **25 native, 87 PDFs remaining**. Adds complete native statements and worked alternatives, 25 original crops, 28 automatic fields and seven self-review fields. The other 102 records, identities, ratings, original PDFs and account-persistence catalogue are preserved. [Source conventions, corrections and QA](NATIVE_ARCHIVE_BATCH_4.md) and batch-four ledgers bind the sources. Local server954 pass/31 skip/one TODO, components204 pass, focused59 pass, typecheck/lint/offline guards/build pass. Chromium is blocked before page load by the environment's Unix-socket policy. Exact-head build/browser/database CI evidence belongs to the delivery PR. Local implementation `3918b5e` on `codex/archive-next-10`. Automatic approval review blocked public push pending explicit user approval, so no PR or GitHub CI result yet. No merge or deployment.
+
+
+## Native archive EuPhO 2020 conversion (15 November 2026)
+
+Continuation of #178 at `6884fb3` adds EuPhO 2020 T1/T2/T3 with native LaTeX, nine original crops, worked alternatives and six automatic fields plus one graph self-review field. Archive: 112 records, 15 native, **97 PDFs remaining**. Earlier nine conversions, identities, ratings, original PDFs and account persistence are preserved. [Source conventions, checks and environment limits](NATIVE_ARCHIVE_BATCH_3.md) and third-batch ledgers record the evidence. Six local production-reader/sampled-checker physics and source tests pass. Full schema/type/build/integration CI and browser results must be taken from the follow-up PR, not inferred from local execution. No merge or deployment.
+
+
+## Native olympiad archive, batch 2 (15 November 2026)
+
+Continues draft PR #178 from reviewed head 3ed4b1857efb77a6ccda4d6591aa4a2211c1a34e. Adds EuPhO 2019 T1-T3 and APhO 2012 T3 using the existing native reader and stateless answer controls. Total archive remains 112 records, now 12 native and 100 PDF-based. The first five conversions and other 103 records are unchanged. [Sources, answer conventions, validation and remaining work](NATIVE_ARCHIVE_BATCH_2.md). Exact-head full CI is recorded in the PR. No saved progress, ELO, database, flag, provider, merge or manual deployment action.
+
+## Native olympiad archive, batch 1 (15 November 2026)
+
+Five existing PDF records now have complete native statements, solutions, original cropped figures and Arena answer controls. Scope: EuPhO 2018 T1-T3, IPhO 2012 T2 and APhO 2012 T1. The archive remains 112 records, with eight native and 104 still PDF-based. Checks are stateless, with no account progress, marks or ELO writes. Source inconsistencies are explicitly annotated. [Conversion sources, validation and remaining work](NATIVE_ARCHIVE_BATCH_1.md). Exact-head remote CI belongs to the PR. No merge or deployment performed.
+
 ## PDF reader structure accessibility (14 November 2026)
 
 Fresh main d95b861 reproduces four invalid ARIA nodes in the tagged 2010 PDF. A version-bound React-PDF patch preserves every content owner/order and existing cells while repairing trailing inline tags and redundant bare lists. [Root cause, limits and regression design](PDF_READER_ACCESSIBILITY.md). The draft PR records actual production-build/browser QA, independent review and exact-head CI. No merge/deployment, original document, publication, SEO policy, provider or database change.

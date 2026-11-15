@@ -1,0 +1,26 @@
+{
+  "problemId": "eupho-2025-t2",
+  "version": "3470c575a275ac6f538c359bd7586b66f9f2b18a8a7a2acac2a3216be09ff677",
+  "parts": [
+    {
+      "id": "a",
+      "sourcePart": "a",
+      "label": "Stable-equilibrium proof",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Show positive chain tensions and a restoring force or a positive quadratic rise in gravitational potential. Account for the absence of first-order rotation. This proof is self-review."
+    },
+    {
+      "id": "b",
+      "sourcePart": "b",
+      "label": "Small-oscillation period",
+      "kind": "numeric",
+      "unit": "s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter seconds, using a=0.100 m and g=9.81 m/s^2. Treat each paired chain as one combined constraint."
+    }
+  ]
+}

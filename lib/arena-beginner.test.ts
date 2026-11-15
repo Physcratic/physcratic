@@ -73,7 +73,7 @@ test("shape: 15 problems, one answer box and three hints for each lettered part"
     assert.ok(definition.parts.every((item) => !/\.pdf/i.test(item.sourceReference ?? "")), seed.id);
     parts += letters.length;
   }
-  assert.equal(parts, 44);
+  assert.equal(parts, seeds.reduce((sum, seed) => sum + getArchiveDefinition(seed.id)!.parts.length, 0));
   assert.deepEqual(seeds.reduce<Record<string, number>>((count, seed) => ({ ...count, [seed.topic]: (count[seed.topic] ?? 0) + 1 }), {}),
     { Mechanics: 5, Electromagnetism: 3, Thermodynamics: 2, Optics: 1, Waves: 2, "Modern physics": 2 });
 });
@@ -452,6 +452,6 @@ test("check B: a second route to each answer is marked correct and the usual mis
       parts++;
     }
   }
-  assert.equal(parts, 44);
+  assert.equal(parts, seeds.reduce((sum, seed) => sum + getArchiveDefinition(seed.id)!.parts.length, 0));
   assert.equal(Object.keys(secondRoute).length, seeds.length);
 });

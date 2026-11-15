@@ -50,7 +50,7 @@ export function createAuthoredLibraryApi(pool: Pool) {
           { error: "Invalid library filters." },
           { status: 400, headers },
         );
-      const { q, tag, difficulty, provenance, after, sort, afterRating, minRating } = parsed.data;
+      const { q, tag, difficulty, provenance, after, sort, afterRating, minRating, ratingFrom, ratingBelow, unrated } = parsed.data;
       const byRating = sort === "rating";
       const values: unknown[] = [];
       const bind = (v: unknown) => {
@@ -79,6 +79,9 @@ export function createAuthoredLibraryApi(pool: Pool) {
       }
       if (difficulty)
         where.push(`r.content->>'estimatedDifficulty' = ${bind(difficulty)}`);
+      if (unrated) where.push(`${authoredRatingSql} IS NULL`);
+      if (ratingFrom !== undefined) where.push(`${authoredRatingSql} >= ${bind(ratingFrom)}::int`);
+      if (ratingBelow !== undefined) where.push(`${authoredRatingSql} < ${bind(ratingBelow)}::int`);
       if (provenance)
         where.push(
           `r.content @> ${bind(JSON.stringify({ provenance: { kind: provenance } }))}::jsonb`,

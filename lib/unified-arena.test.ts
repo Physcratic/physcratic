@@ -77,6 +77,17 @@ test('mixed library on PostgreSQL is in rating order across pages, with unrated 
   assert.ok(all.seen.slice(-3).every(p=>p.kind==='authored'&&p.rating===null));assert.deepEqual(all.seen.slice(-3).map(p=>p.id),legacy.map(p=>p.id).sort());
   const at=(rating:number)=>all.seen.filter(p=>p.rating===rating).map(p=>p.kind);
   assert.deepEqual(at(700),['arena','authored']);assert.deepEqual(at(900),['arena','arena','arena','authored']);assert.deepEqual(at(2500),['authored']);
+  // A rating filter uses the author's rating for a community problem. Unrated keeps only labels that are not a rating.
+  const kept=async(difficulty:string)=>(await walk({difficulty})).seen;
+  const inBand=(min:number,max:number)=>arena.problems.filter(p=>getEstimatedProblemElo(p.id)>=min&&getEstimatedProblemElo(p.id)<max).length;
+  for(const [difficulty,min,max,authoredRatings] of [['beginner-olympiad',0,801,[0,700]],['intermediate-olympiad',801,1801,[900,1200,1200]],['advanced',1801,2601,[2500]],['mastery',2601,Infinity,[]],['under-1200',0,1200,[0,700,900]],['1200-1599',1200,1600,[1200,1200]],['1600-plus',1600,Infinity,[2500]]] as const){
+   const seen=await kept(difficulty);
+   assert.deepEqual(seen.filter(p=>p.kind==='authored').map(p=>p.rating),authoredRatings,difficulty);
+   assert.equal(seen.filter(p=>p.kind==='arena').length,inBand(min,max),difficulty);
+   assert.ok(seen.every(p=>p.rating!==null&&p.rating>=min&&p.rating<max),difficulty);assert.deepEqual(seen,[...seen].sort(compareByRating),difficulty);
+  }
+  const unrated=await kept('unrated');assert.deepEqual(unrated.map(p=>p.id),legacy.map(p=>p.id).sort());assert.ok(unrated.every(p=>p.kind==='authored'&&p.rating===null));
+  assert.deepEqual((await walk({difficulty:'beginner-olympiad',source:'authored'})).seen.map(p=>p.rating),[0,700]);
   // The community-only view and a search keep the same order.
   const authored=await walk({source:'authored'});assert.deepEqual(authored.seen.map(p=>p.rating),[0,700,900,1200,1200,2500,null,null,null]);
   const found=await walk({q:'fixture'});assert.deepEqual(found.seen,authored.seen);
@@ -100,7 +111,9 @@ test('mixed collection paginates complete filtered discovery and respects live a
  const second=await list({after:first.nextCursor!});assert.equal(new Set([...first.problems,...second.problems].map(p=>p.key)).size,first.problems.length+second.problems.length);
  const search=await list({q:'fixture'});assert.equal(search.problems.length,24);const rest=await list({q:'fixture',after:search.nextCursor!});assert.equal(rest.problems.length,2);assert.equal(rest.nextCursor,null);
  assert.equal((await list({difficulty:'under-1200'})).problems.filter(p=>p.kind==='authored').length,0);
- assert.equal((await list({difficulty:'unrated'})).problems.length,24);
+ // A rating filter uses the author's rating. The fixtures are rated 1200, so none of them is unrated.
+ assert.equal((await list({difficulty:'unrated'})).problems.length,0);
+ assert.equal((await list({difficulty:'1200-1599'})).problems.filter(p=>p.kind==='authored').length,24);assert.equal((await list({difficulty:'advanced'})).problems.filter(p=>p.kind==='authored').length,0);
  // Publication/privacy changes between metadata discovery and author enrichment are rechecked.
  let intercepted=false;
  const racingPool={query:async(config:Parameters<Pool['query']>[0])=>{const result=await pool.query(config);if(!intercepted){intercepted=true;await pool.query('UPDATE community_profile SET public_visibility=false WHERE user_id=$1',[owner]);}return result;}} as unknown as Pool;

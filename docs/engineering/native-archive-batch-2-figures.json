@@ -1,0 +1,132 @@
+[
+  {
+    "asset": "/corpus/figures/native/eupho-2019-temperature.png",
+    "source": "public/corpus/documents/eupho-2019-statement/document.pdf",
+    "page": 1,
+    "crop": [
+      35,
+      198,
+      283,
+      377
+    ],
+    "sourceSha256": "b3f2dbbe54979f53cffaa4f9755162a6f25d6657e9f7e1e0345bc6896589ccbb",
+    "assetSha256": "62b5f19bd076e861db503b7562214589d3cd29650245b9923c326d8f6980d33c"
+  },
+  {
+    "asset": "/corpus/figures/native/eupho-2019-hose.png",
+    "source": "public/corpus/documents/eupho-2019-statement/document.pdf",
+    "page": 1,
+    "crop": [
+      54,
+      557,
+      552,
+      791
+    ],
+    "sourceSha256": "b3f2dbbe54979f53cffaa4f9755162a6f25d6657e9f7e1e0345bc6896589ccbb",
+    "assetSha256": "c0773c27d7c5f086747ef9529527a8fca3654f5828f4ceea3a722c297b0ab5cc"
+  },
+  {
+    "asset": "/corpus/figures/native/eupho-2019-ball.png",
+    "source": "public/corpus/documents/eupho-2019-solution/document.pdf",
+    "page": 2,
+    "crop": [
+      47,
+      245,
+      270,
+      353
+    ],
+    "sourceSha256": "1f4748031b50ef3ec9089c0f49fbc3202ed84828ad8009aef1ce23f7a6f720c4",
+    "assetSha256": "965f07c249cbf25b62914e2c6572b369f9011dfb80cda93d0afa2cc65042576d"
+  },
+  {
+    "asset": "/corpus/figures/native/eupho-2019-envelope.png",
+    "source": "public/corpus/documents/eupho-2019-solution/document.pdf",
+    "page": 3,
+    "crop": [
+      23,
+      581,
+      295,
+      710
+    ],
+    "sourceSha256": "1f4748031b50ef3ec9089c0f49fbc3202ed84828ad8009aef1ce23f7a6f720c4",
+    "assetSha256": "ea8d6d49590ec5cf6d6a47c33c43d117eb033ee911daf7578a8b70e4e610168a"
+  },
+  {
+    "asset": "/corpus/figures/native/apho-2012-pancharatnam.png",
+    "source": "public/corpus/documents/english-apho-2012-t3-statement/document.pdf",
+    "page": 1,
+    "crop": [
+      444,
+      118,
+      527,
+      224
+    ],
+    "sourceSha256": "c96a44cdc5476b3b921d0dd2b0253daff1ced71b28e13aa5e29f3905bdea42f9",
+    "assetSha256": "26835a16e88e986327784e40f649920a30207abe882821987cdadceb23c0673a"
+  },
+  {
+    "asset": "/corpus/figures/native/apho-2012-slits.png",
+    "source": "public/corpus/documents/english-apho-2012-t3-statement/document.pdf",
+    "page": 1,
+    "crop": [
+      90,
+      343.3,
+      484,
+      466
+    ],
+    "sourceSha256": "c96a44cdc5476b3b921d0dd2b0253daff1ced71b28e13aa5e29f3905bdea42f9",
+    "assetSha256": "7da8045c0231a85dc902636796d85f49f90793757955e9192f0c2504e584ca1a"
+  },
+  {
+    "asset": "/corpus/figures/native/apho-2012-polarizers.png",
+    "source": "public/corpus/documents/english-apho-2012-t3-statement/document.pdf",
+    "page": 2,
+    "crop": [
+      130.7,
+      505.3,
+      520.5,
+      629.3
+    ],
+    "sourceSha256": "c96a44cdc5476b3b921d0dd2b0253daff1ced71b28e13aa5e29f3905bdea42f9",
+    "assetSha256": "fcf5dc0938ff0db416eaaf69859edd5b3443b268d6e030284ecec16263dc1678"
+  },
+  {
+    "asset": "/corpus/figures/native/apho-2012-ellipse.png",
+    "source": "public/corpus/documents/english-apho-2012-t3-statement/document.pdf",
+    "page": 3,
+    "crop": [
+      85,
+      513,
+      269,
+      657
+    ],
+    "sourceSha256": "c96a44cdc5476b3b921d0dd2b0253daff1ced71b28e13aa5e29f3905bdea42f9",
+    "assetSha256": "b4ee295e8eaa6aeba9324034028f1a9f55ca435450a31a30d3e4446943980a48"
+  },
+  {
+    "asset": "/corpus/figures/native/apho-2012-poincare.png",
+    "source": "public/corpus/documents/english-apho-2012-t3-statement/document.pdf",
+    "page": 4,
+    "crop": [
+      334,
+      110,
+      524,
+      240
+    ],
+    "sourceSha256": "c96a44cdc5476b3b921d0dd2b0253daff1ced71b28e13aa5e29f3905bdea42f9",
+    "assetSha256": "54245bff5d4aff3d9143e8a450e0ad0561d1e8da00d5da3321519c478b31ec7a"
+  },
+  {
+    "asset": "/corpus/figures/native/apho-2012-triangle.png",
+    "source": "public/corpus/documents/english-apho-2012-t3-solution/document.pdf",
+    "page": 3,
+    "crop": [
+      98,
+      331,
+      473,
+      568
+    ],
+    "sourceSha256": "b3a5406b544b2a96ad06726006c899a24d949c8b1ce2fe9d2611617dd9b92460",
+    "assetSha256": "59817f75d3d4663f8c6c0564a2035293347c2689533cc15ab2907779675ee65e"
+  }
+]

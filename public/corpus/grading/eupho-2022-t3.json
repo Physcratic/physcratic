@@ -1,0 +1,226 @@
+{
+  "problemId": "eupho-2022-t3",
+  "version": "e9c0807c1ab14fe617a0f37f4e0e18534b397602ea94802228af82beb6970579",
+  "parts": [
+    {
+      "id": "a.omega",
+      "sourcePart": "a.omega",
+      "label": "Initial angular velocity for translation",
+      "kind": "numeric",
+      "unit": "rad/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the required angular velocity. State the velocity direction separately."
+    },
+    {
+      "id": "a.direction",
+      "sourcePart": "a.direction",
+      "label": "Translation direction",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Give the allowed direction of v_0 and explain why both the force and torque vanish. This reasoning is self-review."
+    },
+    {
+      "id": "b.vx",
+      "sourcePart": "b.vx",
+      "label": "Circular-orbit initial velocity x component",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the x component of the required initial velocity."
+    },
+    {
+      "id": "b.vy",
+      "sourcePart": "b.vy",
+      "label": "Circular-orbit initial velocity y component",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "B",
+        "d",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "q",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use positive q, B, d and m. The field points along +z."
+    },
+    {
+      "id": "b.radius",
+      "sourcePart": "b.radius",
+      "label": "Circle radius R_c",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "B",
+        "d",
+        "m",
+        "w"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "q",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "w",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use w for the positive magnitude of omega_0. This circular branch requires nonzero angular velocity."
+    },
+    {
+      "id": "b.xc",
+      "sourcePart": "b.xc",
+      "label": "Circle centre x_c",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "B",
+        "d",
+        "m",
+        "\\omega_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "q",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use signed nonzero omega_0. Counterclockwise rotation is positive. Other parameters are positive."
+    },
+    {
+      "id": "b.yc",
+      "sourcePart": "b.yc",
+      "label": "Circle centre y_c",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the y coordinate of the circle centre."
+    },
+    {
+      "id": "c",
+      "sourcePart": "c",
+      "label": "Reversal threshold angular speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "B",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "q",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the positive limiting angular speed. At exact equality the reversed orientation is approached asymptotically."
+    },
+    {
+      "id": "d",
+      "sourcePart": "d",
+      "label": "Distance to the asymptote D",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use d for the charge separation. Enter a positive distance."
+    }
+  ]
+}

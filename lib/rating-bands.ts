@@ -66,6 +66,14 @@ const legacyRanges: Readonly<Record<string, readonly [number, number]>> = {
 
 export const bandFilterIds = [...ratingBands.map((band) => band.id), ...Object.keys(legacyRanges)] as [string, ...string[]];
 
+/** The ratings a filter id covers, from min up to but not including max. Null for `all` and for an unknown id. */
+export function bandRange(filter: string): readonly [number, number] | null {
+  const legacy = legacyRanges[filter];
+  if (legacy) return legacy;
+  const band = ratingBands.find((entry) => entry.id === filter);
+  return band ? [band.min, band.max] : null;
+}
+
 /** Whether a measured rating is inside the band a filter names. `all` matches everything and an unknown id matches nothing. */
 export function matchesBand(rating: number, filter: string): boolean {
   if (filter === "all") return true;

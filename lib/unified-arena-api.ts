@@ -3,6 +3,7 @@ import type { Pool } from 'pg';
 import { authoredRating, createAuthoredLibraryApi } from './authored-library-api';
 import { arenaFiltersSchema, compareByRating, staticArenaEntries, unifiedArenaPageSchema, type CollectionCursor, type CollectionEntry } from './unified-arena';
 import { getEstimatedProblemElo } from './problem-archive';
+import { bandRange } from './rating-bands';
 import { achievementEligible, achievementIdSchema, type PublicMedal } from './community/achievements';
 const headers={'Cache-Control':'private, no-store','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff'};
 export function createUnifiedArenaApi(pool:Pool, flags:()=>{authors:boolean;badges:boolean;medals:boolean;stats?:boolean}=()=>({authors:false,badges:false,medals:false})) {
@@ -15,7 +16,9 @@ export function createUnifiedArenaApi(pool:Pool, flags:()=>{authors:boolean;badg
    if(!parsed.success)return Response.json({error:'Invalid collection filters.'},{status:400,headers});
    const f=parsed.data;
    let authoredUnavailable=false,attributionUnavailable=false;
-   const includeAuthored=f.source!=='arena'&&(f.difficulty==='all'||f.difficulty==='unrated');
+   // A rating filter uses the author's difficulty rating for a community problem. "unrated" keeps the ones whose
+   // label is not a rating.
+   const range=bandRange(f.difficulty),includeAuthored=f.source!=='arena'&&(f.difficulty==='all'||f.difficulty==='unrated'||range!==null);
    // The page starts after the cursor problem. Its rating places it in the order: rating from low to high, problems
    // without a rating last, then Physcratic before community, then id.
    let cursor:CollectionCursor|undefined,cursorLost=false;
@@ -28,6 +31,8 @@ export function createUnifiedArenaApi(pool:Pool, flags:()=>{authors:boolean;badg
    let entries:CollectionEntry[]=[],moreAuthored=false;const ratings=new Map<string,number|null>();
    if(includeAuthored&&!cursorLost){
     const p=new URLSearchParams({q:f.q,tag:f.tag,sort:'rating'});
+    if(f.difficulty==='unrated')p.set('unrated','1');
+    else if(range){p.set('ratingFrom',String(Math.min(range[0],4000)));if(Number.isFinite(range[1]))p.set('ratingBelow',String(Math.min(range[1],4001)));}
     if(cursor?.kind==='authored'){p.set('after',cursor.id);p.set('afterRating',cursor.rating===null?'unrated':String(cursor.rating));}
     else if(cursor&&cursor.rating!==null)p.set('minRating',String(cursor.rating));
     const response=await library(new Request('https://library.internal/?'+p));

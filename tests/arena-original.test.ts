@@ -24,9 +24,10 @@ const page = (entry: ArenaCatalogEntry) =>
   renderToStaticMarkup(createElement(ArenaProblemReader, { problem: entry, statement: createElement(ArenaDocument, { content: full(entry).statement, staticFigures: true }) }));
 const pdf = /\.pdf|_Problem|_Solution|application\/pdf/i;
 
-test("there are 15 original problems and 18 older ones", () => {
-  assert.equal(originals.length, 15);
-  assert.equal(older.length, 18);
+test("the catalogue has original problems and older ones, and every problem is one or the other", () => {
+  assert.ok(originals.length >= 15);
+  assert.ok(older.length >= 18);
+  assert.equal(originals.length + older.length, arena.count);
   assert.ok(originals.every((entry) => entry.importedOn === "2026-11-14"));
 });
 

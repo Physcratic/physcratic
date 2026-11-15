@@ -13,6 +13,7 @@ import { source05 } from "./arena/source-05";
 import { source06 } from "./arena/source-06";
 import { source07 } from "./arena/source-07";
 import { source08 } from "./arena/source-08";
+import arenaIndex from "./arena/index.json";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -104,11 +105,12 @@ describe("Arena problem text obeys the copy rules", () => {
     }
     return out;
   };
-  it("covers all 33 problems and their answer boxes", () => {
-    assert.equal(arenaSeeds.length, 33);
+  it("covers every Arena problem in the catalogue and its answer boxes", () => {
+    assert.equal(arenaSeeds.length, arenaIndex.count);
     const parts = archiveDefinitions.filter((d) => d.problemId.startsWith("arena-")).reduce((sum, d) => sum + d.parts.length, 0);
-    assert.equal(parts, 197);
-    assert.ok(arenaTexts().length >= 33 * 4 + parts * 2 + 44 * 3);
+    const hints = arenaSeeds.reduce((sum, seed) => sum + Object.values(seed.hints ?? {}).flat().length, 0);
+    assert.ok(parts >= 197 && hints >= 44 * 3);
+    assert.ok(arenaTexts().length >= arenaSeeds.length * 4 + parts * 2 + hints);
   });
   it("has no dashes, semicolons, banned words or banned phrases in titles, statements, solutions, part headings, answer help or condition lines", () => {
     const failures: string[] = [];

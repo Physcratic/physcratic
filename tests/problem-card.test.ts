@@ -139,8 +139,8 @@ test("Arena cards use the archive template and retain their individual difficult
   }
   assert.doesNotMatch(html, /Unrated|Self-review|Statement \+ worked solution/);
   assert.match(html, /id="arena-results"/);
-  assert.match(html, /33 of 33 problems · Showing 1 to 10/);
-  assert.equal([...html.matchAll(/Page 1 of 4/g)].length, 2);
+  assert.match(html, new RegExp(`${arena.count} of ${arena.count} problems · Showing 1 to 10`));
+  assert.equal([...html.matchAll(new RegExp(`Page 1 of ${Math.ceil(arena.count / 10)}`, "g"))].length, 2);
   assert.match(html, /aria-label="Arena pages \(top\)"/);
   assert.match(html, /aria-label="Arena pages \(bottom\)"/);
 });

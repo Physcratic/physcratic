@@ -18,6 +18,11 @@ export const authoredLibraryFiltersSchema = z.strictObject({
   afterRating: z.union([z.literal("unrated"), z.coerce.number().int().min(0).max(4000)]).optional(),
   // With sort=rating and no `after`: start at this rating. Problems without a rating still follow.
   minRating: z.coerce.number().int().min(0).max(4000).optional(),
+  // A rating filter on the author's difficulty rating: from ratingFrom up to, but not including, ratingBelow.
+  // A label that is not a rating never matches. unrated=1 keeps only those labels instead.
+  ratingFrom: z.coerce.number().int().min(0).max(4000).optional(),
+  ratingBelow: z.coerce.number().int().min(0).max(4001).optional(),
+  unrated: z.enum(["", "1"]).default(""),
 });
 export const authoredLibraryPageSchema = z.strictObject({
   problems: z

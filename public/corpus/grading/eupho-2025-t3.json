@@ -1,0 +1,45 @@
+{
+  "problemId": "eupho-2025-t3",
+  "version": "efa0524f479d7287a7909d6d9a9471e4bd03611229869feea5203eaf05f4e502",
+  "parts": [
+    {
+      "id": "a",
+      "sourcePart": "a",
+      "label": "Field-line sketch",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Draw a smooth helical field line centred on the wire, with handedness matching the indicated current and imposed axial field. This drawing is self-review."
+    },
+    {
+      "id": "b",
+      "sourcePart": "b",
+      "label": "Closest field-line distance d",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use r for the initial distance at x=3a. Enter the leading result for r much smaller than a."
+    },
+    {
+      "id": "c",
+      "sourcePart": "c",
+      "label": "Field-line length L",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter metres. The requested 20 percent tolerance accepts the exact-integral and trapezoid estimates."
+    }
+  ]
+}

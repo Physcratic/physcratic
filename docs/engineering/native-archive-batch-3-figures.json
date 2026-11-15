@@ -1,0 +1,155 @@
+[
+  {
+    "asset": "/corpus/figures/native/eupho-2020-solenoid.png",
+    "assetSha256": "e59f13099ab292853c8bd45c2d28075e37048e1ff2b3ff661ebfab4ac1c62faa",
+    "source": "public/corpus/documents/eupho-2020-statement/document.pdf",
+    "sourceSha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12",
+    "page": 1,
+    "renderPixels": [
+      1400,
+      1980
+    ],
+    "crop": [
+      60,
+      460,
+      695,
+      775
+    ]
+  },
+  {
+    "asset": "/corpus/figures/native/eupho-2020-accelerator.png",
+    "assetSha256": "9e97c4201cbccb6e5ffb8d3fec6be3814ebd069f7e9e5612219604d9b5ef0150",
+    "source": "public/corpus/documents/eupho-2020-statement/document.pdf",
+    "sourceSha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12",
+    "page": 1,
+    "renderPixels": [
+      1400,
+      1980
+    ],
+    "crop": [
+      130,
+      1490,
+      635,
+      1615
+    ]
+  },
+  {
+    "asset": "/corpus/figures/native/eupho-2020-cat-photos.png",
+    "assetSha256": "1e32723ac96b1cf7942c8079189f250d04f027f8479c905695589e05b4b4778b",
+    "source": "public/corpus/documents/eupho-2020-statement/document.pdf",
+    "sourceSha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12",
+    "page": 1,
+    "renderPixels": [
+      1400,
+      1980
+    ],
+    "crop": [
+      710,
+      335,
+      1335,
+      600
+    ]
+  },
+  {
+    "asset": "/corpus/figures/native/eupho-2020-cat-setup.png",
+    "assetSha256": "1c0c9946f3a49fd42796e573fa833dec5e9668d2c2e8f66c886fc671369305a2",
+    "source": "public/corpus/documents/eupho-2020-statement/document.pdf",
+    "sourceSha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12",
+    "page": 1,
+    "renderPixels": [
+      1400,
+      1980
+    ],
+    "crop": [
+      710,
+      605,
+      1338,
+      805
+    ]
+  },
+  {
+    "asset": "/corpus/figures/native/eupho-2020-cat-graph.png",
+    "assetSha256": "b393a170bd2cbf45cd6b0f61aa70b2be48d059346595e1becd98ed82c7074ce4",
+    "source": "public/corpus/documents/eupho-2020-statement/document.pdf",
+    "sourceSha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12",
+    "page": 1,
+    "renderPixels": [
+      1400,
+      1980
+    ],
+    "crop": [
+      710,
+      1015,
+      1338,
+      1440
+    ]
+  },
+  {
+    "asset": "/corpus/figures/native/eupho-2020-current.png",
+    "assetSha256": "0422bfb5346b9fbcdae17f14f5d5bac9b887a53294c846d49276d9d685d0384f",
+    "source": "public/corpus/documents/eupho-2020-solution/document.pdf",
+    "sourceSha256": "a6cfffa08852197b55ba923f8ffbab42005c9fe74d479b245d924ebb60198ccf",
+    "page": 5,
+    "renderPixels": [
+      1400,
+      1980
+    ],
+    "crop": [
+      65,
+      450,
+      690,
+      920
+    ]
+  },
+  {
+    "asset": "/corpus/figures/native/eupho-2020-accelerator-frames.png",
+    "assetSha256": "37427ba252c187214f33129f5b2dd9e51c2f2729663e12c7f3b8f7a0b0fb2772",
+    "source": "public/corpus/documents/eupho-2020-solution/document.pdf",
+    "sourceSha256": "a6cfffa08852197b55ba923f8ffbab42005c9fe74d479b245d924ebb60198ccf",
+    "page": 5,
+    "renderPixels": [
+      1400,
+      1980
+    ],
+    "crop": [
+      710,
+      1170,
+      1340,
+      1425
+    ]
+  },
+  {
+    "asset": "/corpus/figures/native/eupho-2020-cat-rays.png",
+    "assetSha256": "910dfd8702e5fec0f2faa164ed99829b9aab0539bc8b87f438f2183972830c23",
+    "source": "public/corpus/documents/eupho-2020-solution/document.pdf",
+    "sourceSha256": "a6cfffa08852197b55ba923f8ffbab42005c9fe74d479b245d924ebb60198ccf",
+    "page": 9,
+    "renderPixels": [
+      1400,
+      1980
+    ],
+    "crop": [
+      65,
+      825,
+      1340,
+      1350
+    ]
+  },
+  {
+    "asset": "/corpus/figures/native/eupho-2020-cat-centres.png",
+    "assetSha256": "bc2371c0268b3525c5e12dffd5d15b7c2a77d634087efc8706771795b2bcd2f3",
+    "source": "public/corpus/documents/eupho-2020-solution/document.pdf",
+    "sourceSha256": "a6cfffa08852197b55ba923f8ffbab42005c9fe74d479b245d924ebb60198ccf",
+    "page": 9,
+    "renderPixels": [
+      1400,
+      1980
+    ],
+    "crop": [
+      710,
+      225,
+      1335,
+      800
+    ]
+  }
+]

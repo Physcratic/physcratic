@@ -1,0 +1,46 @@
+{
+  "problemId": "eupho-2017-t1",
+  "version": "fbe17d4fbe128d51bddc9939995da336cdf32c4247665ad1015e72161f4176ee",
+  "parts": [
+    {
+      "id": "a.model",
+      "sourcePart": "A.model",
+      "label": "Fundamental-mode model",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Describe and justify your model for the rope. The numeric check alone does not assess this reasoning."
+    },
+    {
+      "id": "a.frequency",
+      "sourcePart": "A.frequency",
+      "label": "Estimated fundamental frequency",
+      "kind": "numeric",
+      "unit": "Hz",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the physical-pendulum estimate with the supplied length and gravity. Enter Hz. Other justified models require self-review."
+    },
+    {
+      "id": "b.ratio2",
+      "sourcePart": "B.ratio2",
+      "label": "Frequency ratio f_2/f_1",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Normalize f_1 to one. Enter f_2/f_1, using the source graph."
+    },
+    {
+      "id": "b.ratio3",
+      "sourcePart": "B.ratio3",
+      "label": "Frequency ratio f_3/f_1",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Normalize f_1 to one. Enter f_3/f_1. The tolerance allows graph reading and rounding."
+    }
+  ]
+}

@@ -6,7 +6,9 @@ import { archiveDefinitions, archiveVersion, getArchiveDefinition, publicArchive
 import { archiveMetadataSchema } from "./archive-grading-contracts";
 import { checkArchivePart, gradeArchiveAnswers, ArchiveGradeRequestError } from "./archive-grading";
 import { expression, numeric } from "./archive-grading/definitions";
+import { olympiadDefinitions } from "./olympiad/keys";
 import { problems } from "./physics";
+import arenaIndex from "./arena/index.json";
 
 const coverage: Record<string, string[]> = {
   "mind-the-gap": ["a.radius", "b.radius"],
@@ -45,9 +47,10 @@ const coverage: Record<string, string[]> = {
   "two-colours-one-cathode": ["a.work", "b.work", "c.wavelength"],
 };
 test("explicit disposition for every requested Arena result and all 12 Quick practice problems", () => {
-  assert.equal(archiveDefinitions.length, 45);
-  assert.equal(new Set(archiveDefinitions.map((item) => item.problemId)).size, 45);
-  assert.equal(Object.keys(coverage).length, 33);
+  // Every Arena problem in the catalogue and every Quick practice problem has one definition.
+  assert.equal(archiveDefinitions.length, arenaIndex.count + problems.length);
+  assert.equal(new Set(archiveDefinitions.map((item) => item.problemId)).size, archiveDefinitions.length);
+  assert.deepEqual(Object.keys(coverage).map((id) => `arena-${id}`).sort(), arenaIndex.problems.map((problem) => problem.id).sort());
   for (const [id, parts] of Object.entries(coverage)) {
     const definition = getArchiveDefinition(`arena-${id}`)!;
     assert.deepEqual(definition.parts.map((part) => part.id), parts, id);
@@ -76,8 +79,8 @@ for (const definition of archiveDefinitions) {
   });
 }
 test("public generator output uses an explicit allowlist and contains no structured keys", () => {
-  assert.equal(readdirSync(join(process.cwd(), "public/corpus/grading")).length, 45);
-  for (const definition of archiveDefinitions) {
+  assert.equal(readdirSync(join(process.cwd(), "public/corpus/grading")).length, archiveDefinitions.length + olympiadDefinitions.length);
+  for (const definition of [...archiveDefinitions, ...olympiadDefinitions]) {
     const metadata = publicArchiveMetadata(definition);
     const published = JSON.parse(readFileSync(join(process.cwd(), `public/corpus/grading/${definition.problemId}.json`), "utf8"));
     assert.deepEqual(archiveMetadataSchema.parse(published), metadata);
