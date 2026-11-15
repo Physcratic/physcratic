@@ -49,9 +49,9 @@
       175,
       220,
       670,
-      655
+      600
     ],
-    "sha256": "7b9a221ae697e0cfd4f2d81cc325028eb8e3bc833dbb0dc35b39d9873af7c6ec"
+    "sha256": "ffb26599e2bde05758ea0a16047e8e4556211d96f5fb0d4170c365803d85e04d"
   },
   {
     "path": "/corpus/figures/native/batch7-cherenkov-cone.png",
@@ -157,9 +157,9 @@
       110,
       285,
       770,
-      908
+      895
     ],
-    "sha256": "3120e1faf28a73e91b35d51eb1ff85c6fa5f01e45deabfc80f7bf97449d00ef1"
+    "sha256": "91d839f563840e02c4fff4b9613b148041fcf71f703c5f516498b2c4d848a676"
   },
   {
     "path": "/corpus/figures/native/batch7-ice-isotopes.png",
@@ -643,9 +643,9 @@
       180,
       395,
       610,
-      540
+      525
     ],
-    "sha256": "b6d309455b2b0e92fe0d5073171acfb3f79b1688d03b4f7ef135e31840e3d040"
+    "sha256": "3cc354b37b01316d169337c8f65243598ec6c04a216bef2d14295035bdb75926"
   },
   {
     "path": "/corpus/figures/native/batch7-wire-plane.png",
@@ -661,9 +661,9 @@
       245,
       780,
       645,
-      925
+      900
     ],
-    "sha256": "97da2987c015cc1aa61d285029019e35dc66f28c852dbfb699b737213ada54b9"
+    "sha256": "d1cdbe8965e9ff7678aa3a46f5ae3a82cd1cbc65107480cd9f817028d86bb58f"
   },
   {
     "path": "/corpus/figures/native/batch7-set-circuit.png",
@@ -821,11 +821,11 @@
     ],
     "crop": [
       270,
-      820,
+      830,
       580,
-      1030
+      1015
     ],
-    "sha256": "8ac129d8e303e2d382b3fdb6ce30acdff42311b05efafb54e5a67b88aca5e546"
+    "sha256": "e77ae21bb78d229cff8e5b5b9c30caf549fbd4211419ceb6c813927d6386dc4e"
   },
   {
     "path": "/corpus/figures/native/batch7-sun-ring.png",

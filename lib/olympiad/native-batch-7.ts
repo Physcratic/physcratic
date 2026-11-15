@@ -430,7 +430,7 @@ nativeOlympiadContent["ipho-2016-t2"] = {
     sub("b3. Power estimate"),
     p("Estimate the mean power dissipated in X to order of magnitude and explain the estimate."),
     sub("b4. Transmitter antenna"),
-    p("The oscillation feeds an antenna with a free end. Find its optimal length s below 1 km using c=3.00×10^8 m/s."),
+    p("The oscillation feeds an antenna with a free end. Find its optimal length s below 1 km using c=\\(3.00\\times10^{8}\\) m/s."),
     sub("c1. Neuristor pulse sketches"),
     fig("batch7-neuristor-pulse", "Original supply voltage changing from 12 V to 15 V at t0 and back after duration tau."),
     p("Initially the capacitive circuit is stationary at Etilde=12.0 V. At t0 increase the supply to 15.0 V for duration τ<T, then return to 12.0 V. Sketch IX(t) for τ below and above a critical duration, and explain the difference."),
@@ -469,7 +469,7 @@ nativeOlympiadContent["ipho-2016-t2"] = {
 nativeOlympiadContent["ipho-2018-t1"] = {
   statement: [
     h("LIGO-GW150914"),
-    p("The historical GW150914 signal is modelled as two masses M1 and M2 on slowly shrinking, nonrelativistic circular orbits. Positions are relative to their centre of mass, \\(M_1\\mathbf r_1+M_2\\mathbf r_2=0\\). Define \\(M=M_1+M_2\\), \\(\\mu=M_1M_2/M\\), separation L and orbital angular velocity Ω. Use G=6.67×10^−11 N m²/kg², c=3.00×10^8 m/s, solar mass 2.00×10^30 kg and solar radius 7.00×10^5 km. The given quadrupole radiation formula is \\[\\mathcal P=\\frac{G}{5c^5}\\sum_{i,j=1}^3(\\dddot Q_{ij})^2,\\quad Q_{ij}=\\sum_{A=1}^2M_A(x_{Ai}x_{Aj}-\\delta_{ij}r_A^2/3).\\] The gravitational-wave cycle frequency is twice the orbital cycle frequency. Treat this Newtonian/quadrupole model as the specified approximation, even near merger."),
+    p("The historical GW150914 signal is modelled as two masses M1 and M2 on slowly shrinking, nonrelativistic circular orbits. Positions are relative to their centre of mass, \\(M_1\\mathbf r_1+M_2\\mathbf r_2=0\\). Define \\(M=M_1+M_2\\), \\(\\mu=M_1M_2/M\\), separation L and orbital angular velocity Ω. Use G=\\(6.67\\times10^{-11}\\) N m²/kg², c=\\(3.00\\times10^{8}\\) m/s, solar mass \\(2.00\\times10^{30}\\) kg and solar radius \\(7.00\\times10^{5}\\) km. The given quadrupole radiation formula is \\[\\mathcal P=\\frac{G}{5c^5}\\sum_{i,j=1}^3(\\dddot Q_{ij})^2,\\quad Q_{ij}=\\sum_{A=1}^2M_A(x_{Ai}x_{Aj}-\\delta_{ij}r_A^2/3).\\] The gravitational-wave cycle frequency is twice the orbital cycle frequency. Treat this Newtonian/quadrupole model as the specified approximation, even near merger."),
     sub("a.1. Newtonian acceleration"),
     p("Write \\(\\ddot{\\mathbf r}_1=-\\alpha\\mathbf r_1/r_1^n\\). Find n and α."),
     sub("a.2. Binary kinetic energy"),
@@ -516,7 +516,7 @@ nativeOlympiadContent["ipho-2018-t1"] = {
 nativeOlympiadContent["ipho-2018-t2"] = {
   statement: [
     h("Where is the neutrino?"),
-    p("The historical ATLAS model uses a uniform B=2.00 T solenoidal field in a cylinder of radius R=1.10 m. Electrons start at its centre. Use m=9.11×10^−31 kg, e=1.60×10^−19 C, c=3.00×10^8 m/s and ε0=8.85×10^−12 F/m. For perpendicular acceleration the radiated power is \\(P=e^2a^2\\gamma^4/(6\\pi\\epsilon_0c^3)\\). Part B reconstructs a neutrino from \\(t\\to bW^+\\to b\\mu^+\\nu\\). Treat all final particles and jets as massless. Their measured momenta (px,py,pz), in GeV/c, are: anti-muon (−24.7,−24.9,−12.4), jet 1 (−14.2,50.1,94.1), neutrino (−104.1,5.3,unknown). The neutrino transverse components come from missing transverse momentum. Do not assume zero total longitudinal momentum. Use mW=80.4 GeV/c² and rest-frame top lifetime 5×10^−25 s."),
+    p("The historical ATLAS model uses a uniform B=2.00 T solenoidal field in a cylinder of radius R=1.10 m. Electrons start at its centre. Use m=\\(9.11\\times10^{-31}\\) kg, e=\\(1.60\\times10^{-19}\\) C, c=\\(3.00\\times10^{8}\\) m/s and ε0=\\(8.85\\times10^{-12}\\) F/m. For perpendicular acceleration the radiated power is \\(P=e^2a^2\\gamma^4/(6\\pi\\epsilon_0c^3)\\). Part B reconstructs a neutrino from \\(t\\to bW^+\\to b\\mu^+\\nu\\). Treat all final particles and jets as massless. Their measured momenta (px,py,pz), in GeV/c, are: anti-muon (−24.7,−24.9,−12.4), jet 1 (−14.2,50.1,94.1), neutrino (−104.1,5.3,unknown). The neutrino transverse components come from missing transverse momentum. Do not assume zero total longitudinal momentum. Use mW=80.4 GeV/c² and rest-frame top lifetime \\(5\\times10^{-25}\\) s."),
     sub("a.1. Classical cyclotron radius"),
     p("For a nonrelativistic electron with kinetic energy K, derive its radius r."),
     sub("a.2. Escape momentum"),
@@ -572,7 +572,7 @@ nativeOlympiadContent["ipho-2018-t2"] = {
 nativeOlympiadContent["ipho-2018-t3"] = {
   statement: [
     h("Physics of Live Systems"),
-    p("Use the following specified physical models. For laminar incompressible flow through a vessel of radius r and length ℓ, \\(\\Delta P=RQ\\), \\(R=8\\eta\\ell/(\\pi r^4)\\). A symmetric tree has N levels numbered 0 through N−1. Each vessel splits into two, with \\(r_{i+1}=r_i/2^{1/3}\\), \\(\\ell_{i+1}=\\ell_i/2^{1/3}\\). The pressure drop across the whole tree is ΔP. Use 760 mmHg=1.013×10^5 Pa. The elastic-vessel equivalent circuit is a series R,L feeding a shunt C, with outlet pressure across C, \\(C=3\\ell\\pi r^3/(2Eh)\\), \\(L=9\\ell\\rho/(4\\pi r^2)\\). Here E is wall Young modulus and h its thickness. The numerical tree has N=6, r0=6.0×10^−5 m, ℓ0=2.0×10^−3 m, inlet pressure 55 mmHg, capillary pressure 30 mmHg, η=3.5×10^−3 kg/(m s), ρ=1.05×10^3 kg/m³, E=0.06 MPa."),
+    p("Use the following specified physical models. For laminar incompressible flow through a vessel of radius r and length ℓ, \\(\\Delta P=RQ\\), \\(R=8\\eta\\ell/(\\pi r^4)\\). A symmetric tree has N levels numbered 0 through N−1. Each vessel splits into two, with \\(r_{i+1}=r_i/2^{1/3}\\), \\(\\ell_{i+1}=\\ell_i/2^{1/3}\\). The pressure drop across the whole tree is ΔP. Use 760 mmHg=\\(1.013\\times10^{5}\\) Pa. The elastic-vessel equivalent circuit is a series R,L feeding a shunt C, with outlet pressure across C, \\(C=3\\ell\\pi r^3/(2Eh)\\), \\(L=9\\ell\\rho/(4\\pi r^2)\\). Here E is wall Young modulus and h its thickness. The numerical tree has N=6, r0=\\(6.0\\times10^{-5}\\) m, ℓ0=\\(2.0\\times10^{-3}\\) m, inlet pressure 55 mmHg, capillary pressure 30 mmHg, η=\\(3.5\\times10^{-3}\\) kg/(m s), ρ=\\(1.05\\times10^{3}\\) kg/m³, E=0.06 MPa."),
     fig("batch7-arteriole-tree", "Original symmetric branched arteriole tree, levels zero through N minus one and capillary bed pressure."),
     sub("a.1. Flow in each generation"),
     p("Find Qi in terms of ΔP,N,η,r0,ℓ0 and i."),
@@ -598,7 +598,7 @@ nativeOlympiadContent["ipho-2018-t3"] = {
     sub("a.1. Flow in each generation"),
     p("At level i, \\(Q_i=Q_0/2^i\\), while \\(R_i=2^iR_0\\). Each level therefore drops the same pressure Q0R0. Thus \\[Q_i=\\frac{\\Delta P\\pi r_0^4}{2^{i+3}N\\ell_0\\eta}.\\]"),
     sub("a.2. Numerical inlet flow"),
-    p("Convert ΔP=25 mmHg to 3332 Pa. Then Q0≈4.04×10^−10 m³/s≈1.45 mL/hour, conventionally rounded to 1.5."),
+    p("Convert ΔP=25 mmHg to 3332 Pa. Then Q0≈\\(4.04\\times10^{-10}\\) m³/s≈1.45 mL/hour, conventionally rounded to 1.5."),
     sub("a.3. Pressure amplitude transfer"),
     p("Complex impedances give \\[\\frac{P_{out}}{P_{in}}=\\frac1{\\sqrt{(1-\\omega^2LC)^2+\\omega^2C^2R^2}}.\\] To quadratic order in ω, attenuation requires C²R²−2CL>0, or \\(64\\eta^2\\ell^2/(3Ehr^3\\rho)>1\\). At equality attenuation first appears at fourth order."),
     sub("a.4. Wall thickness bound"),
@@ -617,7 +617,7 @@ nativeOlympiadContent["ipho-2018-t3"] = {
 nativeOlympiadContent["ipho-2019-t2"] = {
   statement: [
     h("The Physics of a Microwave Oven"),
-    p("A model magnetron has a central cathode of radius a and a positive cylindrical anode of radius b, with eight LC resonator cavities. Adjacent cavities carry opposite oscillating charge. Their frequency is f=2.45 GHz. Static magnetic field B0 points out of the cross-section. The alternating electric-field amplitude is roughly one third of the static field, and electrons transfer about 80% of their acquired static-field energy to the oscillations. The resonator figure supplies its dimensions. Treat its slot as a parallel-plate capacitor and its cylindrical cavity as an inductor whose magnetic field is 0.6 times that of an infinite solenoid. Use ε0=8.85×10^−12 F/m, μ0=4π×10^−7 H/m, electron m=9.1×10^−31 kg, charge −e with e=1.6×10^−19 C, and c=3.0×10^8 m/s. For the operating magnetron use b−a=15 mm, B0=0.30 T and maximum kinetic energy 800 eV."),
+    p("A model magnetron has a central cathode of radius a and a positive cylindrical anode of radius b, with eight LC resonator cavities. Adjacent cavities carry opposite oscillating charge. Their frequency is f=2.45 GHz. Static magnetic field B0 points out of the cross-section. The alternating electric-field amplitude is roughly one third of the static field, and electrons transfer about 80% of their acquired static-field energy to the oscillations. The resonator figure supplies its dimensions. Treat its slot as a parallel-plate capacitor and its cylindrical cavity as an inductor whose magnetic field is 0.6 times that of an infinite solenoid. Use ε0=\\(8.85\\times10^{-12}\\) F/m, μ0=\\(4\\pi\\times10^{-7}\\) H/m, electron m=\\(9.1\\times10^{-31}\\) kg, charge −e with e=\\(1.6\\times10^{-19}\\) C, and c=\\(3.0\\times10^{8}\\) m/s. For the operating magnetron use b−a=15 mm, B0=0.30 T and maximum kinetic energy 800 eV."),
     fig("batch7-magnetron-cavity", "Original eight-cavity magnetron and three-dimensional resonator with d=1 mm, l=6 mm, R=7 mm and h=17.5 mm."),
     sub("a.1. Cavity resonance estimate"),
     p("Estimate the cavity frequency using the dimensions in Figure 1(b). Use the actual 2.45 GHz for later parts."),
@@ -725,7 +725,7 @@ nativeOlympiadContent["ipho-2021-t1"] = {
 nativeOlympiadContent["ipho-2021-t3"] = {
   statement: [
     h("Particles and Waves"),
-    p("Use h=6.626×10^−34 J s, ħ=h/(2π), c=2.998×10^8 m/s, electron mass me=9.109×10^−31 kg, e=1.602×10^−19 C, ε0=8.854×10^−12 F/m, kB=1.381×10^−23 J/K and atomic mass unit u=1.661×10^−27 kg. A quantum particle in a one-dimensional infinite well has V=0 for 0≤x≤L and infinite V outside. Its de Broglie standing wave has nodes at both walls. Photon transitions conserve energy. Later parts use the specified simple molecular, gas and optical-lattice models. The standing-wave condition is \\(2L=n\\lambda_{dB}\\), with \\(p=h/\\lambda_{dB}\\)."),
+    p("Use h=\\(6.626\\times10^{-34}\\) J s, ħ=h/(2π), c=\\(2.998\\times10^{8}\\) m/s, electron mass me=\\(9.109\\times10^{-31}\\) kg, e=\\(1.602\\times10^{-19}\\) C, ε0=\\(8.854\\times10^{-12}\\) F/m, kB=\\(1.381\\times10^{-23}\\) J/K and atomic mass unit u=\\(1.661\\times10^{-27}\\) kg. A quantum particle in a one-dimensional infinite well has V=0 for 0≤x≤L and infinite V outside. Its de Broglie standing wave has nodes at both walls. Photon transitions conserve energy. Later parts use the specified simple molecular, gas and optical-lattice models. The standing-wave condition is \\(2L=n\\lambda_{dB}\\), with \\(p=h/\\lambda_{dB}\\)."),
     sub("a.1. Ground-state energy"),
     p("Find the smallest positive energy in the box."),
     sub("a.2. All box levels"),
@@ -746,7 +746,7 @@ nativeOlympiadContent["ipho-2021-t3"] = {
     sub("c.2. Condensation estimate"),
     p("Estimate spacing ℓ in a gas of number density n. Setting it equal to the rms de Broglie wavelength, find critical temperature Tc."),
     sub("c.3. Critical density and comparison"),
-    p("At Tc=100 nK compute nc for mass m=87u. Compare with n0 at 300 K and 10^5 Pa by giving n0 and n0/nc."),
+    p("At Tc=100 nK compute nc for mass m=87u. Compare with n0 at 300 K and \\(10^{5}\\) Pa by giving n0 and n0/nc."),
     sub("d.1. Three-beam lattice potential"),
     fig("batch7-three-beam", "Original three interfering laser directions, two sets of hexagonal symmetry axes and an example saddle surface."),
     p("Three equal-amplitude plane waves of wavenumber k, frequency ω and z polarization travel in the xy plane at 120° intervals. Choose k1=k(1,0), k2=k(−1/2,√3/2), k3=k(−1/2,−√3/2). Each field is E0 cos(ki·r−ωt). For V=−α〈E²〉, α>0, find V as a constant plus three cosines and identify their vectors."),
@@ -780,7 +780,7 @@ nativeOlympiadContent["ipho-2021-t3"] = {
     sub("c.2. Condensation estimate"),
     p("The volume per atom gives ℓ=n^(−1/3). Equating wavelengths gives \\(T_c=h^2n^{2/3}/(3mk_B)\\). This is the problem's estimate, not the exact ideal-Bose-gas transition coefficient."),
     sub("c.3. Critical density and comparison"),
-    p("\\(n_c=(3mk_BT_c)^{3/2}/h^3\\simeq1.59\\times10^{18}\\,\\mathrm{m^{-3}}\\). The ideal gas law gives \\(n_0=p_0/(k_BT_0)\\simeq2.41\\times10^{25}\\,\\mathrm{m^{-3}}\\). The ordinary gas is about 1.5×10^7 times denser."),
+    p("\\(n_c=(3mk_BT_c)^{3/2}/h^3\\simeq1.59\\times10^{18}\\,\\mathrm{m^{-3}}\\). The ideal gas law gives \\(n_0=p_0/(k_BT_0)\\simeq2.41\\times10^{25}\\,\\mathrm{m^{-3}}\\). The ordinary gas is about \\(1.5\\times10^{7}\\) times denser."),
     sub("d.1. Three-beam lattice potential"),
     p("Use 〈cos a cos b〉=cos(a−b)/2. Then \\[V=-\\alpha E_0^2[3/2+\\cos(\\mathbf b_1\\cdot\\mathbf r)+\\cos(\\mathbf b_2\\cdot\\mathbf r)+\\cos(\\mathbf b_3\\cdot\\mathbf r)],\\] with b1=k2−k3=k(0,√3), b2=k3−k1=k(−3/2,−√3/2), b3=k1−k2=k(3/2,−√3/2)."),
     sub("d.2. Sixfold symmetry"),
@@ -895,7 +895,7 @@ nativeOlympiadContent["apho-2013-t3"] = {
 nativeOlympiadContent["apho-2018-t1"] = {
   statement: [
     h("Optical trap of neutral atoms"),
-    p("Model a neutral sodium atom as a massive +e core and a −e electron cloud. In a static field E0 uhat its induced moment is p0=αE0 uhat. In a laser field E(r,t)=E0(r)cos(ωt)uhat, write the moment as p=α(ω)E0(r)cos[ωt+φ(ω)]uhat. Use the positive-amplitude convention α≥0 and phase −π≤φ≤0, so a passive response lags the field. This is equivalent to the source's signed-amplitude convention. Intensity is I=ε0cE0²/2. The electron equation is \\(\\ddot x+\\gamma_\\omega\\dot x+\\omega_0^2x=-eE_0\\cos\\omega t/m_e\\), and p=−ex. Larmor power is \\(P_L=e^2a^2/(6\\pi\\epsilon_0c^3)\\). Use e=1.602×10^−19 C, me=9.109×10^−31 kg, ε0=8.854×10^−12 F/m, c=2.998×10^8 m/s, kB=1.381×10^−23 J/K and ħ=1.055×10^−34 J s."),
+    p("Model a neutral sodium atom as a massive +e core and a −e electron cloud. In a static field E0 uhat its induced moment is p0=αE0 uhat. In a laser field E(r,t)=E0(r)cos(ωt)uhat, write the moment as p=α(ω)E0(r)cos[ωt+φ(ω)]uhat. Use the positive-amplitude convention α≥0 and phase −π≤φ≤0, so a passive response lags the field. This is equivalent to the source's signed-amplitude convention. Intensity is I=ε0cE0²/2. The electron equation is \\(\\ddot x+\\gamma_\\omega\\dot x+\\omega_0^2x=-eE_0\\cos\\omega t/m_e\\), and p=−ex. Larmor power is \\(P_L=e^2a^2/(6\\pi\\epsilon_0c^3)\\). Use e=\\(1.602\\times10^{-19}\\) C, me=\\(9.109\\times10^{-31}\\) kg, ε0=\\(8.854\\times10^{-12}\\) F/m, c=\\(2.998\\times10^{8}\\) m/s, kB=\\(1.381\\times10^{-23}\\) J/K and ħ=\\(1.055\\times10^{-34}\\) J s."),
     fig("batch7-electron-cloud", "Original coincident positive core and negative cloud centres and their separation in an electric field."),
     sub("1.1. Power absorbed by induced dipole"),
     p("Increase a uniform field very slowly from zero. Find instantaneous absorbed power in E and pdot."),
@@ -953,7 +953,7 @@ nativeOlympiadContent["apho-2018-t1"] = {
     sub("7.1. Gaussian trap depth"),
     p("The deepest point is ρ=z=0. Replace e²/(ε0me) by 6πc³γ/ω0² to obtain \\[U_{depth}=\\frac{6c^2\\gamma P(\\omega_0^2-\\omega^2)}{\\omega_0^2D_0^2[(\\omega_0^2-\\omega^2)^2+\\gamma^2\\omega^6/\\omega_0^4]}.\\]"),
     sub("7.2. Equivalent trap temperature"),
-    p("\\(\\omega=2\\pi c/\\lambda\\), \\(\\omega_0=2\\pi c/\\lambda_0\\), γ≈6.4×10^7 s^−1. These give Udepth/kB≈4.13 μK. The source also accepts thermal-energy conventions f kBT0, with f=1/2 or 3/2, but this field fixes f=1."),
+    p("\\(\\omega=2\\pi c/\\lambda\\), \\(\\omega_0=2\\pi c/\\lambda_0\\), γ≈\\(6.4\\times10^{7}\\) s^−1. These give Udepth/kB≈4.13 μK. The source also accepts thermal-energy conventions f kBT0, with f=1/2 or 3/2, but this field fixes f=1."),
     sub("8.1. Trap frequencies"),
     p("Expansion gives \\(U=-U_{depth}+2U_{depth}\\rho^2/D_0^2+U_{depth}z^2/z_R^2\\). Thus \\(\\Omega_\\rho=\\sqrt{4k_BT_0/(mD_0^2)}\\), \\(\\Omega_z=\\sqrt{2k_BT_0/(mz_R^2)}\\)."),
     sub("9.1. Condensate size estimate"),
@@ -976,7 +976,7 @@ nativeOlympiadContent["apho-2018-t1"] = {
 nativeOlympiadContent["apho-2019-t1"] = {
   statement: [
     h("RF reflectometry for spin readout for silicon quantum computing"),
-    p("Model lossless TEM transmission lines and ideal circuit elements. A coaxial line has inner-core radius a and shield inner radius b, filled with relative permittivity εr and permeability μr. Ignore conductor resistance, internal inductance and dielectric leakage. Use ε=ε0εr, μ=μ0μr, c0=1/√(ε0μ0), with ε0=8.854×10^−12 F/m and μ0=4π×10^−7 H/m. Reflection coefficients are voltage-amplitude ratios, including phase, not power ratios. For phasors use exp(iωt), so a capacitor has impedance 1/(iωC). The SET and SLQD circuit diagrams specify which elements are in series and parallel. Use \\(\\epsilon=\\epsilon_0\\epsilon_r\\), \\(\\mu=\\mu_0\\mu_r\\), and \\(\\Gamma=V_r/V_i\\)."),
+    p("Model lossless TEM transmission lines and ideal circuit elements. A coaxial line has inner-core radius a and shield inner radius b, filled with relative permittivity εr and permeability μr. Ignore conductor resistance, internal inductance and dielectric leakage. Use ε=ε0εr, μ=μ0μr, c0=1/√(ε0μ0), with ε0=\\(8.854\\times10^{-12}\\) F/m and μ0=\\(4\\pi\\times10^{-7}\\) H/m. Reflection coefficients are voltage-amplitude ratios, including phase, not power ratios. For phasors use exp(iωt), so a capacitor has impedance 1/(iωC). The SET and SLQD circuit diagrams specify which elements are in series and parallel. Use \\(\\epsilon=\\epsilon_0\\epsilon_r\\), \\(\\mu=\\mu_0\\mu_r\\), and \\(\\Gamma=V_r/V_i\\)."),
     sub("a.1. Wave speed"),
     p("Find the electromagnetic propagation speed in the cable."),
     sub("a.2. Coaxial electric field"),
@@ -1055,7 +1055,7 @@ nativeOlympiadContent["apho-2019-t1"] = {
 nativeOlympiadContent["apho-2019-t2"] = {
   statement: [
     h("X-ray jets from active galactic nuclei"),
-    p("Use the historical one-dimensional steady jet model. Distance s is measured from the active galactic nucleus (AGN), cross-section A=πr², speed v, Lorentz factor γ, and proper particle density n. Material is injected at rest in the AGN frame at uniform mass rate α per volume. Mean rest mass per particle is μpp=0.59mp, and the supplied effective energy/enthalpy per particle is εav=μpp c²+13P/(4n). Treat its energy-flux prescription as the given model. For Centaurus A take jet power Pj=10^36 W, s1=252 pc, r1=30 pc, v1=0.667c, s2=5.94 kpc, r2=500 pc, v2=0.52c, and a straight conical boundary between these ends. External pressure is P(s)=5.7×10^−12(s/1 kpc)^−1.5 Pa. Use 1 pc=3.086×10^16 m and c=3.00×10^8 m/s. Later sections use an isotropic ultrarelativistic electron gas with proper differential density f(ε)dε and positive electron charge magnitude e. Source discrepancies are explained in the worked solution rather than silently enforced as grading keys."),
+    p("Use the historical one-dimensional steady jet model. Distance s is measured from the active galactic nucleus (AGN), cross-section A=πr², speed v, Lorentz factor γ, and proper particle density n. Material is injected at rest in the AGN frame at uniform mass rate α per volume. Mean rest mass per particle is μpp=0.59mp, and the supplied effective energy/enthalpy per particle is εav=μpp c²+13P/(4n). Treat its energy-flux prescription as the given model. For Centaurus A take jet power Pj=\\(10^{36}\\) W, s1=252 pc, r1=30 pc, v1=0.667c, s2=5.94 kpc, r2=500 pc, v2=0.52c, and a straight conical boundary between these ends. External pressure is P(s)=\\(5.7\\times10^{-12}\\)(s/1 kpc)^−1.5 Pa. Use 1 pc=\\(3.086\\times10^{16}\\) m and c=\\(3.00\\times10^{8}\\) m/s. Later sections use an isotropic ultrarelativistic electron gas with proper differential density f(ε)dε and positive electron charge magnitude e. Source discrepancies are explained in the worked solution rather than silently enforced as grading keys."),
     fig("batch7-jet-geometry", "Original conical Centaurus A jet with labelled inlet and outlet distances, radii and bulk velocities."),
     sub("a.1. AGN-frame density"),
     p("Find nprime from proper density n."),
@@ -1114,13 +1114,13 @@ nativeOlympiadContent["apho-2019-t2"] = {
     sub("a.5. Jet-power derivative"),
     p("Energy injection is αVc² and rest-mass flux increases by αV. Their contributions cancel in Pj for any segment. Thus \\(dP_j/ds=0\\)."),
     sub("a.6. End mass fluxes"),
-    p("Rearrange \\(P_j=(\\gamma-1)\\dot Mc^2+(13/4)\\gamma^2AvP\\): \\[\\dot M=\\frac{P_j-(13/4)\\gamma^2AvP}{(\\gamma-1)c^2}.\\] Substitution gives approximately 2.8×10^19 kg/s and 5.2×10^19 kg/s at the inlet and outlet. The displayed inputs support only about two significant figures."),
+    p("Rearrange \\(P_j=(\\gamma-1)\\dot Mc^2+(13/4)\\gamma^2AvP\\): \\[\\dot M=\\frac{P_j-(13/4)\\gamma^2AvP}{(\\gamma-1)c^2}.\\] Substitution gives approximately \\(2.8\\times10^{19}\\) kg/s and \\(5.2\\times10^{19}\\) kg/s at the inlet and outlet. The displayed inputs support only about two significant figures."),
     sub("a.7. Momentum flux increase"),
-    p("The model momentum flux is \\(\\Pi(s)=F_E(s)v(s)/c^2=[P_j+\\dot M(s)c^2]v(s)/c^2\\). The net increase is Π2−Π1, approximately 2.01×10^27 N with the supplied numerical inputs. The source quotes 1.9×10^27 N after rounding. The phrase total momentum flux in this task refers to this difference, not either endpoint alone."),
+    p("The model momentum flux is \\(\\Pi(s)=F_E(s)v(s)/c^2=[P_j+\\dot M(s)c^2]v(s)/c^2\\). The net increase is Π2−Π1, approximately \\(2.01\\times10^{27}\\) N with the supplied numerical inputs. The source quotes \\(1.9\\times10^{27}\\) N after rounding. The phrase total momentum flux in this task refers to this difference, not either endpoint alone."),
     sub("a.8. External pressure force"),
-    p("The end forces are P1A1−P2A2. The sloping wall contributes an outward axial component, giving \\[F_{Pr}=P_1A_1-P_2A_2+\\int_{r_1}^{r_2}2\\pi rP[s(r)]\\,dr,\\quad s(r)=s_1+\\frac{s_2-s_1}{r_2-r_1}(r-r_1).\\] The integral is about 9.71×10^26 N and the net force about 8.10×10^26 N with the supplied inputs. The source rounds these to 9.8×10^26 N and 8.2×10^26 N."),
+    p("The end forces are P1A1−P2A2. The sloping wall contributes an outward axial component, giving \\[F_{Pr}=P_1A_1-P_2A_2+\\int_{r_1}^{r_2}2\\pi rP[s(r)]\\,dr,\\quad s(r)=s_1+\\frac{s_2-s_1}{r_2-r_1}(r-r_1).\\] The integral is about \\(9.71\\times10^{26}\\) N and the net force about \\(8.10\\times10^{26}\\) N with the supplied inputs. The source rounds these to \\(9.8\\times10^{26}\\) N and \\(8.2\\times10^{26}\\) N."),
     sub("a.9. Momentum-balance discrepancy"),
-    p("The model would require Π=FPr. With the quoted rounded results, \\(|1.9-0.82|/0.82\\times100\\%\\simeq132\\%\\). Direct calculation before rounding gives about 148% from Π≈2.01×10^27 N and FPr≈8.10×10^26 N. The source prints 40%, inconsistent with both its stated denominator and its displayed numbers. Use the defined denominator and show your arithmetic."),
+    p("The model would require Π=FPr. With the quoted rounded results, \\(|1.9-0.82|/0.82\\times100\\%\\simeq132\\%\\). Direct calculation before rounding gives about 148% from Π≈\\(2.01\\times10^{27}\\) N and FPr≈\\(8.10\\times10^{26}\\) N. The source prints 40%, inconsistent with both its stated denominator and its displayed numbers. Use the defined denominator and show your arithmetic."),
     sub("b.1. Electron energy density"),
     p("\\[u=U/V=\\int_0^\\infty\\epsilon f(\\epsilon)\\,d\\epsilon.\\] Physical distributions must have cutoffs or decay sufficiently rapidly for this integral to exist."),
     sub("b.2. Wall momentum transfer"),
@@ -1204,7 +1204,7 @@ nativeOlympiadContent["apho-2019-t3"] = {
 nativeOlympiadContent["apho-2025-t1"] = {
   statement: [
     h("Precession of the Earth's axis"),
-    p("Investigate the historical problem's Newtonian model of axial precession. Earth is a homogeneous oblate spheroid with equatorial radius Re, polar radius Rp, mean R=(Re+Rp)/2 and small flattening hmax=Re−Rp. Take G=6.67×10^−11 N m²/kg², R=6.371×10^6 m, ME=5.972×10^24 kg, Sun mass MS=1.989×10^30 kg at distance dSE=1.496×10^11 m, Moon mass MM=7.348×10^22 kg at dME=3.844×10^8 m, and tilt α=23.5°. Use one rotation in 24 hours and one year of 365.25 days. After part A use the empirical hmax=21 km irrespective of your estimate. For solar averaging replace the Sun by a uniform circular ring in the ecliptic plane. Set z perpendicular to that plane, with origin at Earth's centre. Near Earth all distances r,|z| are much smaller than the ring radius."),
+    p("Investigate the historical problem's Newtonian model of axial precession. Earth is a homogeneous oblate spheroid with equatorial radius Re, polar radius Rp, mean R=(Re+Rp)/2 and small flattening hmax=Re−Rp. Take G=\\(6.67\\times10^{-11}\\) N m²/kg², R=\\(6.371\\times10^{6}\\) m, ME=\\(5.972\\times10^{24}\\) kg, Sun mass MS=\\(1.989\\times10^{30}\\) kg at distance dSE=\\(1.496\\times10^{11}\\) m, Moon mass MM=\\(7.348\\times10^{22}\\) kg at dME=\\(3.844\\times10^{8}\\) m, and tilt α=23.5°. Use one rotation in 24 hours and one year of 365.25 days. After part A use the empirical hmax=21 km irrespective of your estimate. For solar averaging replace the Sun by a uniform circular ring in the ecliptic plane. Set z perpendicular to that plane, with origin at Earth's centre. Near Earth all distances r,|z| are much smaller than the ring radius."),
     fig("batch7-earth-ellipsoid", "Original oblate Earth with polar radius Rp, equatorial radius Re and axial tilt alpha."),
     sub("a.1. Flattening dimensions"),
     p("In \\(h_{max}\\propto G^{-1}\\omega^\\beta M_E^\\gamma R^\\delta\\), find β,γ,δ."),

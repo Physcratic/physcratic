@@ -40,3 +40,5 @@ Focused regressions cover every new problem, independent physical rearrangements
 The full public-library browser workflow retains its production library, real-session, no-JavaScript and PDF cases. Native guest and verified cases now run in separate matrix jobs, each retaining every native problem at both viewport widths and in both themes. This avoids serial growth beyond the job budget. IPhO 2016 T1 and 2025 T1 remain PDF fixtures. Exact-head remote browser, PostgreSQL and preview evidence is recorded in PR #181 after the push.
 
 This is source transcription with independent calculations on selected results. The source ledgers deliberately retain `independentReview: pending` for a separate full expert review. No account attempts, ratings, persistence catalogue, database schema, migration, provider setting, deployment or merge is changed.
+
+Screenshot follow-up: scientific-notation quantities in prose now use native LaTeX instead of literal caret powers. Five source crops were tightened to remove surrounding text fragments while retaining their diagram labels. This does not change any physical result or grading key.

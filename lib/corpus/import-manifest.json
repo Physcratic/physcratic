@@ -2466,8 +2466,8 @@
     },
     {
       "path": "/corpus/collection.json",
-      "bytes": 2630662,
-      "sha256": "70bf8028dda7669c08c95e82b4b0fdae76c9f21c8de844dfb850b2e4d0a90892"
+      "bytes": 2632098,
+      "sha256": "c460c33acc59596d6ec3748e2d468f868822745baee404492ea11c5568316efa"
     },
     {
       "path": "/corpus/documents/english-apho-2006-t2-solution/document.pdf",
@@ -5881,8 +5881,8 @@
     },
     {
       "path": "/corpus/english-problems/apho-2018-t1.json",
-      "bytes": 29699,
-      "sha256": "73ed178c861949416b212e210eeb25b27d1c9fd779b53319fc77aeda5a37290b"
+      "bytes": 29861,
+      "sha256": "447301bd6520c571b80ee882a035a21b82229a6b252bb4819fbbea981d3133cd"
     },
     {
       "path": "/corpus/english-problems/apho-2018-t2.json",
@@ -5896,13 +5896,13 @@
     },
     {
       "path": "/corpus/english-problems/apho-2019-t1.json",
-      "bytes": 28178,
-      "sha256": "70a3dde7e6b28d43f14f45c197977154ce05f172a64768af425614624c1ea78b"
+      "bytes": 28226,
+      "sha256": "6d1fcd238e89670703ba15675d102e65a1b66925c23470abb79cded6b72fa8bb"
     },
     {
       "path": "/corpus/english-problems/apho-2019-t2.json",
-      "bytes": 37218,
-      "sha256": "d313906b657674edc9c9858f8f5e4133ee2f20bc3d1ac9b8fd15d74b541cb71e"
+      "bytes": 37568,
+      "sha256": "965e08d57603bae715569a1053c148a5151cc4f6bcc9d73ce2951d458a8a2d50"
     },
     {
       "path": "/corpus/english-problems/apho-2019-t3.json",
@@ -5971,8 +5971,8 @@
     },
     {
       "path": "/corpus/english-problems/apho-2025-t1.json",
-      "bytes": 18552,
-      "sha256": "1db055826016b07271a5d33bdff3976713347a263a19f01dfc21b4fbc7392155"
+      "bytes": 18730,
+      "sha256": "396647bf00ffd2c29e8badcfcf03525ac7223266bfd801b4e485126e9a11ba6f"
     },
     {
       "path": "/corpus/english-problems/apho-2025-t2.json",
@@ -6086,8 +6086,8 @@
     },
     {
       "path": "/corpus/english-problems/ipho-2016-t2.json",
-      "bytes": 20146,
-      "sha256": "b4d1deca8e4e6a6c80cac4eafd6a733ecb397d76e2fc421a933b56517c781243"
+      "bytes": 20172,
+      "sha256": "db10a028d850e28424b66e3dd52b05c3fd93e47035a80645a68d6827979af734"
     },
     {
       "path": "/corpus/english-problems/ipho-2017-t2.json",
@@ -6101,18 +6101,18 @@
     },
     {
       "path": "/corpus/english-problems/ipho-2018-t1.json",
-      "bytes": 16390,
-      "sha256": "c72faf2e4485a4b06a9b38f9bed6f175828cc7db549ddeb044d287c5f1f9f341"
+      "bytes": 16490,
+      "sha256": "4d85648392e6dc452ba926d2378151bd939433647fd90ba2419ead8eaa153f82"
     },
     {
       "path": "/corpus/english-problems/ipho-2018-t2.json",
-      "bytes": 18884,
-      "sha256": "c1ce18ecce57ee07e92547017cbdc678159bb5d77fa9c5973ef4bb45f6272487"
+      "bytes": 18998,
+      "sha256": "4bee6ce22c0ea4c18b39837383c83a90d7fb505481ab594b8579261500efe445"
     },
     {
       "path": "/corpus/english-problems/ipho-2018-t3.json",
-      "bytes": 16885,
-      "sha256": "3f8f8fb906aa17dab6d2aec54f493edf047d68bac0b9a3fdc90ea67dd3ad9312"
+      "bytes": 17025,
+      "sha256": "755a089b692ea69f7faea8860150f807aa561b911c390a65972484dc99646999"
     },
     {
       "path": "/corpus/english-problems/ipho-2019-t1.json",
@@ -6121,8 +6121,8 @@
     },
     {
       "path": "/corpus/english-problems/ipho-2019-t2.json",
-      "bytes": 24172,
-      "sha256": "3aec29f147f3d2e59599ebade1d00fb26c672580afe1757e72d9a1d8d898e222"
+      "bytes": 24290,
+      "sha256": "15ed7c188df2ecd8b3cbf8ab0f9280966fe937875c256487669aff3f1c6d2ca7"
     },
     {
       "path": "/corpus/english-problems/ipho-2019-t3.json",
@@ -6141,8 +6141,8 @@
     },
     {
       "path": "/corpus/english-problems/ipho-2021-t3.json",
-      "bytes": 25162,
-      "sha256": "4ac68006255f183ef9feb7d008eb045b32a7642b354b854cbd6aa41877753840"
+      "bytes": 25362,
+      "sha256": "8dd32948ff33fc16d391b6ecadcac8ee67598ab50cebfdf1849c0648044e8c14"
     },
     {
       "path": "/corpus/english-problems/ipho-2022-t1.json",
@@ -7556,8 +7556,8 @@
     },
     {
       "path": "/corpus/figures/native/batch7-coax-ladder.png",
-      "bytes": 8906,
-      "sha256": "b6d309455b2b0e92fe0d5073171acfb3f79b1688d03b4f7ef135e31840e3d040"
+      "bytes": 6643,
+      "sha256": "3cc354b37b01316d169337c8f65243598ec6c04a216bef2d14295035bdb75926"
     },
     {
       "path": "/corpus/figures/native/batch7-cooling-absorption.png",
@@ -7581,13 +7581,13 @@
     },
     {
       "path": "/corpus/figures/native/batch7-differential-capacitor.png",
-      "bytes": 33739,
-      "sha256": "7b9a221ae697e0cfd4f2d81cc325028eb8e3bc833dbb0dc35b39d9873af7c6ec"
+      "bytes": 22618,
+      "sha256": "ffb26599e2bde05758ea0a16047e8e4556211d96f5fb0d4170c365803d85e04d"
     },
     {
       "path": "/corpus/figures/native/batch7-earth-ellipsoid.png",
-      "bytes": 19286,
-      "sha256": "8ac129d8e303e2d382b3fdb6ce30acdff42311b05efafb54e5a67b88aca5e546"
+      "bytes": 14488,
+      "sha256": "e77ae21bb78d229cff8e5b5b9c30caf549fbd4211419ceb6c813927d6386dc4e"
     },
     {
       "path": "/corpus/figures/native/batch7-earth-excess.png",
@@ -7606,8 +7606,8 @@
     },
     {
       "path": "/corpus/figures/native/batch7-ice-geometry.png",
-      "bytes": 116618,
-      "sha256": "3120e1faf28a73e91b35d51eb1ff85c6fa5f01e45deabfc80f7bf97449d00ef1"
+      "bytes": 115615,
+      "sha256": "91d839f563840e02c4fff4b9613b148041fcf71f703c5f516498b2c4d848a676"
     },
     {
       "path": "/corpus/figures/native/batch7-ice-isotopes.png",
@@ -7761,8 +7761,8 @@
     },
     {
       "path": "/corpus/figures/native/batch7-wire-plane.png",
-      "bytes": 8078,
-      "sha256": "97da2987c015cc1aa61d285029019e35dc66f28c852dbfb699b737213ada54b9"
+      "bytes": 3271,
+      "sha256": "d1cdbe8965e9ff7678aa3a46f5ae3a82cd1cbc65107480cd9f817028d86bb58f"
     },
     {
       "path": "/corpus/figures/native/eupho-2017-rope-nodes.png",
@@ -8222,7 +8222,7 @@
     {
       "path": "/corpus/grading/apho-2018-t1.json",
       "bytes": 10276,
-      "sha256": "ea991fbb297755af69c62fbb4122249c88dd462a3f80b87716b536c90f07acf3"
+      "sha256": "e2ae8bb734f618a09d1af201077429cd56e2367dcd1531d5791c0a0dd55917a6"
     },
     {
       "path": "/corpus/grading/apho-2018-t2.json",
@@ -8232,12 +8232,12 @@
     {
       "path": "/corpus/grading/apho-2019-t1.json",
       "bytes": 8165,
-      "sha256": "940f0613d54575897d7c015c8d6213bac694a7a0bb990690eb4036dc13e97903"
+      "sha256": "54ffbe7f05990d08ab10cfd24b068c742c51028e44ba5211eb3b6416949fc585"
     },
     {
       "path": "/corpus/grading/apho-2019-t2.json",
       "bytes": 9864,
-      "sha256": "9f25465a47f4387dd4b032a10f3cc3488e08058272078c81c1408a3e5ccc776f"
+      "sha256": "8da06d7d192e0a455d3070d5593c879b1c8483cf1a151f38618ca514ca561b08"
     },
     {
       "path": "/corpus/grading/apho-2019-t3.json",
@@ -8247,7 +8247,7 @@
     {
       "path": "/corpus/grading/apho-2025-t1.json",
       "bytes": 7134,
-      "sha256": "da692156d4c250b9aba86a1c96eb9c5f04287c9a927e5efb3e716e393527363e"
+      "sha256": "67ca9f419ecbea2c88926476ae53de90a06a1e0ec8e7fc662a17a9526aef092d"
     },
     {
       "path": "/corpus/grading/arena-a-grin-and-a-wiggle.json",
@@ -8597,22 +8597,22 @@
     {
       "path": "/corpus/grading/ipho-2016-t2.json",
       "bytes": 4072,
-      "sha256": "1f28a4dafbc0f4cf3326521a723db13e5dad24b6ec4e1265b8217ab4b244f184"
+      "sha256": "6d18d01691eb8ae67014eb4e3d77171082655bcc44f335a5144a7e3eb46c2297"
     },
     {
       "path": "/corpus/grading/ipho-2018-t1.json",
       "bytes": 4238,
-      "sha256": "e30621393acf4d2f20e6e2b1b5a8e8d4d7c43dc83281a3709dad2e47dd62a83b"
+      "sha256": "8c79a89134dd247e3cf4165b75cd9d389357b2c314e1e067478de3dca530d002"
     },
     {
       "path": "/corpus/grading/ipho-2018-t2.json",
       "bytes": 5889,
-      "sha256": "643350a6156162e40e1482ccd54e7b629a21d935b6c7b45e9328d06df010015c"
+      "sha256": "fb012fb8ea6c629966187625b611dd0bf8a34db94a43dd3730f7427190b177bd"
     },
     {
       "path": "/corpus/grading/ipho-2018-t3.json",
       "bytes": 4970,
-      "sha256": "59c392465693666fb608a3ca0899e1ed323020b9c6f247ac8fe41d69233d70a9"
+      "sha256": "ac6ad6d458912a17f20dfda4249f4d89088c407caef5022786bffd718a8f34c9"
     },
     {
       "path": "/corpus/grading/ipho-2019-t1.json",
@@ -8622,7 +8622,7 @@
     {
       "path": "/corpus/grading/ipho-2019-t2.json",
       "bytes": 6753,
-      "sha256": "ae77503e3bb8b8b81615d14f136a44fd92693c2432a28c2a056be1e44dfec2ff"
+      "sha256": "5090d276b90e108a6da23e2b79f45bf7ccb1bb97c9910cf1ab3b1b2480820481"
     },
     {
       "path": "/corpus/grading/ipho-2019-t3.json",
@@ -8637,7 +8637,7 @@
     {
       "path": "/corpus/grading/ipho-2021-t3.json",
       "bytes": 7760,
-      "sha256": "4f469b841124927395fe657a03d4037b8d2494f2f362c80f630b3d3d680fd5cd"
+      "sha256": "499745554a6cb41a4d0e9b2c5ef24191f67b657f7b0d3cb32c39431e8a7dce18"
     },
     {
       "path": "/corpus/grading/ipho-2022-t3.json",
