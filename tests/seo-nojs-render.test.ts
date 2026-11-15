@@ -83,6 +83,18 @@ describe("statements are in the server HTML", () => {
 });
 
 describe("public library links", () => {
+  it("renders a filtered archive and its GET form without client JavaScript", async () => {
+    const { ArchiveDirectory } = await import("../components/problems/archive-directory");
+    const html = renderToStaticMarkup(createElement(ArchiveDirectory, { edition: "IPhO-2025" }));
+    assert.match(html, /action="\/problems\/archive#archive-results" method="get"/);
+    assert.match(html, /<label for="archive-edition"/);
+    assert.match(html, /<option value="IPhO-2025" selected=""/);
+    assert.match(html, /Show all years/);
+    assert.match(html, /id="ipho-2025"/);
+    for (const page of allProblemPages().filter(page => page.kind === "archive")) {
+      assert.equal(html.includes(`href="${page.path}"`), page.competition === "IPhO" && page.year === 2025, page.id);
+    }
+  });
   it("keeps problem and topic anchors in the server-rendered library pages", async () => {
     const { PublicProblemDirectory: Library } = await import("../components/problems/public-problem-directory");
     const { ArchiveDirectory: Archive } = await import("../components/problems/archive-directory");

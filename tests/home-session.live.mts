@@ -161,8 +161,14 @@ try {
       ok(await new Promise(resolve => topics.on("close", resolve)) === 0, "production topic browsers pass");
     }
     if (process.env.HOME_ARCHIVE_BROWSER === "1") {
-      const archive = spawn(process.execPath, ["--import", "tsx", "tests/archive.browser.mjs"], { env: { ...process.env, BROWSER_TEST_ORIGIN: origin }, stdio: "inherit" });
+      const archive = spawn(process.execPath, ["--import", "tsx", "tests/archive.browser.mjs"], { env: { ...process.env, BROWSER_TEST_ORIGIN: origin, LIBRARY_SESSION_A: signed }, stdio: "inherit" });
       ok(await new Promise(resolve => archive.on("close", resolve)) === 0, "production archive browser passes");
+      for (const cookie of ["", memberCookie]) {
+        const sweep = spawn(process.execPath, ["tests/solve-contrast.browser.mjs"], {
+          env: { ...process.env, BROWSER_TEST_ORIGIN: origin, SWEEP: "1", STAGE_FILTER: "^archive browse:", SESSION_COOKIE: cookie }, stdio: "inherit",
+        });
+        ok(await new Promise(resolve => sweep.on("close", resolve)) === 0, `archive contrast and structure sweep passes (${cookie ? "verified" : "guest"})`);
+      }
     }
   }
 

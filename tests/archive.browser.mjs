@@ -40,6 +40,45 @@ try {
   ok(errors.length===0,errors.join(';'));
   await context.close();
  }
+ // The same GET flow works for guests and a real synthetic verified session.
+ for(const session of ['guest', ...(process.env.LIBRARY_SESSION_A ? ['verified'] : [])])for(const theme of ['light','dark'])for(const width of [375,1440]){
+  const context=await browser.newContext({viewport:{width,height:1000},colorScheme:theme,reducedMotion:'reduce'});
+  await context.route('**/*',r=>new URL(r.request().url()).origin===origin?r.continue():r.abort());
+  await context.addInitScript(t=>localStorage.setItem('theme',t),theme);
+  if(session==='verified')await context.addCookies([{name:'better-auth.session_token',value:process.env.LIBRARY_SESSION_A,url:origin}]);
+  const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto(origin+'/problems/archive');
+  const select=page.getByLabel('Olympiad and year',{exact:true});
+  await select.focus();await select.selectOption('IPhO-2025');
+  ok(await page.locator('[data-problem-card]').count()===expected.length,'selection waits for explicit submit');
+  await page.keyboard.press('Tab');
+  ok(await page.getByRole('button',{name:'Show problems',exact:true}).evaluate(e=>e===document.activeElement),'keyboard moves from edition to submit');
+  await page.keyboard.press('Enter');await page.waitForURL('**/problems/archive?edition=IPhO-2025#archive-results');
+  const selected=expected.filter(p=>p.competition==='IPhO'&&p.year===2025);
+  assert.deepEqual(await page.locator('[data-problem-card]').evaluateAll(es=>es.map(e=>e.dataset.problemCard)),selected.map(p=>p.id));checks++;
+  ok(await select.inputValue()==='IPhO-2025','current edition retained');
+  ok((await page.locator('#archive-results').textContent()).includes(`${selected.length} problems`),'result count matches');
+  ok(await page.locator('#archive-results').evaluate(e=>e.getBoundingClientRect().top>=72),'results clear sticky header');
+  ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'filtered layout fits');
+  ok(await page.locator('link[rel=canonical]').getAttribute('href')===`${siteUrl()}/problems/archive`,'filtered canonical unchanged');
+  const graph=JSON.parse(await page.locator('script[type="application/ld+json"]').first().textContent());
+  assert.deepEqual(graph.find(n=>n['@type']==='CollectionPage').mainEntity.itemListElement.map(i=>i.url),selected.map(p=>`${siteUrl()}${p.path}`));checks++;
+  const axe=await new AxeBuilder({page}).analyze();ok(!axe.violations.some(v=>['serious','critical'].includes(v.impact)),JSON.stringify(axe.violations));
+  await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:`${output}/filtered-${session}-${width}-${theme}.png`});
+  await page.reload();ok(await select.inputValue()==='IPhO-2025','reload retains edition');
+  await page.goBack();ok(await page.locator('[data-problem-card]').count()===expected.length,'back restores all results');
+  await page.goForward();ok(await page.locator('[data-problem-card]').count()===selected.length,'forward restores filtered results');
+  await page.locator(`[data-problem-card="${selected[0].id}"]`).getByRole('link',{name:/^Open problem/}).click();
+  ok(new URL(page.url()).pathname===selected[0].path,'selected problem opens its existing reader');
+  await page.goBack();ok(await select.inputValue()==='IPhO-2025','return from reader retains selection');
+  await page.getByRole('link',{name:'Show all years',exact:true}).click();
+  ok(await page.locator('[data-problem-card]').count()===expected.length,'reset restores complete archive');
+  ok(await select.inputValue()==='','reset also clears the select after client navigation');
+  await select.selectOption('APhO');await page.getByRole('button',{name:'Show problems',exact:true}).click();
+  await page.waitForURL('**/problems/archive?edition=APhO#archive-results');
+  ok(await page.locator('[data-problem-card]').count()===expected.filter(p=>p.competition==='APhO').length,'all years of one olympiad');
+  ok(errors.length===0,errors.join(';'));await context.close();
+ }
  const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:375,height:1000}});
  const page=await context.newPage();await page.goto(origin+'/problems/archive');
  const html=await page.content();await writeFile(`${output}/archive-server.html`,html);
@@ -56,6 +95,19 @@ try {
  for(const c of ['IPhO','APhO','EuPhO'])for(const y of new Set(pages.filter(p=>p.competition===c).map(p=>p.year)))ok(await page.locator(`[id="${c.toLowerCase()}-${y}"]`).count()===1,`${c} ${y} preserved fragment`);
  const graph=JSON.parse(await page.locator('script[type="application/ld+json"]').first().textContent());ok(JSON.stringify(graph).includes('ItemList'),'structured list');
  await page.locator('a[href="/dashboard/problems/ipho-2025-t2"]').click();ok(page.url().endsWith('/dashboard/problems/ipho-2025-t2'),'no-JS reader navigation');
+ await page.goto(origin+'/problems/archive');
+ await page.getByLabel('Olympiad and year',{exact:true}).selectOption('EuPhO-2025');
+ await page.getByRole('button',{name:'Show problems',exact:true}).click();
+ await page.waitForURL('**/problems/archive?edition=EuPhO-2025#archive-results');
+ ok(await page.locator('[data-problem-card]').count()===expected.filter(p=>p.competition==='EuPhO'&&p.year===2025).length,'no-JS filtering');
+ await page.locator('[data-problem-card]').first().getByRole('link',{name:/^Open problem/}).click();
+ ok(new URL(page.url()).pathname===expected.find(p=>p.competition==='EuPhO'&&p.year===2025).path,'no-JS filtered reader navigation');
+ await page.goBack();await page.getByRole('link',{name:'Show all years',exact:true}).click();
+ ok(await page.locator('[data-problem-card]').count()===expected.length,'no-JS reset');
+ for(const query of ['edition=IPhO-1900','edition=IPhO&edition=APhO']){
+  await page.goto(origin+'/problems/archive?'+query);
+  ok(await page.locator('[data-problem-card]').count()===expected.length,'invalid query recovers to full archive');
+ }
  // Topic routes now share the Dashboard shell, with their own registry-derived directory.
  await page.goto(origin+'/problems/topics/mechanics');ok(await page.locator('aside').count()===1,'topic Dashboard shell');
  await context.close();console.log(`archive.browser: ${checks} checks passed; ${expected.length} reader URLs verified; ${output}`);

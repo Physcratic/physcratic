@@ -4,6 +4,7 @@ import { ArchiveDirectory } from "@/components/problems/archive-directory";
 import { jsonLdScript, problemListGraph } from "@/lib/seo/json-ld";
 import { allProblemPages } from "@/lib/seo/problem-pages";
 import { SITE, baseOpenGraph } from "@/lib/site";
+import { browseArchive } from "@/lib/archive-browse";
 
 const TITLE = "IPhO, APhO and EuPhO problem archive";
 const DESCRIPTION =
@@ -16,11 +17,12 @@ export const metadata: Metadata = {
   openGraph: { ...baseOpenGraph, title: `${TITLE} | Physcratic`, description: DESCRIPTION, url: "/problems/archive" },
 };
 
-export default function ArchivePage() {
-  const archive = allProblemPages().filter(page => page.kind === "archive");
+export default async function ArchivePage({ searchParams }: { searchParams?: Promise<Record<string, string | string[] | undefined>> }) {
+  const { edition } = await searchParams ?? {};
+  const archive = browseArchive(allProblemPages(), edition).problems;
   const crumbs = [{ name: SITE.name, path: "/" }, { name: "Problems", path: "/problems" }, { name: "Archive", path: "/problems/archive" }];
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(problemListGraph({ crumbs, name: TITLE, description: DESCRIPTION, path: "/problems/archive", items: archive })) }} />
-    <Layout view="problems" stickyHeader><ArchiveDirectory /></Layout>
+    <Layout view="problems" stickyHeader><ArchiveDirectory edition={edition} /></Layout>
   </>;
 }

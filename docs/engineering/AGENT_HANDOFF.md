@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Archive student flow (15 November 2026)
+
+Scoped archive browsing change on `codex/archive-student-flow` from `b707773`: choose an olympiad/year, submit a GET, then open an existing reader. Default full list and historical fragments remain, with no-JS filtering and reset. [Reasons and verification](ARCHIVE_STUDENT_FLOW.md). Browser screenshots, real-session flow and contrast sweeps run in existing public-library CI because local Chromium cannot create its Unix socket. Final head/checks belong to the PR. No merge or manual deployment.
+
 ## Authored solution response visibility (15 November 2026)
 
 A follow-up to the initial investigation reproduces approved solutions and denial messages below the viewport after confirmation. Explicit response focus/scroll now exposes the result in mobile flow and the desktop answer rail, preserving confirmation, permission, assistance and privacy clearing. [Evidence and policy](AUTHORED_STUDENT_UI.md#worked-solution-policy-and-evidence). Separate draft stacked on math-input fix #176. No merge/deployment or API, grading, migration, Production, official-reader or SEO change.
