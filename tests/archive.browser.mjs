@@ -78,6 +78,7 @@ try {
   await page.goBack();await checkCards(page,expected,'back restores all results');
   await page.goForward();await checkCards(page,selected,'forward restores filtered results');
   await page.locator(`[data-problem-card="${selected[0].id}"]`).getByRole('link',{name:/^Open problem/}).click();
+  await page.waitForURL(url=>url.pathname===selected[0].path);
   ok(new URL(page.url()).pathname===selected[0].path,'selected problem opens its existing reader');
   await page.goBack();await checkCards(page,selected,'return from reader restores selected records');ok(await select.inputValue()==='IPhO-2025','return from reader retains selection');
   await page.getByRole('link',{name:'Show full archive',exact:true}).click();
@@ -103,13 +104,14 @@ try {
  }
  for(const c of ['IPhO','APhO','EuPhO'])for(const y of new Set(pages.filter(p=>p.competition===c).map(p=>p.year)))ok(await page.locator(`[id="${c.toLowerCase()}-${y}"]`).count()===1,`${c} ${y} preserved fragment`);
  const graph=JSON.parse(await page.locator('script[type="application/ld+json"]').first().textContent());ok(JSON.stringify(graph).includes('ItemList'),'structured list');
- await page.locator('a[href="/dashboard/problems/ipho-2025-t2"]').click();ok(page.url().endsWith('/dashboard/problems/ipho-2025-t2'),'no-JS reader navigation');
+ await page.locator('a[href="/dashboard/problems/ipho-2025-t2"]').click();await page.waitForURL('**/dashboard/problems/ipho-2025-t2');ok(page.url().endsWith('/dashboard/problems/ipho-2025-t2'),'no-JS reader navigation');
  await page.goto(origin+'/problems/archive');
  await page.getByLabel('Olympiad and year',{exact:true}).selectOption('EuPhO-2025');
  await page.getByRole('button',{name:'Show problems',exact:true}).click();
  await page.waitForURL('**/problems/archive?edition=EuPhO-2025#archive-results');
  await checkCards(page,expected.filter(p=>p.competition==='EuPhO'&&p.year===2025),'no-JS filtering');
  await page.locator('[data-problem-card]').first().getByRole('link',{name:/^Open problem/}).click();
+ await page.waitForURL(url=>url.pathname===expected.find(p=>p.competition==='EuPhO'&&p.year===2025).path);
  ok(new URL(page.url()).pathname===expected.find(p=>p.competition==='EuPhO'&&p.year===2025).path,'no-JS filtered reader navigation');
  await page.goBack();await page.getByRole('link',{name:'Show full archive',exact:true}).click();
  await checkCards(page,expected,'no-JS reset');
