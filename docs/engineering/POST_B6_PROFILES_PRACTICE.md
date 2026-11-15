@@ -231,8 +231,9 @@ No arbitrary retention duration or promise of immediate backup erasure is added.
    procedure. Restore only to an approved isolated target under separate approval.
    Before any restored copy can serve traffic, reconcile all relevant deletion
    obligations, restrict access and verify the synthetic deleted subject does not
-   return. Capture counts/booleans, target/SHA/checksum and receipt references,
-   never answers, notes, raw account identifiers, passwords, URLs with credentials
+   return. Capture counts/booleans, target/SHA/checksum and nonsecret receipt/job IDs,
+   never answers, notes, raw account identifiers, request nonces/session tokens,
+   passwords, URLs with credentials
    or object contents. A restore has not been qualified by this audit.
 5. Only after independent evidence acceptance, obtain a separate owner approval
    for the exact `PRACTICE_CHECKS_ENABLED=true` change, serving SHA, restricted
