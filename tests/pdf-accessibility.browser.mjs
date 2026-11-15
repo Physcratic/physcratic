@@ -1,7 +1,7 @@
 // Real production PDF pages. No mocked document, rendered tree or axe exclusions.
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 import { join } from "node:path";
 const require = createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, "package.json"));
@@ -26,11 +26,6 @@ async function loaded(page, number) {
   await page.locator('[data-pdf-rendered="true"]').waitFor();
   await pdf.locator(".textLayer .endOfContent").waitFor({ state: "attached" });
   await page.waitForFunction(number => document.querySelector(`.react-pdf__Page[data-page-number="${number}"] .textLayer`)?.textContent?.trim().length > 0, number);
-  // Structure extraction resolves separately from canvas/text rendering. Never audit a missing tree as clean.
-  if (page.url().endsWith("/ipho-2010-t1")) {
-    await pdf.locator(".react-pdf__Page__structTree").waitFor({ state: "attached" });
-    assert.ok(await pdf.locator(".structTree [aria-owns]").count() > 0);
-  }
   return pdf;
 }
 async function fingerprint(pdf) {
@@ -58,15 +53,44 @@ try {
     console.log(`PDF case: ${item.id} ${item.width} ${item.theme} ${item.member ? "member" : "guest"}`);
     const response = await page.goto(`${origin}/dashboard/problems/${item.id}`, { waitUntil: "domcontentloaded" });
     assert.equal(response.status(), 200);
+    const record = JSON.parse(await readFile(`public/corpus/english-problems/${item.id}.json`, "utf8"));
+    if (record.statement.format === "html") {
+      // Converted production pages now use the native reader. Retained 2010 PDF tag
+      // owners/cells/order are still tested directly in lib/pdf-structure.test.ts.
+      assert.equal(await page.locator("iframe,embed,object,.react-pdf__Page").count(), 0);
+      const pages = [], violations = [];
+      for (const kind of ["statement", "solution"]) {
+        if (kind === "solution") {
+          const tab = page.getByRole("tab", { name: "Worked solution", exact: true });
+          await tab.focus(); await page.keyboard.press("Enter");
+        }
+        const article = page.locator("article.imported-source-content:visible");
+        await article.waitFor();
+        assert.ok(await article.locator(".katex").count() > 0);
+        assert.equal(await article.locator(".katex-error").count(), 0);
+        assert.equal(await page.locator("body").evaluate(e => e.scrollWidth > innerWidth), false);
+        const selected = await article.evaluate(e => { const r = document.createRange(); r.selectNodeContents(e); const s = getSelection(); s.removeAllRanges(); s.addRange(r); return s.toString(); });
+        assert.ok(selected.length > 0);
+        await page.evaluate(() => getSelection().removeAllRanges());
+        const original = page.getByRole("link", { name: `Open original ${kind} PDF`, exact: false });
+        const sourceURL = await original.getAttribute("href");
+        assert.equal(sourceURL, record[kind].referencePdf);
+        const source = await page.request.get(new URL(sourceURL, origin).href);
+        assert.equal(source.status(), 200);
+        assert.ok((await source.body()).subarray(0, 4).equals(Buffer.from("%PDF")));
+        pages.push({ kind, native: true, sourceHash: hash(await source.body()) });
+        const axe = await new AxeBuilder({ page }).analyze();
+        violations.push(...axe.violations.map(v => ({ id: v.id, impact: v.impact, nodes: v.nodes.map(n => ({ target: n.target, html: n.html, failure: n.failureSummary })) })));
+      }
+      await page.getByRole("tab", { name: "Problem statement", exact: true }).click();
+      await page.screenshot({ path: join(evidence, `${item.id}-${item.width}-${item.theme}-${item.member ? "member" : "guest"}.png`), fullPage: true });
+      results.push({ ...item, native: true, selected: true, violations, pages });
+      await writeFile(join(evidence, "results.json"), JSON.stringify(results, null, 2));
+      await context.close();
+      continue;
+    }
     const pdf = await loaded(page, 1);
     const initial = await fingerprint(pdf);
-    if (item.id === "ipho-2010-t1") {
-      assert.deepEqual(initial.cells, [2, 1]);
-      for (const id of ["p3R_mc22", "p3R_mc27"]) {
-        assert.ok(initial.owners.includes(id));
-        assert.equal(await pdf.locator(".textLayer").evaluate((e, id) => e.querySelector(`[id="${id}"]`)?.textContent, id), "");
-      }
-    }
     const axe = await new AxeBuilder({ page }).analyze();
     const violations = axe.violations.map(v => ({ id: v.id, impact: v.impact, nodes: v.nodes.map(n => ({ target: n.target, html: n.html, failure: n.failureSummary })) }));
     // Selection must still use the untouched PDF text layer, not a copied accessibility-only replacement.
@@ -84,16 +108,16 @@ try {
     assert.ok((await source.body()).subarray(0, 4).equals(Buffer.from("%PDF")));
     assert.ok((await open.getAttribute("href")).startsWith(sourceURL));
     const pages = [];
-    if (item.id === "ipho-2010-t1" && item.width === 375 && item.theme === "light") {
+    if (item.id === "ipho-2016-t1" && item.width === 375 && item.theme === "light") {
       const cdp = await context.newCDPSession(page);
       await writeFile(join(evidence, "accessibility-tree.json"), JSON.stringify(await cdp.send("Accessibility.getFullAXTree"), null, 2));
       pages.push({ kind: "statement", number: 1, ...initial });
-      for (const number of [2, 3]) {
+      for (let number = 2; number <= record.statement.sourcePages.length; number++) {
         const next = page.getByRole("button", { name: /Next .*page/ }).first();
         await next.focus(); await page.keyboard.press("Enter");
         pages.push({ kind: "statement", number, ...await fingerprint(await loaded(page, number)) });
       }
-      for (const number of [2, 1]) {
+      for (let number = record.statement.sourcePages.length - 1; number >= 1; number--) {
         const previous = page.getByRole("button", { name: /Previous .*page/ }).first();
         await previous.focus(); await page.keyboard.press("Enter");
         await loaded(page, number);
@@ -103,7 +127,7 @@ try {
       assert.equal(await solution.getAttribute("aria-selected"), "false");
       await solution.focus(); await page.keyboard.press("Enter");
       assert.equal(await solution.getAttribute("aria-selected"), "true");
-      for (let number = 1; number <= 8; number++) {
+      for (let number = 1; number <= record.solution.sourcePages.length; number++) {
         if (number > 1) await page.getByRole("button", { name: /Next .*page/ }).first().click();
         pages.push({ kind: "solution", number, ...await fingerprint(await loaded(page, number)) });
       }

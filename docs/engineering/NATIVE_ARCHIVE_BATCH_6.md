@@ -46,4 +46,6 @@ The focused native, batch-six physics and catalogue suite passes 124 tests. It c
 
 The browser harness now includes the same KaTeX stylesheet as the production layout and serves its local fonts. Guest and synthetic verified-session screenshots have separate filenames. No width/theme/session/problem combinations are removed. Its existing CI job budget is increased from 15 to 25 minutes to accommodate 52 converted problems. This is a test workflow change, with no provider plan or deployment change.
 
+The production reader regression keeps the converted 2009/2010 cases and audits native math, original-PDF links, text selection and both tabs. Its extended real PDF keyboard-navigation sequence now uses the unconverted IPhO 2016 T1, covering all six statement and twelve solution pages. The direct retained-2010-PDF tag-tree owner/order/cell regression remains in the server suite.
+
 Local full-suite, lint, typecheck and production-build evidence is recorded in the PR. Browser and disposable-database results must come from exact-head GitHub Actions. No independent reviewer is claimed. No Production data, schema, flags, provider settings, manual deployment or merge is part of this batch.
