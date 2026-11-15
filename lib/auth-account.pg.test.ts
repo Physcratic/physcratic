@@ -109,9 +109,9 @@ test("account settings flows on the throwaway PostgreSQL", { skip: !url }, async
     assert.equal(other.status, 200);
     const otherId = (await sessionUser(other.cookie)).id as string;
     const checks = createPracticeCheckApi({ pool, user: async request => (await auth.api.getSession({ headers: request.headers }))?.user, origin: request => request.headers.get("origin") === origin });
-    const version = practiceCheckCatalog().find(entry => entry.metadata.problemId === "incline")!.metadata.version;
+    const metadata = practiceCheckCatalog().find(entry => entry.metadata.problemId === "arena-mind-the-gap")!.metadata;
     for (const [cookie, actor] of [[ada.cookie, adaId], [other.cookie, otherId]]) {
-      const response = await checks("submit", new Request(`${origin}/api/practice-checks`, { method: "POST", headers: { origin, cookie, "X-Practice-Account": actor, "content-type": "application/json" }, body: JSON.stringify({ problemId: "incline", version, answers: [{ partId: "answer", latex: "4.9" }], idempotencyKey: randomUUID() }) }));
+      const response = await checks("submit", new Request(`${origin}/api/practice-checks`, { method: "POST", headers: { origin, cookie, "X-Practice-Account": actor, "content-type": "application/json" }, body: JSON.stringify({ problemId: metadata.problemId, version: metadata.version, answers: [{ partId: metadata.parts[0].id, latex: "0" }], idempotencyKey: randomUUID() }) }));
       assert.equal(response.status, 201, await response.clone().text());
     }
     const snapshot = async () => (await setup.query(`SELECT

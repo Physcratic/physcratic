@@ -145,3 +145,121 @@ They are cited rather than re-run as a comprehensive sweep.
 See [the release-engineer review](POST_B6_RELEASE_REVIEW.md) for safeguards,
 remaining evidence and ranked GO boundaries. Production readiness remains
 UNKNOWN/NO-GO until the actual target prerequisites and owner decisions exist.
+
+## Practice readiness evidence and owner gates, 15 November 2026
+
+Audit base: `57286c4145bc39120465764f317aff0efe868ccb`. This section updates
+provider facts without authorizing activation or superseding the existing
+privacy/service contracts. PRs133/134 implemented persistence and UI integration.
+The visible dashboard history uses `/api/problem-progress`, with explicit partial
+source availability. It lists distinct current-version solved, in-progress and
+not-graded problems. There are no placeholder correct/incorrect counters in
+current main. `/api/dashboard` completion fields are null unless both sources are
+available. Legacy practice attempts and reviewed archive notes are separate
+statistics, never evidence of current all-part completion.
+
+The current-catalogue defect was retained retired practice definitions in new
+saves/counts. The correction excludes those identities from the default current
+catalogue and preserves immutable history/exact retries. Per-version sticky
+multipart correctness, unsupported/manual-only classification, account guards,
+OFF gating and unsaved public checking are existing behavior, not new features.
+Native imported archive checks intentionally remain unsaved. No historical work
+that was never saved is reconstructed.
+
+### Read-only live metadata, with explicit limits
+
+Neon project `divine-mode-82940461` reports `history_retention_seconds=21600`
+(six hours). Production branch `br-quiet-dawn-b7m2zrt3` is default/main, with
+Vercel Production restrictions. Its automatic snapshot schedule is empty. The
+snapshot list contains manual `snap-muddy-wildflower-b762d6kd`, created
+13 November 2026 at 15:53:24 UTC. The response supplies no expiration, so its
+retention/expiry is UNKNOWN. Independent November 2 pre-authoring/recovery branches
+and archived integration still exist. A six-hour history window does not erase
+those copies or establish a full provider backup policy. No snapshot, branch,
+compute or setting was changed, and no restore or Production SQL was executed.
+
+Current effective Vercel flags, database role/binding, negative privileges,
+erasure-service credentials/policy and cleanup inventory are UNVERIFIED by this
+read-only audit. Existing owner-reported B6 installation and owner binding are
+historical evidence, not proof of a subsequent restricted-role cutover. Do not
+retrieve credentials or infer grants from a successful public page or CI.
+
+### Smallest acceptable owner choice
+
+1. **Hold practice** until the separately qualified deletion release is usable.
+   No new erasure implementation is required in this batch. Public and operator
+   deletion HTTP routes remain unavailable while ACCOUNT_DELETION_ENABLED is OFF.
+2. **Commission a controlled nonpublic delivery process**, keeping that public
+   flag OFF. This requires a separate bounded implementation/review and operator
+   qualification. Reuse the existing0018 `createAccountDeletionApi` and operator
+   contracts. The subject must reauthenticate directly through the trusted
+   channel, with verified recent session, current-password proof, account binding,
+   trusted origin, original request nonce and limits. Support must not collect
+   passwords or borrow sessions. No direct unguarded function/SQL invocation,
+   staff impersonation, broad DELETE grant or public bypass endpoint qualifies.
+   Unsupported identity/proof cases must stop rather than invent delegation.
+
+Option2 is a proposal, not an implemented or qualified channel. Both options
+require the remaining provider/runtime evidence before practice activation.
+The owner must name the privacy/operator and independent reviewer, approve policy
+purpose/legal basis/access and receipt/evidence/review/expiry limits, identify
+applicable existing object providers and authorize synthetic acceptance scope.
+No arbitrary retention duration or promise of immediate backup erasure is added.
+
+### Bounded qualification, activation and rollback sequence
+
+1. Bind a release record to exact reviewed code SHA, Production project/alias,
+   Neon branch/database and observed restricted runtime identity. Verify0017/0018
+   installation from existing approved evidence. Owner separately supplies
+   read-only identity/ACL/ownership results using existing runtime-role artifacts.
+   No SQL is authorized by this document. Ordinary runtime must not own tables,
+   inherit owner/service roles, obtain broad DELETE or execute erasure functions.
+2. Compare only practice rights: attempt SELECT/INSERT and part/rate
+   SELECT/INSERT/UPDATE. If absent, prepare a minimal separately reviewed delta,
+   exact target/role/file SHA and rollback authority. Do not execute the whole
+   future-feature grant template or change immutable migration/trigger files.
+3. Select and qualify the erasure channel before accumulating new progress.
+   First rehearse entirely on disposable PostgreSQL with synthetic identities.
+   Exercise existing session/password/account/recent-sign-in gates, immutable
+   practice rows, other-account preservation, atomic failure, concurrent writes,
+   durable receipt, private-object cleanup/retry and required independent mixed-
+   evidence decisions. Preserve the default archive-publication fallback unless
+   continuing rights have been reviewed. Keep public deletion OFF for option2.
+4. Inventory all applicable retained copies and provider namespaces, including
+   manual snapshots, historical branches and existing author media. Record actual
+   retention/expiry, access controls, cleanup obligations and authorized restore
+   procedure. Restore only to an approved isolated target under separate approval.
+   Before any restored copy can serve traffic, reconcile all relevant deletion
+   obligations, restrict access and verify the synthetic deleted subject does not
+   return. Capture counts/booleans, target/SHA/checksum and receipt references,
+   never answers, notes, raw account identifiers, passwords, URLs with credentials
+   or object contents. A restore has not been qualified by this audit.
+5. Only after independent evidence acceptance, obtain a separate owner approval
+   for the exact `PRACTICE_CHECKS_ENABLED=true` change, serving SHA, restricted
+   binding, acceptance accounts, observation budget and rollback operator.
+   ACCOUNT_DELETION_ENABLED and all unrelated flags remain unchanged. This code
+   release alone is not that approval. No migration or backfill is needed.
+6. Under that separate authorization, verify saved correct/incorrect and multipart
+   checks through the served app, dashboard refresh, second session, stale version,
+   original-key uncertain-commit retry, A/B isolation, sign-out and unsaved guest
+   fallback. Confirm actual own progress against the acknowledged receipt.
+   Stop on account mismatch/leakage, unexpected rights, unqualified erasure,
+   restore ambiguity or unconfirmed save. Do not edit counters to force a pass.
+7. Roll back exposure by the approved flag-OFF configuration and normal owner
+   release mechanism. Verify the serving configuration, disabled private routes
+   and working unsaved public checker. Retain immutable rows and pending original
+   keys. Flag rollback is not erasure, schema rollback or proof a write failed.
+   No DOWN migration, automatic restore or reconstruction of historical progress.
+
+An adjacent source audit found that legacy archive-note reads/writes lack the
+rejection-only displayed-account header used by practice progress. Runtime
+reproduction was not completed because independent review capacity became
+unavailable. This is a separate, unqualified account-binding concern, not a new
+practice-ledger defect or authorization to modify official problem content.
+Track a bounded reproduction/security review before claiming full legacy-note
+session-isolation readiness.
+
+**NO-GO for Production persistence activation.** The delivery channel, approved
+policy/provider/restore evidence, current restricted binding/grants, final release
+review and explicit activation approval remain gates. No Production operation or
+flag activation was performed.

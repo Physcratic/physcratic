@@ -57,9 +57,9 @@ test("independently rearranged source results agree and common physical errors d
   const currentKA = 0.2 / 6000 * Math.sqrt(2 * 101000 / (9.04e-6 * 12.57e-7)) / 1000;
   assert.equal(checkArchivePart(olympiadDefinitions.find(d => d.problemId === "eupho-2018-t2")!.parts[0], String(currentKA), "eupho-2018-t2").status, "correct");
 });
-test("the existing account-persistence catalogue is unchanged and excludes stateless olympiad checks", () => {
+test("the account-persistence catalogue excludes retired practice and stateless olympiad checks", () => {
   assert.equal(archiveDefinitions.length, 30);
-  assert.equal(practiceCheckCatalog().length, 30);
+  assert.ok(practiceCheckCatalog().every(entry => entry.kind === "arena"));
   assert.ok(practiceCheckCatalog().every(p => !(nativeOlympiadIds as readonly string[]).includes(p.metadata.problemId)));
 });
 const index = JSON.parse(readFileSync("lib/corpus/import-index.json", "utf8"));

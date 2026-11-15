@@ -6,6 +6,7 @@ import { Pool } from 'pg';
 import { createPracticeCheckApi } from './practice-check-api';
 import { createPracticeCheckRoute, practiceChecksEnabled } from './practice-check-route';
 import { practiceCheckCatalog } from './practice-check-catalog';
+import { practiceCatalogWithLegacyFixture as fixtureCatalog } from '../tests/fixtures/practice-catalog';
 import { gradeArchiveAnswers } from './archive-grading';
 import { getArchiveDefinition } from './archive-grading/catalog';
 import { handleArchiveGrade } from './archive-grading-request';
@@ -25,12 +26,12 @@ test('server-owned practice/Arena ledger on disposable PostgreSQL',{skip:!url&&'
   const admin=new Pool({connectionString:url});await admin.query(`CREATE SCHEMA ${schema}`);
   const pool=new Pool({connectionString:url,options:`-c search_path=${schema},public`,max:12,statement_timeout:5000,connectionTimeoutMillis:3000});
   const sessions=new Map<string,{id:string;emailVerified:boolean}>();
-  let catalog=practiceCheckCatalog(),gradeCalls=0;
+  let catalog=fixtureCatalog(),gradeCalls=0;
   const deps={pool,user:async(r:Request)=>sessions.get(r.headers.get('x-user')??''),origin:(r:Request)=>isAllowedSubmissionOrigin(r,['https://physcratic.test']),catalog:()=>catalog,grade:(input:Parameters<typeof gradeArchiveAnswers>[0])=>{gradeCalls++;return gradeArchiveAnswers(input);}};
   // This fixture explicitly enables the server route in the disposable test only.
   const api=createPracticeCheckRoute(()=>practiceChecksEnabled({PRACTICE_CHECKS_ENABLED:'true'}),async()=>({practiceCheckApi:createPracticeCheckApi(deps)}));
-  const numeric=practiceCheckCatalog().find(e=>e.metadata.problemId==='incline')!;
-  const arena=practiceCheckCatalog().find(e=>e.metadata.problemId==='arena-mind-the-gap')!;
+  const numeric=fixtureCatalog().find(e=>e.metadata.problemId==='incline')!;
+  const arena=fixtureCatalog().find(e=>e.metadata.problemId==='arena-mind-the-gap')!;
   const up=await readFile('migrations/0017_practice_checks.up.sql','utf8'),down=await readFile('migrations/0017_practice_checks.down.sql','utf8');
   async function actor(verified=true){const id=randomUUID();sessions.set(id,{id,emailVerified:verified});await pool.query('INSERT INTO "user" VALUES($1)',[id]);return id;}
   function request(user?:string,body?:unknown,options:{origin?:string;query?:string;type?:string;account?:string}={}){return new Request('https://physcratic.test/api'+(options.query??''),{method:body===undefined?'GET':'POST',headers:{origin:options.origin??'https://physcratic.test','content-type':options.type??'application/json',...(user?{'x-user':user,'x-practice-account':options.account??user}:{})},body:body===undefined?undefined:JSON.stringify(body)});}
@@ -90,6 +91,35 @@ test('server-owned practice/Arena ledger on disposable PostgreSQL',{skip:!url&&'
       assert.ok(own.attempts.every((a:Record<string,unknown>)=>!('userId'in a)&&!('user_id'in a)&&!('idempotencyKey'in a)));
       assert.equal((await json(await api('history',request(other)))).attempts.length,0);
     });
+    await t.test('the default current catalogue saves complete Arena work without legacy fixtures',async()=>{
+      const user=await actor(),other=await actor();
+      const current=createPracticeCheckApi({...deps,catalog:practiceCheckCatalog});
+      const definition=getArchiveDefinition(arena.metadata.problemId)!;
+      const answers=definition.parts.filter(p=>p.kind!=='self-review').map(p=>({partId:p.id,latex:p.kind==='expression'||p.kind==='special'?p.canonical:p.kind==='numeric'?String(p.target):''}));
+      await json(await current('submit',request(user,{problemId:arena.metadata.problemId,version:arena.metadata.version,answers,idempotencyKey:randomUUID()})),201);
+      const own=await json(await current('progress',request(user)));
+      assert.equal(own.solvedProblems,1);
+      assert.equal(own.progress[0].correctParts,own.progress[0].requiredParts);
+      assert.equal(own.progress[0].kind,'arena');
+      assert.deepEqual((await json(await current('progress',request(other)))).progress,[]);
+    });
+    await t.test('withdrawn legacy checks leave current counts but retain exact immutable replay',async()=>{
+      const user=await actor(),body=input();
+      const saved=await json(await submit(user,body),201);
+      catalog=practiceCheckCatalog();
+      try {
+        const current=await progress(user);
+        assert.equal(current.savedChecks,1);
+        assert.deepEqual(current.progress,[]);
+        assert.equal(current.solvedProblems,0);
+        assert.equal(current.inProgressProblems,0);
+        await json(await submit(user,{...body,idempotencyKey:randomUUID()}),404);
+        const replay=await json(await submit(user,body),200);
+        assert.equal(replay.attempt.id,saved.attempt.id);
+        assert.deepEqual(replay.attempt.results,saved.attempt.results);
+        assert.equal((await progress(user)).savedChecks,1);
+      } finally { catalog=fixtureCatalog(); }
+    });
     await t.test('partial Arena successes combine across compatible attempts, not unanswered parts',async()=>{
       const user=await actor();const definition=getArchiveDefinition(arena.metadata.problemId)!;
       const parts=definition.parts.filter(p=>p.kind!=='self-review');assert.equal(parts.length,2);
@@ -119,7 +149,7 @@ test('server-owned practice/Arena ledger on disposable PostgreSQL',{skip:!url&&'
       const p=await progress(user);assert.equal(p.progress[0].status,'not-graded');assert.equal(p.inProgressProblems,0);assert.equal(p.solvedProblems,0);
       const reviewUser=await actor();const reviewApi=createPracticeCheckApi({...deps,grade:(body)=>({...gradeArchiveAnswers(body),results:[{partId:'answer',status:'inconclusive',message:'Could not decide.'}]})});
       await json(await reviewApi('submit',request(reviewUser,input())),201);assert.equal((await progress(reviewUser)).progress[0].status,'not-graded');
-      const selfReview=practiceCheckCatalog().find(e=>e.metadata.parts.some(p=>p.kind==='self-review'))!;
+      const selfReview=fixtureCatalog().find(e=>e.metadata.parts.some(p=>p.kind==='self-review'))!;
       const reviewPart=selfReview.metadata.parts.find(p=>p.kind==='self-review')!;
       const selfUser=await actor();
       await json(await submit(selfUser,{problemId:selfReview.metadata.problemId,version:selfReview.metadata.version,answers:[{partId:reviewPart.id,latex:'My own reasoning'}],idempotencyKey:randomUUID()}),201);
@@ -131,7 +161,7 @@ test('server-owned practice/Arena ledger on disposable PostgreSQL',{skip:!url&&'
       assert.equal((await progress(user)).progress.length,0);assert.equal((await progress(user)).savedChecks,1);
       await json(await submit(user,input()),409);
       catalog=[];const replay=await json(await submit(user,body));assert.equal(replay.attempt.id,saved.attempt.id);assert.equal(gradeCalls,before);
-      catalog=practiceCheckCatalog();
+      catalog=fixtureCatalog();
     });
     await t.test('lost committed response is explicitly unconfirmed and same-key retry returns the committed record',async()=>{
       const user=await actor(),body=input();let lose=true;

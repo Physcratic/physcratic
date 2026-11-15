@@ -1,5 +1,9 @@
 # Beta readiness log
 
+## Practice progress readiness (15 November 2026)
+
+Current saved-practice catalogue excludes retired readers while preserving exact historical replay. Legacy test fixtures remain explicit and grading/migration bytes are unchanged. [Audit, live metadata, owner choices and bounded activation/rollback gates](POST_B6_PROFILES_PRACTICE.md#practice-readiness-evidence-and-owner-gates-15-november-2026). Practice/deletion stay OFF by default. No Production SQL, grant, binding, provider, deployment or flag operation. Final SHA/CI and review limitations belong to the focused PR.
+
 ## Authored solution response visibility (15 November 2026)
 
 A follow-up to the initial investigation reproduces approved solutions and denial messages below the viewport after confirmation. Explicit response focus/scroll now exposes the result in mobile flow and the desktop answer rail, preserving confirmation, permission, assistance and privacy clearing. [Evidence and policy](AUTHORED_STUDENT_UI.md#worked-solution-policy-and-evidence). Separate draft stacked on math-input fix #176. No merge/deployment or API, grading, migration, Production, official-reader or SEO change.
