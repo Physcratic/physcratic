@@ -27,8 +27,8 @@ test('complete account erasure on actual auth and installed graph, disposable PG
  const {getTableConfig,PgDialect}=await import('drizzle-orm/pg-core'),{SQL,is}=await import('drizzle-orm');
  const schema=await import('./db/schema');
  const name='deletion_'+randomUUID().replaceAll('-',''),owner=name+'_owner',ordinary=name+'_ordinary',executor=name+'_executor',staffRole=name+'_staff';
- const admin=new Pool({connectionString:url,max:2});await admin.query(`CREATE ROLE ${owner} NOLOGIN;CREATE ROLE ${ordinary} NOLOGIN;CREATE ROLE ${executor} NOLOGIN;CREATE ROLE ${staffRole} NOLOGIN;CREATE SCHEMA ${name} AUTHORIZATION ${owner}`);
- const connections:Pool[]=[];const connect=(role:string)=>{const p=new Pool({connectionString:url,options:`-c search_path=${name} -c role=${role}`,max:5,statement_timeout:20000});connections.push(p);return p;};
+ const loginPassword=token();const admin=new Pool({connectionString:url,max:2});await admin.query(`CREATE ROLE ${owner} NOLOGIN;CREATE ROLE ${ordinary} LOGIN NOINHERIT PASSWORD '${loginPassword}';CREATE ROLE ${executor} LOGIN NOINHERIT PASSWORD '${loginPassword}';CREATE ROLE ${staffRole} LOGIN NOINHERIT PASSWORD '${loginPassword}';CREATE SCHEMA ${name} AUTHORIZATION ${owner}`);
+ const connections:Pool[]=[];const connect=(role:string)=>{const login=new URL(url!);if(role!==owner){login.username=role;login.password=loginPassword;}const p=new Pool({connectionString:login.href,options:`-c search_path=${name}${role===owner?' -c role='+owner:''}`,max:5,statement_timeout:20000});connections.push(p);return p;};
  const setup=connect(owner),normal=connect(ordinary),erase=connect(executor),staff=connect(staffRole);
  const origin='http://localhost:3000';
  const buildAuth=(pool:Pool)=>betterAuth(createAuthOptions({pool,defer:task=>{void task();},overrides:{baseURL:origin,secret:'synthetic-account-deletion-test-secret-000000000000',logger:{disabled:true}}}));
@@ -51,7 +51,7 @@ test('complete account erasure on actual auth and installed graph, disposable PG
   await setup.query(await readFile('migrations/0018_account_deletion.down.sql','utf8'));
   for(const original of originals)assert.equal((await setup.query('SELECT pg_get_functiondef($1) AS definition',[original.function_oid])).rows[0].definition,original.definition);
   await setup.query(await readFile('migrations/0018_account_deletion.up.sql','utf8'));
-  await setup.query(`GRANT USAGE ON SCHEMA ${name} TO ${ordinary},${executor},${staffRole};GRANT SELECT,INSERT,UPDATE,DELETE ON "user",account,session,verification,"rateLimit" TO ${ordinary};GRANT EXECUTE ON FUNCTION account_deletion_charge(text,text,boolean),account_deletion_receipt(text),account_deletion_execute(text,text,text,text),account_deletion_open_request(text,text,text,text) TO ${executor};GRANT EXECUTE ON FUNCTION account_deletion_charge(text,text,boolean),account_deletion_evidence_control(text,text,text,text,jsonb),account_deletion_cleanup(text,text,text,text,jsonb) TO ${staffRole}`);
+  await setup.query(`GRANT USAGE ON SCHEMA ${name} TO ${ordinary},${executor},${staffRole};GRANT SELECT,INSERT,UPDATE ON "user" TO ${ordinary};GRANT SELECT,INSERT,UPDATE,DELETE ON account,session,verification,"rateLimit" TO ${ordinary};GRANT EXECUTE ON FUNCTION account_deletion_charge(text,text,boolean),account_deletion_receipt(text),account_deletion_execute(text,text,text,text),account_deletion_open_request(text,text,text,text) TO ${executor};GRANT EXECUTE ON FUNCTION account_deletion_charge(text,text,boolean),account_deletion_evidence_control(text,text,text,text,jsonb),account_deletion_cleanup(text,text,text,text,jsonb) TO ${staffRole}`);
   auth=buildAuth(normal);
   await setup.query(`INSERT INTO account_deletion_policy VALUES(true,true,'Synthetic test purpose','Synthetic operator legal approval','Synthetic responsible operator','Synthetic restricted staff access','Synthetic review criteria','Synthetic disposal criteria',interval '1 hour',interval '1 day',interval '1 hour',interval '1 day','TEST-ONLY-NOT-A-PRODUCTION-APPROVAL',clock_timestamp())`);
   const calls=async(path:string,body:unknown,cookie?:string)=>auth.handler(new Request(origin+'/api/auth'+path,{method:'POST',headers:{origin,'content-type':'application/json',...(cookie?{cookie}:{})},body:JSON.stringify(body)}));
@@ -73,6 +73,28 @@ test('complete account erasure on actual auth and installed graph, disposable PG
   async function op(actor:Actor,action:string,payload:Record<string,unknown>){const response=await operator(new Request(origin+'/api/admin/account-deletion',{method:'POST',headers:{origin,cookie:actor.cookie,'content-type':'application/json'},body:JSON.stringify({password:actor.password,action,payload:{accessPurpose:'Synthetic case-specific operation',...payload}})}));assert.equal(response.status,200,await response.clone().text());return(await response.json()).result;}
   async function adminUser(label:string){const actor=await user(label);await setup.query("INSERT INTO community_staff(user_id,role,reason) VALUES($1,'admin','Synthetic operator appointment')",[actor.id]);return actor;}
   async function adjudicate(subject:Actor,first:Actor,second:Actor){const inventory=await op(first,'inventory',{subjectId:subject.id});for(const record of inventory){const retained=record.relation_name==='community_comment_evidence';const prepared=await op(first,'prepare',{subjectId:subject.id,relation:record.relation_name,key:record.record_key,digest:record.digest,retainFields:retained?['body']:[],replacement:record.relation_name==='contest'?{creators:['Another contributor']}:{},purpose:retained?'active-report':'erase',necessity:'Synthetic active case necessity',legalBasis:'Synthetic reviewed test basis only',responsibleOperator:'Synthetic responsible operator',reviewCriteria:'Synthetic review criteria',disposalCriteria:'Synthetic disposal criteria',reviewAt:new Date(Date.now()+1800000).toISOString(),expiresAt:new Date(Date.now()+3600000).toISOString()});const denied=await operator(new Request(origin+'/api/admin/account-deletion',{method:'POST',headers:{origin,cookie:first.cookie,'content-type':'application/json'},body:JSON.stringify({password:first.password,action:'approve',payload:{accessPurpose:'Synthetic self approval denied',id:prepared.id}})}));assert.equal(denied.status,403);await op(second,'approve',{id:prepared.id});}return inventory;}
+  await t.test('actual login roles cannot escalate, create trusted objects, delete users or inspect private deletion state',async()=>{
+   for(const [pool,role] of [[normal,ordinary],[erase,executor],[staff,staffRole]] as const){
+    assert.deepEqual((await pool.query('SELECT session_user,current_user')).rows[0],{session_user:role,current_user:role});
+    for(const privileged of [owner,executor,staffRole].filter(candidate=>candidate!==role))await assert.rejects(pool.query('SET ROLE '+privileged),{code:'42501'});
+    await assert.rejects(pool.query('CREATE TABLE forbidden_deletion_object(id int)'),{code:'42501'});
+    await assert.rejects(pool.query('SELECT * FROM account_deletion_receipt_store'),{code:'42501'});
+    await assert.rejects(pool.query('DELETE FROM "user" WHERE false'),{code:'42501'});
+   }
+   await assert.rejects(normal.query("SELECT account_deletion_execute('subject','session','proof','nonce')"),{code:'42501'});
+   await assert.rejects(erase.query("SELECT account_deletion_cleanup('actor','session','proof','claim','{}')"),{code:'42501'});
+   await assert.rejects(staff.query("SELECT account_deletion_execute('subject','session','proof','nonce')"),{code:'42501'});
+  });
+  await t.test('guest, unverified, bad-origin, malformed and expired requests cannot delete',async()=>{
+   const a=await user('boundary-a');const input={confirmation:'DELETE MY ACCOUNT',password:a.password,requestToken:token()};
+   assert.equal((await api(request('',input))).status,401);
+   const crossOrigin=request(a.cookie,input);crossOrigin.headers.set('origin','https://untrusted.invalid');assert.equal((await api(crossOrigin)).status,403);
+   assert.equal((await api(new Request(origin+'/api/account-deletion',{method:'POST',headers:{origin,'content-type':'application/json'},body:'{'}))).status,400);
+   await setup.query('UPDATE "user" SET "emailVerified"=false WHERE id=$1',[a.id]);assert.equal((await api(request(a.cookie,input))).status,403);
+   await setup.query('UPDATE "user" SET "emailVerified"=true WHERE id=$1',[a.id]);await setup.query('UPDATE session SET "expiresAt"=now()-interval \'1 second\' WHERE "userId"=$1',[a.id]);assert.equal((await api(request(a.cookie,input))).status,401);
+   assert.deepEqual(await counts(a.id),{users:1,credentials:1,sessions:0});
+   assert.equal((await setup.query('SELECT count(*)::int AS n FROM account_deletion_request WHERE user_id=$1',[a.id])).rows[0].n,0);
+  });
   await t.test('fresh signed session, confirmation and current password erase auth atomically and replay without auth',async()=>{
    const a=await user('basic-a'),b=await user('basic-b');const recovery=token();const beforeB=await counts(b.id);
    assert.equal((await api(request(b.cookie,{confirmation:'DELETE MY ACCOUNT',password:b.password,requestToken:token()},a.id))).status,409);assert.deepEqual(await counts(b.id),beforeB);assert.equal((await setup.query('SELECT count(*)::int AS n FROM account_deletion_rate WHERE user_id=$1',[b.id])).rows[0].n,0);
@@ -127,7 +149,7 @@ test('complete account erasure on actual auth and installed graph, disposable PG
    const a=await user('privilege-a');await practiceCheck(a);
    await setup.query(`GRANT DELETE ON practice_check_attempt TO ${ordinary}`);await assert.rejects(normal.query('DELETE FROM practice_check_attempt WHERE user_id=$1',[a.id]));await assert.rejects(normal.query('INSERT INTO account_deletion_mutation VALUES(pg_backend_pid(),txid_current(),0,\'DELETE\',\'{}\',NULL)'));await assert.rejects(normal.query('SELECT account_deletion_permit_delete(\'practice_check_attempt\',\'true\',$1)',[a.id]));
    const conn=await erase.connect();try{await conn.query('CREATE TEMP TABLE account_deletion_policy(approved boolean)');await conn.query('INSERT INTO pg_temp.account_deletion_policy VALUES(false)');const session=(await auth.api.getSession({headers:new Headers({cookie:a.cookie})}))!,proof=await dependencies(erase).password(a.id,a.password);assert.ok((await conn.query('SELECT account_deletion_execute($1,$2,$3,$4) AS receipt',[a.id,session.session.token,proof.hash,nonce(token())])).rows[0].receipt);}finally{conn.release();}
-   await assert.rejects(setup.query(await readFile('migrations/0018_account_deletion.down.sql','utf8')),/Populated account deletion/);
+   await assert.rejects(setup.query(await readFile('migrations/0018_account_deletion.down.sql','utf8')),/Populated account deletion/);await setup.query(`REVOKE DELETE ON practice_check_attempt FROM ${ordinary}`);
   });
   await t.test('legacy private history, profile objects, medals and independently owned contest records clean up together',async()=>{
    const a=await user('legacy-a'),b=await user('legacy-b'),first=await adminUser('legacy-op-one'),second=await adminUser('legacy-op-two');
@@ -176,6 +198,15 @@ test('complete account erasure on actual auth and installed graph, disposable PG
    for(let n=0;n<10;n++){const response=await success(command(operatorActor));assert.equal(response.status,200);if((await response.json()).processed===0)break;}
    assert.equal(paths.length,pendingBefore);assert.equal((await setup.query("SELECT count(*)::int AS n FROM account_deletion_outbox WHERE state<>'complete'")).rows[0].n,0);
    await setup.query("UPDATE account_deletion_receipt_store SET expires_at=now()-interval '1 second';UPDATE account_deletion_access SET expires_at=now()-interval '1 second'");assert.equal((await success(command(operatorActor))).status,200);assert.equal((await setup.query('SELECT count(*)::int AS n FROM account_deletion_outbox')).rows[0].n,0);assert.equal((await setup.query('SELECT count(*)::int AS n FROM account_deletion_receipt_store')).rows[0].n,0);assert.equal((await setup.query('SELECT count(*)::int AS n FROM account_deletion_access')).rows[0].n,0);
+  });
+  await t.test('account proof and recovery browser against the actual deletion graph',{skip:process.env.ACCOUNT_DELETION_BROWSER!=='1'},async()=>{
+   const {runAccountDeletionBrowser}=await import('../tests/account-deletion.browser.mjs');
+   const worker=await adminUser('browser-cleanup-worker');
+   await runAccountDeletionBrowser({api,origin,counts,
+    privateCounts:async(id:string)=>(await setup.query('SELECT (SELECT count(*)::int FROM practice_check_attempt WHERE user_id=$1) AS practice,(SELECT count(*)::int FROM authored_attempt WHERE user_id=$1) AS authored',[id])).rows[0],
+    actors:async(label:string)=>{const a=await user(label+'-a'),b=await user(label+'-b');await practiceCheck(a);await practiceCheck(b);const foreign=await publication(b);await authoredCheck(a,foreign);const factory=createProblemAuthoringApi({pool:setup,user:async()=>({id:a.id,emailVerified:true}),origin:()=>true});const response=await factory('create',rawRequest(document()));assert.equal(response.status,201);const draft=await response.json(),id=randomUUID();await setup.query("INSERT INTO author_media(id,problem_id,purpose,pathname,filename,media_type,bytes,sha256,state) VALUES($1,$2,'statement-image',$3,'private.png','image/png',1,$4,'ready')",[id,draft.problemId,'author-media/'+a.id+'/'+id+'.png','a'.repeat(64)]);return{a,b};},
+    cleanup:async(fail:boolean)=>{await setup.query("UPDATE account_deletion_outbox SET available_at=now() WHERE state='pending'");const service=createDeletionOperatorApi(dependencies(staff),{del:async()=>{if(fail)throw Error('Synthetic provider failure');}});const response=await service(new Request(origin+'/api/admin/account-deletion',{method:'POST',headers:{origin,cookie:worker.cookie,'content-type':'application/json'},body:JSON.stringify({password:worker.password,action:'cleanup',payload:{}})}));assert.equal(response.status,200);const result=await response.json();assert.equal(result.completed,!fail);},
+   });
   });
  }finally{await Promise.all(connections.map(p=>p.end()));await admin.query(`DROP SCHEMA ${name} CASCADE;DROP ROLE ${owner};DROP ROLE ${ordinary};DROP ROLE ${executor};DROP ROLE ${staffRole}`);await admin.end();}
 });

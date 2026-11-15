@@ -86,3 +86,8 @@ jobs:
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
         run: node --require ./tests/server-only-register.cjs --import tsx tests/archive-progress.browser.mjs
+      - name: Account deletion proof, receipt recovery and cleanup isolation
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
+          ACCOUNT_DELETION_BROWSER: "1"
+        run: node --require ./tests/server-only-register.cjs --import tsx --test lib/account-deletion.test.ts
