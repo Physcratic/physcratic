@@ -1,0 +1,330 @@
+{
+  "problemId": "ipho-2024-t2",
+  "version": "6c00842f12abbadaf043dfb2fae010b186eb15064e50cfa8acc2f4505ff2790f",
+  "parts": [
+    {
+      "id": "a-1a",
+      "sourcePart": "a-1a",
+      "label": "Central electric field",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a-1b",
+      "sourcePart": "a-1b",
+      "label": "Static stable frequencies",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Q",
+        "\\lambda",
+        "\\epsilon_0",
+        "R",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "Q",
+          "assumptions": [],
+          "min": 0.5,
+          "max": 3
+        },
+        {
+          "symbol": "\\lambda",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use Q, \\lambda, \\epsilon_0, R, m. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a-2",
+      "sourcePart": "a-2",
+      "label": "Alternating-field parameters",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Q",
+        "u",
+        "\\epsilon_0",
+        "R",
+        "m",
+        "\\Omega"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "u",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\Omega",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use Q, u, \\epsilon_0, R, m, \\Omega. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a-3a",
+      "sourcePart": "a-3a",
+      "label": "Fast component equation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a-3b",
+      "sourcePart": "a-3b",
+      "label": "Micromotion solution",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a-4a",
+      "sourcePart": "a-4a",
+      "label": "Averaged slow motion",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a-4b",
+      "sourcePart": "a-4b",
+      "label": "Dynamic stability",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a-5",
+      "sourcePart": "a-5",
+      "label": "Radiofrequency threshold",
+      "kind": "numeric",
+      "unit": "rad/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in rad/s, without a unit suffix."
+    },
+    {
+      "id": "b-1",
+      "sourcePart": "b-1",
+      "label": "Lifetime width",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\tau"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\tau. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b-2a",
+      "sourcePart": "b-2a",
+      "label": "Absorption and momentum rates",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b-2b",
+      "sourcePart": "b-2b",
+      "label": "Doppler friction",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\alpha",
+        "\\hbar",
+        "k_L",
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\alpha, \\hbar, k_L, v. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b-3",
+      "sourcePart": "b-3",
+      "label": "Recoil heating",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "k_L",
+        "m",
+        "\\tau"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\hbar, k_L, m, \\tau. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b-4",
+      "sourcePart": "b-4",
+      "label": "Cooling equilibrium",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "\\alpha",
+        "k_B",
+        "\\tau"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\hbar, \\alpha, k_B, \\tau. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b-5",
+      "sourcePart": "b-5",
+      "label": "Temperature estimate",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in K, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

@@ -1,0 +1,335 @@
+{
+  "problemId": "ipho-2023-t1",
+  "version": "04d7e484d46841043609acd6343e847e704704b0c34034262f25fc8b3ac4d5d3",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Single impulse",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "M",
+        "\\gamma"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use M, \\gamma. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Successive collisions",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Displacement moments",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "C",
+        "\\delta",
+        "t"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "C",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "t",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use C, \\delta, t. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Continuum scaling",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Right-going crossing rate",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "n_0",
+        "v",
+        "s",
+        "\\delta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "n_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "s",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use n_0, v, s, \\delta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "c.2",
+      "label": "Diffusion coefficient",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "C",
+        "\\delta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "C",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use C, \\delta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "c.3",
+      "label": "Osmotic balance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "n",
+        "Q",
+        "E",
+        "k",
+        "T"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use n, Q, E, k, T. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.4",
+      "sourcePart": "c.4",
+      "label": "Drift velocity",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Q",
+        "E",
+        "\\gamma"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use Q, E, \\gamma. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.5",
+      "sourcePart": "c.5",
+      "label": "Einstein relation",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k",
+        "T",
+        "\\gamma"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use k, T, \\gamma. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "d.1",
+      "label": "Experimental Avogadro estimate",
+      "kind": "numeric",
+      "unit": "mol⁻¹",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in mol⁻¹, without a unit suffix."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "d.2",
+      "label": "Drift crossover",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.3",
+      "sourcePart": "d.3",
+      "label": "Swimming microbes",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "e.1",
+      "sourcePart": "e.1",
+      "label": "Coagulation threshold",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "B",
+        "\\epsilon",
+        "k",
+        "T",
+        "N_A",
+        "A",
+        "q"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "N_A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use B, \\epsilon, k, T, N_A, A, q. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

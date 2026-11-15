@@ -1,0 +1,212 @@
+{
+  "problemId": "ipho-2024-t1",
+  "version": "ca89b556510371213211516a5efe27f9295a5d4373c9074f81315ba5214eaa02",
+  "parts": [
+    {
+      "id": "a-1",
+      "sourcePart": "a-1",
+      "label": "Solar constant",
+      "kind": "numeric",
+      "unit": "W/m²",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in W/m², without a unit suffix."
+    },
+    {
+      "id": "a-2",
+      "sourcePart": "a-2",
+      "label": "Airless blackbody Earth",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in K, without a unit suffix."
+    },
+    {
+      "id": "a-3",
+      "sourcePart": "a-3",
+      "label": "Wien equation",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "x"
+      ],
+      "symbolConditions": [],
+      "help": "Use x. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a-4",
+      "sourcePart": "a-4",
+      "label": "Wien constant",
+      "kind": "numeric",
+      "unit": "nm K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in nm K, without a unit suffix."
+    },
+    {
+      "id": "a-5",
+      "sourcePart": "a-5",
+      "label": "Solar and terrestrial peaks",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a-6",
+      "sourcePart": "a-6",
+      "label": "Equal-height rescaling",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "b-1",
+      "sourcePart": "b-1",
+      "label": "Opaque infrared atmosphere",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b-2",
+      "sourcePart": "b-2",
+      "label": "Multiple-reflection albedo",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "r_A",
+        "r_E"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r_A",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.4
+        },
+        {
+          "symbol": "r_E",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.4
+        }
+      ],
+      "help": "Use r_A, r_E. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b-3a",
+      "sourcePart": "b-3a",
+      "label": "Partially absorbing atmosphere",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\alpha",
+        "S_0",
+        "\\sigma",
+        "\\epsilon"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.4
+        },
+        {
+          "symbol": "S_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.9
+        }
+      ],
+      "help": "Use \\alpha, S_0, \\sigma, \\epsilon. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b-3b",
+      "sourcePart": "b-3b",
+      "label": "Present-temperature emissivity",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "b-4",
+      "sourcePart": "b-4",
+      "label": "Radiative temperature sensitivity",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in K, without a unit suffix."
+    },
+    {
+      "id": "b-5",
+      "sourcePart": "b-5",
+      "label": "Non-radiative transfer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b-6a",
+      "sourcePart": "b-6a",
+      "label": "Coupled sensitivity equations",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b-6b",
+      "sourcePart": "b-6b",
+      "label": "Sensitivity with heat transfer",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in K, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

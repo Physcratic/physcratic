@@ -16,7 +16,8 @@ import fourthLedger from "../docs/engineering/native-archive-batch-4-sources.jso
 import fifthLedger from "../docs/engineering/native-archive-batch-5-sources.json";
 import sixthLedger from "../docs/engineering/native-archive-batch-6-sources.json";
 import seventhLedger from "../docs/engineering/native-archive-batch-7-sources.json";
-const ledger = [...firstLedger, ...secondLedger, ...thirdLedger, ...fourthLedger, ...fifthLedger, ...sixthLedger, ...seventhLedger];
+import eighthLedger from "../docs/engineering/native-archive-batch-8-sources.json";
+const ledger = [...firstLedger, ...secondLedger, ...thirdLedger, ...fourthLedger, ...fifthLedger, ...sixthLedger, ...seventhLedger, ...eighthLedger];
 
 for (const definition of olympiadDefinitions) {
   test(definition.problemId + " has bounded typed fields and accepts the verified reference forms", () => {

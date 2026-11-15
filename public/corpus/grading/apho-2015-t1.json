@@ -1,0 +1,232 @@
+{
+  "problemId": "apho-2015-t1",
+  "version": "dbbc0922622a398c38dabaccfa9f674303041d7aff359077bf97bbc28a0d14cb",
+  "parts": [
+    {
+      "id": "a.i",
+      "sourcePart": "a.i",
+      "label": "Lorentz equation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.ii",
+      "sourcePart": "a.ii",
+      "label": "Stationary drift speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "E_y",
+        "B"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "E_y",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use E_y, B. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.iii",
+      "sourcePart": "a.iii",
+      "label": "Drift direction",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b",
+      "sourcePart": "b",
+      "label": "Classical Hall resistance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\phi",
+        "N",
+        "e"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\phi",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\phi, N, e. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c",
+      "sourcePart": "c",
+      "label": "Filling fraction",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "d",
+      "sourcePart": "d",
+      "label": "Coulomb energy scaling",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "e",
+      "sourcePart": "e",
+      "label": "One quasihole",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "h",
+        "e",
+        "A"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use h, e, A. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "f.i",
+      "sourcePart": "f.i",
+      "label": "Thermal scale",
+      "kind": "numeric",
+      "unit": "J",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in J, without a unit suffix."
+    },
+    {
+      "id": "f.ii",
+      "sourcePart": "f.ii",
+      "label": "Confinement kinetic scale",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "g.i",
+      "sourcePart": "g.i",
+      "label": "Mean tunnelling current",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "\\lambda",
+        "\\tau"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\lambda",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use q, \\lambda, \\tau. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "g.ii",
+      "sourcePart": "g.ii",
+      "label": "Shot-noise variance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "\\lambda",
+        "\\tau"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\lambda",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use q, \\lambda, \\tau. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "g.iii",
+      "sourcePart": "g.iii",
+      "label": "Fractional-charge signal",
+      "kind": "numeric",
+      "unit": "C",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in C, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

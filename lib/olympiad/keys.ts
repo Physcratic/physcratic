@@ -9,12 +9,14 @@ import "./native-batch-4";
 import "./native-batch-5";
 import "./native-batch-6";
 import "./native-batch-7";
+import "./native-batch-8";
 import { batchTwoParts } from "./keys-batch-2";
 import { batchThreeParts } from "./keys-batch-3";
 import { batchFourParts } from "./keys-batch-4";
 import { batchFiveParts } from "./keys-batch-5";
 import { batchSixParts } from "./keys-batch-6";
 import { batchSevenParts } from "./keys-batch-7";
+import { batchEightParts } from "./keys-batch-8";
 
 const label = (part: ArchiveKeyPart, sourcePart: string): ArchiveKeyPart => ({ ...part, sourcePart });
 const expr = (id: string, sourcePart: string, title: string, key: string, symbols: string, help: string, positive: string[] = []): ArchiveKeyPart =>
@@ -54,7 +56,7 @@ const parts: Record<string, ArchiveKeyPart[]> = {
 };
 
 /** Deliberately separate from the account-persistence catalogue: these checks are stateless and unrated. */
-export const olympiadDefinitions: ArchiveDefinition[] = Object.entries({ ...parts, ...batchTwoParts, ...batchThreeParts, ...batchFourParts, ...batchFiveParts, ...batchSixParts, ...batchSevenParts }).map(([problemId, parts]) => ({
+export const olympiadDefinitions: ArchiveDefinition[] = Object.entries({ ...parts, ...batchTwoParts, ...batchThreeParts, ...batchFourParts, ...batchFiveParts, ...batchSixParts, ...batchSevenParts, ...batchEightParts }).map(([problemId, parts]) => ({
   problemId, keyVersion: 1, content: JSON.stringify(nativeOlympiadContent[problemId]),
   parts: parts.map(part => ({ ...part, sourceReference: problemId + " original official solution, part " + part.sourcePart })),
 }));

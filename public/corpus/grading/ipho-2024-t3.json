@@ -1,0 +1,261 @@
+{
+  "problemId": "ipho-2024-t3",
+  "version": "4eaeaf707976289c3953fae69b36f8a93014054aa5bee274a5b1281376478e33",
+  "parts": [
+    {
+      "id": "a-1",
+      "sourcePart": "a-1",
+      "label": "Rotating potential",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a-2",
+      "sourcePart": "a-2",
+      "label": "Axial potential sketch",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a-3",
+      "sourcePart": "a-3",
+      "label": "Overflow point",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "a-4",
+      "sourcePart": "a-4",
+      "label": "Secular binary evolution",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a-5",
+      "sourcePart": "a-5",
+      "label": "Disc temperature law",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M_1",
+        "\\beta",
+        "\\sigma",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, M_1, \\beta, \\sigma, r. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a-6",
+      "sourcePart": "a-6",
+      "label": "Observed-system estimate",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in K, without a unit suffix."
+    },
+    {
+      "id": "a-7",
+      "sourcePart": "a-7",
+      "label": "Sudden mass loss",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b-1",
+      "sourcePart": "b-1",
+      "label": "Central gravitational acceleration",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "\\rho_c",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, \\rho_c, r. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b-2",
+      "sourcePart": "b-2",
+      "label": "Density equilibrium equation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b-3",
+      "sourcePart": "b-3",
+      "label": "Central length scale",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "p_c",
+        "G",
+        "\\rho_c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "p_c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use p_c, G, \\rho_c. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b-4",
+      "sourcePart": "b-4",
+      "label": "Dimensionless equation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b-5",
+      "sourcePart": "b-5",
+      "label": "Analytic density for γ=2",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "x"
+      ],
+      "symbolConditions": [],
+      "help": "Use x. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b-6",
+      "sourcePart": "b-6",
+      "label": "Infer equation-of-state exponent",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "b-7",
+      "sourcePart": "b-7",
+      "label": "Small homologous perturbation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b-8",
+      "sourcePart": "b-8",
+      "label": "Perturbed shell acceleration",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b-9",
+      "sourcePart": "b-9",
+      "label": "Radial stability criterion",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

@@ -1,1 +1,593 @@
-{"id":"ipho-2017-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2017_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2017_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2017-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Theory\nEnglish (Official)\nT3\npage 1 of 5\n \n \nρ\nRs\nR(t)\na(t)\nR(t) = a(t)Rs\n=\nρ(t) −\n( )\na˙\na\n2\nA1\nkc2\n(t)\nR2\nsa2\nk\nc\n\nTheory\nEnglish (Official)\nT3\npage 2 of 5\n \nhere \n denotes the pressure on the\nsphere.\n \n \nA1\nρ(t)c2\n+\n(ρ + (\n))\n= 0\nρ˙\nA2\np\nc2\na˙\na\np\nA2\np = p(ρ)\np(t)/\n= wρ(t)\nc2\nw\nH = /a\na˙\nt0 ρ0 H0 a0\n= 1\na0\nw\nk = 0\na(t)\na(t = 0) = 0\n= 1\na0\nk\nk = +1\nk = 0\nk = −1\nΩ = ρ/ρc\n=\n/\nρcc2\nH 2 A1\nA1\n\nTheory\nEnglish (Official)\nT3\npage 3 of 5\n \n \nk\nΩ H a\nR0\nΩ\nk = +1 k = 0\nk = −1\n(Ω(t) −1)\n.\n(Ω(t) −1)\n(Ω(t) −1) ≪1\n( > 0)\na¨\n(d(aH\n/dt < 0)\n)−1\n \nϵ = −\n/\nH˙ H 2\nϵ < 1\nϵ < 1\nϵ = 1\nN\ndN = d ln a = Hdt\nN = 0\nϕ(t)\n+ 3H\n= −\nϕ¨\nϕ˙\nV ′\nV = V(ϕ)\n=\nV ′\n∂V\n∂ϕ\n\nTheory\nEnglish (Official)\nT3\npage 4 of 5\n=\n[\n+ V]\nH2\n1\n3M 2\npl\n1\n2 ϕ˙ 2\nMpl\nV\n/2\nϕ˙ 2\nϕ¨\nϵ\n= δ + ϵ\nηV\nδ = −/(H )\nϕ¨\nϕ˙\nϵ\nηV dN/dϕ\nV(ϕ)\nV ′\nV ″\n\nTheory\nEnglish (Official)\nT3\npage 5 of 5\n \nns\n±\nr\nr = 16ϵ\n= 1 + 2\n−6ϵ\nns\nηV\nϕ = ϕstart\nV(ϕ) = Λ4\n(\n)\nϕ\nMpl\nn\nn\nΛ\nϕend\nr\nns\nn\nn\nr\nns\nN\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2017-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8,9,10],"initialPage":1,"shared":false,"text":"Original English PDF supplied as scanned pages. Searchable text extraction is unavailable; consult the original PDF for all problem content, equations and diagrams. This notice is not a transcription.","textExtraction":"image-only"}}
+{
+  "id": "ipho-2017-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2017-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Cosmic inflation"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Model a homogeneous isotropic universe by an expanding uniform-density sphere of radius R(t)=a(t)Rs. Its mass-equivalent energy density is ρ, so total energy density is ρc². The first Friedmann equation is \\(H^2=A_1\\rho-kc^2/(R_s^2a^2)\\), where H=ȧ/a and k is +1,0,−1 for closed, flat and open geometry. Adiabatic evolution has \\(\\dot\\rho+A_2(\\rho+p/c^2)H=0\\), with p=wρc². Present values have subscript 0 and a0=1. Define critical mass density consistently with the first equation as ρc=H²/A1 and Ω=ρ/ρc. The source prints an extra c² in one definition of critical density, while its worked solution uses this dimensionally consistent definition. During scalar-field inflation, \\(\\ddot\\phi+3H\\dot\\phi=-V^{\\prime}\\), \\(H^2=(\\dot\\phi^2/2+V)/(3M_{pl}^2)\\). Slow roll neglects φ̈ and kinetic energy. Define \\(\\epsilon=-\\dot H/H^2\\), \\(\\delta=-\\ddot\\phi/(H\\dot\\phi)\\), ηV=δ+ε and dN=dln a=Hdt, with N=0 at the end. Thus N is negative before the end. Part D retains the source's requested numerical N=60 and discusses this sign convention explicitly."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch8-cosmic-sphere.png",
+        "alt": "Original homogeneous expanding sphere and reference and evolving radii."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.1. First Friedmann coefficient"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use Newtonian gravity for a boundary test mass to determine A1."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.2. Adiabatic continuity"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use the first law to determine A2."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.3. Equations of state"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find w for radiation, nonrelativistic matter and constant energy density."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.4. Flat-universe scale factors"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For k=0 find a(t) in the three cases. Use a(0)=0 for radiation and matter, and a(t0)=1 for constant density."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.5. Curvature-density relation"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Express k through Ω,H,a,Rs and c."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.6. Geometry ranges"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Give the density-ratio range for each k."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.1. Flatness problem"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the time dependence of Ω−1 in radiation- and matter-dominated nearly flat universes."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.2. Inflationary flattening"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For a constant-density era and |Ω−1|≪1, find Ω−1 as a function of time."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.3. Equivalent inflation conditions"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Show that constant-density domination produces negative pressure, accelerated expansion and a decreasing comoving Hubble radius."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.4. Slow-roll inflation bound"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Show that decreasing (aH)⁻¹ means ε<1."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c.1. Potential slow-roll formulas"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Estimate ε,ηV and dN/dφ using V,V′,V″."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "d.1. End of monomial inflation"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For V=Λ⁴(φ/Mpl)ⁿ with integer n and positive field, find φend when ε=1."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "d.2. Observable constraints and e-fold sign"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using r=16ε and ns=1+2ηV−6ε at the start, express r and ns in N,n. Compare integer n to ns=0.968±0.006 and r<0.12 at the source's N=60."
+          }
+        ]
+      }
+    ],
+    "text": "Cosmic inflation\nModel a homogeneous isotropic universe by an expanding uniform-density sphere of radius R(t)=a(t)Rs. Its mass-equivalent energy density is ρ, so total energy density is ρc². The first Friedmann equation is \\(H^2=A_1\\rho-kc^2/(R_s^2a^2)\\), where H=ȧ/a and k is +1,0,−1 for closed, flat and open geometry. Adiabatic evolution has \\(\\dot\\rho+A_2(\\rho+p/c^2)H=0\\), with p=wρc². Present values have subscript 0 and a0=1. Define critical mass density consistently with the first equation as ρc=H²/A1 and Ω=ρ/ρc. The source prints an extra c² in one definition of critical density, while its worked solution uses this dimensionally consistent definition. During scalar-field inflation, \\(\\ddot\\phi+3H\\dot\\phi=-V^{\\prime}\\), \\(H^2=(\\dot\\phi^2/2+V)/(3M_{pl}^2)\\). Slow roll neglects φ̈ and kinetic energy. Define \\(\\epsilon=-\\dot H/H^2\\), \\(\\delta=-\\ddot\\phi/(H\\dot\\phi)\\), ηV=δ+ε and dN=dln a=Hdt, with N=0 at the end. Thus N is negative before the end. Part D retains the source's requested numerical N=60 and discusses this sign convention explicitly.\n\na.1. First Friedmann coefficient\nUse Newtonian gravity for a boundary test mass to determine A1.\na.2. Adiabatic continuity\nUse the first law to determine A2.\na.3. Equations of state\nFind w for radiation, nonrelativistic matter and constant energy density.\na.4. Flat-universe scale factors\nFor k=0 find a(t) in the three cases. Use a(0)=0 for radiation and matter, and a(t0)=1 for constant density.\na.5. Curvature-density relation\nExpress k through Ω,H,a,Rs and c.\na.6. Geometry ranges\nGive the density-ratio range for each k.\nb.1. Flatness problem\nFind the time dependence of Ω−1 in radiation- and matter-dominated nearly flat universes.\nb.2. Inflationary flattening\nFor a constant-density era and |Ω−1|≪1, find Ω−1 as a function of time.\nb.3. Equivalent inflation conditions\nShow that constant-density domination produces negative pressure, accelerated expansion and a decreasing comoving Hubble radius.\nb.4. Slow-roll inflation bound\nShow that decreasing (aH)⁻¹ means ε<1.\nc.1. Potential slow-roll formulas\nEstimate ε,ηV and dN/dφ using V,V′,V″.\nd.1. End of monomial inflation\nFor V=Λ⁴(φ/Mpl)ⁿ with integer n and positive field, find φend when ε=1.\nd.2. Observable constraints and e-fold sign\nUsing r=16ε and ns=1+2ηV−6ε at the start, express r and ns in N,n. Compare integer n to ns=0.968±0.006 and r<0.12 at the source's N=60.",
+    "figures": [
+      "/corpus/figures/native/batch8-cosmic-sphere.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2017-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Cosmic inflation"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.1. First Friedmann coefficient"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For enclosed M=4πR³ρ/3, integrate R̈=−GM/R² to Ṙ²/2−GM/R=constant. Divide by R² and absorb the integration constant into curvature. This yields \\(A_1=8\\pi G/3\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.2. Adiabatic continuity"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For E=ρVc² and V∝a³, dE=−pdV gives \\(\\dot\\rho+3H(\\rho+p/c^2)=0\\). Therefore A2=3."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.3. Equations of state"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The continuity equation gives ρ∝a⁻³⁽¹⁺ʷ⁾. Radiation dilutes in number as a⁻³ and photon energy as a⁻¹, giving w=1/3. Nonrelativistic rest energy dilutes as a⁻³, giving w=0. Constant energy density has w=−1 and negative pressure."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.4. Flat-universe scale factors"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Radiation has \\(a=(2H_0t)^{1/2}\\). Matter has \\(a=(3H_0t/2)^{2/3}\\). Constant density has \\(a=e^{H_0(t-t_0)}\\). In the first two cases the time origin is the Big Bang and H0 refers to the epoch with a=1."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.5. Curvature-density relation"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Rearranging the first Friedmann equation gives \\(k=(\\Omega-1)H^2a^2R_s^2/c^2\\). The source alternates Rs and R0 for the fixed reference radius."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.6. Geometry ranges"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For positive density, k=+1 corresponds to Ω>1, k=0 to Ω=1, and k=−1 to 0<Ω<1."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.1. Flatness problem"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The exact curvature relation is Ω−1=kc²/(Rs²a²H²). In a nearly flat era with a∝tᵖ and H=p/t this scales as t²⁻²ᵖ. It grows as t in radiation domination and t²ᐟ³ in matter domination. The expansion laws are the nearly flat approximation used in this argument."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.2. Inflationary flattening"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "H is approximately constant and a∝exp(Ht), so \\(\\Omega(t)-1=[\\Omega(t_i)-1]e^{-2H(t-t_i)}\\). Curvature deviations decay exponentially."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.3. Equivalent inflation conditions"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Constant density implies p=−ρc². Differentiating Friedmann and using continuity gives \\(\\ddot a/a=-4\\pi G(\\rho+3p/c^2)/3\\), hence positive acceleration. Since aH=ȧ, \\(d[(aH)^{-1}]/dt=-\\ddot a/\\dot a^2<0\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.4. Slow-roll inflation bound"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(d[(aH)^{-1}]/dt=-(1+\\dot H/H^2)/a=-(1-\\epsilon)/a\\). With a>0 this is negative exactly when ε<1."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c.1. Potential slow-roll formulas"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From \\(\\dot H=-\\dot\\phi^2/(2M_{pl}^2)\\), H²≈V/(3Mpl²) and 3Hφ̇≈−V′, obtain \\[\\epsilon\\simeq\\frac{M_{pl}^2}{2}\\left(\\frac{V^{\\prime}}V\\right)^2,\\quad\\eta_V\\simeq M_{pl}^2\\frac{V^{\\prime\\prime}}V,\\quad\\frac{dN}{d\\phi}\\simeq-\\frac{V}{M_{pl}^2V^{\\prime}}.\\] These expressions require a monotonic field and the stated slow-roll approximation."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "d.1. End of monomial inflation"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(\\epsilon=n^2M_{pl}^2/(2\\phi^2)\\), giving \\(\\phi_{end}=|n|M_{pl}/\\sqrt2\\). The usual positive-n rolling branch has n>0. The n=0 constant potential never reaches ε=1 by this mechanism."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "d.2. Observable constraints and e-fold sign"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Integrating dN/dφ gives \\(\\phi^2=M_{pl}^2(n^2/2-2nN)\\). Therefore \\[r=\\frac{16n}{n-4N},\\qquad n_s=1-\\frac{2(n+2)}{n-4N}.\\] With the literal N=+60 used by the source, ns=0.968 gives n≈−5.93, but n=−6 gives r≈0.390>0.12. No integer fits both constraints. This positive N conflicts with dN=Hdt and N=0 at the end for a pre-end epoch. If 60 means remaining e-folds, use N=−60 here, or replace denominators by n+240. Then n=1 gives r≈0.0664, ns≈0.9751, just outside the stated tilt interval, and n=2 gives r≈0.132>0.12. Again no positive integer satisfies both. The sign issue is kept explicit and this comparison uses self-review."
+          }
+        ]
+      }
+    ],
+    "text": "Cosmic inflation\na.1. First Friedmann coefficient\nFor enclosed M=4πR³ρ/3, integrate R̈=−GM/R² to Ṙ²/2−GM/R=constant. Divide by R² and absorb the integration constant into curvature. This yields \\(A_1=8\\pi G/3\\).\na.2. Adiabatic continuity\nFor E=ρVc² and V∝a³, dE=−pdV gives \\(\\dot\\rho+3H(\\rho+p/c^2)=0\\). Therefore A2=3.\na.3. Equations of state\nThe continuity equation gives ρ∝a⁻³⁽¹⁺ʷ⁾. Radiation dilutes in number as a⁻³ and photon energy as a⁻¹, giving w=1/3. Nonrelativistic rest energy dilutes as a⁻³, giving w=0. Constant energy density has w=−1 and negative pressure.\na.4. Flat-universe scale factors\nRadiation has \\(a=(2H_0t)^{1/2}\\). Matter has \\(a=(3H_0t/2)^{2/3}\\). Constant density has \\(a=e^{H_0(t-t_0)}\\). In the first two cases the time origin is the Big Bang and H0 refers to the epoch with a=1.\na.5. Curvature-density relation\nRearranging the first Friedmann equation gives \\(k=(\\Omega-1)H^2a^2R_s^2/c^2\\). The source alternates Rs and R0 for the fixed reference radius.\na.6. Geometry ranges\nFor positive density, k=+1 corresponds to Ω>1, k=0 to Ω=1, and k=−1 to 0<Ω<1.\nb.1. Flatness problem\nThe exact curvature relation is Ω−1=kc²/(Rs²a²H²). In a nearly flat era with a∝tᵖ and H=p/t this scales as t²⁻²ᵖ. It grows as t in radiation domination and t²ᐟ³ in matter domination. The expansion laws are the nearly flat approximation used in this argument.\nb.2. Inflationary flattening\nH is approximately constant and a∝exp(Ht), so \\(\\Omega(t)-1=[\\Omega(t_i)-1]e^{-2H(t-t_i)}\\). Curvature deviations decay exponentially.\nb.3. Equivalent inflation conditions\nConstant density implies p=−ρc². Differentiating Friedmann and using continuity gives \\(\\ddot a/a=-4\\pi G(\\rho+3p/c^2)/3\\), hence positive acceleration. Since aH=ȧ, \\(d[(aH)^{-1}]/dt=-\\ddot a/\\dot a^2<0\\).\nb.4. Slow-roll inflation bound\n\\(d[(aH)^{-1}]/dt=-(1+\\dot H/H^2)/a=-(1-\\epsilon)/a\\). With a>0 this is negative exactly when ε<1.\nc.1. Potential slow-roll formulas\nFrom \\(\\dot H=-\\dot\\phi^2/(2M_{pl}^2)\\), H²≈V/(3Mpl²) and 3Hφ̇≈−V′, obtain \\[\\epsilon\\simeq\\frac{M_{pl}^2}{2}\\left(\\frac{V^{\\prime}}V\\right)^2,\\quad\\eta_V\\simeq M_{pl}^2\\frac{V^{\\prime\\prime}}V,\\quad\\frac{dN}{d\\phi}\\simeq-\\frac{V}{M_{pl}^2V^{\\prime}}.\\] These expressions require a monotonic field and the stated slow-roll approximation.\nd.1. End of monomial inflation\n\\(\\epsilon=n^2M_{pl}^2/(2\\phi^2)\\), giving \\(\\phi_{end}=|n|M_{pl}/\\sqrt2\\). The usual positive-n rolling branch has n>0. The n=0 constant potential never reaches ε=1 by this mechanism.\nd.2. Observable constraints and e-fold sign\nIntegrating dN/dφ gives \\(\\phi^2=M_{pl}^2(n^2/2-2nN)\\). Therefore \\[r=\\frac{16n}{n-4N},\\qquad n_s=1-\\frac{2(n+2)}{n-4N}.\\] With the literal N=+60 used by the source, ns=0.968 gives n≈−5.93, but n=−6 gives r≈0.390>0.12. No integer fits both constraints. This positive N conflicts with dN=Hdt and N=0 at the end for a pre-end epoch. If 60 means remaining e-folds, use N=−60 here, or replace denominators by n+240. Then n=1 gives r≈0.0664, ns≈0.9751, just outside the stated tilt interval, and n=2 gives r≈0.132>0.12. Again no positive integer satisfies both. The sign issue is kept explicit and this comparison uses self-review.",
+    "figures": [],
+    "shared": false
+  }
+}

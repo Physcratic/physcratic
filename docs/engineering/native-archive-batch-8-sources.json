@@ -1,0 +1,473 @@
+[
+  {
+    "id": "ipho-2008-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2008-t1-statement/document.pdf",
+    "originalSha256": "06d0070a48ec398a02c337a160be4b0d59e106257b7e95ad53d139fb2e95114e",
+    "nodes": 26,
+    "figures": [
+      "/corpus/figures/native/batch8-mortar-geometry.png",
+      "/corpus/figures/native/batch8-mortar-cycle.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2008-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2008-t1-solution/document.pdf",
+    "originalSha256": "3480c3404fa6cdbef4f75aa4a445ba3aa27feabfb34247633c01f57c9e614152",
+    "nodes": 23,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2021-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2021-t2-statement/document.pdf",
+    "originalSha256": "7c90dde74ecbae904c90324acf177348b68ef8f5b00b865e890bd5a3cf296a2f",
+    "nodes": 31,
+    "figures": [
+      "/corpus/figures/native/batch8-lens-ring.png",
+      "/corpus/figures/native/batch8-lens-pulse.png",
+      "/corpus/figures/native/batch8-lens-circuit.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2021-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2021-t2-solution/document.pdf",
+    "originalSha256": "26a1fdb2a4987f4062a46468afb8e3a4516f5c6daa563632138cd0b33c548e0a",
+    "nodes": 27,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2023-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2023-t1-statement/document.pdf",
+    "originalSha256": "4fef805edaaa3c236c1e6a326bb5dd217e2915bee3bddfeb42652355cd7154c0",
+    "nodes": 31,
+    "figures": [
+      "/corpus/figures/native/batch8-colloid-channel.png",
+      "/corpus/figures/native/batch8-colloid-histogram.png",
+      "/corpus/figures/native/batch8-microbe-msd.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2023-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2023-t1-solution/document.pdf",
+    "originalSha256": "a813483dd978f206c2c237e2516abc8b6ae922bb794491c51d1b1abb33a3e03c",
+    "nodes": 27,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2024-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2024-t1-statement/document.pdf",
+    "originalSha256": "a513d544b6dc80e8fd6454d908e14b378b6e4306cb3bc49d26f826558862803a",
+    "nodes": 32,
+    "figures": [
+      "/corpus/figures/native/batch8-greenhouse-spectra.png",
+      "/corpus/figures/native/batch8-greenhouse-flows.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2024-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2024-t1-solution/document.pdf",
+    "originalSha256": "c7006bbcadf2bdfa1feaf99c89cac6c7aa8b41f66cc742d0a12dc41a90bf6e52",
+    "nodes": 29,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2024-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2024-t2-statement/document.pdf",
+    "originalSha256": "0f3b3e4f6162f1e0341cfe0ab33b22e98fadb3d9750de53ebf2fb169d9263df4",
+    "nodes": 33,
+    "figures": [
+      "/corpus/figures/native/batch8-paul-ring.png",
+      "/corpus/figures/native/batch8-paul-micromotion.png",
+      "/corpus/figures/native/batch8-doppler-rate.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2024-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2024-t2-solution/document.pdf",
+    "originalSha256": "084625e46ab1bff700c9434a9a663a846ab66f7c59c895bd4394bbf079c4711b",
+    "nodes": 29,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2024-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2024-t3-statement/document.pdf",
+    "originalSha256": "2ff2d180492f1655f30d2655847b2aeaff827d69ccba54ff5d0dbcb9f7489ddb",
+    "nodes": 35,
+    "figures": [
+      "/corpus/figures/native/batch8-star-density-gradient.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2024-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2024-t3-solution/document.pdf",
+    "originalSha256": "6199c3c566ae49a2c542e70b3a6ff2cbaf70dab821a5e4a173e6dc315cd557d0",
+    "nodes": 33,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2015-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2015-t1-statement/document.pdf",
+    "originalSha256": "71e314181b1b58b3a4f62e823e917f4810c46a466265b348325ebe4963d9fe91",
+    "nodes": 27,
+    "figures": [
+      "/corpus/figures/native/batch8-hall-setup.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2015-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2015-t1-solution/document.pdf",
+    "originalSha256": "7cdb8ea6a2c6a0c3a2182d2249210956d706f965dd7336904f9a9ea76f658bd4",
+    "nodes": 25,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2015-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2015-t3-statement/document.pdf",
+    "originalSha256": "81a3d2e03f8585eca26cb872c2e4181b652f792b6c7677ad97526bd3e66879a4",
+    "nodes": 30,
+    "figures": [
+      "/corpus/figures/native/batch8-etalon-apparatus.png",
+      "/corpus/figures/native/batch8-etalon-linewidth.png",
+      "/corpus/figures/native/batch8-zeeman-transitions.png",
+      "/corpus/figures/native/batch8-zeeman-rings.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2015-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2015-t3-solution/document.pdf",
+    "originalSha256": "ea72af7482eb68dc2ca81707691d5358c16dbe4b8866202511c134102dc38cce",
+    "nodes": 25,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2017-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2017-t3-statement/document.pdf",
+    "originalSha256": "23dab6c537a9007370eba4f67c31c715c71f2aaa856716b7a3fdee357b543e61",
+    "nodes": 29,
+    "figures": [
+      "/corpus/figures/native/batch8-cosmic-sphere.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2017-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2017-t3-solution/document.pdf",
+    "originalSha256": "a1d8218781278d86d74490b63b8ec49b22eba61475b1a7d746b7c3ad1afd90d5",
+    "nodes": 27,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2022-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2022-t1-statement/document.pdf",
+    "originalSha256": "0f90f13d7fc724fdda8393698e0e7450f3c1e47970bd91b36dbd96eefeaff99d",
+    "nodes": 26,
+    "figures": [
+      "/corpus/figures/native/batch8-coaxial-magnets.png",
+      "/corpus/figures/native/batch8-chain-end.png",
+      "/corpus/figures/native/batch8-square-spheres.png",
+      "/corpus/figures/native/batch8-triangular-spheres.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2022-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2022-t1-solution/document.pdf",
+    "originalSha256": "083e6564c94c7dd195009bf058386c34b39ef782e6c942d2f20db75fe1fcb7c0",
+    "nodes": 22,
+    "figures": [
+      "/corpus/figures/native/batch8-plate-lines.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2016-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2016-t3-statement/document.pdf",
+    "originalSha256": "2c1d1c4d62c9e78a235a96cebd86ce699b030e6d52b906ba0f3410dd7dde554b",
+    "nodes": 30,
+    "figures": [
+      "/corpus/figures/native/batch8-superconductor-ring.png",
+      "/corpus/figures/native/batch8-ising-internal.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2016-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2016-t3-solution/document.pdf",
+    "originalSha256": "989cba1161ad8ebb0283a4fc6836c4d6af37669bd5b801e574c49bd8342e85df",
+    "nodes": 27,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2017-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2017-t2-statement/document.pdf",
+    "originalSha256": "e39d71efe30ec9eae62b74f90c31675b6075baa92e42cac9182d0284c868202a",
+    "nodes": 42,
+    "figures": [
+      "/corpus/figures/native/batch8-black-hole-scattering.png",
+      "/corpus/figures/native/batch8-binary-formation.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2017-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2017-t2-solution/document.pdf",
+    "originalSha256": "8d22819a21f53c4073194b9436fc45796ee8b1fa09be0adc02802f35fbb8eeb8",
+    "nodes": 39,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2018-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2018-t3-statement/document.pdf",
+    "originalSha256": "64100f01973713343700f62a8b5e51a76c7985f2a5bf8265322fa31fd3ad7292",
+    "nodes": 51,
+    "figures": [
+      "/corpus/figures/native/batch8-heated-bar.png",
+      "/corpus/figures/native/batch8-thermoelectric-generator.png",
+      "/corpus/figures/native/batch8-thermoelectric-cooler.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2018-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2018-t3-solution/document.pdf",
+    "originalSha256": "ddb6ac87b744095a0664a59179bd35fe2b9e62d91541cd6a6a42843f083404aa",
+    "nodes": 47,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2021-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2021-t1-statement/document.pdf",
+    "originalSha256": "2a1fb6322b5c85c41fde5e2ba952d8c18f8f3ebe43bc6875421a2d04a9aeb746",
+    "nodes": 18,
+    "figures": [
+      "/corpus/figures/native/batch8-water-hammer-pipe.png",
+      "/corpus/figures/native/batch8-water-hammer-valve.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2021-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2021-t1-solution/document.pdf",
+    "originalSha256": "7490ed2a57d12df13b2c5ab9f50de6713ed6296e29e7ab11ca2b3bbbc1f5a8f8",
+    "nodes": 15,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2021-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2021-t2-statement/document.pdf",
+    "originalSha256": "c2fe02a61d641a44e6a8c3f6048a87061736e7d65ccbf217ccb2797d87f863dd",
+    "nodes": 31,
+    "figures": [
+      "/corpus/figures/native/batch8-anisotropic-interface.png",
+      "/corpus/figures/native/batch8-downconversion-cones.png",
+      "/corpus/figures/native/batch8-entangled-polarizers.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2021-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2021-t2-solution/document.pdf",
+    "originalSha256": "cafdc1d5a6f6400ee9b01154cec4f44f1d24d6d6b0d6a18c83866b837a52dadb",
+    "nodes": 27,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2021-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2021-t3-statement/document.pdf",
+    "originalSha256": "aae77264d35880893c40cc5dd551c54e44965c9dfe19ee04b2a34e67e4d1dd17",
+    "nodes": 38,
+    "figures": [
+      "/corpus/figures/native/batch8-monopole-film.png",
+      "/corpus/figures/native/batch8-moving-dipole-film.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2021-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2021-t3-solution/document.pdf",
+    "originalSha256": "5f0308f8ea44f8e95c9dd436501b2a4eef64d6f8241cb5f7ce36a6a3e1ea6b66",
+    "nodes": 35,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2022-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2022-t1-statement/document.pdf",
+    "originalSha256": "2ea57b3ea45d3e0688ee32a6883d8bde86bec6863a4187c645bf8ae26e3a8fa9",
+    "nodes": 24,
+    "figures": [
+      "/corpus/figures/native/batch8-stern-gerlach-beam.png",
+      "/corpus/figures/native/batch8-stern-gerlach-poles.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2022-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2022-t1-solution/document.pdf",
+    "originalSha256": "1139a5228eb5d8351e9c40d994f1ea33dbb36f707e69d5cd7e6abcf5460fd15b",
+    "nodes": 21,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2022-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2022-t3-statement/document.pdf",
+    "originalSha256": "8fc87dbae975d577745dfdfe351b3419172145f2aad70a83a0563db53beee55c",
+    "nodes": 29,
+    "figures": [
+      "/corpus/figures/native/batch8-mountain-curvature.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2022-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2022-t3-solution/document.pdf",
+    "originalSha256": "59cecef7d93bba5ca5b8a52d004278aba70c9e996d7a40408af0ad924f20eeec",
+    "nodes": 27,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2025-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2025-t2-statement/document.pdf",
+    "originalSha256": "5d83bac49bd75466a699c054a5cd70d0e141cac327bd5260733869154a20536f",
+    "nodes": 36,
+    "figures": [
+      "/corpus/figures/native/batch8-larmor-ring.png",
+      "/corpus/figures/native/batch8-spin-ring-coupling.png",
+      "/corpus/figures/native/batch8-spin-wave.png",
+      "/corpus/figures/native/batch8-neutron-scattering.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2025-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2025-t2-solution/document.pdf",
+    "originalSha256": "9c3b53aa167f4fc963ca864f302afc48304016122cf6f33ec06738a6c9ab6719",
+    "nodes": 31,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2025-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2025-t3-statement/document.pdf",
+    "originalSha256": "1bf6709ccd044f96985d6cb75373f6711e878046493cfcf0dda5e0c72ce68258",
+    "nodes": 46,
+    "figures": [
+      "/corpus/figures/native/batch8-atmospheric-layer.png",
+      "/corpus/figures/native/batch8-air-parcel.png",
+      "/corpus/figures/native/batch8-halo-prism.png",
+      "/corpus/figures/native/batch8-ice-hexagon.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2025-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2025-t3-solution/document.pdf",
+    "originalSha256": "2e7b2dff2a82b50193208b258b1a8b7369a4b7ba7d177581088ed2a758e868b6",
+    "nodes": 41,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  }
+]

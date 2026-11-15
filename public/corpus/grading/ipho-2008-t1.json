@@ -1,0 +1,126 @@
+{
+  "problemId": "ipho-2008-t1",
+  "version": "a414d14dbbe50b437c9759db9c7f0897d7fc0ec5f8cb5d6978708c241367aa31",
+  "parts": [
+    {
+      "id": "1.1",
+      "sourcePart": "1.1",
+      "label": "Dry centre position",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m, without a unit suffix."
+    },
+    {
+      "id": "1.2",
+      "sourcePart": "1.2",
+      "label": "Spilling and empty angles",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "1.3",
+      "sourcePart": "1.3",
+      "label": "Balanced spilling bucket",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2.1",
+      "sourcePart": "2.1",
+      "label": "Torque cycle",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2.2",
+      "sourcePart": "2.2",
+      "label": "Work from the torque graph",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2.3",
+      "sourcePart": "2.3",
+      "label": "Maximum tilt and pounding estimate",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "3.1.1",
+      "sourcePart": "3.1.1",
+      "label": "Elevated equilibrium stability",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "3.1.2",
+      "sourcePart": "3.1.2",
+      "label": "Small-angle restoring torque",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "3.1.3",
+      "sourcePart": "3.1.3",
+      "label": "Small-oscillation period",
+      "kind": "numeric",
+      "unit": "s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in s, without a unit suffix."
+    },
+    {
+      "id": "3.2",
+      "sourcePart": "3.2",
+      "label": "Inflow for one-degree oscillations",
+      "kind": "numeric",
+      "unit": "kg/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in kg/s, without a unit suffix."
+    },
+    {
+      "id": "3.3",
+      "sourcePart": "3.3",
+      "label": "Inflow that prevents pounding",
+      "kind": "numeric",
+      "unit": "kg/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in kg/s, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

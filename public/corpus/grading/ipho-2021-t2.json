@@ -1,0 +1,398 @@
+{
+  "problemId": "ipho-2021-t2",
+  "version": "2bf35f6c7a68a611f857a69d5a1fb684b735e3fa317ea1c5dd5f8522f36594ed",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Axial potential",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "\\epsilon_0",
+        "R",
+        "z"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use q, \\epsilon_0, R, z. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Near-centre axial expansion",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "\\epsilon_0",
+        "R",
+        "z"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use q, \\epsilon_0, R, z. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Axial electron force",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "q",
+        "z",
+        "\\epsilon_0",
+        "R"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use e, q, z, \\epsilon_0, R. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "a.4",
+      "label": "Axial oscillation frequency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "q",
+        "\\epsilon_0",
+        "m",
+        "R"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use e, q, \\epsilon_0, m, R. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Radial potential coefficient",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\epsilon_0",
+        "R"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\epsilon_0, R. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Radial electron force",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Pulsed lens focal length",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "E",
+        "e",
+        "q",
+        "\\beta",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "q",
+          "assumptions": [],
+          "min": -3,
+          "max": -0.5
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use E, e, q, \\beta, d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "c.2",
+      "label": "Finite-source image",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "b",
+        "e",
+        "q",
+        "\\beta",
+        "d",
+        "E"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use b, e, q, \\beta, d, E. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "c.3",
+      "label": "Thin-lens relation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "d.1",
+      "label": "Thin torus capacitance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\epsilon_0",
+        "R",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.01,
+          "max": 0.1
+        }
+      ],
+      "help": "Use \\epsilon_0, R, a. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "d.2",
+      "label": "Charging waveform",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "e.1",
+      "sourcePart": "e.1",
+      "label": "Focal length with finite charging",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "E",
+        "e",
+        "\\beta",
+        "C",
+        "V_0",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "C",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_0",
+          "assumptions": [],
+          "min": -3,
+          "max": -0.5
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use E, e, \\beta, C, V_0, d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "e.2",
+      "sourcePart": "e.2",
+      "label": "Effective charge",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "C",
+        "V_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "C",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_0",
+          "assumptions": [],
+          "min": -3,
+          "max": -0.5
+        }
+      ],
+      "help": "Use C, V_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

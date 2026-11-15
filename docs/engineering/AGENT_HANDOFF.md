@@ -1,5 +1,10 @@
 # Agent handoff
 
+## Third twenty-problem native archive addition on PR #181 (15 November 2026)
+
+Continues `codex/archive-next-20` from `88fbf5c`, after clean integration of main `b707773`. Adds eight IPhO and twelve APhO records, 278 source subparts, 142 automatic fields, 136 source self-review fields, 20 working-review fields and 50 source crops. Archive: **95 native documents, 92 native answer-field definitions and 17 PDF problems**, 112 identities retained. Other 92 records and all metadata outside the converted documents are preserved. [Scope, source conventions and validation](NATIVE_ARCHIVE_BATCH_8.md). Local focused 192, server 1,122 pass/31 skip/one inherited TODO and components 204 pass. TypeScript, lint and offline guards pass. Production build and exact-head CI are verified before delivery, with remote evidence recorded in [PR #181](https://github.com/Physcratic/physcratic/pull/181). Separate full expert source review remains pending. No merge, deployment or live operation.
+
+
 ## Another twenty native archive problems on PR #181 (15 November 2026)
 
 Continued `codex/archive-next-20` from pushed `c6e4ec6`. Adds 13 IPhO and seven APhO problems, 251 source subparts, 48 source crops and explicit result versus working review. The archive now has **75 native, 37 PDF problems**, with 72 native answer-field definitions. All other 92 records and original PDFs are preserved. [Scope, source corrections and validation](NATIVE_ARCHIVE_BATCH_7.md). Guest and verified native browser checks run in separate CI jobs with full problem/theme/viewport coverage. Exact-head CI evidence belongs to the updated [PR #181](https://github.com/Physcratic/physcratic/pull/181). No merge or deployment. Separate full source expert review remains pending.

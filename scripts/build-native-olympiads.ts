@@ -12,6 +12,8 @@ import "../lib/olympiad/native-batch-4";
 import "../lib/olympiad/native-batch-5";
 import "../lib/olympiad/native-batch-6";
 import "../lib/olympiad/native-batch-7";
+import "../lib/olympiad/native-batch-8";
+import { batchEightParts } from "../lib/olympiad/keys-batch-8";
 import { batchSevenParts } from "../lib/olympiad/keys-batch-7";
 import { batchSixParts } from "../lib/olympiad/keys-batch-6";
 import { batchFiveParts } from "../lib/olympiad/keys-batch-5";
@@ -87,3 +89,5 @@ save("docs/engineering/native-archive-batch-5-sources.json", ledger.filter(item 
 save("docs/engineering/native-archive-batch-6-sources.json", ledger.filter(item => Object.hasOwn(batchSixParts, item.id)));
 
 save("docs/engineering/native-archive-batch-7-sources.json", ledger.filter(item => Object.hasOwn(batchSevenParts, item.id)));
+
+save("docs/engineering/native-archive-batch-8-sources.json", ledger.filter(item => Object.hasOwn(batchEightParts, item.id)));

@@ -1,0 +1,284 @@
+{
+  "problemId": "apho-2016-t3",
+  "version": "11d43a398ffe37d12c66f51c2eb6d42dda970ec2ee24b813be803bd89bded5ad",
+  "parts": [
+    {
+      "id": "a1",
+      "sourcePart": "a1",
+      "label": "Ring angular momentum",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "r",
+        "\\omega"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, r, \\omega. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a2",
+      "sourcePart": "a2",
+      "label": "Orbital magnetic moment",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a3",
+      "sourcePart": "a3",
+      "label": "Orientation energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "r",
+        "\\omega",
+        "B_z",
+        "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B_z",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use e, r, \\omega, B_z, \\theta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a4",
+      "sourcePart": "a4",
+      "label": "Classical spin estimate",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a5",
+      "sourcePart": "a5",
+      "label": "Quantum spin energies",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b1",
+      "sourcePart": "b1",
+      "label": "Pair energy",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b2",
+      "sourcePart": "b2",
+      "label": "Normal-state minimum",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b3",
+      "sourcePart": "b3",
+      "label": "Paramagnetic threshold",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\Delta",
+        "\\mu_B"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\Delta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu_B",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\Delta, \\mu_B. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c1",
+      "sourcePart": "c1",
+      "label": "Optimal Gaussian",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "B_z",
+        "\\hbar"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B_z",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use e, B_z, \\hbar. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c2",
+      "sourcePart": "c2",
+      "label": "Orbital critical field",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\alpha",
+        "\\mu_B"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu_B",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\alpha, \\mu_B. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "d1",
+      "sourcePart": "d1",
+      "label": "Ising pair energy",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d2",
+      "sourcePart": "d2",
+      "label": "Normal energy in crossed fields",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d3",
+      "sourcePart": "d3",
+      "label": "Enhanced Ising threshold",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\Delta",
+        "\\mu_B",
+        "B_z"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\Delta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B_z",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\Delta, \\mu_B, B_z. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}
