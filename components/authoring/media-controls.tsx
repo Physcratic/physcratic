@@ -127,7 +127,7 @@ export function UploadControl({
       <input
         id={id}
         type="file"
-        className="block min-h-11 w-full min-w-0 text-sm file:mr-3 file:rounded-md file:border file:bg-background file:px-3 file:py-2 file:text-sm"
+        className="block min-h-11 w-full min-w-0 text-sm file:mr-3 file:rounded-md file:border file:bg-background file:text-foreground file:px-3 file:py-2 file:text-sm"
         aria-describedby={`${id}-status`}
         accept={
           purpose.endsWith("pdf")

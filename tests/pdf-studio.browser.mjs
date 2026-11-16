@@ -22,6 +22,7 @@ export async function runPdfStudioBrowser({browser,origin,pool,storage,setFail})
   await page.getByRole('checkbox',{name:/I wrote this problem/}).check();
   let uploadPosts=0;page.on('request',r=>{if(r.method()==='POST'&&r.url().endsWith('/media'))uploadPosts++;});
   const upload=page.getByLabel('Upload problem PDF',{exact:true});
+  const uploadColors=await upload.evaluate(el=>({button:getComputedStyle(el,'::file-selector-button').color,text:getComputedStyle(el).color}));assert.equal(uploadColors.button,uploadColors.text,'file chooser text follows the current theme');
   await upload.setInputFiles(file('too-large.pdf',Buffer.alloc(3*1024*1024+1),'application/pdf'));
   await page.getByText('Choose a nonempty file up to 3 MiB.',{exact:true}).waitFor();assert.equal(uploadPosts,0);
   storage.failPut=true;await upload.setInputFiles(file('failure.pdf',pdf,'application/pdf'));
