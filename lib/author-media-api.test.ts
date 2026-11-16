@@ -382,7 +382,7 @@ test(
             privateImage.id,
           ]) {
             const content = structuredClone(d.content);
-            content.context.push(image(id));
+            content.context = [image(id)];
             content.attachments = [{ id, purpose: "statement-image" }];
             assert.equal(
               (
@@ -421,7 +421,7 @@ test(
             [pending, d.problemId, `isolated/${pending}`, "0".repeat(64)],
           );
           const content = structuredClone(d.content);
-          content.context.push(image(pending));
+          content.context = [image(pending)];
           content.attachments = [{ id: pending, purpose: "statement-image" }];
           assert.equal(
             (
@@ -444,6 +444,23 @@ test(
           );
         },
       );
+      await t.test("PDF-only and image-only publications retain owned sealed media and private PDF denial", async () => {
+        for (const kind of ["statement-pdf", "statement-image"] as const) {
+          const owner = await user(), other = await user(), d = await create(owner);
+          const statement = await upload(owner, d.problemId, kind), secret = await upload(owner, d.problemId, "solution-pdf");
+          const content = structuredClone(d.content); content.context = kind === "statement-image" ? [image(statement.id)] : [];
+          content.attachments = [{ id: statement.id, purpose: kind }, { id: secret.id, purpose: "solution-pdf" }];
+          assert.equal((await api("update", req(owner, { version: 1, content, privateParts: d.privateParts }), d.problemId)).status, 200);
+          const result = await api("publish", req(owner, { version: 2 }), d.problemId); assert.equal(result.status, 200, await result.clone().text());
+          const revision = (await result.json()).revision;
+          assert.equal(revision.content.attachments.some((a: {purpose:string}) => a.purpose === "solution-pdf"), false);
+          assert.equal((await read(d.problemId, statement.id, undefined, revision.id)).status, 200);
+          for (const actor of [undefined, other]) assert.equal((await read(d.problemId, secret.id, actor, revision.id)).status, 404);
+          assert.equal((await read(d.problemId, secret.id, owner, revision.id)).status, 200);
+          const raw = await api("public", req(undefined, undefined, "GET"), d.problemId);
+          assert.equal(raw.status, 200); assert.equal(JSON.stringify(await raw.json()).includes(secret.id), false);
+        }
+      });
       await t.test(
         "publish pins statements only for public access, private solutions never leak, history survives replacement/unpublish",
         async () => {

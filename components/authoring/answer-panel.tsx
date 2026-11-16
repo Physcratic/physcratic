@@ -7,13 +7,29 @@ export function AnswerPanel({
   mode,
   onChange,
   onMode,
+  compact = false,
 }: {
+  compact?: boolean;
   entry: Entry;
   mode: "numeric" | "expression" | "manual";
   onChange: (entry: Entry) => void;
   onMode: (mode: "numeric" | "expression" | "manual") => void;
 }) {
   const key = entry.key;
+  const explanationFields = <>
+      <BlocksEditor
+        scope="solution"
+        label="Hints"
+        blocks={entry.hints}
+        onChange={(hints) => onChange({ ...entry, hints })}
+      />
+      <BlocksEditor
+        scope="solution"
+        label="Worked solution"
+        blocks={entry.solution}
+        onChange={(solution) => onChange({ ...entry, solution })}
+      />
+  </>;
   return (
     <div className="space-y-6">
       <Field label="Answer type">
@@ -263,18 +279,7 @@ export function AnswerPanel({
           </Field>
         </div>
       )}
-      <BlocksEditor
-        scope="solution"
-        label="Hints"
-        blocks={entry.hints}
-        onChange={(hints) => onChange({ ...entry, hints })}
-      />
-      <BlocksEditor
-        scope="solution"
-        label="Worked solution"
-        blocks={entry.solution}
-        onChange={(solution) => onChange({ ...entry, solution })}
-      />
+      {compact ? <details className="rounded-lg border p-4"><summary className="min-h-11 cursor-pointer text-sm font-medium">Optional hints and worked solution</summary><div className="space-y-5 pt-4">{explanationFields}</div></details> : explanationFields}
     </div>
   );
 }

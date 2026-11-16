@@ -13,7 +13,7 @@ createRoot(document.getElementById("root")!).render(
     {problemId ? (
       <StudentWorkspace
         problemId={problemId}
-        viewer={{ state: "verified", id: "workflow-student" }}
+        viewer={document.cookie.includes("viewer=guest") ? {state: "guest"} : { state: "verified", id: "workflow-student" }}
       />
     ) : location.pathname === "/dashboard" ? (
       <SearchParamsContext.Provider

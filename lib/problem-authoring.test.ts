@@ -54,7 +54,7 @@ test("content has bounded sizes, strict block kinds, unique tags and valid image
   const doc = fixture().content;
   for (const patch of [{ title: "x".repeat(201) }, { topicTags: ["a", "a"] }, { context: [{ id: randomUUID(), kind: "html", html: "<script>" }] }, { context: [{ id: randomUUID(), kind: "image", mediaId: randomUUID(), alt: "x", caption: "" }] }]) assert.equal(authoredDocumentSchema.safeParse({ ...doc, ...patch }).success, false);
 });
-test("publication requires explicit manual key, rights/source, native content and parts", () => {
+test("publication requires explicit manual key, rights/source, a statement and parts", () => {
   const d = fixture(); d.content.sections[0].parts[0].answerMode = "manual"; d.privateParts[0].key = { kind: "manual" } as never;
   assert.equal(publishableDraftSchema.safeParse(d).success, true);
   d.content.provenance.kind = "authorized";
@@ -134,4 +134,23 @@ test("publication requires alt text for both statement and private images", () =
   assert.equal(publishableDraftSchema.safeParse(d).success,true);
   d.privateParts[0].hints=[{id:randomUUID(),kind:"image",mediaId:randomUUID(),alt:"",caption:""}] as never;
   assert.equal(publishableDraftSchema.safeParse(d).success,false);
+});
+
+test("media-first publication accepts actual statement content without fabricated native text", () => {
+  for (const kind of ["pdf", "image"] as const) {
+    const d = fixture(), mediaId = randomUUID(); d.content.context = [];
+    d.content.attachments = [{ id: mediaId, purpose: kind === "pdf" ? "statement-pdf" : "statement-image" }];
+    if (kind === "image") d.content.sections[0].parts[0].blocks = [{ id: randomUUID(), kind: "image", mediaId, alt: "Cart and applied force with the questions", caption: "" }];
+    assert.equal(publishableDraftSchema.safeParse(d).success, true, kind);
+    assert.equal(d.content.context.length, 0);
+    assert.equal(publishableDraftSchema.safeParse({ ...d, privateParts: d.privateParts.map((p, i) => i === 0 ? { ...p, key: null } : p) }).success, false);
+  }
+});
+test("private PDFs, unrendered image references and missing parts do not qualify as statements", () => {
+  for (const purpose of ["solution-pdf", "statement-image"] as const) {
+    const d = fixture(); d.content.context = []; d.content.attachments = [{ id: randomUUID(), purpose }];
+    assert.equal(publishableDraftSchema.safeParse(d).success, false, purpose);
+  }
+  const d = fixture(); d.content.context = []; d.content.attachments = [{ id: randomUUID(), purpose: "statement-pdf" }];
+  d.content.sections = []; d.privateParts = []; assert.equal(publishableDraftSchema.safeParse(d).success, false);
 });
