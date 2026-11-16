@@ -1,1 +1,414 @@
-{"id":"apho-2024-t2","importedOn":"2026-11-14","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2024_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2024_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2024-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4],"initialPage":1,"shared":false,"text":"Snell's Law\nIntroduction\nWhen light is incident upon a dielectric interface, it will be reflected and refracted, depending on the incident angle of\nthe light and the refractive indices of the dielectric media as shown in Fig. 1. The refraction of light is governed by the\nSnell’s law,\n \n(1)\nwhere n and n are the refractive indices of the lower and upper parts of the boundary, \n and \n are the angles that\nthe light ray makes with the normal of the boundary.\nFig. 1: Refraction of light from a dielectric medium with refractive index, n , to a second dielectric\nmedium with refractive index, n .\nn1 sin ϕ1 = n2 sin ϕ2\n1\n2\nϕ1\nϕ2\n1\n2\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 7 of 18\n\nPart A: Light Propagation Through a Semi-Sphere (1.5 points)\nFig. 2 illustrates how light that consists of two rays with different colour, a and b, is incident along the\nradius of a semi-sphere with refractive index n , in air, before being refracted at the bottom at an angle\nof \n and \n, respectively.\nFig. 2: Light propagation through a semi-sphere.\nA.1\nWhich ray (a or b) propagates faster in the semi-sphere? Please provide\njustification.\n0.5pt\nA.2\nWhen the incident angle, \n, is slowly increased to 45 , ray b no longer exits the\nbottom of the semi-sphere. When \n is further increased to 50 , the same happens\nto ray a. What is the difference between the refractive index of ray a and b in the\nsemi-sphere?\n1.0pt\nx\nθa\nθb\nθi\no\nθi\no\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 8 of 18\n\nPart B: Light Propagation Through a Cylindrical Rod (3.5 points)\nA cylindrical rod has a refractive index of n = 1.50. The rod is placed in air, with one end coated with a polymer with\nrefractive index n = 1.40, as shown in Fig. 3 below. Light is incident from the polymer into the rod at an angle, .\nWhen  is changed, there is an instance when light is totally reflected back to the polymer.\nFig. 3: A cylindrical rod with one end coated with a polymer with refractive index n , where n < n <\nn .\nB.1\nDetermine the range of incident angle, , for this condition to happen.\n2.0pt\nB.2\n\n\nHow does the condition in B.1 change,\n(i)\nif the other, open end of the rod is now coated with a thick layer of oil with\nrefractive index of 1.60?\n0.6pt\n(ii)\nif the setup is placed in water with refractive index of 1.33?\n0.9pt\n1\n3\nθ\nθ\n3\n2 \n3 \n1\nθ\nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 9 of 18\n\nPart C: Light Propagation Through an Optical Fibre (5.0 points)\nOptical fibre is formed by surrounding the medium with refractive index, n with a lower refractive\nindex medium, n , as shown in Fig. 4 below. The medium with refractive index, \n is known as the\nfibre core, and the medium with refractive index, \n  is known as the fibre cladding. The refractive\nindex, n , is typically the refractive index of air (n  = 1).\nFig. 4: A schematic of an optical fibre and its cross section.\nC.1\nIn order for light to propagate inside the optical fiber, it first needs to be coupled\ninto the optical fiber. The maximum angle of the light incident at the end of the\nfiber, \n so that the light can be guided inside the fiber without being refracted out\nis related to the refractive indices of the fiber core and cladding. Consider a ray\nthat propagates along the meridional plane (plane that cuts across the fibre axis),\nformulate the relationship between the angle, \n and the refractive indices.\n2.0pt\nC.2\nOptical fibers are not always aligned in a straight line but need to be bent to go\nthrough different spaces. Given the fiber core diameter of 50 \n, if the minimum\nbending radius on the optical fiber is 1.0 \n, how much will \nchange?\n2.6pt\nC.3\nGiven the refractive index of the fiber core and cladding is 1.45 and 1.44,\nrespectively, what are the maximum angle of light incident for case C.1 and C.2\nabove, when the fiber is placed in air?\n0.4pt\n1\n2\nn1\nn2\n3\n3\nθa­\nθa­\nμm\ncm\nθa­ \nPoints: 30\nTime: 5 Hours\nAPHO 2024\nTheory, English (Official)\nPage 10 of 18\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2024-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8,9,10,11],"initialPage":1,"shared":false,"text":"Snell's Law\nPart A: Light Propagation Through a Semi-Sphere\nA.1\n[0.5pt]\nUsing Snell’s law, larger angle of refraction corresponds to larger\nrefractive index that the light sees in the semi-sphere (n ).\n[0.2pt]\nThis means that the colour with a smaller angle of refraction propagates\nfaster in the semi-sphere, which is colour a.\n[0.3pt]\nA.2\n[1.0pt]\nThe light rays no longer exit the bottom of semi-sphere when the ray is\nrefracted by 90 with respect to the normal.\n[0.2pt]\nUsing Snell’s law,\n[0.2pt]\nReplace “x” with “a” and “b” for the condition of ray a and ray b, respectively. \n[0.2pt]\n[0.2pt]\nDifference in refractive index, Δn = 0.109\n[0.2pt]\n1\no\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 11 of 31\n\nPart B: Light Propagation Through a Cylindrical Rod\nB.1\n[2.0pt]\nGiven n = 1.5, n = 1.0, n = 1.4,\n[0.0pt]\nIdentify 2 conditions that need to be obeyed:\n \n[0.2pt]\n#1: Light incident at point A should be totally reflected.\n[0.0pt]\n[0.3pt]\nThe condition for angle θ < 90 – 41.81 = 48.19\n[0.2pt]\nUsing Snell’s law,\n[0.2pt]\n1\n2\n3\n1\no\no\no\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 12 of 31\n\nB.1\n[cont.]\n#2: Light incident at point B should be totally reflected.\n[0.0pt]\n[0.3pt]\nThe condition for angle q > 41.81\n[0.2pt]\nUsing Snell's Law\n[0.2pt]\nTherefore, the incident angle, q, where light is totally reflected back to\nthe polymer is 45.58 < q < 53 .\n[0.4pt]\n1\no\no\no\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 13 of 31\n\nB.2\n(i)\n[0.6pt]\nWhen right end of rod is coated with oil with n = 1.6, condition #2 changes.\n \n[0.2pt]\nLight incident on point B will always be refracted.\n[0.2pt]\nLight CANNOT be totally reflected back to the polymer.\n[0.2pt]\n4\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 14 of 31\n\nB.2\n(ii)\n[0.9pt]\nWhen the setup is placed in water, n = 1.33. Both condition #1 and #2 change.\n[0.2pt]\n#1:\n[0.2pt]\nθ < 90 – 62.46 = 27.54\n[0.0pt]\nUsing Snell’s law,\n[0.0pt]\n[0.0pt]\n#2:\n[0.0pt]\nUsing Snell’s law,\n[0.0pt]\n[0.2pt]\nAs conditions #1 and #2 does not overlap.\n[0.1pt]\nAgain, light CANNOT be totally reflected back to the polymer.\n[0.2pt]\n2\n1\no\no\no\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 15 of 31\n\nPart C: Light Propagation Through an Optical Fibre\nC.1\n[2.0pt]\nIn order for light to not refractive out from the fiber, the angle of refraction that the\nlight makes with the normal of the fiber core/cladding boundary needs to be 90 .\nUsing Snell’s law,\n[0.0pt]\n[0.4pt]\nTaking the square of eq. (1), we have, \nUsing the trigonometry identity, we have,\n[0.2pt]\nRearranging, we got,\n[0.0pt]\no\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 16 of 31\n\nC.1\n[cont.]\nOr,\n[0.2pt]\nTaking the square root of eq. (2), we have, \n[0.0pt]\n[0.4pt]\nWith this, we can use Snell’s law to calculate the maximum angle of light\nincident,\n[0.0pt]\n[0.4pt]\nor \n[0.4pt]\nθa = sin−1 √n12 −n22\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 17 of 31\n\nC.2\n[2.6pt]\n- Identifying the correct relationship between \nand \n[0.4pt]\n- Find the relationship between \n and \n’:\n[0.0pt]\n- Using the Law of Sine,\n[0.0pt]\n[0.4pt]\n- For light guiding at point A,\n[0.0pt]\n[0.4pt]\nCB = 10000-25 = 9975 \nCA = 10000+25 = 10025 \n[0.4pt]\nϕc\nϕ′c\nϕc\nϕc\nsin ϕc = n2\nn1\nμm\nμm\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 18 of 31\n\nC.2\n[cont.]\n[0.0pt]\nTherefore, \n[0.0pt]\n[0.4pt]\nRearrange into eq.(1) and derive following part (a):\n[0.0pt]\n[0.4pt]\nTo calculate the new angle of acceptance,\n[0.0pt]\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 19 of 31\n\n[0.2pt]\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 20 of 31\n\nC.3\n[0.4pt]\nFor case C.1: State that n = 1;\n \n[0.1pt]\n[0.1pt]\nFor case C.2: Substitute,\n[0.0pt]\n[0.1pt]\n[0.1pt]\n3\nPoints: 30\nTime: 5.0 Hours\nAPHO 2024\nTheory Marking Scheme, English (Official)\nPage 21 of 31\n","textExtraction":"available"}}
+{
+  "id": "apho-2024-t2",
+  "importedOn": "2026-11-14",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2024_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2024_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2024-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Snell's Law"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At a dielectric interface, \\(n_1\\sin\\phi_1=n_2\\sin\\phi_2\\), with angles measured from its normal. Light travels at speed \\(c/n\\). Use geometrical optics and the original diagrams. Part A concerns a semicircular block in air. Part B concerns a cylindrical rod of index \\(n_1=1.50\\), surrounded by index \\(n_2=1.00\\), with an entry polymer of index \\(n_3=1.40\\). Part C concerns meridional rays in an optical fibre."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch9-snell.png",
+        "alt": "Original interface normal, incident angle phi1 and transmitted angle phi2."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1. Two colours"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch9-semicircle-rays.png",
+        "alt": "Original two coloured rays entering the semicircle radially and refracting at its flat face."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Rays a and b enter a semicircular block radially and leave its flat bottom with refraction angles \\(\\theta_a<\\theta_b\\). Which ray travels faster inside? Explain."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2. Index difference"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As internal incidence increases, ray b ceases to exit at \\(45^\\circ\\), and a at \\(50^\\circ\\). Find \\(n_b-n_a\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1. Return to the polymer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch9-optical-rod.png",
+        "alt": "Original polymer-coupled cylindrical rod with side and end reflections."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Light enters the rod from the polymer at angle \\(\\theta\\) to its axis. Determine the incident-angle range for total reflection at both the side and far end, returning light to the polymer."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2.i. Oil at the far end"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "What happens if the far end is coated with a thick oil layer of index 1.60?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2.ii. Immersion in water"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For the original rod without oil, what happens in water of index 1.33?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.1. Straight-fibre acceptance"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch9-optical-fibre.png",
+        "alt": "Original fibre core, cladding and meridional acceptance-ray geometry."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A fibre core of index \\(n_1\\) is surrounded by cladding of index \\(n_2<n_1\\). External medium has index \\(n_3\\). Find maximum acceptance angle \\(\\theta_a\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.2. Bent-fibre acceptance"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The core diameter is \\(50\\,\\mu\\mathrm m\\) and the minimum bend radius of its centreline is 1.0 cm. Derive the altered acceptance angle for the limiting meridional ray."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.3. Acceptance angles in air"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For \\(n_1=1.45,n_2=1.44,n_3=1\\), find both acceptance angles using C.1 and C.2."
+          }
+        ]
+      }
+    ],
+    "text": "Snell's Law\nAt a dielectric interface, \\(n_1\\sin\\phi_1=n_2\\sin\\phi_2\\), with angles measured from its normal. Light travels at speed \\(c/n\\). Use geometrical optics and the original diagrams. Part A concerns a semicircular block in air. Part B concerns a cylindrical rod of index \\(n_1=1.50\\), surrounded by index \\(n_2=1.00\\), with an entry polymer of index \\(n_3=1.40\\). Part C concerns meridional rays in an optical fibre.\n\nA.1. Two colours\n\nRays a and b enter a semicircular block radially and leave its flat bottom with refraction angles \\(\\theta_a<\\theta_b\\). Which ray travels faster inside? Explain.\nA.2. Index difference\nAs internal incidence increases, ray b ceases to exit at \\(45^\\circ\\), and a at \\(50^\\circ\\). Find \\(n_b-n_a\\).\nB.1. Return to the polymer\n\nLight enters the rod from the polymer at angle \\(\\theta\\) to its axis. Determine the incident-angle range for total reflection at both the side and far end, returning light to the polymer.\nB.2.i. Oil at the far end\nWhat happens if the far end is coated with a thick oil layer of index 1.60?\nB.2.ii. Immersion in water\nFor the original rod without oil, what happens in water of index 1.33?\nC.1. Straight-fibre acceptance\n\nA fibre core of index \\(n_1\\) is surrounded by cladding of index \\(n_2<n_1\\). External medium has index \\(n_3\\). Find maximum acceptance angle \\(\\theta_a\\).\nC.2. Bent-fibre acceptance\nThe core diameter is \\(50\\,\\mu\\mathrm m\\) and the minimum bend radius of its centreline is 1.0 cm. Derive the altered acceptance angle for the limiting meridional ray.\nC.3. Acceptance angles in air\nFor \\(n_1=1.45,n_2=1.44,n_3=1\\), find both acceptance angles using C.1 and C.2.",
+    "figures": [
+      "/corpus/figures/native/batch9-snell.png",
+      "/corpus/figures/native/batch9-semicircle-rays.png",
+      "/corpus/figures/native/batch9-optical-rod.png",
+      "/corpus/figures/native/batch9-optical-fibre.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2024-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Snell's Law"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1. Two colours"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At the common internal incidence angle, Snell gives \\(n_a<n_b\\). Thus \\(c/n_a>c/n_b\\), so ray a travels faster."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2. Index difference"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At critical incidence \\(n\\sin\\theta_c=1\\). Therefore \\(n_b-n_a=1/\\sin45^\\circ-1/\\sin50^\\circ=0.1088\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1. Return to the polymer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If the rod angle is \\(\\theta_1\\), side reflection requires \\(\\cos\\theta_1>n_2/n_1\\), whereas far-end reflection requires \\(\\sin\\theta_1>n_2/n_1\\). Using \\(n_3\\sin\\theta=n_1\\sin\\theta_1\\), \\[\\arcsin(n_2/n_3)<\\theta<\\arcsin(\\sqrt{n_1^2-n_2^2}/n_3).\\] Numerically \\(45.58^\\circ<\\theta<53.00^\\circ\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2.i. Oil at the far end"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The far-end medium has index greater than the rod. Total internal reflection there is impossible. No incident-angle interval returns all the light to the polymer."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2.ii. Immersion in water"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Side reflection requires \\(\\theta_1<\\arccos(1.33/1.50)=27.54^\\circ\\), while far-end reflection requires \\(\\theta_1>\\arcsin(1.33/1.50)=62.46^\\circ\\). These intervals do not intersect, so no total-return interval exists."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.1. Straight-fibre acceptance"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At the side-wall critical angle, the core angle to the axis satisfies \\(\\sin\\theta_{\\rm core}=\\sqrt{n_1^2-n_2^2}/n_1\\). Entry refraction gives \\[\\sin\\theta_a=\\frac{\\sqrt{n_1^2-n_2^2}}{n_3}.\\] If this exceeds one, all physical entry angles are accepted."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.2. Bent-fibre acceptance"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let \\(a=25\\,\\mu\\mathrm m\\), bend radius \\(R=10000\\,\\mu\\mathrm m\\). Conservation of the ray impact parameter between inner and outer core radii requires \\(\\sin\\phi_{\\rm inner}=(R+a)\\sin\\phi_{\\rm outer}/(R-a)\\). Set \\(\\sin\\phi_{\\rm outer}=n_2/n_1\\). Entry refraction then gives \\[\\sin\\theta_{a,\\rm bend}=\\frac1{n_3}\\sqrt{n_1^2-n_2^2\\left(\\frac{R+a}{R-a}\\right)^2}.\\] It is smaller than the straight value. If the radicand is negative, the limiting inner-edge ray cannot be guided."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.3. Acceptance angles in air"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The straight acceptance is \\(\\arcsin\\sqrt{1.45^2-1.44^2}=9.79^\\circ\\). The bent result is \\(\\arcsin\\sqrt{1.45^2-1.44^2(10025/9975)^2}=5.15^\\circ\\), about \\(4.64^\\circ\\) less. Use the centreline-radius convention of the source."
+          }
+        ]
+      }
+    ],
+    "text": "Snell's Law\nA.1. Two colours\nAt the common internal incidence angle, Snell gives \\(n_a<n_b\\). Thus \\(c/n_a>c/n_b\\), so ray a travels faster.\nA.2. Index difference\nAt critical incidence \\(n\\sin\\theta_c=1\\). Therefore \\(n_b-n_a=1/\\sin45^\\circ-1/\\sin50^\\circ=0.1088\\).\nB.1. Return to the polymer\nIf the rod angle is \\(\\theta_1\\), side reflection requires \\(\\cos\\theta_1>n_2/n_1\\), whereas far-end reflection requires \\(\\sin\\theta_1>n_2/n_1\\). Using \\(n_3\\sin\\theta=n_1\\sin\\theta_1\\), \\[\\arcsin(n_2/n_3)<\\theta<\\arcsin(\\sqrt{n_1^2-n_2^2}/n_3).\\] Numerically \\(45.58^\\circ<\\theta<53.00^\\circ\\).\nB.2.i. Oil at the far end\nThe far-end medium has index greater than the rod. Total internal reflection there is impossible. No incident-angle interval returns all the light to the polymer.\nB.2.ii. Immersion in water\nSide reflection requires \\(\\theta_1<\\arccos(1.33/1.50)=27.54^\\circ\\), while far-end reflection requires \\(\\theta_1>\\arcsin(1.33/1.50)=62.46^\\circ\\). These intervals do not intersect, so no total-return interval exists.\nC.1. Straight-fibre acceptance\nAt the side-wall critical angle, the core angle to the axis satisfies \\(\\sin\\theta_{\\rm core}=\\sqrt{n_1^2-n_2^2}/n_1\\). Entry refraction gives \\[\\sin\\theta_a=\\frac{\\sqrt{n_1^2-n_2^2}}{n_3}.\\] If this exceeds one, all physical entry angles are accepted.\nC.2. Bent-fibre acceptance\nLet \\(a=25\\,\\mu\\mathrm m\\), bend radius \\(R=10000\\,\\mu\\mathrm m\\). Conservation of the ray impact parameter between inner and outer core radii requires \\(\\sin\\phi_{\\rm inner}=(R+a)\\sin\\phi_{\\rm outer}/(R-a)\\). Set \\(\\sin\\phi_{\\rm outer}=n_2/n_1\\). Entry refraction then gives \\[\\sin\\theta_{a,\\rm bend}=\\frac1{n_3}\\sqrt{n_1^2-n_2^2\\left(\\frac{R+a}{R-a}\\right)^2}.\\] It is smaller than the straight value. If the radicand is negative, the limiting inner-edge ray cannot be guided.\nC.3. Acceptance angles in air\nThe straight acceptance is \\(\\arcsin\\sqrt{1.45^2-1.44^2}=9.79^\\circ\\). The bent result is \\(\\arcsin\\sqrt{1.45^2-1.44^2(10025/9975)^2}=5.15^\\circ\\), about \\(4.64^\\circ\\) less. Use the centreline-radius convention of the source.",
+    "figures": [],
+    "shared": false
+  }
+}

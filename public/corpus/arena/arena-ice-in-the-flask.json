@@ -1,0 +1,32 @@
+{
+  "id": "arena-ice-in-the-flask",
+  "title": "Ice in the Flask",
+  "topic": "Thermodynamics",
+  "tags": [
+    "Latent heat",
+    "Specific heat capacity",
+    "Heat capacity"
+  ],
+  "summary": "Cold ice goes into a flask of warm water. Work out the final state, with the flask’s own heat capacity included.",
+  "statement": "A metal flask with a heat capacity of $$280\\ \\mathrm{J/K}$$ holds $$250\\ \\mathrm g$$ of water. The flask and the water are both at $$30.0\\ ^\\circ\\mathrm C$$. Then $$150\\ \\mathrm g$$ of ice at $$-20.0\\ ^\\circ\\mathrm C$$ is dropped in and the lid is closed. No heat passes between the flask and its surroundings.\n\nUse these values. Specific heat capacity of water: $$4200\\ \\mathrm{J/(kg\\,K)}$$. Specific heat capacity of ice: $$2100\\ \\mathrm{J/(kg\\,K)}$$. Latent heat of melting of ice: $$3.36\\times10^5\\ \\mathrm{J/kg}$$.\n\n## (a)\n\nFind the mass of ice left when everything in the flask has reached one temperature. Give it in grams.\n\n## (b)\n\nThe same ice is dropped into the same flask with the same amount of water, but the water and the flask start warmer. Find the lowest starting temperature for which all the ice melts.\n\n## (c)\n\nThe water and the flask start at $$30.0\\ ^\\circ\\mathrm C$$ again. Find the greatest mass of ice at $$-20.0\\ ^\\circ\\mathrm C$$ that they can melt completely. Give it in grams.",
+  "solution": "## (a)\n\nThe final state is not known in advance, so test the possibilities against the heat that is available.\n\nThe water and the flask cool together. For each kelvin they give up\n\n$$(0.250)(4200)+280=1330\\ \\mathrm J.$$\n\nCooling all the way to $$0\\ ^\\circ\\mathrm C$$ gives up $$1330\\times30.0=39\\,900\\ \\mathrm J$$.\n\nThe ice has to warm to $$0\\ ^\\circ\\mathrm C$$ before any of it melts. That takes\n\n$$(0.150)(2100)(20.0)=6300\\ \\mathrm J.$$\n\nMelting all of it would take a further $$(0.150)(3.36\\times10^5)=50\\,400\\ \\mathrm J$$.\n\nCompare: $$39\\,900\\ \\mathrm J$$ is more than $$6300\\ \\mathrm J$$, so the ice does reach $$0\\ ^\\circ\\mathrm C$$. It is less than $$6300+50\\,400=56\\,700\\ \\mathrm J$$, so not all the ice melts. The final state is ice and water together at $$0\\ ^\\circ\\mathrm C$$.\n\nThe heat left for melting is $$39\\,900-6300=33\\,600\\ \\mathrm J$$, which melts\n\n$$\\frac{33\\,600}{3.36\\times10^5}\\ \\mathrm{kg}=0.100\\ \\mathrm{kg}.$$\n\n$$\\boxed{50\\ \\mathrm g\\ \\text{of ice is left}.}$$\n\n## (b)\n\nAll the ice melts when the water and the flask can supply the full $$56\\,700\\ \\mathrm J$$ by cooling to $$0\\ ^\\circ\\mathrm C$$. At the lowest such starting temperature $$T$$ everything ends as water at $$0\\ ^\\circ\\mathrm C$$:\n\n$$1330\\,T=56\\,700.$$\n\n$$\\boxed{T=42.6\\ ^\\circ\\mathrm C.}$$\n\n## (c)\n\nEach kilogram of ice needs $$(2100)(20.0)=42\\,000\\ \\mathrm J$$ to warm to $$0\\ ^\\circ\\mathrm C$$ and $$336\\,000\\ \\mathrm J$$ to melt, $$378\\,000\\ \\mathrm J$$ in all. The water and the flask can supply $$39\\,900\\ \\mathrm J$$:\n\n$$m=\\frac{39\\,900}{378\\,000}\\ \\mathrm{kg}=0.1056\\ \\mathrm{kg}.$$\n\n$$\\boxed{m=106\\ \\mathrm g.}$$\n\nThis agrees with part (a), where $$150\\ \\mathrm g$$ was too much to melt.",
+  "original": true,
+  "importedOn": "2026-11-14",
+  "hints": {
+    "a": [
+      "You do not know the final state yet. It could be all water, ice and water together at $$0\\ ^\\circ\\mathrm C$$, or all ice. Test them against the heat available.",
+      "The water and the flask cool together and give up $$1330\\ \\mathrm J$$ for each kelvin. Cooling to $$0\\ ^\\circ\\mathrm C$$ gives $$39\\,900\\ \\mathrm J$$. The ice needs $$6300\\ \\mathrm J$$ to warm to $$0\\ ^\\circ\\mathrm C$$ before any of it melts.",
+      "The heat left for melting is $$39\\,900-6300=33\\,600\\ \\mathrm J$$. Divide by the latent heat to get the mass that melts, then subtract from $$150\\ \\mathrm g$$."
+    ],
+    "b": [
+      "In the limiting case all the ice has just melted and everything ends as water at $$0\\ ^\\circ\\mathrm C$$.",
+      "The ice needs $$6300\\ \\mathrm J$$ to warm up and $$50\\,400\\ \\mathrm J$$ to melt, $$56\\,700\\ \\mathrm J$$ in all.",
+      "The water and the flask give up $$1330\\ \\mathrm J$$ for each kelvin they cool. Set $$1330\\,T=56\\,700$$."
+    ],
+    "c": [
+      "The heat available is the same as in part (a), $$39\\,900\\ \\mathrm J$$. Now the mass of ice is the unknown.",
+      "Each kilogram of ice needs $$42\\,000\\ \\mathrm J$$ to warm to $$0\\ ^\\circ\\mathrm C$$ and $$336\\,000\\ \\mathrm J$$ to melt.",
+      "Divide $$39\\,900\\ \\mathrm J$$ by $$378\\,000\\ \\mathrm{J/kg}$$ and convert to grams."
+    ]
+  }
+}

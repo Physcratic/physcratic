@@ -1,0 +1,207 @@
+{
+  "problemId": "ipho-2022-t2",
+  "version": "ca62c8a63167c65fbedc6a0ccfa46917dc73d92cc32bc1a93c82eb09ab2f3139",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Geometrical image size",
+      "kind": "numeric",
+      "unit": "um",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in um, without a unit suffix."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Diffraction spot",
+      "kind": "numeric",
+      "unit": "um",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in um, without a unit suffix."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "A.3",
+      "label": "Uncooled detector temperature",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Thermal threshold scale",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Count uncertainty",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "s",
+        "i",
+        "p",
+        "t"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "s",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "i",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "p",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "t",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use s for readout standard deviation, i for dark current and t for exposure duration."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Ten-sigma photon rate",
+      "kind": "numeric",
+      "unit": "1/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in 1/s, without a unit suffix."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "B.4",
+      "label": "Incident photon intensity",
+      "kind": "numeric",
+      "unit": "W/m^2",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in W/m^2, without a unit suffix."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Five-sheet temperatures",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Geometrical exchange estimates",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "C.3",
+      "label": "Numerical shield temperatures",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "D.1",
+      "label": "Throttling comparisons",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "D.2",
+      "label": "Conserved throttling quantity",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "U",
+        "P",
+        "V"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "V",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use U, P, V. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "d.3",
+      "sourcePart": "D.3",
+      "label": "Helium enthalpy graph",
+      "kind": "numeric",
+      "unit": "kJ/kg",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in kJ/kg, without a unit suffix."
+    },
+    {
+      "id": "d.4",
+      "sourcePart": "D.4",
+      "label": "Maximum inlet temperature",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in K, without a unit suffix."
+    },
+    {
+      "id": "d.5",
+      "sourcePart": "D.5",
+      "label": "Inlet pressure",
+      "kind": "numeric",
+      "unit": "MPa",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in MPa, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

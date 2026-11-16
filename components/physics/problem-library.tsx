@@ -163,13 +163,13 @@ export function ProblemLibrary({
                 <Select value={difficultyForCollection} onValueChange={value => updateFilters({ difficulty: value })}>
                   <SelectTrigger id="difficulty-filter" className="h-11">
                     <SelectValue>
-                      {difficultyForCollection === "unrated" ? "Unrated / author labels" : ratingBands.find((band) => band.id === difficultyForCollection)?.name ?? (difficultyForCollection === "all" ? "All ratings" : "Rating band")}
+                      {difficultyForCollection === "unrated" ? "Unrated" : ratingBands.find((band) => band.id === difficultyForCollection)?.name ?? (difficultyForCollection === "all" ? "All ratings" : "Rating band")}
                     </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
                       <SelectItem value="all">All ratings</SelectItem>
-                      {(collection === "arena" || collection === "authored") && <SelectItem value="unrated">Unrated / author labels</SelectItem>}
+                      {(collection === "arena" || collection === "authored") && <SelectItem value="unrated">Unrated</SelectItem>}
                       {ratingBands.map((band) => (
                         <SelectItem key={band.id} value={band.id}>
                           {band.name}, {band.range}

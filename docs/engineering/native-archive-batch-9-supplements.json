@@ -1,0 +1,14 @@
+[
+  {
+    "path": "/corpus/documents/english-ipho-2022-t2-supplement/answer-sheet.pdf",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2022_A2.pdf",
+    "sha256": "d109fccfec651ce01d8f6fc8ffb8260c85dd12c2599311ffaccf9717e25aba42",
+    "purpose": "Original helium u-v graph needed for D.3"
+  },
+  {
+    "path": "/corpus/documents/english-ipho-2022-t2-supplement/full-official-solutions.pdf",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2022_S3.pdf",
+    "sha256": "3a7e7e36cfff1b1ddb9cafd1a0afb1c1482f5282952a8e81c9f1820d3da55c25",
+    "purpose": "Full official theory solutions, including JWST Part D missing from retained eight-page extract"
+  }
+]

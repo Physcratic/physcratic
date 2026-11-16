@@ -45,7 +45,7 @@ describe("sitemap", () => {
     assert.equal(byPath.get("/dashboard/problems/arena-mind-the-gap"), findProblemPage("arena-mind-the-gap")!.lastmod);
     assert.ok(findProblemPage("arena-mind-the-gap")!.lastmod);
     assert.equal(byPath.get("/dashboard/problems/ipho-2025-t2"), "2026-10-31");
-    assert.equal(byPath.has("/dashboard/problems/ipho-2017-t2"), false, "a page with no statement text stays out");
+    assert.equal(byPath.has("/dashboard/problems/ipho-2017-t2"), true, "the completed native statement is indexable");
     assert.equal(byPath.get("/coaching"), undefined);
     for (const article of publishedArticles) assert.equal(byPath.get(`/learn/${article.slug}`), article.updated);
     const dated = entries.filter((e) => e.lastModified).length;

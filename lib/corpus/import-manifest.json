@@ -64,8 +64,8 @@
       "id": "ipho-2025-t1",
       "path": "/corpus/english-problems/ipho-2025-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -83,8 +83,8 @@
       "id": "ipho-2025-t2",
       "path": "/corpus/english-problems/ipho-2025-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -102,8 +102,8 @@
       "id": "ipho-2025-t3",
       "path": "/corpus/english-problems/ipho-2025-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -254,8 +254,8 @@
       "id": "ipho-2022-t2",
       "path": "/corpus/english-problems/ipho-2022-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -482,8 +482,8 @@
       "id": "ipho-2017-t2",
       "path": "/corpus/english-problems/ipho-2017-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -615,8 +615,8 @@
       "id": "ipho-2016-t1",
       "path": "/corpus/english-problems/ipho-2016-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -957,8 +957,8 @@
       "id": "apho-2024-t1",
       "path": "/corpus/english-problems/apho-2024-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -976,8 +976,8 @@
       "id": "apho-2024-t2",
       "path": "/corpus/english-problems/apho-2024-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -995,8 +995,8 @@
       "id": "apho-2024-t3",
       "path": "/corpus/english-problems/apho-2024-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1014,8 +1014,8 @@
       "id": "apho-2023-t1",
       "path": "/corpus/english-problems/apho-2023-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1033,8 +1033,8 @@
       "id": "apho-2023-t2",
       "path": "/corpus/english-problems/apho-2023-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1052,8 +1052,8 @@
       "id": "apho-2023-t3",
       "path": "/corpus/english-problems/apho-2023-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1109,8 +1109,8 @@
       "id": "apho-2022-t2",
       "path": "/corpus/english-problems/apho-2022-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1318,8 +1318,8 @@
       "id": "apho-2017-t1",
       "path": "/corpus/english-problems/apho-2017-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1356,8 +1356,8 @@
       "id": "apho-2017-t3",
       "path": "/corpus/english-problems/apho-2017-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1375,8 +1375,8 @@
       "id": "apho-2016-t1",
       "path": "/corpus/english-problems/apho-2016-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1451,8 +1451,8 @@
       "id": "apho-2015-t2",
       "path": "/corpus/english-problems/apho-2015-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -2466,8 +2466,8 @@
     },
     {
       "path": "/corpus/collection.json",
-      "bytes": 2692746,
-      "sha256": "ce76ecfcb6388e9d4bc25803b00b79a94bc5f9e41c0e10899f385ede64d5fa9b"
+      "bytes": 2712774,
+      "sha256": "9c20e41f316c480cea388209a19be104f749960f53b70caad506648a047c5661"
     },
     {
       "path": "/corpus/documents/english-apho-2006-t2-solution/document.pdf",
@@ -3188,6 +3188,16 @@
       "path": "/corpus/documents/english-ipho-2022-t2-statement/document.pdf",
       "bytes": 634609,
       "sha256": "6566f8eff10a54679574c2834ed1d1e9888fe4533a5b6d7f546d061fe53c0337"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2022-t2-supplement/answer-sheet.pdf",
+      "bytes": 618568,
+      "sha256": "d109fccfec651ce01d8f6fc8ffb8260c85dd12c2599311ffaccf9717e25aba42"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2022-t2-supplement/full-official-solutions.pdf",
+      "bytes": 3472182,
+      "sha256": "3a7e7e36cfff1b1ddb9cafd1a0afb1c1482f5282952a8e81c9f1820d3da55c25"
     },
     {
       "path": "/corpus/documents/english-ipho-2022-t3-solution/document.pdf",
@@ -5846,8 +5856,8 @@
     },
     {
       "path": "/corpus/english-problems/apho-2015-t2.json",
-      "bytes": 25089,
-      "sha256": "d16f4d10d28a71e545fda39ccae1dc1dfb473a2576e38fbc0026693e1cc76374"
+      "bytes": 26794,
+      "sha256": "2a736d6a951d83c6d9c8311786adcdbe154422ed2d55fd4dadab625b4c7f6155"
     },
     {
       "path": "/corpus/english-problems/apho-2015-t3.json",
@@ -5856,8 +5866,8 @@
     },
     {
       "path": "/corpus/english-problems/apho-2016-t1.json",
-      "bytes": 24624,
-      "sha256": "9e8883e412d352d5a147553aa5341f8dc2ec987ab356c26c7bf4c61b76840a97"
+      "bytes": 15558,
+      "sha256": "b0a22643b644d860087c1cd13f1ed6ad4fcbdb5871cd022adaf258b1c93ea36f"
     },
     {
       "path": "/corpus/english-problems/apho-2016-t3.json",
@@ -5866,8 +5876,8 @@
     },
     {
       "path": "/corpus/english-problems/apho-2017-t1.json",
-      "bytes": 22310,
-      "sha256": "30b0de423411e380b8d516dac7db363be7b95e5fd575d4b837fe0d15e75f84ef"
+      "bytes": 32395,
+      "sha256": "22a523f8ef5267ec4ac291ad0eeca9d77dd30e7c2ad309aa15ee9b3e2dc9334e"
     },
     {
       "path": "/corpus/english-problems/apho-2017-t2.json",
@@ -5876,8 +5886,8 @@
     },
     {
       "path": "/corpus/english-problems/apho-2017-t3.json",
-      "bytes": 27913,
-      "sha256": "6395daefa97430da414e2331d42d4167a8041a756fa02fd359c797e7abe3f2eb"
+      "bytes": 22762,
+      "sha256": "a5eb6f5d1e1b31c25b36b549552a13a19b569415ac7092e8abb153253e591693"
     },
     {
       "path": "/corpus/english-problems/apho-2018-t1.json",
@@ -5931,8 +5941,8 @@
     },
     {
       "path": "/corpus/english-problems/apho-2022-t2.json",
-      "bytes": 17144,
-      "sha256": "d79bece1f79a8eebe21a923c25a38a938dc45325756c6d7c5e88dfc7c6eafa9d"
+      "bytes": 22352,
+      "sha256": "5616c1f515dcccd0259d3fe39aa32d6cf0c42370ce1410d2216355cb3b591c0d"
     },
     {
       "path": "/corpus/english-problems/apho-2022-t3.json",
@@ -5941,33 +5951,33 @@
     },
     {
       "path": "/corpus/english-problems/apho-2023-t1.json",
-      "bytes": 30673,
-      "sha256": "867355ee365710c1112d66f8883b698e6aabd2e19dbb032b5c35ddc7effd48af"
+      "bytes": 35667,
+      "sha256": "2a359e964ad0913f81cbb2d7ff8e3be17242069dc31095cdfabf3bf48ffd7181"
     },
     {
       "path": "/corpus/english-problems/apho-2023-t2.json",
-      "bytes": 31866,
-      "sha256": "c27c2ca45880ada0628e02311b76065607b1a36ddcf3e2e97929015664f124f7"
+      "bytes": 31634,
+      "sha256": "fc5fe34a02426f397fb74631af7273747314f3e70eb8800c86e82a906d31f079"
     },
     {
       "path": "/corpus/english-problems/apho-2023-t3.json",
-      "bytes": 30156,
-      "sha256": "418acf0ceb2253f6d4c35b0fb82414fdea4cd67e1ffb422b8e318e243a956f6c"
+      "bytes": 24479,
+      "sha256": "df43bf8a6a81b53fc106550e219bd4ab216e4bcce97397c4cdf919158765051e"
     },
     {
       "path": "/corpus/english-problems/apho-2024-t1.json",
-      "bytes": 9844,
-      "sha256": "2436a074aa9370bba9da1a62d538684711d68404eb513a8ae6ceb40ef4d3ff1c"
+      "bytes": 14054,
+      "sha256": "f3b45c55b2f4ac807c297b8320e05fd677952df408d05935a24d24bba92be6e9"
     },
     {
       "path": "/corpus/english-problems/apho-2024-t2.json",
-      "bytes": 9545,
-      "sha256": "486b13dd01ded1e6d19f0d1ba4524d72074809ce019e770d1e96308a41f214a9"
+      "bytes": 15966,
+      "sha256": "85570fa9f2b34f5cc48cac38813301e9d7b8f95bef765f7ffa5285de29bf5ce3"
     },
     {
       "path": "/corpus/english-problems/apho-2024-t3.json",
-      "bytes": 18169,
-      "sha256": "fd83b6b9b7714e9e14555ef6e765b5653317db665b9b351db91fae61d9fa898e"
+      "bytes": 28388,
+      "sha256": "2ff73934fdf5ed2dd8f983a713da81c13390e2962ee123c4f9678fa9a039caa0"
     },
     {
       "path": "/corpus/english-problems/apho-2025-t1.json",
@@ -6081,8 +6091,8 @@
     },
     {
       "path": "/corpus/english-problems/ipho-2016-t1.json",
-      "bytes": 24194,
-      "sha256": "8ec81ddf9425791f36c10e677a394263fa96ea59967d806e13babde00c0f0386"
+      "bytes": 24551,
+      "sha256": "c7c8e4f44bb061fe3728ce18540db7dd854de3ed17b4dce79566e8d46f49315c"
     },
     {
       "path": "/corpus/english-problems/ipho-2016-t2.json",
@@ -6091,8 +6101,8 @@
     },
     {
       "path": "/corpus/english-problems/ipho-2017-t2.json",
-      "bytes": 1733,
-      "sha256": "702b5d76250e02c818cad35409f52782d3c464c2d268de1aba30b08ccd230b4b"
+      "bytes": 21587,
+      "sha256": "5765e352fa57ab50daad92b44b63fd8c973e384e2c78dfd4a96dcb2c14338298"
     },
     {
       "path": "/corpus/english-problems/ipho-2017-t3.json",
@@ -6151,8 +6161,8 @@
     },
     {
       "path": "/corpus/english-problems/ipho-2022-t2.json",
-      "bytes": 39043,
-      "sha256": "6df6e24340fc86ae8471b73e1a778b8e0b069369cd01359d3db7f758a76a8cd5"
+      "bytes": 31049,
+      "sha256": "7433550583c23bc38569dd0bd75de8205aa0ab397b114d42122ad47d72a6d050"
     },
     {
       "path": "/corpus/english-problems/ipho-2022-t3.json",
@@ -6191,18 +6201,18 @@
     },
     {
       "path": "/corpus/english-problems/ipho-2025-t1.json",
-      "bytes": 42925,
-      "sha256": "4b55e62c9b792c676468a9ccfb6b28a27fd7b5dba3d2b45df9c7586d719f54e5"
+      "bytes": 32984,
+      "sha256": "371145650fba2e2e4cec5f37e47fb8782e850034e337ebe82b50f26162e57d37"
     },
     {
       "path": "/corpus/english-problems/ipho-2025-t2.json",
-      "bytes": 44408,
-      "sha256": "3cc882a6e12021a18bee58ef2b6dcbffa189c3157c2aae725cfa4749b7279784"
+      "bytes": 25393,
+      "sha256": "e547d8efb7f90e09965bf9d8fb35beffe97fc1f409a79e23abb10f14c1314a44"
     },
     {
       "path": "/corpus/english-problems/ipho-2025-t3.json",
-      "bytes": 45563,
-      "sha256": "e032a0382d64521a26bfb27e00e2e698976db5901e630a0ac5dd41d8e36b62f7"
+      "bytes": 27869,
+      "sha256": "13ece53c400869635bf12d86d8c4819567b390792f86d8290ca552bf5956bf85"
     },
     {
       "path": "/corpus/english-problems/ipho-2026-t1.json",
@@ -8015,6 +8025,351 @@
       "sha256": "3f1b6b566e83958b04c8447e720d7a75bb6c4d23f9c61b4a3c194bd6754b2b27"
     },
     {
+      "path": "/corpus/figures/native/batch9-barometric-bulb.png",
+      "bytes": 10804,
+      "sha256": "b2adff96db2b64bdc20eae57dac56f9bc81b3a614b09ceba87337b191408147e"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-bead-forces.png",
+      "bytes": 17083,
+      "sha256": "0c41ab883ca1c32d830a986861b31d8c202030f6be9a9fc126c04012e3156381"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-bottle-expansion.png",
+      "bytes": 82890,
+      "sha256": "1dee51cdad59b32c290ceb112374ac7e6e83256b9ad401d015ec3caf74c52017"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-bubble-growth.png",
+      "bytes": 13371,
+      "sha256": "a0b437d2b69ebd830317a88958bef3eaa1872e6ea1247d43892cd919f0aa4005"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-bubble-train.png",
+      "bytes": 34200,
+      "sha256": "0f94e9c98bd762d8a94a3153d2c6decabb4fadd9f9f7ab6e358bff8136e33322"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-burst-film.png",
+      "bytes": 37918,
+      "sha256": "55f612a278c6f5915e820d133d86ab3f31096e3bb3aa057cc3d893d92a5a5fe2"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-cavitation-balance.png",
+      "bytes": 29087,
+      "sha256": "1a844878bbdc78e8652c267519cd4889acb016b0038ed9b6458918bfec0f5b96"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-cavitation-crevice.png",
+      "bytes": 16586,
+      "sha256": "eff85bc4692f00e6858a811c7a20940d0f37da5b01265af834e96166982e039e"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-charged-ball.png",
+      "bytes": 11660,
+      "sha256": "d2847993fe741266111cc770496da67a4940bd68c6357d0ba203baa79d445ada"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-charged-ring.png",
+      "bytes": 13653,
+      "sha256": "5bf228475589505c1fb0b7c0114e4d040aa1e5cc0efca4ead6af9bdd55eb0a7a"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-charged-vortex.png",
+      "bytes": 8066,
+      "sha256": "740315fae8eb7499f7f0f67fd897c7c416162880dba8dad03d2ce80e1e00ad1d"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-cox-pulleys.png",
+      "bytes": 15933,
+      "sha256": "fbb55514ff12728cd1705a71fc2dc3ab174904484abb516b763bfc8c7a428d19"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-dark-current.png",
+      "bytes": 28065,
+      "sha256": "188e48cfd0696179eca331352ee1fdf1836a29b2648a484ac3a7c836aad4a698"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-dnp-seismogram.png",
+      "bytes": 158001,
+      "sha256": "9cfc2aa2a2f31fc3e1717272bb1c9a078cd03732de6248459bcd7148972d54f8"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-eddy-shell.png",
+      "bytes": 18953,
+      "sha256": "3460f61431bf9bcd551b3c92b28c3166dcbf73ed2111a4416fa6affe95d03a6a"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-electron-gyro.png",
+      "bytes": 8518,
+      "sha256": "063667797e1736a7fd14fb8d26825668ba0cf57917f1b99542690b07f20750fd"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-equal-vortices.png",
+      "bytes": 5505,
+      "sha256": "5a5d6f241f6079fd1093b5a5d7ce4add7ca465ef094546583ee836cedffe6a14"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-fountain.png",
+      "bytes": 85969,
+      "sha256": "fae3788d3de6d13262cb6b01abd4fc2ba9dc1a3fa8016bc3d029cd17bb9ccbe1"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-galactic-sightline.png",
+      "bytes": 38078,
+      "sha256": "85cf8d613d4e8380149b23694488a53c8fa0e33d8e477984717e078b14dfd9d8"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-galaxy-rotation.png",
+      "bytes": 118682,
+      "sha256": "0e9d55646a50d1523124a71ea6011cf1f34e33593cc932a256375defd5e3aaf6"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-helium-uv.png",
+      "bytes": 336180,
+      "sha256": "d582bd142b36cc02eaab3cac14b69e5c14035a13efc5db345c42c329d6240e39"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-helmholtz.png",
+      "bytes": 10234,
+      "sha256": "3c6694c0ec35bc3c739425c2b0ed4a20c04cf4f6267939105e71e57ebdf904a8"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-hidden-disk.png",
+      "bytes": 18158,
+      "sha256": "5227dc5584e37e8b0d2c83248bbe7dc9846c3d1eee6615e70d0483a8d54e5fd1"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-hydrogen-spectrum.png",
+      "bytes": 61492,
+      "sha256": "6cb0d7e30c2a46607fdc3ade9ec224dbdab6114bc25474602452825f20405543"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-iss-history.png",
+      "bytes": 43616,
+      "sha256": "a11a6ea5a0ad740033264f059091a333fbc86790454454b647457a5358f11ac2"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-iss-recent-altitude.png",
+      "bytes": 25532,
+      "sha256": "7a48017a9654da6e15b656322bba86667edaad5f2103cb023bb3dcfabe50ac33"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-lattice-configurations.png",
+      "bytes": 110141,
+      "sha256": "8e7aab0532f344e16197dc9d8d010446e9ad47ddd7d8353c081d0d54bd7c25cb"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-lattice-force.png",
+      "bytes": 98407,
+      "sha256": "5b6310480e9fc90890624b3da7c600802b17c028def8e7cc18493064a0a4a714"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-lattice-indices.png",
+      "bytes": 189890,
+      "sha256": "28008a55686e19cf3ee32394dcf77a291d4685b2fdca2aebd66d438496def104"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-lattice-two.png",
+      "bytes": 73788,
+      "sha256": "2291d4092a8134e6d54daa126b931f4d2ac855629671f581d6178a9f3ca39f3f"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-lifting-regimes.png",
+      "bytes": 18325,
+      "sha256": "fb0afb69ef1484b970f90a9fb43b632b83ac511e7a5cceec90cd3431e8e87ec1"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-magnetic-mirror.png",
+      "bytes": 123326,
+      "sha256": "31df88dc09cb9547067284dc9da53495e28316d9d2c3f30eb3dc3644e4dbd5e8"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-opposite-vortices.png",
+      "bytes": 8148,
+      "sha256": "f1260ac60dfff67f9c48c0b90c1615759b4f5f75b7fba1954c386ac0dfd01efb"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-optical-fibre.png",
+      "bytes": 55504,
+      "sha256": "aacc5e3713ea899761f41ae91af994899b9f95bd74cbd5c9799868ccc71b05f2"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-optical-rod.png",
+      "bytes": 76913,
+      "sha256": "b6e2e8c0fc6e50cb2fa7a410d26ca82ee5893c8bdcac51f7f35563df80378879"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-oxygen-levels.png",
+      "bytes": 24025,
+      "sha256": "fc0c24025f93a7fa93abd8928afdf9f3f67fe0573bb65af574a76cdc5ca0eaba"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-porous-plug.png",
+      "bytes": 13651,
+      "sha256": "5b57ccb8df3f8b517be592baacf76454de13fbb2b030e79b80ce0306b09dfb63"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-pressure-wave.png",
+      "bytes": 10715,
+      "sha256": "4a791208e72278d5ac5e6829f62a2e1c77d4f1672e887abb17638f4f030fd4b3"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-quasar-jet.png",
+      "bytes": 83824,
+      "sha256": "acea399b4add508a6be72101caa74f72e5eb8d91f189f1908c2d9c233843c0ea"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-quasar-occultation.png",
+      "bytes": 201275,
+      "sha256": "f87b5fb3098906f7250f7ce5d0343e2cf4f6791d90716fadd3dde89400cba084"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-quasar-spectrum.png",
+      "bytes": 244651,
+      "sha256": "7f88dc7f17acc211e86d66ff601f1a4f64878c07b43349bb2c63b20bdd0cbd0f"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-rectangular-vortex.png",
+      "bytes": 4797,
+      "sha256": "11b34ec34727bf99b17f58aa0df94961b90e5ff07daa0b9cfaa427dab893605a"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-rocket-orbit.png",
+      "bytes": 55119,
+      "sha256": "3eaad1074cbb8ed39a26ad1a9dbbd50dcd38f04c84cbda8156a7a3a2261ca9ee"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-rocket-precession.png",
+      "bytes": 17879,
+      "sha256": "af2a26004a09115df5a44438dfca4acce5723238a228f3e61ed106f01cb28c60"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-rocket-spin.png",
+      "bytes": 8907,
+      "sha256": "09c6f9c4b06bf9d1d15b3d030ff380ac807e981f0fc46457cc6747bd06d72fc6"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-rocket-stage.png",
+      "bytes": 7656,
+      "sha256": "83681212e6640b4d3c53b0835b47d5b1a2c857e7b7293744f6743df72265b765"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-rolling-ball.png",
+      "bytes": 11299,
+      "sha256": "4ca5b9b22859c9e1c6d874570dacb03e2e19c9b15824a178358a0c764f1bfae2"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-rotating-bead.png",
+      "bytes": 18848,
+      "sha256": "eb394f6f8e4ad4b035b5994cbe078d024ae27a5dc4b5c51daa80341c74606847"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-seismic-layers.png",
+      "bytes": 15849,
+      "sha256": "bbabcbb379431374bd561dfaf8f636cb9b2cbcbb7a90f9ac0d8bef477ae93df1"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-semicircle-rays.png",
+      "bytes": 49556,
+      "sha256": "b107fdafeb9b7100ba62ba0ddfadf106f8f06d099e3b6860af382351b15684df"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-shield-flow.png",
+      "bytes": 7679,
+      "sha256": "93751b0f58bd41b763c0ff249d9ce4f0ab47298c12956ad2c882d568c63847c8"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-shield-gap.png",
+      "bytes": 21650,
+      "sha256": "6cdb2678daa2f11c93b1c210a37600a93ce64bb0600383ef01d28dfc7a9ea517"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-snell.png",
+      "bytes": 29742,
+      "sha256": "0328561d035d86abd538b500ab4f76b5d579e39b978096d842b908a6956fe65a"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-station-oscillator.png",
+      "bytes": 7020,
+      "sha256": "ab14c4f945c2aa94ce76d2225d861d0b2eb9283ed6624210b1052dd2d2bc187c"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-station-wheel.png",
+      "bytes": 16331,
+      "sha256": "b3b5cf4bdcca1aeff4f23648c69ac5e4837bd640c952a4a0e118e851e5b93516"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-submerged-tube.png",
+      "bytes": 18348,
+      "sha256": "c00d640b21d43661c4435188c66e8d9cebb7e6ed194f2d083f7d4fa877f46349"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-suspended-cylinder.png",
+      "bytes": 8860,
+      "sha256": "2f2695cb3ec13e80f1cbcfbe36ea0827d2b66d445371b092fb7734c3cf808e65"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-terrestrial-pitch.png",
+      "bytes": 81172,
+      "sha256": "175d2cf04dc08aeb9bbe6db6bd59c091a972a8cadb397593b554c7528213eaa5"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-tilted-cylinder.png",
+      "bytes": 12469,
+      "sha256": "8e83cc90986620257185ab82c9c7b4aaa47b88bc5bdde9b1bef06ca872a77722"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-tsunami-uplift.png",
+      "bytes": 91671,
+      "sha256": "b38b5b40faeb893cdf731383952e85e5e10e3ef88482faf9f8cff241b25faf4d"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-tully-fisher.png",
+      "bytes": 124466,
+      "sha256": "375ddd8604e07b5eede033c1549b3a1b48c34f126a20c904ccd1769bd643a1a1"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-vortex-beaker.png",
+      "bytes": 26061,
+      "sha256": "79083c1369ebcc74478215dc749199fb35e04e15ae65ea62ef1d1d61ba7166d5"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-vortex-circulation.png",
+      "bytes": 30764,
+      "sha256": "0dec3bb7f2c95ee12d6a69de0ddaf45941a57391048e63a64d8a15703574f41a"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-vortex-corner.png",
+      "bytes": 5641,
+      "sha256": "b076ed25490008102510590f7cde2186350018ec735c589bc9ad9737f837e0f3"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-vortex-lattice.png",
+      "bytes": 47032,
+      "sha256": "f981d19c5f7c9dae41f1248cc64bf03bf15eb31105593f41df92ab36f34b587a"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-vortex-ring-flow.png",
+      "bytes": 81314,
+      "sha256": "407e3b1ea9282e2c1c3799cc32d848c8e6328328a7b51866a97afbe314278a14"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-vortex-shift.png",
+      "bytes": 10073,
+      "sha256": "6b1669bc2bdaaa0f0600561193c7e169d2b4d7e5bf2984570aee70858072779f"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-vortex-wall.png",
+      "bytes": 3748,
+      "sha256": "52fac59005af041f231301faed02762087733d50c848c0fc22ea8c970767391a"
+    },
+    {
+      "path": "/corpus/figures/native/batch9-yogi-seismogram.png",
+      "bytes": 244156,
+      "sha256": "f05ce6d5e18955ac6074e965b751edd893e7aa41e4398713320fd12d6350c8cf"
+    },
+    {
       "path": "/corpus/figures/native/eupho-2017-rope-nodes.png",
       "bytes": 26228,
       "sha256": "8a5999bdeb7454b330055a58de7625d5d63d2d186b5bf696a28083fa439d2a91"
@@ -8475,9 +8830,19 @@
       "sha256": "6e4a7456cfcd3e3526935dac133f68c9dc837dc54c028312082fa00b4814cc3b"
     },
     {
+      "path": "/corpus/grading/apho-2015-t2.json",
+      "bytes": 5229,
+      "sha256": "63ecbf429f33a990e1d77beb457f9cc4d4177b515628b2c002c6d5c971a3059f"
+    },
+    {
       "path": "/corpus/grading/apho-2015-t3.json",
       "bytes": 4048,
       "sha256": "b9594857c8f1e360e83bd92146aee007a9b9cbfaca3470e72c36dc6abb7d2183"
+    },
+    {
+      "path": "/corpus/grading/apho-2016-t1.json",
+      "bytes": 3811,
+      "sha256": "8cc1b2191acd1ad37ea9ff5c6798fe04a13962a1b92d6593568d25a3f9a26106"
     },
     {
       "path": "/corpus/grading/apho-2016-t3.json",
@@ -8485,9 +8850,19 @@
       "sha256": "887c16f8f891c5f2eb4cb00b64c9d913849ce68fa4d72a95b7771985ea6c1bc7"
     },
     {
+      "path": "/corpus/grading/apho-2017-t1.json",
+      "bytes": 10879,
+      "sha256": "4a3abb69dcce3ffcd77e61aad4e4468da93cd1fa07a3cad8786df381780e02d9"
+    },
+    {
       "path": "/corpus/grading/apho-2017-t2.json",
       "bytes": 8675,
       "sha256": "9bf10310c7472b6d23c86c47ffc7ff899929328b40fcdc9fa7ee48d397422e85"
+    },
+    {
+      "path": "/corpus/grading/apho-2017-t3.json",
+      "bytes": 5630,
+      "sha256": "8a12ac86e6f620f5ab596459d4f322c9bb4df5e532a88997f7107fb0213e13b8"
     },
     {
       "path": "/corpus/grading/apho-2018-t1.json",
@@ -8540,9 +8915,44 @@
       "sha256": "b127f06f5649caf441cb41833d2f4c5269344cbfa20829cffc896afe1ca064f2"
     },
     {
+      "path": "/corpus/grading/apho-2022-t2.json",
+      "bytes": 4452,
+      "sha256": "ab43c01460be2e811968e2781b93fabc8ae99196ca1cca8a0b65969a4a01829e"
+    },
+    {
       "path": "/corpus/grading/apho-2022-t3.json",
       "bytes": 6402,
       "sha256": "50ee9483ad5d0afdf3448b11be6e0fe353ec53b0b6f9b89289bbd9119d6e05e9"
+    },
+    {
+      "path": "/corpus/grading/apho-2023-t1.json",
+      "bytes": 8967,
+      "sha256": "ebbe06dac92228c236e7f1e39caf126ca3a081b5875c4c9b9e754c750b69d8ee"
+    },
+    {
+      "path": "/corpus/grading/apho-2023-t2.json",
+      "bytes": 6031,
+      "sha256": "34d8aa3bb9dade5990b05ae3eb7442f77334f076e98fa3ad028bf1355ce60a76"
+    },
+    {
+      "path": "/corpus/grading/apho-2023-t3.json",
+      "bytes": 3535,
+      "sha256": "807ddb4916f06c3c8da19ce8e98d1a2c91d54d3473484fa170a03d3531f75e4d"
+    },
+    {
+      "path": "/corpus/grading/apho-2024-t1.json",
+      "bytes": 5510,
+      "sha256": "3b734717c65af35701785a42428548d63484ce20e859a09428dce7fab3abcca8"
+    },
+    {
+      "path": "/corpus/grading/apho-2024-t2.json",
+      "bytes": 3531,
+      "sha256": "613547cb4f8b24960d5f54410f39a312c0e3f2b4e538fbbb2519728f83a84e99"
+    },
+    {
+      "path": "/corpus/grading/apho-2024-t3.json",
+      "bytes": 4879,
+      "sha256": "f85e19d0c9da9caf1cddfd83b7e565071d8ea502fb4e9631201bfa5d0945030e"
     },
     {
       "path": "/corpus/grading/apho-2025-t1.json",
@@ -8910,9 +9320,19 @@
       "sha256": "043cf68cc24511627ae690444bc8ecf9a1f108a7709a40713d660ed53b654996"
     },
     {
+      "path": "/corpus/grading/ipho-2016-t1.json",
+      "bytes": 7488,
+      "sha256": "2b0ff020ac48bc675d4b5858edfb2a1b9e07cc492ba84ac173cafd563642e4c5"
+    },
+    {
       "path": "/corpus/grading/ipho-2016-t2.json",
       "bytes": 4072,
       "sha256": "6d18d01691eb8ae67014eb4e3d77171082655bcc44f335a5144a7e3eb46c2297"
+    },
+    {
+      "path": "/corpus/grading/ipho-2017-t2.json",
+      "bytes": 7526,
+      "sha256": "1421b03eb3e5d16f3a62fc8d33cebb220f111e87c2c8c93b455ccc0dde05118e"
     },
     {
       "path": "/corpus/grading/ipho-2017-t3.json",
@@ -8970,6 +9390,11 @@
       "sha256": "93b1c2b43667a56cc38d9bf484a5d2d802031411d368b7d71d63b93714a46281"
     },
     {
+      "path": "/corpus/grading/ipho-2022-t2.json",
+      "bytes": 5629,
+      "sha256": "1a5a49c138eef7ecc342dc977154392f470c027680971f9758f6ec5ecbcd886e"
+    },
+    {
       "path": "/corpus/grading/ipho-2022-t3.json",
       "bytes": 1747,
       "sha256": "4008c38b5d00aeccaf6814787066cb557755caffa369cb9ab7ae20d0c4560eb2"
@@ -9003,6 +9428,21 @@
       "path": "/corpus/grading/ipho-2024-t3.json",
       "bytes": 7071,
       "sha256": "59d4ffe1e297ea06bd2c811f7d2fce6cfbeb2db9a6703a320b4dd894953fd9c9"
+    },
+    {
+      "path": "/corpus/grading/ipho-2025-t1.json",
+      "bytes": 7921,
+      "sha256": "c7c70b4871698022ccff45952e77ec5305fe46241358e570888e7150b504f63c"
+    },
+    {
+      "path": "/corpus/grading/ipho-2025-t2.json",
+      "bytes": 4319,
+      "sha256": "151a3c688949b8732fbee2090ca2f9ad886d76575073dbf1217067cb8d5254f9"
+    },
+    {
+      "path": "/corpus/grading/ipho-2025-t3.json",
+      "bytes": 6588,
+      "sha256": "5242d1a340d4e870de3c18c341ce7da9f7dce1e211453e94a579799cbf606811"
     },
     {
       "path": "/corpus/grading/power.json",

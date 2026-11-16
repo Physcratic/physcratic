@@ -1,0 +1,221 @@
+{
+  "problemId": "apho-2017-t3",
+  "version": "fa3fae2635aedbf50a5b71ad97e99c70f0e3a1153b18a34cc744d584f0421aa6",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Angular-velocity components",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Rotational energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "L",
+        "J_x",
+        "J_y",
+        "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "J_x",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "J_y",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use L, J_x, J_y, \\theta. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "A.3",
+      "label": "Maximum axis excursion",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\theta_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\theta_0",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 1.3
+        }
+      ],
+      "help": "Use the acute initial-angle convention of the source."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "A.4",
+      "label": "Precessing reference frame",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Dissipative end state",
+      "kind": "numeric",
+      "unit": "rad",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in rad, without a unit suffix."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Final angular speed",
+      "kind": "numeric",
+      "unit": "rad/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in rad/s, without a unit suffix."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Induced magnetic moment",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Shell torque",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "D",
+        "R",
+        "B",
+        "b",
+        "\\alpha",
+        "\\rho"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "D",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter M_z in the source orientation. Use b for the field-derivative magnitude."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "C.3",
+      "label": "Orbital magnetic field",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.4",
+      "sourcePart": "C.4",
+      "label": "Torque on the rotating stage",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.5",
+      "sourcePart": "C.5",
+      "label": "Slow spin evolution",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.6",
+      "sourcePart": "C.6",
+      "label": "Steady period ratio",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

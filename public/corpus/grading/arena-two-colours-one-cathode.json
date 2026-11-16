@@ -1,0 +1,52 @@
+{
+  "problemId": "arena-two-colours-one-cathode",
+  "version": "19f702ce2925760befc7f8978ae877c8ca7bde71d2496684bd42923124debfb5",
+  "parts": [
+    {
+      "id": "a.work",
+      "sourcePart": "a",
+      "label": "Work function of the cathode",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "V_1"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_1",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Here e is the size of the electron’s charge, not the number 2.718. e and V_1 are positive."
+    },
+    {
+      "id": "b.work",
+      "sourcePart": "b",
+      "label": "Work function",
+      "kind": "numeric",
+      "unit": "eV",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "c.wavelength",
+      "sourcePart": "c",
+      "label": "Wavelength of the first light",
+      "kind": "numeric",
+      "unit": "nm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "arena-round-the-funnel",
+  "title": "Round the Funnel",
+  "topic": "Mechanics",
+  "tags": [
+    "Circular motion",
+    "Newton’s laws"
+  ],
+  "summary": "Two balls circle inside a smooth funnel at different heights. Find the speed, compare the periods and find when the balls line up again.",
+  "statement": "A smooth funnel has the shape of a cone with a vertical axis and its tip at the bottom. Its wall makes an angle $$\\alpha$$ with the axis. A small ball slides without friction on the inside of the wall and moves in a horizontal circle at a height $$h$$ above the tip. A second, identical ball circles the same way round at a height $$4h$$ above the tip. The free-fall acceleration is $$g$$.\n\n![Side view of a cone with its tip at the bottom and a vertical axis. The wall makes an angle alpha with the axis. One ball circles at height h above the tip and a second ball circles at height 4h.](/corpus/arena/figures/round-the-funnel-statement.svg)\n\n## (a)\n\nFind the speed of the lower ball, in terms of $$g$$ and $$h$$.\n\n## (b)\n\nFind the ratio of the upper ball’s period to the lower ball’s period. Give a number.\n\n## (c)\n\nAt one moment the two balls are lined up, with the upper ball straight up the wall from the lower one. Find the time until they are next lined up like this. Give it in terms of $$h$$, $$g$$ and $$\\alpha$$.",
+  "solution": "## (a)\n\nTwo forces act on a ball: its weight $$mg$$ and the normal force $$N$$ from the wall. The wall makes an angle $$\\alpha$$ with the vertical, so the normal force makes an angle $$\\alpha$$ with the horizontal. It points inward and upward.\n\nThe ball stays at one height, so the vertical forces balance. The horizontal part of $$N$$ keeps the ball on its circle of radius $$r$$:\n\n$$N\\sin\\alpha=mg,\\qquad N\\cos\\alpha=\\frac{mv^2}{r}.$$\n\nDivide the second equation by the first:\n\n$$\\frac{v^2}{gr}=\\frac{\\cos\\alpha}{\\sin\\alpha}.$$\n\nAt height $$h$$ the radius of the circle is $$r=h\\tan\\alpha$$, so the angle cancels:\n\n$$v^2=gr\\,\\frac{\\cos\\alpha}{\\sin\\alpha}=gh.$$\n\n$$\\boxed{v=\\sqrt{gh}.}$$\n\nThe speed depends on the height only, not on how wide the funnel is.\n\n## (b)\n\nThe period is the distance round the circle divided by the speed:\n\n$$T=\\frac{2\\pi r}{v}=\\frac{2\\pi h\\tan\\alpha}{\\sqrt{gh}}=2\\pi\\tan\\alpha\\sqrt{\\frac hg}.$$\n\nThe period grows as the square root of the height. The upper ball is four times as high, so its period is $$\\sqrt4$$ times as long.\n\n$$\\boxed{\\frac{T_{\\mathrm{upper}}}{T_{\\mathrm{lower}}}=2.}$$\n\n## (c)\n\nThe lower ball goes round at the angular rate $$\\omega=2\\pi/T$$ and the upper ball at $$\\omega/2$$. The lower ball gains on the upper one at the rate $$\\omega-\\omega/2=\\omega/2$$. They are lined up again when the lower ball has gained one full turn:\n\n$$t=\\frac{2\\pi}{\\omega/2}=2T.$$\n\n$$\\boxed{t=4\\pi\\tan\\alpha\\sqrt{\\frac hg}.}$$\n\nIn that time the lower ball goes round twice and the upper ball once.",
+  "original": true,
+  "importedOn": "2026-11-14",
+  "hints": {
+    "a": [
+      "Two forces act on the ball, its weight and the normal force from the wall. Which way does the normal force point?",
+      "The normal force makes an angle $$\\alpha$$ with the horizontal. Its vertical part balances the weight and its horizontal part keeps the ball on the circle: $$N\\sin\\alpha=mg$$ and $$N\\cos\\alpha=mv^2/r$$.",
+      "Divide one equation by the other and use $$r=h\\tan\\alpha$$ for the radius of the circle. The angle cancels."
+    ],
+    "b": [
+      "The period is the distance round the circle divided by the speed, $$T=2\\pi r/v$$.",
+      "Both $$r$$ and $$v$$ depend on the height. Use $$r=h\\tan\\alpha$$ and $$v=\\sqrt{gh}$$ to see how $$T$$ depends on $$h$$.",
+      "The period is proportional to $$\\sqrt h$$. The upper ball is four times as high."
+    ],
+    "c": [
+      "The two balls go round at different rates. Which one goes round faster?",
+      "The lower ball has angular rate $$\\omega=2\\pi/T$$ and the upper ball has half of that. They line up again when the lower ball has gained one full turn.",
+      "The lower ball gains at the rate $$\\omega/2$$, so the time is $$2\\pi/(\\omega/2)=2T$$, with $$T=2\\pi\\tan\\alpha\\sqrt{h/g}$$."
+    ]
+  }
+}

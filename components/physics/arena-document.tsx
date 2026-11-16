@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { assignPartColors } from "@/lib/part-colors";
 import { PartChip, partBorder, partStyle } from "./solve-ui";
 
-function MathText({ text }: { text: string }) {
+export function MathText({ text }: { text: string }) {
   return text.split(/(\$\$[\s\S]*?\$\$)/g).map((part, index) => {
     if (!part.startsWith("$$")) return <Fragment key={index}>{part}</Fragment>;
     const html = katex.renderToString(part.slice(2, -2), {
@@ -22,7 +22,7 @@ function MathText({ text }: { text: string }) {
 
 function ArenaParagraph({ text, staticFigures }: { text: string; staticFigures?: boolean }) {
   const figure =
-    /^!\[([^\]]+)\]\((\/corpus\/arena\/figures\/[a-z-]+\.png)\)$/.exec(text);
+    /^!\[([^\]]+)\]\((\/corpus\/arena\/figures\/[a-z-]+\.(?:png|svg))\)$/.exec(text);
   if (figure)
     return (
       <figure className="flex justify-center">

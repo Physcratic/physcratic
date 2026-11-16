@@ -1,11 +1,12 @@
 /**
  * The owner's own difficulty ratings. They replace the calibrated estimates in lib/problem-archive.ts for the
- * problems named here, and for those problems only. Source: Owner-set ratings, 14 November 2026.
- * Archive ratings come first, then the twelve Arena problems the owner rated on the same day.
+ * problems named here, and for those problems only. Source of the first 72: Owner-set ratings, 14 November 2026.
+ * Archive ratings come first, then the twelve Arena problems the owner rated on the same day. The 15 beginner
+ * Arena problems follow, rated on 15 November 2026 (see below).
  */
 export const ownerRatingSource = "owner-set, 14 November 2026"
 
-export const ownerRatings: Readonly<Record<string, number>> = {
+const earlierOwnerRatings: Readonly<Record<string, number>> = {
   "ipho-2026-t1": 1800,
   "ipho-2026-t2": 2100,
   "ipho-2026-t3": 2100,
@@ -79,3 +80,30 @@ export const ownerRatings: Readonly<Record<string, number>> = {
   "arena-the-string-that-answered-back": 1750,
   "arena-the-three-way-wave-split": 1550,
 }
+
+/**
+ * The owner's ratings for the 15 original beginner Arena problems (set F1), source "owner-set, 15 November 2026".
+ * They replaced the author's targets of 14 November, which are gone from lib/problem-archive.ts.
+ */
+export const beginnerOwnerRatingSource = "owner-set, 15 November 2026"
+
+export const beginnerOwnerRatings: Readonly<Record<string, number>> = {
+  "arena-cat-on-a-plank": 500,
+  "arena-a-lamp-under-a-raft": 600,
+  "arena-two-sleds-one-rope": 600,
+  "arena-ice-in-the-flask": 650,
+  "arena-the-loading-voltmeter": 700,
+  "arena-round-the-funnel": 700,
+  "arena-two-isotopes-one-sample": 700,
+  "arena-the-magnetic-slab": 800,
+  "arena-the-unknown-pipe": 800,
+  "arena-the-rectangular-cycle": 800,
+  "arena-two-colours-one-cathode": 850,
+  "arena-rough-ramp-smooth-ramp": 850,
+  "arena-walking-past-two-speakers": 900,
+  "arena-two-charges-head-on": 950,
+  "arena-hosing-the-wall": 1000,
+}
+
+/** Every owner-set rating: the 14 November ones, then the 15 beginner Arena problems of 15 November. */
+export const ownerRatings: Readonly<Record<string, number>> = { ...earlierOwnerRatings, ...beginnerOwnerRatings }

@@ -581,3 +581,13 @@ test("a difficulty rating from 0 to 4,000 is required to publish, in Simple and 
   d.content.estimatedDifficulty = "Hard";
   assert.deepEqual(simpleIssues(d).map((i) => i.field), ["difficulty"]);
 });
+
+test("upload-first checklist accepts manual keys and optional solutions, retaining private-key validation", () => {
+  const d: EditorDraft = { ...structuredClone(newProblem()), problemId: crypto.randomUUID(), version: 1, state: "draft", slug: "" };
+  ensureSimpleShape(d); d.content.title = "Moving Cart"; setDifficulty(d, "1200"); setRights(d, true);
+  d.content.attachments = [{ id: crypto.randomUUID(), purpose: "statement-pdf" }];
+  assert.deepEqual(simpleIssues(d, {}, true), []);
+  assert.equal(simpleIssues(d).some(i => i.field.startsWith("question:")), true);
+  d.privateParts[0].key = null; assert.equal(simpleIssues(d, {}, true).some(i => i.field.startsWith("answer:")), true);
+  d.content.attachments = []; assert.equal(simpleIssues(d, {}, true).some(i => i.field === "statement"), true);
+});

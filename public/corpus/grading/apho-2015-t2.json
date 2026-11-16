@@ -1,0 +1,198 @@
+{
+  "problemId": "apho-2015-t2",
+  "version": "9102cff8eb671631dd5f96a3e34877c9382881c94d6675027ee1d1abe837aedb",
+  "parts": [
+    {
+      "id": "a.i",
+      "sourcePart": "a.i",
+      "label": "Electron gyro-orbit",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.ii",
+      "sourcePart": "a.ii",
+      "label": "Current and magnetic moment",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "B",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the current magnitude. Give the moment vector in your working."
+    },
+    {
+      "id": "a.iii",
+      "sourcePart": "a.iii",
+      "label": "Helical pitch",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "v",
+        "\\theta",
+        "e",
+        "B"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 1.4
+        },
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, v, \\theta, e, B. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.i",
+      "sourcePart": "b.i",
+      "label": "Diamagnetic current",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.ii",
+      "sourcePart": "b.ii",
+      "label": "Plasma magnetization",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "c",
+      "sourcePart": "c",
+      "label": "Diamagnetic field ratio",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.i",
+      "sourcePart": "d.i",
+      "label": "Adiabatic magnetic moment",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.ii",
+      "sourcePart": "d.ii",
+      "label": "Mirror confinement",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "e",
+      "sourcePart": "e",
+      "label": "Auroral loss cone",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "f.i",
+      "sourcePart": "f.i",
+      "label": "Atmospheric stratification",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "f.ii",
+      "sourcePart": "f.ii",
+      "label": "Auroral colours",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "g",
+      "sourcePart": "g",
+      "label": "Solar-wind compression",
+      "kind": "numeric",
+      "unit": "km/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in km/s, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

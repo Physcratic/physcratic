@@ -10,6 +10,8 @@ import "./native-batch-5";
 import "./native-batch-6";
 import "./native-batch-7";
 import "./native-batch-8";
+import "./native-batch-9";
+import { batchNineParts } from "./keys-batch-9";
 import { batchTwoParts } from "./keys-batch-2";
 import { batchThreeParts } from "./keys-batch-3";
 import { batchFourParts } from "./keys-batch-4";
@@ -56,7 +58,7 @@ const parts: Record<string, ArchiveKeyPart[]> = {
 };
 
 /** Deliberately separate from the account-persistence catalogue: these checks are stateless and unrated. */
-export const olympiadDefinitions: ArchiveDefinition[] = Object.entries({ ...parts, ...batchTwoParts, ...batchThreeParts, ...batchFourParts, ...batchFiveParts, ...batchSixParts, ...batchSevenParts, ...batchEightParts }).map(([problemId, parts]) => ({
+export const olympiadDefinitions: ArchiveDefinition[] = Object.entries({ ...parts, ...batchTwoParts, ...batchThreeParts, ...batchFourParts, ...batchFiveParts, ...batchSixParts, ...batchSevenParts, ...batchEightParts, ...batchNineParts }).map(([problemId, parts]) => ({
   problemId, keyVersion: 1, content: JSON.stringify(nativeOlympiadContent[problemId]),
   parts: parts.map(part => ({ ...part, sourceReference: problemId + " original official solution, part " + part.sourcePart })),
 }));

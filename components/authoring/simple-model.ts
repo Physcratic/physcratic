@@ -15,7 +15,7 @@ import { parseRating } from "@/lib/rating-bands";
 import { checkSampled, undecidedMessage } from "@/lib/sampled-check";
 import { answerFromBuffer } from "@/lib/authored-student";
 import { normalizeNumericUnits } from "@/lib/authored-grading-contracts";
-import { authoredKeySchema } from "@/lib/problem-authoring";
+import { authoredKeySchema, hasAuthoredStatement } from "@/lib/problem-authoring";
 import type { EditorBlock, EditorDraft } from "@/lib/problem-authoring-editor";
 
 export type Key = EditorDraft["privateParts"][number]["key"];
@@ -436,22 +436,25 @@ export function setDifficulty(d: EditorDraft, text: string): boolean {
 
 export type SimpleIssue = { field: string; message: string };
 /** `reads` holds what the author has typed for each part's answer, when it differs from the saved key. */
-export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, string>> = {}): SimpleIssue[] {
+export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, string>> = {}, fileFirst = false): SimpleIssue[] {
   const issues: SimpleIssue[] = [];
   const parts = allParts(d);
+  if (fileFirst && !hasAuthoredStatement(d.content)) issues.push({ field: "statement", message: "Upload a statement PDF or add statement images or native instructions." });
   if (parts.length === 0) issues.push({ field: "parts", message: "Add a question first." });
   for (const { part } of parts) {
-    if (!blocksSpans(part.blocks).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
+    if (!fileFirst && !blocksSpans(part.blocks).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
       issues.push({ field: `question:${part.id}`, message: "Write the question first." });
     const picture = pictureOf(part.blocks);
     if (picture && !picture.alt.trim()) issues.push({ field: `picture:${part.id}`, message: "Describe the image so everyone can follow it." });
     const entry = privateFor(d, part.id);
     // Simple asks for a worked solution. Advanced and older problems can still publish without one.
-    if (!blocksSpans(entry.solution).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
+    if (!fileFirst && !blocksSpans(entry.solution).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
       issues.push({ field: `solution:${part.id}`, message: "Add the worked solution." });
     const typed = part.id in reads ? reads[part.id] : answerText(entry.key);
     const read = readAnswer(typed);
-    if (read.kind === "empty" || (read.kind !== "error" && entry.key?.kind === "manual"))
+    if (fileFirst) {
+      if (!authoredKeySchema.safeParse(entry.key).success) issues.push({ field: `answer:${part.id}`, message: "Complete this part's private answer configuration." });
+    } else if (read.kind === "empty" || (read.kind !== "error" && entry.key?.kind === "manual"))
       issues.push({ field: `answer:${part.id}`, message: "Add the final answer." });
     else if (read.kind === "error") issues.push({ field: `answer:${part.id}`, message: read.message });
     else if (entry.key?.kind === "numeric" && !knownUnit(entry.key.units))

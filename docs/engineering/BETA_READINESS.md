@@ -1,14 +1,20 @@
 # Beta readiness log
 
-## Third twenty-problem native archive addition on PR #181 (15 November 2026)
+## PDF-first Problem Studio (16 November 2026)
 
-Continues `codex/archive-next-20` from `88fbf5c`, after clean integration of main `b707773`. Adds eight IPhO and twelve APhO records, 278 source subparts, 142 automatic fields, 136 source self-review fields, 20 working-review fields and 50 source crops. Archive: **95 native documents, 92 native answer-field definitions and 17 PDF problems**, 112 identities retained. Other 92 records and all metadata outside the converted documents are preserved. [Scope, source conventions and validation](NATIVE_ARCHIVE_BATCH_8.md). Local focused 192, server 1,122 pass/31 skip/one inherited TODO and components 204 pass. TypeScript, lint and offline guards pass. Production build and exact-head CI are verified before delivery, with remote evidence recorded in [PR #181](https://github.com/Physcratic/physcratic/pull/181). Separate full expert source review remains pending. No merge, deployment or live operation.
+Upload-first authoring stays inside Simple mode with the existing draft/version/recovery and media contracts. Tutors attach statement PDFs or ordered part images, define numeric/expression/manual keys and optional private solution PDFs, and use the shared student preview. Publication accepts actual statement media without fabricated native text. Ownership/readiness, media sealing and per-part solution approval stay unchanged. Shared Save now supports deliberate recovery, and preview keeps incomplete input mounted. Workflow view preferences contain only per-user/per-problem files/text choices. [Architecture, validation implications and limits](PROBLEM_AUTHORING_MAP.md#pdf-first-studio-contract-16-november-2026). Synthetic PG/model/component/browser checks and independent review are recorded in the focused PR, including final exact-head CI and production-mode PDF checks. Reconciled concurrent main `01ee8ad` without conflicts. No migration, dependency, Production SQL/grant/storage/flag change, OCR or card unification. Existing 3 MiB limits and uploaded-document accessibility limitations remain. Scoped code-only merge is owner-authorized only after review and all material checks pass. Do not activate deletion or practice persistence.
 
+## Account deletion release qualification (15 November 2026)
 
-## Another twenty native archive problems on PR #181 (15 November 2026)
+Actual auth/0018/disposable-PG qualification retains the existing erasure design. A reproduced known-account-switch bug left password/confirmation in the deletion form. The minimal keyed workspace clears old consent while preserving original receipt recovery. Tests add real restricted login roles and the component/API/PG lifecycle in mobile/desktop light/dark, including lost acknowledgement, late responses and provider retry. [Implemented capabilities, owner evidence, acceptance, delivery choice and restore/rollback gates](ACCOUNT_DELETION_READINESS.md#release-qualification-15-november-2026). Live metadata confirms six-hour Neon history plus a separate manual snapshot and retained branches. It does not establish complete backup expiry. Deletion and practice activation remain **NO-GO**, source defaults OFF. No Production SQL, grant, provider, flag or deployment change. Exact SHA, independent review and CI evidence belong to the draft PR. Security-sensitive merge requires explicit owner approval.
 
-Continued `codex/archive-next-20` from pushed `c6e4ec6`. Adds 13 IPhO and seven APhO problems, 251 source subparts, 48 source crops and explicit result versus working review. The archive now has **75 native, 37 PDF problems**, with 72 native answer-field definitions. All other 92 records and original PDFs are preserved. [Scope, source corrections and validation](NATIVE_ARCHIVE_BATCH_7.md). Guest and verified native browser checks run in separate CI jobs with full problem/theme/viewport coverage. Exact-head CI evidence belongs to the updated [PR #181](https://github.com/Physcratic/physcratic/pull/181). No merge or deployment. Separate full source expert review remains pending.
+## Archive note account isolation (15 November 2026)
 
+Actual handler/Drizzle/disposable-PG reproduction confirms a stale displayed account could read or write under a different cookie identity. The separate stacked fix rejects missing/mismatched account headers before archive-note SQL, masks unresolved private cache and scopes delayed save feedback by session generation. Real hook/route browser coverage includes A-to-B-to-A and committed-but-unconfirmed retry. No grading, permission, content, schema or Production change. Final review/CI evidence belongs to the focused PR, with independent final review still unavailable.
+
+## Practice progress readiness (15 November 2026)
+
+Current saved-practice catalogue excludes retired readers while preserving exact historical replay. Legacy test fixtures remain explicit and grading/migration bytes are unchanged. [Audit, live metadata, owner choices and bounded activation/rollback gates](POST_B6_PROFILES_PRACTICE.md#practice-readiness-evidence-and-owner-gates-15-november-2026). Practice/deletion stay OFF by default. No Production SQL, grant, binding, provider, deployment or flag operation. Final SHA/CI and review limitations belong to the focused PR.
 
 ## Authored solution response visibility (15 November 2026)
 
@@ -1304,3 +1310,66 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 - **Change:** in Simple, Publish is no longer disabled while the difficulty rating is missing. Pressing it with anything missing (rating, question, worked solution, final answer, title, source, rights tick) shows every message at once, each next to its field, and moves focus to the one highest on the page. Advanced still disables Publish until the draft passes the check.
 - **Not changed:** what is required, the server check, the saved format.
 - **Tests:** `studio-simple.browser.mjs` checks Publish is enabled, all six messages appear together on an empty draft, focus lands on the question, and with only the rating and rights tick missing focus lands on the rating and nothing publishes. Run on a throwaway PostgreSQL.
+
+## 2026-11-14 - Beginner Arena set F1: 15 original problems
+
+- **Change:** 15 original Arena problems for new olympiad students, first selection stage level, in `lib/arena/source-07.ts` and `source-08.ts` with keys in `lib/archive-grading/source-07.ts` and `source-08.ts`. Arena now has 33 problems. Each has 3 lettered parts (Two Sleds, One Rope has 2), one answer box for each part (44 boxes: 21 expressions, 23 numbers), a worked solution and three hints for each part.
+- **Originality:** every setup, number and twist was written for this set. No exam problem was copied, translated or paraphrased.
+- **Ratings:** the author's first targets were 500 to 1,000. The owner replaced them with their own ratings on 15 November 2026, see the section below. The table shows those ratings.
+
+| Problem | Topic | Owner rating |
+| --- | --- | --- |
+| arena-cat-on-a-plank | Mechanics | 500 |
+| arena-ice-in-the-flask | Thermodynamics | 650 |
+| arena-two-sleds-one-rope | Mechanics | 600 |
+| arena-the-loading-voltmeter | Electromagnetism | 700 |
+| arena-a-lamp-under-a-raft | Optics | 600 |
+| arena-round-the-funnel | Mechanics | 700 |
+| arena-two-isotopes-one-sample | Modern physics | 700 |
+| arena-the-magnetic-slab | Electromagnetism | 800 |
+| arena-rough-ramp-smooth-ramp | Mechanics | 850 |
+| arena-the-unknown-pipe | Waves | 800 |
+| arena-the-rectangular-cycle | Thermodynamics | 800 |
+| arena-two-colours-one-cathode | Modern physics | 850 |
+| arena-walking-past-two-speakers | Waves | 900 |
+| arena-two-charges-head-on | Electromagnetism | 950 |
+| arena-hosing-the-wall | Mechanics | 1000 |
+
+- **The four with an added twist:** Ice in the Flask has a flask with its own heat capacity and ice that starts at −20 °C. Round the Funnel has a second ball at four times the height. The Unknown Pipe gives two resonances with exactly one more between them. Two Colours, One Cathode gives one stopping voltage, a wavelength ratio and a speed ratio, and its statement says in words that the second light has the shorter wavelength and gives the faster electrons.
+- **Hints, new for Arena:** `hints` is an optional field of an Arena problem, three strings for each part letter. The problem page shows a Hints card under the answer boxes (`components/physics/arena-hints.tsx`). Nothing is shown until asked for, and each press shows one more hint. "See hint" after a wrong answer moves focus to the card. The 18 older problems have no hints and show no card.
+- **Figures:** six original SVG diagrams in one style (white panel, dark lines, blue for paths and rays), for Cat on a Plank, Round the Funnel, The Magnetic Slab, The Rectangular Cycle, A Lamp Under a Raft and Walking Past Two Speakers. Each has alt text, a title and a description. The white panel keeps them readable in light and dark. The Arena reader and its tests now accept `.svg` beside `.png`. A test checks that each of these statements says in words what its figure shows.
+- **"Original Physcratic problem":** the 15 carry `original: true`. Their page says "Original Physcratic problem" above the statement and "Contains spoilers. Original Physcratic worked solution." above the solution. The 18 older problems keep "Transcribed text and LaTeX, with original diagrams." and their solution line.
+- **No source PDF:** `statementFile` and `solutionFile` are now optional and the 15 originals have neither, so the placeholder names from the first push are gone. No page linked them before either. `tests/arena-original.test.ts` renders each original's page and library card and fails on any `.pdf`, PDF file name or PDF link. `lib/arena.test.ts` checks the published JSON the same way.
+- **Library order:** the mixed problem library (`/api/arena/collection`) is now sorted by rating from low to high, with problems without a rating last. Ties put Physcratic before community, then go by id. A community problem's rating is its author's difficulty rating when that is a whole number from 0 to 4,000, read the way `parseRating` reads it. Any other label counts as unrated. Paging still uses the problem key as the cursor. The library had no sort control before, so there was none to keep. The line above the list now says how it is sorted. The public authored library route keeps its id order by default and gained `sort=rating` for this.
+- **Rating filter uses the author's rating:** in the mixed library a rating band now keeps the community problems whose author's rating is in the band, and "Unrated" keeps only those whose label is not a rating. Before, every community problem counted as unrated, even though Studio requires a rating and the card shows it. The filter option reads "Unrated" instead of "Unrated / author labels".
+- **Merged with main at 8d49ce8:** the native archive batches of #178 to #180 are kept as they are. One conflict, a count in `lib/archive-grading.test.ts`, took main's version. Tests that pinned how many Arena problems, grading entries, figures or filter results there are now read those numbers from the catalogue and source files.
+- **Limits of the order, by design:** the rating order sorts on a computed value with no index, which is fine at the present size. If the problem a page cursor points at is unpublished between two page loads, the next page shows only the unrated tail. The Arena-only list on the dashboard keeps its own order.
+- **Two independent checks, both in `lib/arena-beginner.test.ts`:** check A recomputes every key without the algebra of the worked solution (time stepping, angle scans, ray tracing with Snell's law, a current balance, adding up heat along the cycle, heat passed a joule at a time, a search over harmonic pairs). Check B types a second derivation of each answer, and the usual wrong answers, into the site's own checker. All 44 keys agree with check A, and check B marks 92 second-route forms correct and refuses 135 wrong ones.
+- **Also changed:** `importedOn` can be set on a seed (the new ones say 2026-11-14, the older ones keep 2026-10-31). "Radioactive decay" and "Photoelectric effect" tags were added to the taxonomy. Tests that pinned 18 Arena problems, 30 grading files, ratings of 800 and above or the old library order now expect the new set and order. The check snapshot gained 15 entries and the 30 older ones are unchanged. The graded-fields fixture of the first 18 problems is untouched.
+- **Not changed:** no database, schema, migration, auth or deployment setting.
+- **Sweep:** `SWEEP=1 node tests/solve-contrast.browser.mjs` on a local production build, guest pass, with a new problem page and a stage that opens every hint added to it. The signed-in pass was not run. Its stages cover Problem Studio, submissions and settings, which this change does not touch.
+
+## 2026-11-15 - Owner ratings for the 15 beginner Arena problems
+
+- **Change:** the owner set the difficulty of the 15 original beginner Arena problems, source "owner-set, 15 November 2026". They sit in `lib/owner-ratings.ts` as `beginnerOwnerRatings`, with their own source `beginnerOwnerRatingSource`, and are part of `ownerRatings`, which replaces the calibrated value. The author's 14 November targets are removed from `calibratedProblemElos` in `lib/problem-archive.ts`, so nothing says "owner to confirm" any more.
+
+| Problem | Author target | Owner rating |
+| --- | --- | --- |
+| arena-cat-on-a-plank | 500 | 500 |
+| arena-a-lamp-under-a-raft | 700 | 600 |
+| arena-two-sleds-one-rope | 600 | 600 |
+| arena-ice-in-the-flask | 600 | 650 |
+| arena-the-loading-voltmeter | 650 | 700 |
+| arena-round-the-funnel | 750 | 700 |
+| arena-two-isotopes-one-sample | 750 | 700 |
+| arena-the-magnetic-slab | 800 | 800 |
+| arena-the-unknown-pipe | 850 | 800 |
+| arena-the-rectangular-cycle | 900 | 800 |
+| arena-two-colours-one-cathode | 900 | 850 |
+| arena-rough-ramp-smooth-ramp | 850 | 850 |
+| arena-walking-past-two-speakers | 900 | 900 |
+| arena-two-charges-head-on | 950 | 950 |
+| arena-hosing-the-wall | 1000 | 1000 |
+
+- **Effect:** ten of the 15 are now in the Beginner band (0 to 800) and five in the lower Intermediate band. The mixed library order and the rating filter follow the new numbers. The tests that pinned Physcratic counts at one rating now read them from the catalogue.
+- **Tests:** `lib/problem-archive.test.ts` checks the 15 ratings and their source exactly, that the owner file and the calibrated list do not both name them, and that the 14 November source is unchanged.

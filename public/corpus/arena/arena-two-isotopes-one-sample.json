@@ -1,0 +1,31 @@
+{
+  "id": "arena-two-isotopes-one-sample",
+  "title": "Two Isotopes, One Sample",
+  "topic": "Modern physics",
+  "tags": [
+    "Radioactive decay",
+    "Nuclear stability"
+  ],
+  "summary": "A sample holds two isotopes with different half-lives. Compare their numbers of nuclei and their activities as time passes.",
+  "statement": "A freshly made sample holds equal numbers of nuclei of two radioactive isotopes. Isotope X has a half-life of $$2.0\\ \\mathrm h$$ and isotope Y has a half-life of $$6.0\\ \\mathrm h$$. Neither decays into the other, and all the decay products are stable. The activity of an isotope is the number of its nuclei that decay per second.\n\n## (a)\n\nFind the ratio $$N_X/N_Y$$ of the numbers of nuclei left, $$6.0\\ \\mathrm h$$ after the sample was made.\n\n## (b)\n\nFind the ratio $$A_X/A_Y$$ of the two activities at that same time.\n\n## (c)\n\nHow long after the sample was made are the two activities equal? Give the time in hours.",
+  "solution": "## (a)\n\nAfter each half-life, half of the nuclei that were there are left. In $$6.0\\ \\mathrm h$$ isotope X goes through three half-lives and isotope Y through one. With $$N_0$$ nuclei of each at the start,\n\n$$N_X=\\frac{N_0}{8},\\qquad N_Y=\\frac{N_0}{2}.$$\n\n$$\\boxed{\\frac{N_X}{N_Y}=\\frac14=0.25.}$$\n\n## (b)\n\nThe activity is not the number of nuclei. Each nucleus of an isotope has the same chance of decaying per second, the decay constant $$\\lambda=\\ln2/T$$, where $$T$$ is the half-life. So\n\n$$A=\\lambda N=\\frac{\\ln2}{T}\\,N.$$\n\nA nucleus of X is three times as likely to decay in the next second as a nucleus of Y, because its half-life is three times shorter:\n\n$$\\frac{A_X}{A_Y}=\\frac{T_Y}{T_X}\\,\\frac{N_X}{N_Y}=3\\times\\frac14.$$\n\n$$\\boxed{\\frac{A_X}{A_Y}=0.75.}$$\n\n## (c)\n\nAt a time $$t$$ in hours,\n\n$$\\frac{A_X}{A_Y}=3\\,\\frac{2^{-t/2}}{2^{-t/6}}=3\\times2^{-t/3}.$$\n\nThe ratio starts at 3 and falls. It equals 1 when $$2^{t/3}=3$$:\n\n$$t=3\\log_2 3\\ \\mathrm h=3\\,\\frac{\\ln 3}{\\ln 2}\\ \\mathrm h.$$\n\n$$\\boxed{t=4.75\\ \\mathrm h.}$$\n\nCheck with part (b): at $$6.0\\ \\mathrm h$$ the ratio has already fallen to $$0.75$$, so the activities were equal a little earlier than that.",
+  "original": true,
+  "importedOn": "2026-11-14",
+  "hints": {
+    "a": [
+      "After each half-life, half of the nuclei that were there are left.",
+      "Count the half-lives in $$6.0\\ \\mathrm h$$. Isotope X has had three and isotope Y has had one.",
+      "The fractions left are $$1/8$$ and $$1/2$$. The starting numbers are equal, so divide one fraction by the other."
+    ],
+    "b": [
+      "Activity is decays per second. It depends on how many nuclei there are and on how likely each one is to decay.",
+      "Use $$A=\\lambda N$$ with $$\\lambda=\\ln2/T$$, where $$T$$ is the half-life. The shorter half-life has the larger decay constant.",
+      "The ratio is $$(T_Y/T_X)(N_X/N_Y)$$. The first factor is 3 and the second is your answer to part (a)."
+    ],
+    "c": [
+      "Write the activity ratio at a general time $$t$$ in hours, using $$N=N_02^{-t/T}$$ for each isotope.",
+      "The ratio is $$3\\times2^{-t/2}/2^{-t/6}=3\\times2^{-t/3}$$. It starts at 3 and falls.",
+      "Set the ratio equal to 1, so $$2^{t/3}=3$$. Take logarithms to get $$t=3\\ln3/\\ln2$$."
+    ]
+  }
+}

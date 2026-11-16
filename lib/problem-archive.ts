@@ -1,6 +1,6 @@
 import type { Problem } from "./physics";
 import { matchesBand } from "./rating-bands";
-import { ownerRatings, ownerRatingSource as source } from "./owner-ratings";
+import { ownerRatings, ownerRatingSource as source, beginnerOwnerRatingSource as beginnerSource } from "./owner-ratings";
 
 /** The three colour groups the older filter used. New code reads lib/rating-bands.ts. */
 export const eloBands = [
@@ -141,10 +141,13 @@ const calibratedProblemElos: Readonly<Record<string, number>> = {
 };
 
 /**
- * The owner's own ratings (source: "owner-set, 14 November 2026", lib/owner-ratings.ts) replace the calibrated
+ * The owner's own ratings (source: "owner-set, 14 November 2026", and "owner-set, 15 November 2026" for the 15 beginner
+ * Arena problems, lib/owner-ratings.ts) replace the calibrated
  * values above for the problems they name, and for those problems only.
  */
 export const ownerRatingSource: string = source;
+/** The 15 beginner Arena problems were rated by the owner on 15 November 2026. */
+export const beginnerOwnerRatingSource: string = beginnerSource;
 const estimatedProblemElos: Readonly<Record<string, number>> = { ...calibratedProblemElos, ...ownerRatings };
 
 export function getEstimatedProblemElo(problemId: string): number {

@@ -72,12 +72,17 @@ export const authoredDraftSchema = z.strictObject({
   }
   if (JSON.stringify(draft).length > 500_000) ctx.addIssue({ code: "custom", message: "Draft exceeds total size limit" });
 });
+/** Only content a student can actually read counts as the statement. */
+export function hasAuthoredStatement(doc: AuthoredDocument) {
+  const bs = [...doc.context, ...doc.sections.flatMap(s => [...s.blocks, ...s.parts.flatMap(p => p.blocks)])];
+  return bs.some(b => b.kind === "text" ? b.spans.some(s => (s.kind === "text" ? s.text : s.latex).trim()) : b.kind === "image" || Boolean(b.latex.trim())) || doc.attachments.some(a => a.purpose === "statement-pdf");
+}
 export const publishableDraftSchema = authoredDraftSchema.superRefine((draft, ctx) => {
   const doc = draft.content;
-  const meaningful = (bs: z.infer<typeof blocks>) => bs.some(b => b.kind === "text" ? b.spans.some(s => (s.kind === "text" ? s.text : s.latex).trim()) : b.kind === "math" && b.latex.trim());
   const parts = doc.sections.flatMap(s => s.parts);
   if (!doc.title.trim() || !doc.provenance.rightsDeclaration.trim() || (doc.provenance.kind === "authorized" && !doc.provenance.source.trim())) ctx.addIssue({ code: "custom", message: "Title and rights provenance required" });
-  if (!parts.length || ![doc.context, ...doc.sections.map(s => s.blocks), ...parts.map(p => p.blocks)].some(meaningful)) ctx.addIssue({ code: "custom", message: "Native statement and at least one part required" });
+  // Media ownership, readiness and exact purpose are checked transactionally by replaceDraftMedia.
+  if (!parts.length || !hasAuthoredStatement(doc)) ctx.addIssue({ code: "custom", message: "Add a statement and at least one part. Use text, statement images or a statement PDF." });
   const images = [...doc.context, ...doc.sections.flatMap(s => [...s.blocks, ...s.parts.flatMap(p => p.blocks)]), ...draft.privateParts.flatMap(p => [...p.hints, ...p.solution])].filter(b => b.kind === "image");
   if (images.some(b => !b.alt.trim())) ctx.addIssue({ code: "custom", message: "Every image requires descriptive alternative text before publication" });
   for (const part of parts) if (!draft.privateParts.find(p => p.partId === part.id)?.key) ctx.addIssue({ code: "custom", message: "Every published part requires a key or explicit manual mode" });

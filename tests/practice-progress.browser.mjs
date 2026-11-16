@@ -12,8 +12,8 @@ import { Pool } from 'pg';
 import { createProblemProgressApi } from '../lib/problem-progress-api.ts';
 import { createPracticeCheckRoute } from '../lib/practice-check-route.ts';
 import { createPracticeCheckApi } from '../lib/practice-check-api.ts';
-import { practiceCheckCatalog } from '../lib/practice-check-catalog.ts';
-import { dashboardAccountMatches, dashboardPracticeCounts } from '../lib/dashboard-practice.ts';
+import { practiceCatalogWithLegacyFixture as practiceCheckCatalog } from './fixtures/practice-catalog.ts';
+import { dashboardAccountMatches } from '../lib/dashboard-practice.ts';
 import { handleArchiveGrade } from '../lib/archive-grading-request.ts';
 import { isAllowedSubmissionOrigin } from '../lib/submission-security.ts';
 const require=createRequire(import.meta.url), external=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS||'/tmp/physcratic-editor-test','package.json'));
@@ -26,7 +26,7 @@ const temp=await mkdtemp(join(tmpdir(),'physcratic-b2b-'));
 const catalog=practiceCheckCatalog();let browser,server,origin,dropNext=false,holdNext=false,releaseHeld,unavailable=false,enabled=true,posts=0,guestPosts=0,progressReads=0;
 const bodies=[],errors=[];
 const user=request=>{const id=request.headers.get('cookie')?.match(/viewer=([A-Za-z0-9]+)/)?.[1];return id?{id,emailVerified:id!=='U'}:null;};
-const api=createPracticeCheckApi({pool,user:async r=>user(r),origin:r=>isAllowedSubmissionOrigin(r,[origin])});
+const api=createPracticeCheckApi({pool,catalog:()=>catalog,user:async r=>user(r),origin:r=>isAllowedSubmissionOrigin(r,[origin])});
 const gatedApi=createPracticeCheckRoute(()=>enabled,async()=>({practiceCheckApi:api}));
 const combinedProgress=createProblemProgressApi(request=>gatedApi('progress',request),async()=>Response.json({error:'Authored fixtures are not installed'},{status:503}));
 async function actor(id){await pool.query('INSERT INTO "user" VALUES($1) ON CONFLICT DO NOTHING',[id]);}
@@ -49,7 +49,7 @@ try{
    let response;
    if(path==='/api/dashboard'){
     const viewer=user(request);if(!dashboardAccountMatches(request,viewer?.id??null))response=Response.json({error:'Account changed'},{status:409});
-    else{const progress=unavailable?{practiceProgressAvailable:false,practiceAttempts:null,solvedProblems:null}:await dashboardPracticeCounts(pool,viewer?.id??null,()=>enabled);response=Response.json({user:viewer?{name:'Synthetic student'}:null,savedAttempts:0,archiveReviewed:0,legacyPracticeAttempts:0,ratings:[],contests:[],...progress});}
+    else{const saved=viewer&&!unavailable?await gatedApi('progress',request):null;const summary=saved?.ok?await saved.json():null;const progress={practiceProgressAvailable:Boolean(summary),practiceAttempts:summary?.savedChecks??null,solvedProblems:summary?.solvedProblems??null};response=Response.json({user:viewer?{name:'Synthetic student'}:null,savedAttempts:0,archiveReviewed:0,legacyPracticeAttempts:0,ratings:[],contests:[],...progress});}
    }else if(path==='/api/archive-grade'){guestPosts++;response=await handleArchiveGrade(request,[origin]);}
    else if(unavailable)response=Response.json({error:'Save unavailable',saveState:'unconfirmed'},{status:503});
    else{

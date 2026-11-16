@@ -5,15 +5,37 @@ import { join } from "node:path";
 import katex from "katex";
 import { arenaProblemSchema, filterArena, type ArenaCatalogEntry } from "./arena-schema";
 import catalog from "./arena/index.json";
+import { getEstimatedProblemElo } from "./problem-archive";
+import { source01 } from "./arena/source-01";
+import { source02 } from "./arena/source-02";
+import { source03 } from "./arena/source-03";
+import { source04 } from "./arena/source-04";
+import { source05 } from "./arena/source-05";
+import { source06 } from "./arena/source-06";
+import { source07 } from "./arena/source-07";
+import { source08 } from "./arena/source-08";
+
 
 const entries = catalog.problems as ArenaCatalogEntry[];
+const seedCount = [source01, source02, source03, source04, source05, source06, source07, source08].reduce((sum, source) => sum + source.length, 0);
+/** How many Arena problems have a rating from min up to, but not including, max. */
+const rated = (min: number, max: number) => entries.filter((entry) => getEstimatedProblemElo(entry.id) >= min && getEstimatedProblemElo(entry.id) < max).length;
 const problems = entries.map((entry) => arenaProblemSchema.parse(JSON.parse(readFileSync(join(process.cwd(), "public", entry.path), "utf8"))));
 
-test("all 18 uploaded problem/solution pairs have native content and unique source identities", () => {
-  assert.equal(catalog.count, 18);
-  assert.equal(problems.length, 18);
-  assert.equal(new Set(problems.map((problem) => problem.id)).size, 18);
-  assert.equal(new Set(problems.flatMap((problem) => [problem.statementFile, problem.solutionFile])).size, 36);
+test("every problem/solution pair in the catalogue has native content and unique source identities", () => {
+  // Counts come from the catalogue and the source files, so a new problem needs no edit here.
+  assert.equal(catalog.count, entries.length);
+  assert.equal(catalog.count, seedCount);
+  assert.equal(problems.length, catalog.count);
+  assert.equal(new Set(problems.map((problem) => problem.id)).size, catalog.count);
+  // The first 18 problems came from PDFs. The 15 original Physcratic problems have none.
+  assert.equal(new Set(problems.filter((problem) => !problem.original).flatMap((problem) => [problem.statementFile, problem.solutionFile])).size, 2 * problems.filter((problem) => !problem.original).length);
+  assert.ok(problems.some((problem) => problem.original) && problems.some((problem) => !problem.original));
+  for (const problem of problems.filter((item) => item.original)) {
+    assert.equal(problem.statementFile, undefined, problem.id);
+    assert.equal(problem.solutionFile, undefined, problem.id);
+    assert.doesNotMatch(JSON.stringify(problem) + JSON.stringify(entries.find((item) => item.id === problem.id)), /\.pdf/i, problem.id);
+  }
   for (const problem of problems) {
     assert.ok(problem.statement.includes("$$"), problem.id);
     assert.ok(problem.solution.includes("$$"), problem.id);
@@ -43,13 +65,13 @@ test("only local, existing diagram crops are referenced, never full-page viewers
   for (const problem of problems) for (const kind of ["statement", "solution"] as const) {
     for (const match of problem[kind].matchAll(/!\[([^\]]+)\]\(([^)]+)\)/g)) {
       assert.ok(match[1].length > 20);
-      assert.match(match[2], /^\/corpus\/arena\/figures\/[a-z-]+\.png$/);
+      assert.match(match[2], /^\/corpus\/arena\/figures\/[a-z-]+\.(?:png|svg)$/);
       assert.ok(existsSync(join(process.cwd(), "public", match[2])), match[2]);
       referenced.add(match[2]);
     }
   }
-  assert.equal(referenced.size, 33);
-  assert.equal(readdirSync(join(process.cwd(), "public/corpus/arena/figures")).length, 33);
+  // Every figure file is used and every figure used exists.
+  assert.deepEqual([...referenced].sort(), readdirSync(join(process.cwd(), "public/corpus/arena/figures")).map((file) => `/corpus/arena/figures/${file}`).sort());
 });
 
 test("long documents retain every source subpart and important qualifications", () => {
@@ -70,18 +92,22 @@ test("long documents retain every source subpart and important qualifications", 
 test("Arena search, tags and estimated difficulty filters compose independently of competitions", () => {
   assert.equal(filterArena(entries, { query: "dodecahedron" }).length, 1);
   assert.equal(filterArena(entries, { query: "quantum tunnelling" })[0]?.id, "arena-the-quantum-escape-room");
-  assert.equal(filterArena(entries, { topic: "Optics" }).length, 3);
+  assert.equal(filterArena(entries, { topic: "Optics" }).length, entries.filter((entry) => entry.topic === "Optics").length);
+  assert.ok(filterArena(entries, { topic: "Optics" }).length >= 4);
   assert.deepEqual(filterArena(entries, { difficulty: "1200-1599" }).map((problem) => problem.id), [
     "arena-mind-the-gap",
     "arena-the-bubble-treaty",
     "arena-the-three-way-wave-split",
   ]);
-  assert.equal(filterArena(entries, { difficulty: "1600-plus" }).length, 15)
+  assert.equal(filterArena(entries, { difficulty: "1600-plus" }).length, rated(1600, Infinity))
   assert.equal(filterArena(entries, { query: "dodecahedron", difficulty: "intermediate-olympiad" })[0]?.id, "arena-the-dodecahedron-conspiracy")
   assert.equal(filterArena(entries, { query: "dodecahedron", difficulty: "advanced" }).length, 0)
   assert.equal(filterArena(entries, { topic: "Optics", difficulty: "1200-1599" })[0]?.id, "arena-mind-the-gap");
   assert.equal(filterArena(entries, { query: "quantum", difficulty: "1200-1599" }).length, 0);
-  assert.equal(filterArena(entries, { difficulty: "under-1200" }).length, 0);
+  // The beginner set of 14 November 2026: 15 problems from 500 to 1,000, eight of them in the Beginner band.
+  assert.equal(filterArena(entries, { difficulty: "under-1200" }).length, rated(0, 1200));
+  assert.equal(filterArena(entries, { difficulty: "beginner-olympiad" }).length, rated(0, 801));
+  assert.ok(rated(0, 801) >= 8 && rated(0, 1200) >= 15);
   assert.equal(filterArena(entries, { difficulty: "unrated" }).length, 0);
   assert.equal(filterArena(entries, { difficulty: "expert" }).length, 0);
   assert.equal(filterArena(entries, { query: "does-not-exist" }).length, 0);

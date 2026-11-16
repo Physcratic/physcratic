@@ -32,11 +32,11 @@ export function achievementFixtures(pool: Pool) {
     if (profile) await pool.query("INSERT INTO community_profile(user_id,handle,public_visibility) VALUES($1,$2,true)", [id, `u_${id.replaceAll("-", "").slice(0, 18)}`]);
     return id;
   }
-  async function problem(owner: string, modes: ("numeric" | "expression" | "manual")[] = ["numeric"], publish = true) {
+  async function problem(owner: string, modes: ("numeric" | "expression" | "manual")[] = ["numeric"], publish = true, estimatedDifficulty = "1200") {
     // Threshold fixtures intentionally reset the unrelated authoring quota.
     await pool.query("DELETE FROM authored_write_limit WHERE user_id=$1", [owner]);
     const parts = modes.map((answerMode, i) => ({ id: randomUUID(), label: String(i + 1), answerMode, blocks: [text("Question")] }));
-    const content: AuthoredDocument = { title: "Achievement fixture", topicTags: [], methodTags: [], estimatedDifficulty: "1200",
+    const content: AuthoredDocument = { title: "Achievement fixture", topicTags: [], methodTags: [], estimatedDifficulty,
       context: [text("Statement")], sections: [{ id: randomUUID(), title: "Parts", blocks: [], parts }], attachments: [],
       provenance: { kind: "original", source: "", rightsDeclaration: "I own this work." } };
     const privateParts: PrivatePart[] = parts.map(part => ({ partId: part.id, key: part.answerMode === "numeric"

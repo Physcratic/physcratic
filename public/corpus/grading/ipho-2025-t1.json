@@ -1,0 +1,306 @@
+{
+  "problemId": "ipho-2025-t1",
+  "version": "f64b8a5a6d1cde11a98e155468378586e6c5e4dd9e72dd240c5656a795dd393b",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Circular electron speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "\\epsilon_0",
+        "m_e",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use e, \\epsilon_0, m_e, r. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Bohr orbit scales",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "A.3",
+      "label": "Bound-state energy",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "A.4",
+      "label": "Proton-current field",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "e",
+        "\\alpha",
+        "c",
+        "r_1"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_1",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu_0, e, \\alpha, c, r_1. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "A.5",
+      "label": "Hyperfine emission",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m, without a unit suffix."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Circular galactic motion",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "r",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use d for the positive radial derivative of the potential."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Visible-bulge mass",
+      "kind": "numeric",
+      "unit": "solar masses",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in solar masses, without a unit suffix."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Extended density model",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Vertical galactic stability",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\varphi_0",
+        "r_0",
+        "r",
+        "z_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\varphi_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_0",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 5,
+          "max": 10
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.2,
+          "max": 2
+        }
+      ],
+      "help": "Use \\varphi_0, r_0, r, z_0. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Flat rotation regime",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\varphi_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\varphi_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\varphi_0. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "C.3",
+      "label": "Galactic radial velocity",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.4",
+      "sourcePart": "C.4",
+      "label": "Three hydrogen sources",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.5",
+      "sourcePart": "C.5",
+      "label": "Source positions",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "D.1",
+      "label": "Tully-Fisher exponents",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "D.2",
+      "label": "Outer-galaxy acceleration",
+      "kind": "numeric",
+      "unit": "m/s^2",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m/s^2, without a unit suffix."
+    },
+    {
+      "id": "d.3",
+      "sourcePart": "D.3",
+      "label": "Deep-MOND scaling",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the deep-MOND exponent. Show the acceleration-scale estimate in your working."
+    },
+    {
+      "id": "d.4",
+      "sourcePart": "D.4",
+      "label": "MOND rotation curve",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

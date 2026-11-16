@@ -10,7 +10,7 @@ import { join } from 'node:path';
 import { Pool } from 'pg';
 import { createPracticeCheckApi } from '../lib/practice-check-api.ts';
 import { createPracticeCheckRoute, practiceChecksEnabled } from '../lib/practice-check-route.ts';
-import { practiceCheckCatalog } from '../lib/practice-check-catalog.ts';
+import { practiceCatalogWithLegacyFixture as practiceCheckCatalog } from './fixtures/practice-catalog.ts';
 import { handleArchiveGrade } from '../lib/archive-grading-request.ts';
 import { isAllowedSubmissionOrigin } from '../lib/submission-security.ts';
 const require=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS||'/tmp/physcratic-editor-test','package.json'));
@@ -22,7 +22,7 @@ const admin=new Pool({connectionString:target.href});await admin.query(`CREATE S
 const pool=new Pool({connectionString:target.href,options:`-c search_path=${schema},public`,max:5});
 let origin,browser,server;
 let enabled=false,loads=0;
-const serverApi=createPracticeCheckApi({pool,user:async request=>{
+const serverApi=createPracticeCheckApi({pool,catalog:practiceCheckCatalog,user:async request=>{
   const id=request.headers.get('cookie')?.match(/viewer=([ABU])/u)?.[1];
   return id?{id,emailVerified:id!=='U'}:null;
 },origin:request=>isAllowedSubmissionOrigin(request,[origin])});
