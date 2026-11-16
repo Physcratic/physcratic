@@ -9,6 +9,7 @@ import path from "node:path";
 import arena from "../arena/index.json";
 import { catalogProblems, type CatalogProblem } from "../corpus-catalog";
 import { physicsTopics, physicsTagLabel } from "../physics-taxonomy";
+import { archiveTitle, arenaMetaTitle, plainPunctuation } from "./problem-titles";
 import { sentences, sharedSection, statementDescription, statementParagraphs } from "./statement-text";
 
 export type ProblemKind = "practice" | "arena" | "archive";
@@ -49,7 +50,7 @@ export interface ProblemPage {
  */
 export const ARCHIVE_INDEXABLE = true;
 
-export const META_TITLE_BUDGET = 60 - " | Physcratic".length;
+export { META_TITLE_BUDGET, archiveMetaTitle, displayTitle, plainPunctuation } from "./problem-titles";
 
 export const topicSlug = (name: string): string =>
   physicsTopics.find((topic) => topic.label === name || (topic.aliases as readonly string[]).includes(name))?.id ??
@@ -58,34 +59,6 @@ export const topicSlug = (name: string): string =>
 export const topicName = (slug: string): string | undefined => physicsTopics.find((topic) => topic.id === slug)?.label;
 
 export const problemPath = (id: string) => `/dashboard/problems/${id}`;
-
-/** The copy rules ban en dashes, em dashes and semicolons in text we write, so official titles and statement leads get plain forms. */
-export function plainPunctuation(text: string): string {
-  return text.replace(/\s*[–—]\s*/g, " - ").replace(/\s*;\s*/g, ", ");
-}
-
-/**
- * "WATER-POWERED RICE-POUNDING MORTAR" becomes "Water-Powered Rice-Pounding Mortar" in the <title>. The page heading keeps
- * the official title as written. One-word titles such as "LIGO-GW150914" are acronyms and stay as they are.
- */
-export function displayTitle(title: string): string {
-  if (title !== title.toUpperCase() || !/[A-Z]/.test(title) || !/\s/.test(title.trim())) return title;
-  return title.toLowerCase().replace(/(^|[\s(-])([a-z])/g, (_, lead: string, letter: string) => lead + letter.toUpperCase());
-}
-
-export function archiveMetaTitle(title: string, competition: string, year: number, number: number, identifierOnly: boolean): string {
-  const long = `${competition} ${year} Problem ${number}`;
-  if (identifierOnly) return long;
-  const short = `${competition} ${year} P${number}`;
-  for (const label of [long, short]) {
-    const full = `${title}, ${label}`;
-    if (full.length <= META_TITLE_BUDGET) return full;
-  }
-  const room = META_TITLE_BUDGET - `…, ${short}`.length;
-  const cut = title.slice(0, room);
-  const space = cut.lastIndexOf(" ");
-  return `${cut.slice(0, space > 12 ? space : room).replace(/[\s,;:-]+$/, "")}…, ${short}`;
-}
 
 export interface PdfStatement {
   native?: ImportedProblem
@@ -133,9 +106,7 @@ function fit(description: string, fallback: string): string {
 }
 
 function archivePage(problem: CatalogProblem): ProblemPage {
-  const number = Number(problem.code.slice(1));
-  const identifierOnly = problem.titleOrigin === "problem-identifier";
-  const title = identifierOnly ? `${problem.competition} ${problem.year} Problem ${number}` : problem.title;
+  const { number, title, metaTitle } = archiveTitle(problem);
   const imported = pdfStatement(problem);
   const text = imported.text;
   const body = statementParagraphs(text, problem.title).join(" ");
@@ -150,7 +121,7 @@ function archivePage(problem: CatalogProblem): ProblemPage {
     kind: "archive",
     path: problemPath(problem.id),
     title,
-    metaTitle: archiveMetaTitle(plainPunctuation(displayTitle(title)), problem.competition, problem.year, number, identifierOnly),
+    metaTitle,
     description,
     topic: problem.primaryTopic,
     topicSlug: topicSlug(problem.primaryTopic),
@@ -176,7 +147,7 @@ function arenaPage(entry: (typeof arena.problems)[number]): ProblemPage {
     kind: "arena",
     path: problemPath(entry.id),
     title: entry.title,
-    metaTitle: entry.title.length <= META_TITLE_BUDGET ? entry.title : `${entry.title.slice(0, META_TITLE_BUDGET - 1).trimEnd()}…`,
+    metaTitle: arenaMetaTitle(entry.title),
     description: fit(entry.summary, `A Physcratic Arena ${entry.topic.toLowerCase()} problem with a worked solution.`),
     topic: entry.topic,
     topicSlug: topicSlug(entry.topic),
