@@ -1,6 +1,6 @@
 {
   "problemId": "apho-2023-t3",
-  "version": "4206a8bf03a9d11b835c414008f942e69405971897418dd1d2487855390b3674",
+  "version": "6e82b3cf06615d5f29b7af3e84577e17891d1f2222770f6494dbc996c4e487c3",
   "parts": [
     {
       "id": "a.1",
@@ -36,11 +36,11 @@
       "id": "b.2",
       "sourcePart": "B.2",
       "label": "Exposure to vacuum",
-      "kind": "numeric",
-      "unit": "m/s",
+      "kind": "self-review",
+      "unit": "",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Enter the asymptotic speed. Discuss the time estimate in your working."
+      "help": "State the air thermal law. The adiabatic model rebounds before the formal terminal branch. Compare its turning radius with the conditional isothermal growth estimate. No unique terminal-speed key is enforced."
     },
     {
       "id": "b.3",

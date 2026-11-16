@@ -1,6 +1,6 @@
 {
   "problemId": "ipho-2024-t1",
-  "version": "ca89b556510371213211516a5efe27f9295a5d4373c9074f81315ba5214eaa02",
+  "version": "07ad029c2edc89ff3b55e41bd3657c46d8fde48d0348ddaf87f498b1a4ce3b99",
   "parts": [
     {
       "id": "a-1",
@@ -26,13 +26,11 @@
       "id": "a-3",
       "sourcePart": "a-3",
       "label": "Wien equation",
-      "kind": "expression",
+      "kind": "self-review",
       "unit": "",
-      "symbols": [
-        "x"
-      ],
+      "symbols": [],
       "symbolConditions": [],
-      "help": "Use x. Enter the requested expression. Derivation and any sketches require self-review."
+      "help": "Derive the equation for the nonzero spectral maximum. Nonzero constant multiples are equivalent. Compare the equation and root selection with the worked solution."
     },
     {
       "id": "a-4",

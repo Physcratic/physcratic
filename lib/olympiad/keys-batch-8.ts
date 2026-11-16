@@ -51,7 +51,7 @@ export const batchEightParts: Record<string, ArchiveKeyPart[]> = {
   "ipho-2024-t1": [
     { ...numeric("a-1", "Solar constant", 1350, "W/m²", {"absTol": 5, "relTol": 0, "help": "Enter the result in W/m², without a unit suffix.", "canonical": "1350"}), sourcePart: "a-1" },
     { ...numeric("a-2", "Airless blackbody Earth", 278, "K", {"absTol": 1, "relTol": 0, "help": "Enter the result in K, without a unit suffix.", "canonical": "278"}), sourcePart: "a-2" },
-    { ...expression("a-3", "Wien equation", "5*(1-\\exp(-x))-x", "x", "Use x. Enter the requested expression. Derivation and any sketches require self-review.", {"positive": []}), sourcePart: "a-3" },
+    { ...review("a-3", "Wien equation", "Derive the equation for the nonzero spectral maximum. Nonzero constant multiples are equivalent. Compare the equation and root selection with the worked solution."), sourcePart: "a-3" },
     { ...numeric("a-4", "Wien constant", 2895000.0, "nm K", {"absTol": 10000.0, "relTol": 0, "help": "Enter the result in nm K, without a unit suffix.", "canonical": "2895000.0"}), sourcePart: "a-4" },
     { ...review("a-5", "Solar and terrestrial peaks", "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."), sourcePart: "a-5" },
     { ...numeric("a-6", "Equal-height rescaling", 0.01205, "", {"absTol": 0.0001, "relTol": 0, "help": "Enter the dimensionless result.", "canonical": "0.01205"}), sourcePart: "a-6" },

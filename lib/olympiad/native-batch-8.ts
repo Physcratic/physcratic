@@ -184,7 +184,7 @@ nativeOlympiadContent["ipho-2023-t1"] = {
     sub("d.3. Swimming microbes"),
     p("If 2D/u0²≪δ0, the successive laws are \\(2Dt\\) for t≪2D/u0², \\(u_0^2t^2\\) for 2D/u0²≪t≪δ0, and \\(u_0^2\\delta_0t\\) for t≫δ0. More exactly the last coefficient is u0²δ0+2D. The assumed intermediate regime makes its Brownian contribution negligible. The source solution labels this item D.1 in its prose, but its answer box and question identify D.3."),
     sub("e.1. Coagulation threshold"),
-    p("Under overdamped deterministic motion every repulsive-force interval must disappear. The threshold satisfies U′=U″=0, giving d=2λ and \\(\\lambda=e^2Aq^2/[4B\\epsilon(kT)^2]\\), where e is Euler's number. Hence \\[c=\\frac{8B^2\\epsilon^3(kT)^5}{e^4N_AA^2q^6}.\\] Setting only the potential barrier height to zero would not eliminate the force barrier and does not meet the stated deterministic criterion."),
+    p("Under overdamped deterministic motion every repulsive-force interval must disappear. The threshold satisfies U′=U″=0, giving d=2λ and \\(\\lambda=e^2Aq^2/[4B\\epsilon(kT)^2]\\), where e is Euler's number. Hence \\[c=\\frac{8B^2\\epsilon^3(kT)^5}{e^4N_AA^2q^6}.\\] Setting only the potential barrier height to zero would not eliminate the force barrier and does not meet the stated deterministic criterion. The value above is the critical concentration, an infimum for finite-time coagulation from initially separated particles. At equality the force has a double zero at \\(d=2\\lambda\\), approached only asymptotically in this overdamped model. Finite-time passage requires \\(c>c_{\\rm crit}\\)."),
   ],
 };
 
@@ -230,7 +230,7 @@ nativeOlympiadContent["ipho-2024-t1"] = {
     sub("a-2. Airless blackbody Earth"),
     p("The absorbing disc has one quarter the radiating surface area. Thus \\(T_E=[S_0/(4\\sigma)]^{1/4}=T_S\\sqrt{R_S/(2d)}=278\\,\\mathrm K\\)."),
     sub("a-3. Wien equation"),
-    p("Differentiating u with respect to λ gives \\(f(x)=5(1-e^{-x})-x=0\\). Any nonzero multiple yields the same root. The field checks this stated f."),
+    p("Differentiating u with respect to λ gives \\(f(x)=5(1-e^{-x})-x=0\\). Any nonzero multiple yields the same root. Any nonzero constant multiple defines the same equation, so the derivation and equation use self-review rather than a unique expression key."),
     sub("a-4. Wien constant"),
     p("Iterate x=5(1−e⁻ˣ) starting near 5. The physical root is xm=4.965≈4.97. Hence \\(b=hc/(x_mk_B)\\simeq2.90\\times10^6\\,\\mathrm{nm\\,K}\\). The supplied rounded constants allow 2.89 to 2.90 million nm K."),
     sub("a-5. Solar and terrestrial peaks"),

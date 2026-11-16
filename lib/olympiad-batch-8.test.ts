@@ -98,7 +98,7 @@ test("source numerical values follow independent physical balances", () => {
 
 test("source subparts and model convention notes are retained", () => {
   assert.equal(Object.values(batchEightParts).reduce((n, p) => n + p.length - 1, 0), 278);
-  assert.equal(Object.values(batchEightParts).flat().filter(p => p.kind !== "self-review").length, 142);
+  assert.equal(Object.values(batchEightParts).flat().filter(p => p.kind !== "self-review").length, 141);
   const index = JSON.parse(readFileSync("lib/corpus/import-index.json", "utf8"));
   const text = (id: string) => {
     const path = index.problems.find((p: { id: string }) => p.id === id).path;

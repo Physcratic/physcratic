@@ -9,6 +9,7 @@ import { publicArchiveMetadata } from "./archive-grading/catalog";
 import sources from "../docs/engineering/native-archive-batch-9-sources.json";
 import figures from "../docs/engineering/native-archive-batch-9-figures.json";
 import supplements from "../docs/engineering/native-archive-batch-9-supplements.json";
+import physicsReview from "../docs/engineering/native-archive-physics-review.json";
 import preservation from "../docs/engineering/native-archive-batch-9-preservation.json";
 const sha = (value: string | Buffer) => createHash("sha256").update(value).digest("hex");
 const load = (path: string) => JSON.parse(readFileSync(path, "utf8"));
@@ -23,13 +24,19 @@ test("the final seventeen complete all 112 documents and preserve earlier record
     assert.equal(r.statement.format, "html");
     assert.equal(r.solution.format, "html");
     const previous = preservation.unchangedRecords[r.id as keyof typeof preservation.unchangedRecords];
-    if (previous) assert.equal(sha(JSON.stringify(r)), previous, r.id);
+    if (previous) {
+      const correction = physicsReview.records.find(item => item.id === r.id && item.changed);
+      if (correction) {
+        assert.equal(correction.before, previous, r.id + " reviewed baseline");
+        assert.equal(sha(JSON.stringify(r)), correction.after, r.id + " reviewed correction");
+      } else assert.equal(sha(JSON.stringify(r)), previous, r.id);
+    }
     const metadata = Object.fromEntries(Object.entries(r).filter(([k]) => !["statement", "solution"].includes(k)));
     assert.equal(sha(JSON.stringify(metadata)), preservation.metadata[r.id as keyof typeof preservation.metadata], r.id + " metadata");
   }
   const fields = Object.values(batchNineParts).flat();
   assert.equal(fields.length, 234);
-  assert.equal(fields.filter(p => p.kind !== "self-review").length, 104);
+  assert.equal(fields.filter(p => p.kind !== "self-review").length, 102);
   for (const id of Object.keys(batchNineParts)) {
     const definition = olympiadDefinitions.find(d => d.problemId === id)!;
     assert.equal(new Set(definition.parts.map(p => p.sourcePart)).size, definition.parts.length);

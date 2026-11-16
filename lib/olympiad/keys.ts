@@ -59,7 +59,7 @@ const parts: Record<string, ArchiveKeyPart[]> = {
 
 /** Deliberately separate from the account-persistence catalogue: these checks are stateless and unrated. */
 export const olympiadDefinitions: ArchiveDefinition[] = Object.entries({ ...parts, ...batchTwoParts, ...batchThreeParts, ...batchFourParts, ...batchFiveParts, ...batchSixParts, ...batchSevenParts, ...batchEightParts, ...batchNineParts }).map(([problemId, parts]) => ({
-  problemId, keyVersion: 1, content: JSON.stringify(nativeOlympiadContent[problemId]),
+  problemId, keyVersion: ["apho-2023-t3", "ipho-2022-t2", "ipho-2024-t1"].includes(problemId) ? 2 : 1, content: JSON.stringify(nativeOlympiadContent[problemId]),
   parts: parts.map(part => ({ ...part, sourceReference: problemId + " original official solution, part " + part.sourcePart })),
 }));
 

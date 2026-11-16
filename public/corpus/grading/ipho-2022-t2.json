@@ -1,6 +1,6 @@
 {
   "problemId": "ipho-2022-t2",
-  "version": "ca62c8a63167c65fbedc6a0ccfa46917dc73d92cc32bc1a93c82eb09ab2f3139",
+  "version": "8a752cf106c4e163584de959b8dc07a2a390a6111ba7d278e8b78ed052a89c0c",
   "parts": [
     {
       "id": "a.1",
@@ -16,11 +16,11 @@
       "id": "a.2",
       "sourcePart": "A.2",
       "label": "Diffraction spot",
-      "kind": "numeric",
-      "unit": "um",
+      "kind": "self-review",
+      "unit": "",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Enter the result in um, without a unit suffix."
+      "help": "State the aperture model and spot-diameter convention. Compare the Airy estimate and simpler diffraction scale with the worked solution. This estimate requires self-review."
     },
     {
       "id": "a.3",

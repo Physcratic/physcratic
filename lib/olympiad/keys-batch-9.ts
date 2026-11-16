@@ -156,7 +156,7 @@ export const batchNineParts: Record<string, ArchiveKeyPart[]> = {
     { ...numeric("a.1", "Collapse time scale", 0.000101, "s", {"absTol": 5e-06, "relTol": 0, "canonical": "0.000101", "help": "Enter the result in s, without a unit suffix."}), sourcePart: "A.1" },
     { ...review("a.2", "Critical pressure", "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."), sourcePart: "A.2" },
     { ...review("b.1", "Bubble equation of motion", "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."), sourcePart: "B.1" },
-    { ...numeric("b.2", "Exposure to vacuum", 1.25, "m/s", {"absTol": 0.03, "relTol": 0, "canonical": "1.25", "help": "Enter the asymptotic speed. Discuss the time estimate in your working."}), sourcePart: "B.2" },
+    { ...review("b.2", "Exposure to vacuum", "State the air thermal law. The adiabatic model rebounds before the formal terminal branch. Compare its turning radius with the conditional isothermal growth estimate. No unique terminal-speed key is enforced."), sourcePart: "B.2" },
     { ...review("b.3", "Pressure-jump rebound", "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."), sourcePart: "B.3" },
     { ...numeric("b.4", "Final-collapse exponent", 0.4, "", {"absTol": 0, "relTol": 0, "canonical": "0.4", "help": "Enter the dimensionless result."}), sourcePart: "B.4" },
     { ...numeric("b.5", "Bubble resonance", 32.6, "kHz", {"absTol": 0.6, "relTol": 0, "canonical": "32.6", "help": "Enter the result in kHz, without a unit suffix."}), sourcePart: "B.5" },
@@ -205,7 +205,7 @@ export const batchNineParts: Record<string, ArchiveKeyPart[]> = {
   ],
   "ipho-2022-t2": [
     { ...numeric("a.1", "Geometrical image size", 26.2, "um", {"absTol": 1, "relTol": 0, "canonical": "26.2", "help": "Enter the result in um, without a unit suffix."}), sourcePart: "A.1" },
-    { ...numeric("a.2", "Diffraction spot", 45, "um", {"absTol": 2, "relTol": 0, "canonical": "45", "help": "Enter the result in um, without a unit suffix."}), sourcePart: "A.2" },
+    { ...review("a.2", "Diffraction spot", "State the aperture model and spot-diameter convention. Compare the Airy estimate and simpler diffraction scale with the worked solution. This estimate requires self-review."), sourcePart: "A.2" },
     { ...review("a.3", "Uncooled detector temperature", "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."), sourcePart: "A.3" },
     { ...review("b.1", "Thermal threshold scale", "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."), sourcePart: "B.1" },
     { ...expression("b.2", "Count uncertainty", "\\sqrt{s^2+(i+p)*t}", "s i p t", "Use s for readout standard deviation, i for dark current and t for exposure duration.", {"positive": ["s", "i", "p", "t"]}), sourcePart: "B.2" },
