@@ -1,0 +1,68 @@
+{
+  "problemId": "arena-cat-on-a-plank",
+  "version": "2d891039b05b3f145cf92fa6cc0bc231a4efeb3e7d392ebd79918c1e1614137a",
+  "parts": [
+    {
+      "id": "a.distance",
+      "sourcePart": "a",
+      "label": "Distance x past the edge at tipping",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "M",
+        "m",
+        "L"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "The plank is uniform and one third of it is past the edge. M, m and L are positive."
+    },
+    {
+      "id": "b.distance",
+      "sourcePart": "b",
+      "label": "Distance x for the given values",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "c.mass",
+      "sourcePart": "c",
+      "label": "Cat mass that tips the plank at its end",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "M"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Give the mass in terms of M, which is positive."
+    }
+  ]
+}

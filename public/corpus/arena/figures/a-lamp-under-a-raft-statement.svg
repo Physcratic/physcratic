@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#0f172a">
+<title id="t">Lamp under a floating raft</title>
+<desc id="d">Side view of a lake. A lamp sits at depth h in water of refractive index n, directly below the centre of a floating raft of radius R. A ray from the lamp reaches the surface at the rim of the raft, at the critical angle to the normal, and is reflected back down into the water.</desc>
+<defs>
+<marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0f172a"/></marker>
+<marker id="tipb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d4ed8"/></marker>
+</defs>
+<rect x="1" y="1" width="558" height="298" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<path d="M2 90H558V287a11 11 0 0 1-11 11H13a11 11 0 0 1-11-11Z" fill="#dbeafe"/>
+<path d="M2 90H558" stroke="#0f172a" stroke-width="2" fill="none"/>
+<rect x="170" y="80" width="220" height="10" fill="#0f172a"/>
+<path d="M280 230L390 90L500 230" stroke="#1d4ed8" stroke-width="2.5" fill="none"/>
+<path d="M280 230L330 160" stroke="#1d4ed8" stroke-width="2.5" fill="none" marker-end="url(#tipb)"/>
+<path d="M390 90L450 166" stroke="#1d4ed8" stroke-width="2.5" fill="none" marker-end="url(#tipb)"/>
+<path d="M280 230L220 90" stroke="#1d4ed8" stroke-width="1.5" fill="none"/>
+<path d="M390 40V170M280 90V222M120 230H270" stroke="#475569" stroke-width="1.2" stroke-dasharray="5 4" fill="none"/>
+<circle cx="280" cy="230" r="8" fill="#f59e0b" stroke="#0f172a" stroke-width="2"/>
+<text x="262" y="258" >lamp</text>
+<path d="M120 92V228" stroke="#0f172a" stroke-width="1.2" fill="none" marker-start="url(#tip)" marker-end="url(#tip)"/>
+<text x="100" y="165" font-style="italic" >h</text>
+<path d="M282 60H388" stroke="#0f172a" stroke-width="1.2" fill="none" marker-start="url(#tip)" marker-end="url(#tip)"/>
+<path d="M280 78V50" stroke="#475569" stroke-width="1.2" stroke-dasharray="5 4" fill="none"/>
+<text x="328" y="52" font-style="italic" >R</text>
+<path d="M390 130A40 40 0 0 0 365.3 121.4" stroke="#0f172a" stroke-width="1.2" fill="none"/>
+<text x="362" y="148" font-style="italic" >θ<tspan font-style="normal" font-size="12" dy="4">c</tspan></text>
+<text x="20" y="70" >air</text>
+<text x="20" y="120" >water, <tspan font-style="italic">n</tspan></text>
+<text x="196" y="70" >raft</text>
+</svg>

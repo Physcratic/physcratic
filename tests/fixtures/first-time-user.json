@@ -79,6 +79,10 @@
         "path": "/dashboard/problems/arena-mind-the-gap"
       },
       {
+        "name": "beginner arena problem page with an SVG figure",
+        "path": "/dashboard/problems/arena-a-lamp-under-a-raft"
+      },
+      {
         "name": "terms",
         "path": "/terms"
       },

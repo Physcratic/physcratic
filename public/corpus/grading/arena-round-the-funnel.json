@@ -1,0 +1,75 @@
+{
+  "problemId": "arena-round-the-funnel",
+  "version": "69f431c2df5bba4206230f774334589e57c3c730128516ec0ff9f2afdb9556d6",
+  "parts": [
+    {
+      "id": "a.speed",
+      "sourcePart": "a",
+      "label": "Speed of the lower ball",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "g",
+        "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "The ball at height h. g and h are positive."
+    },
+    {
+      "id": "b.ratio",
+      "sourcePart": "b",
+      "label": "Upper ball’s period divided by the lower ball’s period",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter a number."
+    },
+    {
+      "id": "c.time",
+      "sourcePart": "c",
+      "label": "Time until the balls are lined up again",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "h",
+        "g",
+        "\\alpha"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [],
+          "min": 0.2,
+          "max": 1.3
+        }
+      ],
+      "help": "Write pi for π and alpha for α. The angle is in radians and between 0 and a right angle. h and g are positive."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "problemId": "arena-ice-in-the-flask",
+  "version": "64d0b660cb882d28d8553b90d6734277796e512ceacd6b5ade903e2bceae63d1",
+  "parts": [
+    {
+      "id": "a.mass",
+      "sourcePart": "a",
+      "label": "Mass of ice left",
+      "kind": "numeric",
+      "unit": "g",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "b.temperature",
+      "sourcePart": "b",
+      "label": "Lowest starting temperature that melts all the ice",
+      "kind": "numeric",
+      "unit": "°C",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "c.mass",
+      "sourcePart": "c",
+      "label": "Greatest mass of ice that melts completely",
+      "kind": "numeric",
+      "unit": "g",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    }
+  ]
+}

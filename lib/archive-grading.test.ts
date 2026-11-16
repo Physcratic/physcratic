@@ -8,6 +8,7 @@ import { checkArchivePart, gradeArchiveAnswers, ArchiveGradeRequestError } from 
 import { expression, numeric } from "./archive-grading/definitions";
 import { olympiadDefinitions } from "./olympiad/keys";
 import { problems } from "./physics";
+import arenaIndex from "./arena/index.json";
 
 const coverage: Record<string, string[]> = {
   "mind-the-gap": ["a.radius", "b.radius"],
@@ -28,11 +29,28 @@ const coverage: Record<string, string[]> = {
   "the-bending-beam-riddle": ["a.i.shear", "a.ii.curvature", "a.iii.shear", "a.iii.moment", "b.i.stress", "b.ii.moment", "b.iii.drop", "c.i.order", "c.i.a", "c.i.b", "c.ii.phase", "c.ii.group"],
   "the-capacitors-missing-energy": ["a.i.energy", "a.ii.electric", "a.ii.magnetic", "a.iii.field", "a.iii.plate", "a.iii.observation", ...["xx", "xy", "xz", "yx", "yy", "yz", "zx", "zy", "zz"].map((component) => `b.i.${component}`), "b.ii.interval", "b.iii.work", "b.iv.density", "b.v.density", "b.vi.stress", "b.vii.mass", "b.viii.energy"],
   "the-infinite-v": ["a.radial", "a.tangential", "b.radial", "b.tangential", "c.stability", "c.frequency"],
+  // Beginner set F1, 14 November 2026.
+  "cat-on-a-plank": ["a.distance", "b.distance", "c.mass"],
+  "two-sleds-one-rope": ["a.distance", "b.speed"],
+  "rough-ramp-smooth-ramp": ["a.speed", "b.height", "c.fraction"],
+  "hosing-the-wall": ["a.tangent", "b.height", "c.height"],
+  "the-loading-voltmeter": ["a.reading", "b.resistance", "c.reading"],
+  "the-magnetic-slab": ["a.speed", "b.angle", "c.time"],
+  "two-charges-head-on": ["a.speed", "b.distance", "c.speed"],
+  "the-rectangular-cycle": ["a.work", "b.heat", "c.efficiency"],
+  "a-lamp-under-a-raft": ["a.radius", "b.radius", "c.depth"],
+  "walking-past-two-speakers": ["a.distance", "b.count", "c.distance"],
+  "two-isotopes-one-sample": ["a.nuclei", "b.activity", "c.time"],
+  "round-the-funnel": ["a.speed", "b.ratio", "c.time"],
+  "ice-in-the-flask": ["a.mass", "b.temperature", "c.mass"],
+  "the-unknown-pipe": ["a.fundamental", "b.length", "c.fundamental"],
+  "two-colours-one-cathode": ["a.work", "b.work", "c.wavelength"],
 };
 test("explicit disposition for every requested Arena result and all 12 Quick practice problems", () => {
-  assert.equal(archiveDefinitions.length, 30);
-  assert.equal(new Set(archiveDefinitions.map((item) => item.problemId)).size, 30);
-  assert.equal(Object.keys(coverage).length, 18);
+  // Every Arena problem in the catalogue and every Quick practice problem has one definition.
+  assert.equal(archiveDefinitions.length, arenaIndex.count + problems.length);
+  assert.equal(new Set(archiveDefinitions.map((item) => item.problemId)).size, archiveDefinitions.length);
+  assert.deepEqual(Object.keys(coverage).map((id) => `arena-${id}`).sort(), arenaIndex.problems.map((problem) => problem.id).sort());
   for (const [id, parts] of Object.entries(coverage)) {
     const definition = getArchiveDefinition(`arena-${id}`)!;
     assert.deepEqual(definition.parts.map((part) => part.id), parts, id);

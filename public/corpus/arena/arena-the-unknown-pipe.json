@@ -1,0 +1,32 @@
+{
+  "id": "arena-the-unknown-pipe",
+  "title": "The Unknown Pipe",
+  "topic": "Waves",
+  "tags": [
+    "Standing waves",
+    "Acoustics",
+    "Sound propagation"
+  ],
+  "summary": "Two resonances of a pipe are known, with one more between them. Work out what kind of pipe it is, its fundamental and its length.",
+  "statement": "A straight pipe lies in a store room. You do not know its length, and you do not know whether it is open at both ends or closed at one end. A small loudspeaker near one end plays a pure tone whose frequency you can change. The pipe resonates at $$255\\ \\mathrm{Hz}$$ and at $$595\\ \\mathrm{Hz}$$, and at exactly one frequency between these two. The speed of sound is $$340\\ \\mathrm{m/s}$$. Ignore end corrections.\n\n## (a)\n\nFind the lowest frequency at which the pipe resonates.\n\n## (b)\n\nFind the length of the pipe.\n\n## (c)\n\nOne end of the pipe turns out to have a cap on it. The cap is taken off. Find the lowest frequency at which the pipe resonates now.",
+  "solution": "## (a)\n\nA pipe open at both ends resonates at every whole-number multiple of its fundamental $$f_1$$. A pipe closed at one end resonates at the odd multiples only. Test each kind against the facts.\n\nOpen at both ends. Neighbouring resonances are $$f_1$$ apart. With exactly one resonance between them, $$255\\ \\mathrm{Hz}$$ and $$595\\ \\mathrm{Hz}$$ are two steps apart:\n\n$$2f_1=595-255=340\\ \\mathrm{Hz},\\qquad f_1=170\\ \\mathrm{Hz}.$$\n\nBut $$255/170=1.5$$ is not a whole number, so this kind of pipe does not fit.\n\nClosed at one end. Neighbouring resonances are $$2f_1$$ apart, so two steps give\n\n$$4f_1=340\\ \\mathrm{Hz},\\qquad f_1=85\\ \\mathrm{Hz}.$$\n\nNow $$255/85=3$$ and $$595/85=7$$, both odd, and the one resonance between them is $$5\\times85=425\\ \\mathrm{Hz}$$. This fits. The pipe is closed at one end.\n\n$$\\boxed{f_1=85\\ \\mathrm{Hz}.}$$\n\n## (b)\n\nIn the fundamental of a pipe closed at one end, a quarter of a wavelength fits in the pipe:\n\n$$L=\\frac\\lambda4=\\frac{v}{4f_1}=\\frac{340}{4(85)}\\ \\mathrm m.$$\n\n$$\\boxed{L=1.00\\ \\mathrm m.}$$\n\n## (c)\n\nWith the cap off the pipe is open at both ends. Half a wavelength now fits in the pipe in the fundamental:\n\n$$f=\\frac{v}{2L}=\\frac{340}{2(1.00)}\\ \\mathrm{Hz}.$$\n\n$$\\boxed{f=170\\ \\mathrm{Hz}.}$$\n\nTaking the cap off doubles the lowest frequency.",
+  "original": true,
+  "importedOn": "2026-11-14",
+  "hints": {
+    "a": [
+      "There are two kinds of pipe to test. One open at both ends resonates at every whole-number multiple of its fundamental. One closed at one end resonates at the odd multiples only.",
+      "With exactly one resonance between them, the two given frequencies are two steps apart. A step is $$f_1$$ for an open pipe and $$2f_1$$ for a pipe closed at one end.",
+      "The open pipe would give $$f_1=170\\ \\mathrm{Hz}$$, but $$255/170$$ is not a whole number. Try the pipe closed at one end and check that both frequencies are odd multiples."
+    ],
+    "b": [
+      "Part (a) also told you what kind of pipe this is. How much of a wavelength fits in that kind of pipe in its fundamental?",
+      "For a pipe closed at one end, a quarter of a wavelength fits, so $$L=\\lambda/4$$.",
+      "Use $$\\lambda=v/f_1$$ with $$f_1=85\\ \\mathrm{Hz}$$, then divide by 4."
+    ],
+    "c": [
+      "With the cap off the pipe is open at both ends. Its length has not changed.",
+      "In the fundamental of a pipe open at both ends, half a wavelength fits in the pipe.",
+      "Use $$f=v/(2L)$$ with the length from part (b)."
+    ]
+  }
+}
