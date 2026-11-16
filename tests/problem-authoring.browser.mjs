@@ -4,6 +4,7 @@
 import assert from "node:assert/strict";
 import { numericUnitsHelp } from "../lib/authored-grading-contracts.ts";
 import { createServer } from "node:http";
+import { randomUUID } from "node:crypto";
 import { createRequire } from "node:module";
 import { readFile, mkdtemp, rm } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
@@ -30,7 +31,9 @@ const target = new URL(
 );
 assert.equal(target.hostname, "127.0.0.1");
 assert.equal(target.pathname, "/physcratic_authoring_test");
-const pool = new Pool({ connectionString: target.href, max: 10 });
+const fixtureSchema = `studio_browser_${randomUUID().replaceAll("-", "")}`;
+const admin = new Pool({ connectionString: target.href, max: 2 });
+const pool = new Pool({ connectionString: target.href, options: `-c search_path=${fixtureSchema},public`, max: 10 });
 const temp = await mkdtemp(join(tmpdir(), "physcratic-editor-browser-"));
 let browser,
   server,
@@ -153,6 +156,7 @@ async function guideShots(page) {
 }
 
 try {
+  await admin.query(`CREATE SCHEMA ${fixtureSchema}`);
   await pool.query(
     "CREATE TABLE \"user\" (id text PRIMARY KEY); INSERT INTO \"user\" VALUES ('browser-author'),('workflow-student')",
   );
@@ -1083,5 +1087,7 @@ try {
   await browser?.close();
   if (server) await new Promise((resolve) => server.close(resolve));
   await pool.end();
+  await admin.query(`DROP SCHEMA IF EXISTS ${fixtureSchema} CASCADE`);
+  await admin.end();
   await rm(temp, { recursive: true, force: true });
 }
