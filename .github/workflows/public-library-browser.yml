@@ -80,6 +80,8 @@ jobs:
           HOME_ARCHIVE_BROWSER: '1'
           HOME_TOPIC_BROWSER: '1'
           HOME_PDF_BROWSER: '1'
+          HOME_PDF_STUDIO_BROWSER: '1'
+          PDF_STUDIO_PRODUCTION_SCREENSHOTS: ${{ runner.temp }}/library-screenshots/pdf-studio
           PDF_EVIDENCE: ${{ runner.temp }}/library-screenshots/pdf
           TOPIC_SCREENSHOTS: ${{ runner.temp }}/library-screenshots/topics
           ARCHIVE_SCREENSHOTS: ${{ runner.temp }}/library-screenshots/archive

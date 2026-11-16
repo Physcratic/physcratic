@@ -10,6 +10,7 @@ import {
 } from "react";
 import { z } from "zod";
 import Image from "next/image";
+import { StatementPdfs } from "@/components/authored/statement-pdfs";
 import useSWR from "swr";
 import { Button } from "@/components/ui/button";
 import { ErrorText, StepCard } from "./studio-ui";
@@ -200,28 +201,17 @@ export function MediaImage({
 }
 export function StatementPdfLinks({ ids }: { ids: string[] }) {
   const ctx = useContext(context);
-  return ctx ? (
-    <div className="flex flex-wrap gap-3">
-      {ids.map((id, i) => (
-        <a
-          key={id}
-          href={authorMediaPath(ctx.problemId, id)}
-          className="inline-block min-h-11 py-2 text-sm underline"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Download statement PDF {i + 1}
-        </a>
-      ))}
-    </div>
-  ) : null;
+  return ctx ? <StatementPdfs problemId={ctx.problemId} ids={ids} /> : null;
 }
+
 export function MediaAttachments({
   draft,
   edit,
+  compact = false,
 }: {
   draft: EditorDraft;
   edit: (fn: (d: EditorDraft) => void) => void;
+  compact?: boolean;
 }) {
   const ctx = useContext(context),
     [message, setMessage] = useState(""),
@@ -255,12 +245,7 @@ export function MediaAttachments({
   const pdfs = draft.content.attachments.filter((a) =>
     a.purpose.endsWith("pdf"),
   );
-  return (
-    <StepCard
-      id="author-assets"
-      step={4}
-      title="Images and optional PDFs"
-    >
+  const body = <>
       <div className="grid gap-6 sm:grid-cols-2">
         {(["statement-pdf", "solution-pdf"] as const).map((purpose) => (
           <UploadControl
@@ -439,6 +424,6 @@ export function MediaAttachments({
           {message}
         </p>
       )}
-    </StepCard>
-  );
+    </>;
+  return compact ? <section aria-label="Problem PDFs" className="space-y-4">{body}</section> : <StepCard id="author-assets" step={4} title="Images and optional PDFs">{body}</StepCard>;
 }

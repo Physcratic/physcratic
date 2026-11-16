@@ -183,3 +183,17 @@ write tests or migrations. Library rerun remains ENOSPC-blocked.
 Canonical identifiers/scopes: [environment evidence](AUTHORING_ENVIRONMENT_EVIDENCE.md).
 Evidence-only follow-up changes no runtime code; record its CI separately from
 the satisfied f876792 gate. Verdict remains BLOCKED; stop after documentation.
+
+
+## PDF-first Studio contract (16 November 2026)
+
+The upload-first path stays inside the existing Simple editor and shares its draft, autosave/recovery, optimistic version and publication calls. Existing metadata/source fields, block uploads and numeric/expression/manual key controls are reused. Statement images remain ordered statement blocks with descriptive alternatives. Optional native context/part text remains available without inserting placeholder physics text. Private solution PDFs still need explicit per-part author approval after publication.
+
+Smallest publication change: at least one part with its matching explicit key, plus meaningful native text/math, a rendered statement-image block, or a statement-pdf attachment. An unrendered image attachment or private solution PDF does not count as a statement. Image alternative text, rights, rating and all private-key validation remain required. This is a validation expansion within schemaVersion 1, with no data-model, migration or stored-document change. Existing owned/ready/purpose media validation and transactional publication sealing remain authoritative.
+
+Student and owner preview reuse the existing lazy PDF page renderer behind an explicit Read PDF control, with page navigation and permanent download alternatives. Proxy headers, raw-storage privacy and solution permissions stay unchanged. Uploaded scans can lack selectable text or useful PDF tags. Authors should provide accessible PDFs, descriptive image alternatives and optional native alternatives. This workflow does not perform OCR or certify document accessibility.
+
+
+Qualification uses `PDF_STUDIO_ONLY=1` with `tests/problem-authoring.browser.mjs`, the existing actual editor/API/disposable-PG harness. Four 375/1440px light/dark cases exercise upload limits/failure, multipart keys, recovery, reload, publication, selectable PDF pages, guest access, private solution approval/revocation, assisted checks, retained media and image-only revisions. The existing native/Advanced workflow suites remain relevant. The upload-first choice is a best-effort session preference scoped to user and problem, not another document field. Preview keeps Simple mounted while hidden so incomplete answers survive returning to Write. Save now uses the existing explicit save operation in both modes.
+
+`HOME_PDF_STUDIO_BROWSER=1` reuses the existing production-mode session fixture and build to verify server HTML/no-JavaScript download links, noindex, real lazy PDF.js worker and selectable text/page controls, resolved themes and private-PDF denial. Only statement Blob bytes are injected. `PDF_STUDIO_SWEEP=1` additionally runs the existing guest and signed-in `SWEEP=1` contrast/accessibility checks. Final executed results and any blocked/failed checks belong to the PR. Synthetic sessions/storage are not a live provider or physical-device qualification. Historical sealed statement media stays accessible under the existing publication policy. Solution access remains separately approved for each current revision/part and is not automatically inherited by a new revision.

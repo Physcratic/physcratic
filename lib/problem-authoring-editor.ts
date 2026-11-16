@@ -108,6 +108,19 @@ export function newProblem() {
     privateParts: [],
   };
 }
+/** Select a private grading mode without replacing hints or worked solutions. */
+export function setPartAnswerMode(draft: EditorDraft, partId: string, mode: "numeric" | "expression" | "manual") {
+  const part = draft.content.sections.flatMap(s => s.parts).find(p => p.id === partId);
+  if (!part) return;
+  let entry = draft.privateParts.find(p => p.partId === partId);
+  if (!entry) { entry = { partId, key: null, hints: [], solution: [] }; draft.privateParts.push(entry); }
+  part.answerMode = mode;
+  entry.key = mode === "numeric"
+    ? { kind: mode, value: null, units: "", absTol: 0.01, relTol: 0 }
+    : mode === "expression"
+      ? { kind: mode, expected: "", variables: [], angleUnit: "radians", exclusions: [] }
+      : { kind: "manual" };
+}
 export function newBlock(kind: "text" | "math"): EditorBlock {
   return kind === "text"
     ? { id: crypto.randomUUID(), kind, spans: [{ kind: "text", text: "" }] }

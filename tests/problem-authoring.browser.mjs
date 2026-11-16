@@ -37,7 +37,7 @@ let browser,
   origin,
   failNext = 0,
   uploadGate;
-const sessionUser = async (request) => ({
+const sessionUser = async (request) => request.headers.get("cookie")?.includes("viewer=guest") ? null : ({
   id: request.headers.get("cookie")?.includes("viewer=workflow-student")
     ? "workflow-student"
     : "browser-author",
@@ -173,6 +173,7 @@ try {
     entryPoints: ["tests/problem-authoring-harness.tsx"],
     outfile: join(temp, "bundle.js"),
     bundle: true,
+    format: "esm",
     platform: "browser",
     jsx: "automatic",
     alias: { "@": process.cwd() },
@@ -285,13 +286,17 @@ try {
         res.end("null");
         return;
       }
-      if (url.pathname === "/bundle.js" || url.pathname === "/style.css") {
+      if (url.pathname === "/bundle.js" || url.pathname === "/bundle.css" || url.pathname === "/style.css") {
         res.setHeader(
           "Content-Type",
           url.pathname.endsWith("js") ? "application/javascript" : "text/css",
         );
         res.end(await readFile(join(temp, basename(url.pathname))));
         return;
+      }
+      if (url.pathname === "/pdfjs-dist/build/pdf.worker.min.mjs") {
+        res.setHeader("Content-Type", "application/javascript");
+        res.end(await readFile(require.resolve("pdfjs-dist/build/pdf.worker.min.mjs"))); return;
       }
       if (url.pathname === "/katex.css") {
         res.setHeader("Content-Type", "text/css");
@@ -306,7 +311,7 @@ try {
       }
       res.setHeader("Content-Type", "text/html");
       res.end(
-        '<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Physcratic editor test</title><style>:root{--font-plex-sans:Arial,sans-serif}body{font-family:Arial,sans-serif}</style><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/katex.css"></head><body><div id="root"></div><script src="/bundle.js"></script></body></html>',
+        '<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Physcratic editor test</title><style>:root{--font-plex-sans:Arial,sans-serif}body{font-family:Arial,sans-serif}</style><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/katex.css"><link rel="stylesheet" href="/bundle.css"></head><body><div id="root"></div><script type="module" src="/bundle.js"></script></body></html>',
       );
     } catch (error) {
       console.error(error);
@@ -317,10 +322,15 @@ try {
   await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
   origin = `http://127.0.0.1:${server.address().port}`;
   browser = await chromium.launch({
-    executablePath: process.env.CHROMIUM_PATH || "/usr/bin/chromium",
+    ...(process.env.CHROMIUM_PATH ? {executablePath: process.env.CHROMIUM_PATH} : {}),
     headless: true,
     args: ["--no-sandbox"],
   });
+  if (process.env.PDF_STUDIO_ONLY === "1") {
+    const {runPdfStudioBrowser} = await import("./pdf-studio.browser.mjs");
+    await runPdfStudioBrowser({browser,origin,pool,storage:mediaStorage,setFail:count=>{failNext=count;}});
+    throw new GuideDone();
+  }
   const context = await browser.newContext({
     viewport: { width: 1440, height: 1000 },
   });
