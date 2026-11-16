@@ -20,10 +20,10 @@ export default function PdfPageViewer({ file, page, label, onPages }: { file: st
     observer.observe(element);
     return () => observer.disconnect();
   }, []);
-  const fallback = <Alert variant="destructive"><AlertTitle>Inline PDF preview unavailable</AlertTitle><AlertDescription>Use Open PDF or Download PDF above to read the complete original document.</AlertDescription></Alert>;
+  const fallback = <Alert variant="destructive"><AlertTitle>Inline PDF preview unavailable</AlertTitle><AlertDescription>Use the PDF link above to read the complete original document.</AlertDescription></Alert>;
   return <div ref={container} role="group" aria-label={label} className="min-w-0 overflow-hidden rounded-lg border border-border" data-pdf-rendered={rendered ? "true" : "false"}>
     {width > 0 && <Document file={file} suspense={false} onLoadSuccess={({ numPages }) => onPages?.(numPages)} loading={<LoadingLines label="Loading original PDF…" />} error={fallback}>
-      <Page key={page} pageNumber={page} width={width} renderTextLayer renderAnnotationLayer loading={<p role="status" className="p-6 text-sm text-muted-foreground">Rendering PDF page…</p>} error={fallback} onRenderSuccess={() => setRendered(true)} onLoadSuccess={() => setRendered(false)} />
+      <Page key={page} pageNumber={page} width={width} renderTextLayer renderAnnotationLayer loading={<p role="status" className="bg-background p-6 text-sm text-foreground">Rendering PDF page…</p>} error={fallback} onRenderSuccess={() => setRendered(true)} onLoadSuccess={() => setRendered(false)} />
     </Document>}
   </div>;
 }

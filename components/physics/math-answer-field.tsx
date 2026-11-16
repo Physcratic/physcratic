@@ -183,7 +183,7 @@ export function MathAnswerField({
         // composition that ends in a word. That skips the shortcuts and turns \\ into a backslash sign. A hardware key press
         // comes first, and MathLive reads it. Text with no key press gets one made for it per character: MathLive reads that,
         // and if it does not use it (no shortcut), the character goes in as usual.
-        let keyedAt = -Infinity;
+        let hardwareKey: string | null = null;
         let own = false;
         const typeText = (sink: EventTarget, text: string) => {
           for (const ch of Array.from(text)) {
@@ -198,7 +198,7 @@ export function MathAnswerField({
         element.addEventListener(
           "keydown",
           (event) => {
-            if (!own && event.key.length === 1 && !event.isComposing && event.keyCode !== 229) keyedAt = performance.now();
+            if (!own && event.isTrusted) hardwareKey = event.key.length === 1 && !event.isComposing && event.keyCode !== 229 && !event.ctrlKey && !event.metaKey && !event.altKey ? event.key : null;
             // In a LaTeX command Tab finishes it, like Space and Enter.
             if (event.key === "Tab" && !event.shiftKey && element.mode === "latex") {
               event.preventDefault();
@@ -208,17 +208,25 @@ export function MathAnswerField({
           },
           true,
         );
+        element.addEventListener("keyup", event => { if (event.key === hardwareKey) hardwareKey = null; }, true);
+        element.addEventListener("focusout", () => { hardwareKey = null; });
+        element.addEventListener("compositionstart", () => { hardwareKey = null; }, true);
         element.addEventListener(
           "beforeinput",
           (event) => {
             const input = event as InputEvent;
             // MathLive sends its own beforeinput events from the host as it edits. Only the keyboard's (trusted) ones count.
-            if (!input.isTrusted || input.isComposing || !input.data || (input.inputType !== "insertText" && input.inputType !== "insertReplacementText")) return;
+            if (!input.isTrusted) return;
+            const matchingHardwareKey = !input.isComposing && input.inputType === "insertText" && input.data === hardwareKey;
+            hardwareKey = null;
+            if (input.isComposing || !input.data || (input.inputType !== "insertText" && input.inputType !== "insertReplacementText")) return;
             const sink = input.composedPath()[0];
             if (!(sink instanceof EventTarget) || sink === element) return;
             const chars = Array.from(input.data);
             if (chars.length === 1 && input.inputType === "insertText") {
-              if (performance.now() - keyedAt < 60) return;
+              // Pair events, not elapsed time. A busy main thread can delay beforeinput
+              // past any deadline even though MathLive already handled this physical key.
+              if (matchingHardwareKey) return;
               own = true;
               const press = new KeyboardEvent("keydown", { key: input.data, bubbles: true, cancelable: true, composed: true });
               sink.dispatchEvent(press);

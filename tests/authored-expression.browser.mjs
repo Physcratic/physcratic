@@ -79,6 +79,21 @@ try {
   });
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));origin=`http://127.0.0.1:${server.address().port}`;
   browser = await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});
+  // A busy main thread must not turn one physical key into two inputs.
+  {
+    const context=await browser.newContext(),page=await open(context);
+    await page.locator('math-field').waitFor();await writeMath(page,'');await page.locator('math-field').click();
+    await page.locator('math-field').evaluate(el=>el.addEventListener('keydown',event=>{
+      if(event.isTrusted && event.key.length===1){const end=performance.now()+100;while(performance.now()<end){/* Simulate synchronous main-thread work between keydown and beforeinput. */}}
+    },true));
+    await page.keyboard.type('v=12');
+    assert.equal(cleanLatex(await page.locator('math-field').evaluate(el=>el.value)),'v=12','a delayed beforeinput must not replay the physical v key');
+    assert.equal(await page.evaluate(recoveredExpression),'v=12');checks+=2;
+    await writeMath(page,'');await page.keyboard.insertText('v');
+    assert.equal(cleanLatex(await page.locator('math-field').evaluate(el=>el.value)),'v','software text after keyup still inserts once');checks++;
+    await context.close();
+    console.log('PASS delayed hardware key pairing and subsequent software text');
+  }
   for (const mobile of [false,true]) for (const theme of ['light','dark']) {
     const context=await browser.newContext({viewport:{width:mobile?375:1440,height:900},isMobile:mobile,hasTouch:mobile});
     await context.addInitScript(theme=>document.addEventListener('DOMContentLoaded',()=>document.documentElement.classList.toggle('dark',theme==='dark')),theme);

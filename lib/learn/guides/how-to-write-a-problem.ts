@@ -13,7 +13,7 @@ export const howToWriteAProblem: ArticleDraft = {
   published: true,
   body: [
     { type: "heading", level: 2, text: "Open Problem Studio" },
-    { type: "paragraph", text: "Sign in with an email-verified account and choose Problem Studio in the sidebar. There is no separate staff invitation requirement. You can edit only your own problems. Studio opens on a new problem in Simple mode, and My drafts takes you back to the ones you already started." },
+    { type: "paragraph", text: "Sign in with an email-verified account and choose Problem Studio in the sidebar. There is no separate staff invitation requirement. You can edit only your own problems. Studio opens on a new problem in Simple mode, and the Back to drafts arrow takes you back to the ones you already started." },
     { type: "paragraph", text: "The Help button, a question mark at the top, plays the Write your first problem tour. It points at each part of the page." },
     { type: "siteLink", href: "/dashboard/author", label: "Open Problem Studio", note: "You need to be signed in with a verified email." },
     { type: "image", src: `${dir}/studio-simple.webp`, alt: "Problem Studio in Simple mode. The question about a ball thrown straight up has an equation inside the sentence, an Equation button sits under it, and a drawing of the ball\u2019s path is added as an image.", width: 1280, height: 1000, caption: "Simple mode. Everything is in one column." },
@@ -29,7 +29,7 @@ export const howToWriteAProblem: ArticleDraft = {
 
     { type: "heading", level: 2, text: "More parts, source and publishing" },
     { type: "paragraph", text: "Add part b repeats the question, solution and answer for the next part, and the button names the next letter. Each part gets its own colour." },
-    { type: "paragraph", text: "Studio saves by itself. Wait for All changes saved. Say where it is from: I wrote it, or Adapted from with the source. Give it a difficulty rating, a whole number from 0 to 4,000. You can pick a band to fill one in. Publish needs a rating. Pick a topic so people can find the problem. Tick the box that says you have the right to share it, then choose Publish. The server checks everything again." },
+    { type: "paragraph", text: "Studio saves by itself. Wait for All changes saved. Say where it is from: I wrote it, or Adapted from with the source. Give it a difficulty rating, a whole number from 0 to 4,000. Its difficulty band appears beside the number. Publish needs a rating. Pick a topic so people can find the problem. Tick the box that says you have the right to share it, then choose Publish. The server checks everything again." },
     { type: "paragraph", text: "A published problem appears in the library under Physcratic Arena, on a card marked Community." },
     { type: "siteLink", href: "/dashboard?view=problems&collection=authored", label: "Browse published community problems" },
     { type: "image", src: `${dir}/studio-library.webp`, alt: "The problem library showing the topic buttons and a single Community card titled Forces on a cart with an Open problem button.", width: 1280, height: 1000, caption: "A published problem in the library." },

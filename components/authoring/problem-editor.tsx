@@ -1,7 +1,7 @@
 "use client";
 import { SolutionPermissions } from "./solution-permissions";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { CircleAlert, Eye, FilePenLine, Save, ShieldCheck } from "lucide-react";
+import { ArrowLeft, CircleAlert, Eye, FilePenLine, Save, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   authoredDraftSchema,
@@ -301,9 +301,11 @@ export function ProblemEditor({
             <Button
               type="button"
               variant="ghost"
+              aria-label="Back to drafts"
+              className="min-h-11 min-w-11"
               onClick={() => void back()}
             >
-              ← My drafts
+              <ArrowLeft aria-hidden="true" className="size-5" />
             </Button>
             <span className="hidden text-sm text-muted-foreground sm:inline">
               Problem Studio
@@ -686,9 +688,6 @@ export function ProblemEditor({
               aria-label="Student-facing preview"
               className="mx-auto max-w-3xl space-y-8 rounded-xl border px-5 py-8 sm:px-10"
             >
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                Student preview · practice
-              </p>
               <h2 className="text-3xl font-semibold tracking-tight">
                 {safePreview.title || "Untitled problem"}
               </h2>
@@ -712,19 +711,21 @@ export function ProblemEditor({
               <ReaderBlocks blocks={safePreview.context} />
               {safePreview.sections.map((section, index) => (
                 <section key={section.id} className="space-y-5">
-                  <h3 className="text-xl font-semibold">
+                  {(section.title || safePreview.sections.length > 1) && <h3 className="text-xl font-semibold">
                     {section.title || `Section ${index + 1}`}
-                  </h3>
+                  </h3>}
                   <ReaderBlocks blocks={section.blocks} />
-                  {section.parts.map((part, pi) => (
+                  {section.parts.map((part, pi) => {
+                    const PartHeading = section.title || safePreview.sections.length > 1 ? "h4" : "h3";
+                    return (
                     <section
                       key={part.id}
                       style={partStyle(previewColours.get(part.id) ?? 0)}
                       className={`space-y-3 rounded-r-lg py-1 pl-4 ${partBorder}`}
                     >
-                      <h4 className="font-medium">
+                      <PartHeading className={safePreview.sections.reduce((n, s) => n + s.parts.length, 0) > 1 ? "font-medium" : "sr-only"}>
                         <PartChip index={previewColours.get(part.id) ?? 0}>Part {part.label || pi + 1}</PartChip>
-                      </h4>
+                      </PartHeading>
                       <ReaderBlocks blocks={part.blocks} />
                       <p className="text-xs text-muted-foreground">
                         {part.answerMode === "manual"
@@ -732,7 +733,7 @@ export function ProblemEditor({
                           : `${part.answerMode === "numeric" ? "Numeric" : "Expression"} response`}
                       </p>
                     </section>
-                  ))}
+                  ); })}
                 </section>
               ))}
             </article>

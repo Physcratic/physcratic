@@ -517,7 +517,7 @@ try {
     "replacement",
   );
   await page
-    .getByLabel("Upload statement PDF", { exact: true })
+    .getByLabel("Upload problem PDF", { exact: true })
     .setInputFiles(uploadFile("statement.pdf", pdf, "application/pdf"));
   await page
     .getByRole("link", { name: "Download statement PDF", exact: true })
@@ -963,11 +963,8 @@ try {
     { status: "correct", assisted: true },
     { status: "ungraded", assisted: true },
   ]);
-  await learner
-    .getByRole("button", { name: "My submissions", exact: true })
-    .click();
-  await learner.getByLabel("My saved submissions", { exact: true }).waitFor();
-  assert.equal(await learner.getByText(/^Attempt \d+ ·/).count(), 3);
+  assert.equal(await learner.getByRole("button", { name: "My submissions", exact: true }).count(), 0);
+  assert.equal(records.length, 3, "removing history UI preserves saved records");
   assert.equal(
     await learner.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,

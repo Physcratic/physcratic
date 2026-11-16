@@ -10,12 +10,11 @@ import {
 } from "react";
 import { z } from "zod";
 import Image from "next/image";
-import { StatementPdfs } from "@/components/authored/statement-pdfs";
+import { AuthoredPdf, StatementPdfs } from "@/components/authored/statement-pdfs";
 import useSWR from "swr";
 import { Button } from "@/components/ui/button";
 import { ErrorText, StepCard } from "./studio-ui";
 import {
-  collectAuthorMedia,
   authorMediaMaxBytes,
   authorMediaPath,
   authorMediaPurpose,
@@ -213,9 +212,7 @@ export function MediaAttachments({
   edit: (fn: (d: EditorDraft) => void) => void;
   compact?: boolean;
 }) {
-  const ctx = useContext(context),
-    [message, setMessage] = useState(""),
-    [error, setError] = useState("");
+  const ctx = useContext(context);
   const { data: files = [], error: loadError, mutate } = useSWR<AuthorMediaInfo[]>(
     ctx ? [`${editorBase}/${ctx.problemId}/media`, draft.version] : null,
     async ([url]: [string, number]) => {
@@ -224,37 +221,20 @@ export function MediaAttachments({
     },
     { revalidateOnFocus: false },
   );
-  async function refresh() {
-    try {
-      await mutate();
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Could not load media.");
-    }
-  }
   if (!ctx) return null;
-  let localRefs: Set<string>;
-  try {
-    localRefs = new Set(
-      collectAuthorMedia(draft.content, draft.privateParts).map(
-        (ref) => ref.id,
-      ),
-    );
-  } catch {
-    localRefs = new Set(files.map((file) => file.id));
-  }
   const pdfs = draft.content.attachments.filter((a) =>
     a.purpose.endsWith("pdf"),
   );
   const body = <>
       <div className="grid gap-6 sm:grid-cols-2">
-        {(["statement-pdf", "solution-pdf"] as const).map((purpose) => (
+        {(["statement-pdf", "solution-pdf"] as const).filter(purpose => !pdfs.some(ref => ref.purpose === purpose)).map((purpose) => (
           <UploadControl
             key={purpose}
             purpose={purpose}
             label={
               purpose === "statement-pdf"
-                ? "Upload statement PDF"
-                : "Upload private solution PDF"
+                ? "Upload problem PDF"
+                : "Upload Solution PDF"
             }
             onUploaded={(file) => {
               edit((d) => {
@@ -275,18 +255,7 @@ export function MediaAttachments({
                 : "Statement PDF"}{" "}
               · {file?.filename ?? "Saved attachment"}
             </p>
-            <a
-              href={authorMediaPath(ctx.problemId, ref.id)}
-              className="inline-block min-h-11 py-2 text-sm underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Download{" "}
-              {ref.purpose === "solution-pdf"
-                ? "private solution"
-                : "statement"}{" "}
-              PDF
-            </a>
+            <AuthoredPdf url={authorMediaPath(ctx.problemId, ref.id)} label={ref.purpose === "solution-pdf" ? "Private solution PDF" : "Statement PDF"} />
             <UploadControl
               purpose={ref.purpose as "statement-pdf" | "solution-pdf"}
               label={`Replace ${ref.purpose === "solution-pdf" ? "private solution" : "statement"} PDF`}
@@ -315,115 +284,8 @@ export function MediaAttachments({
           </div>
         );
       })}
-      <details className="rounded-lg border p-4">
-        <summary className="min-h-11 cursor-pointer text-sm font-medium">
-          Manage uploaded files and safe cleanup
-        </summary>
-        {files.map((file) => (
-          <div
-            key={file.id}
-            className="flex flex-wrap items-center justify-between gap-3 border-t py-3"
-          >
-            <div>
-              <p className="break-all text-sm">{file.filename}</p>
-              <p className="text-xs text-muted-foreground">
-                {file.purpose} · {Math.ceil(file.bytes / 1024)} KiB ·{" "}
-                {file.inHistory
-                  ? "Retained by published history"
-                  : file.inDraft
-                    ? "Used by saved draft"
-                    : "Unlinked upload"}
-              </p>
-            </div>
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              disabled={
-                file.inDraft ||
-                file.inHistory ||
-                localRefs.has(file.id) ||
-                ctx.disabled
-              }
-              onClick={async () => {
-                if (
-                  !window.confirm(
-                    "Permanently delete this unused file? Saved and historical references will be protected by the server.",
-                  )
-                )
-                  return;
-                setError("");
-                try {
-                  await draftRequest(
-                    authorMediaPath(ctx.problemId, file.id),
-                    "DELETE",
-                    {},
-                  );
-                  setMessage("Unused file removed.");
-                  await refresh();
-                } catch (e) {
-                  setError(
-                    e instanceof Error ? e.message : "Could not remove file.",
-                  );
-                }
-              }}
-            >
-              Delete unused file
-            </Button>
-          </div>
-        ))}
-        <div className="mt-4 flex flex-wrap gap-2">
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => void refresh()}
-          >
-            Refresh files
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            disabled={ctx.disabled}
-            onClick={async () => {
-              if (
-                !window.confirm(
-                  "Clean up old unlinked uploads across your problems? Unsaved recovery references older than 24 hours may need replacement. Saved and historical revisions are protected.",
-                )
-              )
-                return;
-              setError("");
-              try {
-                const result = await draftRequest(
-                  "/api/authored-problems/media/cleanup",
-                  "POST",
-                  {},
-                );
-                setMessage(
-                  `Cleaned ${result.deleted} files. ${result.retry} need retry.`,
-                );
-                await refresh();
-              } catch (e) {
-                setError(
-                  e instanceof Error
-                    ? e.message
-                    : "Cleanup failed. Tracked files remain private.",
-                );
-              }
-            }}
-          >
-            Clean old unused uploads
-          </Button>
-        </div>
-      </details>
-      {error || loadError ? (
-        <div role="alert">
-          <ErrorText>{error || "Could not load media."}</ErrorText>
-        </div>
-      ) : (
-        <p role="status" className="text-sm text-muted-foreground">
-          {message}
-        </p>
-      )}
+      {loadError && <div role="alert"><ErrorText>Could not load attachment names. Your attachments are retained. Reload to retry.</ErrorText></div>}
+
     </>;
   return compact ? <section aria-label="Problem PDFs" className="space-y-4">{body}</section> : <StepCard id="author-assets" step={4} title="Images and optional PDFs">{body}</StepCard>;
 }

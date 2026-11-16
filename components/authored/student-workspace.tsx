@@ -19,7 +19,6 @@ import {
 } from "react";
 import {
   CheckCircle2,
-  History,
   ShieldCheck,
 } from "lucide-react";
 import { colorsByPartId } from "@/lib/part-colors";
@@ -36,7 +35,6 @@ import {
   studentRequest,
   studentReadError,
   StudentRequestError,
-  studentHistorySchema,
   submissionInfoSchema,
   formKey,
   expressionDraftError,
@@ -214,12 +212,12 @@ export function StudentWorkspace({
   useEffect(() => setAuthDenied(false), [accountKey, viewer.state]);
   const denyAuth = useCallback(() => setAuthDenied(true), []);
   return (
-    <ProblemRoom status={<span className="rounded-md border bg-card px-3 py-2 text-xs">{authDenied ? "Recheck your account" : viewer.state === "verified" ? "Verified learner" : viewer.state === "unverified" ? "Email verification needed" : viewer.state === "loading" ? "Checking account…" : viewer.state === "error" ? "Account unavailable" : "Public reading"}</span>} footer="Practice has no permanent per-part cap. Submitting or receiving a grade does not reveal private answers, hints or worked solutions.">
+    <ProblemRoom showLabel={false}>
         <div className="flex flex-wrap items-end justify-between gap-4 border-b pb-6">
           <ProblemHeading title={availability === "ready" ? revision?.content.title ?? "Physics problem" : "Physics problem"} source="Community-authored problem" estimate={availability === "ready" ? revision?.content.estimatedDifficulty : null} tags={availability === "ready" ? [...(revision?.content.topicTags ?? []), ...(revision?.content.methodTags ?? [])] : []}>
             {availability === "ready" && revision && (attributionEnabled ? <PublicAuthorName key={`${problemId}:${revision.id}`} problemId={problemId} revisionId={revision.id} /> : null)}
           </ProblemHeading>
-          <Button
+          {availability !== "ready" && <Button
             type="button"
             variant="outline"
             onClick={() => void load(true)}
@@ -228,7 +226,7 @@ export function StudentWorkspace({
             {availability === "stale"
               ? "Reload current problem"
               : "Recheck publication"}
-          </Button>
+          </Button>}
         </div>
         {moderationEnabled && availability === "ready" && <ReportControl subject={{kind:'problem',key:`authored:${problemId}`}}/>}
         {statsEnabled && availability === "ready" && <ProblemStatsPanel problemKey={`authored:${problemId}`}/>}
@@ -269,10 +267,10 @@ export function StudentWorkspace({
                 {viewer.state === "loading"
                   ? "Checking your account. Published problem content stays available below."
                   : viewer.state === "error" || authDenied
-                    ? "We could not verify your session. Refresh the page to retry. Submissions and private history are paused."
+                    ? "We could not verify your session. Refresh the page to retry. Submissions are paused."
                     : viewer.state === "unverified"
                       ? "Use your email verification link, then sign in again. No answer will be sent until your account is verified."
-                      : "Published statements and public attachments are open to everyone. A verified account is required to save answers and see your own attempt history."}
+                      : "Published statements and public attachments are open to everyone. A verified account is required to submit answers."}
               </p>
               <a
                 className="inline-block min-h-11 rounded-md bg-primary px-4 py-3 text-sm font-medium text-primary-foreground"
@@ -298,6 +296,7 @@ function PublicStatement({
 }) {
   if (!revision) return null;
   const doc = revision.content;
+  const multipart = doc.sections.reduce((n, section) => n + section.parts.length, 0) > 1;
   const partColours = colorsByPartId(doc.sections);
   return (
     <article
@@ -312,16 +311,18 @@ function PublicStatement({
       />
       {doc.sections.map((section, si) => (
         <section key={section.id} className="min-w-0 space-y-5 border-t pt-7">
-          <h2 className="text-xl font-semibold">
+          {(section.title || doc.sections.length > 1) && <h2 className="text-xl font-semibold">
             {section.title || `Section ${si + 1}`}
-          </h2>
+          </h2>}
           <StatementBlocks
             blocks={section.blocks}
             problemId={problemId}
             revisionId={revision.id}
           />
           <div className="space-y-6">
-            {section.parts.map((part, pi) => (
+            {section.parts.map((part, pi) => {
+              const PartHeading = section.title || doc.sections.length > 1 ? "h3" : "h2";
+              return (
               <section
                 id={`part-${part.id}`}
                 key={part.id}
@@ -329,16 +330,16 @@ function PublicStatement({
                 className={`min-w-0 scroll-mt-6 space-y-4 rounded-r-lg py-1 pl-4 sm:pl-5 ${partBorder}`}
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <h3 className="text-base font-semibold">
-                    <PartChip index={partColours.get(part.id) ?? 0}>Part {part.label || pi + 1}</PartChip>
-                  </h3>
+                  <PartHeading className={multipart ? "text-base font-semibold" : "sr-only"}>
+                    {multipart ? <PartChip index={partColours.get(part.id) ?? 0}>Part {part.label || pi + 1}</PartChip> : "Question"}
+                  </PartHeading>
                   {onAnswer && (
                     <button
                       type="button"
                       className="min-h-11 text-sm font-medium underline underline-offset-4"
                       onClick={() => onAnswer(part.id)}
                     >
-                      Answer part {part.label || pi + 1}
+                      {multipart ? `Answer part ${part.label || pi + 1}` : "Answer question"}
                     </button>
                   )}
                 </div>
@@ -348,7 +349,7 @@ function PublicStatement({
                   revisionId={revision.id}
                 />
               </section>
-            ))}
+            ); })}
           </div>
         </section>
       ))}
@@ -383,26 +384,15 @@ function PrivateWorkspace({
     session.snapshot,
     session.snapshot,
   );
-  const [tab, setTab] = useState<"problem" | "history">("problem"),
-    [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState("");
   const [info, setInfo] = useState<ReturnType<
       typeof submissionInfoSchema.parse
     > | null>(null),
     [infoError, setInfoError] = useState("");
-  const [history, setHistory] = useState<AuthoredAttempt[]>([]),
-    [historyLoaded, setHistoryLoaded] = useState(false),
-    [historyEpoch, setHistoryEpoch] = useState(0),
-    [historyBusy, setHistoryBusy] = useState(false),
-    [historyError, setHistoryError] = useState(""),
-    [historyCursor, setHistoryCursor] = useState<string | null>(null),
-    [pages, setPages] = useState<(string | null)[]>([null]);
   const infoSerial = useRef(0),
     infoAbort = useRef<AbortController | undefined>(undefined),
-    historySerial = useRef(0),
-    historyAbort = useRef<AbortController | undefined>(undefined),
     mounted = useRef(true),
     resultRef = useRef<HTMLDivElement>(null),
-    historyTitle = useRef<HTMLHeadingElement>(null),
     partTitle = useRef<HTMLHeadingElement>(null),
     seenResult = useRef<string | null>(null);
   const revisionId = revision?.id;
@@ -417,20 +407,15 @@ function PrivateWorkspace({
     infoSerial.current++;
     infoAbort.current?.abort();
   }, []);
-  const cancelHistory = useCallback(() => {
-    historySerial.current++;
-    historyAbort.current?.abort();
-  }, []);
   useEffect(() => {
     session.activate();
     mounted.current = true;
     return () => {
       mounted.current = false;
       session.dispose();
-      cancelHistory();
       cancelInfo();
     };
-  }, [session, cancelHistory, cancelInfo]);
+  }, [session, cancelInfo]);
   useEffect(() => {
     const unload = (e: BeforeUnloadEvent) => {
       if (
@@ -482,50 +467,6 @@ function PrivateWorkspace({
     void refreshInfo();
     return cancelInfo;
   }, [refreshInfo, cancelInfo]);
-  const loadHistory = useCallback(
-    async (cursor: string | null = null, focus = false) => {
-      const serial = ++historySerial.current;
-      historyAbort.current?.abort();
-      const controller = new AbortController();
-      historyAbort.current = controller;
-      setHistoryBusy(true);
-      setHistory([]);
-      setHistoryCursor(null);
-      setHistoryError("");
-      try {
-        const data = studentHistorySchema.parse(
-          await studentRequest(
-            `${solverBase}/attempts?problemId=${problemId}${cursor ? `&after=${encodeURIComponent(cursor)}` : ""}`,
-            { signal: controller.signal },
-          ),
-        );
-        if (!mounted.current || serial !== historySerial.current) return;
-        if (data.attempts.some((a) => a.problemId !== problemId))
-          throw Error("Wrong history");
-        setHistory(data.attempts);
-        setHistoryCursor(data.nextCursor);
-        setHistoryLoaded(true);
-        if (focus) requestAnimationFrame(() => historyTitle.current?.focus());
-      } catch (e) {
-        if (
-          !mounted.current ||
-          controller.signal.aborted ||
-          serial !== historySerial.current
-        )
-          return;
-        if (e instanceof StudentRequestError && [401, 403].includes(e.status))
-          denyAuth();
-        setHistoryError(studentReadError(e));
-      } finally {
-        if (mounted.current && serial === historySerial.current)
-          setHistoryBusy(false);
-      }
-    },
-    [problemId, denyAuth],
-  );
-  useEffect(() => {
-    if (tab === "history" && !historyLoaded) void loadHistory();
-  }, [tab, historyLoaded, loadHistory, historyEpoch]);
   useEffect(() => {
     const a = state.lastResult;
     if (!a || seenResult.current === a.id) return;
@@ -544,14 +485,6 @@ function PrivateWorkspace({
           }
         : current,
     );
-    historyAbort.current?.abort();
-    historySerial.current++;
-    setHistory([]);
-    setHistoryCursor(null);
-    setPages([null]);
-    setHistoryBusy(false);
-    setHistoryLoaded(false);
-    setHistoryEpoch((x) => x + 1);
     if (part?.id === a.partId && revisionId === a.revisionId)
       requestAnimationFrame(() => resultRef.current?.focus());
   }, [state.lastResult, part?.id, revisionId, mutate, userId]);
@@ -568,7 +501,6 @@ function PrivateWorkspace({
   }, [state.lastStatus, state.book.pending, revision?.id, invalidate]);
   const jump = (partId: string) => {
     setSelected(partId);
-    setTab("problem");
     requestAnimationFrame(() => {
       document
         .getElementById("answer-workspace")
@@ -601,29 +533,6 @@ function PrivateWorkspace({
   return (
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <div
-          role="group"
-          aria-label="Problem workspace view"
-          className="flex gap-2"
-        >
-          <Button
-            type="button"
-            variant={tab === "problem" ? "secondary" : "outline"}
-            aria-pressed={tab === "problem"}
-            onClick={() => setTab("problem")}
-          >
-            Problem
-          </Button>
-          <Button
-            type="button"
-            variant={tab === "history" ? "secondary" : "outline"}
-            aria-pressed={tab === "history"}
-            onClick={() => setTab("history")}
-          >
-            <History aria-hidden="true" className="mr-2 size-4" /> My
-            submissions
-          </Button>
-        </div>
         <button
           type="button"
           className="min-h-11 text-xs underline"
@@ -722,126 +631,6 @@ function PrivateWorkspace({
           {state.error}
         </p>
       )}
-      {tab === "history" ? (
-        <section
-          aria-label="My saved submissions"
-          className="space-y-5 rounded-xl border bg-card p-5 sm:p-7"
-        >
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <h2
-              ref={historyTitle}
-              tabIndex={-1}
-              className="text-xl font-semibold"
-            >
-              My submissions
-            </h2>
-            <Button
-              type="button"
-              variant="outline"
-              disabled={historyBusy}
-              onClick={() => {
-                setPages([null]);
-                void loadHistory(null, true);
-              }}
-            >
-              Refresh history
-            </Button>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            Only your saved answers are shown. Older revision IDs do not load
-            withdrawn problem content. Local unfinished input is kept
-            separately.
-          </p>
-          {historyBusy && <p role="status">Loading your saved attempts…</p>}
-          {historyError && (
-            <div role="alert" className="space-y-3 text-sm">
-              <p>{historyError}</p>
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => void loadHistory(pages.at(-1) ?? null)}
-              >
-                Retry history
-              </Button>
-            </div>
-          )}
-          {historyLoaded &&
-            !history.length &&
-            !historyBusy &&
-            !historyError && (
-              <p className="rounded-md bg-muted/30 p-5 text-sm">
-                No saved attempts yet. Your first submitted answer will appear
-                here.
-              </p>
-            )}
-          <ol className="divide-y">
-            {history.map((a) => {
-              const current =
-                  a.revisionId === revision?.id && availability === "ready",
-                label = current
-                  ? parts.find((p) => p.id === a.partId)?.label
-                  : null;
-              return (
-                <li key={a.id} className="space-y-3 py-5">
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <p className="font-medium">
-                      Attempt {a.attemptNumber} · {feedback[a.status].label} · {a.assisted ? "Assisted" : "Unassisted"}
-                    </p>
-                    <time
-                      className="text-xs text-muted-foreground"
-                      dateTime={a.createdAt}
-                    >
-                      {new Date(a.createdAt).toLocaleString()}
-                    </time>
-                  </div>
-                  <p className="break-words text-xs text-muted-foreground">
-                    {current
-                      ? `Current revision · ${label ? `Part ${label}` : `part ${short(a.partId)}`}`
-                      : `Historical selection · part ${short(a.partId)}`}{" "}
-                    · revision{" "}
-                    <span className="font-mono">{short(a.revisionId)}</span>
-                  </p>
-                  <p className="whitespace-pre-wrap break-words rounded-md bg-muted/30 p-3 font-mono text-sm">
-                    {answerText(a.answer)}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {feedback[a.status].text}
-                  </p>
-                </li>
-              );
-            })}
-          </ol>
-          <div className="flex items-center justify-between gap-3 border-t pt-4">
-            <Button
-              type="button"
-              variant="outline"
-              disabled={historyBusy || pages.length === 1}
-              onClick={() => {
-                const next = pages.slice(0, -1);
-                setPages(next);
-                void loadHistory(next.at(-1) ?? null, true);
-              }}
-            >
-              Previous page
-            </Button>
-            <span className="text-xs text-muted-foreground">
-              Page {pages.length}
-            </span>
-            <Button
-              type="button"
-              variant="outline"
-              disabled={historyBusy || !historyCursor}
-              onClick={() => {
-                if (!historyCursor) return;
-                setPages([...pages, historyCursor]);
-                void loadHistory(historyCursor, true);
-              }}
-            >
-              Next page
-            </Button>
-          </div>
-        </section>
-      ) : (
         <div className="grid min-w-0 items-start gap-6 xl:grid-cols-[minmax(0,1fr)_23rem]">
           <PublicStatement
             revision={availability === "ready" ? revision : null}
@@ -863,7 +652,7 @@ function PrivateWorkspace({
                   Submit an answer
                 </h2>
               </div>
-              {part && <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground"><PartChip index={partColour}>Part {part.label || parts.indexOf(part) + 1}</PartChip>{part.sectionTitle || "Section"}</p>}
+              {part && (parts.length > 1 || part.sectionTitle) && <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">{parts.length > 1 && <PartChip index={partColour}>Part {part.label || parts.indexOf(part) + 1}</PartChip>}{part.sectionTitle}</p>}
               {availability === "ready" && revision && part && buffer ? (
                 <>
                   {parts.length > 1 && <Field label="Choose part">
@@ -984,8 +773,8 @@ function PrivateWorkspace({
                 </>
               ) : (
                 <p className="text-sm text-muted-foreground">
-                  Load the current publication to answer a part. Saved history
-                  and original retry records remain separate.
+                  Load the current publication to answer a part. Your input and
+                  original retry records are retained.
                 </p>
               )}
               {availability !== "ready" && (
@@ -1028,7 +817,6 @@ function PrivateWorkspace({
             {availability === "ready" && revision && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={part.label || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
           </AnswerWorkspace>
         </div>
-      )}
     </div>
   );
 }

@@ -31,12 +31,12 @@ export async function runPdfStudioProduction({origin,pool,sessionCookie}) {
  const path='/dashboard/authored/'+id,response=await fetch(origin+path),html=await response.text();assert.equal(response.status,200);assert.match(html,/noindex/);assert.equal(html.includes(authorMediaPath(id,statement,revision).replaceAll('&','&amp;')),true);assert.equal(html.includes(secret),false);
  const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});
  try {
-  const nojs=await browser.newContext({javaScriptEnabled:false});const staticPage=await nojs.newPage();await staticPage.goto(origin+path);await staticPage.getByRole('link',{name:'Download statement PDF 1',exact:true}).waitFor();await nojs.close();
+  const nojs=await browser.newContext({javaScriptEnabled:false});const staticPage=await nojs.newPage();await staticPage.goto(origin+path);await staticPage.getByRole('link',{name:'Open or download Statement PDF 1',exact:true}).waitFor();await nojs.close();
   for(const width of [375,1440])for(const theme of ['light','dark']) {
    const context=await browser.newContext({viewport:{width,height:900}}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
    await context.addInitScript(theme=>localStorage.setItem('theme',theme),theme);
    await page.route('**/api/authored-problems/'+id+'/media/'+statement+'*',route=>route.fulfill({status:200,contentType:'application/pdf',headers:{'cache-control':'private, no-store','content-disposition':'attachment; filename="statement.pdf"','content-security-policy':"sandbox; default-src 'none'"},body:pdf}));
-   await page.goto(origin+path);const read=page.getByRole('button',{name:'Read statement PDF 1',exact:true});await read.focus();await page.keyboard.press('Enter');
+   await page.goto(origin+path);assert.equal(await page.getByRole('button',{name:'Read statement PDF 1',exact:true}).count(),0);
    await page.getByText('Synthetic statement page one',{exact:true}).waitFor();await page.locator('[data-pdf-rendered=true]').waitFor();
    await page.getByRole('button',{name:'Next page',exact:true}).focus();await page.keyboard.press('Enter');await page.getByText('Synthetic statement page two',{exact:true}).waitFor();
    await page.waitForFunction(theme=>document.documentElement.classList.contains('dark')===(theme==='dark'),theme);assert.equal(await page.evaluate(()=>document.documentElement.classList.contains('dark')),theme==='dark');assert.equal(await page.locator('.react-pdf__Page__textContent').count(),1);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);

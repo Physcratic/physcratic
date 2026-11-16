@@ -272,7 +272,7 @@ try {
     const { context: sctx, page: sp } = await newPage(1440);
     await sp.goto(origin);
     await sp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
-    const sq = sp.getByRole("region", { name: "Part a", exact: true }).getByRole("textbox", { name: "What's the question?" });
+    const sq = sp.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true }).getByRole("textbox", { name: "What's the question?" });
     await sq.click();
     await sq.pressSequentially("A ball is thrown up at ");
     await sp.keyboard.type("$");
@@ -345,7 +345,7 @@ try {
   assert.equal(await page.getByText(/context|provide/i).count(), 0, "no jargon labels");
 
   // The question, with an equation typed like in a word processor: $ opens it, Escape closes it.
-  const part = page.getByRole("region", { name: "Part a", exact: true });
+  const part = page.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true });
   const question = part.getByRole("textbox", { name: "What's the question?" });
   await focusClick(question);
   await typed(question, "A ball is thrown up at ");
@@ -416,12 +416,11 @@ try {
   await page.getByText("Tick the box to say you wrote this problem.", { exact: true }).waitFor({ timeout: 3000 });
   assert.equal(await page.evaluate(() => document.activeElement?.getAttribute("data-simple-field")), "difficulty", "focus moves to the first missing item, the rating");
   assert.equal((await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state !== "published", true, "nothing was published");
-  await page.getByRole("radio", { name: /^Advanced/ }).click();
-  assert.equal(await page.getByRole("radio", { name: /^Advanced/ }).getAttribute("aria-checked"), "true", "the band is chosen");
+  assert.equal(await page.getByRole("radiogroup", { name: "Quick pick a band" }).count(), 0);
+  await page.getByLabel("Difficulty rating", { exact: true }).fill("2100");
   assert.equal(await page.getByLabel("Difficulty rating", { exact: true }).inputValue(), "2100", "the band fills in its middle rating");
   assert.equal(await page.getByLabel("Difficulty rating", { exact: true }).getAttribute("inputmode"), "numeric");
   await page.getByLabel("Difficulty rating", { exact: true }).fill("2310");
-  assert.equal(await page.getByRole("radio", { name: /^Advanced/ }).getAttribute("aria-checked"), "true", "an exact rating in the band keeps the band");
   assert.equal((await page.getByTestId("difficulty-band").innerText()).trim(), "2,310 · Advanced", "the band name shows next to the number");
   for (const bad of ["abc", "4001", ""]) {
     await page.getByLabel("Difficulty rating", { exact: true }).fill(bad);
@@ -483,10 +482,10 @@ try {
   await f.getByRole("button", { name: "Publish", exact: true }).click();
   for (const text of ["Write the question first.", "Add the worked solution.", "Add the final answer.", "Give it a title, or write the question and we'll make one.", "Add a difficulty rating from 0 to 4,000.", "Tick the box to say you wrote this problem."])
     await f.getByText(text, { exact: true }).waitFor({ timeout: 3000 });
-  assert.match(await f.evaluate(() => document.activeElement?.closest("[data-simple-field]")?.getAttribute("data-simple-field") ?? ""), /^q:/, "focus goes to the question, the first missing item");
+  assert.equal(await f.evaluate(() => document.activeElement?.closest("[data-simple-field]")?.getAttribute("data-simple-field") ?? ""), "title", "focus goes to the title, now the first missing item in document order");
   assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1 + spacingDrafts, "still no draft");
   // Fast typing across the first save keeps every character.
-  const fq = f.getByRole("region", { name: "Part a", exact: true }).getByRole("textbox", { name: "What's the question?" });
+  const fq = f.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true }).getByRole("textbox", { name: "What's the question?" });
   await fq.click();
   await f.keyboard.type("A cart of mass ", { delay: 20 });
   await f.keyboard.type("$");
@@ -521,7 +520,7 @@ try {
         const { context: tctx, page: tp } = await newPage(1440, 1000, profile);
         await tp.goto(origin);
         await tp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
-        const tq = tp.getByRole("region", { name: "Part a", exact: true }).getByRole("textbox", { name: "What's the question?" });
+        const tq = tp.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true }).getByRole("textbox", { name: "What's the question?" });
         await (profile ? tq.tap() : tq.click());
         await tp.keyboard.type("$");
         const tpanel = tp.getByRole("group", { name: "Type your equation" });
@@ -555,7 +554,7 @@ try {
       const { context: tctx, page: tp } = await newPage(1440, 1000, profile);
       await tp.goto(origin);
       await tp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
-      const tq = tp.getByRole("region", { name: "Part a", exact: true }).getByRole("textbox", { name: "What's the question?" });
+      const tq = tp.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true }).getByRole("textbox", { name: "What's the question?" });
       await (profile ? tq.tap() : tq.click());
       await tp.keyboard.type("$");
       const tpanel = tp.getByRole("group", { name: "Type your equation" });
@@ -602,7 +601,7 @@ try {
   await m.waitForTimeout(200);
   assert.deepEqual(await placeholdersOutside(), [], "no placeholder overflows its box at 320");
   await m.setViewportSize({ width: 375, height: 800 });
-  const mpart = m.getByRole("region", { name: "Part a", exact: true });
+  const mpart = m.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true });
   const mq = mpart.getByRole("textbox", { name: "What's the question?" });
   await mq.click();
   await m.keyboard.type("What is g near the surface?", { delay: 10 });
@@ -647,7 +646,7 @@ try {
     await mainQ.click();
     await mainQ.pressSequentially("A cart rolls down a ramp.");
     const fill = async (partName, question, solution, answer) => {
-      const region = tp.getByRole("region", { name: partName, exact: true });
+      const region = tp.getByRole("region", { name: partName === "Part a" ? /^(Part a|Question and answer)$/ : partName, exact: true });
       const q = region.getByRole("textbox", { name: "What's the question?" });
       await q.click();
       await q.pressSequentially(question);
@@ -664,7 +663,7 @@ try {
     // Adapted from needs a source, and its own rights tick.
     await tp.getByRole("radio", { name: "Adapted from" }).click();
     await tp.getByLabel("Source", { exact: true }).waitFor();
-    await tp.getByRole("radio", { name: /^Intermediate/ }).click();
+    await tp.getByLabel("Difficulty rating", { exact: true }).fill("1200");
     await tp.getByText("1,200 · Intermediate", { exact: true }).waitFor();
     await tp.getByRole("button", { name: "Publish", exact: true }).click();
     await tp.getByText("Say where it's from.", { exact: true }).waitFor({ timeout: 3000 });
@@ -727,7 +726,7 @@ try {
     const gp = g.page;
     await gp.goto(origin);
     await gp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
-    const gpart = gp.getByRole("region", { name: "Part a", exact: true });
+    const gpart = gp.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true });
     const gq = gpart.getByRole("textbox", { name: "What's the question?" });
     await gq.click();
     await gp.keyboard.type("A ball is thrown straight up at ", { delay: 5 });
