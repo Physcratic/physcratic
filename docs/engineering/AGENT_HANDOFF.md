@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Phase C active Batch A cutover checkpoint (16 November 2026)
+
+[Runtime cutover instructions](PRODUCTION_RUNTIME_ROLE.md#phase-c-execution-checkpoint-16-november-2026) now preserve active favourites/statistics and interpret the baseline-plus-Batch-A permission contract. Owner reports Phase B, two live audits, all11 favourites checks and18 verified migrations. Serving/main baseline is `01ee8adb5a38f0d0ba50d69ffe66c17c0c9d2304`, deployment `dpl_6vpLphYGtfgutETwicmkuNbKwsUJ`; code CI passes. No new SQL/code/grants. Live Vercel alias/scopes/owner-alias exposure and rollback availability require authenticated owner confirmation. Stop before private binding edit; owner performs the cutover/release and later acceptance. Do not merge unrelated work or trigger a deployment for this documentation correction.
+
 ## Account deletion release qualification (15 November 2026)
 
 Actual auth/0018/disposable-PG qualification retains the existing erasure design. A reproduced known-account-switch bug left password/confirmation in the deletion form. The minimal keyed workspace clears old consent while preserving original receipt recovery. Tests add real restricted login roles and the component/API/PG lifecycle in mobile/desktop light/dark, including lost acknowledgement, late responses and provider retry. [Implemented capabilities, owner evidence, acceptance, delivery choice and restore/rollback gates](ACCOUNT_DELETION_READINESS.md#release-qualification-15-november-2026). Live metadata confirms six-hour Neon history plus a separate manual snapshot and retained branches. It does not establish complete backup expiry. Deletion and practice activation remain **NO-GO**, source defaults OFF. No Production SQL, grant, provider, flag or deployment change. Exact SHA, independent review and CI evidence belong to the draft PR. Security-sensitive merge requires explicit owner approval.

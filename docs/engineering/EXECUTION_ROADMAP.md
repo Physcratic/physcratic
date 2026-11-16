@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## Phase C active Batch A cutover checkpoint (16 November 2026)
+
+[Owner cutover checkpoint](PRODUCTION_RUNTIME_ROLE.md#phase-c-execution-checkpoint-16-november-2026) corrects historical all-flags-OFF assumptions: statistics stays true, future features stay OFF. Baseline and Batch A rights are reconciled without modifying SQL or granting more access. Source/main CI is green at `01ee8ad`; live binding/scopes, owner-credential aliases and rollback confirmation remain owner evidence gates. No Production change or credential access. The next boundary is the owner's private Production binding edit, followed by the separately observed release and acceptance.
+
 ## Account deletion release qualification (15 November 2026)
 
 Actual auth/0018/disposable-PG qualification retains the existing erasure design. A reproduced known-account-switch bug left password/confirmation in the deletion form. The minimal keyed workspace clears old consent while preserving original receipt recovery. Tests add real restricted login roles and the component/API/PG lifecycle in mobile/desktop light/dark, including lost acknowledgement, late responses and provider retry. [Implemented capabilities, owner evidence, acceptance, delivery choice and restore/rollback gates](ACCOUNT_DELETION_READINESS.md#release-qualification-15-november-2026). Live metadata confirms six-hour Neon history plus a separate manual snapshot and retained branches. It does not establish complete backup expiry. Deletion and practice activation remain **NO-GO**, source defaults OFF. No Production SQL, grant, provider, flag or deployment change. Exact SHA, independent review and CI evidence belong to the draft PR. Security-sensitive merge requires explicit owner approval.

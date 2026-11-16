@@ -8,7 +8,78 @@ do not alter the inventoried runtime paths or permission dependencies.
 No Production connection, SQL, role, grant, secret retrieval, configuration,
 deployment, migration replay or feature activation was performed for this work.
 
-## Decision and facts
+## Phase C execution checkpoint (16 November 2026)
+
+The proposal and Phase A/B sections below retain their dated qualification
+history. The current owner record supersedes their assumptions that the role
+does not exist and all features are OFF. Do not replay provisioning or password setup.
+
+- Owner-reported serving baseline: `neuterions-projects/financial-dashboard`,
+  `physcratic.com`, deployment `dpl_6vpLphYGtfgutETwicmkuNbKwsUJ`, source
+  `01ee8adb5a38f0d0ba50d69ffe66c17c0c9d2304`. Reconfirm Ready state and actual
+  alias in the owner account before using this as the rollback target.
+- Phase B direct and pooled LOGIN/TLS tests and two Production metadata audits
+  passed according to the owner. All 11 required favourites table permissions
+  passed, tested forbidden rights were absent and all 18 ledger entries were
+  verified. These are owner-operated evidence, not a fresh SQL inspection here.
+- Production still uses `neondb_owner`. `physcratic_runtime_app` exists and its
+  password is already privately initialized. Phase C changes the application
+  binding only. Keep database and function ownership unchanged.
+- `COMMUNITY_PROBLEM_STATS_ENABLED=true` is active and MUST remain true during
+  cutover and rollback. Profiles and other future gates remain OFF. The earlier
+  first-activation sequence is historical and must not disable Batch A now.
+
+The active permission contract is the 35-table baseline PLUS the existing
+`scripts/activation/favourites-grants.review.sql` delta. The base-only verifier
+will report that delta's table/column permissions as extras. Reconcile only the
+exact approved additions, not every nonzero finding. The activation audit must
+also show all 11 favourites table-permission rows allowed. Existing user reads
+and PostgreSQL row-lock capability remain required. The audit's UPDATE(id)
+helper is narrower than PostgreSQL's requirement for UPDATE on any column.
+No new grants are implied by this checkpoint, and none are to be executed here.
+
+Before the owner privately changes the binding, record deployment/alias/SHA,
+effective flags, environment-variable IDs/scopes/integration ownership, current
+binding recovery reference, a verified rollback action, named synthetic fixtures
+and observation/rollback ownership. Saved project settings are not deployment
+evidence. Missing authenticated metadata remains a release blocker.
+
+For a shared Production/Development DATABASE_URL, preserve the existing record's
+value for its remaining targets and create a separate Production-only binding.
+Do not replace the shared value globally. Keep Preview/branch overrides intact.
+Integration-managed keys need supported scope controls and explicit owner scope
+approval. Do not uninstall/reconnect an integration or silently change provider
+settings. Record unused owner-bearing aliases as remaining exposure even if
+the ordinary application ignores them. No merge/release may race these edits.
+
+The owner uses the already-held restricted-role pooled binding for endpoint
+`ep-snowy-heart-b7c1220y`, database `neondb`, with TLS verify-full. No secret is
+to be retrieved, displayed or copied into this repository/chat. A nonsecret
+unique `application_name=physcratic-prod-phase-c-01ee8ad` label may identify this release in existing Neon
+connection telemetry. The current pg client accepts that URL parameter. Confirm
+the provider preserves it before relying on it, and do not reuse it for local
+LOGIN tests. Require authenticated-role evidence correlated with requests to
+the actual new serving deployment. A local psql session, ambiguous pooled row
+or a saved environment setting does not attest the deployed runtime. If existing
+provider telemetry cannot establish that link, stop for supported evidence.
+
+The precise owner release mechanism is Redeploy of the confirmed Ready,
+unblocked Production source above using updated Production project settings.
+Record the resulting deployment ID, source SHA and alias. Do not substitute a
+newer main commit, promote an old environment snapshot as the cutover, purchase
+a seat or redeploy a blocked commit. This document does not trigger a release.
+The operator stops before the owner's private binding edit. Release and live
+acceptance are the next exchange after that boundary.
+
+Proposed acceptance window is 30 minutes after the approved synthetic journeys,
+then 24 hours of passive observation before credential/deployment cleanup.
+The owner records the actual baseline and approves budgets before release.
+Any wrong role/alias, privacy regression or new current-path permission failure
+requires immediate rollback. Repeated unconfirmed writes or sustained error,
+latency or connection-budget breaches also stop acceptance. No synthetic account
+or publication is approved merely by appearing in this document.
+
+## Original proposal facts (14 November 2026)
 
 The owner independently confirms Production uses `neondb_owner`, owns the
 database and all 77 ordinary tables, has no restricted application LOGIN, and
@@ -21,17 +92,18 @@ It is not an observed existing identity. Keep `neondb_owner`, every table owner
 and all privileged SECURITY DEFINER owners unchanged. Do not grant memberships,
 reassign ownership, modify shared PUBLIC/default ACLs or bootstrap future roles.
 
-This closes the owner-credential blocker in
+This historical proposal addresses the owner-credential blocker in
 [B6_RUNTIME_PERMISSIONS.md](B6_RUNTIME_PERMISSIONS.md). That document's statement
 that the current role is unknown is superseded by the owner's inspection above.
-[POST_B6_ACTIVATION.md](POST_B6_ACTIVATION.md) remains the later statistics
-activation procedure. Its favourites delta is NOT included here. No first
-activation can precede the restricted-role decision and live acceptance.
+[POST_B6_ACTIVATION.md](POST_B6_ACTIVATION.md) defines statistics activation.
+The original provisioning SQL excludes its favourites delta. For the current
+already-active Batch A, use the combined permission contract in the Phase C
+checkpoint above rather than treating that exclusion as the cutover contract.
 
-## Exact current-feature manifest
+## Original baseline feature manifest
 
 [`permissions.json`](../../scripts/runtime-role/permissions.json) is the exact
-35-table/column manifest with source references.
+original 35-table/column baseline manifest with source references.
 [`provision.review.sql`](../../scripts/runtime-role/provision.review.sql)
 implements it; the independent JSON/SQL/effective-ACL comparison is rehearsed.
 
@@ -214,7 +286,7 @@ privileged definer EXECUTE also fail. Do not cure findings with blanket grants.
 
 This phase is NOT authorized by provisioning approval. It requires actual
 Phase B evidence, exact reviewed serving source/deployment, passing existing
-CI, current OFF flags, actual Vercel scopes/aliases and the acceptance/observation
+CI, active Batch A with future flags OFF, actual Vercel scopes/aliases and the acceptance/observation
 and rollback plan below. No feature activation accompanies the credential change.
 
 1. Owner records the exact current Ready Production deployment ID, source SHA,
@@ -293,7 +365,7 @@ and the securely retained original owner binding, independent of app access.
    environment values. A blocked rollback deployment requires owner escalation,
    not billing/deployment bypass. This is why a qualified rollback target is a gate.
 4. Confirm actual Production alias, deployed SHA, effective original database
-   identity, still-OFF flags and existing-session/current-feature recovery.
+   identity, active Batch A with future flags OFF and existing-session/current-feature recovery.
    Saved settings or a healthy preview are insufficient. Old/new warm processes
    may coexist while traffic drains; record the end state and limits explicitly.
 5. Leave schema, data, owners, the new unused role, prior successful writes,
@@ -331,7 +403,12 @@ approved Phase C, not Phase B. Use named synthetic accounts/fixtures only.
 - Coaching consultation/tutor links reach the approved Tally forms. No database
   INSERT test or real-person form submission is needed. External form processing
   needs its own approved test if delivery evidence is missing.
-- Profiles/favourites/statistics/new practice/deletion/discussions remain OFF,
+- Favourites/statistics remain enabled. With approved fixtures, confirm guest
+  counts and a verified account's desired-state favourite save, authoritative
+  reload and unfavourite. Check a stale A display under B's cookie rejects409
+  without changing B, and retain the current verified-solve semantics. Never
+  manufacture live graded work or repair counters to force an expected count.
+- Profiles/new practice/deletion/discussions remain OFF,
   with controls absent and existing disabled contracts. Never probe deletion
   through a live DELETE/POST. Reuse existing code evidence for security cases.
 
