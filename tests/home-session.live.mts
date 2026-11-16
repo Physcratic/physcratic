@@ -159,7 +159,7 @@ try {
     ok(code === 0, "public library browser and mounted account-switch journeys pass");
     if (process.env.HOME_PDF_STUDIO_BROWSER === "1") {
       const {runPdfStudioProduction} = await import("./pdf-studio.production.browser.mjs");
-      await runPdfStudioProduction({origin,pool,owner:user.id,sessionCookie:memberCookie});
+      await runPdfStudioProduction({origin,pool,sessionCookie:memberCookie});
     }
     if (process.env.HOME_PDF_BROWSER === "1") {
       const pdf = spawn(process.execPath, ["tests/pdf-accessibility.browser.mjs"], { env: { ...process.env, BROWSER_TEST_ORIGIN: origin, LIBRARY_SESSION_A: signed }, stdio: "inherit" });

@@ -10,8 +10,10 @@ import {createAuthorMediaApi} from '../lib/author-media-api.ts';
 import {newProblem} from '../lib/problem-authoring-editor.ts';
 import {authorMediaPath} from '../lib/author-media.ts';
 import {memoryAuthorStorage,statementPdfFixture} from './author-media-fixtures.ts';
-export async function runPdfStudioProduction({origin,pool,owner,sessionCookie}) {
+export async function runPdfStudioProduction({origin,pool,sessionCookie}) {
  assert.ok(['127.0.0.1','localhost'].includes(new URL(origin).hostname));
+ const owner=crypto.randomUUID();
+ await pool.query('INSERT INTO "user"(id,name,email,"emailVerified") VALUES($1,$2,$3,true)',[owner,'Synthetic PDF tutor',owner+'@example.invalid']);
  const tools=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS,'package.json')),{chromium}=tools('playwright'),{default:AxeBuilder}=tools('@axe-core/playwright');
  const deps={pool,user:async()=>({id:owner,emailVerified:true}),origin:r=>r.headers.get('origin')===origin,storage:memoryAuthorStorage().storage};
  const api=createProblemAuthoringApi(deps),media=createAuthorMediaApi(deps),input=newProblem(),partId=crypto.randomUUID(),pdf=statementPdfFixture();
@@ -43,7 +45,7 @@ export async function runPdfStudioProduction({origin,pool,owner,sessionCookie}) 
    await context.close();console.log(`PASS production PDF Studio ${width}px ${theme}: real SSR/noindex, lazy worker, selectable text, keyboard pages, overflow and axe`);
   }
   assert.equal((await fetch(origin+authorMediaPath(id,secret,revision))).status,404);
-  if(process.env.PDF_STUDIO_SWEEP === '1') for(const cookie of ['',sessionCookie]) {
+  if(['1','signed'].includes(process.env.PDF_STUDIO_SWEEP)) for(const cookie of process.env.PDF_STUDIO_SWEEP==='signed'?[sessionCookie]:['',sessionCookie]) {
     const child=spawn(process.execPath,['tests/solve-contrast.browser.mjs'],{stdio:'inherit',env:{...process.env,SWEEP:'1',BROWSER_TEST_ORIGIN:origin,SESSION_COOKIE:cookie}});
     assert.equal(await new Promise(resolve=>child.on('close',resolve)),0,cookie?'Signed-in sweep':'Guest sweep');
   }
