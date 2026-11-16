@@ -13,6 +13,8 @@ import { inputClass } from "./editor-fields";
 import { DifficultyRatingField } from "./difficulty-rating-field";
 import { MediaImage, useAuthorMediaUpload } from "./media-controls";
 import { RichMathText } from "./rich-math-text";
+import { MediaAttachments } from "./media-controls";
+import { FileParts } from "./file-parts";
 import {
   ADAPTED_RIGHTS_TEXT,
   RIGHTS_TEXT,
@@ -70,6 +72,7 @@ function ErrorLine({ id, children }: { id: string; children: React.ReactNode }) 
 
 export type SimpleProps = {
   draft: EditorDraft;
+  userId: string;
   edit: (fn: (d: EditorDraft) => void) => void;
   /** True while saving, uploading or recovering. */
   locked: boolean;
@@ -82,13 +85,20 @@ export type SimpleProps = {
 };
 
 export function SimpleEditor(props: SimpleProps) {
-  const { draft, edit, locked, provisional, otherIssues, onPublish, publishing } = props;
+  const { draft, userId, edit, locked, provisional, otherIssues, onPublish, publishing } = props;
+  const workflowKey = `physcratic.studio.files.v1:${userId}:${draft.problemId}`;
   /** What the author typed for each answer, which can be ahead of the saved key when it cannot be read yet. */
   const [typed, setTyped] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [attempted, setAttempted] = useState(false);
+  const [fileFirst, setFileFirst] = useState(() => {
+    try { const value = sessionStorage.getItem(workflowKey); if (value === "files" || value === "text") return value === "files"; } catch { /* View choice is optional. */ }
+    return draft.content.attachments.some(a => a.purpose === "statement-pdf") || [...draft.content.context, ...draft.content.sections.flatMap(s => [...s.blocks, ...s.parts.flatMap(p => p.blocks)])].some(b => b.kind === "image");
+  });
+  useEffect(() => { try { sessionStorage.setItem(workflowKey, fileFirst ? "files" : "text"); } catch { /* Saved content and recovery remain authoritative. */ } }, [workflowKey, fileFirst]);
+  const [workflowError, setWorkflowError] = useState("");
   const parts = allParts(draft);
-  const issues = simpleIssues(draft, typed);
+  const issues = simpleIssues(draft, typed, fileFirst);
   const colours = colorsByPartId(draft.content.sections);
   const shown = (field: string) => issues.find((i) => i.field === field && (attempted || touched[field]));
   const touch = (field: string) => setTouched((t) => (t[field] ? t : { ...t, [field]: true }));
@@ -130,14 +140,53 @@ export function SimpleEditor(props: SimpleProps) {
     onPublish();
   }
 
+  const metadata = <>
+      <div className="space-y-3">
+        <label htmlFor="simple-title" className={labelClass}>Title</label>
+        <input
+          id="simple-title"
+          data-simple-field="title"
+          className={fieldClass}
+          placeholder={TITLE_PLACEHOLDER}
+          maxLength={200}
+          value={draft.content.title}
+          aria-invalid={shown("title") ? true : undefined}
+          aria-describedby={shown("title") ? "simple-title-error" : undefined}
+          onBlur={() => touch("title")}
+          onChange={(e) => edit((d) => void (d.content.title = e.target.value))}
+        />
+        {shown("title") && <ErrorLine id="simple-title-error">{shown("title")!.message}</ErrorLine>}
+      </div>
+
+      <SourceField draft={draft} edit={edit} touch={touch} issue={shown("source")?.message} />
+
+      <DifficultyRatingField stored={draft.content.estimatedDifficulty} save={(text) => { let saved = false; edit((d) => void (saved = setDifficulty(d, text))); return saved; }} tour attempted={attempted} />
+
+      <TopicRow values={draft.content.topicTags} change={(v) => edit((d) => void (d.content.topicTags = v))} />
+
+  </>;
   return (
     <fieldset disabled={locked} className="mx-auto min-w-0 max-w-2xl space-y-12 disabled:opacity-70">
       <legend className="sr-only">Problem</legend>
-      {note && <p className="rounded-lg border-2 p-4 text-base">{note}</p>}
+      {note && !fileFirst && <p className="rounded-lg border-2 p-4 text-base">{note}</p>}
 
-      <MainQuestion draft={draft} edit={edit} provisional={provisional} touch={touch} issue={shown("picture:main")?.message} />
+      <label className="flex min-h-11 items-center gap-3 text-base">
+        <input type="checkbox" className="size-5" checked={fileFirst} onChange={e => {
+          if (Object.values(typed).some(value => readAnswer(value).kind === "error")) { setWorkflowError("Correct the current final answer before changing workflows. Your input is retained."); return; }
+          setTyped({}); setWorkflowError(""); setFileFirst(e.target.checked);
+        }} />
+        Use a PDF or part images
+      </label>
+      {workflowError && <p role="alert" className="text-sm text-destructive">{workflowError}</p>}
+      {fileFirst && <>
+        {metadata}
+        <p className="text-sm text-muted-foreground">Upload a statement PDF or add images to the parts. Files must be at most 3 MiB. The solution PDF is private until you approve access after publication.</p>
+        <fieldset disabled={provisional} className="min-w-0" data-simple-field="statement"><legend className="sr-only">PDF attachments</legend><MediaAttachments draft={draft} edit={edit} compact /></fieldset>
+      </>}
 
-      {parts.map(({ part, position }) => (
+      <details open={!fileFirst || undefined} className={fileFirst ? "rounded-lg border p-4" : undefined}><summary hidden={!fileFirst} className="min-h-11 cursor-pointer text-sm font-medium">Optional typed statement and setup image</summary><div className={fileFirst ? "pt-4" : undefined}><MainQuestion draft={draft} edit={edit} provisional={provisional} touch={touch} issue={shown("picture:main")?.message} /></div></details>
+
+      {fileFirst ? <FileParts draft={draft} edit={edit} provisional={provisional} /> : parts.map(({ part, position }) => (
         <PartEditor
           key={part.id}
           draft={draft}
@@ -167,28 +216,7 @@ export function SimpleEditor(props: SimpleProps) {
         Add part {partLetter(parts.length)}
       </Button>
 
-      <div className="space-y-3">
-        <label htmlFor="simple-title" className={labelClass}>Title</label>
-        <input
-          id="simple-title"
-          data-simple-field="title"
-          className={fieldClass}
-          placeholder={TITLE_PLACEHOLDER}
-          maxLength={200}
-          value={draft.content.title}
-          aria-invalid={shown("title") ? true : undefined}
-          aria-describedby={shown("title") ? "simple-title-error" : undefined}
-          onBlur={() => touch("title")}
-          onChange={(e) => edit((d) => void (d.content.title = e.target.value))}
-        />
-        {shown("title") && <ErrorLine id="simple-title-error">{shown("title")!.message}</ErrorLine>}
-      </div>
-
-      <SourceField draft={draft} edit={edit} touch={touch} issue={shown("source")?.message} />
-
-      <DifficultyRatingField stored={draft.content.estimatedDifficulty} save={(text) => { let saved = false; edit((d) => void (saved = setDifficulty(d, text))); return saved; }} tour attempted={attempted} />
-
-      <TopicRow values={draft.content.topicTags} change={(v) => edit((d) => void (d.content.topicTags = v))} />
+      {!fileFirst && metadata}
 
       <div className="space-y-5 border-t-2 pt-8">
         {rights === "advanced" ? null : (
@@ -211,10 +239,11 @@ export function SimpleEditor(props: SimpleProps) {
             {shown("rights") && <ErrorLine id="simple-rights-error">{shown("rights")!.message}</ErrorLine>}
           </div>
         )}
+        {attempted && fileFirst && issues.length > 0 && <ul role="alert" className="space-y-1 text-sm text-destructive">{issues.map(issue => <li key={issue.field}>{issue.message}</li>)}</ul>}
         {attempted && otherIssues.length > 0 && (
           <ul role="alert" className="space-y-1 text-base text-destructive">
             {otherIssues.slice(0, 4).map((m, i) => (
-              <li key={i}>{m} Fix it in Advanced.</li>
+              <li key={i}>{m} {fileFirst ? "Review the fields above." : "Fix it in Advanced."}</li>
             ))}
           </ul>
         )}

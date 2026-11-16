@@ -16,6 +16,7 @@ import {
   editorBase,
   editorDraftSchema,
   moveItem,
+  setPartAnswerMode,
   type EditorDraft,
 } from "@/lib/problem-authoring-editor";
 import { normalizeStatementImages } from "@/lib/author-media";
@@ -77,6 +78,7 @@ export function ProblemEditor({
   }, []);
   function chooseMode(next: StudioMode) {
     setModeState(next);
+    setTab("edit");
     try {
       window.localStorage.setItem(STUDIO_MODE_KEY, next);
     } catch {
@@ -167,7 +169,7 @@ export function ProblemEditor({
   });
   const issues = publishable.success ? [] : publishable.error.issues;
   // Publish rules Simple shows next to its own fields. Anything else is listed by the Publish button.
-  const simpleOwned = /^(Title and rights provenance required|Native statement and at least one part required|Every published part requires a key or explicit manual mode|Add a difficulty rating from 0 to 4,000\.)$/;
+  const simpleOwned = /^(Title and rights provenance required|Add a statement and at least one part\. Use text, statement images or a statement PDF\.|Every published part requires a key or explicit manual mode|Add a difficulty rating from 0 to 4,000\.)$/;
   const otherIssues = issues.map((i) => i.message).filter((m) => !simpleOwned.test(m));
   useEffect(() => {
     session.activate();
@@ -279,25 +281,7 @@ export function ProblemEditor({
     setNotice("Section added. Use Tab or the outline to reach it.");
   }
   function setMode(partId: string, mode: "numeric" | "expression" | "manual") {
-    edit((d) => {
-      const part = d.content.sections
-        .flatMap((s) => s.parts)
-        .find((p) => p.id === partId)!;
-      part.answerMode = mode;
-      const entry = d.privateParts.find((p) => p.partId === partId)!;
-      entry.key =
-        mode === "numeric"
-          ? { kind: mode, value: null, units: "", absTol: 0.01, relTol: 0 }
-          : mode === "expression"
-            ? {
-                kind: mode,
-                expected: "",
-                variables: [],
-                angleUnit: "radians",
-                exclusions: [],
-              }
-            : { kind: "manual" };
-    });
+    edit(d => setPartAnswerMode(d, partId, mode));
   }
   const previewCheck = authoredDocumentSchema.safeParse(draft.content);
   const safePreview = previewCheck.success
@@ -349,8 +333,6 @@ export function ProblemEditor({
             >
               {uploads > 0 ? "Uploading privately…" : message}
             </span>
-            {mode === "advanced" && (
-              <>
             <Button
               type="button"
               variant="outline"
@@ -368,6 +350,8 @@ export function ProblemEditor({
               <Save className="mr-1 size-4" />
               Save now
             </Button>
+            {mode === "advanced" && (
+              <>
             <Button
               type="button"
               size="sm"
@@ -622,45 +606,7 @@ export function ProblemEditor({
             )}
           </section>
         )}
-        {modeReady && mode === "simple" && <GuidedTour tourId="studio" />}
-        {!modeReady ? null : mode === "simple" ? (
-          <>
-            {continueDraft && (
-              <p className="mx-auto mb-6 max-w-2xl text-base">
-                <button
-                  type="button"
-                  className="inline-flex min-h-11 items-center underline underline-offset-4"
-                  disabled={busy || uploads > 0}
-                  onClick={() => {
-                    if (
-                      (dirty || recovery || snapshot.recoveryRaw) &&
-                      !window.confirm("Leave this problem? Unsaved work stays in this tab's recovery copy.")
-                    )
-                      return;
-                    continueDraft.open();
-                  }}
-                >
-                  Continue your last draft{continueDraft.title ? `: ${continueDraft.title}` : ""}
-                </button>
-              </p>
-            )}
-            <SimpleEditor
-              draft={draft}
-              edit={edit}
-              locked={busy || uploads > 0 || !!recovery || !!snapshot.recoveryRaw}
-              provisional={creating}
-              otherIssues={otherIssues}
-              publishing={busy}
-              onPublish={() => {
-                if (phase === "saving" || phase === "conflict") return;
-                void session.publish("publish", (d) =>
-                  draftRequest(`${editorBase}/${d.problemId}/publish`, "POST", { version: d.version }),
-                );
-              }}
-            />
-          </>
-        ) : (
-          <>
+        {modeReady && <>
         <div className="mb-8 flex flex-wrap items-center justify-between gap-3 border-b pb-3">
           <div className="flex gap-2" role="group" aria-label="Editor view">
             <Button
@@ -688,6 +634,47 @@ export function ProblemEditor({
             </p>
           )}
         </div>
+        </>}
+        {modeReady && mode === "simple" && <GuidedTour tourId="studio" />}
+        {!modeReady ? null : mode === "simple" ? (
+          <div hidden={tab !== "edit"}>
+            {continueDraft && (
+              <p className="mx-auto mb-6 max-w-2xl text-base">
+                <button
+                  type="button"
+                  className="inline-flex min-h-11 items-center underline underline-offset-4"
+                  disabled={busy || uploads > 0}
+                  onClick={() => {
+                    if (
+                      (dirty || recovery || snapshot.recoveryRaw) &&
+                      !window.confirm("Leave this problem? Unsaved work stays in this tab's recovery copy.")
+                    )
+                      return;
+                    continueDraft.open();
+                  }}
+                >
+                  Continue your last draft{continueDraft.title ? `: ${continueDraft.title}` : ""}
+                </button>
+              </p>
+            )}
+            <SimpleEditor
+              draft={draft}
+              userId={userId}
+              edit={edit}
+              locked={busy || uploads > 0 || !!recovery || !!snapshot.recoveryRaw}
+              provisional={creating}
+              otherIssues={otherIssues}
+              publishing={busy}
+              onPublish={() => {
+                if (phase === "saving" || phase === "conflict") return;
+                void session.publish("publish", (d) =>
+                  draftRequest(`${editorBase}/${d.problemId}/publish`, "POST", { version: d.version }),
+                );
+              }}
+            />
+          </div>
+        ) : null}
+        {modeReady && <>
         {tab === "preview" ? (
           !safePreview ? (
             <p role="alert">
@@ -750,7 +737,7 @@ export function ProblemEditor({
               ))}
             </article>
           )
-        ) : (
+        ) : mode === "advanced" ? (
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_220px]">
             <fieldset
               disabled={
@@ -1273,9 +1260,10 @@ export function ProblemEditor({
               </nav>
             </aside>
           </div>
-        )}
-          </>
-        )}
+        ) : null}
+          </>}
+
+        {modeReady && mode === "simple" && draft.state === "published" && <details className="mx-auto mt-8 max-w-2xl rounded-lg border p-4"><summary className="min-h-11 cursor-pointer font-medium">Solution access</summary><SolutionPermissions key={draft.problemId} problemId={draft.problemId} /></details>}
       </main>
     </div>
     </AuthorMediaProvider>

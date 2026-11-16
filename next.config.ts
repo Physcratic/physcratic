@@ -16,6 +16,9 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   outputFileTracingIncludes: {
+    // Metadata routes read this logo from disk. Public/CDN assets are not otherwise
+    // guaranteed to be traced into their functions. No corpus statements are needed.
+    "/**/opengraph-image": ["./public/logo-mark-transparent.png"],
     "/api/submissions": ["./public/corpus/problems/*.json"],
     "/api/submission-info/*": ["./public/corpus/problems/*.json"],
   },

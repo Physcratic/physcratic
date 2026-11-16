@@ -1,4 +1,5 @@
 "use client";
+import { StatementPdfs } from "./statement-pdfs";
 import { useSWRConfig } from "swr";
 import {ProblemStatsPanel} from '@/components/community/problem-stats';
 import {ReportControl} from '@/components/community/report-controls';
@@ -18,7 +19,6 @@ import {
 } from "react";
 import {
   CheckCircle2,
-  FileText,
   History,
   ShieldCheck,
 } from "lucide-react";
@@ -29,7 +29,6 @@ import type { FeedbackTone } from "@/lib/solve-feedback";
 import { Button } from "@/components/ui/button";
 import { Field, inputClass } from "@/components/authoring/editor-fields";
 import { numericUnitsHelp } from "@/lib/authored-grading-contracts";
-import { authorMediaPath } from "@/lib/author-media";
 import {
   StudentSolverSession,
   solverBase,
@@ -305,26 +304,7 @@ function PublicStatement({
       aria-label="Published problem statement"
       className="min-w-0 space-y-8 rounded-xl border bg-card p-5 sm:p-8"
     >
-      {doc.attachments.filter((a) => a.purpose === "statement-pdf").length >
-        0 && (
-        <div className="rounded-lg border bg-muted/20 p-4">
-          <h2 className="mb-2 text-sm font-semibold">Statement attachments</h2>
-          {doc.attachments
-            .filter((a) => a.purpose === "statement-pdf")
-            .map((a, i) => (
-              <a
-                key={a.id}
-                href={authorMediaPath(problemId, a.id, revision.id)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mr-4 inline-flex min-h-11 items-center gap-2 text-sm underline"
-              >
-                <FileText aria-hidden="true" className="size-4" /> Download
-                statement PDF {i + 1}
-              </a>
-            ))}
-        </div>
-      )}
+      <StatementPdfs problemId={problemId} revisionId={revision.id} ids={doc.attachments.filter(a => a.purpose === "statement-pdf").map(a => a.id)} />
       <StatementBlocks
         blocks={doc.context}
         problemId={problemId}

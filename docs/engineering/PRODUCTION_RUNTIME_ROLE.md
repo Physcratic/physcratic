@@ -8,7 +8,59 @@ do not alter the inventoried runtime paths or permission dependencies.
 No Production connection, SQL, role, grant, secret retrieval, configuration,
 deployment, migration replay or feature activation was performed for this work.
 
-## Phase C execution checkpoint (16 November 2026)
+## Phase C post-cutover evidence (17 November 2026)
+
+The owner reports credential cutover and acceptance of authentication, Arena,
+favourites/statistics and saved work. This is not an instruction to repeat Phase
+A, password setup or Phase C. Actual serving-role attestation remains UNKNOWN
+until correlated deployment/provider evidence is retained. No SQL, credential,
+flag, provider or deployment action was performed by this documentation task.
+
+Main is `c12ec3c1e5caea7ab9f4ae4dd28aff98d994832b`, merging OG PR190. Its CI
+run43915080337 passes all three jobs. GitHub deploy-watch run43915080353 reports
+financial-dashboard success, which is provider-status evidence, not an independent
+physcratic.com alias or database-role observation. The environment denies direct
+Production/provider API access and has no approved Vercel/Neon connector tools.
+The old deployment and 01ee8ad label below are historical, not current rollback
+authority. Record the actual serving deployment and last accepted recovery target
+in the owner's account before considering any further release.
+
+Read-only acceptance procedure for the owner using existing approved access:
+
+1. Confirm the actual physcratic.com alias in neuterions-projects/financial-dashboard,
+   Ready deployment ID/source SHA, effective Batch A true and all future gates OFF.
+   Inspect variable IDs/scopes/integration ownership only. Do not decrypt or copy
+   DATABASE_URL or aliases. Saved values or Ready state alone do not attest LOGIN.
+2. Confirm divine-mode-82940461/br-quiet-dawn-b7m2zrt3/neondb and endpoint
+   ep-snowy-heart-b7c1220y in Neon. Use existing authenticated connection/role logs
+   and approved deployment request telemetry to correlate serving Functions with
+   physcratic_runtime_app. An existing unique application_name may help only if
+   the provider preserves it and it belongs to this deployment. Do not add a new
+   label, public diagnostic route or connection to manufacture this evidence.
+   A local LOGIN, SET ROLE, generic role activity or saved Vercel record is not proof.
+3. Retain metadata-only results of the existing runtime-role verifier and activation
+   read-only audit at the actual current source. The exact active contract is the
+   35-table baseline plus the already-approved 11 Batch A permission checks below.
+   Reconcile only that exact delta against the base verifier's extra findings.
+   Require no owner membership/ownership, trusted-schema CREATE or unexpected
+   future/privileged grants. Do not select query text or copy user/secret data.
+4. Inspect current error aggregates for 42501, auth/grading/connection/provider
+   failures and old owner-backed warm connections. Retain evidence of the owner's
+   already-approved journeys and remaining authoring/media/contest/provider gaps.
+   Do not initiate additional real writes or revoke owner credentials here.
+5. Preserve an independently usable rollback deployment AND persistent binding
+   recovery reference, out-of-band owner access and the existing firewall settings.
+   The owner records observation/budget acceptance. Missing identity/alias/exposure
+   evidence remains UNKNOWN, not an instruction to redo the completed cutover.
+
+Profiles still require separate grant/flag/acceptance approval. Practice, deletion,
+discussions, media and staff actions stay outside this checkpoint. This document
+changes no permissions and grants no authority to activate them.
+
+## Historical Phase C preparation checkpoint (16 November 2026)
+
+This section records the pre-cutover plan. The post-cutover evidence section above
+supersedes its current-state assumptions. Do not repeat its execution steps.
 
 The proposal and Phase A/B sections below retain their dated qualification
 history. The current owner record supersedes their assumptions that the role
