@@ -43,7 +43,7 @@ let browser,
 const sessionUser = async (request) => request.headers.get("cookie")?.includes("viewer=guest") ? null : ({
   id: request.headers.get("cookie")?.includes("viewer=workflow-student")
     ? "workflow-student"
-    : "browser-author",
+    : request.headers.get("cookie")?.match(/(?:^|;\s*)studio_author=(pdf-studio-\d+-(?:light|dark))(?:;|$)/)?.[1] ?? "browser-author",
   emailVerified: true,
 });
 const api = createProblemAuthoringApi({

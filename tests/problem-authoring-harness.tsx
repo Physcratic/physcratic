@@ -28,7 +28,7 @@ createRoot(document.getElementById("root")!).render(
       // The guided tour reads the route, so Problem Studio needs a router even in this harness. Nothing navigates.
       <AppRouterContext.Provider value={{ push() {}, replace() {}, back() {}, forward() {}, refresh() {}, prefetch() {} } as never}>
         <PathnameContext.Provider value="/dashboard/author">
-          <AuthoringWorkspace userId="browser-author" />
+          <AuthoringWorkspace userId={document.cookie.match(/(?:^|;\s*)studio_author=(pdf-studio-\d+-(?:light|dark))(?:;|$)/)?.[1] ?? "browser-author"} />
         </PathnameContext.Provider>
       </AppRouterContext.Provider>
     )}
