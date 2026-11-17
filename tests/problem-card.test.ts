@@ -27,16 +27,14 @@ function render(props: ProblemCardProps) {
   return renderToStaticMarkup(createElement(ProblemCard, props));
 }
 
-test("problem cards share a labelled article, header, details and open action", () => {
+test("problem cards share a labelled article, rating block, details and open action", () => {
   const html = render({ ...base, onOpen() {} });
   assert.match(html, /role="article"/);
   assert.match(html, /data-problem-card="test-problem"/);
-  assert.match(html, /problem-entry-header/);
   assert.match(html, /problem-entry-details/);
-  assert.match(html, /class="flex items-center justify-between gap-4"/);
   assert.match(html, /<h3[^>]*>.*A block on an incline/);
   assert.match(html, /5 min · Hint \+ worked solution/);
-  assert.match(html, /English.*Unrated/);
+  assert.match(html, /Unrated.*English/);
   assert.match(html, /Open problem/);
   assert.match(html, /Open problem: Quick practice, A block on an incline/);
   assert.match(html, /Newton’s laws/);
@@ -69,6 +67,64 @@ test("each card has one control, so keyboard users get one tab stop per problem"
   assert.doesNotMatch(withLink + withButton, /Exercise/);
 });
 
+test("the rating block comes first, then one quiet source line above a larger title, in the new layout", () => {
+  const html = render({
+    ...base,
+    source: "IPhO",
+    competition: "IPhO",
+    reference: "2025 · T1",
+    elo: 1850,
+    headingLevel: 4,
+    href: "/dashboard/problems/test-problem",
+  });
+  // On a narrow screen the card is one column with the rating block on top, and from sm up the block is on the left.
+  assert.match(html, /class="[^"]*flex-col[^"]*sm:flex-row/);
+  const rating = html.indexOf("Rating 1,850, Advanced");
+  const source = html.indexOf(">IPhO</span>");
+  const reference = html.indexOf(">2025 · T1</span>");
+  const title = html.indexOf("<h4");
+  assert.ok(rating >= 0 && rating < source && source < reference && reference < title, "rating, then source and reference, then title");
+  // Source and reference share one line, and the title is larger than the old text-lg.
+  assert.equal((html.match(/<p class="flex flex-wrap items-center[^"]*text-muted-foreground">/g) ?? []).length, 1);
+  assert.match(html, /<h4[^>]*class="[^"]*text-xl font-semibold/);
+  // The band name stays visible as text, in a block that is a labelled group and not a second control.
+  assert.match(html, /role="group" aria-label="Rating 1,850, Advanced"/);
+  assert.match(html, />Advanced<\/p>/);
+});
+
+test("the whole card opens the problem through the one control, which is the filled primary button", () => {
+  for (const props of [{ href: "/dashboard/problems/test-problem" }, { onOpen() {} }] as const) {
+    const html = render({ ...base, ...props });
+    // The control stretches over the card, so a press anywhere on it opens the problem, with no second link or button.
+    assert.match(html, /relative flex min-w-0 flex-col/);
+    assert.match(html, /after:absolute after:inset-0/);
+    assert.equal((html.match(/after:absolute/g) ?? []).length, 1);
+    assert.equal((html.match(/<(a|button)[\s>]/g) ?? []).length, 1);
+    // A filled primary button, not the outline style the card used before.
+    assert.match(html, /bg-primary/);
+    assert.doesNotMatch(html, /outline-transparent/);
+    // Tap target of at least 44 by 44.
+    assert.match(html, /min-h-11 min-w-11/);
+    assert.match(html, /aria-label="Open problem: Quick practice, A block on an incline"/);
+  }
+});
+
+test("only the one control opens the problem, so an attribution link or button is not nested inside it", () => {
+  const html = render({
+    ...base,
+    href: "/dashboard/problems/test-problem",
+    attribution: createElement("a", { href: "/u/ada" }, "Ada"),
+  });
+  // Pressable things in the attribution sit above the stretched layer and take their own press.
+  assert.match(html, /pointer-events-none relative z-10/);
+  assert.match(html, /\[&amp;_a\]:pointer-events-auto/);
+  assert.match(html, /\[&amp;_button\]:pointer-events-auto/);
+  // The attribution link is inside that layer, and the open link is the only one with the stretched ::after layer.
+  assert.match(html, /pointer-events-none[^>]*><a href="\/u\/ada">Ada<\/a><\/div>/);
+  assert.equal((html.match(/<a[\s>]/g) ?? []).length, 2);
+  assert.equal((html.match(/after:absolute/g) ?? []).length, 1);
+});
+
 test("cards without a supplied difficulty never invent an estimate", () => {
   const html = render({ ...base, source: "Physcratic Arena", href: "/dashboard/problems/test-problem" });
   assert.match(html, /Unrated/);
@@ -92,11 +148,11 @@ test("practice cards identify difficulty ratings as estimates and preserve ratin
   ] as const) {
     const html = render({ ...base, elo, onOpen() {} });
     const formatted = elo.toLocaleString("en-US");
-    assert.ok(html.includes(`>${formatted}</span>`));
+    assert.ok(html.includes(`>${formatted}</p>`));
     assert.ok(html.includes(`Rating ${formatted}, ${band}`));
-    // The band name is shown next to the rating, not only read out.
-    assert.ok(html.includes(`<span class="text-sm">${band}</span>`), `${band} is shown on the card`);
-    assert.ok(html.includes("rounded-md"));
+    // The band name is shown under the rating, not only read out.
+    assert.ok(html.includes(`<p class="text-sm font-medium text-muted-foreground">${band}</p>`), `${band} is shown on the card`);
+    assert.ok(html.includes("tabular-nums"));
     assert.doesNotMatch(html, /~[\d,]+|\bELO\b/);
     assert.ok(html.includes(`data-level="${level}"`));
     assert.doesNotMatch(html, /Unrated/);
@@ -122,7 +178,7 @@ test("all olympiad competitions retain their identity, source references and tit
     assert.match(html, /<h4[^>]*lang="ru"/);
     assert.match(html, /Source title in Russian/);
     assert.doesNotMatch(html, /Russian statement|English statement/);
-    assert.match(html, /русский.*Unrated/);
+    assert.match(html, /Unrated.*русский/);
     assert.match(html, /Open problem:/);
   }
 });
@@ -211,12 +267,12 @@ test("empty collections keep the archive shell and reset action without misleadi
   assert.doesNotMatch(html, /<nav |Showing|Page 1 of|data-problem-card=/);
 });
 
-test("all imported archive cards display their individual estimate using the shared rating badge", () => {
+test("all imported archive cards display their individual estimate in the rating block", () => {
   for (const problem of catalogProblems) {
     const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }));
     const elo = getEstimatedProblemElo(problem.id).toLocaleString("en-US");
     assert.ok(html.includes(`Rating ${elo},`), problem.id);
-    assert.ok(html.includes(`>${elo}</span>`), problem.id);
+    assert.ok(html.includes(`>${elo}</p>`), problem.id);
     assert.doesNotMatch(html, /Unrated/);
   }
 });
@@ -244,11 +300,11 @@ test("problem metadata and titles are escaped rather than interpreted as markup"
   assert.doesNotMatch(html, /<script>/);
 });
 
-test("imported cards place the labelled host flag directly before the competition badge", () => {
+test("imported cards place the labelled host flag directly before the competition name", () => {
   for (const problem of catalogProblems) {
     const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }))
     assert.match(html, /role="img" aria-label="Hosted by /, problem.id)
-    assert.ok(html.indexOf('role="img"') < html.indexOf(`>${problem.competition}</div>`), problem.id)
+    assert.ok(html.indexOf('role="img"') < html.indexOf(`>${problem.competition}</span>`), problem.id)
     assert.ok(html.includes(`${problem.year} · ${problem.code}`), problem.id)
     assert.ok(html.includes(`href="/dashboard/problems/${problem.id}"`), problem.id)
     assert.equal((html.match(/<a[\s>]/g) ?? []).length, 1)
