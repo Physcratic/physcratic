@@ -28,6 +28,7 @@ import {
   mathSymbols,
   pictureOf,
   removePicture,
+  replacePartImages,
   setIntro,
   setPictureAlt,
   setSolution as setSolutionSpans,
@@ -590,4 +591,23 @@ test("upload-first checklist accepts manual keys and optional solutions, retaini
   assert.equal(simpleIssues(d).some(i => i.field.startsWith("question:")), true);
   d.privateParts[0].key = null; assert.equal(simpleIssues(d, {}, true).some(i => i.field.startsWith("answer:")), true);
   d.content.attachments = []; assert.equal(simpleIssues(d, {}, true).some(i => i.field === "statement"), true);
+});
+
+
+test("Simple PDF image editing preserves interleaved text, equations, IDs and private keys", () => {
+  const draft = blank(), part = allParts(draft)[0].part;
+  const image = (alt: string) => ({id:uuid(),kind:"image" as const,mediaId:uuid(),alt,caption:""});
+  const a=image("First"), b=image("Second"), c=image("New");
+  const text={id:uuid(),kind:"text" as const,spans:words("Explanation for second image")};
+  const equation={id:uuid(),kind:"math" as const,latex:"F=ma"};
+  part.blocks=[a,text,b,equation];
+  const privateBefore=structuredClone(draft.privateParts), partId=part.id;
+  replacePartImages(draft,partId,[{...b,alt:"Updated"}]);
+  assert.deepEqual(part.blocks,[text,{...b,alt:"Updated"},equation]);
+  replacePartImages(draft,partId,[{...b,alt:"Updated"},c]);
+  assert.deepEqual(part.blocks,[text,{...b,alt:"Updated"},equation,c]);
+  replacePartImages(draft,partId,[c,b]);
+  assert.deepEqual(part.blocks,[text,c,equation,b]);
+  assert.equal(part.id,partId);
+  assert.deepEqual(draft.privateParts,privateBefore);
 });

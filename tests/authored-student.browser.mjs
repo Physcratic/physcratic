@@ -507,7 +507,7 @@ try {
     1,
   );
   assert.equal(
-    await page.getByRole("link", { name: /Download statement PDF/ }).count(),
+    await page.getByRole("link", { name: /Open or download Statement PDF/ }).count(),
     1,
   );
   assert.equal(await page.getByRole("link", { name: /solution/i }).count(), 0);
@@ -735,91 +735,33 @@ try {
     );
   }
   await resetRates();
+  assert.equal(await page.getByRole("button", {name:"My submissions",exact:true}).count(),0);
   nextHistoryFault = 503;
-  await page
-    .getByRole("button", { name: "My submissions", exact: true })
-    .click();
-  await page
-    .getByRole("alert")
-    .filter({ hasText: "could not load this information" })
-    .waitFor();
-  assert.equal(
-    await page.getByText("No saved attempts yet.", { exact: false }).count(),
-    0,
-  );
-  await page
-    .getByRole("button", { name: "Retry history", exact: true })
-    .click();
-  await page.getByRole("button", { name: "Next page", exact: true }).waitFor();
-  await until(
-    async () =>
-      (await page
-        .locator('section[aria-label="My saved submissions"] ol>li')
-        .count()) === 50,
-    "first history page",
-  );
-  await page.getByRole("button", { name: "Problem", exact: true }).click();
-  await choose(2);
-  await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
-  await page
-    .getByLabel("Manual answer", { exact: true })
-    .fill("pagination-new");
-  await submit();
-  await saved("Ungraded");
-  await page
-    .getByRole("button", { name: "My submissions", exact: true })
-    .click();
-  await until(
-    async () =>
-      (await page
-        .locator('section[aria-label="My saved submissions"] ol>li')
-        .count()) === 50,
-    "refetched matching cursor",
-  );
+  assert.equal((await page.request.get(`${origin}/api/authored-problems/attempts?problemId=${problemId}`)).status(),503);
+  // The removed list's API remains intact, including bounded pagination and private account scope.
   const seen = [];
-  while (true) {
-    seen.push(
-      ...(await page
-        .locator('section[aria-label="My saved submissions"] ol>li')
-        .allTextContents()),
-    );
-    if (
-      await page
-        .getByRole("button", { name: "Next page", exact: true })
-        .isDisabled()
-    )
-      break;
-    await page.getByRole("button", { name: "Next page", exact: true }).click();
-    await until(
-      async () =>
-        !(await page.getByText("Loading your saved attempts…").count()),
-      "next history page",
-    );
-  }
-  const total = Number(
-    (
-      await pool.query(
-        "SELECT count(*) FROM authored_attempt WHERE user_id='A'",
-      )
-    ).rows[0].count,
-  );
-  assert.equal(
-    seen.length,
-    total,
-    "all records reachable after submit against full first page",
-  );
-  assert.equal(new Set(seen).size, total);
-  console.log("PASS pagination after new attempt against a full page");
+  let cursor = null;
+  do {
+    const response = await page.request.get(`${origin}/api/authored-problems/attempts?problemId=${problemId}${cursor ? `&after=${encodeURIComponent(cursor)}` : ""}`);
+    assert.equal(response.status(),200);
+    const data = await response.json();
+    assert.ok(data.attempts.length <= 50);
+    seen.push(...data.attempts.map(a => a.id));
+    cursor = data.nextCursor;
+  } while (cursor);
+  const total = Number((await pool.query("SELECT count(*) FROM authored_attempt WHERE user_id='A'")).rows[0].count);
+  assert.equal(seen.length,total);
+  assert.equal(new Set(seen).size,total);
+  console.log("PASS retained attempt records and API pagination without history UI");
   const aAttempt = (
     await pool.query(
       "SELECT id FROM authored_attempt WHERE user_id='A' LIMIT 1",
     )
   ).rows[0].id;
   await account("B");
-  await page
-    .getByRole("button", { name: "My submissions", exact: true })
-    .click();
-  await page.getByText("No saved attempts yet.", { exact: false }).waitFor();
+  const bHistory=await page.request.get(`${origin}/api/authored-problems/attempts?problemId=${problemId}`);
+  assert.equal(bHistory.status(),200);
+  assert.deepEqual((await bHistory.json()).attempts,[]);
   assert.equal(
     (
       await page.request.get(
@@ -833,7 +775,6 @@ try {
     0,
   );
   // Session invalidation removes cached private views rather than trusting a stale client hook.
-  await page.getByRole("button", { name: "Problem", exact: true }).click();
   await page.getByLabel("Numerical answer", { exact: true }).fill("2");
   nextFault = 401;
   await submit();
@@ -861,9 +802,7 @@ try {
   await page.evaluate(() => window.__setViewer({ state: "verified", id: "A" }));
   releasePost();
   releasePost = undefined;
-  await page
-    .getByRole("button", { name: "My submissions", exact: true })
-    .waitFor();
+  await page.getByLabel("Numerical answer", {exact:true}).waitFor();
   assert.equal(
     await page
       .getByText("Resolve the original submission", { exact: true })
@@ -996,9 +935,7 @@ try {
   });
   await json(await author("unpublish", req("author", { version }), problemId));
   version++;
-  await page
-    .getByRole("button", { name: "Recheck publication", exact: true })
-    .click();
+  await page.reload();
   await page
     .getByText("This problem is unpublished, deleted or unavailable.", {
       exact: false,
@@ -1014,13 +951,9 @@ try {
     await page.getByLabel("Choose part", { exact: true }).count(),
     0,
   );
-  await page
-    .getByRole("button", { name: "My submissions", exact: true })
-    .click();
-  await page
-    .getByText("Historical selection", { exact: false })
-    .first()
-    .waitFor();
+  const retained = await page.request.get(`${origin}/api/authored-problems/attempts?problemId=${problemId}`);
+  assert.equal(retained.status(),200);
+  assert.ok((await retained.json()).attempts.length > 0,"withdrawal preserves private records");
   assert.equal(
     (
       await page.request.get(

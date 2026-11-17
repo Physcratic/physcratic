@@ -227,11 +227,13 @@ export function BlocksEditor({
   onChange,
   label,
   scope = "statement",
+  imagesOnly = false,
 }: {
   blocks: EditorBlock[];
   onChange: (blocks: EditorBlock[]) => void;
   label: string;
   scope?: "statement" | "solution";
+  imagesOnly?: boolean;
 }) {
   const [notice, setNotice] = useState("");
   return (
@@ -531,7 +533,7 @@ export function BlocksEditor({
           }
         />
       )}
-      <div className="flex flex-wrap gap-2">
+      {!imagesOnly && <div className="flex flex-wrap gap-2">
         <Button
           type="button"
           size="sm"
@@ -551,7 +553,7 @@ export function BlocksEditor({
         >
           + Add equation to {label.toLowerCase()}
         </Button>
-      </div>
+      </div>}
     </div>
   );
 }

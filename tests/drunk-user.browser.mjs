@@ -132,7 +132,8 @@ await task("publish", "From the dashboard, write a problem and publish it", asyn
   await tap(page.locator("[data-tour*='studio-answer'] math-field").first(), "final answer");
   await page.waitForTimeout(400);
   await page.keyboard.type("m*a");
-  await tap(page.getByRole("radio", { name: /^Beginner/ }), "difficulty");
+  await tap(page.getByLabel("Difficulty rating", { exact: true }), "difficulty");
+  await page.keyboard.type("500");
   await tap(page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/), "rights");
   await page.getByText("All changes saved").first().waitFor({ timeout: 20000 });
   await tap(page.getByRole("button", { name: "Publish", exact: true }), "Publish");
@@ -145,7 +146,7 @@ await task("studioBack", "Studio: type, tap Back at once, reopen, the text is st
   await question.tap();
   await page.keyboard.type("Back test: a 3 kg block slides down a 30 degree ramp. Find its acceleration.", { delay: 2 });
   // Straight away, before the autosave timer fires. Back saves first, then leaves.
-  await page.getByRole("button", { name: "← My drafts", exact: true }).tap();
+  await page.getByRole("button", { name: "Back to drafts", exact: true }).tap();
   await page.getByRole("button", { name: /^Open/ }).first().waitFor({ timeout: 20000 });
   await page.getByRole("button", { name: /^Open/ }).first().tap();
   const again = page.getByRole("textbox", { name: "What's the question?" }).first();

@@ -181,6 +181,19 @@ export function removePart(d: EditorDraft, partId: string) {
   for (const section of d.content.sections) section.parts = section.parts.filter((p) => p.id !== partId);
   d.privateParts = d.privateParts.filter((p) => p.partId !== partId);
 }
+/** Update the image sequence without dropping or reordering surrounding statement text and equations. */
+export function replacePartImages(d: EditorDraft, partId: string, images: EditorBlock[]) {
+  const part = allParts(d).find(r => r.part.id === partId)?.part;
+  if (!part) return;
+  const next = images.filter(b => b.kind === "image");
+  const oldIds = new Set(part.blocks.filter(b => b.kind === "image").map(b => b.id));
+  const keptIds = new Set(next.map(b => b.id));
+  const existing = next.filter(b => oldIds.has(b.id));
+  let at = 0;
+  const blocks = part.blocks.flatMap<EditorBlock>(block => block.kind === "image" ? (keptIds.has(block.id) ? [existing[at++]] : []) : [block]);
+  part.blocks = [...blocks, ...next.filter(b => !oldIds.has(b.id))];
+}
+
 /**
  * Sets the question of a part. The title follows the first question until the author writes their own.
  * `partId` is any part. Only the first part feeds the title.
@@ -444,8 +457,8 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
   for (const { part } of parts) {
     if (!fileFirst && !blocksSpans(part.blocks).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
       issues.push({ field: `question:${part.id}`, message: "Write the question first." });
-    const picture = pictureOf(part.blocks);
-    if (picture && !picture.alt.trim()) issues.push({ field: `picture:${part.id}`, message: "Describe the image so everyone can follow it." });
+    const missingImageDescription = part.blocks.some(b => b.kind === "image" && !b.alt.trim());
+    if (missingImageDescription) issues.push({ field: `picture:${part.id}`, message: "Describe the image so everyone can follow it." });
     const entry = privateFor(d, part.id);
     // Simple asks for a worked solution. Advanced and older problems can still publish without one.
     if (!fileFirst && !blocksSpans(entry.solution).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))

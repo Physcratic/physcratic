@@ -14,7 +14,9 @@ import { DifficultyRatingField } from "./difficulty-rating-field";
 import { MediaImage, useAuthorMediaUpload } from "./media-controls";
 import { RichMathText } from "./rich-math-text";
 import { MediaAttachments } from "./media-controls";
-import { FileParts } from "./file-parts";
+import { AnswerPanel } from "./answer-panel";
+import { BlocksEditor } from "./editor-fields";
+import { setPartAnswerMode } from "@/lib/problem-authoring-editor";
 import {
   ADAPTED_RIGHTS_TEXT,
   RIGHTS_TEXT,
@@ -36,6 +38,7 @@ import {
   readAnswer,
   removeContextPicture,
   removePart,
+  replacePartImages,
   removePicture,
   rightsState,
   setContextPictureAlt,
@@ -140,7 +143,7 @@ export function SimpleEditor(props: SimpleProps) {
     onPublish();
   }
 
-  const metadata = <>
+  const titleField = <>
       <div className="space-y-3">
         <label htmlFor="simple-title" className={labelClass}>Title</label>
         <input
@@ -158,6 +161,8 @@ export function SimpleEditor(props: SimpleProps) {
         {shown("title") && <ErrorLine id="simple-title-error">{shown("title")!.message}</ErrorLine>}
       </div>
 
+  </>;
+  const metadata = <>
       <SourceField draft={draft} edit={edit} touch={touch} issue={shown("source")?.message} />
 
       <DifficultyRatingField stored={draft.content.estimatedDifficulty} save={(text) => { let saved = false; edit((d) => void (saved = setDifficulty(d, text))); return saved; }} tour attempted={attempted} />
@@ -170,28 +175,33 @@ export function SimpleEditor(props: SimpleProps) {
       <legend className="sr-only">Problem</legend>
       {note && !fileFirst && <p className="rounded-lg border-2 p-4 text-base">{note}</p>}
 
+      <div className="space-y-4">
+      {titleField}
       <label className="flex min-h-11 items-center gap-3 text-base">
         <input type="checkbox" className="size-5" checked={fileFirst} onChange={e => {
           if (Object.values(typed).some(value => readAnswer(value).kind === "error")) { setWorkflowError("Correct the current final answer before changing workflows. Your input is retained."); return; }
           setTyped({}); setWorkflowError(""); setFileFirst(e.target.checked);
         }} />
-        Use a PDF or part images
+        Upload PDFs instead
       </label>
       {workflowError && <p role="alert" className="text-sm text-destructive">{workflowError}</p>}
       {fileFirst && <>
-        {metadata}
         <p className="text-sm text-muted-foreground">Upload a statement PDF or add images to the parts. Files must be at most 3 MiB. The solution PDF is private until you approve access after publication.</p>
         <fieldset disabled={provisional} className="min-w-0" data-simple-field="statement"><legend className="sr-only">PDF attachments</legend><MediaAttachments draft={draft} edit={edit} compact /></fieldset>
       </>}
+      </div>
+      {fileFirst && metadata}
 
       <details open={!fileFirst || undefined} className={fileFirst ? "rounded-lg border p-4" : undefined}><summary hidden={!fileFirst} className="min-h-11 cursor-pointer text-sm font-medium">Optional typed statement and setup image</summary><div className={fileFirst ? "pt-4" : undefined}><MainQuestion draft={draft} edit={edit} provisional={provisional} touch={touch} issue={shown("picture:main")?.message} /></div></details>
 
-      {fileFirst ? <FileParts draft={draft} edit={edit} provisional={provisional} /> : parts.map(({ part, position }) => (
+      {parts.map(({ part, position }) => (
         <PartEditor
           key={part.id}
           draft={draft}
           partId={part.id}
           first={position === 0}
+          fileFirst={fileFirst}
+          multipart={parts.length > 1}
           letter={part.label || String(position + 1)}
           colour={colours.get(part.id) ?? 0}
           typed={part.id in typed ? typed[part.id] : answerText(privateFor(draft, part.id).key)}
@@ -510,12 +520,14 @@ function TopicRow({ values, change }: { values: string[]; change: (values: strin
 }
 
 function PartEditor({
-  draft, partId, first, letter, colour, typed, canRemove, provisional, questionIssue, solutionIssue, answerIssue, unitIssue, pictureIssue,
+  draft, partId, first, fileFirst, multipart, letter, colour, typed, canRemove, provisional, questionIssue, solutionIssue, answerIssue, unitIssue, pictureIssue,
   touch, edit, onAnswer, onRemove,
 }: {
   draft: EditorDraft;
   partId: string;
   first: boolean;
+  fileFirst: boolean;
+  multipart: boolean;
   letter: string;
   colour: number;
   typed: string;
@@ -549,11 +561,12 @@ function PartEditor({
 
   return (
     <section
-      aria-label={`Part ${letter}`}
+      aria-label={multipart ? `Part ${letter}` : "Question and answer"}
       style={partStyle(colour)}
       className={`space-y-10 rounded-xl border-2 bg-card p-5 sm:p-8 ${partBorder}`}
     >
-      <div className="flex items-center justify-between gap-3">
+      {!multipart && <h2 className="sr-only">Question and answer</h2>}
+      {multipart && <div className="flex items-center justify-between gap-3">
         <h2 className="text-xl font-semibold"><PartChip index={colour}>Part {letter}</PartChip></h2>
         {canRemove && (
           <Button type="button" variant="ghost" className="min-h-11" onClick={onRemove}>
@@ -561,10 +574,10 @@ function PartEditor({
             Remove part {letter}
           </Button>
         )}
-      </div>
+      </div>}
 
       <div className="space-y-3" data-tour={first ? "studio-question" : undefined}>
-        <p id={`${base}-q-label`} className={labelClass}>What&apos;s the question?</p>
+        <p id={`${base}-q-label`} className={labelClass}>{fileFirst ? "Question instructions (optional)" : <>What&apos;s the question?</>}</p>
         <div data-simple-field={`q:${partId}`} onBlur={() => touch(`question:${partId}`)}>
           <RichMathText
             id={`${base}-q`}
@@ -582,7 +595,10 @@ function PartEditor({
         {questionIssue && <ErrorLine id={`${base}-q-error`}>{questionIssue}</ErrorLine>}
       </div>
 
-      <ImageField
+      {fileFirst ? <fieldset disabled={provisional} className="min-w-0">
+        <legend className="sr-only">Statement images</legend>
+        <BlocksEditor imagesOnly label={multipart ? `Part ${letter} statement` : "Question statement"} blocks={part.blocks.filter(b => b.kind === "image")} onChange={images => edit(d => replacePartImages(d, partId, images))} />
+      </fieldset> : <ImageField
         base={`${base}-image`}
         fieldKey={`p:${partId}`}
         picture={picture}
@@ -594,8 +610,18 @@ function PartEditor({
         onAlt={(alt) => edit((d) => setPictureAlt(d, partId, alt))}
         onRemove={() => edit((d) => removePicture(d, partId))}
         touch={() => touch(`picture:${partId}`)}
-      />
+      />}
 
+      {fileFirst ? <div className="space-y-3" data-simple-field={`a:${partId}`}>
+        <h3 className={labelClass}>Answer key</h3>
+        <AnswerPanel compact entry={entry} mode={part.answerMode} onChange={value => edit(d => { d.privateParts = [...d.privateParts.filter(p => p.partId !== partId), value]; })} onMode={mode => {
+          if (mode === part.answerMode && entry.key) return;
+          if (entry.key && !window.confirm("Change answer type? This replaces the current answer configuration. Hints and solution remain.")) return;
+          edit(d => setPartAnswerMode(d, partId, mode));
+        }} />
+        {!entry.key && <Button type="button" variant="outline" onClick={() => edit(d => setPartAnswerMode(d, partId, part.answerMode))}>Set answer configuration</Button>}
+        {answerIssue && <ErrorLine id={`${base}-key-error`}>{answerIssue}</ErrorLine>}
+      </div> : <>
       <div className="space-y-3" data-tour={first ? "studio-solution" : undefined}>
         <p id={`${base}-s-label`} className={labelClass}>Worked solution (required)</p>
         <div data-simple-field={`s:${partId}`} onBlur={() => touch(`solution:${partId}`)}>
@@ -666,6 +692,7 @@ function PartEditor({
         )}
       </div>
 
+      </>}
       <TryAnswer draft={draft} partId={partId} label={letter} tour={first} />
     </section>
   );
