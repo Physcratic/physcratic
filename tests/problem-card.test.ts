@@ -387,3 +387,110 @@ test("unknown host metadata and non-competition cards omit the flag", () => {
   assert.match(html, /2027 · T1/)
   assert.doesNotMatch(render({ ...base, host: { country: "France", flags: ["fr"] }, onOpen() {} }), /Hosted by|flags\/fr/)
 })
+
+// Phase 3: the favourite control. Arena cards pass these props only when problem statistics are enabled.
+const footerOf = (html: string) => html.slice(html.indexOf("problem-entry-details"));
+const likeButton = (html: string) => html.match(/<button[^>]*aria-pressed="(?:true|false)"[^>]*>.*?<\/button>/)?.[0] ?? "";
+
+test("with no like props the card renders exactly as before, with no control and no extra footer item", () => {
+  for (const props of [{ href: "/dashboard/problems/test-problem" }, { onOpen() {} }] as const) {
+    const plain = render({ ...base, ...props });
+    const explicit = render({ ...base, ...props, likeCount: undefined, liked: undefined, onToggleLike: undefined, likeAccess: undefined });
+    assert.equal(explicit, plain);
+    assert.doesNotMatch(plain, /data-like-control|Favourite|aria-pressed|lucide-heart/);
+    // The footer holds the open action, then the tags, and nothing in between.
+    assert.match(footerOf(plain), /^problem-entry-details[^>]*>(?:<a|<button)[^]*?<\/(?:a|button)><div class="flex min-w-0 flex-wrap gap-2 sm:flex-1">/);
+  }
+});
+
+test("with a count but no handler the toggle is shown disabled", () => {
+  const html = render({ ...base, onOpen() {}, likeCount: 2, liked: false });
+  assert.match(likeButton(html), /\sdisabled=""/);
+  assert.match(html, /<span class="tabular-nums">2<\/span> favourites/);
+});
+
+test("a card that is not favourited has a neutral outline toggle with the count in tabular numerals", () => {
+  const html = render({ ...base, href: "/dashboard/problems/test-problem", likeCount: 1234, liked: false, onToggleLike() {} });
+  const button = likeButton(html);
+  assert.match(button, /aria-pressed="false"/);
+  assert.match(button, />Favourite<\/button>$/);
+  assert.match(button, /border border-input bg-background/);
+  assert.doesNotMatch(button, /bg-primary|destructive|\b(?:fill|text|bg)-red/);
+  assert.match(button, /fill-transparent/);
+  assert.match(button, /stroke-foreground/);
+  // 44 by 44 at least, above the stretched open layer, with the shared focus ring.
+  assert.match(button, /h-11/);
+  assert.match(button, /min-w-11/);
+  assert.match(button, /relative z-10/);
+  assert.match(button, /focus-visible:ring-2/);
+  assert.doesNotMatch(button, /\sdisabled=""|\saria-disabled="/);
+  assert.match(html, /<span class="tabular-nums">1,234<\/span> favourites/);
+  // The name keeps the existing word, and the problem title describes which problem it is.
+  const titleId = html.match(/aria-labelledby="([^"]+)"/)![1];
+  assert.ok(button.includes(`aria-describedby="${titleId}"`));
+});
+
+test("a favourited card fills the heart with the primary token, never red, and keeps the strong outline", () => {
+  const html = render({ ...base, onOpen() {}, likeCount: 1, liked: true, onToggleLike() {} });
+  const button = likeButton(html);
+  assert.match(button, /aria-pressed="true"/);
+  assert.match(button, />Favourited<\/button>$/);
+  assert.match(button, /fill-primary/);
+  assert.match(button, /stroke-foreground/);
+  assert.doesNotMatch(button, /\b(?:fill|text|stroke|bg)-red|destructive|fill-current/);
+  // The short fill animation is off under reduced motion.
+  assert.match(button, /transition-\[fill\] duration-200/);
+  assert.match(button, /motion-reduce:transition-none/);
+  assert.match(html, /<span class="tabular-nums">1<\/span> favourite</);
+  assert.doesNotMatch(html, /#[0-9a-fA-F]{3,8}\b/);
+});
+
+test("the footer order is open problem, then the like control, then the tags", () => {
+  const html = footerOf(render({ ...base, href: "/dashboard/problems/test-problem", likeCount: 2, liked: false, onToggleLike() {} }));
+  const open = html.indexOf("Open problem");
+  const like = html.indexOf("data-like-control");
+  const tags = html.indexOf("Mechanics");
+  assert.ok(open >= 0 && open < like && like < tags, "open, like, tags");
+  // The open action still stretches over the card and is still the only stretched layer.
+  assert.equal((html.match(/after:absolute/g) ?? []).length, 1);
+});
+
+test("a signed-out visitor keeps the sign-in link and the count, with no toggle", () => {
+  const html = render({ ...base, onOpen() {}, likeCount: 3, liked: false, likeAccess: "signed-out" });
+  assert.match(html, /<a[^>]*class="relative z-10 inline-flex min-h-11[^"]*focus-visible:ring-2[^"]*" href="\/sign-in">Sign in to favourite<\/a>/);
+  assert.equal(likeButton(html), "");
+  assert.match(html, /<span class="tabular-nums">3<\/span> favourites/);
+});
+
+test("an unverified account sees a disabled toggle and the verify-your-email note", () => {
+  const html = render({ ...base, onOpen() {}, likeCount: 0, liked: false, likeAccess: "unverified", onToggleLike() {} });
+  assert.match(likeButton(html), /\sdisabled=""/);
+  assert.match(html, /<p>Verify your email to save favourites\.<\/p>/);
+  assert.doesNotMatch(html, /Sign in to favourite/);
+});
+
+test("while statistics load there is no toggle yet and the status is in words", () => {
+  const html = render({ ...base, onOpen() {}, likeAccess: "ready", likeBusy: true, likeStatus: "Loading statistics…" });
+  assert.equal(likeButton(html), "");
+  assert.doesNotMatch(html, /Sign in to favourite/);
+  assert.match(html, /<p role="status">Loading statistics…<\/p>/);
+  assert.match(html, /data-like-control[^>]*aria-busy="true"/);
+});
+
+test("while a change is in flight the toggle stays focusable but marked busy", () => {
+  const html = render({ ...base, onOpen() {}, likeCount: 5, liked: true, onToggleLike() {}, likeBusy: true });
+  const button = likeButton(html);
+  // aria-disabled rather than disabled, so focus is not lost after Enter or Space.
+  assert.match(button, /\saria-disabled="true"/);
+  assert.doesNotMatch(button, /\sdisabled=""/);
+  assert.match(html, /aria-busy="true"/);
+});
+
+test("a rate-limited change shows the error in words, as an alert", () => {
+  const html = render({ ...base, onOpen() {}, likeCount: 4, liked: false, onToggleLike() {}, likeError: "Too many requests. Try again in a minute." });
+  assert.match(html, /<p role="alert" class="font-medium text-foreground">Too many requests\. Try again in a minute\.<\/p>/);
+  // The toggle shows the rolled-back state and can be pressed again.
+  assert.match(likeButton(html), /aria-pressed="false"/);
+  assert.doesNotMatch(likeButton(html), /\sdisabled=""|\saria-disabled="/);
+  assert.doesNotMatch(html, /text-destructive|\b(?:text|fill|bg)-red/);
+});

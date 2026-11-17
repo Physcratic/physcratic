@@ -3,13 +3,14 @@
 import * as React from "react";
 import type { OlympiadHost } from "@/lib/olympiad-hosts"
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ratingBand } from "@/lib/rating-bands";
 import { badgeVariants } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { favouriteNoun } from "@/lib/favourite-toggle";
 import { isActiveTag, nextTagFilter, useTagFilter } from "./tag-filter";
 
 /** The olympiads a card can name. They are neutral on the card: the host flag tells them apart. */
@@ -30,6 +31,22 @@ export type ProblemCardProps = {
   tags: readonly string[];
   elo?: number;
   attribution?: React.ReactNode;
+  /**
+   * The favourite control. With none of these the card has no control and renders exactly as before, so callers
+   * without statistics (corpus, olympiad, archive) pass nothing. The wording stays "Favourite", as in the existing control.
+   */
+  likeCount?: number;
+  liked?: boolean;
+  /** With a count but no handler the button is shown disabled. With neither, only the status words show. */
+  onToggleLike?: () => void;
+  /** "signed-out" shows the sign-in link and "unverified" the verify-your-email note. Defaults to "ready". */
+  likeAccess?: "ready" | "signed-out" | "unverified";
+  /** A write or a refresh is in flight. The button keeps focus but ignores presses. */
+  likeBusy?: boolean;
+  /** Visible status words, for example "Loading statistics…". */
+  likeStatus?: string;
+  /** Visible error words, announced as an alert. */
+  likeError?: string;
 } & (
   // With both, the link is a real <a href> for crawlers and no-JS visitors, and a plain left click calls onOpen instead.
   | { href: string; onOpen?: () => void }
@@ -51,6 +68,13 @@ export function ProblemCard({
   tags,
   elo,
   attribution,
+  likeCount,
+  liked,
+  onToggleLike,
+  likeAccess,
+  likeBusy = false,
+  likeStatus,
+  likeError,
   href,
   onOpen,
 }: ProblemCardProps) {
@@ -91,6 +115,69 @@ export function ProblemCard({
       {actionContent}
     </Button>
   );
+
+  const hasLike =
+    likeCount !== undefined || liked !== undefined || onToggleLike !== undefined || likeAccess !== undefined || likeStatus !== undefined || likeError !== undefined;
+  const access = likeAccess ?? "ready";
+  const isLiked = liked === true;
+  // With no count and no handler there is nothing to act on yet (loading, or the problem is no longer public), so only
+  // the status words show, as in the earlier statistics control.
+  const hasToggle = likeCount !== undefined || onToggleLike !== undefined;
+  // The like control sits above the stretched open layer (relative z-10). While a request is in flight it uses
+  // aria-disabled, not disabled, so keyboard focus stays on it after Enter or Space.
+  const like = hasLike ? (
+    <div data-like-control className="flex min-w-0 flex-col gap-2 text-sm" aria-busy={likeBusy || undefined}>
+      {hasToggle && <div className="flex flex-wrap items-center gap-2">
+        {/* The count comes first, so on a wide screen the toggle itself sits right beside the open button. */}
+        {likeCount !== undefined && (
+          <span>
+            <span className="tabular-nums">{likeCount.toLocaleString("en-US")}</span> {favouriteNoun(likeCount)}
+          </span>
+        )}
+        {access === "signed-out" ? (
+          <Link
+            href="/sign-in"
+            className="relative z-10 inline-flex min-h-11 items-center rounded-md underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
+          >
+            Sign in to favourite
+          </Link>
+        ) : (
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            aria-pressed={isLiked}
+            aria-describedby={titleId}
+            aria-disabled={likeBusy || undefined}
+            disabled={access === "unverified" || !onToggleLike}
+            onClick={() => {
+              if (!likeBusy) onToggleLike?.();
+            }}
+            className="relative z-10 min-w-11 aria-disabled:cursor-progress"
+          >
+            <Heart
+              aria-hidden="true"
+              data-liked={isLiked ? "true" : "false"}
+              // The fill is the primary token, never red. The outline stays the strong foreground colour, because the
+              // primary fill on its own is under 3:1 on a light card. The fill fades in, and not at all under reduced motion.
+              className={cn(
+                "stroke-foreground transition-[fill] duration-200 ease-out motion-reduce:transition-none",
+                isLiked ? "fill-primary" : "fill-transparent",
+              )}
+            />
+            {isLiked ? "Favourited" : "Favourite"}
+          </Button>
+        )}
+      </div>}
+      {access === "unverified" && <p>Verify your email to save favourites.</p>}
+      {likeStatus && <p role="status">{likeStatus}</p>}
+      {likeError && (
+        <p role="alert" className="font-medium text-foreground">
+          {likeError}
+        </p>
+      )}
+    </div>
+  ) : null;
 
   return (
     <Card
@@ -185,6 +272,7 @@ export function ProblemCard({
         {/* The footer keeps its own rule and tint across the full width of the card. */}
         <div className="problem-entry-details flex flex-col gap-4 px-4 py-4 sm:flex-row-reverse sm:items-end sm:justify-between sm:px-6">
           {action}
+          {like}
           <div className="flex min-w-0 flex-wrap gap-2 sm:flex-1">
             {tags.map((tag) =>
               tagFilter ? (
