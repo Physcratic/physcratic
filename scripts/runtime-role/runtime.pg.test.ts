@@ -227,6 +227,51 @@ test('current-feature runtime proposal on isolated PostgreSQL 18.7 LOGIN', { ski
       assert.deepEqual(await owners(), ownersBefore);
       assert.deepEqual(await routineOwners(), routineOwnersBefore);
     });
+    await t.test('activation audit accepts Batch A, detects id overgrant, and stages B1 independently of flags', async () => {
+      const activation = bind(await readFile('scripts/activation/runtime-readonly.sql','utf8'));
+      const inventory = async () => (await setup!.query(activation) as unknown as { rows: Record<string, unknown>[] }[]).flatMap(result=>result.rows);
+      const mode = (value: string) => setup!.query("SELECT set_config('physcratic.audit_contract',$1,false)",[value]);
+      // The role has the exact baseline; the old approved delta reproduces the
+      // Production discrepancy. Revoke only id locally to model the correction.
+      await setup!.query(bind(await readFile('scripts/activation/favourites-grants.review.sql','utf8')));
+      await setup!.query(`REVOKE UPDATE(id) ON authored_problem FROM ${role}`);
+      await setup!.query('CREATE TABLE physcratic_production_migrations(id text,sha256 text,source_commit text,applied_by text,applied_at timestamptz,result text)');
+      await mode('batch-a');
+      assert.deepEqual(await auditProblems(), []);
+      let rows=await inventory();
+      assert.equal(rows.find(r=>'authored_row_lock_permission' in r)?.authored_row_lock_permission,true);
+      assert.equal(rows.find(r=>r.authored_update_column==='id')?.update_state,'match');
+      assert.equal(rows.filter(r=>r.feature==='profiles' && r.privilege_state==='expected_missing_disabled').length,6);
+      assert.ok(rows.filter(r=>r.authored_update_column).every(r=>r.update_state==='match'));
+      const connection=await app!.connect();
+      try {await connection.query('BEGIN');await connection.query('SELECT id FROM authored_problem FOR SHARE');await connection.query('SELECT id FROM authored_problem FOR UPDATE');await connection.query('COMMIT');}
+      finally {connection.release();}
+      await setup!.query(`GRANT UPDATE(id) ON authored_problem TO ${role}`);
+      rows=await inventory();assert.equal(rows.find(r=>r.authored_update_column==='id')?.update_state,'overgrant');
+      assert.ok((await auditProblems() as {kind:string;object:string}[]).some(r=>r.kind==='column_privilege' && r.object==='public.authored_problem.id'));
+      await setup!.query(`REVOKE UPDATE(id),UPDATE(state) ON authored_problem FROM ${role}`);
+      rows=await inventory();
+      assert.equal(rows.find(r=>'authored_row_lock_permission' in r)?.authored_row_lock_permission,true,'remaining columns still permit locks');
+      assert.equal(rows.find(r=>r.authored_update_column==='state')?.update_state,'missing_required','capability must not conceal a missing legitimate write');
+      await setup!.query(`GRANT UPDATE(state) ON authored_problem TO ${role}`);
+      await mode('b1');rows=await inventory();
+      assert.equal(rows.filter(r=>r.feature==='profiles' && r.privilege_state==='missing_required').length,6);
+      assert.ok((await auditProblems()).length>0,'B1 contract requires profile grants');
+      await setup!.query(bind(await readFile('scripts/activation/profiles-grants.review.sql','utf8')));
+      assert.deepEqual(await auditProblems(), []);
+      rows=await inventory();assert.equal(rows.filter(r=>r.feature==='profiles' && r.privilege_state==='present').length,6);
+      // Effective rights must catch PUBLIC, not only direct column ACLs.
+      await setup!.query('GRANT UPDATE(id) ON authored_problem TO PUBLIC');
+      assert.equal((await inventory()).find(r=>r.authored_update_column==='id')?.update_state,'overgrant');
+      assert.ok((await auditProblems()).length>0);
+      await setup!.query('REVOKE UPDATE(id) ON authored_problem FROM PUBLIC');
+      await setup!.query(`GRANT UPDATE ON authored_problem TO ${role}`);
+      assert.ok((await inventory()).filter(r=>r.update_state==='overgrant').length>1);
+      await setup!.query(`REVOKE UPDATE ON authored_problem FROM ${role}; GRANT UPDATE(state,published_revision_id,updated_at) ON authored_problem TO ${role}`);
+      assert.deepEqual(await auditProblems(), []);
+      await mode('typo');assert.ok((await auditProblems()).some(r=>r.kind==='invalid_contract'));
+      await mode('b1');assert.deepEqual(await auditProblems(), []);
+    });
     await flush();
     assert.deepEqual(idleErrors, []);
   } finally {

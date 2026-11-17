@@ -1,5 +1,18 @@
 # Agent handoff
 
+## Phase C runtime audit correction (18 November 2026)
+
+From main df96dd7, codex/phasec-runtime-audit replaces the id-specific row-lock
+proxy with any-column capability plus an independent exact UPDATE allowlist.
+Baseline/batch-a/b1 grant contracts accept only approved feature deltas, classify
+OFF profile absence and reject id/PUBLIC/table overgrants. Disposable PG18.7
+regressions cover all three requested grant states and missing legitimate writes.
+[Owner sequence and serving-LOGIN gate](PHASE_C_B1_OWNER_HANDOFF.md). Exact commit,
+actual validation and PR/CI evidence belong to the delivery report. No approved
+grant file, migration, Production/provider/credential/flag or deployment change.
+Independent review and actual serving LOGIN remain release gates.
+
+
 ## CSP collector privacy and bounded reads (17 November 2026)
 
 From merged OG main `c12ec3c`, `codex/csp-report-route-privacy` replaces raw logged document paths with fixed route labels and reuses the existing capped reader with a five-second deadline. Report-only policy, origins, auth/grading and 204 behavior remain unchanged. Focused49, guarded production build, typegen/tsc and zero-warning lint pass, with the existing Chromium report/enforce harness exercised locally. [Attribution, provider unknowns and remaining enforcement gates](CSP_X3_READINESS.md#collector-privacy-correction-17-november-2026-candidate). Candidate still needs independent review and exact-head three-engine CI. No Production access/mutation or feature exposure. Existing draft #189 covers homepage ratings and #191 covers authored/PDF UX, so neither is rebuilt here. Next: review the collector-only PR, retain report-only, and obtain owner serving-role/binding evidence before any Batch B activation.

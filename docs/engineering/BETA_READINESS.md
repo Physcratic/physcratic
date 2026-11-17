@@ -1,5 +1,18 @@
 # Beta readiness log
 
+## Phase C runtime audit correction (18 November 2026)
+
+From main df96dd7, codex/phasec-runtime-audit replaces the id-specific row-lock
+proxy with any-column capability plus an independent exact UPDATE allowlist.
+Baseline/batch-a/b1 grant contracts accept only approved feature deltas, classify
+OFF profile absence and reject id/PUBLIC/table overgrants. Disposable PG18.7
+regressions cover all three requested grant states and missing legitimate writes.
+[Owner sequence and serving-LOGIN gate](PHASE_C_B1_OWNER_HANDOFF.md). Exact commit,
+actual validation and PR/CI evidence belong to the delivery report. No approved
+grant file, migration, Production/provider/credential/flag or deployment change.
+Independent review and actual serving LOGIN remain release gates.
+
+
 ## Arena card favourite control, phase 3 (17 November 2026)
 
 Likes only, from `docs/engineering/ARENA_CARD_UI.md`. The Arena card now has its favourite control in the footer: Open problem, then the count and the heart toggle, then the tags. On a wide screen the toggle sits right beside Open. The word stays "Favourite" and "Favourited", as in the old statistics control, with `aria-pressed`. Guests keep "Sign in to favourite" and unverified accounts keep a disabled toggle with "Verify your email to save favourites.". The control only shows when `COMMUNITY_PROBLEM_STATS_ENABLED` is `true`, through the existing `ProblemStatsBatch`. With the flag off, and on corpus, olympiad and archive cards, the card markup is unchanged.

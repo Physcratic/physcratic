@@ -46,7 +46,12 @@ ORDER BY 1;
 
 -- Exact manifest comparison, including effective PUBLIC/inherited COLUMN rights.
 -- Generated from the reviewed permissions.json; focused test compares the ACLs.
-WITH expected(name,privileges,update_columns) AS (VALUES
+-- Session-local audit mode only. This never changes grants or application flags.
+-- Default remains the original 35-table baseline. batch-a adds only the three
+-- approved favourites tables; b1 also adds the two reviewed text-profile tables.
+WITH contract AS (
+ SELECT coalesce(nullif(current_setting('physcratic.audit_contract',true),''),'baseline') AS mode
+), base_expected(name,privileges,update_columns) AS (VALUES
  ('user',ARRAY['SELECT','INSERT','UPDATE']::text[],ARRAY[]::text[]),
  ('account',ARRAY['SELECT','INSERT','UPDATE','DELETE']::text[],ARRAY[]::text[]),
  ('session',ARRAY['SELECT','INSERT','UPDATE','DELETE']::text[],ARRAY[]::text[]),
@@ -82,11 +87,27 @@ WITH expected(name,privileges,update_columns) AS (VALUES
  ('contest_problem',ARRAY['SELECT','INSERT','DELETE']::text[],ARRAY[]::text[]),
  ('contest_attempt',ARRAY['SELECT','INSERT']::text[],ARRAY[]::text[]),
  ('contest_rating',ARRAY['SELECT']::text[],ARRAY[]::text[])
+), expected AS (
+ SELECT * FROM base_expected
+ UNION ALL
+ SELECT d.* FROM (VALUES
+  ('community_problem_total',ARRAY['SELECT']::text[],ARRAY[]::text[]),
+  ('community_favourite',ARRAY['SELECT','INSERT','DELETE']::text[],ARRAY[]::text[]),
+  ('community_favourite_limit',ARRAY['SELECT','INSERT','UPDATE']::text[],ARRAY[]::text[])
+ ) d(name,privileges,update_columns) CROSS JOIN contract WHERE mode IN ('batch-a','b1')
+ UNION ALL
+ SELECT d.* FROM (VALUES
+  ('community_profile',ARRAY['SELECT','INSERT','UPDATE']::text[],ARRAY[]::text[]),
+  ('community_profile_write_limit',ARRAY['SELECT','INSERT','UPDATE']::text[],ARRAY[]::text[])
+ ) d(name,privileges,update_columns) CROSS JOIN contract WHERE mode='b1'
 ), app AS (SELECT * FROM pg_roles WHERE rolname=:'runtime_role'),
 objects AS (
  SELECT c.*,n.nspname FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace
  WHERE n.nspname NOT LIKE 'pg_%' AND n.nspname<>'information_schema'
 ), problems(kind,object,detail) AS (
+ SELECT 'invalid_contract','physcratic.audit_contract',mode FROM contract
+ WHERE mode NOT IN ('baseline','batch-a','b1')
+ UNION ALL
  SELECT 'role_absent',:'runtime_role','Proposed LOGIN does not exist'
  WHERE NOT EXISTS(SELECT 1 FROM app)
  UNION ALL

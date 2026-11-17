@@ -57,3 +57,33 @@ It reuses the suite's existing Settings/setup harness once and skips unrelated
 media/theme/axe sweeps. The default full profile suite remains available. With
 `CHROMIUM_PATH` unset/empty it selects CI's installed Playwright browser; local
 runs may explicitly select an installed Chromium via `CHROMIUM_PATH`.
+
+## Current grant audit contracts
+
+The authoring lock check uses UPDATE on any column, separately checking every
+column against exactly state, published_revision_id and updated_at. An effective
+UPDATE(id), inherited/PUBLIC equivalent or table-wide UPDATE is an overgrant.
+Never widen grants to satisfy an id-specific lock check.
+
+Run both metadata files in the same psql session. Select the independently
+approved grant contract with a session-local setting before running either file:
+
+```sql
+SET physcratic.audit_contract='batch-a';
+```
+
+Then use `\i scripts/activation/runtime-readonly.sql` and
+`\i scripts/runtime-role/verify.readonly.sql` with the reviewed `runtime_role`
+psql variable. The complete verifier's final findings must be empty. Its default
+`baseline` preserves the original 35-table contract. `batch-a` additionally
+accepts only the three favourites tables, never UPDATE(id). `b1` additionally
+requires the six profile table permissions. Unknown modes are findings.
+These settings select an audit contract, not deployment flags or database grants.
+
+Before profile grants, use batch-a: missing profile/practice permissions are
+`expected_missing_disabled`, not a reason to grant future-feature rights. After
+separately approved profile grants, use b1 even while the feature stays OFF.
+Read-only metadata cannot infer effective Vercel feature configuration. A profile
+permission marked present also does not establish publication consent or serving
+LOGIN. The approved favourites grant file is historical and still contains the
+obsolete id grant: do not replay it after the separately approved correction.
