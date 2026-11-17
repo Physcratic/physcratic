@@ -2,7 +2,7 @@
 
 ## Status
 | Phase | PR | State |
-| 1 Layout | pending | in review |
+| 1 Layout | #193 | in review |
 | 2 Colour | none | not started |
 | 3 Like and status | none | not started |
 | 4 Polish | none | not started |
