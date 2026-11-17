@@ -1,5 +1,19 @@
 # Agent handoff
 
+## Temporary serving-LOGIN assertion proposal (18 November 2026)
+
+Separate codex/phasec-login-attestation change stacked on the runtime audit fix.
+[Design, approval and removal](RUNTIME_LOGIN_ATTESTATION.md) define an OFF-by-default
+server-only observer on the actual application pool. A matching source SHA,
+provider deployment ID, active request context and at most15-minute owner window
+are required. Only bounded private assertion/deployment metadata is emitted,
+with no diagnostic endpoint or raw role/SQL/credential/person data. Synthetic
+unit and PG18.7 tests exercise the connection and failure boundaries. Exact-head
+validation and PR/CI evidence belong to the delivery report. No Production
+configuration, grant, credential, deployment or feature activation is authorized.
+Independent review and owner deployment/configuration approval remain gates.
+
+
 ## Phase C runtime audit correction (18 November 2026)
 
 From main df96dd7, codex/phasec-runtime-audit replaces the id-specific row-lock

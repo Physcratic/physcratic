@@ -140,3 +140,6 @@ jobs:
         run: |
           sha256sum -c scripts/runtime-role/PACKAGE_SHA256SUMS
           node --require ./tests/server-only-register.cjs --import tsx --test scripts/runtime-role/runtime.pg.test.ts
+      - name: Temporary runtime LOGIN assertion on PostgreSQL 18.7
+        # Synthetic disposable connections only. No instrumentation enabled in deployment.
+        run: node --require ./tests/server-only-register.cjs --import tsx --test scripts/runtime-login-attestation.pg.test.ts
