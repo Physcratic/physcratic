@@ -53,7 +53,7 @@
     --elo-foundation: 155 51% 65%;
     --elo-intermediate: 205 80% 74%;
     --elo-advanced: var(--primary);
-    --elo-mastery: 4 86% 74%;
+    --elo-mastery: 4 86% 82%;
     /* Grey page (#1e1f22) and a step lighter cards (#27282c). */
     --background: 225 6% 12.5%;
     --foreground: 240 9% 93%;
