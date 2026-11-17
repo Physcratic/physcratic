@@ -42,6 +42,8 @@ jobs:
           BETTER_AUTH_SECRET: ci-build-only-physcratic-synthetic-secret-0000000000000000
           BETTER_AUTH_URL: http://localhost:3000
         run: pnpm build
+      - name: Open Graph traced-runtime PNG regression
+        run: node scripts/check-opengraph-build.mjs
 
   database:
     name: Database tests
