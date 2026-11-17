@@ -1,5 +1,28 @@
 # Beta readiness log
 
+## Arena card colour, phase 2 (17 November 2026)
+
+Colour only, from `docs/engineering/ARENA_CARD_UI.md`. Beginner and Intermediate both used the badge variant `elo-intermediate`, so two of the four bands looked the same. Each band now has its own colour: Beginner teal, Intermediate blue, Advanced violet, Mastery amber, with no red and no green. The tokens are `--band-beginner`, `--band-intermediate`, `--band-advanced` and `--band-mastery` in `app/globals.css` (one set in `:root` and one in `.dark`), and the badge has the matching variants `band-beginner`, `band-intermediate`, `band-advanced` and `band-mastery`. `RatingBand.variant` in `lib/rating-bands.ts` names them. Every band id, range, min, max and middle is unchanged. The old `elo-*` tokens and variants stay for the legacy `eloBands` in `lib/problem-archive.ts`. Every other badge that shows a band (the difficulty field in Problem Studio, the problem heading and the dashboard highlight) now has its own band colour too.
+
+On the card the rating block has a soft tint of its band (10%), a 4px stripe on its top edge (its left edge from 640px up), and the band colour on the number and the label, and nowhere else. The card border is now neutral, and the old per-competition and per-band border colours in `globals.css` are gone. The IPhO, APhO and EuPhO badge variants are neutral and the flag identifies the competition. An unrated card has a neutral block with the same 4px edge. Tags are neutral and an active tag filter uses the primary token as its fill, with the strong foreground colour as its border, because the sweep found the peach fill with a peach border at 1.82:1 against a light card and holds a control border to 3:1. The filled "Open problem" button is the only accent on a card at rest.
+
+Owner decision, 17 November 2026 (Option A): while this was in review, #195 landed on main and made Beginner green (`elo-foundation`) and Mastery red (`elo-mastery`). The owner kept the spec palette, so this change supersedes the band palette from #195. Main is merged in, the red `elo-mastery` token and variant are removed, and the guard test #195 added in `lib/rating-bands.test.ts` now asserts the `band-*` variants and that no band uses an `elo-*` variant. The legacy `eloBands` in `lib/problem-archive.ts` still use the old three groups and no screen reads them. Surfaces that read the shared band: the problem card (library, archive and guided lists), the problem heading badge, the Problem Studio difficulty field and the dashboard highlight. The rating popover and the library filter show band names as plain text, so none of them renders green or red for a band.
+
+Contrast, measured from the shipped tokens (WCAG 2.x). Number and label on the rating block tint (10% over the card), then the badge on its 12% tint over the card and over the page, then the stripe on the card:
+
+| Theme | Band | Token | Block | Badge on card | Badge on page | Stripe |
+| --- | --- | --- | --- | --- | --- | --- |
+| Light | Beginner | 178 80% 20% | 6.69 | 6.47 | 5.91 | 7.83 |
+| Light | Intermediate | 212 75% 36% | 6.17 | 5.98 | 5.45 | 7.20 |
+| Light | Advanced | 268 70% 46% | 6.44 | 6.22 | 5.68 | 7.61 |
+| Light | Mastery | 40 95% 23% | 6.46 | 6.26 | 5.72 | 7.53 |
+| Dark | Beginner | 178 60% 58% | 6.65 | 6.35 | 7.17 | 8.21 |
+| Dark | Intermediate | 212 90% 74% | 5.87 | 5.63 | 6.35 | 7.15 |
+| Dark | Advanced | 268 90% 82% | 6.06 | 5.81 | 6.55 | 7.43 |
+| Dark | Mastery | 42 95% 58% | 6.95 | 6.63 | 7.48 | 8.64 |
+
+The lowest text ratio is 5.45 and the lowest stripe ratio is 7.15. The unrated block's grey text on its tint is 6.35 in light and 6.15 in dark. `lib/rating-band-colours.test.ts` reads the tokens from `app/globals.css` and fails if any text ratio drops under 4.5, a stripe under 3, a hue leaves its family, any band shares a hue, or a card or competition badge picks up colour again. Tests: that file, a band variant check, and new card checks in `tests/problem-card.test.ts` (tint, stripe, number and label, neutral competition and tags, primary active filter). Checked on a production build at 375 and 1440 in both themes on the three pages that render cards, and the guest sweep has 0 failures. The signed-in sweep pass was not run.
+
 ## Arena card layout, phase 1 (17 November 2026)
 
 Layout only, from the spec in `docs/engineering/ARENA_CARD_UI.md`, in `components/physics/problem-card.tsx`. Every problem card now has the rating on the left in a block of its own: a large number with tabular numerals and the band name under it. An unrated card shows "Unrated" in the same block with its language under it. Below 640px the block moves to the top of the card. In the content column one quiet line holds the host flag, source and reference above a larger title (`text-xl`), then the description, details and attribution. The footer keeps its own rule and tint across the full card, with the tags on the left and "Open problem" on the right. "Open problem" is now the filled primary button, so the one control per card is no longer an outline button.

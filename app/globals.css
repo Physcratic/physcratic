@@ -12,7 +12,12 @@
     --elo-foundation: 155 62% 27%;
     --elo-intermediate: 205 75% 34%;
     --elo-advanced: 22 75% 35%;
-    --elo-mastery: 2 73% 39%;
+    /* Rating band colours: Beginner teal, Intermediate blue, Advanced violet, Mastery amber. Each is the text, stripe and
+       badge colour of its band and keeps 4.5:1 on its own tint over the card and the page (checked in lib/rating-band-colours.test.ts). */
+    --band-beginner: 178 80% 20%;
+    --band-intermediate: 212 75% 36%;
+    --band-advanced: 268 70% 46%;
+    --band-mastery: 40 95% 23%;
     /* Bone white page, white cards. Text on every surface is 5.8:1 or better, borders 3.4:1 or better (measured in BETA_READINESS.md). */
     --background: 43 28% 95%;
     --foreground: 45 7% 12%;
@@ -53,7 +58,10 @@
     --elo-foundation: 155 51% 65%;
     --elo-intermediate: 205 80% 74%;
     --elo-advanced: var(--primary);
-    --elo-mastery: 4 86% 82%;
+    --band-beginner: 178 60% 58%;
+    --band-intermediate: 212 90% 74%;
+    --band-advanced: 268 90% 82%;
+    --band-mastery: 42 95% 58%;
     /* Grey page (#1e1f22) and a step lighter cards (#27282c). */
     --background: 225 6% 12.5%;
     --foreground: 240 9% 93%;
@@ -118,35 +126,33 @@
 }
 
 .problem-entry {
-  --problem-color: var(--accent-foreground);
   background: hsl(var(--card));
   color: hsl(var(--card-foreground));
-  border: 1px solid hsl(var(--problem-color));
+  border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--card-shadow);
 }
-.problem-entry[data-competition="APhO"],
-.problem-entry[data-level="1200-1599"] {
-  --problem-color: var(--elo-intermediate);
+/* The card border stays neutral. The band colour is on the rating block only: its tint, the number, the label and the stripe. */
+.problem-entry[data-level="beginner-olympiad"] {
+  --band: var(--band-beginner);
 }
-.problem-entry[data-competition="EuPhO"],
-.problem-entry[data-level="under-1200"] {
-  --problem-color: var(--elo-foundation);
+.problem-entry[data-level="intermediate-olympiad"] {
+  --band: var(--band-intermediate);
 }
-.problem-entry-header {
-  background: hsl(var(--problem-color) / 0.09);
-  color: hsl(var(--card-foreground));
-  border-bottom: 1px solid hsl(var(--problem-color) / 0.2);
+.problem-entry[data-level="advanced"] {
+  --band: var(--band-advanced);
+}
+.problem-entry[data-level="mastery"] {
+  --band: var(--band-mastery);
 }
 .problem-entry-details {
   background: hsl(var(--secondary) / 0.45);
   color: hsl(var(--secondary-foreground));
   border-top: 1px solid hsl(var(--border));
 }
-.problem-entry:has(:focus-visible),
-.problem-entry:hover {
-  border-color: hsl(var(--problem-color));
+.problem-entry:has(:focus-visible) {
+  border-color: hsl(var(--foreground) / 0.4);
 }
 
 .featured-contest-card {

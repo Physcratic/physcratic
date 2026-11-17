@@ -12,11 +12,8 @@ import { badgeVariants } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { isActiveTag, nextTagFilter, useTagFilter } from "./tag-filter";
 
-const competitionVariants = {
-  IPhO: "ipho",
-  APhO: "apho",
-  EuPhO: "eupho",
-} as const;
+/** The olympiads a card can name. They are neutral on the card: the host flag tells them apart. */
+type Competition = "IPhO" | "APhO" | "EuPhO";
 
 export type ProblemCardProps = {
   id: string;
@@ -24,7 +21,7 @@ export type ProblemCardProps = {
   titleLanguage?: string;
   headingLevel?: 3 | 4;
   source: string;
-  competition?: keyof typeof competitionVariants;
+  competition?: Competition;
   host?: OlympiadHost
   reference?: string;
   statementLanguage?: "en" | "ru";
@@ -109,15 +106,17 @@ export function ProblemCard({
           role="group"
           aria-label={`Rating ${elo.toLocaleString("en-US")}, ${band.name}`}
           title={`${band.name} · ${band.range}`}
-          className="flex shrink-0 flex-col gap-1 border-b border-border p-4 sm:w-40 sm:border-b-0 sm:border-r sm:p-6"
+          // A soft tint of the band colour, a 4px stripe on the top edge (the left edge from sm up) and the band colour on
+          // the number and the label. The colour is the --band token of the card, set from data-level in globals.css.
+          className="flex shrink-0 flex-col gap-1 border-b border-t-4 border-border border-t-[hsl(var(--band))] bg-[hsl(var(--band)/0.1)] p-4 sm:w-40 sm:border-b-0 sm:border-l-4 sm:border-r sm:border-t-0 sm:border-l-[hsl(var(--band))] sm:p-6"
         >
-          <p className="text-3xl font-semibold leading-none tabular-nums text-foreground">
+          <p className="text-3xl font-semibold leading-none tabular-nums text-[hsl(var(--band))]">
             {elo.toLocaleString("en-US")}
           </p>
-          <p className="text-sm font-medium text-muted-foreground">{band.name}</p>
+          <p className="text-sm font-medium text-[hsl(var(--band))]">{band.name}</p>
         </div>
       ) : (
-        <div className="flex shrink-0 flex-col gap-1 border-b border-border p-4 sm:w-40 sm:border-b-0 sm:border-r sm:p-6">
+        <div className="flex shrink-0 flex-col gap-1 border-b border-t-4 border-border bg-muted/50 p-4 sm:w-40 sm:border-b-0 sm:border-l-4 sm:border-r sm:border-t-0 sm:p-6">
           <p className="text-xl font-semibold leading-none text-muted-foreground">Unrated</p>
           <p lang={statementLanguage} className="text-sm text-muted-foreground">
             {statementLanguage === "ru" ? "русский" : "English"}
@@ -198,7 +197,9 @@ export function ProblemCard({
                   className={cn(
                     badgeVariants({ variant: "concept" }),
                     "relative z-10 min-h-11 cursor-pointer px-3 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                    isActiveTag(tagFilter.active, tag) && "border-foreground bg-foreground text-background hover:bg-foreground",
+                    // The fill is the primary token. The border stays the strong foreground colour, because the peach fill on its own is
+                    // under 3:1 against a light card and the sweep holds a control border to 3:1.
+                    isActiveTag(tagFilter.active, tag) && "border-foreground bg-primary text-primary-foreground hover:bg-primary",
                   )}
                 >
                   {tag}
