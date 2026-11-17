@@ -3,7 +3,7 @@
 ## Status
 | Phase | PR | State |
 | 1 Layout | #193 | merged |
-| 2 Colour | pending | in progress |
+| 2 Colour | #196 | in review |
 | 3 Like and status | none | not started |
 | 4 Polish | none | not started |
 
