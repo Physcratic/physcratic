@@ -11,7 +11,7 @@
 - Accent is the existing primary token. No new accent colour.
 - Single column list. Grid is a later optional phase.
 - Liked state uses the accent, not red. Red means danger, green means success, everywhere.
-- Band colours: Beginner teal, Intermediate blue, Advanced violet, Mastery amber.
+- Band colours: Beginner teal, Intermediate blue, Advanced violet, Mastery amber. Confirmed by the owner on 17 November 2026, after #195 had made Beginner green and Mastery red: the spec palette supersedes #195, and no band is red or green.
 - ProblemCard is shared. Callers: arena-collection.tsx, unified-arena-collection.tsx, corpus-collection.tsx, olympiad-problem-card.tsx. Check all of them every phase.
 
 ## Layout rules
@@ -58,4 +58,4 @@ No em dashes, en dashes or semicolons. No banned words from CONTRIBUTING.md. Spe
 - Lowest contrast is 5.45:1 for text and 7.15:1 for the stripe, in both themes. `lib/rating-band-colours.test.ts` guards this from the real tokens.
 - Files: `app/globals.css`, `components/ui/badge.tsx`, `components/physics/problem-card.tsx`, `lib/rating-bands.ts`, `lib/rating-band-colours.test.ts`, `tests/problem-card.test.ts`, the two docs.
 - Open: the footer tint (`.problem-entry-details`) is still the old neutral secondary tint. `ipho`, `apho` and `eupho` badge variants are neutral and now unused. Other badges that show a band changed colour as a side effect: Studio difficulty field, problem heading and dashboard highlight.
-
+- Owner decision, 17 November 2026: Option A. The spec palette supersedes the green Beginner and red Mastery of #195. Its `elo-mastery` token and variant are removed, its guard test in `lib/rating-bands.test.ts` now asserts the `band-*` variants, and no band reads an `elo-*` variant. Surfaces that read `RatingBand.variant` or the band id: the problem card (library, archive and guided lists), the problem heading badge, the Problem Studio difficulty field and the dashboard highlight. The rating popover and the library filter show band names as plain text.

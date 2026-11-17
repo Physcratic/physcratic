@@ -19,6 +19,31 @@ test("the four visible bands match the inclusive boundaries and display ranges",
   }
 })
 
+test("difficulty badge colours give every band its own variant, with no green Beginner and no red Mastery", () => {
+  // Owner decision of 17 November 2026: the band palette is Beginner teal, Intermediate blue, Advanced violet and
+  // Mastery amber. This replaces the green Beginner and red Mastery of #195. The hues and the contrast of each band
+  // colour are guarded in lib/rating-band-colours.test.ts.
+  assert.deepEqual(ratingBands.map((band) => band.variant), [
+    "band-beginner", "band-intermediate", "band-advanced", "band-mastery",
+  ])
+  assert.equal(ratingBand(0).variant, "band-beginner")
+  assert.equal(ratingBand(800).variant, "band-beginner")
+  assert.equal(ratingBand(801).variant, "band-intermediate")
+  assert.equal(ratingBand(2600).variant, "band-advanced")
+  assert.equal(ratingBand(2601).variant, "band-mastery")
+  assert.equal(ratingBand(4000).variant, "band-mastery")
+  const badge = readFileSync("components/ui/badge.tsx", "utf8")
+  const css = readFileSync("app/globals.css", "utf8")
+  for (const name of ["beginner", "intermediate", "advanced", "mastery"]) {
+    assert.match(badge, new RegExp(`"band-${name}":`))
+    assert.equal((css.match(new RegExp(`--band-${name}:`, "g")) ?? []).length, 2, `${name}: light and dark colours exist`)
+  }
+  // The red Mastery token and variant from #195 are gone, and no band uses an elo-* variant.
+  assert.doesNotMatch(badge, /"elo-mastery":/)
+  assert.doesNotMatch(css, /--elo-mastery:/)
+  for (const band of ratingBands) assert.doesNotMatch(band.variant, /^elo-/, band.id)
+})
+
 test("ratings at every requested boundary use the new bands", () => {
   for (const [ratings, expected] of [
     [[0, 799, 800], "beginner-olympiad"],
