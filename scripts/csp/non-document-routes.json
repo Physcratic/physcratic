@@ -9,6 +9,8 @@
   "/api/authored-problems/[id]/attempts",
   "/api/authored-problems/[id]/attribution",
   "/api/authored-problems/[id]/media/[mediaId]",
+  "/api/authored-problems/[id]/public-solution",
+  "/api/authored-problems/[id]/public-solution/media/[mediaId]",
   "/api/authored-problems/[id]/solutions/[partId]/media/[mediaId]",
   "/api/authored-problems/[id]/solutions/[partId]/view",
   "/api/authored-problems/[id]/submission-info",

@@ -55,6 +55,7 @@ export const editorDraftSchema = z.object({
     .max(1500),
   state: z.enum(["draft", "published", "archived"]),
   slug: z.string(),
+  publishedSolutionPolicy: z.literal("public-solutions-v1").optional(),
 });
 export type EditorDraft = z.infer<typeof editorDraftSchema>;
 export type EditorBlock = AuthoredDocument["context"][number];
@@ -384,7 +385,7 @@ export class DraftEditorSession {
   }
   async publish(
     action: "publish" | "unpublish",
-    request: (draft: EditorDraft) => Promise<{ version: number }>,
+    request: (draft: EditorDraft) => Promise<{ version: number; revision?: { solutionPolicy?: "public-solutions-v1" } } | undefined>,
   ) {
     if (
       this.value.busy ||
@@ -396,11 +397,13 @@ export class DraftEditorSession {
     try {
       if (!(await this.flush())) return false;
       const result = await request(this.value.draft);
+      if (!result) return false;
       this.emit({
         draft: {
           ...this.value.draft,
           version: result.version,
           state: action === "publish" ? "published" : "archived",
+          publishedSolutionPolicy: action === "publish" ? result.revision?.solutionPolicy : undefined,
         },
         phase: "saved",
         message:

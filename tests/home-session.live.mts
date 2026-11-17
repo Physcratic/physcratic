@@ -54,7 +54,7 @@ const secondCookie = `better-auth.session_token=${secondSigned}`;
 
 // The public-library gate reuses these real A/B sessions and an account-specific progress fixture.
 const libraryNotes = ["P3 synthetic private note A", "P3 synthetic private note B"];
-if (process.env.HOME_LIBRARY_BROWSER === "1") {
+if (process.env.HOME_LIBRARY_BROWSER === "1" || process.env.HOME_PUBLIC_SOLUTION_BROWSER === "1") {
   // Canonical disposable authoring migrations keep the public collection healthy without mocking its API.
   await installAchievementFixtures(pool, { userTableExists: true });
   await pool.query(`CREATE TABLE archive_progress("userId" text NOT NULL, "taskId" text NOT NULL, reviewed boolean NOT NULL DEFAULT false,
@@ -64,7 +64,7 @@ if (process.env.HOME_LIBRARY_BROWSER === "1") {
 }
 
 const server = spawn("corepack", ["pnpm", "exec", "next", "start", "-p", String(port), "-H", "127.0.0.1"], {
-  env: { ...process.env, DATABASE_URL: databaseUrl, BETTER_AUTH_SECRET: secret, BETTER_AUTH_URL: origin, NODE_ENV: "production" },
+  env: { ...process.env, DATABASE_URL: databaseUrl, BETTER_AUTH_SECRET: secret, BETTER_AUTH_URL: origin, NODE_ENV: "production", AUTHORED_PUBLIC_SOLUTIONS_ENABLED: process.env.HOME_PUBLIC_SOLUTION_BROWSER === "1" ? "true" : "false" },
   stdio: ["ignore", "pipe", "pipe"],
 });
 let serverLog = "";
@@ -234,6 +234,11 @@ try {
     const code = await new Promise(resolve => journey.on("close", resolve));
     console.log(output);
     ok(code === 0, "first-time browser journeys pass on disposable auth database");
+  }
+
+  if (process.env.HOME_PUBLIC_SOLUTION_BROWSER === "1") {
+    const { runPublicSolutionProduction } = await import("./authored-public-solutions.production.browser.mjs");
+    await runPublicSolutionProduction({pool,origin,userId:user.id,cookie:memberCookie});
   }
 
   // 4. A bad, expired or tampered cookie is a visitor, not an error.

@@ -1,5 +1,17 @@
 # Beta readiness log
 
+## Public worked solutions source qualification (17 November 2026)
+
+From main `806b85d`, PR B adds immutable revision consent, current-only guest
+solution/media reads, archive-style navigation and conservative independence
+classification. Legacy private publications and immutable attempts/reveals remain
+unchanged. Personal correctness stays separate from verified-solve eligibility.
+[Architecture and actual local QA](AUTHORED_PUBLIC_SOLUTIONS.md) and the separate
+[owner migration package](../../scripts/public-solutions-release/README.md).
+No Production migration/SQL/grant/flag or provider operation is authorized or run.
+Next: exact-head CI/review and scoped source release, then owner evidence/approval
+before any0020 installation or public exposure. Practice/deletion stay OFF.
+
 ## Arena card colour, phase 2 (17 November 2026)
 
 Colour only, from `docs/engineering/ARENA_CARD_UI.md`. Beginner and Intermediate both used the badge variant `elo-intermediate`, so two of the four bands looked the same. Each band now has its own colour: Beginner teal, Intermediate blue, Advanced violet, Mastery amber, with no red and no green. The tokens are `--band-beginner`, `--band-intermediate`, `--band-advanced` and `--band-mastery` in `app/globals.css` (one set in `:root` and one in `.dark`), and the badge has the matching variants `band-beginner`, `band-intermediate`, `band-advanced` and `band-mastery`. `RatingBand.variant` in `lib/rating-bands.ts` names them. Every band id, range, min, max and middle is unchanged. The old `elo-*` tokens and variants stay for the legacy `eloBands` in `lib/problem-archive.ts`. Every other badge that shows a band (the difficulty field in Problem Studio, the problem heading and the dashboard highlight) now has its own band colour too.

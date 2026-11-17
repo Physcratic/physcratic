@@ -1,3 +1,4 @@
+import { legacyRevisionPredicate } from "../authored-solution-policy";
 import 'server-only';
 import type {Pool,PoolClient} from 'pg';
 import {z} from 'zod';
@@ -11,12 +12,12 @@ const statsReply=(body:unknown,status=200)=>{const response=profileReply(body,st
 export async function readProblemStats(pool:Pick<Pool,'query'>,keys:string[],userId:string|null){
  const authored=keys.filter(k=>k.startsWith('authored:')).map(k=>k.slice(9));
  const query={text:`WITH publications AS MATERIALIZED (
-  SELECT p.id,p.published_revision_id AS revision,p.owner_id,r.schema_version FROM authored_problem p
+  SELECT p.id,p.published_revision_id AS revision,p.owner_id,r.schema_version,${legacyRevisionPredicate} AS independent_eligible FROM authored_problem p
   JOIN authored_revision r ON r.id=p.published_revision_id AND r.problem_id=p.id
   WHERE p.id=ANY($2::uuid[]) AND p.state='published'
  ), scan AS MATERIALIZED (
   SELECT a.user_id,a.revision_id,a.part_id,a.reason,a.engine_version,a.answer->>'kind' AS kind
-  FROM authored_attempt a WHERE a.revision_id IN (SELECT revision FROM publications) AND a.status='correct' AND a.assisted=false LIMIT 20001
+  FROM authored_attempt a WHERE a.revision_id IN (SELECT revision FROM publications WHERE independent_eligible) AND a.status='correct' AND a.assisted=false LIMIT 20001
  ), completed AS (
   SELECT p.id,a.user_id FROM publications p JOIN scan a ON a.revision_id=p.revision
   JOIN "user" u ON u.id=a.user_id AND u."emailVerified"=true
@@ -27,7 +28,7 @@ export async function readProblemStats(pool:Pick<Pool,'query'>,keys:string[],use
   GROUP BY p.id,p.revision,a.user_id HAVING count(DISTINCT a.part_id)=(SELECT count(*) FROM authored_revision_part WHERE revision_id=p.revision)
  ) SELECT k.key,coalesce(t.favourites,0)::text AS favourites,
  EXISTS(SELECT 1 FROM community_favourite f WHERE f.problem_key=k.key AND f.user_id=$3) AS favourite,
- CASE WHEN p.id IS NULL OR p.schema_version<>1 OR (SELECT count(*) FROM scan)>20000 THEN NULL
+ CASE WHEN p.id IS NULL OR p.independent_eligible IS DISTINCT FROM true OR p.schema_version<>1 OR (SELECT count(*) FROM scan)>20000 THEN NULL
  ELSE (SELECT count(*) FROM completed c WHERE c.id=p.id) END AS solves
  FROM unnest($1::text[]) WITH ORDINALITY k(key,ordinal)
  LEFT JOIN publications p ON k.key='authored:'||p.id::text

@@ -36,6 +36,7 @@ const attemptFields = z.strictObject({
   createdAt: z.iso.datetime(),
   spoilerPolicy: z.literal("no-reveal-v1"),
   assisted: z.boolean(),
+  solutionEvidence: z.literal("public-access-unverifiable-v1").optional(),
 });
 export const studentAttemptSchema = attemptFields.transform((a, ctx) => {
   const grade = studentGradeSchema.safeParse({

@@ -60,8 +60,10 @@ export function ProblemEditor({
   onBack,
   provisional,
   continueDraft,
+  publicSolutionsEnabled=false,
 }: {
   initial: EditorDraft;
+  publicSolutionsEnabled?: boolean;
   userId: string;
   onBack: () => void;
   /** A new problem that is not on the server yet. The first edit saves it, and `onCreated` swaps in the saved copy. */
@@ -147,6 +149,11 @@ export function ProblemEditor({
     session.snapshot,
   );
   const { draft, phase, dirty, busy, message, recovery } = snapshot;
+  async function publishRequest(d: EditorDraft) {
+    if (publicSolutionsEnabled && !window.confirm("Publish this revision and make all its worked solutions, solution images and attached solution PDFs public? Anyone can read them without signing in. Your grading keys stay private. Files already viewed or downloaded cannot be recalled.")) return undefined;
+    return draftRequest(`${editorBase}/${d.problemId}/publish`, "POST", { version: d.version, ...(publicSolutionsEnabled ? { publicSolutionConsent: true } : {}) });
+  }
+
   const editorColours = colorsByPartId(draft?.content.sections ?? []);
   const [tab, setTab] = useState<"edit" | "preview">("edit");
   const [latest, setLatest] = useState<EditorDraft | null>(null);
@@ -367,18 +374,8 @@ export function ProblemEditor({
                 !publishable.success
               }
               onClick={() => {
-                if (
-                  window.confirm(
-                    "Publish this version? Its statement becomes public. Your grading keys stay private.",
-                  )
-                )
-                  void session.publish("publish", (d) =>
-                    draftRequest(
-                      `${editorBase}/${d.problemId}/publish`,
-                      "POST",
-                      { version: d.version },
-                    ),
-                  );
+                if (publicSolutionsEnabled || window.confirm("Publish this version? Its statement becomes public. Your grading keys stay private."))
+                  void session.publish("publish", publishRequest);
               }}
             >
               {busy
@@ -669,9 +666,7 @@ export function ProblemEditor({
               publishing={busy}
               onPublish={() => {
                 if (phase === "saving" || phase === "conflict") return;
-                void session.publish("publish", (d) =>
-                  draftRequest(`${editorBase}/${d.problemId}/publish`, "POST", { version: d.version }),
-                );
+                void session.publish("publish", publishRequest);
               }}
             />
           </div>
@@ -1167,7 +1162,7 @@ export function ProblemEditor({
                     </p>
                   )}
                 </div>
-                <SolutionPermissions key={draft.problemId} problemId={draft.problemId} />
+                {!draft.publishedSolutionPolicy && <SolutionPermissions key={draft.problemId} problemId={draft.problemId} />}
                 {draft.state === "published" && (
                   <a
                     href={`/dashboard/authored/${draft.problemId}`}
@@ -1264,7 +1259,7 @@ export function ProblemEditor({
         ) : null}
           </>}
 
-        {modeReady && mode === "simple" && draft.state === "published" && <details className="mx-auto mt-8 max-w-2xl rounded-lg border p-4"><summary className="min-h-11 cursor-pointer font-medium">Solution access</summary><SolutionPermissions key={draft.problemId} problemId={draft.problemId} /></details>}
+        {modeReady && mode === "simple" && draft.state === "published" && !draft.publishedSolutionPolicy && <details className="mx-auto mt-8 max-w-2xl rounded-lg border p-4"><summary className="min-h-11 cursor-pointer font-medium">Solution access</summary>{!draft.publishedSolutionPolicy && <SolutionPermissions key={draft.problemId} problemId={draft.problemId} />}</details>}
       </main>
     </div>
     </AuthorMediaProvider>

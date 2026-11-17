@@ -1,3 +1,4 @@
+import { publicSolutionsEnabled, revisionSolutionColumns, storedSolutionPolicy, publicSolutionPolicy } from "./authored-solution-policy";
 // Server-side HTTP/application boundary. No auth globals: production injects Better Auth;
 // integration tests inject sessions and a disposable PostgreSQL pool into these same handlers.
 import { replaceDraftMedia, MediaReferenceError } from "./author-media-references";
@@ -15,13 +16,14 @@ const version = z.number().int().positive().max(2_147_483_646);
 const saveSchema = z.strictObject({ content: authoredDocumentSchema, privateParts: z.array(privatePartSchema).max(1500) });
 const updateSchema = saveSchema.extend({ version });
 const versionSchema = z.strictObject({ version });
+const publicPublishSchema = versionSchema.extend({ publicSolutionConsent: z.literal(true) });
 const writes = new Set<Action>(["create", "update", "delete", "publish", "unpublish"]);
 class HttpError extends Error { constructor(public status: number, message: string) { super(message); } }
 const reply = (body: unknown, status = 200) => new Response(status === 204 ? null : JSON.stringify(body), { status, headers: { "Content-Type": "application/json", "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
-interface LockedDraft { id: string; slug: string; state: string; publishedRevisionId: string | null; version: number; content: AuthoredDocument }
+interface LockedDraft { id: string; slug: string; state: string; publishedRevisionId: string | null; solution_policy?: unknown; solution_consented_at?: unknown; solution_policy_present?: unknown; version: number; content: AuthoredDocument }
 async function lockedDraft(client: PoolClient, id: string, owner: string) {
-  const { rows } = await client.query<LockedDraft>(`SELECT p.id,p.slug,p.state,p.published_revision_id AS "publishedRevisionId",d.version,d.content
-    FROM authored_problem p JOIN authored_draft d ON d.problem_id=p.id WHERE p.id=$1 AND p.owner_id=$2 FOR UPDATE OF p,d`, [id, owner]);
+  const { rows } = await client.query<LockedDraft>(`SELECT p.id,p.slug,p.state,p.published_revision_id AS "publishedRevisionId",d.version,d.content,${revisionSolutionColumns}
+    FROM authored_problem p JOIN authored_draft d ON d.problem_id=p.id LEFT JOIN authored_revision r ON r.id=p.published_revision_id WHERE p.id=$1 AND p.owner_id=$2 FOR UPDATE OF p,d`, [id, owner]);
   if (!rows[0]) throw new HttpError(404, "Draft not found.");
   const { rows: keys } = await client.query<{ data: PrivatePart }>("SELECT data FROM authored_draft_private_part WHERE problem_id=$1 ORDER BY part_id", [id]);
   return { problem: rows[0], draft: authoredDraftSchema.parse({ problemId: id, version: rows[0].version, content: rows[0].content, privateParts: keys.map(k => k.data) }) };
@@ -59,7 +61,7 @@ export function createProblemAuthoringApi(deps: Dependencies) {
         body = await readSubmissionJson(request, 2_000_000);
       }
       if (action === "public") {
-        const { rows } = await deps.pool.query(`SELECT r.id,r.problem_id AS "problemId",r.number,r.schema_version AS "schemaVersion",r.content,r.published_at AS "publishedAt"
+        const { rows } = await deps.pool.query(`SELECT r.id,r.problem_id AS "problemId",r.number,r.schema_version AS "schemaVersion",r.content,r.published_at AS "publishedAt",${revisionSolutionColumns}
           FROM authored_problem p JOIN authored_revision r ON r.problem_id=p.id AND r.id=p.published_revision_id
           WHERE p.id=$1 AND p.state='published'`, [id]);
         if (!rows[0]) throw new HttpError(404, "Problem not found.");
@@ -95,7 +97,7 @@ export function createProblemAuthoringApi(deps: Dependencies) {
       } else {
         const { problem, draft } = await lockedDraft(client, id!, owner!);
         if (writes.has(action)) {
-          const input = action === "update" ? updateSchema.parse(body) : versionSchema.parse(body);
+          const input = action === "update" ? updateSchema.parse(body) : action === "publish" && publicSolutionsEnabled() ? publicPublishSchema.parse(body) : versionSchema.parse(body);
           if (input.version !== draft.version) throw new HttpError(409, "Draft changed. Reload before saving or publishing.");
           if (action === "update") {
             const save = updateSchema.parse(input);
@@ -103,7 +105,7 @@ export function createProblemAuthoringApi(deps: Dependencies) {
             await replaceDraftMedia(client, id!, owner!, next.content, next.privateParts);
             await client.query("UPDATE authored_draft SET content=$2,version=version+1,updated_at=now() WHERE problem_id=$1", [id, JSON.stringify(next.content)]);
             await storeKeys(client, id!, next.privateParts);
-            result = { ...next, slug: problem.slug, state: problem.state };
+            result = { ...next, slug: problem.slug, state: problem.state, ...(problem.publishedRevisionId && storedSolutionPolicy(problem) === publicSolutionPolicy ? { publishedSolutionPolicy: publicSolutionPolicy } : {}) };
           } else if (action === "delete") {
             if (problem.state === "published") throw new HttpError(409, "Unpublish before deleting the working draft.");
             await client.query("DELETE FROM authored_draft WHERE problem_id=$1", [id]);
@@ -123,8 +125,10 @@ export function createProblemAuthoringApi(deps: Dependencies) {
               await client.query("INSERT INTO authored_revision_private_part(revision_id,part_id,answer_mode,data) VALUES($1,$2,$3,$4)", [revisionId, part.id, part.answerMode, JSON.stringify(key)]);
             }
             for (const ref of mediaRefs) await client.query("INSERT INTO author_revision_media(revision_id,problem_id,media_id,purpose) VALUES($1,$2,$3,$4)", [revisionId, id, ref.id, ref.purpose]);
-            const revision = await client.query(`INSERT INTO authored_revision(id,problem_id,number,content) VALUES($1,$2,$3,$4)
-              RETURNING id,problem_id AS "problemId",number,schema_version AS "schemaVersion",content,published_at AS "publishedAt"`, [revisionId, id, rows[0].number, JSON.stringify(published.content)]);
+            const revision = await client.query(`INSERT INTO authored_revision(id,problem_id,number,content${publicSolutionsEnabled() ? ",solution_policy,solution_consented_at" : ""})
+              VALUES($1,$2,$3,$4${publicSolutionsEnabled() ? ",'public-solutions-v1',now()" : ""})
+              RETURNING id,problem_id AS "problemId",number,schema_version AS "schemaVersion",content,published_at AS "publishedAt",
+              to_jsonb(authored_revision)->>'solution_policy' AS solution_policy,to_jsonb(authored_revision)->>'solution_consented_at' AS solution_consented_at,to_jsonb(authored_revision) ? 'solution_policy' AS solution_policy_present`, [revisionId, id, rows[0].number, JSON.stringify(published.content)]);
             await client.query("UPDATE authored_problem SET state='published',published_revision_id=$2,updated_at=now() WHERE id=$1", [id, revisionId]);
             await client.query("UPDATE authored_draft SET version=version+1,updated_at=now() WHERE problem_id=$1", [id]);
             result = { version: draft.version + 1, revision: publicAuthoredRevision(revision.rows[0]) };
@@ -135,7 +139,7 @@ export function createProblemAuthoringApi(deps: Dependencies) {
           }
         } else if (action === "preview") {
           result = { problemId: id, version: draft.version, content: publicAuthoredContent(draft.content) };
-        } else result = { ...draft, slug: problem.slug, state: problem.state };
+        } else result = { ...draft, slug: problem.slug, state: problem.state, ...(problem.publishedRevisionId && storedSolutionPolicy(problem) === publicSolutionPolicy ? { publishedSolutionPolicy: publicSolutionPolicy } : {}) };
       }
       await client.query("COMMIT"); inTransaction = false;
       return reply(result, status);

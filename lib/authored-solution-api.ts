@@ -1,3 +1,4 @@
+import { revisionSolutionColumns, storedSolutionPolicy, legacySolutionPolicy } from "./authored-solution-policy";
 import "server-only";
 import { randomUUID } from "node:crypto";
 import type { Pool, PoolClient } from "pg";
@@ -107,8 +108,8 @@ async function currentPermission(
   revision: string,
   part: string,
 ) {
-  const { rows: p } = await c.query<{ published_revision_id: string }>(
-    "SELECT published_revision_id FROM authored_problem WHERE id=$1 AND state='published' FOR SHARE",
+  const { rows: p } = await c.query<{ published_revision_id: string; solution_policy?: unknown; solution_consented_at?: unknown }>(
+    `SELECT p.published_revision_id,${revisionSolutionColumns} FROM authored_problem p JOIN authored_revision r ON r.id=p.published_revision_id WHERE p.id=$1 AND p.state='published' FOR SHARE OF p`,
     [problem],
   );
   if (!p[0]) throw new AccessError(404, "Solution unavailable.");
@@ -117,6 +118,7 @@ async function currentPermission(
       409,
       "Published revision changed. Reload before requesting a solution.",
     );
+  if (storedSolutionPolicy(p[0]) !== legacySolutionPolicy) throw new AccessError(404, "Use the public worked solution.");
   const { rows } = await c.query<Permission>(
     "SELECT * FROM authored_solution_permission WHERE problem_id=$1 AND revision_id=$2 AND part_id=$3 AND enabled AND (expires_at IS NULL OR expires_at>clock_timestamp()) FOR SHARE",
     [problem, revision, part],
@@ -164,7 +166,7 @@ function validateApproval(
   );
 }
 // Bound the whole private storage read (including stream consumption), not just SDK headers.
-async function mediaBytes(
+export async function mediaBytes(
   storage: Deps["storage"],
   path: string,
   expected: number,
@@ -288,6 +290,9 @@ export function createAuthoredSolutionApi(deps: Deps) {
           [problem, user.id],
         );
         if (!parents[0]) throw new AccessError(404, "Owned problem not found.");
+        const metadata = await c.query(`SELECT ${revisionSolutionColumns} FROM authored_revision r WHERE r.id=$1 AND r.problem_id=$2`, [revision, problem]);
+        if (metadata.rows[0] && storedSolutionPolicy(metadata.rows[0]) !== legacySolutionPolicy)
+          throw new AccessError(409, "This revision uses public worked solutions.");
         const { rows: parts } = await c.query(
           "SELECT 1 FROM authored_revision r JOIN authored_revision_part rp ON rp.revision_id=r.id WHERE r.problem_id=$1 AND r.id=$2 AND rp.part_id=$3",
           [problem, revision, part],

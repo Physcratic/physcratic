@@ -36,7 +36,7 @@ type DraftItem = {
   version: number;
   updatedAt: string;
 };
-export function AuthoringWorkspace({ userId }: { userId: string }) {
+export function AuthoringWorkspace({ userId, publicSolutionsEnabled=false }: { userId: string; publicSolutionsEnabled?: boolean }) {
   const [items, setItems] = useState<DraftItem[]>([]),
     [cursor, setCursor] = useState<string | null>(null);
   const [selected, setSelected] = useState<EditorDraft | null>(null);
@@ -89,7 +89,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
   const last = items[0];
   if (selected)
     return (
-      <ProblemEditor
+      <ProblemEditor publicSolutionsEnabled={publicSolutionsEnabled}
         key={selected.problemId}
         initial={selected}
         userId={userId}
@@ -103,7 +103,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
     );
   if (view === "new")
     return (
-      <ProblemEditor
+      <ProblemEditor publicSolutionsEnabled={publicSolutionsEnabled}
         key={fresh.problemId}
         initial={fresh}
         userId={userId}
