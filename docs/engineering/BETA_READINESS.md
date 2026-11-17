@@ -1,5 +1,66 @@
 # Beta readiness log
 
+## Batch B1 text-profile qualification (17 November 2026)
+
+Audited fresh main `c748e95e90a591f21272e66f9d26fb8fdcdb6ef7` in an isolated
+worktree. Existing text-profile implementation is complete for this scope. No
+application defect or missing privilege in the reviewed local grant was found.
+No application, migration, grant, feature flag or Production setting changed.
+
+| Requirement | Qualification |
+| --- | --- |
+| Private defaults, explicit publication and withdrawal | VERIFIED with synthetic PostgreSQL accounts |
+| Five-field public projection, escaped text, no private identity | VERIFIED in API, component and production-mode HTML |
+| Guest/unverified/expired sessions and cross-account protection | VERIFIED, including expired real signed cookies and stale-header rejection before reads or quota |
+| Permanent unique handles, concurrent edits and bounded quota | VERIFIED with restricted-role PostgreSQL tests |
+| OFF lazy boundaries and independence from future schemas | VERIFIED. ON public HTTP also works with only 0007 and its synthetic user prerequisite |
+| Cache and discovery boundaries | VERIFIED for fresh requests: private/no-store, generic noindex/nofollow, no profile sitemap or AI-discovery entries, withdrawal404 |
+| Mobile/desktop, themes, keyboard and automated accessibility | VERIFIED in Chromium at 375/1440, both themes, zero axe violations. Physical devices and manual screen readers UNKNOWN |
+| Production 0007 installation | Owner reports verified. Not independently inspected here |
+| Effective Production privileges and actual serving LOGIN | UNKNOWN. Phase C attestation remains an activation gate |
+| Named support/takedown and rollback ownership, final activation approval | BLOCKED pending owner decisions |
+
+Existing focused tests passed: 13 without PostgreSQL plus one explicit database
+skip, 16 in the disposable profile suite, five in the real-LOGIN PG18.7 rehearsal,
+21 account-guard browser assertions and 92 full browser assertions. A supplemental
+local rehearsal verified actual server-component projection, expired-cookie401,
+unverified-write403 and withdrawn-page404. A second browser pass disabled media
+before all four theme/width axe checks. Production-mode HTTP under a restricted
+LOGIN proved public200/private404/withdrawal404 and no-store without future
+schemas. Typegen/TypeScript, zero-warning lint and the production build passed.
+The first LOGIN attempt correctly rejected PG18.6 before the successful18.7 run.
+An initial ad hoc test copy had a quoting error and was corrected before execution.
+The initial build completed with missing synthetic auth-config warnings. The
+repeat with CI-style synthetic secret/base URL completed without those warnings.
+These supplemental checks did not modify repository tests or connect to Production.
+
+Read-only Vercel metadata showed `physcratic.com` on Ready Production deployment
+`dpl_9SMpxDWpCzVDnYFQj4noiqwg8ozF`, source `c748e95`. Main CI
+[44045243951](https://github.com/Physcratic/physcratic/actions/runs/44045243951)
+passed. Neither observation proves serving database identity or effective flags.
+Live HTTPS was blocked before application access by a CONNECT-proxy403.
+
+**NO-GO for activation.** Use the existing [profile release sequence](POST_B6_PROFILES_PRACTICE.md#profile-release-after-batch-a-acceptance-and-separate-approval)
+and [Phase C attestation](PRODUCTION_RUNTIME_ROLE.md#phase-c-post-cutover-evidence-17-november-2026).
+The locally qualified maximum delta remains schema USAGE and SELECT/INSERT/UPDATE
+on `community_profile` and `community_profile_write_limit`. The actual missing
+Production delta is UNKNOWN until effective privileges are audited. No runtime
+DELETE/TRUNCATE, ownership, schema CREATE or future-feature rights are authorized.
+The unchanged profile grant file SHA-256 is
+`ec8b59b652501014ec3f390b8fab7865ab51ecfa17581b68ff5b96c14215a1bd`.
+Require owner approval of actual target, role and hash before any grant execution.
+
+Before exposure the owner must correlate serving Functions with the restricted
+LOGIN, approve any missing delta, name support/privacy/takedown and incident/
+rollback operators, approve the synthetic acceptance scope and observation
+thresholds, then separately approve only `COMMUNITY_PROFILES_ENABLED=true`.
+Preserve active Batch A and leave all other future gates OFF. Verify the serving
+release/configuration, not merely a saved variable. Rollback disables profiles
+through the approved release mechanism and verifies public inaccessibility while
+retaining data, binding and Batch A. Any privacy/isolation failure stops exposure.
+Already delivered pages or copies cannot be remotely recalled after withdrawal.
+No staff endpoint or privileged takedown channel is introduced by this report.
+
 ## CSP collector privacy and bounded reads (17 November 2026)
 
 From merged OG main `c12ec3c`, `codex/csp-report-route-privacy` replaces raw logged document paths with fixed route labels and reuses the existing capped reader with a five-second deadline. Report-only policy, origins, auth/grading and 204 behavior remain unchanged. Focused49, guarded production build, typegen/tsc and zero-warning lint pass, with the existing Chromium report/enforce harness exercised locally. [Attribution, provider unknowns and remaining enforcement gates](CSP_X3_READINESS.md#collector-privacy-correction-17-november-2026-candidate). Candidate still needs independent review and exact-head three-engine CI. No Production access/mutation or feature exposure. Existing draft #189 covers homepage ratings and #191 covers authored/PDF UX, so neither is rebuilt here. Next: review the collector-only PR, retain report-only, and obtain owner serving-role/binding evidence before any Batch B activation.
