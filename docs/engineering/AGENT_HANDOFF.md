@@ -1,12 +1,16 @@
 # Agent handoff
 
-## Open Graph packaging fix (16 November 2026)
-
-From current main `4df6e5e`, `codex/fix-opengraph-tracing` removes whole-catalogue statement reads from problem images and explicitly traces only the public logo for image functions. Shared title formatters preserve SEO text, and the four requested PNGs match baseline pixels. Focused35, zero-warning lint, production build, trace-only runtime PNG/404 regressions and 16 Chromium image decodes pass. [Root cause, artifact sizes, verification and owner deployment/rollback gates](SEARCH_AND_AI_VISIBILITY.md#open-graph-function-packaging-16-november-2026). CI gains one post-build trace regression. Activation/runtime-role manifests refresh only for that workflow dependency, with no SQL/operator change. Exact-head CI, independent review and provider-preview validation remain release gates. No merge, deployment, migration, runtime-role, CSP, flag or Production change. Next: owner reviews the focused PR and provider images before authorizing release.
-
 ## CSP collector privacy and bounded reads (17 November 2026)
 
 From merged OG main `c12ec3c`, `codex/csp-report-route-privacy` replaces raw logged document paths with fixed route labels and reuses the existing capped reader with a five-second deadline. Report-only policy, origins, auth/grading and 204 behavior remain unchanged. Focused49, guarded production build, typegen/tsc and zero-warning lint pass, with the existing Chromium report/enforce harness exercised locally. [Attribution, provider unknowns and remaining enforcement gates](CSP_X3_READINESS.md#collector-privacy-correction-17-november-2026-candidate). Candidate still needs independent review and exact-head three-engine CI. No Production access/mutation or feature exposure. Existing draft #189 covers homepage ratings and #191 covers authored/PDF UX, so neither is rebuilt here. Next: review the collector-only PR, retain report-only, and obtain owner serving-role/binding evidence before any Batch B activation.
+
+## Phase C post-cutover records (17 November 2026)
+
+PR188 is reconciled with OG main `c12ec3c`, preserving both document updates. The owner reports completed restricted-role cutover and existing-feature acceptance. [Current read-only evidence procedure and remaining gaps](PRODUCTION_RUNTIME_ROLE.md#phase-c-post-cutover-evidence-17-november-2026) keep actual serving-role/alias evidence UNKNOWN here because provider tools/network access are unavailable. Batch A stays active, future gates OFF, and only the exact approved favourites delta supplements the baseline verifier. Historical deployment/owner-role statements are explicitly archived. No repeated credential setup, Production query, grant, deployment or activation. Package checksum changes only for reconciled CI/activation dependencies and this document. Next: retain owner-correlated serving identity and rollback evidence before Batch B.
+
+## Open Graph packaging fix (16 November 2026)
+
+From current main `4df6e5e`, `codex/fix-opengraph-tracing` removes whole-catalogue statement reads from problem images and explicitly traces only the public logo for image functions. Shared title formatters preserve SEO text, and the four requested PNGs match baseline pixels. Focused35, zero-warning lint, production build, trace-only runtime PNG/404 regressions and 16 Chromium image decodes pass. [Root cause, artifact sizes, verification and owner deployment/rollback gates](SEARCH_AND_AI_VISIBILITY.md#open-graph-function-packaging-16-november-2026). CI gains one post-build trace regression. Activation/runtime-role manifests refresh only for that workflow dependency, with no SQL/operator change. Exact-head CI, independent review and provider-preview validation remain release gates. No merge, deployment, migration, runtime-role, CSP, flag or Production change. Next: owner reviews the focused PR and provider images before authorizing release.
 
 ## PDF-first Problem Studio (16 November 2026)
 
