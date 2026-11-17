@@ -7,6 +7,7 @@ import {
   type ProblemCardProps,
 } from "../components/physics/problem-card";
 
+import { TagFilterContext } from "../components/physics/tag-filter";
 import { ArenaCollection } from "../components/physics/arena-collection";
 import { ProblemCollection } from "../components/physics/problem-collection";
 import { OlympiadProblemCard } from "../components/physics/olympiad-problem-card";
@@ -92,6 +93,57 @@ test("the rating block comes first, then one quiet source line above a larger ti
   assert.match(html, />Advanced<\/p>/);
 });
 
+test("the rating block has a soft band tint, a 4px stripe and the band colour only on the number and label", () => {
+  for (const [elo, level] of [[500, "beginner-olympiad"], [1200, "intermediate-olympiad"], [2100, "advanced"], [3000, "mastery"]] as const) {
+    const html = render({ ...base, elo, onOpen() {} });
+    assert.ok(html.includes(`data-level="${level}"`), level);
+    const block = html.slice(html.indexOf('role="group"'), html.indexOf("</div>", html.indexOf('role="group"')));
+    // Soft tint for the area, strong colour on the 4px stripe, the number and the label.
+    assert.match(block, /bg-\[hsl\(var\(--band\)\/0\.1\)\]/);
+    assert.match(block, /border-t-4 /);
+    assert.match(block, /border-t-\[hsl\(var\(--band\)\)\]/);
+    assert.match(block, /sm:border-l-4/);
+    assert.match(block, /sm:border-l-\[hsl\(var\(--band\)\)\]/);
+    assert.equal((block.match(/text-\[hsl\(var\(--band\)\)\]/g) ?? []).length, 2, "number and label");
+  }
+  // The band colour is not on the rest of the card, which has no tint, stripe or coloured text of its own.
+  const html = render({ ...base, elo: 1200, onOpen() {} });
+  const rest = html.slice(html.indexOf("</div>", html.indexOf('role="group"')));
+  assert.doesNotMatch(rest, /--band|elo-|band-/);
+  // Not a hex colour anywhere in the card.
+  assert.doesNotMatch(html, /#[0-9a-fA-F]{3,8}\b/);
+});
+
+test("an unrated card keeps a neutral block with the same 4px edge, and shows the band name as text only when rated", () => {
+  const html = render({ ...base, onOpen() {} });
+  assert.match(html, /bg-muted\/50/);
+  assert.match(html, /border-t-4 /);
+  assert.match(html, /sm:border-l-4/);
+  assert.doesNotMatch(html, /--band|data-level/);
+});
+
+test("competition names and tags are neutral, and an active tag filter uses the primary token", () => {
+  const competition = render({ ...base, source: "APhO", competition: "APhO", reference: "2024 · T1", onOpen() {} });
+  assert.match(competition, /data-competition="APhO"/);
+  assert.doesNotMatch(competition, /elo-|band-|ipho|apho|eupho/);
+  const withFilter = (active: string) =>
+    renderToStaticMarkup(createElement(TagFilterContext.Provider, { value: { active, toggle() {} } }, createElement(ProblemCard, { ...base, onOpen() {} })));
+  // The tag buttons only. The filled "Open problem" button is the one other thing on the card that uses the primary token.
+  const tagButtons = (html: string) => [...html.matchAll(/<button[^>]*aria-label="Filter by[^>]*>/g)].map((match) => match[0]);
+  const idle = tagButtons(withFilter("all"));
+  assert.equal(idle.length, 2);
+  for (const button of idle) {
+    assert.match(button, /aria-pressed="false"/);
+    assert.doesNotMatch(button, /bg-primary|bg-foreground|text-background|border-foreground/);
+  }
+  // Base has the tags Mechanics and Newton’s laws, so exactly one is pressed and it takes the primary token.
+  const active = tagButtons(withFilter("Mechanics"));
+  assert.equal(active.filter((button) => /aria-pressed="true"/.test(button)).length, 1);
+  assert.equal(active.filter((button) => /border-foreground bg-primary text-primary-foreground/.test(button)).length, 1);
+  assert.equal(active.filter((button) => /bg-foreground|text-background/.test(button)).length, 0);
+  assert.equal(active.filter((button) => /aria-pressed="false"/.test(button) && !/bg-primary/.test(button)).length, 1);
+});
+
 test("the whole card opens the problem through the one control, which is the filled primary button", () => {
   for (const props of [{ href: "/dashboard/problems/test-problem" }, { onOpen() {} }] as const) {
     const html = render({ ...base, ...props });
@@ -151,7 +203,7 @@ test("practice cards identify difficulty ratings as estimates and preserve ratin
     assert.ok(html.includes(`>${formatted}</p>`));
     assert.ok(html.includes(`Rating ${formatted}, ${band}`));
     // The band name is shown under the rating, not only read out.
-    assert.ok(html.includes(`<p class="text-sm font-medium text-muted-foreground">${band}</p>`), `${band} is shown on the card`);
+    assert.ok(html.includes(`<p class="text-sm font-medium text-[hsl(var(--band))]">${band}</p>`), `${band} is shown on the card`);
     assert.ok(html.includes("tabular-nums"));
     assert.doesNotMatch(html, /~[\d,]+|\bELO\b/);
     assert.ok(html.includes(`data-level="${level}"`));

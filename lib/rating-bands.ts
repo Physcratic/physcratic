@@ -15,15 +15,15 @@ export type RatingBand = {
   example: string;
   /** The rating Studio fills in when an author picks the band. */
   middle: number;
-  /** The colour group in the badge styles. */
-  variant: "elo-foundation" | "elo-intermediate" | "elo-advanced";
+  /** The badge style for the band. Each band has its own: Beginner teal, Intermediate blue, Advanced violet, Mastery amber. */
+  variant: "band-beginner" | "band-intermediate" | "band-advanced" | "band-mastery";
 };
 
 export const ratingBands: readonly RatingBand[] = [
-  { id: "beginner-olympiad", name: "Beginner", min: 0, max: 801, range: "0 to 800", example: "Fundamental physics or first selection stage", middle: 500, variant: "elo-intermediate" },
-  { id: "intermediate-olympiad", name: "Intermediate", min: 801, max: 1801, range: "801 to 1,800", example: "National finals level", middle: 1200, variant: "elo-intermediate" },
-  { id: "advanced", name: "Advanced", min: 1801, max: 2601, range: "1,801 to 2,600", example: "IPhO level", middle: 2100, variant: "elo-advanced" },
-  { id: "mastery", name: "Mastery", min: 2601, max: Infinity, range: "2,601+", example: "Hard IPhO, APhO and EuPhO problems", middle: 2800, variant: "elo-advanced" },
+  { id: "beginner-olympiad", name: "Beginner", min: 0, max: 801, range: "0 to 800", example: "Fundamental physics or first selection stage", middle: 500, variant: "band-beginner" },
+  { id: "intermediate-olympiad", name: "Intermediate", min: 801, max: 1801, range: "801 to 1,800", example: "National finals level", middle: 1200, variant: "band-intermediate" },
+  { id: "advanced", name: "Advanced", min: 1801, max: 2601, range: "1,801 to 2,600", example: "IPhO level", middle: 2100, variant: "band-advanced" },
+  { id: "mastery", name: "Mastery", min: 2601, max: Infinity, range: "2,601+", example: "Hard IPhO, APhO and EuPhO problems", middle: 2800, variant: "band-mastery" },
 ];
 
 /** The band a rating falls in. A rating under 0 counts as the lowest band. */
