@@ -17,10 +17,6 @@ const badgeVariants = cva(
         outline: "text-foreground",
         concept:
           "border-border bg-card text-card-foreground text-sm font-normal",
-        // Competition badges are neutral. The host flag is what tells IPhO, APhO and EuPhO apart.
-        ipho: "border-border bg-card text-card-foreground text-sm font-normal",
-        apho: "border-border bg-card text-card-foreground text-sm font-normal",
-        eupho: "border-border bg-card text-card-foreground text-sm font-normal",
         // One colour for each rating band. The tokens are in app/globals.css and keep 4.5:1 text on their tint in both themes.
         "band-beginner":
           "border-[hsl(var(--band-beginner)/0.3)] bg-[hsl(var(--band-beginner)/0.12)] text-[hsl(var(--band-beginner))]",
@@ -30,12 +26,6 @@ const badgeVariants = cva(
           "border-[hsl(var(--band-advanced)/0.3)] bg-[hsl(var(--band-advanced)/0.12)] text-[hsl(var(--band-advanced))]",
         "band-mastery":
           "border-[hsl(var(--band-mastery)/0.3)] bg-[hsl(var(--band-mastery)/0.12)] text-[hsl(var(--band-mastery))]",
-        "elo-foundation":
-          "border-[hsl(var(--elo-foundation)/0.25)] bg-[hsl(var(--elo-foundation)/0.12)] text-[hsl(var(--elo-foundation))]",
-        "elo-intermediate":
-          "border-[hsl(var(--elo-intermediate)/0.25)] bg-[hsl(var(--elo-intermediate)/0.12)] text-[hsl(var(--elo-intermediate))]",
-        "elo-advanced":
-          "border-[hsl(var(--elo-advanced)/0.25)] bg-[hsl(var(--elo-advanced)/0.12)] text-[hsl(var(--elo-advanced))]",
       },
     },
     defaultVariants: {

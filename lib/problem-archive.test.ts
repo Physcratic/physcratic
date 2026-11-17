@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { beginnerOwnerRatings, beginnerOwnerRatingSource, ownerRatings, ownerRatingSource } from "./owner-ratings";
 import { readFileSync } from "node:fs";
-import { beginnerOwnerRatingSource as beginnerSource, getArchiveStats, getEloBand, getEstimatedProblemElo, matchesEstimatedDifficulty } from "./problem-archive";
+import { beginnerOwnerRatingSource as beginnerSource, getArchiveStats, getEstimatedProblemElo, matchesEstimatedDifficulty } from "./problem-archive";
 import arena from "./arena/index.json";
 import { catalogProblems } from "./corpus-catalog";
 import { corpusProblems } from "./corpus-pilot";
@@ -39,12 +39,6 @@ test("a missing or invalid addition date makes the daily count unavailable", () 
   assert.deepEqual(getArchiveStats([], now), { total: 0, addedLast24Hours: 0 });
 });
 
-test("ELO bands match the filter boundaries", () => {
-  for (const elo of [0, 900, 1199]) assert.equal(getEloBand(elo).variant, "elo-foundation");
-  for (const elo of [1200, 1300, 1599]) assert.equal(getEloBand(elo).variant, "elo-intermediate");
-  for (const elo of [1600, 1700, 3000]) assert.equal(getEloBand(elo).variant, "elo-advanced");
-});
-
 // The beginner Arena set F1 was added on 14 November 2026, after the difficulty review. Its ratings are the owner's,
 // set on 15 November 2026, so each has an owner rating and no ledger entry.
 const beginnerSet = new Set(arena.problems.filter((problem) => problem.importedOn === "2026-11-14").map((problem) => problem.id));
@@ -57,7 +51,7 @@ test("every Arena, archive and guided problem has an explicit editorial difficul
     // The beginner Arena set of 14 November 2026 starts at 500. Everything else is 800 or more.
     assert.ok(Number.isInteger(elo) && elo >= (beginnerSet.has(problem.id) ? 500 : 800) && elo <= maxRating, problem.id);
     assert.equal(elo % 50, 0, problem.id);
-    assert.ok(matchesEstimatedDifficulty(problem.id, getEloBand(elo).id));
+    assert.ok(matchesEstimatedDifficulty(problem.id, ratingBand(elo).id));
     assert.ok(matchesEstimatedDifficulty(problem.id, "all"));
     assert.equal(matchesEstimatedDifficulty(problem.id, "unrated"), false);
     return elo;

@@ -5,9 +5,8 @@ import { Button } from '@/components/ui/button';
 import { unifiedArenaPageSchema, problemHref, type UnifiedArenaPage, type CollectionEntry } from '@/lib/unified-arena';
 import { AchievementShowcase } from '@/components/community/achievement-badge';
 import {ProblemStatsBatch,useProblemFavourite,type ProblemFavourite} from '@/components/community/problem-stats';
-import { ProblemCard } from './problem-card';
+import { ProblemCard, ProblemCardSkeletonList } from './problem-card';
 import { describeEstimate } from '@/lib/rating-bands';
-import { LoadingLines } from "@/components/loading-lines";
 
 // Card props for the favourite control. Empty without statistics, so the card renders as it did before.
 function likeProps(f:ProblemFavourite|null){
@@ -46,7 +45,7 @@ export function UnifiedArenaCollection({query,topic,difficulty,source='all',onRe
  return <section id="arena-results" aria-labelledby="unified-arena-title" className="min-w-0 space-y-5">
   <div className="flex flex-wrap items-center justify-between gap-3"><h2 id="unified-arena-title" tabIndex={-1} ref={heading} className="text-lg font-medium">{source==='authored'?'Published authored problems':'Physcratic Arena'}</h2><Button variant="outline" onClick={()=>{setCursors([undefined]);setRefresh(n=>n+1);}}>Refresh collection</Button></div>
   <p className="text-sm text-muted-foreground">Physcratic originals and published community problems, sorted by rating from low to high. Problems without a rating come last. Search and tags apply before pagination. Refresh to include new publications.</p>
-  {!current&&<LoadingLines label="Loading collection…" lines={3}/>}
+  {!current&&<ProblemCardSkeletonList label="Loading collection…" count={3}/>}
   {current?.error&&<div role="alert"><p>The collection could not be loaded.</p><Button variant="outline" onClick={()=>setRefresh(n=>n+1)}>Retry collection</Button></div>}
   {current?.page&&<>
    {current.page.authoredUnavailable&&<div role="alert" className="flex flex-wrap items-center gap-3"><p>Community problems could not be loaded, so this list is incomplete.</p><Button variant="outline" className="min-h-11" onClick={()=>setRefresh(n=>n+1)}>Try again</Button></div>}
