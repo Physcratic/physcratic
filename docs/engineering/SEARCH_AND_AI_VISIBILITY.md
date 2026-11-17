@@ -89,6 +89,43 @@ The statement is in the HTML, but the page stays `noindex` and out of the sitema
 - The archive statements are the competition organisers' problems. The owner has confirmed reuse (see above), and the pages say where each problem comes from and link to the official file.
 - `lib/public-problem-metadata.test.ts` and `lib/public-discovery.test.ts` pinned the old title, description and `llms.txt` size. The first now reads the problem model. The second is unchanged.
 
+## Open Graph function packaging (16 November 2026)
+
+Reproduced against main `4df6e5e40620d5b85ac03e9b89f0e99f018159ec` with Node 22.23.5, pnpm 10.34.9 and Next 15.5.28. A repository file being served from `public/` does not make it available inside a deployed metadata-route function. The unchanged production build's image `route.js.nft.json` manifests contained neither the logo nor corpus statements. Running its compiled metadata GET handlers without repository public assets reproduced the reported missing `ipho-2026-t1.json` for `ipho-2024-t1`, and the missing logo for the Learn article.
+
+Problem images previously imported `findProblemPage`, which initializes every full SEO page and synchronously reads every catalogue statement before finding one ID. They now use `lib/seo/problem-image.ts`, which returns only the public problem title and topic from the existing Arena/archive catalogue. Shared `problem-titles.ts` formatters preserve the full SEO model's titles. Full-page descriptions, canonical URLs, indexability, statements, authored-problem exclusion and article publication filtering are unchanged. Unknown IDs still take the existing 404 path. No user-controlled path is read.
+
+`next.config.ts` explicitly includes only `public/logo-mark-transparent.png` for `/**/opengraph-image`. All eight existing image entrypoints read that same public logo, so the pattern covers their actual shared requirement, including topic images. There is no corpus glob for image functions. Neither private solutions, answer keys, drafts nor private media are added. The only external public asset in each image trace is the 77,818-byte logo. Existing API corpus trace rules are unchanged.
+
+Local uncompressed entry plus traced-file totals, counting each manifest-listed regular file once per route, follow. These are Next build artifacts, not measured Vercel archive sizes or cold-start timings.
+
+| Function | Before, bytes | After, bytes | Difference |
+| --- | ---: | ---: | ---: |
+| Problem image | 3,852,824 | 3,922,948 | +70,124 |
+| Learn article image | 3,493,654 | 3,571,472 | +77,818 |
+
+The required logo accounts for the added payload. The problem's code/dependency payload falls by 7,694 bytes excluding that logo, and it no longer reads or parses catalogue statement files per cold initialization. No new dependency, generated corpus, font or image-layout change is involved. Both builds generated all 196 static pages. Compilation took 70.0 seconds before and 33.9 seconds after with an existing build cache, so this is not a controlled performance comparison.
+
+Focused checks:
+
+```bash
+node --require ./tests/server-only-register.cjs --import tsx --test lib/seo-problem-image.test.ts lib/seo-problem-pages.test.ts lib/seo-metadata-guard.test.ts lib/seo-structured-data.test.ts tests/seo-nojs-render.test.ts
+pnpm build
+node scripts/check-opengraph-build.mjs
+```
+
+Use a clean worktree without `.env` files or service credentials. The existing CI build supplies synthetic auth values. The new post-build CI step copies only each relevant function's trace entries and route entry into a fresh runtime, preserving pnpm symlinks. It executes Next's generated metadata GET wrapper, validates PNG signatures, fully decodes 1200 by 630 pixels with Sharp, and checks unknown/malformed/authored IDs return 404. It covers the three reported problem IDs, the reported Learn article and a topic image. The separate unit regression performs the problem lookup from an empty working directory in a fresh process, preventing catalogue-wide filesystem reads from returning.
+
+Local evidence: 35 focused tests pass, zero-warning lint passes and the production build passes without database credentials. The four requested HTTP routes return fully decoded PNGs pixel-for-pixel identical to the unchanged build's images. Chromium decodes all four at 375 and 1440 pixels in light and dark modes. Four HTTP invalid/unknown/authored cases return 404. Image bytes are unchanged, so no screen layout or interactive journey is altered. The build emits the same missing-database Better Auth schema warnings as the baseline because it deliberately has no database connection. Exact-head GitHub checks and provider-packaged preview validation remain release gates. The CI file is an existing activation/runtime-role manifest dependency, so only its checksum and the dependent activation-manifest checksum are refreshed. Activation manifest SHA-256: `29a2063e7cc91b11c4868f1a614b70b54ed2ca43b53bd6a11d658ee8bbd93df5`. Runtime-role manifest SHA-256: `abe26589c991c8f5d1c7f2c585cae5614bd8993bea598ad915ff5c231fa0f9b3`. SQL, permissions and the frozen B6 operator package remain byte-for-byte unchanged.
+
+Owner release procedure after independent PR review and green exact-head CI:
+
+1. Confirm current main and reconcile newer changes before approving merge. Preserve existing runtime-role and CSP work separately.
+2. Check the automatically created Vercel preview, if available, on mobile and desktop. Fetch the four reported image paths from the provider deployment and decode PNGs to 1200 by 630 pixels. A local NFT test does not attest the provider's final packaging. Do not trigger a blocked preview deployment or change a plan.
+3. Obtain separate merge/deployment approval. Record the currently serving Production deployment ID and SHA immediately before release. Do not assume the historical inspected SHA still serves Production.
+4. Allow the approved Git-connected deployment mechanism to release the reviewed merge. Verify the actual `physcratic.com` alias and serving SHA, the same four image paths, representative page titles/canonical/og:image links, 404 handling and absence of the reported ENOENT errors.
+5. If packaging, images or public metadata regress, stop rollout. The owner restores the recorded previous serving deployment/alias using the existing rollback mechanism and reverts this focused code commit through a PR before any later release. Restoring only a Git branch does not change serving Functions. There are no database, flag, credential or migration rollback steps for this fix. External social-image caches may take time to refresh.
+
 ## How to check
 
 ```bash
