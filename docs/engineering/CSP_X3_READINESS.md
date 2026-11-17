@@ -1,5 +1,20 @@
 # X3 CSP readiness
 
+## Collector privacy correction (17 November 2026 candidate)
+
+The original audit below is dated 12 November. This candidate starts from merged main `c12ec3c1e5caea7ab9f4ae4dd28aff98d994832b`. It changes only report collection, tests and documentation. It does not change `lib/security/csp.ts`, the report-only header, allowed origins, inline/eval policy, database contracts or provider settings.
+
+Confirmed defect: the collector retained raw document pathnames. `/u/<handle>` and private authored/contest identifiers could therefore enter provider logs even after query strings were stripped. `pagePath` now returns fixed known route labels, dynamic route templates or `other`/`unknown`. Both legacy and Reporting API inputs are covered. No raw unknown path is retained. This is diagnostic classification, never authorization or proof that an event came from the application.
+
+The existing 8 KiB and 20-report per-request caps remain. The route now reuses `readRequestBytes` with a five-second deadline, including a cancellation operation that never completes. Invalid, oversized, invalid-UTF8 and timed-out input still returns 204 without logging. A log sink failure does not produce a public error body. No rate-limit database or new dependency is introduced. This does not establish a global ingress/logging budget. Directive labels and blocked origins remain bounded untrusted input, and arbitrary external hostnames can themselves identify a tenant. Approved sink/access, retention and global volume controls remain owner/provider gates.
+
+`script-src eval` cannot be attributed solely because Zod is bundled. The existing harness matches the actual public asset/line/column against the caught `allowsEval` probe or JIT generator. In this candidate's isolated Chromium run, real application events match the caught Zod probe and JIT generator. Controlled default/jitless fixtures preserve valid/invalid parsing under local enforcement. Unrelated eval still fails attribution. These results explain local events, not every unavailable Production report. Do not add `unsafe-eval` or globally suppress unknown eval reports.
+
+`https://static.cloudflareinsights.com` is not imported or injected by the inspected application/configuration source. Cloudflare Web Analytics/provider injection is a possible origin, not verified attribution. Existing provider metadata and actual served HTML/initiator evidence are inaccessible in this environment. Keep it outside the allowlist. The owner must establish whether that injection is intended and approved. Remove an unwanted provider injection only through separately authorized provider controls, or review its exact origin/privacy contract before a separate policy change. A report alone is not permission to allow it.
+
+Evidence: 49 focused CSP/body-reader tests pass, production build with synthetic credentials and server egress guard passes, Next typegen/TypeScript and zero-warning ESLint pass. The existing Chromium harness passes 26 cases across report-only and detached local enforcement, including negative-control report delivery. Three-engine exact-head CI and independent review remain release gates. All Production inspection attempts were blocked by environment network policy, not observed application errors. No Production deployment, credential, grant, feature flag or policy was changed. Enforcement remains **NO-GO** for the adapter/provider/observation/approval requirements below.
+
+
 12 November 2026. Audited main `facb396`. **NO-GO for enforcement.** The production header stays `Content-Security-Policy-Report-Only`. This change touches tests, the harness and this document only. It changes no application code, policy, header or setting, and no provider, database or deployment was touched. It rebuilds what was still valid from the closed PRs #121 (readiness checklist) and #122 (route inventory, document checks and their tests), updated for the routes and screens added since 4 November.
 
 ## What the policy is today

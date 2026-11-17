@@ -1,11 +1,12 @@
 /**
  * Turns a posted CSP report into the single log line the endpoint writes. Pure, so it is tested
- * without a server. Only the directive, the blocked origin and the page path are kept. Query
+ * without a server. Only the directive, the blocked origin and a fixed route label are kept. Query
  * strings and fragments are never logged, and every value is cut to 100 characters with control
  * characters removed so a report cannot forge a log line.
  */
 
 export const MAX_REPORT_BYTES = 8 * 1024;
+export const MAX_REPORT_READ_MS = 5000;
 export const REPORT_CONTENT_TYPES = ["application/csp-report", "application/reports+json"] as const;
 
 export interface CspReportLine {
@@ -30,13 +31,31 @@ export function blockedOrigin(blocked: unknown): string {
   }
 }
 
+const publicRouteLabels = new Set([
+  "/", "/dashboard", "/dashboard/author", "/dashboard/submissions", "/dashboard/contests/manage",
+  "/sign-in", "/sign-up", "/forgot-password", "/reset-password", "/email-change", "/settings",
+  "/learn", "/terms", "/problems", "/problems/archive", "/coaching", "/coaching/consultation",
+  "/coaching/become-a-tutor", "/admin/moderation", "/admin/verification",
+]);
+const dynamicRouteLabels: [RegExp, string][] = [
+  [/^\/u\/[^/]+\/?$/, "/u/[handle]"],
+  [/^\/learn\/[^/]+\/?$/, "/learn/[slug]"],
+  [/^\/problems\/topics\/[^/]+\/?$/, "/problems/topics/[slug]"],
+  [/^\/dashboard\/problems\/[^/]+\/?$/, "/dashboard/problems/[id]"],
+  [/^\/dashboard\/authored\/[^/]+\/?$/, "/dashboard/authored/[id]"],
+  [/^\/dashboard\/contests\/[^/]+\/?$/, "/dashboard/contests/[id]"],
+];
+
+/** Never log handles, IDs or arbitrary path segments, including unrecognized routes. */
 export function pagePath(documentUri: unknown): string {
   const text = clean(documentUri);
   if (!text) return "unknown";
   try {
-    return new URL(text).pathname.slice(0, 100) || "/";
+    const path = new URL(text, "https://csp-report.invalid").pathname;
+    if (publicRouteLabels.has(path)) return path;
+    return dynamicRouteLabels.find(([pattern]) => pattern.test(path))?.[1] ?? "other";
   } catch {
-    return text.startsWith("/") ? text.split(/[?#]/)[0] : "unknown";
+    return "unknown";
   }
 }
 

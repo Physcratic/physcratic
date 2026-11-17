@@ -1,5 +1,9 @@
 # Agent handoff
 
+## CSP collector privacy and bounded reads (17 November 2026)
+
+From merged OG main `c12ec3c`, `codex/csp-report-route-privacy` replaces raw logged document paths with fixed route labels and reuses the existing capped reader with a five-second deadline. Report-only policy, origins, auth/grading and 204 behavior remain unchanged. Focused49, guarded production build, typegen/tsc and zero-warning lint pass, with the existing Chromium report/enforce harness exercised locally. [Attribution, provider unknowns and remaining enforcement gates](CSP_X3_READINESS.md#collector-privacy-correction-17-november-2026-candidate). Candidate still needs independent review and exact-head three-engine CI. No Production access/mutation or feature exposure. Existing draft #189 covers homepage ratings and #191 covers authored/PDF UX, so neither is rebuilt here. Next: review the collector-only PR, retain report-only, and obtain owner serving-role/binding evidence before any Batch B activation.
+
 ## Phase C post-cutover records (17 November 2026)
 
 PR188 is reconciled with OG main `c12ec3c`, preserving both document updates. The owner reports completed restricted-role cutover and existing-feature acceptance. [Current read-only evidence procedure and remaining gaps](PRODUCTION_RUNTIME_ROLE.md#phase-c-post-cutover-evidence-17-november-2026) keep actual serving-role/alias evidence UNKNOWN here because provider tools/network access are unavailable. Batch A stays active, future gates OFF, and only the exact approved favourites delta supplements the baseline verifier. Historical deployment/owner-role statements are explicitly archived. No repeated credential setup, Production query, grant, deployment or activation. Package checksum changes only for reconciled CI/activation dependencies and this document. Next: retain owner-correlated serving identity and rollback evidence before Batch B.
