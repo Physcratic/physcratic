@@ -19,6 +19,22 @@ test("the four visible bands match the inclusive boundaries and display ranges",
   }
 })
 
+test("difficulty badge colors distinguish beginner green and mastery red", () => {
+  assert.deepEqual(ratingBands.map((band) => band.variant), [
+    "elo-foundation", "elo-intermediate", "elo-advanced", "elo-mastery",
+  ])
+  assert.equal(ratingBand(0).variant, "elo-foundation")
+  assert.equal(ratingBand(800).variant, "elo-foundation")
+  assert.equal(ratingBand(801).variant, "elo-intermediate")
+  assert.equal(ratingBand(2600).variant, "elo-advanced")
+  assert.equal(ratingBand(2601).variant, "elo-mastery")
+  assert.equal(ratingBand(4000).variant, "elo-mastery")
+  const badge = readFileSync("components/ui/badge.tsx", "utf8")
+  const css = readFileSync("app/globals.css", "utf8")
+  assert.match(badge, /"elo-mastery":/)
+  assert.equal((css.match(/--elo-mastery:/g) ?? []).length, 2, "light and dark colors exist")
+})
+
 test("ratings at every requested boundary use the new bands", () => {
   for (const [ratings, expected] of [
     [[0, 799, 800], "beginner-olympiad"],
