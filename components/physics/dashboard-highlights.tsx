@@ -5,6 +5,8 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Shuffle, Sun, Trophy } from "lucide-react";
 import { useDashboard } from "@/hooks/use-dashboard";
 import { contestStatus } from "@/lib/dashboard-data";
+import { getEstimatedProblemElo } from "@/lib/problem-archive";
+import { ratingBand } from "@/lib/rating-bands";
 import {
   Empty,
   EmptyDescription,
@@ -97,6 +99,8 @@ function ProblemToCheckOut() {
     setId(pickProblem(arenaIds, readSolved()) ?? null);
   }, []);
   const problem = arenaProblems.find((item) => item.id === id);
+  const rating = problem ? getEstimatedProblemElo(problem.id) : null;
+  const band = rating === null ? null : ratingBand(rating);
   return (
     <Card
       className="flex min-w-0 flex-col shadow-none"
@@ -119,6 +123,18 @@ function ProblemToCheckOut() {
           <>
             <div className="flex flex-wrap items-center gap-2">
               <Badge variant="secondary">{problem.topic}</Badge>
+              {rating !== null && band && (
+                <Badge
+                  variant={band.variant}
+                  aria-label={`Rating ${rating.toLocaleString("en-US")}, ${band.name}`}
+                  title={`${band.name} · ${band.range}`}
+                  className="shrink-0 rounded-md"
+                >
+                  <span className="text-sm tabular-nums">{rating.toLocaleString("en-US")}</span>
+                  <span aria-hidden="true" className="px-1.5 text-sm">·</span>
+                  <span className="text-sm">{band.name}</span>
+                </Badge>
+              )}
               <span className="text-sm text-muted-foreground">Physcratic Arena</span>
             </div>
             <div className="flex flex-col gap-2">
