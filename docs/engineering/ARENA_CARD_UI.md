@@ -3,8 +3,8 @@
 ## Status
 | Phase | PR | State |
 | 1 Layout | #193 | merged |
-| 2 Colour | #196 | in review |
-| 3 Like and status | none | not started |
+| 2 Colour | #196 | merged |
+| 3 Like (favourite) | see BETA_READINESS | in review |
 | 4 Polish | none | not started |
 
 ## Decisions
@@ -21,7 +21,7 @@
 - Card padding 16px or more.
 - Nested corner radius = outer radius minus padding, never below 0.
 - Tap targets at least 44x44. No hover-only actions.
-- Exactly one real link or button per card, with accessible name "Open problem: source, reference, title".
+- Exactly one real link or button opens the problem, with accessible name "Open problem: source, reference, title". The tag filters, attribution links and the favourite control are the only other controls, and they sit above the stretched layer.
 - Keep href plus onOpen behaviour (plain left click calls onOpen, modified clicks fall through).
 
 ## Colour rules
@@ -59,3 +59,11 @@ No em dashes, en dashes or semicolons. No banned words from CONTRIBUTING.md. Spe
 - Files: `app/globals.css`, `components/ui/badge.tsx`, `components/physics/problem-card.tsx`, `lib/rating-bands.ts`, `lib/rating-band-colours.test.ts`, `tests/problem-card.test.ts`, the two docs.
 - Open: the footer tint (`.problem-entry-details`) is still the old neutral secondary tint. `ipho`, `apho` and `eupho` badge variants are neutral and now unused. Other badges that show a band changed colour as a side effect: Studio difficulty field, problem heading and dashboard highlight.
 - Owner decision, 17 November 2026: Option A. The spec palette supersedes the green Beginner and red Mastery of #195. Its `elo-mastery` token and variant are removed, its guard test in `lib/rating-bands.test.ts` now asserts the `band-*` variants, and no band reads an `elo-*` variant. Surfaces that read `RatingBand.variant` or the band id: the problem card (library, archive and guided lists), the problem heading badge, the Problem Studio difficulty field and the dashboard highlight. The rating popover and the library filter show band names as plain text.
+
+### Phase 3 Like
+- ProblemCard takes optional `likeCount`, `liked`, `onToggleLike`, `likeAccess` (ready, signed-out, unverified), `likeBusy`, `likeStatus` and `likeError`. With none of them the markup is unchanged, so corpus, olympiad and archive cards pass nothing. Only the unified Arena collection passes them, and only inside `ProblemStatsBatch`, which mounts when `COMMUNITY_PROBLEM_STATS_ENABLED` is `true`.
+- Footer DOM order is Open problem, then the favourite control (count, then toggle), then tags. On desktop the toggle sits 16px left of Open. The word stays "Favourite" and "Favourited", with `aria-pressed` and the title as its description. Guests get "Sign in to favourite", unverified accounts a disabled toggle and "Verify your email to save favourites.".
+- `useProblemFavourite(key)` in `components/community/problem-stats.tsx` reuses the existing fetch and `save()`. The change shows at once and is dropped if the write fails. 429 shows "Too many requests. Try again in a minute.", and the 409 account change keeps its message. While a write is in flight the toggle uses `aria-disabled` so focus stays on it. Pure logic is in `lib/favourite-toggle.ts`.
+- Heart: neutral outline, then filled with `--primary` and a `--foreground` outline. The primary fill alone is 1.82:1 to 2.00:1 on a light card, under 3:1, so the outline carries the shape there (14.83:1 or more). Dark fill is 7.72:1 or more. The fill fades over 200ms and not at all under reduced motion.
+- Total verified solves moved from the old control to a plain text line in the attribution slot, unchanged. Files: `components/physics/problem-card.tsx`, `components/physics/unified-arena-collection.tsx`, `components/community/problem-stats.tsx`, `lib/favourite-toggle.ts` and its test, `tests/problem-card.test.ts`, the two docs.
+- Open: no solved or attempted marker yet. Corpus, olympiad and archive keys are not allowed in `community_favourite`, so those cards would need a schema change and owner approval.
