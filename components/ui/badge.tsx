@@ -27,6 +27,8 @@ const badgeVariants = cva(
           "border-[hsl(var(--elo-intermediate)/0.25)] bg-[hsl(var(--elo-intermediate)/0.12)] text-[hsl(var(--elo-intermediate))]",
         "elo-advanced":
           "border-[hsl(var(--elo-advanced)/0.25)] bg-[hsl(var(--elo-advanced)/0.12)] text-[hsl(var(--elo-advanced))]",
+        "elo-mastery":
+          "border-[hsl(var(--elo-mastery)/0.25)] bg-[hsl(var(--elo-mastery)/0.12)] text-[hsl(var(--elo-mastery))]",
       },
     },
     defaultVariants: {
