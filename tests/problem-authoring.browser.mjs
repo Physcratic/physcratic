@@ -520,13 +520,13 @@ try {
     .getByLabel("Upload problem PDF", { exact: true })
     .setInputFiles(uploadFile("statement.pdf", pdf, "application/pdf"));
   await page
-    .getByRole("link", { name: "Download statement PDF", exact: true })
+    .getByRole("link", { name: "Open or download Statement PDF", exact: true })
     .waitFor();
   await page
-    .getByLabel("Upload private solution PDF", { exact: true })
+    .getByLabel("Upload Solution PDF", { exact: true })
     .setInputFiles(uploadFile("solution.pdf", pdf, "application/pdf"));
   await page
-    .getByRole("link", { name: "Download private solution PDF", exact: true })
+    .getByRole("link", { name: "Open or download Private solution PDF", exact: true })
     .waitFor();
   await until(
     async () =>
@@ -558,13 +558,13 @@ try {
   );
   assert.equal(
     await page
-      .getByRole("link", { name: "Download statement PDF 1", exact: true })
+      .getByRole("link", { name: "Open or download Statement PDF 1", exact: true })
       .count(),
     1,
   );
   assert.equal(
     (await page.locator("body").innerText()).includes(
-      "Download private solution PDF",
+      "Open or download Private solution PDF",
     ),
     false,
   );
@@ -997,7 +997,7 @@ try {
     0,
   );
   // Remove through the management list on mobile, retaining immutable history.
-  await page.getByRole("button", { name: "← My drafts", exact: true }).click();
+  await page.getByRole("button", { name: "Back to drafts", exact: true }).click();
   await page.setViewportSize({ width: 375, height: 812 });
   const remove = page.getByRole("button", { name: /^Remove from public Keep local conflict work$/ });
   await remove.waitFor();
@@ -1050,7 +1050,7 @@ try {
     method: "POST", headers: { origin, "Content-Type": "application/json" }, body: JSON.stringify({ version: archivedVersion }),
   }), id)).status, 200);
   await page.reload();
-  await page.getByRole("button", { name: "← My drafts", exact: true }).click();
+  await page.getByRole("button", { name: "Back to drafts", exact: true }).click();
   await remove.waitFor();
   await page.route(removalUrl, async route => {
     const committed = await route.fetch();
