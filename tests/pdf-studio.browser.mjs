@@ -48,6 +48,7 @@ export async function runPdfStudioBrowser({browser,origin,pool,storage,setFail})
   await second.getByLabel('Answer type',{exact:true}).selectOption('expression');await second.getByLabel('Expected expression',{exact:true}).fill('x+x');await second.getByRole('button',{name:'+ Add variable',exact:true}).click();await second.getByLabel('Symbol',{exact:true}).fill('x');
   await page.getByRole('button',{name:'Add part c',exact:true}).click();await page.getByRole('button',{name:'Add part d',exact:true}).click();await page.getByRole('button',{name:'Remove part d',exact:true}).click();
   const saved=()=>wait(async()=>!(await draft()).privateParts.some(p=>p.key===null)&&(await page.getByRole('status').allTextContents()).some(t=>t.includes('All changes saved')),'autosave');await saved();
+  await wait(async()=>await page.locator('[data-pdf-rendered=true]').count()===2,'both owner PDF previews rendered after save');
   if(process.env.PDF_STUDIO_SCREENSHOTS){await mkdir(process.env.PDF_STUDIO_SCREENSHOTS,{recursive:true});await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:join(process.env.PDF_STUDIO_SCREENSHOTS,`studio-pdf-${width}-${theme}.png`),fullPage:true});}
   // Lost/failed writes remain recoverable and do not silently create a new version.
   setFail(1);await first.getByLabel('Expected value',{exact:true}).fill('7');await page.getByRole('status',{name:'Problem status',exact:true}).filter({hasText:'Temporary save failure'}).waitFor();
