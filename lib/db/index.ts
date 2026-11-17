@@ -11,5 +11,5 @@ export const pool = globalDatabase.physicsPool ?? new Pool({ ...runtimeDatabaseO
 if (process.env.NODE_ENV !== "production") globalDatabase.physicsPool = pool;
 attachRuntimeLoginAttestation(pool, { inRequest: async () => {
   try { await headers(); return true; } catch { return false; }
-}, retain: work => after(async () => { await work; }) });
+}, schedule: task => after(task) });
 export const db = drizzle(pool, { schema });

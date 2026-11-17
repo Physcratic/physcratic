@@ -11,6 +11,10 @@ test("attestation observes the actual application LOGIN without any extra grants
   const admin = new Pool({ connectionString: raw, max: 1 });
   let database = false, role = false;const pools: Pool[] = [];
   try {
+    for (let attempt=0;;attempt++) {
+      try {await admin.query('SELECT 1');break;}
+      catch(error) {if(attempt>=20)throw error;await new Promise(resolve=>setTimeout(resolve,100));}
+    }
     assert.equal((await admin.query("SHOW server_version_num")).rows[0].server_version_num, "180007");
     await admin.query("CREATE DATABASE neondb");database = true;
     await admin.query("CREATE ROLE physcratic_runtime_app LOGIN PASSWORD 'synthetic-attestation-only' NOINHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOBYPASSRLS");role = true;

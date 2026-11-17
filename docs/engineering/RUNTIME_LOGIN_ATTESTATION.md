@@ -9,16 +9,18 @@ Existing evidence does not reliably correlate the serving Function with LOGIN.
 ## Mechanism and limits
 
 The existing application pool gains an observer only when one strict temporary
-configuration is valid. It observes a connection acquired in an active Next
-request, validates session_user against the fixed physcratic_runtime_app role,
+configuration is valid. It observes an acquisition in an active Next request, then reserves a connection
+from that same application pool in Next after(), and validates session_user against the fixed physcratic_runtime_app role,
 current_user=session_user (no assumed role), and current_database()=neondb.
 There is no separate observer credential/pool, SQL write, function grant,
 authentication change, grading change, HTTP endpoint or identity response.
 
-The metadata query runs asynchronously on that same physical application
-connection. Next after() retains its completion without changing the HTTP
-response. It can add one short query round trip per pool/instance and uses a
-one-second client query deadline. The application already enforces its normal
+The metadata query runs after the response on its own reserved physical
+application-pool connection, which may reuse an idle connection. It never shares
+an in-flight request transaction. Next after() retains its completion without
+changing the HTTP response. It adds one pool acquisition (using the existing
+five-second connection timeout) and a metadata query per pool/instance, with a
+one-second client query deadline. A failed probe connection is discarded. The application already enforces its normal
 server-side statement timeout. A failed observation is never retried for that
 pool and never fails or changes the ordinary request. No claim of zero overhead
 or deployment-wide exactly-once execution is made. Multiple Function instances
