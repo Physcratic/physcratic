@@ -109,6 +109,10 @@ test("the focus ring keeps 3:1 against the page and the card in both themes, and
       assert.ok(contrast(ring, toRgb(token(scope, surface))) >= 3, `${theme} ring on ${surface}`)
     }
   }
+  // The sidebar ring sits on the sidebar background and gets the same 3:1.
+  for (const theme of ["light", "dark"] as const) {
+    assert.ok(contrast(toRgb(token(themes[theme], "sidebar-ring")), toRgb(token(themes[theme], "sidebar-background"))) >= 3, `${theme} sidebar ring`)
+  }
   assert.deepEqual(token(".dark {", "ring"), [21, 82, 75])
   // The light ring keeps the primary hue family (orange) and only gets darker.
   const [hue] = token(":root {", "ring")
