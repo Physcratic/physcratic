@@ -1,5 +1,20 @@
 # Execution roadmap
 
+## Pending instrumentation removal (19 November 2026)
+
+DO NOT MERGE UNTIL THE PRODUCTION ATTESTATION IS COMPLETE AND THE OWNER AUTHORIZES REMOVAL.
+
+Prepared from main 8d350c5a239d91b4009d1069e50d149ecd7bf744. This cleanup removes
+only the temporary assertion helper, pool observer and temporary unit/PG CI tests.
+Permanent privilege audits, restricted binding, Batch A and B1 gates are preserved.
+The merged serving code must remain available until correlated Production evidence
+is accepted. The owner separately removes the temporary Production variable and
+approves the cleanup release. This branch performs no provider operation.
+See [owner release checklist](PHASE_C_B1_RELEASE_CHECKLIST.md). Historical sections
+below describe the instrumentation source before removal, not an active mechanism
+after this cleanup is released. Local test results are recorded in the delivery.
+
+
 ## Arena card redesign (19 November 2026)
 
 From main 998ae77, the Arena card redesign landed in PRs #193, #196, #197 and #198, and the follow-ups from the independent review are in claude/arena-card-p4b. PR #195 is superseded by owner decision. The band colours are teal, blue, violet and amber, with no red or green. The favourite control reuses the existing save, with no new API. Two reviewed manifest digests changed in #197, see [BETA_READINESS.md](BETA_READINESS.md). The favourites allowlist in migration 0012 rejects newer Arena problems, so favourites on them need a migration with owner approval. The light focus ring is darker so it reaches 3:1, and that applies site-wide. No Production, schema or flag change.

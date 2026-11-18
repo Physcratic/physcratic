@@ -1,5 +1,22 @@
 # Beta readiness log
 
+## Pending instrumentation removal (19 November 2026)
+
+DO NOT MERGE UNTIL THE PRODUCTION ATTESTATION IS COMPLETE AND THE OWNER AUTHORIZES REMOVAL.
+
+Prepared from main 8d350c5a239d91b4009d1069e50d149ecd7bf744. This cleanup removes
+only the temporary assertion helper, pool observer and temporary unit/PG CI tests.
+Permanent privilege audits, restricted binding, Batch A and B1 gates are preserved.
+Fresh local cleanup checks: Node22.23.5/pnpm10.34.9, safety, server suite1058 pass/33 skip/1 todo, component232 pass, Next typegen/tsc, zero-warning lint and production build passed. Main qualification additionally passed7 attestation unit tests, PG18.7 real Next success/failure scenarios and Node24.19.0 serving smoke. Independent Production LOGIN is still UNPROVEN. Main CI44358495835 passed; cleanup exact-head CI remains a PR creation gate.
+
+The merged serving code must remain available until correlated Production evidence
+is accepted. The owner separately removes the temporary Production variable and
+approves the cleanup release. This branch performs no provider operation.
+See [owner release checklist](PHASE_C_B1_RELEASE_CHECKLIST.md). Historical sections
+below describe the instrumentation source before removal, not an active mechanism
+after this cleanup is released. Local test results are recorded in the delivery.
+
+
 ## Arena card redesign (19 November 2026)
 
 Phase 4b follow-ups from the independent review, from main 998ae77, branch claude/arena-card-p4b.
