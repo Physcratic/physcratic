@@ -13,6 +13,28 @@ Phase 4b follow-ups from the independent review, from main 998ae77, branch claud
 - `scripts/public-solutions-release/PACKAGE_SHA256SUMS` already failed before this PR and CI does not check it.
 - No change to `problem-stats.tsx`, any API, schema, migration, auth or flag.
 
+## Temporary serving-LOGIN assertion proposal (18 November 2026)
+
+Separate codex/phasec-login-attestation change stacked on the runtime audit fix.
+[Design, approval and removal](RUNTIME_LOGIN_ATTESTATION.md) define an OFF-by-default
+server-only observer on the actual application pool. A matching source SHA,
+provider deployment ID, active request context and at most15-minute owner window
+are required. Only bounded private assertion/deployment metadata is emitted,
+with no diagnostic endpoint or raw role/SQL/credential/person data. Synthetic
+unit and PG18.7 tests exercise the connection and failure boundaries. Exact-head
+validation and PR/CI evidence belong to the delivery report. No Production
+configuration, grant, credential, deployment or feature activation is authorized.
+Independent review and owner deployment/configuration approval remain gates.
+
+Review follow-up for PR200: real saturated-pool acquisition is bounded and leaves
+the request client usable. Fixed only the disposable harness's57P01 teardown
+race, retaining failure checks for unexpected idle errors. The owner plan now
+requires a future observation window, existing Function time budget, scoped
+sampling and independently usable restricted-binding rollback/removal. Runtime
+assertion code is unchanged by this review. PR199 integration/CI and provider
+metadata remain separate gates; GitHub API access is Forbidden here.
+
+
 ## Phase C runtime audit correction (18 November 2026)
 
 From main df96dd7, codex/phasec-runtime-audit replaces the id-specific row-lock
