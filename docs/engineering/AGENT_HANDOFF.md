@@ -1,5 +1,18 @@
 # Agent handoff
 
+## UI workshop pilot (19 November 2026)
+
+Adds an isolated `/workshop` directory with eleven connected specimens from the
+Walking Past Two Speakers page. Shared presentational components are reused,
+while answer checking is a clearly labelled local numeric demonstration without
+account/grading/progress requests. Source references are pinned to main `998ae77`.
+[Coverage, review process and validation limits](UI_WORKSHOP.md). No student UI,
+dependency, database, flag or deployment changes. Local checkout and runtime
+validation were unavailable. Exact-head CI and browser review are required before
+merge. Next: review sample decomposition, then approve a proposed component change
+and expand the inventory across the remaining website pages.
+
+
 ## Phase C runtime audit correction (18 November 2026)
 
 From main df96dd7, codex/phasec-runtime-audit replaces the id-specific row-lock
