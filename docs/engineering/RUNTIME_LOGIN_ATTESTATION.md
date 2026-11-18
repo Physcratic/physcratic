@@ -1,5 +1,20 @@
 # Temporary in-band serving LOGIN assertion
 
+## Pending instrumentation removal (19 November 2026)
+
+DO NOT MERGE UNTIL THE PRODUCTION ATTESTATION IS COMPLETE AND THE OWNER AUTHORIZES REMOVAL.
+
+Prepared from main 8d350c5a239d91b4009d1069e50d149ecd7bf744. This cleanup removes
+only the temporary assertion helper, pool observer and temporary unit/PG CI tests.
+Permanent privilege audits, restricted binding, Batch A and B1 gates are preserved.
+The merged serving code must remain available until correlated Production evidence
+is accepted. The owner separately removes the temporary Production variable and
+approves the cleanup release. This branch performs no provider operation.
+See [owner release checklist](PHASE_C_B1_RELEASE_CHECKLIST.md). Historical sections
+below describe the instrumentation source before removal, not an active mechanism
+after this cleanup is released. Local test results are recorded in the delivery.
+
+
 18 November 2026. Separate code-only change, stacked on the Phase C audit fix.
 This is an implementation proposal, not deployment or configuration authority.
 No provider telemetry tools are available here. Prior generic logs/direct LOGIN
