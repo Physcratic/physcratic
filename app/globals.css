@@ -119,14 +119,6 @@
   }
 }
 
-.problem-entry {
-  background: hsl(var(--card));
-  color: hsl(var(--card-foreground));
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--card-shadow);
-}
 /* The card border stays neutral. The band colour is on the rating block only: its tint, the number, the label and the stripe. */
 .problem-entry[data-level="beginner-olympiad"] {
   --band: var(--band-beginner);

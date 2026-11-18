@@ -547,10 +547,19 @@ test("the like slot keeps the height of the toggle while statistics load, and a 
   assert.match(refreshing, /<p role="status" class="sr-only">Refreshing statistics…<\/p>/);
 });
 
+test("the desktop footer is not reversed, so Tab runs left to right in the order Open, favourite, tags", () => {
+  const source = readFileSync("components/physics/problem-card.tsx", "utf8");
+  assert.doesNotMatch(source, /flex-row-reverse|justify-between/);
+  const html = render({ ...base, onOpen() {}, likeCount: 2, liked: false, onToggleLike() {}, likeAccess: "ready" });
+  const footer = footerOf(html);
+  assert.ok(footer.indexOf("Open problem") < footer.indexOf("data-like-control"));
+  assert.ok(footer.indexOf("data-like-control") < footer.indexOf("sm:flex-1"));
+});
+
 test("the skeleton has the same box as a card, is hidden from assistive technology and has nothing to press", () => {
   const html = renderToStaticMarkup(createElement(ProblemCardSkeleton));
   const card = render({ ...base, onOpen() {} });
-  for (const shared of [/problem-entry relative flex min-w-0 flex-col gap-0 overflow-hidden py-0 sm:flex-row \[overflow-wrap:anywhere\]/, /problem-entry-details flex flex-col gap-4 px-4 py-4 sm:flex-row-reverse sm:items-end sm:justify-between sm:px-6/, /flex min-w-0 flex-1 flex-col/, /flex flex-1 flex-col gap-4 p-4 sm:p-6/, /sm:w-40 sm:border-b-0 sm:border-l-4/]) {
+  for (const shared of [/problem-entry relative flex min-w-0 flex-col gap-0 overflow-hidden py-0 sm:flex-row \[overflow-wrap:anywhere\]/, /problem-entry-details flex flex-col gap-4 px-4 py-4 sm:flex-row sm:items-end sm:px-6/, /flex min-w-0 flex-1 flex-col/, /flex flex-1 flex-col gap-4 p-4 sm:p-6/, /sm:w-40 sm:border-b-0 sm:border-l-4/]) {
     assert.match(html, shared);
     assert.match(card, shared);
   }
@@ -561,7 +570,9 @@ test("the skeleton has the same box as a card, is hidden from assistive technolo
   assert.doesNotMatch(html.replaceAll("motion-safe:animate-pulse", ""), /animate-/);
   // One announcement for the list, and the placeholders are the only other thing in it.
   const list = renderToStaticMarkup(createElement(ProblemCardSkeletonList, { label: "Loading collection…", count: 3 }));
-  assert.match(list, /^<div role="status" aria-busy="true"[^>]*><span class="sr-only">Loading collection…<\/span>/);
+  assert.match(list, /^<div role="status"[^>]*><span class="sr-only">Loading collection…<\/span>/);
+  // aria-busy can hold back the announcement of a live region, so the list carries only the status role.
+  assert.doesNotMatch(list, /aria-busy/);
   assert.equal((list.match(/data-problem-card-skeleton/g) ?? []).length, 3);
 });
 
@@ -573,7 +584,7 @@ test("the stylesheet lifts the card 2px and darkens its border on hover, and onl
   // The transition is inside no-preference too, so a person who asked for less motion sees no animation at all.
   assert.match(css, /@media \(prefers-reduced-motion: no-preference\) \{\s*\.problem-entry \{\s*transition:/);
   const outside = css.replace(/@media \(prefers-reduced-motion: no-preference\) \{[\s\S]*?\n\}\n/, "");
-  assert.doesNotMatch(outside.slice(outside.indexOf(".problem-entry {"), outside.indexOf(".featured-contest-card")), /transition:/);
+  assert.doesNotMatch(outside.slice(outside.indexOf(".problem-entry["), outside.indexOf(".featured-contest-card")), /transition:/);
   // A stronger border for hover and keyboard focus. The old 40% was lighter than the resting border on a light card.
   assert.match(css, /\.problem-entry:has\(:focus-visible\) \{\s*border-color: hsl\(var\(--foreground\) \/ 0\.7\);/);
   // Keyboard focus also outlines the whole card in the foreground colour. It does not depend on hover or on the button ring token.

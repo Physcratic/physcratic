@@ -87,8 +87,11 @@ test("the card maps each band id to its token, the card border is neutral and no
   for (const [band, name] of ratingBands.map((entry, index) => [entry, names[index]] as const)) {
     assert.match(css, new RegExp(`\\.problem-entry\\[data-level="${band.id}"\\]\\s*\\{\\s*--band:\\s*var\\(--band-${name}\\);`), band.id)
   }
-  const card = css.slice(css.indexOf(".problem-entry {"), css.indexOf("}", css.indexOf(".problem-entry {")))
-  assert.match(card, /border:\s*1px solid hsl\(var\(--border\)\)/)
+  // The neutral card border, background, radius and shadow come from the Card utilities (border, bg-card, rounded-lg and
+  // the card shadow), so no base .problem-entry rule repeats them and no band or competition colours the border.
+  assert.doesNotMatch(css, /\.problem-entry \{\s*background/)
+  const card = readFileSync("components/ui/card.tsx", "utf8")
+  assert.match(card, /rounded-lg border bg-card text-card-foreground shadow-\[var\(--card-shadow\)\]/)
   assert.doesNotMatch(css, /\.problem-entry\[data-competition/)
   // The neutral ipho, apho and eupho badge variants were unused after phase 2, so they are gone. The host flag tells the
   // competitions apart, and nothing can give one of them a colour of its own.

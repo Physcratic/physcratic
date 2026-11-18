@@ -21,7 +21,7 @@ const cardClass = "problem-entry relative flex min-w-0 flex-col gap-0 overflow-h
 const ratingBlockClass = "flex shrink-0 flex-col gap-1 border-b border-t-4 border-border p-4 sm:w-40 sm:border-b-0 sm:border-l-4 sm:border-r sm:border-t-0 sm:p-6";
 const bodyClass = "flex min-w-0 flex-1 flex-col";
 const contentClass = "flex flex-1 flex-col gap-4 p-4 sm:p-6";
-const footerClass = "problem-entry-details flex flex-col gap-4 px-4 py-4 sm:flex-row-reverse sm:items-end sm:justify-between sm:px-6";
+const footerClass = "problem-entry-details flex flex-col gap-4 px-4 py-4 sm:flex-row sm:items-end sm:px-6";
 
 export type ProblemCardProps = {
   id: string;
@@ -343,16 +343,21 @@ export function ProblemCardSkeleton() {
             <div className="flex flex-col gap-2">
               <Bar className="h-5 w-40" />
               <Bar className="h-7 w-3/4" />
-              <Bar className="h-5 w-full" />
-              {/* A description takes two lines on a narrow card and usually one on a wide one. */}
-              <Bar className="h-5 w-2/3 lg:hidden" />
+              {/* A description line is 22.75px tall. It takes two lines on a narrow card and usually one on a wide one. */}
+              <div className="flex flex-col">
+                <div className="flex h-[22.75px] items-center"><Bar className="h-4 w-full" /></div>
+                <div className="flex h-[22.75px] items-center lg:hidden"><Bar className="h-4 w-2/3" /></div>
+              </div>
             </div>
+            {/* The line that names the publisher, so the placeholder is as tall as a card with attribution. */}
+            <Bar className="h-5 w-48" />
           </div>
           <div className={footerClass}>
             <Bar className="h-11 w-full sm:w-40" />
             <div className="flex min-w-0 flex-wrap gap-2 sm:flex-1">
               <Bar className={`${tagRow} w-24 rounded-full`} />
               <Bar className={`${tagRow} w-28 rounded-full`} />
+              <Bar className={`${tagRow} w-24 rounded-full`} />
             </div>
           </div>
         </div>
@@ -364,7 +369,7 @@ export function ProblemCardSkeleton() {
 /** A few placeholder cards with one announcement for the whole list. */
 export function ProblemCardSkeletonList({ label, count = 3 }: { label: string; count?: number }) {
   return (
-    <div role="status" aria-busy="true" className="grid min-w-0 gap-6">
+    <div role="status" className="grid min-w-0 gap-6">
       <span className="sr-only">{label}</span>
       {Array.from({ length: count }, (_, index) => (
         <ProblemCardSkeleton key={index} />
