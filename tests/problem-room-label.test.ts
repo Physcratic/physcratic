@@ -12,5 +12,5 @@ test("the problem room label is sentence case with normal tracking and no mono o
   assert.ok(label, "the label is shown by default");
   assert.doesNotMatch(label[1], /uppercase|tracking-|font-mono/);
   assert.doesNotMatch(html, /PROBLEM ROOM/);
-  assert.ok(!renderToStaticMarkup(React.createElement(ProblemRoom, { showLabel: false }, "Body")).includes("Problem room"));
+  assert.ok(!renderToStaticMarkup(React.createElement(ProblemRoom, { showLabel: false } as React.ComponentProps<typeof ProblemRoom>, "Body")).includes("Problem room"));
 });
