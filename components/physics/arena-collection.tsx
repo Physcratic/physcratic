@@ -43,8 +43,7 @@ export function ArenaCollection({
           href={`/dashboard/problems/${problem.id}`}
         />
       )}
-      emptyTitle="No Arena problems found"
-      emptyDescription="Try a different search, tag or difficulty range."
+      emptyMessage="No Arena problems match these filters."
       onReset={onReset}
     />
   );

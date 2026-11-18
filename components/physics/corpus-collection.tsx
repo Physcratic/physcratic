@@ -161,8 +161,7 @@ export function CorpusCollection({
           onOpen={() => onActiveProblemChange(problem.id)}
         />
       )}
-      emptyTitle="No pilot problems match"
-      emptyDescription="Try another year, topic, title, concept or difficulty range."
+      emptyMessage="No pilot problems match these filters."
       onReset={onReset}
     />
   );
