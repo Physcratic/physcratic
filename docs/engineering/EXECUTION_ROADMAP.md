@@ -12,6 +12,17 @@ actual validation and PR/CI evidence belong to the delivery report. No approved
 grant file, migration, Production/provider/credential/flag or deployment change.
 Independent review and actual serving LOGIN remain release gates.
 
+## Public worked solutions source qualification (17 November 2026)
+
+From main `806b85d`, PR B adds immutable revision consent, current-only guest
+solution/media reads, archive-style navigation and conservative independence
+classification. Legacy private publications and immutable attempts/reveals remain
+unchanged. Personal correctness stays separate from verified-solve eligibility.
+[Architecture and actual local QA](AUTHORED_PUBLIC_SOLUTIONS.md) and the separate
+[owner migration package](../../scripts/public-solutions-release/README.md).
+No Production migration/SQL/grant/flag or provider operation is authorized or run.
+Next: exact-head CI/review and scoped source release, then owner evidence/approval
+before any0020 installation or public exposure. Practice/deletion stay OFF.
 
 ## CSP collector privacy and bounded reads (17 November 2026)
 

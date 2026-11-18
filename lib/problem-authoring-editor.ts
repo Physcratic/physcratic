@@ -55,6 +55,7 @@ export const editorDraftSchema = z.object({
     .max(1500),
   state: z.enum(["draft", "published", "archived"]),
   slug: z.string(),
+  publishedSolutionPolicy: z.literal("public-solutions-v1").optional(),
 });
 export type EditorDraft = z.infer<typeof editorDraftSchema>;
 export type EditorBlock = AuthoredDocument["context"][number];
@@ -297,6 +298,7 @@ export class DraftEditorSession {
                 version: server.version,
                 state: server.state,
                 slug: server.slug,
+                publishedSolutionPolicy: server.publishedSolutionPolicy,
               };
         const dirty = fingerprint(draft) !== this.saved;
         this.emit({
@@ -334,7 +336,7 @@ export class DraftEditorSession {
     const conflict = recovery.version !== current.version;
     this.generation++;
     this.emit({
-      draft: { ...recovery, state: current.state, slug: current.slug },
+      draft: { ...recovery, state: current.state, slug: current.slug, publishedSolutionPolicy: current.publishedSolutionPolicy },
       recovery: null,
       dirty: true,
       phase: conflict ? "conflict" : "editing",
@@ -374,6 +376,7 @@ export class DraftEditorSession {
         version: server.version,
         state: server.state,
         slug: server.slug,
+        publishedSolutionPolicy: server.publishedSolutionPolicy,
       },
       dirty: true,
       phase: "editing",
@@ -384,7 +387,7 @@ export class DraftEditorSession {
   }
   async publish(
     action: "publish" | "unpublish",
-    request: (draft: EditorDraft) => Promise<{ version: number }>,
+    request: (draft: EditorDraft) => Promise<{ version: number; revision?: { solutionPolicy?: "public-solutions-v1" } } | undefined>,
   ) {
     if (
       this.value.busy ||
@@ -396,11 +399,13 @@ export class DraftEditorSession {
     try {
       if (!(await this.flush())) return false;
       const result = await request(this.value.draft);
+      if (!result) return false;
       this.emit({
         draft: {
           ...this.value.draft,
           version: result.version,
           state: action === "publish" ? "published" : "archived",
+          publishedSolutionPolicy: action === "publish" ? result.revision?.solutionPolicy : undefined,
         },
         phase: "saved",
         message:

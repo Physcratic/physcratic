@@ -1,3 +1,4 @@
+import { publicSolutionsEnabled } from "@/lib/authored-solution-policy";
 import { SkipLink } from "@/components/skip-link";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
@@ -35,7 +36,7 @@ export default async function AuthorPage() {
   return (
     <>
       <SkipLink targetId="author-main">Skip to editor content</SkipLink>
-      <AuthoringWorkspace userId={session.user.id} />
+      <AuthoringWorkspace publicSolutionsEnabled={publicSolutionsEnabled()} userId={session.user.id} />
     </>
   );
 }
