@@ -37,7 +37,8 @@
     --input: 44 4.5% 47.6%;
     /* Cards lift off the page with a soft shadow as well as the border. */
     --card-shadow: 0 1px 2px hsl(44 12% 20% / 0.1), 0 10px 20px -12px hsl(44 12% 20% / 0.28);
-    --ring: 22 65% 58%;
+    /* 3:1 or better against the page, the card and the muted surfaces (WCAG 1.4.11). It was 22 65% 58%, 2.64:1 on the page. */
+    --ring: 22 65% 48%;
     --radius: 0.75rem;
     --hero: 228 6% 11%;
     --hero-foreground: 240 6% 96%;
@@ -139,8 +140,8 @@
 }
 /* A stronger border on keyboard focus and on hover. It is the foreground colour at 70%, which is darker than the resting
    border in both themes (the old 40% was lighter than the resting border on a light card). On keyboard focus the card also
-   gets an outline in the foreground colour, because the card is the whole tap surface and the shared button ring is only
-   2.6:1 against the page in light. The outline is 14.8:1 in light and 13.9:1 in dark. */
+   gets an outline in the foreground colour, because the card is the whole tap surface and a ring on the small button inside
+   it would not show that the card is focused. The outline is 14.8:1 in light and 13.9:1 in dark. */
 .problem-entry:has(:focus-visible) {
   border-color: hsl(var(--foreground) / 0.7);
   outline: 2px solid hsl(var(--foreground));

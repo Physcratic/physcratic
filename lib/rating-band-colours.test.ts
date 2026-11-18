@@ -98,3 +98,19 @@ test("the card maps each band id to its token, the card border is neutral and no
   const badge = readFileSync("components/ui/badge.tsx", "utf8")
   for (const competition of ["ipho", "apho", "eupho"]) assert.doesNotMatch(badge, new RegExp(`\\b${competition}:`), competition)
 })
+
+// The focus ring is a UI component boundary, so it needs 3:1 against what it sits on (WCAG 1.4.11). The light --ring was
+// 2.64:1 on the page. These are the same tokens the sweep measures in the browser.
+test("the focus ring keeps 3:1 against the page and the card in both themes, and the dark ring is unchanged", () => {
+  for (const theme of ["light", "dark"] as const) {
+    const scope = themes[theme]
+    const ring = toRgb(token(scope, "ring"))
+    for (const surface of ["background", "card"]) {
+      assert.ok(contrast(ring, toRgb(token(scope, surface))) >= 3, `${theme} ring on ${surface}`)
+    }
+  }
+  assert.deepEqual(token(".dark {", "ring"), [21, 82, 75])
+  // The light ring keeps the primary hue family (orange) and only gets darker.
+  const [hue] = token(":root {", "ring")
+  assert.ok(Math.abs(hue - token(":root {", "primary")[0]) <= 2)
+})
