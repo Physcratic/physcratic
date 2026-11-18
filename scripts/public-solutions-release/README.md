@@ -10,7 +10,10 @@ This is a single additive migration, not another migration runner.
 `SOURCE_COMMIT` pins the implementation source. Independently approve that commit,
 this package's SHA-256 manifest and the up/down hashes before execution. The package
 may be committed later than its pinned source without changing executable source.
-Verify the reviewed checkout and every manifest entry. A merge SHA alone does not
+Use the package from its independently approved package/PR commit, not a checkout
+of SOURCE_COMMIT alone. For each non-package manifest entry, compare its bytes
+with the same path at SOURCE_COMMIT. Package entries are bound by this manifest.
+Verify that approved checkout and every manifest entry. A merge SHA alone does not
 prove installed schema or effective serving flags. Do not substitute newer main.
 
 Schema diff: two columns on `authored_revision`, `solution_policy text NOT NULL
