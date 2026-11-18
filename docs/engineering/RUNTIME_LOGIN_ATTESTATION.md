@@ -62,8 +62,22 @@ PHYSCRATIC_RUNTIME_LOGIN_ATTESTATION to JSON containing exactly:
 {"runId":"<32 lowercase hex characters>","commitSha":"<reviewed full 40-character SHA>","notBefore":"<UTC ISO timestamp>","expiresAt":"<UTC ISO timestamp within 15 minutes of notBefore>"}
 ```
 
-These placeholders are intentionally invalid. The owner chooses an actual short
-window accounting for the approved release time, and a fresh nonsecret run ID.
+These placeholders are intentionally invalid. First record the reviewed final
+release SHA and an independently usable deployment AND persistent-configuration
+recovery reference through owner access outside the app. The recovery target
+must preserve the restricted binding, active Batch A and all future gates OFF.
+Verify the existing Function duration leaves room for the normal request plus
+up to five seconds acquiring a pool connection and one second for the probe.
+Do not change Function settings to force this test to succeed.
+
+Choose a notBefore time far enough in the future to finish the normal approved
+build/deployment, then expiresAt at most15 minutes later. Deploying before
+notBefore is allowed and does not consume the attempt. Confirm Ready status,
+actual alias/source and owner runtime-log access before the window opens; issue
+the approved collection read during that window. The observation window is not
+a15-minute deadline starting when configuration is saved. If deployment is late,
+stop with UNPROVEN and obtain a newly approved window/release, never silently
+extend the old one. Use a fresh nonsecret run ID.
 The source SHA must match VERCEL_GIT_COMMIT_SHA; VERCEL_ENV must be production and
 VERCEL_DEPLOYMENT_ID a real provider ID. Do not add/decrypt/copy a connection URL,
 change a credential or modify provider system-variable settings to force a pass.
@@ -75,6 +89,12 @@ within the window. In authenticated Vercel runtime logs, correlate the single
 record to that invocation/deployment and run ID. Require verified, matching
 source/deployment and provider runtime context. The public collection request
 must succeed normally. Retain only metadata/outcome and a private evidence link.
+A verified record proves only the sampled Function's actual application pool.
+It does not prove every Function/region/warm instance uses that LOGIN, nor that
+old deployments have drained. The owner must reconcile the served alias and
+shared Production binding scope independently; any further samples need their
+own approved existing request scope. Do not expand to private journeys/writes
+under this collection-read approval.
 A mismatch, unavailable, missing record, wrong context or expiry means UNPROVEN;
 stop B1 rather than widening permissions, changing credentials or logging more.
 
@@ -87,7 +107,11 @@ then an independent code-only cleanup PR deletes the helper, tests, import and
 observer registration. Verify no new records and normal existing reads. Keep
 credential/binding, schema, grants, normal feature flags and Batch A unchanged.
 Any early rollback uses the separately recorded owner-approved deployment/config
-recovery reference. A code merge alone is not permission to deploy it.
+recovery reference through owner access outside the new app. Restoring an alias
+alone does not remove the saved temporary configuration: independently remove
+that value under the preapproved removal scope and verify the serving source,
+restricted binding and unchanged Batch A/future-gate state. Do not use a historical
+owner-bound deployment as the recovery target. A code merge alone is not permission to deploy it.
 
 ## Qualification
 
@@ -95,7 +119,9 @@ Unit tests cover disabled/malformed configuration, source/deployment/window
 bounds, no build/background evidence, one attempt, wrong role/database, bounded
 output, raw-error suppression, late results and logger failures. The PG18.7 test
 uses actual LOGIN connections, verifies no additional grants, ordinary query
-results, a successful assertion and mismatch under the owner connection.
+results, a successful assertion and mismatch under the owner connection. It also
+exhausts a one-slot pool and proves the probe acquisition times out without
+releasing/modifying the request client or leaving a pending waiter.
 
 Run the PG test with the existing disposable runner. Setting the test-only
 ATTESTATION_SERVING_SMOKE=1 additionally launches an already-built local Next

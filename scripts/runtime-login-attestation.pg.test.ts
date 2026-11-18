@@ -9,7 +9,14 @@ test("attestation observes the actual application LOGIN without any extra grants
   const root = new URL(raw!);assert.equal(root.hostname, "127.0.0.1");
   assert.equal(root.pathname, "/physcratic_authoring_test");assert.equal(root.search, "");assert.equal(root.hash, "");
   const admin = new Pool({ connectionString: raw, max: 1 });
-  let database = false, role = false;const pools: Pool[] = [];
+  let database = false, role = false, closing = false;const pools: Pool[] = [];
+  const idleErrors: Error[] = [];
+  const onIdleError = (error: Error & {code?: string}) => {
+    // DROP DATABASE FORCE can race the final idle socket close. Only this
+    // specific teardown event is expected; runtime failures remain test failures.
+    if (!(closing && error.code === '57P01')) idleErrors.push(error);
+  };
+  admin.on('error',onIdleError);
   try {
     for (let attempt=0;;attempt++) {
       try {await admin.query('SELECT 1');break;}
@@ -21,17 +28,30 @@ test("attestation observes the actual application LOGIN without any extra grants
     const url = new URL(root);url.pathname = "/neondb";url.username = "physcratic_runtime_app";url.password = "synthetic-attestation-only";
     const config = { runId: "a".repeat(32), commitSha: "b".repeat(40), notBefore: new Date(Date.now()-1000).toISOString(), expiresAt: new Date(Date.now()+60_000).toISOString() };
     const env = { PHYSCRATIC_RUNTIME_LOGIN_ATTESTATION: JSON.stringify(config), VERCEL_ENV: "production", VERCEL_GIT_COMMIT_SHA: config.commitSha, VERCEL_DEPLOYMENT_ID: "dpl_synthetic12345" };
-    const app = new Pool({ connectionString: url.href, max: 1 });pools.push(app);
+    const app = new Pool({ connectionString: url.href, max: 1 });pools.push(app);app.on('error',onIdleError);
     const records: { outcome: string }[] = [];const ready=Promise.withResolvers<void>();attachRuntimeLoginAttestation(app, { env, inRequest: async () => true, emit: r => {records.push(r);ready.resolve();} });
     const normal = await app.query("SELECT 42 AS ordinary_result,session_user AS login");
     assert.equal(normal.rows[0].ordinary_result, 42);assert.equal(normal.rows[0].login, "physcratic_runtime_app");
     await ready.promise;assert.equal(records.length, 1);assert.equal(records[0].outcome, "verified");
     await app.query("SELECT 1");assert.equal(records.length, 1);
     assert.equal((await app.query("SELECT has_schema_privilege(current_user,'public','CREATE') AS allowed")).rows[0].allowed, false);
-    const owner = new Pool({ connectionString: raw, max: 1 });pools.push(owner);
+    const owner = new Pool({ connectionString: raw, max: 1 });pools.push(owner);owner.on('error',onIdleError);
     const mismatch: { outcome: string }[] = [];const otherReady=Promise.withResolvers<void>();attachRuntimeLoginAttestation(owner, { env, inRequest: async () => true, emit: r => {mismatch.push(r);otherReady.resolve();} });
     await owner.query("SELECT 1");await otherReady.promise;assert.equal(mismatch[0].outcome, "mismatch");
     assert.doesNotMatch(JSON.stringify([...records,...mismatch]), /postgres|synthetic-attestation-only|SELECT|session_user/);
+    // Exhaust the ordinary pool slot: the probe must time out, leave the
+    // request-owned connection intact, and remove its pending acquisition.
+    const saturated=new Pool({connectionString:url.href,max:1,connectionTimeoutMillis:150});pools.push(saturated);saturated.on('error',onIdleError);
+    const timed=Promise.withResolvers<{outcome:string}>();
+    attachRuntimeLoginAttestation(saturated,{env,inRequest:async()=>true,emit:r=>timed.resolve(r)});
+    const held=await saturated.connect();
+    try {
+      const began=Date.now();assert.equal((await timed.promise).outcome,'unavailable');
+      assert.ok(Date.now()-began<2000,'pool acquisition timeout is bounded');
+      assert.equal(saturated.waitingCount,0,'timed-out acquisition is removed');
+      assert.equal((await held.query('SELECT 7 AS normal')).rows[0].normal,7,'ordinary client is still usable');
+    } finally {held.release();}
+    assert.equal((await saturated.query('SELECT 8 AS normal')).rows[0].normal,8,'ordinary pool remains usable');
     if (process.env.ATTESTATION_SERVING_SMOKE === '1') {
       // Build the existing application schema/rights only inside this disposable
       // target so the ordinary collection SELECT succeeds, rather than testing
@@ -39,7 +59,7 @@ test("attestation observes the actual application LOGIN without any extra grants
       const {readFile}=await import('node:fs/promises');
       const {fixtureDDL,seed}=await import('./authoring-release-production/package/test-fixture.mjs');
       const ownerUrl=new URL(root);ownerUrl.pathname='/neondb';
-      const setup=new Pool({connectionString:ownerUrl.href,max:1});pools.push(setup);
+      const setup=new Pool({connectionString:ownerUrl.href,max:1});pools.push(setup);setup.on('error',onIdleError);
       for(const ddl of fixtureDDL())await setup.query(ddl);await seed(setup);
       await setup.query(await readFile('migrations/20261031_auth_rate_limit.sql','utf8'));
       const migrations=JSON.parse(await readFile('scripts/production-upgrade/migrations.json','utf8')) as {path:string}[];
@@ -71,9 +91,11 @@ test("attestation observes the actual application LOGIN without any extra grants
     }
 
   } finally {
+    closing = true;
     await Promise.all(pools.map(p => p.end()));
     if (database) await admin.query("DROP DATABASE neondb WITH (FORCE)");
     if (role) await admin.query("DROP ROLE physcratic_runtime_app");
     await admin.end();
+    assert.deepEqual(idleErrors, [], 'no unexpected idle connection failures');
   }
 });
