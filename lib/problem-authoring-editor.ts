@@ -298,6 +298,7 @@ export class DraftEditorSession {
                 version: server.version,
                 state: server.state,
                 slug: server.slug,
+                publishedSolutionPolicy: server.publishedSolutionPolicy,
               };
         const dirty = fingerprint(draft) !== this.saved;
         this.emit({
@@ -335,7 +336,7 @@ export class DraftEditorSession {
     const conflict = recovery.version !== current.version;
     this.generation++;
     this.emit({
-      draft: { ...recovery, state: current.state, slug: current.slug },
+      draft: { ...recovery, state: current.state, slug: current.slug, publishedSolutionPolicy: current.publishedSolutionPolicy },
       recovery: null,
       dirty: true,
       phase: conflict ? "conflict" : "editing",
@@ -375,6 +376,7 @@ export class DraftEditorSession {
         version: server.version,
         state: server.state,
         slug: server.slug,
+        publishedSolutionPolicy: server.publishedSolutionPolicy,
       },
       dirty: true,
       phase: "editing",

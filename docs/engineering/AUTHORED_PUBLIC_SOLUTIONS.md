@@ -78,7 +78,7 @@ rollback must retain policy-aware receipt/statistics code, not relabel it as leg
 
 ## Qualification and release boundary
 
-Local server suite1052 pass/33 skip/one TODO, components216 pass, complete applicable
+Initial source qualification on806b85d: server1052 pass/33 skip/one TODO, components216 pass, complete applicable
 PG suite228 pass/one optional browser skip, then actual deletion/browser14 pass
 with0020 installed. New consent/integrity tests7 pass on PostgreSQL18.7 too.
 Restricted real LOGIN rights were granted before ALTER and required no new delta.
@@ -91,6 +91,9 @@ no-JavaScript solution/PDF links and a real signed session. PDF bytes there are
 synthetic browser intercepts; server byte authorization is separately PG-qualified.
 Typegen/TypeScript, zero-warning lint and production build pass. Final exact-head
 CI, review and source/package hashes are recorded on the implementation PR.
+Concurrent Arena changes were preserved through normal merges on18 November.
+Recovery/conflict decisions also retain the current publication policy when local
+work predates a public/legacy republication. Final-head results belong to the PR.
 
 Physical assistive technology, non-Chromium devices, actual provider credentials,
 Production grants/binding and fresh backup/restore evidence remain owner gates.

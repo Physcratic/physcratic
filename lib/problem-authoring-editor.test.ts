@@ -481,3 +481,21 @@ test("raw numeric/expression input remains recoverable while server validation s
   );
   session.dispose();
 });
+
+test("recovery and conflict decisions retain current publication policy without discarding local work", () => {
+  for (const publishedSolutionPolicy of [undefined, "public-solutions-v1"] as const) {
+    const initial = fixture(), local = storage();
+    const recovery = { ...initial, publishedSolutionPolicy: publishedSolutionPolicy ? undefined : "public-solutions-v1", content: { ...initial.content, title: "Retained local work" } };
+    local.setItem("policy-recovery", JSON.stringify(recovery));
+    const current: EditorDraft = { ...initial, version: 2, state: "published", publishedSolutionPolicy };
+    const session = new DraftEditorSession(current, saved, local, "policy-recovery");
+    session.restoreRecovery();
+    assert.equal(session.snapshot().draft.content.title, "Retained local work");
+    assert.equal(session.snapshot().draft.publishedSolutionPolicy, publishedSolutionPolicy);
+    const next: EditorDraft = { ...current, version: 3, publishedSolutionPolicy: publishedSolutionPolicy ? undefined : "public-solutions-v1" };
+    session.keepLocal(next);
+    assert.equal(session.snapshot().draft.content.title, "Retained local work");
+    assert.equal(session.snapshot().draft.publishedSolutionPolicy, next.publishedSolutionPolicy);
+    session.dispose();
+  }
+});
