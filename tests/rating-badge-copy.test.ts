@@ -5,9 +5,9 @@ import { describeEstimate } from "../lib/rating-bands"
 
 const read = (path: string) => readFileSync(path, "utf8")
 
-test("a rating reads as '2,200 · Advanced', with no tilde and no estimate wording", () => {
-  assert.equal(describeEstimate("2200"), "2,200 · Advanced")
-  assert.equal(describeEstimate("~1850"), "1,850 · Advanced")
+test("a rating reads as '2,200 Advanced', with no tilde, no estimate wording and no glyph between the parts", () => {
+  assert.equal(describeEstimate("2200"), "2,200 Advanced")
+  assert.equal(describeEstimate("~1850"), "1,850 Advanced")
   assert.equal(describeEstimate("Intermediate"), "Intermediate")
 })
 

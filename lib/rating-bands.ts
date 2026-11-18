@@ -47,13 +47,18 @@ export function bandForEstimate(estimate: string | null | undefined): RatingBand
   return rating === null ? null : ratingBand(rating);
 }
 
-/** "1,850 · Advanced" for a stored rating, or the old label as written. */
+/** The number and the band name of a stored rating, so a screen can style them as two parts. Null for a free-text label. */
+export function estimateParts(estimate: string | null | undefined): { rating: string; band: string } | null {
+  const rating = parseRating((estimate ?? "").trim());
+  return rating === null ? null : { rating: rating.toLocaleString("en-US"), band: ratingBand(rating).name };
+}
+
+/** "1,850 Advanced" for a stored rating, or the old label as written. Where the two parts need their own styling, use estimateParts. */
 export function describeEstimate(estimate: string | null | undefined): string {
   const text = (estimate ?? "").trim();
   if (!text) return "";
-  const rating = parseRating(text);
-  if (rating === null) return text;
-  return `${rating.toLocaleString("en-US")} · ${ratingBand(rating).name}`;
+  const parts = estimateParts(text);
+  return parts ? `${parts.rating} ${parts.band}` : text;
 }
 
 /** Retired filter ids retain their historical ranges without appearing as new choices. */

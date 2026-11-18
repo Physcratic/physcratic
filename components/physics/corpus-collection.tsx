@@ -153,7 +153,8 @@ export function CorpusCollection({
           headingLevel={4}
           source={problem.competition}
           competition={problem.competition}
-          reference={`${problem.year} · ${problem.code}`}
+          year={problem.year}
+          task={problem.code}
           statementLanguage="en"
           elo={getEstimatedProblemElo(problem.id)}
           description={problem.summary}

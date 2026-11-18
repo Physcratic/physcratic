@@ -9,7 +9,7 @@ export function ProblemRoom({ children, status, footer, showLabel = true }: { ch
     <header className="border-b bg-background">
       <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-8">
         <a href="/dashboard?view=problems" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold"><ArrowLeft aria-hidden="true" className="size-4" />Physcratic</a>
-        <div className="flex flex-wrap items-center gap-4">{showLabel && <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Problem room</span>}{status}</div>
+        <div className="flex flex-wrap items-center gap-4">{showLabel && <span className="text-sm text-muted-foreground">Problem room</span>}{status}</div>
       </div>
     </header>
     <main id="solver-main" tabIndex={-1} className="mx-auto w-full min-w-0 max-w-[1440px] space-y-7 px-4 py-6 focus:outline-none sm:px-8 sm:py-10">{children}</main>

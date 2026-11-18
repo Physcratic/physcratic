@@ -142,11 +142,10 @@ export function ProblemCollection<T extends { id: string }>({
               {title}
             </h3>
           </CardTitle>
-          <CardDescription aria-live="polite">
-            {items.length} of {totalCount} problems
-            {items.length > 0 &&
-              ` · Showing ${(page - 1) * pageSize + 1} to ${Math.min(page * pageSize, items.length)}`}
-            {status && ` · ${status}`}
+          <CardDescription aria-live="polite" className="flex flex-wrap gap-x-4 gap-y-1">
+            <span>{items.length} of {totalCount} problems</span>
+            {items.length > 0 && <span>Showing {(page - 1) * pageSize + 1} to {Math.min(page * pageSize, items.length)}</span>}
+            {status && <span>{status}</span>}
           </CardDescription>
         </CardHeader>
         <CardContent className="px-0 pb-0">

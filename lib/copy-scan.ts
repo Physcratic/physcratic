@@ -66,3 +66,77 @@ export const KNOWN_SEMICOLON_OFFENDERS: readonly string[] = [
   // "Five upload attempts per UTC day; 20 total claim reservations". Medal verification UI, left for Codex.
   "components/community/verification-settings.tsx",
 ];
+
+/** Glyphs that stand in for a separator between words. Spacing, a line break, separate styled spans or a comma do the job instead. */
+export const SEPARATOR_GLYPHS = /[·•∙⋅‧]|&middot;|&bull;|&centerdot;/;
+
+export interface DesignFinding {
+  file: string;
+  line: number;
+  rule: "separator glyph" | "font-mono outside code and kbd" | "uppercase with tracking";
+  text: string;
+}
+
+const MONO = /(^|[\s:])font-mono(?=$|[\s!])/;
+const UPPERCASE = /(^|[\s:])uppercase(?=$|[\s!])/;
+const TRACKING = /(^|[\s:])tracking-(\[[^\]\s]*\]|wide|wider|widest)(?=$|[\s!])/;
+const MONO_HOSTS = new Set(["code", "kbd"]);
+
+function tagName(node: ts.Node): string | undefined {
+  if (ts.isJsxElement(node)) return node.openingElement.tagName.getText();
+  if (ts.isJsxSelfClosingElement(node)) return node.tagName.getText();
+  return undefined;
+}
+
+/**
+ * Design-rule findings in one file: a separator glyph in text, the font-mono class outside code and kbd, and an uppercase
+ * label that also sets wide letter spacing. Comments are ignored. `uppercase` and `tracking-*` are matched across all the
+ * strings of one className attribute, so cn("uppercase", "tracking-wide") is caught too.
+ */
+export function designFindingsIn(file: string, source: string): DesignFinding[] {
+  const sf = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true, file.endsWith("x") ? ts.ScriptKind.TSX : ts.ScriptKind.TS);
+  const out: DesignFinding[] = [];
+  const lineOf = (node: ts.Node) => sf.getLineAndCharacterOfPosition(node.getStart(sf)).line + 1;
+  const insideMonoHost = (node: ts.Node) => {
+    for (let n: ts.Node | undefined = node; n; n = n.parent) {
+      const name = tagName(n);
+      if (name && MONO_HOSTS.has(name)) return true;
+    }
+    return false;
+  };
+  const groups = new Map<ts.Node, { tokens: string[]; line: number }>();
+  const text = (node: ts.Node, value: string) => {
+    if (!value.trim()) return;
+    if (SEPARATOR_GLYPHS.test(value)) out.push({ file, line: lineOf(node), rule: "separator glyph", text: value.trim().slice(0, 70) });
+    if (ts.isJsxText(node)) return;
+    if (MONO.test(value) && !insideMonoHost(node)) out.push({ file, line: lineOf(node), rule: "font-mono outside code and kbd", text: value.trim().slice(0, 70) });
+    let group: ts.Node = node;
+    for (let n: ts.Node | undefined = node.parent; n; n = n.parent) {
+      if (ts.isJsxAttribute(n)) { group = n; break; }
+      if (ts.isStatement(n)) break;
+    }
+    const entry = groups.get(group) ?? { tokens: [], line: lineOf(group) };
+    entry.tokens.push(value);
+    groups.set(group, entry);
+  };
+  const visit = (node: ts.Node) => {
+    if (ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) return;
+    if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) text(node, node.text);
+    else if (ts.isTemplateHead(node) || ts.isTemplateMiddle(node) || ts.isTemplateTail(node)) text(node, node.text);
+    else if (ts.isJsxText(node)) text(node, node.text);
+    ts.forEachChild(node, visit);
+  };
+  visit(sf);
+  for (const { tokens, line } of groups.values()) {
+    const joined = tokens.join(" ");
+    if (UPPERCASE.test(joined) && TRACKING.test(joined)) out.push({ file, line, rule: "uppercase with tracking", text: joined.slice(0, 70) });
+  }
+  return out.sort((a, b) => a.line - b.line);
+}
+
+/** Design-rule findings across the given directories. Run from the repo root. */
+export function scanDesign(root: string, dirs: string[]): DesignFinding[] {
+  const found: DesignFinding[] = [];
+  for (const dir of dirs) for (const file of sourceFiles(root, dir)) found.push(...designFindingsIn(file, readFileSync(join(root, file), "utf8")));
+  return found;
+}
