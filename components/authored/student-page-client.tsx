@@ -1,8 +1,9 @@
 "use client";
+import type { PublicSolution } from "@/lib/authored-public-solution-contracts";
 import { authClient } from "@/lib/auth-client";
 import type { PublicRevision, Viewer } from "@/lib/authored-student";
 import { StudentWorkspace } from "./student-workspace";
-export function StudentPageClient({ problemId,initialRevision,statsEnabled=false,commentsEnabled=false,moderationEnabled=false,attributionEnabled=false }: { problemId: string;initialRevision?: PublicRevision | null;statsEnabled?:boolean;commentsEnabled?:boolean;moderationEnabled?:boolean;attributionEnabled?:boolean }) {
+export function StudentPageClient({ problemId,initialRevision,statsEnabled=false,commentsEnabled=false,moderationEnabled=false,attributionEnabled=false,publicSolutionsEnabled=false,initialSolution }: { problemId: string;initialRevision?: PublicRevision | null;statsEnabled?:boolean;commentsEnabled?:boolean;moderationEnabled?:boolean;attributionEnabled?:boolean;publicSolutionsEnabled?:boolean;initialSolution?:PublicSolution|null }) {
   const { data, isPending, error } = authClient.useSession();
   const viewer: Viewer = isPending
     ? { state: "loading" }
@@ -15,6 +16,6 @@ export function StudentPageClient({ problemId,initialRevision,statsEnabled=false
             id: data.user.id,
           };
   return (
-    <StudentWorkspace key={problemId} problemId={problemId} initialRevision={initialRevision} viewer={viewer} attributionEnabled={attributionEnabled} moderationEnabled={moderationEnabled} statsEnabled={statsEnabled} commentsEnabled={commentsEnabled} />
+    <StudentWorkspace publicSolutionsEnabled={publicSolutionsEnabled} initialSolution={initialSolution} key={problemId} problemId={problemId} initialRevision={initialRevision} viewer={viewer} attributionEnabled={attributionEnabled} moderationEnabled={moderationEnabled} statsEnabled={statsEnabled} commentsEnabled={commentsEnabled} />
   );
 }

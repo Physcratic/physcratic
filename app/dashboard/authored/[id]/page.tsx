@@ -1,3 +1,6 @@
+import { publicSolutionsEnabled, publicSolutionPolicy } from "@/lib/authored-solution-policy";
+import { publicSolutionPath, publicSolutionSchema } from "@/lib/authored-public-solution-contracts";
+import { PublicSolutionContent } from "@/components/authored/public-worked-solution";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { z } from "zod";
@@ -39,5 +42,13 @@ export default async function AuthoredProblemPage({
   const parsed = z.uuid().safeParse((await params).id);
   if (!parsed.success) notFound();
   const initialRevision = await publishedRevision(parsed.data.toLowerCase());
-  return <StudentPageClient attributionEnabled={authoredAttributionEnabled()} initialRevision={initialRevision} moderationEnabled={communityModerationUiEnabled()} commentsEnabled={communityCommentsEnabled()} statsEnabled={communityProblemStatsEnabled()} problemId={parsed.data.toLowerCase()} />;
+  let initialSolution = null;
+  if (publicSolutionsEnabled() && initialRevision?.solutionPolicy === publicSolutionPolicy) {
+    try {
+      const { publicSolutionRoute } = await import("@/lib/authored-public-solution-route");
+      const response = await publicSolutionRoute(new Request(`http://localhost${publicSolutionPath(initialRevision.problemId, initialRevision.id)}`), initialRevision.problemId);
+      if (response.ok) initialSolution = publicSolutionSchema.parse(await response.json());
+    } catch { /* The client retains retry and stale-publication recovery. */ }
+  }
+  return <><StudentPageClient initialSolution={initialSolution} publicSolutionsEnabled={publicSolutionsEnabled()} attributionEnabled={authoredAttributionEnabled()} initialRevision={initialRevision} moderationEnabled={communityModerationUiEnabled()} commentsEnabled={communityCommentsEnabled()} statsEnabled={communityProblemStatsEnabled()} problemId={parsed.data.toLowerCase()} />{initialSolution && <noscript><PublicSolutionContent solution={initialSolution} /></noscript>}</>;
 }

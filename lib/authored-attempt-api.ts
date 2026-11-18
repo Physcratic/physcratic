@@ -1,3 +1,4 @@
+import { publicSolutionPolicy, publicSolutionEvidence, storedSolutionPolicy, revisionSolutionColumns } from "./authored-solution-policy";
 import "server-only";
 import { readAuthoredProgress } from "./authored-progress";
 import { randomUUID } from "node:crypto";
@@ -51,6 +52,8 @@ type Row = {
   created_at: Date;
   spoiler_policy: string;
   assisted: boolean;
+  solution_policy?: unknown;
+  solution_consented_at?: unknown; solution_policy_present?: unknown;
 };
 const uuid = z.uuid().transform((v) => v.toLowerCase());
 const reply = (data: unknown, status = 200) =>
@@ -93,6 +96,7 @@ function view(row: Row): AuthoredAttempt {
     createdAt: row.created_at.toISOString(),
     spoilerPolicy: policy.spoilerPolicy,
     assisted: row.assisted,
+    ...(storedSolutionPolicy(row) === publicSolutionPolicy ? { solutionEvidence: publicSolutionEvidence } : {}),
   };
 }
 function storedAnswer(value: unknown) {
@@ -147,7 +151,7 @@ export function createAuthoredAttemptApi(deps: Deps) {
       const id = rawId ? uuid.parse(rawId) : undefined;
       if (action === "read") {
         const { rows } = await deps.pool.query<Row>(
-          "SELECT * FROM authored_attempt WHERE id=$1 AND user_id=$2",
+          `SELECT a.*,${revisionSolutionColumns} FROM authored_attempt a JOIN authored_revision r ON r.id=a.revision_id WHERE a.id=$1 AND a.user_id=$2`,
           [id, user.id],
         );
         if (!rows[0]) throw new AttemptError(404, "Attempt not found.");
@@ -173,7 +177,7 @@ export function createAuthoredAttemptApi(deps: Deps) {
           );
         }
         const { rows } = await deps.pool.query<Row>(
-          `SELECT * FROM authored_attempt WHERE user_id=$1 AND ($2::uuid IS NULL OR problem_id=$2) AND ($3::timestamptz IS NULL OR (created_at,id)<($3::timestamptz,$4::uuid)) ORDER BY created_at DESC,id DESC LIMIT 51`,
+          `SELECT a.*,${revisionSolutionColumns} FROM authored_attempt a JOIN authored_revision r ON r.id=a.revision_id WHERE a.user_id=$1 AND ($2::uuid IS NULL OR a.problem_id=$2) AND ($3::timestamptz IS NULL OR (a.created_at,a.id)<($3::timestamptz,$4::uuid)) ORDER BY a.created_at DESC,a.id DESC LIMIT 51`,
           [user.id, problem, cursor?.at ?? null, cursor?.id ?? null],
         );
         const visible = rows.slice(0, policy.historyPageSize),
@@ -254,7 +258,7 @@ export function createAuthoredAttemptApi(deps: Deps) {
         [`authored-student:${user.id}`],
       );
       const existing = await client.query<Row>(
-        "SELECT * FROM authored_attempt WHERE user_id=$1 AND idempotency_key=$2",
+        `SELECT a.*,${revisionSolutionColumns} FROM authored_attempt a JOIN authored_revision r ON r.id=a.revision_id WHERE a.user_id=$1 AND a.idempotency_key=$2`,
         [user.id, input.idempotencyKey],
       );
       if (existing.rows[0]) {
@@ -352,7 +356,8 @@ export function createAuthoredAttemptApi(deps: Deps) {
           nextNumber,
         ],
       );
-      const attempt = view(created.rows[0]);
+      const metadata = await client.query(`SELECT ${revisionSolutionColumns} FROM authored_revision r WHERE r.id=$1`, [input.revisionId]);
+      const attempt = view({ ...created.rows[0], ...metadata.rows[0] });
       await client.query("COMMIT");
       inTransaction = false;
       return reply({ attempt, replayed: false }, 201);

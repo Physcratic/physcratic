@@ -230,10 +230,13 @@ export const authoredRevisions = pgTable("authored_revision", {
   number: integer("number").notNull(), schemaVersion: integer("schema_version").notNull().default(1),
   content: jsonb("content").$type<AuthoredDocument>().notNull(),
   publishedAt: timestamp("published_at", { withTimezone: true }).notNull().defaultNow(),
+  solutionPolicy: text("solution_policy").notNull().default("legacy-private-v1"),
+  solutionConsentedAt: timestamp("solution_consented_at", { withTimezone: true }),
 }, (t) => [unique("authored_revision_number_key").on(t.problemId, t.number), unique("authored_revision_problem_id_key").on(t.problemId, t.id),
   index("authored_revision_discovery_search_idx").using("gin", sql`authored_discovery_terms(${t.content})`),
   index("authored_revision_discovery_metadata_idx").using("gin", sql`${t.content} jsonb_path_ops`),
   index("authored_revision_discovery_difficulty_idx").on(sql`(${t.content}->>'estimatedDifficulty')`),
+  check("authored_revision_solution_consent_check", sql`(${t.solutionPolicy}='legacy-private-v1' and ${t.solutionConsentedAt} is null) or (${t.solutionPolicy}='public-solutions-v1' and ${t.solutionConsentedAt} is not null and ${t.solutionConsentedAt}=${t.publishedAt})`),
   check("authored_revision_version_check", sql`${t.number} > 0 and ${t.schemaVersion} = 1`)]);
 
 export const authoredDraftPrivateParts = pgTable("authored_draft_private_part", {

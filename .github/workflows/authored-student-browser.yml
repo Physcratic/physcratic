@@ -15,6 +15,8 @@ on:
       - 'tests/authored-student.browser.mjs'
       - 'tests/authored-expression.browser.mjs'
       - 'tests/authored-student-harness.tsx'
+      - 'tests/authored-public-solutions*'
+      - 'migrations/0020_authored_public_solutions*'
       - 'lib/authored-*.ts'
       - 'lib/problem-authoring*.ts'
       - 'app/globals.css'
@@ -68,6 +70,18 @@ jobs:
           PDF_STUDIO_ONLY: "1"
           PDF_STUDIO_SCREENSHOTS: ${{ runner.temp }}/studio-screenshots
         run: node --require ./tests/server-only-register.cjs --import tsx tests/problem-authoring.browser.mjs
+      - name: Public worked solutions and explicit revision consent
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/authored-browser-tools
+          PUBLIC_SOLUTION_SCREENSHOTS: ${{ runner.temp }}/public-solution-screenshots
+        run: node --require ./tests/server-only-register.cjs --import tsx tests/authored-public-solutions.browser.mjs
+      - name: Public worked solution visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-solution-screenshots
+          path: ${{ runner.temp }}/public-solution-screenshots/**/*.png
+          if-no-files-found: warn
       - name: Studio desktop and mobile visual evidence
         if: always()
         uses: actions/upload-artifact@v4
