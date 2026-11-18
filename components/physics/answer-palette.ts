@@ -103,7 +103,7 @@ export const standardItems: PaletteItem[] = [
   item("other", "degree", "°", "° degrees", "^\\circ", false),
   item("other", "vec", "v⃗", "v⃗ vector arrow", "\\vec{#@}", false),
   item("other", "hat", "v̂", "v̂ unit vector hat", "\\hat{#@}", false),
-  item("other", "dot", "·", "· dot product", "\\cdot"),
+  item("other", "dot", "dot", "dot product", "\\cdot"),
   item("other", "cross", "⨯", "⨯ cross product", "\\times"),
 ];
 

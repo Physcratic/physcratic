@@ -403,7 +403,7 @@ export function MathAnswerField({
           <Input
             ref={plain}
             id={id}
-            className="h-11 font-mono"
+            className="h-11"
             value={value}
             maxLength={maxLength ?? undefined}
             autoComplete="off"

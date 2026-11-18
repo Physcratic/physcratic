@@ -24,7 +24,7 @@ export function ProfileCard({ profile, media = emptyProfileMedia, badgeIds = [],
       <p className="mt-1 break-all text-sm text-muted-foreground">@{profile.handle || "username"}</p>
       {profile.bio && <p className="mt-5 whitespace-pre-wrap break-words text-sm leading-7 [overflow-wrap:anywhere]">{profile.bio}</p>}
       {profile.educationLevel !== "prefer-not-to-say" && <p className="mt-5 flex items-center gap-2 text-sm text-muted-foreground"><GraduationCap aria-hidden="true" className="size-4 shrink-0" />{educationLabels[profile.educationLevel]}</p>}
-      {profile.favoriteTopicIds.length > 0 && <div className="mt-6 space-y-3"><p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Favourite physics topics</p><ul className="flex flex-wrap gap-2" aria-label="Favourite physics topics">{profile.favoriteTopicIds.map(id => <li key={id} className="rounded-full border bg-muted/30 px-3 py-1.5 text-xs">{physicsTopics.find(topic => topic.id === id)?.label}</li>)}</ul></div>}
+      {profile.favoriteTopicIds.length > 0 && <div className="mt-6 space-y-3"><p className="text-sm font-medium text-muted-foreground">Favourite physics topics</p><ul className="flex flex-wrap gap-2" aria-label="Favourite physics topics">{profile.favoriteTopicIds.map(id => <li key={id} className="rounded-full border bg-muted/30 px-3 py-1.5 text-xs">{physicsTopics.find(topic => topic.id === id)?.label}</li>)}</ul></div>}
     </div>
   </article>;
 }

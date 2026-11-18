@@ -13,6 +13,6 @@ export function MedalChip({ medal, label, detail, best = false }: { medal: Medal
   // On a narrow card the chip may break once, between the medal and the contest, never mid-phrase.
   return <span className={`coaching-chip coaching-chip-${medal}${best ? " coaching-chip-best" : ""}`}>
     <span className={`coaching-medal coaching-medal-${medal}`} aria-hidden="true" />
-    {detail ? <span><span className="whitespace-nowrap">{label} ·</span> <span className="whitespace-nowrap">{detail}</span></span> : <span>{label}</span>}
+    {detail ? <span><span className="whitespace-nowrap">{label},</span> <span className="whitespace-nowrap">{detail}</span></span> : <span>{label}</span>}
   </span>;
 }

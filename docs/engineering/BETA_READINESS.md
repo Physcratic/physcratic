@@ -1,5 +1,9 @@
 # Beta readiness log
 
+## Design rules D2 (18 November 2026)
+
+The D1 baseline is empty. All 75 separator glyphs, 13 `font-mono` uses outside code and kbd, and 7 wide-tracked uppercase labels in app and components are gone, so `lib/copy-rules.test.ts` now holds every file to the two design rules. Glyphs became commas, colons, full stops or separate spans with a gap. Mono became Plex Sans, with `code` for identifiers. Uppercase labels are sentence case at text-sm. Visible wording changed in the Studio editor, authored student page, community and moderation screens, IPhO reader navigation, submission forms and history. The dot product key in the answer palette is now labelled "dot". Browser tests that matched the old strings were updated and run by CI. Page titles for Problem Studio and authored problems no longer repeat the site name, which the title template adds. No schema, auth, grading, flag or deployment change.
+
 ## Design rules D1 (18 November 2026)
 
 Two design rules are now written in CLAUDE.md, AGENTS.md and CONTRIBUTING.md with the same wording. No glyph between words, and one typeface (IBM Plex Sans) with sentence case labels. `lib/copy-rules.test.ts` fails on a middle dot or bullet in app and components text, on `font-mono` outside code and kbd, and on uppercase with wide tracking. Older offenders are in a counted baseline in that test, which D2 empties (75 glyphs in 32 files, 13 mono in 11 files, 7 uppercase in 7 files). Applied now to the problem card source line (source, year and task as three spans, 8px gap), the problem heading badges (rating number and band name as two spans, accessible name "Rating 1,850, Advanced"), the Problem room label, the library tabs and the collection count line. `describeEstimate` now returns "1,850 Advanced" and `estimateParts` gives the two parts. No schema, auth, grading, flag or deployment change.

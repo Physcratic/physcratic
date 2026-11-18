@@ -175,7 +175,7 @@ export function SolutionPermissions({ problemId }: { problemId: string }) {
       {revision && (
         <>
           <p className="break-words text-xs">
-            Revision {revision.number} · {revision.id}
+            Revision {revision.number}, {revision.id}
           </p>
           <Field label="Solution permission part">
             {(id) => (
@@ -218,8 +218,7 @@ export function SolutionPermissions({ problemId }: { problemId: string }) {
               ? data.expiresAt && Date.parse(data.expiresAt) <= Date.now()
                 ? "Expired (private)"
                 : "Configured for student access while published (subject to expiry)"
-              : "Private"}{" "}
-            · Permission version {data.version}
+              : "Private"}. Permission version {data.version}
           </p>
           <p className="break-words text-xs">
             Approved media: {data.mediaIds.join(", ") || "None"}. Expiry:{" "}

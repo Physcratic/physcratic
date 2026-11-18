@@ -89,7 +89,7 @@ export function CorpusDocumentReader({
           className="h-auto w-full"
         />
         <figcaption className="px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-          IPhO {problem.year} · {problem.code} · Page {page} of {document.pages}
+          IPhO {problem.year}, {problem.code}, page {page} of {document.pages}
           . Original layout preserved. Select another page for shared setup.
           Click to enlarge.
         </figcaption>

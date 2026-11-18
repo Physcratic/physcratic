@@ -421,7 +421,7 @@ try {
   assert.equal(await page.getByLabel("Difficulty rating", { exact: true }).inputValue(), "2100", "the band fills in its middle rating");
   assert.equal(await page.getByLabel("Difficulty rating", { exact: true }).getAttribute("inputmode"), "numeric");
   await page.getByLabel("Difficulty rating", { exact: true }).fill("2310");
-  assert.equal((await page.getByTestId("difficulty-band").innerText()).trim(), "2,310 · Advanced", "the band name shows next to the number");
+  assert.equal((await page.getByTestId("difficulty-band").innerText()).replace(/\s+/g, " ").trim(), "2,310 Advanced", "the band name shows next to the number");
   for (const bad of ["abc", "4001", ""]) {
     await page.getByLabel("Difficulty rating", { exact: true }).fill(bad);
     await page.getByText("Add a difficulty rating from 0 to 4,000.", { exact: true }).waitFor();
@@ -664,7 +664,7 @@ try {
     await tp.getByRole("radio", { name: "Adapted from" }).click();
     await tp.getByLabel("Source", { exact: true }).waitFor();
     await tp.getByLabel("Difficulty rating", { exact: true }).fill("1200");
-    await tp.getByText("1,200 · Intermediate", { exact: true }).waitFor();
+    await tp.getByText("1,200 Intermediate", { exact: true }).waitFor();
     await tp.getByRole("button", { name: "Publish", exact: true }).click();
     await tp.getByText("Say where it's from.", { exact: true }).waitFor({ timeout: 3000 });
     await tp.getByText("Tick the box to say you have permission to share it.", { exact: true }).waitFor({ timeout: 3000 });
@@ -714,7 +714,7 @@ try {
     await student.waitForTimeout(300);
     await student.keyboard.type("m*a");
     await student.getByRole("button", { name: "Submit answer", exact: true }).click();
-    await student.getByRole("heading", { name: /Correct · saved attempt/ }).waitFor({ timeout: 10000 });
+    await student.getByRole("heading", { name: /Correct, saved attempt/ }).waitFor({ timeout: 10000 });
     log(`Student at ${width}: Correct`);
     await s.close();
   }

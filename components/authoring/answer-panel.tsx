@@ -91,7 +91,7 @@ export function AnswerPanel({
             {(id) => (
               <input
                 id={id}
-                className={`${inputClass} font-mono`}
+                className={inputClass}
                 value={key.expected}
                 maxLength={180}
                 onChange={(e) =>
@@ -127,7 +127,7 @@ export function AnswerPanel({
           {key.variables.map((variable, index) => (
             <fieldset key={index} className="space-y-3 rounded-md border p-3">
               <legend className="px-1 text-sm font-medium">
-                Variable {index + 1} · real
+                Variable {index + 1}, real
               </legend>
               <div className="grid gap-3 sm:grid-cols-3">
                 <Field label="Symbol">

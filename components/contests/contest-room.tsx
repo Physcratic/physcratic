@@ -168,7 +168,7 @@ function ContestWorkspace({ id, onJoined }: { id: string; onJoined: () => Promis
                     aria-hidden="true"
                   />
                   <time
-                    className="font-mono text-2xl tabular-nums"
+                    className="text-2xl tabular-nums"
                     dateTime={
                       phase === "upcoming" ? data.contest.startsAt : data.endsAt
                     }
@@ -197,7 +197,7 @@ function ContestWorkspace({ id, onJoined }: { id: string; onJoined: () => Promis
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col gap-3">
-                <p className="font-mono text-2xl tabular-nums">
+                <p className="text-2xl tabular-nums">
                   {data.score} / {data.maxScore}
                 </p>
                 <Progress

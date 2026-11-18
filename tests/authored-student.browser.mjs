@@ -475,7 +475,7 @@ try {
   }
   async function saved(label) {
     await page
-      .getByRole("heading", { name: new RegExp(`^${label} · saved attempt`) })
+      .getByRole("heading", { name: new RegExp(`^${label}, saved attempt`) })
       .waitFor();
   }
   await account();
@@ -1016,7 +1016,7 @@ try {
     .getByRole("button", { name: "Reload permission metadata" })
     .click();
   await page
-    .getByText("Private · Permission version 0", { exact: false })
+    .getByText("Private. Permission version 0", { exact: false })
     .waitFor();
   await page.getByLabel(/I explicitly approve all/).check();
   await page.route("**/permission", (r) =>
