@@ -1,3 +1,4 @@
+import { publicSolutionPolicy, storedSolutionPolicy } from "./authored-solution-policy";
 import { z } from "zod";
 import { physicsTagLabels } from "./physics-taxonomy";
 import { parseRating } from "./rating-bands";
@@ -94,7 +95,7 @@ export const authoredProblemSchema = z.strictObject({
 }).refine(p => p.state !== "published" || p.publishedRevisionId !== null, "Published state requires revision");
 export const authoredRevisionSchema = z.strictObject({
   id, problemId: id, number: z.number().int().positive(), schemaVersion: z.literal(1),
-  content: authoredDocumentSchema, publishedAt: z.iso.datetime(),
+  content: authoredDocumentSchema, publishedAt: z.iso.datetime(), solutionPolicy: z.literal(publicSolutionPolicy).optional(),
 });
 
 // Explicit DB-row adapter; accept Drizzle Dates and the existing ISO-string contract.
@@ -116,8 +117,10 @@ export function publicAuthoredContent(input: unknown) {
 export function publicAuthoredRevision(input: unknown) {
   const row = normalizeAuthoredRevisionRow(input);
   const content = publicAuthoredContent(row.content);
+  const metadata = input as { solutionPolicy?: unknown; solution_policy?: unknown; solution_consented_at?: unknown; solution_policy_present?: unknown };
+  const policy = metadata.solutionPolicy === publicSolutionPolicy ? publicSolutionPolicy : storedSolutionPolicy(metadata);
   return { id: row.id, problemId: row.problemId, number: row.number, schemaVersion: row.schemaVersion,
-    publishedAt: row.publishedAt, content };
+    publishedAt: row.publishedAt, content, ...(policy === publicSolutionPolicy ? { solutionPolicy: publicSolutionPolicy } : {}) };
 }
 export type AuthoredDocument = z.infer<typeof authoredDocumentSchema>;
 export type PrivatePart = z.infer<typeof privatePartSchema>;

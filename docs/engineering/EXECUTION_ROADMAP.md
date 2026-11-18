@@ -1,5 +1,17 @@
 # Execution roadmap
 
+## Public worked solutions source qualification (17 November 2026)
+
+From main `806b85d`, PR B adds immutable revision consent, current-only guest
+solution/media reads, archive-style navigation and conservative independence
+classification. Legacy private publications and immutable attempts/reveals remain
+unchanged. Personal correctness stays separate from verified-solve eligibility.
+[Architecture and actual local QA](AUTHORED_PUBLIC_SOLUTIONS.md) and the separate
+[owner migration package](../../scripts/public-solutions-release/README.md).
+No Production migration/SQL/grant/flag or provider operation is authorized or run.
+Next: exact-head CI/review and scoped source release, then owner evidence/approval
+before any0020 installation or public exposure. Practice/deletion stay OFF.
+
 ## CSP collector privacy and bounded reads (17 November 2026)
 
 From merged OG main `c12ec3c`, `codex/csp-report-route-privacy` replaces raw logged document paths with fixed route labels and reuses the existing capped reader with a five-second deadline. Report-only policy, origins, auth/grading and 204 behavior remain unchanged. Focused49, guarded production build, typegen/tsc and zero-warning lint pass, with the existing Chromium report/enforce harness exercised locally. [Attribution, provider unknowns and remaining enforcement gates](CSP_X3_READINESS.md#collector-privacy-correction-17-november-2026-candidate). Candidate still needs independent review and exact-head three-engine CI. No Production access/mutation or feature exposure. Existing draft #189 covers homepage ratings and #191 covers authored/PDF UX, so neither is rebuilt here. Next: review the collector-only PR, retain report-only, and obtain owner serving-role/binding evidence before any Batch B activation.

@@ -8,20 +8,22 @@ function StatementImage({
   problemId,
   revisionId,
   block,
+  imageUrl,
 }: {
   problemId: string;
   revisionId: string;
+  imageUrl?: string | null;
   block: Extract<AuthoredDocument["context"][number], { kind: "image" }>;
 }) {
   const [failed, setFailed] = useState(false);
   return (
     <figure className="my-5 space-y-2">
-      {failed ? (
+      {failed || imageUrl === null ? (
         <p
           role="status"
           className="rounded-md border p-4 text-sm text-muted-foreground"
         >
-          This statement image is unavailable. Recheck the current publication.
+          This image is unavailable. Recheck the current publication.
         </p>
       ) : (
         <Image
@@ -29,7 +31,7 @@ function StatementImage({
           width={0}
           height={0}
           style={{ width: "auto", height: "auto" }}
-          src={authorMediaPath(problemId, block.mediaId, revisionId)}
+          src={imageUrl ?? authorMediaPath(problemId, block.mediaId, revisionId)}
           alt={block.alt}
           loading="lazy"
           referrerPolicy="no-referrer"
@@ -49,7 +51,9 @@ export function StatementBlocks({
   blocks,
   problemId,
   revisionId,
+  mediaUrls,
 }: {
+  mediaUrls?: Readonly<Record<string, string>>;
   blocks: AuthoredDocument["context"];
   problemId: string;
   revisionId: string;
@@ -81,6 +85,7 @@ export function StatementBlocks({
           <StatementImage
             key={`${revisionId}:${block.mediaId}:${block.id}`}
             block={block}
+            imageUrl={mediaUrls ? mediaUrls[block.mediaId] ?? null : undefined}
             problemId={problemId}
             revisionId={revisionId}
           />

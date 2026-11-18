@@ -89,5 +89,6 @@ export type AuthoredAttempt = {
   attemptNumber: string; // Exact positive bigint decimal; never round through Number.
   createdAt: string;
   spoilerPolicy: "no-reveal-v1";
+  solutionEvidence?: "public-access-unverifiable-v1";
   assisted: boolean; // Derived server-side from revision-wide reveal history.
 };

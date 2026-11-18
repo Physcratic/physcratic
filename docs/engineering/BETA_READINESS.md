@@ -1,5 +1,17 @@
 # Beta readiness log
 
+## Public worked solutions source qualification (17 November 2026)
+
+From main `806b85d`, PR B adds immutable revision consent, current-only guest
+solution/media reads, archive-style navigation and conservative independence
+classification. Legacy private publications and immutable attempts/reveals remain
+unchanged. Personal correctness stays separate from verified-solve eligibility.
+[Architecture and actual local QA](AUTHORED_PUBLIC_SOLUTIONS.md) and the separate
+[owner migration package](../../scripts/public-solutions-release/README.md).
+No Production migration/SQL/grant/flag or provider operation is authorized or run.
+Next: exact-head CI/review and scoped source release, then owner evidence/approval
+before any0020 installation or public exposure. Practice/deletion stay OFF.
+
 ## Arena card polish, phase 4 (17 November 2026)
 
 Polish only, from `docs/engineering/ARENA_CARD_UI.md`. Hover lifts a card 2px and darkens its border, only on a device that can hover and only when the person has not asked for less motion. The hover is read on a wrapper that does not move, so a pointer parked on the card's lower edge does not flicker (checked by sampling the card for 1.2 seconds). Keyboard focus outlines the whole card in the foreground colour, 14.83:1 in light and 13.98:1 in dark, and never needs hover. The shared button ring is only 2.64:1 against a light page, so the card does not rely on it. That token is used by every button and is not changed here. The old hover border was the foreground at 40%, which was lighter than the resting border on a light card. It is now 70%, and the border measures 3.84:1 at rest and 6.90:1 on hover in dark, 4.17:1 and 6.02:1 in light.

@@ -1,4 +1,8 @@
 "use client";
+import { PublicWorkedSolution } from "./public-worked-solution";
+import type { PublicSolution } from "@/lib/authored-public-solution-contracts";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { publicSolutionPolicy } from "@/lib/authored-solution-policy";
 import { StatementPdfs } from "./statement-pdfs";
 import { useSWRConfig } from "swr";
 import {ProblemStatsPanel} from '@/components/community/problem-stats';
@@ -101,6 +105,8 @@ export function StudentWorkspace({
   moderationEnabled=false,
   initialRevision,
   attributionEnabled=false,
+  publicSolutionsEnabled=false,
+  initialSolution,
 }: {
   problemId: string;
   viewer: Viewer;
@@ -110,11 +116,14 @@ export function StudentWorkspace({
   /** The published revision read on the server, so the statement is in the HTML before any script runs. */
   initialRevision?: PublicRevision | null;
   attributionEnabled?: boolean;
+  publicSolutionsEnabled?: boolean;
+  initialSolution?: PublicSolution | null;
 }) {
   const [revision, setRevision] = useState<PublicRevision | null>(initialRevision ?? null),
     [availability, setAvailability] = useState<Availability>(initialRevision ? "ready" : "loading"),
     [publicMessage, setPublicMessage] = useState(""),
     [authDenied, setAuthDenied] = useState(false);
+  const [readingTab, setReadingTab] = useState("statement");
   const hadInitial = useRef(Boolean(initialRevision));
   const revisionRef = useRef(revision),
     requestId = useRef(0),
@@ -241,6 +250,12 @@ export function StudentWorkspace({
             {publicMessage}
           </div>
         )}
+        <Tabs value={availability === "ready" && revision?.solutionPolicy === publicSolutionPolicy ? readingTab : "statement"} onValueChange={setReadingTab} className="min-w-0 space-y-4">
+          <TabsList aria-label="Problem steps" className={`h-auto max-w-full flex-wrap ${availability === "ready" && revision?.solutionPolicy === publicSolutionPolicy ? "" : "hidden"}`}>
+            <TabsTrigger value="statement" className="min-h-11">Problem statement</TabsTrigger>
+            <TabsTrigger value="solution" className="min-h-11">Worked solution</TabsTrigger>
+          </TabsList>
+          <TabsContent value="statement" forceMount className="data-[state=inactive]:hidden">
         {viewer.state === "verified" && !authDenied ? (
           <PrivateWorkspace
             key={`${accountKey}:${problemId}`}
@@ -281,6 +296,9 @@ export function StudentWorkspace({
             </section>
           </>
         )}
+          </TabsContent>
+          <TabsContent value="solution">{availability === "ready" && revision?.solutionPolicy === publicSolutionPolicy && (publicSolutionsEnabled ? <PublicWorkedSolution key={revision.id} problemId={problemId} revisionId={revision.id} onStale={invalidate} initialSolution={initialSolution} /> : <p role="status">The worked solution is temporarily unavailable.</p>)}</TabsContent>
+        </Tabs>
         {commentsEnabled && availability === "ready" && <Discussions moderationEnabled={moderationEnabled} problemKey={`authored:${problemId}`}/>}
     </ProblemRoom>
   );
@@ -687,7 +705,7 @@ function PrivateWorkspace({
                       >
                         <p>{feedback[receipt.attempt.status].text}</p>
                         <p className="break-words text-xs">
-                          {receipt.attempt.assisted ? "Assisted (server record)" : "Unassisted (server record)"} · Submitted answer: {answerText(receipt.attempt.answer)}
+                          {receipt.attempt.solutionEvidence ? "Assistance cannot be verified for this public-solution revision" : receipt.attempt.assisted ? "Assisted (server record)" : "Unassisted (server record)"} · Submitted answer: {answerText(receipt.attempt.answer)}
                         </p>
                         {receipt.attempt.status !== "correct" && (
                           <div className="pt-2">
@@ -814,7 +832,7 @@ function PrivateWorkspace({
                 </p>
               )}
             </section>
-            {availability === "ready" && revision && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={part.label || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
+            {availability === "ready" && revision && !revision.solutionPolicy && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={part.label || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
           </AnswerWorkspace>
         </div>
     </div>
