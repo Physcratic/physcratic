@@ -4,15 +4,26 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { unifiedArenaPageSchema, problemHref, type UnifiedArenaPage, type CollectionEntry } from '@/lib/unified-arena';
 import { AchievementShowcase } from '@/components/community/achievement-badge';
-import {ProblemStatsBatch,ProblemStatsControl} from '@/components/community/problem-stats';
+import {ProblemStatsBatch,useProblemFavourite,type ProblemFavourite} from '@/components/community/problem-stats';
 import { ProblemCard } from './problem-card';
 import { describeEstimate } from '@/lib/rating-bands';
 import { LoadingLines } from "@/components/loading-lines";
 
+// Card props for the favourite control. Empty without statistics, so the card renders as it did before.
+function likeProps(f:ProblemFavourite|null){
+ if(!f)return {};
+ const s=f.stat;
+ return {likeCount:s?.favourites,liked:s?.favourite??false,onToggleLike:s?f.toggle:undefined,
+  likeAccess:!f.signedIn?'signed-out' as const:!f.verified?'unverified' as const:'ready' as const,
+  likeBusy:f.busy||f.loading,
+  likeStatus:!s?(f.loading?'Loading statistics…':f.loadError?'Statistics unavailable.':'Problem is no longer public or statistics are unavailable.'):f.loading?'Refreshing statistics…':undefined,
+  likeError:f.actionError||f.loadError||undefined};
+}
 export function UnifiedProblemCard({problem}:{problem:CollectionEntry}) {
+ const favourite=useProblemFavourite(problem.key),solves=favourite?.stat?.solves;
  return <ProblemCard id={problem.key} title={problem.title} source={problem.kind==='arena'?'Physcratic':'Community'}
-  description={problem.summary} tags={problem.tags} elo={problem.elo} href={problemHref(problem)}
-  attribution={<><ProblemStatsControl problemKey={problem.key}/>{problem.kind==='arena'?<p className="text-sm">Published by Physcratic</p>:<>
+  description={problem.summary} tags={problem.tags} elo={problem.elo} href={problemHref(problem)} {...likeProps(favourite)}
+  attribution={<>{solves!==undefined&&solves!==null&&<p className="text-sm">{`${solves.toLocaleString('en-US')} verified ${solves===1?'solve':'solves'}`}</p>}{problem.kind==='arena'?<p className="text-sm">Published by Physcratic</p>:<>
    <p className="text-sm">By {problem.author?<Link className="underline" href={`/u/${problem.author.handle}`}>{problem.author.displayName||'@'+problem.author.handle}</Link>:'Community author'}</p>
    {problem.author&&<AchievementShowcase ids={problem.author.selectedIds} medals={problem.author.medals}/>}
    <p className="text-sm text-muted-foreground">Difficulty: {describeEstimate(problem.estimatedDifficulty)||'Not specified'}</p>
