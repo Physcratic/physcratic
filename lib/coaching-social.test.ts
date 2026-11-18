@@ -30,11 +30,13 @@ describe("coachingSocial", () => {
 
   it("has an opengraph-image route that reads copy from content.ts and fetches nothing", () => {
     const route = readFileSync(new URL("../app/coaching/opengraph-image.tsx", import.meta.url), "utf8");
+    const template = readFileSync(new URL("../lib/og/link-preview.tsx", import.meta.url), "utf8");
     assert.match(route, /size = \{ width: 1200, height: 630 \}/);
-    assert.match(route, /background: "#0c101a"/);
-    assert.match(route, /public\/logo-mark-transparent\.png/);
+    assert.match(route, /palette: "coaching"/);
+    assert.match(template, /background: "#0c101a"/);
+    assert.match(template, /public\/logo-mark-transparent\.png/);
     assert.match(route, /content\.og\.tagline/);
     assert.match(route, /content\.og\.stats/);
-    assert.ok(!/fetch\(|https?:\/\//.test(route.replace(/\/\/.*$/gm, "")), "no network access");
+    for (const source of [route, template]) assert.ok(!/fetch\(|https?:\/\//.test(source.replace(/\/\/.*$/gm, "")), "no network access");
   });
 });
