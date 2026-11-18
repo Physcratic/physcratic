@@ -1,5 +1,18 @@
 # Beta readiness log
 
+## Arena card redesign (19 November 2026)
+
+Phase 4b follow-ups from the independent review, from main 998ae77, branch claude/arena-card-p4b.
+
+- Focus order. The desktop footer no longer uses `sm:flex-row-reverse`. DOM order and visual order are both Open problem, favourite control, tags, and Tab runs left to right. Mobile still stacks. Checked in Chromium at 375 and 1440: Tab goes Open, tag, tag, tag, next card's Open, Open is 44px tall, no sideways scroll.
+- Skeleton. It gained the attribution line, 22.75px description lines and a third tag, so it matches a real card: 459.5px against 459px at 375 and 249.75px against 249.3px at 1440 (it was 374px and 211px). The list is `role="status"` without `aria-busy`, and the browser reads "Loading collection…" from it. The like control's own `aria-busy` while a write is in flight is unchanged and still open for review.
+- CSS. The base `.problem-entry` rule is removed. Its background, border, radius, overflow and shadow were the same as the Card utilities and `cardClass`, so nothing changes. `data-competition` stays, because `tests/archive.browser.mjs` reads it and that suite needs a running app, so it was not clearly safe to change.
+- Light focus ring, site-wide. The light `--ring` was 22 65% 58% and is now 22 65% 48%, same hue. Against the page it went 2.64:1 to 3.52:1, against the card 2.90:1 to 3.88:1, against muted 3.17:1, against accent 3.38:1. The rendered ring (202, 101, 43) measures 3.53:1 and 3.88:1. Dark `--ring` is unchanged (8.94:1 page, 7.97:1 card). 52 files use `ring-ring`, mainly `components/ui` button, input, textarea, select, checkbox, radio-group, switch, tabs, toggle, slider, dialog and sheet. `--sidebar-ring` was not touched. To revert, set the light `--ring` in `app/globals.css` back to 22 65% 58%.
+- Verified. `tests/problem-card.test.ts` (40 tests), `lib/rating-band-colours.test.ts`, `lib/copy-rules.test.ts`, typegen and tsc, zero-warning lint, a production build and the guest contrast sweep (lowest text 5.16:1, lowest border 3.70:1, 0 failures). Arena, Olympiad archive, Guided exercises and `/problems/archive` render at 375 and 1440 with Open left of the tags. `arena-collection.tsx` is still not mounted by any page. The signed-in sweep needs the throwaway PostgreSQL and was not run here. Both activation and runtime-role checksum checks pass.
+- `--sidebar-ring` in light is now 22 65% 48% too, 3.88:1 against the sidebar background (it was 2.90:1). Dark is unchanged.
+- `scripts/public-solutions-release/PACKAGE_SHA256SUMS` already failed before this PR and CI does not check it.
+- No change to `problem-stats.tsx`, any API, schema, migration, auth or flag.
+
 ## Temporary serving-LOGIN assertion proposal (18 November 2026)
 
 Separate codex/phasec-login-attestation change stacked on the runtime audit fix.

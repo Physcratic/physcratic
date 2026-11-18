@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## Arena card redesign (19 November 2026)
+
+From main 998ae77, the Arena card redesign landed in PRs #193, #196, #197 and #198, and the follow-ups from the independent review are in claude/arena-card-p4b. PR #195 is superseded by owner decision. The band colours are teal, blue, violet and amber, with no red or green. The favourite control reuses the existing save, with no new API. Two reviewed manifest digests changed in #197, see [BETA_READINESS.md](BETA_READINESS.md). The favourites allowlist in migration 0012 rejects newer Arena problems, so favourites on them need a migration with owner approval. The light focus ring is darker so it reaches 3:1, and that applies site-wide. No Production, schema or flag change.
+
 ## Temporary serving-LOGIN assertion proposal (18 November 2026)
 
 Separate codex/phasec-login-attestation change stacked on the runtime audit fix.

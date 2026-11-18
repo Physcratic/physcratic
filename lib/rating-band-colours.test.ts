@@ -87,11 +87,34 @@ test("the card maps each band id to its token, the card border is neutral and no
   for (const [band, name] of ratingBands.map((entry, index) => [entry, names[index]] as const)) {
     assert.match(css, new RegExp(`\\.problem-entry\\[data-level="${band.id}"\\]\\s*\\{\\s*--band:\\s*var\\(--band-${name}\\);`), band.id)
   }
-  const card = css.slice(css.indexOf(".problem-entry {"), css.indexOf("}", css.indexOf(".problem-entry {")))
-  assert.match(card, /border:\s*1px solid hsl\(var\(--border\)\)/)
+  // The neutral card border, background, radius and shadow come from the Card utilities (border, bg-card, rounded-lg and
+  // the card shadow), so no base .problem-entry rule repeats them and no band or competition colours the border.
+  assert.doesNotMatch(css, /\.problem-entry \{\s*background/)
+  const card = readFileSync("components/ui/card.tsx", "utf8")
+  assert.match(card, /rounded-lg border bg-card text-card-foreground shadow-\[var\(--card-shadow\)\]/)
   assert.doesNotMatch(css, /\.problem-entry\[data-competition/)
   // The neutral ipho, apho and eupho badge variants were unused after phase 2, so they are gone. The host flag tells the
   // competitions apart, and nothing can give one of them a colour of its own.
   const badge = readFileSync("components/ui/badge.tsx", "utf8")
   for (const competition of ["ipho", "apho", "eupho"]) assert.doesNotMatch(badge, new RegExp(`\\b${competition}:`), competition)
+})
+
+// The focus ring is a UI component boundary, so it needs 3:1 against what it sits on (WCAG 1.4.11). The light --ring was
+// 2.64:1 on the page. These are the same tokens the sweep measures in the browser.
+test("the focus ring keeps 3:1 against the page and the card in both themes, and the dark ring is unchanged", () => {
+  for (const theme of ["light", "dark"] as const) {
+    const scope = themes[theme]
+    const ring = toRgb(token(scope, "ring"))
+    for (const surface of ["background", "card"]) {
+      assert.ok(contrast(ring, toRgb(token(scope, surface))) >= 3, `${theme} ring on ${surface}`)
+    }
+  }
+  // The sidebar ring sits on the sidebar background and gets the same 3:1.
+  for (const theme of ["light", "dark"] as const) {
+    assert.ok(contrast(toRgb(token(themes[theme], "sidebar-ring")), toRgb(token(themes[theme], "sidebar-background"))) >= 3, `${theme} sidebar ring`)
+  }
+  assert.deepEqual(token(".dark {", "ring"), [21, 82, 75])
+  // The light ring keeps the primary hue family (orange) and only gets darker.
+  const [hue] = token(":root {", "ring")
+  assert.ok(Math.abs(hue - token(":root {", "primary")[0]) <= 2)
 })
