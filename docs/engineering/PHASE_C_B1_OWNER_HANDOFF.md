@@ -25,7 +25,9 @@ unchanged. The old favourites proposal must not be replayed after correcting id.
    public diagnostic route, raw identity/credential/error logging or new grant.
    Attestation must query session_user on the real application pool connection,
    bind evidence to the deployment ID and source SHA, expire automatically and
-   have a removal plan. No attestation instrumentation is deployed by this PR.
+   have a removal plan. [Separate disabled-by-default implementation proposal](RUNTIME_LOGIN_ATTESTATION.md)
+   requires its own review and owner deployment/configuration approval. No
+   attestation instrumentation is deployed by these code changes.
 2. **Target and role.** Privately confirm divine-mode-82940461,
    br-quiet-dawn-b7m2zrt3, ep-snowy-heart-b7c1220y, neondb, PostgreSQL18.7 and
    physcratic_runtime_app. Preserve the direct current_user/session_user proof,
