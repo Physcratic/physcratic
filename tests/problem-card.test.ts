@@ -34,7 +34,7 @@ test("problem cards share a labelled article, rating block, details and open act
   assert.match(html, /data-problem-card="test-problem"/);
   assert.match(html, /problem-entry-details/);
   assert.match(html, /<h3[^>]*>.*A block on an incline/);
-  assert.match(html, /5 min · Hint \+ worked solution/);
+  assert.match(html, /<span>5 min<\/span><span>Hint \+ worked solution<\/span>/);
   assert.match(html, /Unrated.*English/);
   assert.match(html, /Open problem/);
   assert.match(html, /Open problem: Quick practice, A block on an incline/);
@@ -73,7 +73,8 @@ test("the rating block comes first, then one quiet source line above a larger ti
     ...base,
     source: "IPhO",
     competition: "IPhO",
-    reference: "2025 · T1",
+    year: 2025,
+    task: "T1",
     elo: 1850,
     headingLevel: 4,
     href: "/dashboard/problems/test-problem",
@@ -82,10 +83,11 @@ test("the rating block comes first, then one quiet source line above a larger ti
   assert.match(html, /class="[^"]*flex-col[^"]*sm:flex-row/);
   const rating = html.indexOf("data-rating-block");
   const source = html.indexOf(">IPhO</span>");
-  const reference = html.indexOf(">2025 · T1</span>");
+  const year = html.indexOf(">2025</span>");
+  const task = html.indexOf(">T1</span>");
   const title = html.indexOf("<h4");
-  assert.ok(rating >= 0 && rating < source && source < reference && reference < title, "rating, then source and reference, then title");
-  // Source and reference share one line, and the title is larger than the old text-lg.
+  assert.ok(rating >= 0 && rating < source && source < year && year < task && task < title, "rating, then source, year and task, then title");
+  // Source, year and task are three spans on one line with an 8px gap and no glyph between them, and the title is larger than the old text-lg.
   assert.equal((html.match(/<p class="flex flex-wrap items-center[^"]*text-muted-foreground">/g) ?? []).length, 1);
   assert.match(html, /<h4[^>]*class="[^"]*text-xl font-semibold/);
   // The band name stays visible as text, in a plain block and not a second control. It is not a labelled group, which
@@ -126,7 +128,7 @@ test("an unrated card keeps a neutral block with the same 4px edge, and shows th
 });
 
 test("competition names and tags are neutral, and an active tag filter uses the primary token", () => {
-  const competition = render({ ...base, source: "APhO", competition: "APhO", reference: "2024 · T1", onOpen() {} });
+  const competition = render({ ...base, source: "APhO", competition: "APhO", year: 2024, task: "T1", onOpen() {} });
   assert.match(competition, /data-competition="APhO"/);
   assert.doesNotMatch(competition, /elo-|band-|ipho|apho|eupho/);
   const withFilter = (active: string) =>
@@ -224,13 +226,15 @@ test("all olympiad competitions retain their identity, source references and tit
       headingLevel: 4,
       source: competition,
       competition,
-      reference: "2025 · T1",
+      year: 2025,
+    task: "T1",
       statementLanguage: "ru",
       description: "Source title in Russian",
       onOpen() {},
     });
     assert.ok(html.includes(`data-competition="${competition}"`));
-    assert.match(html, /2025 · T1/);
+    assert.match(html, />2025<\/span><span>T1<\/span>/);
+    assert.doesNotMatch(html, /·/);
     assert.match(html, /<h4[^>]*lang="ru"/);
     assert.match(html, /Source title in Russian/);
     assert.doesNotMatch(html, /Russian statement|English statement/);
@@ -251,7 +255,7 @@ test("Arena cards use the archive template and retain their individual difficult
   }
   assert.doesNotMatch(html, /Unrated|Self-review|Statement \+ worked solution/);
   assert.match(html, /id="arena-results"/);
-  assert.match(html, new RegExp(`${arena.count} of ${arena.count} problems · Showing 1 to 10`));
+  assert.match(html, new RegExp(`${arena.count} of ${arena.count} problems</span><span>Showing 1 to 10`));
   assert.equal([...html.matchAll(new RegExp(`Page 1 of ${Math.ceil(arena.count / 10)}`, "g"))].length, 2);
   assert.match(html, /aria-label="Arena pages \(top\)"/);
   assert.match(html, /aria-label="Arena pages \(bottom\)"/);
@@ -280,7 +284,7 @@ test("the shared collection reuses archive spacing, heading and top/bottom pagin
     assert.match(html, /id="test-results-heading" tabindex="-1"/);
     assert.match(html, /scroll-mt-6 overflow-hidden shadow-none/);
     assert.match(html, /gap-4 px-4 pb-5 sm:px-6/);
-    assert.ok(html.includes(`${count} of ${count} problems · Showing 1 to ${visible}`));
+    assert.ok(html.includes(`${count} of ${count} problems</span><span>Showing 1 to ${visible}`));
     assert.equal([...html.matchAll(/data-problem-card=/g)].length, visible);
     assert.equal([...html.matchAll(new RegExp(`Page 1 of ${Math.ceil(count / 10)}`, "g"))].length, 2);
     assert.equal([...html.matchAll(/<nav /g)].length, 2);
@@ -293,7 +297,7 @@ test("retained collection pages show the remaining problems and clamp out-of-ran
   for (const page of [2, 5]) {
     const html = renderCollection(18, 18, page);
     assert.equal([...html.matchAll(/data-problem-card=/g)].length, 8);
-    assert.match(html, /18 of 18 problems · Showing 11 to 18/);
+    assert.match(html, /18 of 18 problems<\/span><span>Showing 11 to 18/);
     assert.match(html, /Page 2 of 2/);
     assert.match(html, /data-problem-card="problem-11"/);
     assert.match(html, /data-problem-card="problem-18"/);
@@ -303,14 +307,14 @@ test("retained collection pages show the remaining problems and clamp out-of-ran
 
 test("changing collection filters resets a retained page to the first page", () => {
   const html = renderCollection(12, 18, 2, "previous-filters");
-  assert.match(html, /12 of 18 problems · Showing 1 to 10/);
+  assert.match(html, /12 of 18 problems<\/span><span>Showing 1 to 10/);
   assert.match(html, /Page 1 of 2/);
   assert.match(html, /data-problem-card="problem-1"/);
 });
 
 test("the shared collection reports filtered results against the topic total", () => {
   const html = renderCollection(2, 18);
-  assert.match(html, /2 of 18 problems · Showing 1 to 2/);
+  assert.match(html, /2 of 18 problems<\/span><span>Showing 1 to 2/);
 });
 
 test("empty collections keep the archive shell and reset action without misleading pagination", () => {
@@ -363,7 +367,8 @@ test("imported cards place the labelled host flag directly before the competitio
     const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }))
     assert.match(html, /role="img" aria-label="Hosted by /, problem.id)
     assert.ok(html.indexOf('role="img"') < html.indexOf(`>${problem.competition}</span>`), problem.id)
-    assert.ok(html.includes(`${problem.year} · ${problem.code}`), problem.id)
+    assert.ok(html.includes(`<span>${problem.year}</span><span>${problem.code}</span>`), problem.id)
+    assert.ok(!html.includes("·"), problem.id)
     assert.ok(html.includes(`href="/dashboard/problems/${problem.id}"`), problem.id)
     assert.equal((html.match(/<a[\s>]/g) ?? []).length, 1)
     assert.doesNotMatch(html, /<svg[^>]*role="img"/)
@@ -390,7 +395,7 @@ test("unknown host metadata and non-competition cards omit the flag", () => {
   const problem = { ...catalogProblems[0], year: 2027 }
   const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }))
   assert.doesNotMatch(html, /Hosted by|role="img"/)
-  assert.match(html, /2027 · T1/)
+  assert.match(html, />2027<\/span><span>T1</)
   assert.doesNotMatch(render({ ...base, host: { country: "France", flags: ["fr"] }, onOpen() {} }), /Hosted by|flags\/fr/)
 })
 
@@ -517,7 +522,7 @@ test("the card sits in a wrapper that takes the hover, and its text wraps instea
 });
 
 test("edge cases keep the same structure: a long title, a Russian title, many tags, no description and no rating", () => {
-  const long = render({ ...base, title: `Equilibrium ${"Thermoelectromagnetohydrodynamic".repeat(3)}`, source: "IPhO", reference: "2016 · T1", elo: 2650, href: "/dashboard/problems/x" });
+  const long = render({ ...base, title: `Equilibrium ${"Thermoelectromagnetohydrodynamic".repeat(3)}`, source: "IPhO", year: 2016, task: "T1", elo: 2650, href: "/dashboard/problems/x" });
   assert.match(long, /<h3[^>]*>Equilibrium Thermoelectromagnetohydrodynamic/);
   assert.match(long, /\[overflow-wrap:anywhere\]/);
   const russian = render({ ...base, title: "Движение заряженной частицы", titleLanguage: "ru", statementLanguage: "ru", onOpen() {} });

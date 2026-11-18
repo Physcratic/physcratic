@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Design rules D1 (18 November 2026)
+
+Two design rules are now written in CLAUDE.md, AGENTS.md and CONTRIBUTING.md with the same wording. No glyph between words, and one typeface (IBM Plex Sans) with sentence case labels. `lib/copy-rules.test.ts` fails on a middle dot or bullet in app and components text, on `font-mono` outside code and kbd, and on uppercase with wide tracking. Older offenders are in a counted baseline in that test, which D2 empties (75 glyphs in 32 files, 13 mono in 11 files, 7 uppercase in 7 files). Applied now to the problem card source line (source, year and task as three spans, 8px gap), the problem heading badges (rating number and band name as two spans, accessible name "Rating 1,850, Advanced"), the Problem room label, the library tabs and the collection count line. `describeEstimate` now returns "1,850 Advanced" and `estimateParts` gives the two parts. No schema, auth, grading, flag or deployment change.
+
 ## Pending instrumentation removal (19 November 2026)
 
 DO NOT MERGE UNTIL THE PRODUCTION ATTESTATION IS COMPLETE AND THE OWNER AUTHORIZES REMOVAL.

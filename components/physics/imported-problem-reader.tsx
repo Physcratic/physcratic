@@ -242,7 +242,7 @@ export function ImportedProblemReader({
           </Button>
         )}
       </div>
-      <ProblemHeading id="imported-problem-title" as={asPage ? "h1" : "h2"} title={problem.title} lang={problem.titleLanguage} source={`${problem.competition} ${problem.year} · ${problem.code}`} estimate={String(getEstimatedProblemElo(problem.id))} tags={getProblemTags(problem)}>
+      <ProblemHeading id="imported-problem-title" as={asPage ? "h1" : "h2"} title={problem.title} lang={problem.titleLanguage} source={problem.competition} year={problem.year} task={problem.code} estimate={String(getEstimatedProblemElo(problem.id))} tags={getProblemTags(problem)}>
         <p className="text-sm leading-relaxed text-muted-foreground">
           Complete statement and original diagrams stored in this app.
           {checkedFields ? "Typed final answers can be checked below. Reasoning is for self-review." : "Solution content is checked separately before it can become a grading reference. Automatic grading is not enabled."}

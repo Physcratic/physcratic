@@ -1,6 +1,6 @@
 import assert from "node:assert/strict"
 import test from "node:test"
-import { bandForEstimate, bandFilterIds, describeEstimate, matchesBand, maxRating, parseRating, ratingBand, ratingBands } from "./rating-bands"
+import { bandForEstimate, bandFilterIds, describeEstimate, estimateParts, matchesBand, maxRating, parseRating, ratingBand, ratingBands } from "./rating-bands"
 import { readFileSync } from "node:fs"
 import { initialIndividualRating } from "./individual-elo"
 
@@ -99,8 +99,13 @@ test("estimate descriptions show current names without changing numeric or legac
     [1600, "Intermediate"], [1800, "Intermediate"], [1801, "Advanced"],
     [2600, "Advanced"], [2601, "Mastery"], [3201, "Mastery"], [4000, "Mastery"],
   ] as const) {
-    assert.equal(describeEstimate(String(value)), `${value.toLocaleString("en-US")} · ${name}`)
+    assert.equal(describeEstimate(String(value)), `${value.toLocaleString("en-US")} ${name}`)
+    assert.deepEqual(estimateParts(String(value)), { rating: value.toLocaleString("en-US"), band: name })
   }
+  assert.equal(describeEstimate("~1850"), "1,850 Advanced")
+  assert.equal(estimateParts("Hard"), null)
+  assert.equal(estimateParts(null), null)
+  assert.equal(estimateParts("4001"), null)
   assert.equal(describeEstimate("Hard"), "Hard")
   assert.equal(describeEstimate(null), "")
   assert.equal(bandForEstimate("1850")?.id, "advanced")
