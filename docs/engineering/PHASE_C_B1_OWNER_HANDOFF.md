@@ -1,5 +1,20 @@
 # Phase C audit correction and B1 owner sequence
 
+## Phase B checkpoint (19 November 2026)
+
+Main4f840e67f359e558d49f44a4b81966012638fc9a includes cleanup PR204.
+The owner has accepted sampled serving-LOGIN evidence and confirmed cleanup
+Production dpl_A4rYge5pwgYzVMhD6JYgabQ8NexB, Ready on physcratic.com,
+with the temporary variable removed, profiles OFF and statistics ON. These
+private provider facts are owner-confirmed; source removal and exact-main CI
+were independently rechecked. Do not repeat attestation or its cleanup based on
+older pending/UNPROVEN prose below. They are historical checkpoints.
+Current authority: [Phase B report](PHASE_B_OWNER_REPORT.md) and
+[owner-only permission/activation checklist](PHASE_C_B1_RELEASE_CHECKLIST.md).
+Permission reconciliation still requires separate exact-artifact approvals.
+No Production operation is authorized or performed by this engineering task.
+
+
 18 November 2026. Code-only preparation from main df96dd7994280bbf77b23210d4fff579ad1129ea.
 No Production operation, provider setting, credential, flag or deployment change
 is authorized by this document. Owner reports confirm the deployed source/alias,
