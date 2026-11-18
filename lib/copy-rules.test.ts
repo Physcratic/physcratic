@@ -184,13 +184,15 @@ describe("no banned words or joined clauses in the app", () => {
 });
 
 // Design rules: no separator glyph between words, one typeface for interface text, no wide-tracked uppercase labels.
-// D2 emptied the baseline of older offenders, so every file must pass. If a file ever needs a temporary exception,
-// add its count here with a comment naming the task that removes it. A file may not go above its count, and may not
-// stay above the real count either (fix one, lower the number).
+// D2 removed every older offender except the one file below. A file may not go above its count, and may not stay above
+// the real count either (fix one, lower the number).
+// components/community/account-settings.tsx is pinned in scripts/activation/PACKAGE_SHA256SUMS, so an agent cannot edit it.
+// It keeps one font-mono username input and one wide-tracked uppercase label until the owner re-pins the activation
+// package with the fixed file. Remove both entries then.
 const DESIGN_BASELINE: Record<DesignFinding["rule"], Record<string, number>> = {
   "separator glyph": {},
-  "font-mono outside code and kbd": {},
-  "uppercase with tracking": {},
+  "font-mono outside code and kbd": { "components/community/account-settings.tsx": 1 },
+  "uppercase with tracking": { "components/community/account-settings.tsx": 1 },
 };
 
 describe("design rule scanner", () => {
