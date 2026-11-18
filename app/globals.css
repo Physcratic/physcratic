@@ -9,9 +9,6 @@
     --chart-1: hsl(var(--primary));
     --chart-2: hsl(var(--rating));
     --rating: 45 88% 30%;
-    --elo-foundation: 155 62% 27%;
-    --elo-intermediate: 205 75% 34%;
-    --elo-advanced: 22 75% 35%;
     /* Rating band colours: Beginner teal, Intermediate blue, Advanced violet, Mastery amber. Each is the text, stripe and
        badge colour of its band and keeps 4.5:1 on its own tint over the card and the page (checked in lib/rating-band-colours.test.ts). */
     --band-beginner: 178 80% 20%;
@@ -55,9 +52,6 @@
   }
   .dark {
     --rating: 47 85% 69%;
-    --elo-foundation: 155 51% 65%;
-    --elo-intermediate: 205 80% 74%;
-    --elo-advanced: var(--primary);
     --band-beginner: 178 60% 58%;
     --band-intermediate: 212 90% 74%;
     --band-advanced: 268 90% 82%;
@@ -151,8 +145,34 @@
   color: hsl(var(--secondary-foreground));
   border-top: 1px solid hsl(var(--border));
 }
+/* A stronger border on keyboard focus and on hover. It is the foreground colour at 70%, which is darker than the resting
+   border in both themes (the old 40% was lighter than the resting border on a light card). On keyboard focus the card also
+   gets an outline in the foreground colour, because the card is the whole tap surface and the shared button ring is only
+   2.6:1 against the page in light. The outline is 14.8:1 in light and 13.9:1 in dark. */
 .problem-entry:has(:focus-visible) {
-  border-color: hsl(var(--foreground) / 0.4);
+  border-color: hsl(var(--foreground) / 0.7);
+  outline: 2px solid hsl(var(--foreground));
+  outline-offset: 2px;
+}
+/* Hover is read on the wrapper, which never moves, so lifting the card by 2px cannot drop the pointer off it at the
+   lower edge. Only a device that can hover gets it, so a tap on a phone leaves nothing stuck. The lift is movement, so it
+   and the transition are only there when the person has not asked for less motion. */
+@media (hover: hover) {
+  .problem-entry-lift:hover > .problem-entry {
+    border-color: hsl(var(--foreground) / 0.7);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .problem-entry {
+    transition:
+      transform 150ms ease-out,
+      border-color 150ms ease-out;
+  }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .problem-entry-lift:hover > .problem-entry {
+    transform: translateY(-2px);
+  }
 }
 
 .featured-contest-card {

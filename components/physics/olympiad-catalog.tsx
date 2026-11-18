@@ -65,8 +65,7 @@ export function OlympiadCatalog({
       renderProblem={(problem) => (
         <OlympiadProblemCard problem={problem} onOpen={navigateToReader ? undefined : setActiveProblemId} />
       )}
-      emptyTitle="No catalog problems match"
-      emptyDescription="Try another competition, year, concept, topic or difficulty range."
+      emptyMessage="No catalog problems match these filters."
       onReset={onReset}
     />
   );

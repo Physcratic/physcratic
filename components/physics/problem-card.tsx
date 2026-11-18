@@ -16,6 +16,13 @@ import { isActiveTag, nextTagFilter, useTagFilter } from "./tag-filter";
 /** The olympiads a card can name. They are neutral on the card: the host flag tells them apart. */
 type Competition = "IPhO" | "APhO" | "EuPhO";
 
+// The layout classes the card and its skeleton share, so a placeholder has the same box as the card it stands in for.
+const cardClass = "problem-entry relative flex min-w-0 flex-col gap-0 overflow-hidden py-0 sm:flex-row [overflow-wrap:anywhere]";
+const ratingBlockClass = "flex shrink-0 flex-col gap-1 border-b border-t-4 border-border p-4 sm:w-40 sm:border-b-0 sm:border-l-4 sm:border-r sm:border-t-0 sm:p-6";
+const bodyClass = "flex min-w-0 flex-1 flex-col";
+const contentClass = "flex flex-1 flex-col gap-4 p-4 sm:p-6";
+const footerClass = "problem-entry-details flex flex-col gap-4 px-4 py-4 sm:flex-row-reverse sm:items-end sm:justify-between sm:px-6";
+
 export type ProblemCardProps = {
   id: string;
   title: string;
@@ -127,7 +134,7 @@ export function ProblemCard({
   // aria-disabled, not disabled, so keyboard focus stays on it after Enter or Space.
   const like = hasLike ? (
     <div data-like-control className="flex min-w-0 flex-col gap-2 text-sm" aria-busy={likeBusy || undefined}>
-      {hasToggle && <div className="flex flex-wrap items-center gap-2">
+      {hasToggle && <div className="flex min-h-11 flex-wrap items-center gap-2">
         {/* The count comes first, so on a wide screen the toggle itself sits right beside the open button. */}
         {likeCount !== undefined && (
           <span>
@@ -170,7 +177,9 @@ export function ProblemCard({
         )}
       </div>}
       {access === "unverified" && <p>Verify your email to save favourites.</p>}
-      {likeStatus && <p role="status">{likeStatus}</p>}
+      {/* While statistics first load there is no toggle yet, so the words sit in a row as tall as the toggle and nothing moves
+          when it arrives. A refresh after a change is announced but takes no room, so toggling never shifts the footer. */}
+      {likeStatus && (hasToggle ? <p role="status" className="sr-only">{likeStatus}</p> : <div className="flex min-h-11 items-center"><p role="status">{likeStatus}</p></div>)}
       {likeError && (
         <p role="alert" className="font-medium text-foreground">
           {likeError}
@@ -180,38 +189,42 @@ export function ProblemCard({
   ) : null;
 
   return (
+    // The wrapper never moves. The hover lift is on the card inside it (see .problem-entry-lift in globals.css), so the
+    // pointer stays over the wrapper while the card rises 2px and the card cannot flicker at its lower edge.
+    <div className="problem-entry-lift min-w-0">
     <Card
       role="article"
       aria-labelledby={titleId}
       data-problem-card={id}
       data-competition={competition}
       data-level={band?.id}
-      className="problem-entry relative flex min-w-0 flex-col gap-0 overflow-hidden py-0 transition-colors hover:border-foreground/40 sm:flex-row"
+      className={cardClass}
     >
       {elo !== undefined && band ? (
         <div
-          role="group"
-          aria-label={`Rating ${elo.toLocaleString("en-US")}, ${band.name}`}
-          title={`${band.name} · ${band.range}`}
+          data-rating-block
           // A soft tint of the band colour, a 4px stripe on the top edge (the left edge from sm up) and the band colour on
           // the number and the label. The colour is the --band token of the card, set from data-level in globals.css.
-          className="flex shrink-0 flex-col gap-1 border-b border-t-4 border-border border-t-[hsl(var(--band))] bg-[hsl(var(--band)/0.1)] p-4 sm:w-40 sm:border-b-0 sm:border-l-4 sm:border-r sm:border-t-0 sm:border-l-[hsl(var(--band))] sm:p-6"
+          // Plain text, not a labelled group: a group made a screen reader say "Rating 2,650, Mastery" and then read the
+          // same two lines again. Now it reads "Rating 2,650" and then "Mastery".
+          className={`${ratingBlockClass} border-t-[hsl(var(--band))] bg-[hsl(var(--band)/0.1)] sm:border-l-[hsl(var(--band))]`}
         >
           <p className="text-3xl font-semibold leading-none tabular-nums text-[hsl(var(--band))]">
+            <span className="sr-only">Rating </span>
             {elo.toLocaleString("en-US")}
           </p>
           <p className="text-sm font-medium text-[hsl(var(--band))]">{band.name}</p>
         </div>
       ) : (
-        <div className="flex shrink-0 flex-col gap-1 border-b border-t-4 border-border bg-muted/50 p-4 sm:w-40 sm:border-b-0 sm:border-l-4 sm:border-r sm:border-t-0 sm:p-6">
+        <div data-rating-block className={`${ratingBlockClass} bg-muted/50`}>
           <p className="text-xl font-semibold leading-none text-muted-foreground">Unrated</p>
           <p lang={statementLanguage} className="text-sm text-muted-foreground">
             {statementLanguage === "ru" ? "русский" : "English"}
           </p>
         </div>
       )}
-      <div className="flex min-w-0 flex-1 flex-col">
-        <div className="flex flex-1 flex-col gap-4 p-4 sm:p-6">
+      <div className={bodyClass}>
+        <div className={contentClass}>
           <div className="flex flex-col gap-2">
             <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
               {competition && host && (
@@ -270,7 +283,7 @@ export function ProblemCard({
           )}
         </div>
         {/* The footer keeps its own rule and tint across the full width of the card. */}
-        <div className="problem-entry-details flex flex-col gap-4 px-4 py-4 sm:flex-row-reverse sm:items-end sm:justify-between sm:px-6">
+        <div className={footerClass}>
           {action}
           {like}
           <div className="flex min-w-0 flex-wrap gap-2 sm:flex-1">
@@ -302,5 +315,60 @@ export function ProblemCard({
         </div>
       </div>
     </Card>
+    </div>
+  );
+}
+
+/** A bar of the loading placeholder. It pulses, and stands still when the person asks for less motion. */
+function Bar({ className }: { className: string }) {
+  return <div className={cn("rounded bg-muted motion-safe:animate-pulse", className)} />;
+}
+
+/**
+ * The loading placeholder for one card. It is built from the same classes as the card, so the box is the same and the
+ * list does not jump when the real cards arrive. It is hidden from assistive technology: the list announces the loading.
+ */
+export function ProblemCardSkeleton() {
+  // Tag filters are 44px buttons and plain tags are small badges, so the placeholder follows what the card will show.
+  const tagRow = useTagFilter() ? "h-11" : "h-6";
+  return (
+    <div className="problem-entry-lift min-w-0" aria-hidden="true" data-problem-card-skeleton>
+      <Card className={cardClass}>
+        <div data-rating-block className={`${ratingBlockClass} bg-muted/50`}>
+          <Bar className="h-[1.875rem] w-16" />
+          <Bar className="h-5 w-24" />
+        </div>
+        <div className={bodyClass}>
+          <div className={contentClass}>
+            <div className="flex flex-col gap-2">
+              <Bar className="h-5 w-40" />
+              <Bar className="h-7 w-3/4" />
+              <Bar className="h-5 w-full" />
+              {/* A description takes two lines on a narrow card and usually one on a wide one. */}
+              <Bar className="h-5 w-2/3 lg:hidden" />
+            </div>
+          </div>
+          <div className={footerClass}>
+            <Bar className="h-11 w-full sm:w-40" />
+            <div className="flex min-w-0 flex-wrap gap-2 sm:flex-1">
+              <Bar className={`${tagRow} w-24 rounded-full`} />
+              <Bar className={`${tagRow} w-28 rounded-full`} />
+            </div>
+          </div>
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+/** A few placeholder cards with one announcement for the whole list. */
+export function ProblemCardSkeletonList({ label, count = 3 }: { label: string; count?: number }) {
+  return (
+    <div role="status" aria-busy="true" className="grid min-w-0 gap-6">
+      <span className="sr-only">{label}</span>
+      {Array.from({ length: count }, (_, index) => (
+        <ProblemCardSkeleton key={index} />
+      ))}
+    </div>
   );
 }

@@ -4,8 +4,8 @@
 | Phase | PR | State |
 | 1 Layout | #193 | merged |
 | 2 Colour | #196 | merged |
-| 3 Like (favourite) | see BETA_READINESS | in review |
-| 4 Polish | none | not started |
+| 3 Like (favourite) | #197 | merged |
+| 4 Polish | see BETA_READINESS | in review |
 
 ## Decisions
 - Accent is the existing primary token. No new accent colour.
@@ -23,6 +23,10 @@
 - Tap targets at least 44x44. No hover-only actions.
 - Exactly one real link or button opens the problem, with accessible name "Open problem: source, reference, title". The tag filters, attribution links and the favourite control are the only other controls, and they sit above the stretched layer.
 - Keep href plus onOpen behaviour (plain left click calls onOpen, modified clicks fall through).
+- Motion is only a 2px lift and a border colour change, 150ms, and only for a device that can hover and a person who has not asked for less motion. Keyboard focus never depends on hover. Long words wrap inside the card and nothing scrolls sideways at 375px.
+- The rating block is plain text with the word "Rating" read before the number. It is not a labelled group.
+- A loading card is the skeleton, built from the card's own layout classes. A loading or refreshing statistic never changes the height of the footer.
+- An empty list is one plain line and a Clear filters button, on the same left edge as the heading above it.
 
 ## Colour rules
 - One accent, for the main action only. Other buttons neutral.
@@ -67,3 +71,11 @@ No em dashes, en dashes or semicolons. No banned words from CONTRIBUTING.md. Spe
 - Heart: neutral outline, then filled with `--primary` and a `--foreground` outline. The primary fill alone is 1.82:1 to 2.00:1 on a light card, under 3:1, so the outline carries the shape there (14.83:1 or more). Dark fill is 7.72:1 or more. The fill fades over 200ms and not at all under reduced motion.
 - Total verified solves moved from the old control to a plain text line in the attribution slot, unchanged. Files: `components/physics/problem-card.tsx`, `components/physics/unified-arena-collection.tsx`, `components/community/problem-stats.tsx`, `lib/favourite-toggle.ts` and its test, `tests/problem-card.test.ts`, the two docs.
 - Open: no solved or attempted marker yet. Corpus, olympiad and archive keys are not allowed in `community_favourite`, so those cards would need a schema change and owner approval.
+
+### Phase 4 Polish
+- Hover lifts the card 2px and strengthens its border (foreground at 70%, which is darker than the resting border in both themes, where the old 40% was lighter on a light card). The hover is read on a wrapper (`.problem-entry-lift`) that never moves, so a pointer parked on the card's lower edge does not flicker. No lift on touch, and none under reduced motion. Keyboard focus outlines the whole card in the foreground colour (14.8:1 light, 14.0:1 dark), because the shared button ring is 2.64:1 against the page in light.
+- `ProblemCardSkeleton` and `ProblemCardSkeletonList` share the card's layout classes and replace the loading lines in the Arena collection. The like slot keeps the height of the toggle while statistics load, and a refresh after a change is announced but takes no room. Edge cases fixed: a long unbroken word in a title or description was clipped inside the card at 768px and below, and now wraps. Russian titles, 11 tags, no description, unrated cards and cards with and without the like control all fit at 375, 390, 768 and 1440.
+- The empty state in the shared collection is one line (`emptyMessage`) and the button. The rating block no longer has `role="group"` and an `aria-label`, which read twice. `data-rating-block` marks it for tests, and its hover tooltip (band name and range) is gone, since touch and keyboard users never saw it.
+- Removed: the `--elo-foundation`, `--elo-intermediate` and `--elo-advanced` tokens and badge variants, `eloBands` and `getEloBand`, and the unused `ipho`, `apho` and `eupho` badge variants. A grep found no user outside tests. `legacyRanges` stays in `lib/rating-bands.ts` because old filter links still use those ids.
+- Files: `app/globals.css`, `components/physics/problem-card.tsx`, `problem-collection.tsx`, `arena-collection.tsx`, `corpus-collection.tsx`, `olympiad-catalog.tsx`, `unified-arena-collection.tsx`, `components/ui/badge.tsx`, `lib/problem-archive.ts`, three tests in `lib/`, `tests/problem-card.test.ts`, `tests/library-tags.browser.mjs`, the two docs. No file pinned by an activation or runtime-role manifest changed.
+- Open: the shared `--ring` token is 2.64:1 on a light page, so every button in light has a focus ring under 3:1. The card has its own outline now, other screens do not. `.contest-motif` and `.hero-image` in `globals.css` have no user, but they are not from the card work. The statistics allowlist problem from phase 3 is unchanged and still needs a migration.

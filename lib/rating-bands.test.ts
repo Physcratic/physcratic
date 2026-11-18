@@ -38,9 +38,10 @@ test("difficulty badge colours give every band its own variant, with no green Be
     assert.match(badge, new RegExp(`"band-${name}":`))
     assert.equal((css.match(new RegExp(`--band-${name}:`, "g")) ?? []).length, 2, `${name}: light and dark colours exist`)
   }
-  // The red Mastery token and variant from #195 are gone, and no band uses an elo-* variant.
-  assert.doesNotMatch(badge, /"elo-mastery":/)
-  assert.doesNotMatch(css, /--elo-mastery:/)
+  // The old elo-* tokens and badge variants are gone, and no band uses one. The red Mastery from #195 went first,
+  // and the green and orange legacy ones went with the legacy eloBands.
+  assert.doesNotMatch(badge, /"elo-[a-z]+":/)
+  assert.doesNotMatch(css, /--elo-[a-z]+:/)
   for (const band of ratingBands) assert.doesNotMatch(band.variant, /^elo-/, band.id)
 })
 
