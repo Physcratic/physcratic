@@ -946,7 +946,7 @@ export function ProblemEditor({
                         <details style={partStyle(editorColours.get(part.id) ?? 0)} className={`rounded-lg border bg-card p-4 ${partBorder}`}>
                           <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-medium">
                             <ShieldCheck className="size-4" />
-                            Answer key, hints and solution · part{" "}
+                            Answer key, hints and solution for part{" "}
                             {part.label || pi + 1}
                           </summary>
                           <div className="mt-5">
@@ -1211,7 +1211,7 @@ export function ProblemEditor({
                 aria-label="Document outline"
                 className="sticky top-24 space-y-3 rounded-lg border bg-card p-5"
               >
-                <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                <h2 className="text-sm font-semibold text-muted-foreground">
                   Steps
                 </h2>
                 <ol className="space-y-1 text-sm">

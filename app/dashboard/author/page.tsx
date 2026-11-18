@@ -8,7 +8,7 @@ import { auth } from "@/lib/auth";
 import { AuthoringWorkspace } from "@/components/authoring/workspace";
 
 export const metadata: Metadata = {
-  title: "Problem Studio · Physcratic",
+  title: "Problem Studio",
   robots: { index: false, follow: false },
 };
 export const dynamic = "force-dynamic";

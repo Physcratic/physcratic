@@ -55,7 +55,7 @@ try {
   browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||"/usr/bin/chromium",headless:true});
   const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:"reduce"});await context.addCookies([{name:"test_user",value:"owner",url:origin}]);
   const page=await context.newPage(),errors=[];page.on("pageerror",e=>errors.push(e.message));
-  await page.goto(`${origin}/settings`);await page.getByText("Earned · 5/5",{exact:true}).waitFor();
+  await page.goto(`${origin}/settings`);await page.getByText("Earned, 5/5",{exact:true}).waitFor();
   const section=page.locator("#achievement-settings");
   check(await section.getByLabel("Show Equation Architect").isDisabled(),true,"locked");
   await section.getByLabel("Show First Spark",{exact:true}).check();await section.getByLabel("Show Problem Weaver",{exact:true}).check();
@@ -75,7 +75,7 @@ try {
   await pool.query("UPDATE authored_problem SET state='archived',published_revision_id=NULL WHERE owner_id='owner'");await page.reload();await page.getByRole("article",{name:"Public profile"}).waitFor();check(await page.getByLabel("Achievement showcase").count(),0,"live eligibility revocation");
   await pool.query("UPDATE community_profile SET public_visibility=false WHERE user_id='owner'");await page.reload();await page.getByRole("heading",{name:"Profile not found"}).waitFor();
   await context.addCookies([{name:"test_user",value:"owner",url:origin}]);fail=true;await page.goto(`${origin}/settings`);await page.getByText("Achievements could not be loaded.",{exact:false}).waitFor();check(await page.getByText("PRIVATE_ERROR").count(),0,"generic error");
-  fail=false;await page.getByRole("button",{name:"Reload achievements"}).click();await page.getByText("Locked · 0/1",{exact:true}).waitFor();
+  fail=false;await page.getByRole("button",{name:"Reload achievements"}).click();await page.getByText("Locked, 0/1",{exact:true}).waitFor();
   flags.achievements=false;requests.length=0;await page.reload();await page.getByRole("heading",{name:"Appearance",exact:true}).waitFor();check(await page.getByRole("heading",{name:"Achievements",exact:true}).count(),0,"off UI");check(requests.includes("/api/community/achievements"),false,"off no query");
   check(errors,[],"no browser errors");console.log(JSON.stringify({assertions,artifacts:temp}));
 }finally{await browser?.close();if(server)await new Promise(resolve=>server.close(resolve));await pool.end();await admin.query(`DROP SCHEMA ${schema} CASCADE`);await admin.end();}

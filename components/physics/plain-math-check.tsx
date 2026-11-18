@@ -83,7 +83,7 @@ export function PlainMathCheck() {
         </div>
         <div aria-live="polite" role="status" aria-busy={calculating}>
           {feedback?.error && <Alert variant="destructive"><AlertTitle>Check the expression</AlertTitle><AlertDescription>{feedback.error}</AlertDescription></Alert>}
-          {feedback?.value && <Alert><AlertTitle>{feedback.value.result === null ? "Notation understood" : "Calculated result"}</AlertTitle><AlertDescription><MathFormula formula={`$$${feedback.value.symbol ? `${feedback.value.symbol} = ` : ""}${feedback.value.tex}$$`} /><p className="font-mono text-lg font-semibold text-foreground">{feedback.value.result === null ? `Add values for: ${feedback.value.missing.join(", ")}` : `${feedback.value.symbol ?? "result"} = ${Number(feedback.value.result.toPrecision(12))}`}</p></AlertDescription></Alert>}
+          {feedback?.value && <Alert><AlertTitle>{feedback.value.result === null ? "Notation understood" : "Calculated result"}</AlertTitle><AlertDescription><MathFormula formula={`$$${feedback.value.symbol ? `${feedback.value.symbol} = ` : ""}${feedback.value.tex}$$`} /><p className="text-lg font-semibold text-foreground">{feedback.value.result === null ? `Add values for: ${feedback.value.missing.join(", ")}` : `${feedback.value.symbol ?? "result"} = ${Number(feedback.value.result.toPrecision(12))}`}</p></AlertDescription></Alert>}
         </div>
         <Separator />
         <div className="flex flex-col gap-3 text-sm leading-relaxed text-muted-foreground">

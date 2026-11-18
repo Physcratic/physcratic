@@ -86,9 +86,10 @@ export function CorpusProblemReader({
         </Button>
       </div>
       <div className="flex flex-col gap-3">
-        <p className="text-sm text-muted-foreground">
-          {problem.competition} {problem.year} · {problem.code} ·{" "}
-          {problem.totalPoints} points
+        <p className="flex flex-wrap gap-x-3 gap-y-1 text-sm text-muted-foreground">
+          <span>{problem.competition} {problem.year}</span>
+          <span>{problem.code}</span>
+          <span>{problem.totalPoints} points</span>
         </p>
         <Title
           id="corpus-title"
@@ -117,7 +118,7 @@ export function CorpusProblemReader({
           {problem.sections.map((section) => (
             <div key={section.id} className="flex flex-col gap-2">
               <Section className="text-sm font-medium leading-relaxed">
-                {section.id} · {section.title}
+                {section.id}: {section.title}
               </Section>
               <div className="flex flex-wrap gap-2 lg:flex-col">
                 {problem.parts
@@ -158,7 +159,7 @@ export function CorpusProblemReader({
                 <PartChip index={colour}>{part.id}</PartChip>
                 <Badge variant="outline">{part.points.toFixed(1)} points</Badge>
                 {isReviewed && (
-                  <Badge variant="outline">Reviewed · self-assessed</Badge>
+                  <Badge variant="outline">Reviewed, self-assessed</Badge>
                 )}
               </div>
               <CardTitle>
@@ -236,7 +237,7 @@ export function CorpusProblemReader({
               >
                 <summary className="flex min-h-11 cursor-pointer flex-wrap items-center gap-2 text-sm font-medium">
                   <PartChip index={colour}>{part.id}</PartChip>
-                  Reveal official solution · {part.id}
+                  Reveal official solution for part {part.id}
                 </summary>
                 {solutionOpen && (
                   <div className="flex min-w-0 flex-col gap-4 pt-4">
@@ -265,7 +266,7 @@ export function CorpusProblemReader({
                 onClick={() => onReviewToggle(taskKey)}
               >
                 {isReviewed && <Check data-icon="inline-start" />}
-                {isReviewed ? "Reviewed · undo" : "Mark as reviewed"}
+                {isReviewed ? "Reviewed, undo" : "Mark as reviewed"}
               </Button>
               {signedIn ? (
                 <Button

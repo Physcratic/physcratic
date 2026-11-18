@@ -56,7 +56,7 @@ For user-visible text:
 - One typeface for interface text, IBM Plex Sans. Mono only inside code and kbd. No uppercase labels with wide letter spacing. Labels are sentence case.
 - Say what the page does, in plain words. Headings are short, and an intro is one functional line at most. No slogans, no aphorisms and no two-part poetic lines.
 - Banned words and phrases: elegant, worth (as in "worth solving"), journey, unlock, craft, seamless, effortless, next-level, delve, elevate, game-changer, dive into, look no further.
-- `lib/copy-rules.test.ts` scans every string literal and piece of JSX text in `app/` and `components/` for all of the above, so a new one fails CI. It also fails on a `font-mono` class outside `code` and `kbd`, and on `uppercase` combined with a `tracking-[...]`, `tracking-wide`, `tracking-wider` or `tracking-widest` class. Older offenders sit in a counted baseline inside that test until they are fixed. The Learn guides and `lib/coaching/content.ts` are reviewed separately.
+- `lib/copy-rules.test.ts` scans every string literal and piece of JSX text in `app/` and `components/` for all of the above, so a new one fails CI. It also fails on a `font-mono` class outside `code` and `kbd`, and on `uppercase` combined with a `tracking-[...]`, `tracking-wide`, `tracking-wider` or `tracking-widest` class. The Learn guides and `lib/coaching/content.ts` are reviewed separately.
 
 ## Problem titles
 

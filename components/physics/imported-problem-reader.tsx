@@ -265,8 +265,8 @@ export function ImportedProblemReader({
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectItem value="en">English · translation draft</SelectItem>
-                <SelectItem value="ru">Russian · original source</SelectItem>
+                <SelectItem value="en">English, translation draft</SelectItem>
+                <SelectItem value="ru">Russian, original source</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
@@ -369,7 +369,7 @@ export function ImportedProblemReader({
                         ? "English problem statement"
                         : "Original problem"
                       : missingSolution
-                        ? "Imported page · no derivation supplied"
+                        ? "Imported page, no derivation supplied"
                         : "Worked solution"}
                   </CardTitle>
                   <CardDescription>
@@ -425,7 +425,7 @@ export function ImportedProblemReader({
             <div key={source.kind} className="flex flex-col gap-2">
               <span className="font-medium capitalize text-foreground">
                 {source.kind}
-                {source.archiveMember ? ` · ${source.archiveMember}` : ""}
+                {source.archiveMember ? `, ${source.archiveMember}` : ""}
               </span>
               {source.note && <p>{source.note}</p>}
               {(source.urls ?? [source.url]).map((url) => (

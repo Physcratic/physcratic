@@ -55,7 +55,7 @@ export function AchievementSettings({ profileSaved, verified, onPreviewChange, o
           const eligible = achievementEligible(definition.id, data.progress), count = data.progress[definition.category];
           const checked = selected.includes(definition.id);
           return <div key={definition.id} className="flex min-w-0 flex-wrap items-start justify-between gap-3 rounded-xl border p-4">
-            <div className="min-w-0 space-y-2"><AchievementBadge id={definition.id} /><p className="text-xs leading-5 text-muted-foreground">{definition.description}</p><p className="text-xs">{count === null ? "Progress unavailable" : `${eligible ? "Earned" : "Locked"} · ${Math.min(count, definition.threshold)}/${definition.threshold}`}</p></div>
+            <div className="min-w-0 space-y-2"><AchievementBadge id={definition.id} /><p className="text-xs leading-5 text-muted-foreground">{definition.description}</p><p className="text-xs">{count === null ? "Progress unavailable" : `${eligible ? "Earned" : "Locked"}, ${Math.min(count, definition.threshold)}/${definition.threshold}`}</p></div>
             <label className="flex min-h-11 cursor-pointer items-center gap-2 text-sm"><input type="checkbox" aria-label={`Show ${definition.name}`} checked={checked} disabled={!eligible || (!checked && selected.length >= 2)} onChange={e => choose(e.target.checked ? [...selected, definition.id] : selected.filter(id => id !== definition.id))} className="size-4 accent-[hsl(var(--foreground))]" />Show{checked && <span className="text-xs">({selected.indexOf(definition.id) + 1})</span>}</label>
           </div>;
         })}

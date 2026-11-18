@@ -135,7 +135,7 @@ function EquationInput({
             ref={ref}
             id={id}
             rows={2}
-            className={`${inputClass} font-mono`}
+            className={inputClass}
             value={value}
             maxLength={2000}
             onChange={(e) => onChange(e.target.value)}
@@ -242,7 +242,7 @@ export function BlocksEditor({
         {notice}
       </p>
       <div className="flex items-center justify-between gap-3">
-        <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+        <p className="text-sm font-medium text-muted-foreground">
           {label}
         </p>
         <span className="text-xs text-muted-foreground">
@@ -302,7 +302,7 @@ export function BlocksEditor({
                 <div key={si} className="space-y-1">
                   {span.kind === "text" ? (
                     <Field
-                      label={`${label} text ${index + 1}${block.spans.length > 1 ? ` · span ${si + 1}` : ""}`}
+                      label={`${label} text ${index + 1}${block.spans.length > 1 ? `, span ${si + 1}` : ""}`}
                     >
                       {(id) => (
                         <div className="space-y-2">

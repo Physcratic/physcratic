@@ -138,7 +138,7 @@ try {
     if(mobile) await page.keyboard.insertText('x');else await page.keyboard.type('x');
     await page.keyboard.type('^2');await page.keyboard.press('Tab');
     await page.getByRole('button',{name:'Submit answer',exact:true}).click();
-    await page.getByRole('heading',{name:/Correct · saved attempt/}).waitFor();checks++;
+    await page.getByRole('heading',{name:/Correct, saved attempt/}).waitFor();checks++;
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
     const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
     assert.deepEqual(axe.violations.filter(v=>['serious','critical'].includes(v.impact)),[]);checks++;
@@ -155,7 +155,7 @@ try {
     release();await page.locator('math-field').waitFor();
     await writeMath(page,'x*x');
     await page.getByRole('button',{name:'Submit answer',exact:true}).click();
-    await page.getByRole('heading',{name:/Correct · saved attempt/}).waitFor();checks++;
+    await page.getByRole('heading',{name:/Correct, saved attempt/}).waitFor();checks++;
     await context.close();
   }
   // P0's physical-keystroke stress case must not leave MathLive ahead of recovery.
@@ -177,7 +177,7 @@ try {
   const beforeFallbackSubmit = posts.length;
   await plain.fill('x*x');
   await page.getByRole('button',{name:'Submit answer',exact:true}).click();
-  await page.getByRole('heading',{name:/Correct · saved attempt/}).waitFor();
+  await page.getByRole('heading',{name:/Correct, saved attempt/}).waitFor();
   assert.equal(posts.length,beforeFallbackSubmit+1);
   assert.equal(posts.at(-1).answer.expression,'x*x');checks++;
   await page.getByRole('button',{name:'Start another attempt',exact:true}).click();

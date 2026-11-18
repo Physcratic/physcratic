@@ -18,9 +18,9 @@ export default function TermsPage() {
         <Link href="/dashboard"><ArrowLeft data-icon="inline-start" /> Back to Physcratic</Link>
       </Button>
       <header className="flex flex-col gap-3">
-        <p className="text-sm font-medium text-muted-foreground">Physcratic · Legal</p>
+        <p className="text-sm font-medium text-muted-foreground">Physcratic legal</p>
         <h1 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">Terms of Service</h1>
-        <p className="text-sm leading-relaxed text-muted-foreground">Effective {TERMS_EFFECTIVE_DATE} · Version {TERMS_VERSION}</p>
+        <p className="flex flex-wrap gap-x-4 gap-y-1 text-sm leading-relaxed text-muted-foreground"><span>Effective {TERMS_EFFECTIVE_DATE}</span><span>Version {TERMS_VERSION}</span></p>
       </header>
       <Alert>
         <AlertTitle role="heading" aria-level={2}>Starter terms, pending legal review</AlertTitle>

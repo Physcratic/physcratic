@@ -252,8 +252,7 @@ export function MediaAttachments({
             <p className="text-sm font-medium">
               {ref.purpose === "solution-pdf"
                 ? "Private solution PDF"
-                : "Statement PDF"}{" "}
-              · {file?.filename ?? "Saved attachment"}
+                : "Statement PDF"}, {file?.filename ?? "Saved attachment"}
             </p>
             <AuthoredPdf url={authorMediaPath(ctx.problemId, ref.id)} label={ref.purpose === "solution-pdf" ? "Private solution PDF" : "Statement PDF"} />
             <UploadControl

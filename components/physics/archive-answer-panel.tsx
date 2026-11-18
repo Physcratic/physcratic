@@ -181,7 +181,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
             {part.kind === "numeric"
               ? <>
                 <div className="flex min-w-0 items-center gap-2">
-                  <Input id={id} className="h-11 min-w-0 flex-1 font-mono" inputMode="decimal" value={answers[part.id] ?? ""} maxLength={archiveAnswerLimit} autoComplete="off" spellCheck={false} disabled={busy} placeholder="Number" aria-invalid={invalid} aria-describedby={`${id}-help ${id}-result`} onChange={(event) => set(part.id, event.target.value)} />
+                  <Input id={id} className="h-11 min-w-0 flex-1" inputMode="decimal" value={answers[part.id] ?? ""} maxLength={archiveAnswerLimit} autoComplete="off" spellCheck={false} disabled={busy} placeholder="Number" aria-invalid={invalid} aria-describedby={`${id}-help ${id}-result`} onChange={(event) => set(part.id, event.target.value)} />
                   {part.unit && <span aria-hidden="true" className="shrink-0 text-sm text-muted-foreground">{part.unit}</span>}
                 </div>
                 {part.help.length <= shortHelp && <FieldDescription id={`${id}-help`}>{part.help}</FieldDescription>}

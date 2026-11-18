@@ -45,7 +45,7 @@ export function IphoPaperPicker({
                   .filter((paper) => paper.kind === kind)
                   .map((paper) => (
                     <SelectItem key={paper.id} value={paper.id}>
-                      {paper.code} · {paper.title}
+                      {paper.code}, {paper.title}
                     </SelectItem>
                   ))}
               </SelectGroup>
@@ -110,7 +110,7 @@ export function IphoSubproblemNavigation({
   }));
 
   function optionLabel(task: IphoSubproblem) {
-    return `${task.part} · ${task.title}${reviewed.includes(task.id) ? " · reviewed" : ""}`;
+    return `${task.part}, ${task.title}${reviewed.includes(task.id) ? ", reviewed" : ""}`;
   }
 
   return (
@@ -124,7 +124,7 @@ export function IphoSubproblemNavigation({
             {groups.map((group) => (
               <SelectGroup key={group.letter}>
                 <SelectLabel>
-                  Part {group.letter} · {group.title}
+                  Part {group.letter}, {group.title}
                 </SelectLabel>
                 {group.tasks.map((task) => (
                   <SelectItem key={task.id} value={task.id}>
@@ -157,7 +157,7 @@ export function IphoSubproblemNavigation({
                 id={`ipho-part-${group.letter}`}
                 className="px-2 text-sm font-medium leading-relaxed text-muted-foreground"
               >
-                {group.letter} · {group.title}
+                {group.letter}, {group.title}
               </h4>
               <ul className="flex flex-col gap-1">
                 {group.tasks.map((task) => {

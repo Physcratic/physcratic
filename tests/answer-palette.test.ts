@@ -43,7 +43,7 @@ test("the pad has the six tabs, the problem's symbols first and capitals behind 
   assert.deepEqual(tabOf("greek").filter((item) => !item.more).slice(0, 3).map((item) => item.label), ["α", "β", "γ"]);
   assert.ok(tabOf("greek").filter((item) => item.more).every((item) => /^[Α-Ω]$/.test(item.label)));
   assert.deepEqual(tabOf("trig").map((item) => item.label), ["sin", "cos", "tan", "sin⁻¹", "cos⁻¹", "tan⁻¹", "sinh", "cosh", "tanh"]);
-  assert.deepEqual(tabOf("other").map((item) => item.label), ["∞", "∂", "∇", "ħ", "°", "v⃗", "v̂", "·", "⨯"]);
+  assert.deepEqual(tabOf("other").map((item) => item.label), ["∞", "∂", "∇", "ħ", "°", "v⃗", "v̂", "dot", "⨯"]);
   assert.equal(new Set(items.map((item) => item.id)).size, items.length);
   // A symbol listed twice, or in another spelling, appears once.
   assert.equal(paletteItems(["k", "k", "\\theta_0", "theta_0"]).filter((item) => item.group === "problem").length, 2);

@@ -102,7 +102,7 @@ export function TagPicker({
         {shown.map((group) => (
           <div key={group.id} className="space-y-2">
             {kind === "method" && (
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{group.label}</h3>
+              <h3 className="text-sm font-semibold text-muted-foreground">{group.label}</h3>
             )}
             <div className="flex flex-wrap gap-2">
               {group.tags.map((tag: PhysicsTag) => {

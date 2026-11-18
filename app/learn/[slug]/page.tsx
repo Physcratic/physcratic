@@ -82,10 +82,9 @@ export default async function LearnArticlePage({ params }: Props) {
           <p className="mt-4 max-w-prose text-lg text-muted-foreground">
             {article.description}
           </p>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Updated <time dateTime={article.updated}>{formatDate(article.updated)}</time>
-            {" · "}
-            {article.readingMinutes} min read
+          <p className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
+            <span>Updated <time dateTime={article.updated}>{formatDate(article.updated)}</time></span>
+            <span>{article.readingMinutes} min read</span>
           </p>
           {article.reviewedBy ? <p className="mt-1 text-sm text-muted-foreground">
             Reviewed by{" "}
