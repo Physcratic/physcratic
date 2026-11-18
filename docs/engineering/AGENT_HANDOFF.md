@@ -1,5 +1,17 @@
 # Agent handoff
 
+## Phase C runtime audit correction (18 November 2026)
+
+From main df96dd7, codex/phasec-runtime-audit replaces the id-specific row-lock
+proxy with any-column capability plus an independent exact UPDATE allowlist.
+Baseline/batch-a/b1 grant contracts accept only approved feature deltas, classify
+OFF profile absence and reject id/PUBLIC/table overgrants. Disposable PG18.7
+regressions cover all three requested grant states and missing legitimate writes.
+[Owner sequence and serving-LOGIN gate](PHASE_C_B1_OWNER_HANDOFF.md). Exact commit,
+actual validation and PR/CI evidence belong to the delivery report. No approved
+grant file, migration, Production/provider/credential/flag or deployment change.
+Independent review and actual serving LOGIN remain release gates.
+
 ## Public worked solutions source qualification (17 November 2026)
 
 From main `806b85d`, PR B adds immutable revision consent, current-only guest

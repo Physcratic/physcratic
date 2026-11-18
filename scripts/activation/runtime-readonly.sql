@@ -52,6 +52,11 @@ WHERE app.rolname = :'runtime_role'
        OR c.relname LIKE 'account_deletion_%') ORDER BY c.relname;
 
 -- First-batch table privileges, plus separate profile/practice candidates.
+-- Grant contracts are not feature flags. Session-local physcratic.audit_contract
+-- 'b1' requires profile rights even while staging them with the feature OFF.
+-- Missing profile/practice rights otherwise remain expected_missing_disabled.
+-- Pair this inventory with runtime-role/verify.readonly.sql in batch-a or b1
+-- mode for the complete baseline + approved deltas verdict, never a blanket waiver.
 -- A false table SELECT can be satisfied by exact sufficient column grants;
 -- inspect those below before declaring a column-restricted role deficient.
 WITH required(feature, relation_name, privileges) AS (VALUES
@@ -70,14 +75,33 @@ WITH required(feature, relation_name, privileges) AS (VALUES
 )
 SELECT feature, relation_name, p.privilege,
        to_regclass('public.' || relation_name) IS NOT NULL AS object_present,
-       has_table_privilege(app.oid, to_regclass('public.' || relation_name), p.privilege) AS allowed
+       has_table_privilege(app.oid, to_regclass('public.' || relation_name), p.privilege) AS allowed,
+       CASE
+         WHEN has_table_privilege(app.oid,to_regclass('public.'||relation_name),p.privilege) THEN 'present'
+         WHEN feature='favourites' OR (feature='profiles' AND current_setting('physcratic.audit_contract',true)='b1') THEN 'missing_required'
+         ELSE 'expected_missing_disabled'
+       END AS privilege_state
 FROM required CROSS JOIN LATERAL unnest(string_to_array(privileges, ',')) p(privilege)
 CROSS JOIN pg_roles app WHERE app.rolname = :'runtime_role'
 ORDER BY feature, relation_name, privilege;
 
 SELECT has_column_privilege(:'runtime_role','public.user','id','SELECT') AS verified_user_id_read,
        has_column_privilege(:'runtime_role','public.user','emailVerified','SELECT') AS verified_user_status_read,
-       has_column_privilege(:'runtime_role','public.authored_problem','id','UPDATE') AS authored_row_lock_permission;
+       has_any_column_privilege(:'runtime_role','public.authored_problem','UPDATE') AS authored_row_lock_permission;
+
+-- Row locks need UPDATE on any column. Independently require the exact mutable
+-- column allowlist; PUBLIC, inherited and table-wide UPDATE also count here.
+SELECT a.attname AS authored_update_column,
+       a.attname=ANY(ARRAY['state','published_revision_id','updated_at']) AS expected_update,
+       has_column_privilege(:'runtime_role',a.attrelid,a.attnum,'UPDATE') AS allowed_update,
+       CASE
+         WHEN has_column_privilege(:'runtime_role',a.attrelid,a.attnum,'UPDATE')
+           = (a.attname=ANY(ARRAY['state','published_revision_id','updated_at'])) THEN 'match'
+         WHEN a.attname=ANY(ARRAY['state','published_revision_id','updated_at']) THEN 'missing_required'
+         ELSE 'overgrant'
+       END AS update_state
+FROM pg_attribute a WHERE a.attrelid='public.authored_problem'::regclass
+  AND a.attnum>0 AND NOT a.attisdropped ORDER BY a.attnum;
 
 SELECT table_name, column_name, privilege_type FROM information_schema.column_privileges
 WHERE table_schema='public' AND grantee=:'runtime_role'

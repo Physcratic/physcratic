@@ -42,3 +42,9 @@ AUTHORING_TEST_POSTGRES_IMAGE=postgres:18.7-alpine bash scripts/test-problem-aut
 
 CI runs this in a separate process after the existing activation step, in the
 same disposable PG18.7 service job. No new broad QA harness or dependency.
+
+The verifier also accepts session-local `physcratic.audit_contract='batch-a'`
+(original baseline plus exact favourites tables) or `'b1'` (also both profile
+tables). Default remains baseline. No mode permits UPDATE(authored_problem.id).
+Missing profiles while B1 is OFF are expected in batch-a, not a missing baseline
+permission. See the activation README for the paired metadata audit procedure.
