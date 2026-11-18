@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import { findBannedWords, findCopyProblems } from "./copy-rules";
 import { articles, COACHING_LINE } from "./learn/articles";
 import { visibleStrings } from "./learn/reading";
-import { KNOWN_SEMICOLON_OFFENDERS, PROSE_SEMICOLON, scanCopy, sourceFiles, stringsIn } from "./copy-scan";
+import { KNOWN_SEMICOLON_OFFENDERS, PROSE_SEMICOLON, designFindingsIn, scanCopy, scanDesign, sourceFiles, stringsIn, type DesignFinding } from "./copy-scan";
 import { archiveDefinitions } from "./archive-grading/catalog";
 import { source01 } from "./arena/source-01";
 import { source02 } from "./arena/source-02";
@@ -180,5 +180,134 @@ describe("no banned words or joined clauses in the app", () => {
   it("catches a semicolon followed by a space and any character", () => {
     for (const text of ["one; two", "20 a day; 20 in total", "binds first; ^ is right-associative", "a;  b"]) assert.ok(PROSE_SEMICOLON.test(text), text);
     for (const text of ["no semicolon here", "&amp; entity", "trailing;", "a;b"]) assert.ok(!PROSE_SEMICOLON.test(text.replace(/&[a-z]+;/g, "")), text);
+  });
+});
+
+// Design rules (D1): no separator glyph between words, one typeface for interface text, no wide-tracked uppercase labels.
+// Existing offenders outside D1 are counted per file below. D2 empties this baseline. Until then a file may not go above
+// its count (a new offender fails), and may not stay above the real count either (fix one, lower the number).
+const DESIGN_BASELINE: Record<DesignFinding["rule"], Record<string, number>> = {
+  "separator glyph": {
+    "app/dashboard/author/page.tsx": 1,
+    "app/dashboard/authored/[id]/page.tsx": 1,
+    "app/learn/[slug]/page.tsx": 1,
+    "app/learn/page.tsx": 1,
+    "app/terms/page.tsx": 2,
+    "components/authored/student-workspace.tsx": 4,
+    "components/authoring/answer-panel.tsx": 1,
+    "components/authoring/difficulty-rating-field.tsx": 1,
+    "components/authoring/editor-fields.tsx": 1,
+    "components/authoring/media-controls.tsx": 1,
+    "components/authoring/problem-editor.tsx": 1,
+    "components/authoring/solution-permissions.tsx": 2,
+    "components/authoring/workspace.tsx": 2,
+    "components/coaching/coaching-highlight.tsx": 1,
+    "components/community/achievement-settings.tsx": 1,
+    "components/community/discussions.tsx": 1,
+    "components/community/medal-badge.tsx": 6,
+    "components/community/moderation-dashboard.tsx": 2,
+    "components/community/verification-dashboard.tsx": 4,
+    "components/community/verification-settings.tsx": 2,
+    "components/physics/answer-palette.ts": 2,
+    "components/physics/corpus-document-reader.tsx": 2,
+    "components/physics/corpus-problem-reader.tsx": 6,
+    "components/physics/dashboard-highlights.tsx": 2,
+    "components/physics/imported-problem-reader.tsx": 4,
+    "components/physics/individual-rating-summary.tsx": 1,
+    "components/physics/ipho-navigation.tsx": 5,
+    "components/physics/ipho-page-reader.tsx": 1,
+    "components/physics/problem-history.tsx": 3,
+    "components/physics/rating-history-chart.tsx": 1,
+    "components/physics/solution-submission-form.tsx": 8,
+    "components/physics/submission-history.tsx": 4,
+  },
+  "font-mono outside code and kbd": {
+    "components/authored/student-workspace.tsx": 2,
+    "components/authoring/answer-panel.tsx": 1,
+    "components/authoring/editor-fields.tsx": 1,
+    "components/community/account-settings.tsx": 1,
+    "components/community/verification-settings.tsx": 1,
+    "components/contests/contest-room.tsx": 2,
+    "components/physics/archive-answer-panel.tsx": 1,
+    "components/physics/individual-rating-summary.tsx": 1,
+    "components/physics/math-answer-field.tsx": 1,
+    "components/physics/plain-math-check.tsx": 1,
+    "components/ui/chart.tsx": 1,
+  },
+  "uppercase with tracking": {
+    "app/admin/moderation/page.tsx": 1,
+    "app/admin/verification/page.tsx": 1,
+    "components/authoring/editor-fields.tsx": 1,
+    "components/authoring/problem-editor.tsx": 1,
+    "components/authoring/tag-picker.tsx": 1,
+    "components/community/account-settings.tsx": 1,
+    "components/community/profile-card.tsx": 1,
+  },
+};
+
+describe("design rule scanner", () => {
+  const rules = (source: string, file = "sample.tsx") => designFindingsIn(file, source).map((f) => f.rule);
+  it("flags a middle dot, bullet or similar glyph in string literals, template text and JSX text", () => {
+    for (const glyph of ["·", "•", "∙", "⋅", "‧", "&middot;", "&bull;"]) {
+      assert.deepEqual(rules(`export const a = "600 ${glyph} Beginner";`), ["separator glyph"], glyph);
+      assert.deepEqual(rules(`export const b = <p>IPhO ${glyph} 2026</p>;`), ["separator glyph"], glyph);
+    }
+    assert.deepEqual(rules("export const c = `${a} · ${b}`;"), ["separator glyph"]);
+    assert.deepEqual(rules('export const d = <span aria-hidden="true">·</span>;'), ["separator glyph"], "an aria-hidden span is not exempt");
+  });
+  it("ignores comments and text without a glyph", () => {
+    assert.deepEqual(rules("// 600 · Beginner\n/* • */\nexport const a = 'IPhO, 2026';"), []);
+  });
+  it("flags font-mono outside code and kbd, and allows it inside them", () => {
+    assert.deepEqual(rules('export const a = <p className="font-mono text-sm">x</p>;'), ["font-mono outside code and kbd"]);
+    assert.deepEqual(rules('export const a = <div className={cn("a", cond && "md:font-mono")}>x</div>;'), ["font-mono outside code and kbd"]);
+    assert.deepEqual(rules('export const a = <code className="font-mono">x</code>;'), []);
+    assert.deepEqual(rules('export const a = <kbd className="rounded font-mono">x</kbd>;'), []);
+    assert.deepEqual(rules('export const a = <code><span className="font-mono">x</span></code>;'), []);
+    assert.deepEqual(rules('export const a = <p className="font-monospace-ish text-sm">x</p>;'), []);
+  });
+  it("flags uppercase with a tracking-[...], wide, wider or widest class, in one string or one className", () => {
+    assert.deepEqual(rules('export const a = <p className="text-xs uppercase tracking-[0.18em]">x</p>;'), ["uppercase with tracking"]);
+    for (const tracking of ["tracking-wide", "tracking-wider", "tracking-widest", "sm:tracking-wide"]) {
+      assert.deepEqual(rules(`export const a = <p className="uppercase ${tracking}">x</p>;`), ["uppercase with tracking"], tracking);
+    }
+    assert.deepEqual(rules('export const a = <p className={cn("text-xs uppercase", open && "tracking-widest")}>x</p>;'), ["uppercase with tracking"]);
+    assert.deepEqual(rules('export const a = <p className="uppercase">x</p>;'), []);
+    assert.deepEqual(rules('export const a = <p className="tracking-wide">x</p>;'), []);
+    assert.deepEqual(rules('export const a = <p className="uppercase tracking-tight">x</p>;'), []);
+  });
+});
+
+describe("design rules in the app", () => {
+  const found = scanDesign(process.cwd(), ["app", "components"]);
+  const count = (rule: DesignFinding["rule"]) => {
+    const byFile = new Map<string, DesignFinding[]>();
+    for (const f of found.filter((x) => x.rule === rule)) byFile.set(f.file, [...(byFile.get(f.file) ?? []), f]);
+    return byFile;
+  };
+  for (const rule of Object.keys(DESIGN_BASELINE) as DesignFinding["rule"][]) {
+    const baseline = DESIGN_BASELINE[rule];
+    it(`has no new "${rule}" under app/ and components/`, () => {
+      const failures: string[] = [];
+      for (const [file, list] of count(rule)) {
+        const allowed = baseline[file] ?? 0;
+        if (list.length > allowed) for (const f of list.slice(allowed)) failures.push(`${f.file}:${f.line} ${rule}: ${f.text}`);
+      }
+      assert.deepEqual(failures, []);
+    });
+    it(`keeps the "${rule}" baseline honest`, () => {
+      const stale: string[] = [];
+      const real = count(rule);
+      for (const [file, allowed] of Object.entries(baseline)) {
+        const now = real.get(file)?.length ?? 0;
+        if (now < allowed) stale.push(`${file} has ${now}, baseline says ${allowed}. Lower or remove it in DESIGN_BASELINE`);
+      }
+      assert.deepEqual(stale, []);
+    });
+  }
+  it("covers the D1 files with no baseline entry", () => {
+    for (const file of ["components/physics/problem-card.tsx", "components/physics/problem-heading.tsx", "components/physics/problem-room.tsx", "components/physics/problem-library.tsx", "components/physics/problem-collection.tsx", "components/physics/olympiad-problem-card.tsx", "components/physics/corpus-collection.tsx", "components/physics/unified-arena-collection.tsx"]) {
+      for (const baseline of Object.values(DESIGN_BASELINE)) assert.equal(baseline[file], undefined, `${file} is fixed, it must not be in the baseline`);
+    }
   });
 });

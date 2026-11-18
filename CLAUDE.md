@@ -6,6 +6,8 @@
 - Never run a build, dev server or tests in the main checkout. It has .env.local. Always use a clean worktree.
 - Never touch the Vercel, Neon, auth, email or Blob settings, any real database, `lib/db/schema.ts`, `migrations/` or `.env` files without explicit approval for that task.
 - Copy rules: no em dashes, en dashes or semicolons. Casual is fine. No aphorisms or slogans. CONTRIBUTING.md has the full list.
+- No middle dot, bullet or similar glyph as a separator between words in user-visible text. Use spacing, a line break, separate styled spans or a comma.
+- One typeface for interface text, IBM Plex Sans. Mono only inside code and kbd. No uppercase labels with wide letter spacing. Labels are sentence case.
 - Every screen passes the sweep: `SWEEP=1 node tests/solve-contrast.browser.mjs`, signed in and guest.
 
 Next.js 15.5 App Router, TypeScript, Tailwind, shadcn/ui (components/ui), Better Auth, Drizzle + Postgres, deployed on Vercel. Package manager: pnpm. Node 22.

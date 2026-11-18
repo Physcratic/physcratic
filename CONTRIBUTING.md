@@ -52,9 +52,11 @@ For user-visible text:
 
 - No em dashes, en dashes or semicolons. Use a full stop or a comma.
 - Spelling: medallist, practise (the verb), honourable mention.
+- No middle dot, bullet or similar glyph as a separator between words in user-visible text. Use spacing, a line break, separate styled spans or a comma.
+- One typeface for interface text, IBM Plex Sans. Mono only inside code and kbd. No uppercase labels with wide letter spacing. Labels are sentence case.
 - Say what the page does, in plain words. Headings are short, and an intro is one functional line at most. No slogans, no aphorisms and no two-part poetic lines.
 - Banned words and phrases: elegant, worth (as in "worth solving"), journey, unlock, craft, seamless, effortless, next-level, delve, elevate, game-changer, dive into, look no further.
-- `lib/copy-rules.test.ts` scans every string literal and piece of JSX text in `app/` and `components/` for all of the above, so a new one fails CI. The Learn guides and `lib/coaching/content.ts` are reviewed separately.
+- `lib/copy-rules.test.ts` scans every string literal and piece of JSX text in `app/` and `components/` for all of the above, so a new one fails CI. It also fails on a `font-mono` class outside `code` and `kbd`, and on `uppercase` combined with a `tracking-[...]`, `tracking-wide`, `tracking-wider` or `tracking-widest` class. Older offenders sit in a counted baseline inside that test until they are fixed. The Learn guides and `lib/coaching/content.ts` are reviewed separately.
 
 ## Problem titles
 
@@ -89,7 +91,7 @@ Before and after:
 
 - The four visible rating bands live in `lib/rating-bands.ts`: Beginner (0 to 800), Intermediate (801 to 1,800), Advanced (1,801 to 2,600) and Mastery (2,601+). What each feels like: Beginner is "Fundamental physics or first selection stage", Intermediate is "National finals level", Advanced is "IPhO level" and Mastery is "Hard IPhO, APhO and EuPhO problems". The underlying scale remains 0 to 4000, including Mastery above 3200. Retained band IDs are unchanged. The retired `fundamentals` filter preserves 0 to 199 and the older numeric filter IDs preserve their original ranges, without appearing as new choices.
 - Picking a band in Problem Studio retains its existing preset (500, 1200, 2100 or 2800). Players still start at 1200. The library, badges, Studio and rating-help popover use the shared band definitions.
-- A problem's rating shows with its band name, such as "2,250 · Advanced". An author's estimate reads "~1,200 · Intermediate (estimate)" and stays a plain number in the existing difficulty field. It never changes a rating, result or contest.
+- A problem's rating shows the number and the band name as two separate parts with a small gap and no glyph between them, such as "2,250" and "Advanced". Its accessible name reads "Rating 2,250, Advanced". An author's estimate shows the same two parts, "~1,200" and "Intermediate (estimate)", and stays a plain number in the existing difficulty field. It never changes a rating, result or contest.
 - Answers: a student writes `ln` for the natural log and `\log_{10}`, `log10` or `log_10` for base 10. A bare `log` is refused with one message, "Write ln for the natural log, or log₁₀ for base 10." This applies to student answers and to a new key written in Problem Studio. A key that was saved earlier keeps reading `log` as `ln`.
 
 ## Production

@@ -20,7 +20,7 @@ export function OlympiadProblemCard({
       "Original paper has no descriptive title",
   ]
     .filter(Boolean)
-    .join(" · ");
+    .join(", ");
 
   return (
     <ProblemCard
@@ -31,7 +31,8 @@ export function OlympiadProblemCard({
       source={problem.competition}
       competition={problem.competition}
       host={olympiadHost(problem.competition, problem.year)}
-      reference={`${problem.year} · ${problem.code}`}
+      year={problem.year}
+      task={problem.code}
       statementLanguage={problem.importLanguage}
       elo={getEstimatedProblemElo(problem.id)}
       description={description}

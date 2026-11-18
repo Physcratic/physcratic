@@ -31,7 +31,9 @@ export type ProblemCardProps = {
   source: string;
   competition?: Competition;
   host?: OlympiadHost
-  reference?: string;
+  /** The edition year and the task code, such as 2026 and "T1". They are separate spans after the source, with no glyph between. */
+  year?: string | number;
+  task?: string;
   statementLanguage?: "en" | "ru";
   description?: string;
   details?: readonly string[];
@@ -68,7 +70,8 @@ export function ProblemCard({
   source,
   competition,
   host,
-  reference,
+  year,
+  task,
   statementLanguage = "en",
   description,
   details,
@@ -91,7 +94,7 @@ export function ProblemCard({
   const tagFilter = useTagFilter();
   // One control per card: the title is plain text and the button is the only link or button. The accessible name starts
   // with the visible words so voice control matches, then names the problem.
-  const actionLabel = `Open problem: ${[source, reference, title].filter(Boolean).join(", ")}`;
+  const actionLabel = `Open problem: ${[source, year, task, title].filter(Boolean).join(", ")}`;
   // The link or button covers the whole card with its ::after layer, so a press anywhere on the card opens the problem.
   const actionClass = "min-h-11 min-w-11 w-full shrink-0 after:absolute after:inset-0 sm:w-auto";
   const actionContent = (
@@ -251,12 +254,8 @@ export function ProblemCard({
                 </span>
               )}
               <span className="font-medium">{source}</span>
-              {reference && (
-                <>
-                  <span aria-hidden="true">·</span>
-                  <span>{reference}</span>
-                </>
-              )}
+              {year !== undefined && <span>{year}</span>}
+              {task && <span>{task}</span>}
             </p>
             <Heading
               id={titleId}
@@ -272,8 +271,8 @@ export function ProblemCard({
             )}
           </div>
           {details?.length ? (
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              {details.join(" · ")}
+            <p className="flex flex-wrap gap-x-4 gap-y-1 text-sm leading-relaxed text-muted-foreground">
+              {details.map((detail) => <span key={detail}>{detail}</span>)}
             </p>
           ) : null}
           {attribution && (

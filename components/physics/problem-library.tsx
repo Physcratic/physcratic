@@ -103,13 +103,13 @@ export function ProblemLibrary({
             <TabsTrigger className="min-h-11" value={collection === "authored" ? "authored" : "arena"}>
               Physcratic Arena
             </TabsTrigger>
-            <TabsTrigger className="min-h-11" value="catalog">
-              Olympiad archive ·{" "}
-              {filterProblemsByTag(catalogProblems, selectedTopic).length}
+            <TabsTrigger className="min-h-11 gap-2" value="catalog">
+              <span>Olympiad archive</span>{" "}
+              <span className="tabular-nums">{filterProblemsByTag(catalogProblems, selectedTopic).length}</span>
             </TabsTrigger>
-            <TabsTrigger className="min-h-11" value="pilot">
-              Guided exercises ·{" "}
-              {filterProblemsByTag(corpusProblems, selectedTopic).length}
+            <TabsTrigger className="min-h-11 gap-2" value="pilot">
+              <span>Guided exercises</span>{" "}
+              <span className="tabular-nums">{filterProblemsByTag(corpusProblems, selectedTopic).length}</span>
             </TabsTrigger>
           </TabsList>
         </div>
