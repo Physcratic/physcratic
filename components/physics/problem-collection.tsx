@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ArrowLeft, ArrowRight, BookOpen, RotateCcw } from "lucide-react";
+import { ArrowLeft, ArrowRight, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,14 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Empty,
-  EmptyContent,
-  EmptyDescription,
-  EmptyHeader,
-  EmptyMedia,
-  EmptyTitle,
-} from "@/components/ui/empty";
 
 function CollectionPagination({
   page,
@@ -83,8 +75,7 @@ export function ProblemCollection<T extends { id: string }>({
   pagination,
   status,
   renderProblem,
-  emptyTitle,
-  emptyDescription,
+  emptyMessage,
   onReset,
 }: {
   id: string;
@@ -100,8 +91,8 @@ export function ProblemCollection<T extends { id: string }>({
   };
   status?: string;
   renderProblem: (problem: T) => React.ReactNode;
-  emptyTitle: string;
-  emptyDescription: string;
+  /** One plain line that says what happened, for example "No Arena problems match these filters." */
+  emptyMessage: string;
   onReset: () => void;
 }) {
   const [internalPagination, setInternalPagination] = React.useState({ key: filterKey, page: 1 });
@@ -168,20 +159,13 @@ export function ProblemCollection<T extends { id: string }>({
               ))}
             </ul>
           ) : (
-            <Empty className="py-12">
-              <EmptyHeader>
-                <EmptyMedia variant="icon">
-                  <BookOpen />
-                </EmptyMedia>
-                <EmptyTitle>{emptyTitle}</EmptyTitle>
-                <EmptyDescription>{emptyDescription}</EmptyDescription>
-              </EmptyHeader>
-              <EmptyContent>
-                <Button variant="outline" onClick={onReset}>
-                  <RotateCcw data-icon="inline-start" /> Clear filters
-                </Button>
-              </EmptyContent>
-            </Empty>
+            // The same left edge as the heading above it, which sits 24px in.
+            <div className="flex flex-col items-start gap-4 px-6 pb-6">
+              <p>{emptyMessage}</p>
+              <Button variant="outline" onClick={onReset}>
+                <RotateCcw data-icon="inline-start" /> Clear filters
+              </Button>
+            </div>
           )}
         </CardContent>
         {items.length > 0 && (

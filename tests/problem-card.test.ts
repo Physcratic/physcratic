@@ -50,7 +50,7 @@ test("cards without extra metadata retain their title, difficulty, tags and open
     onOpen() {},
   });
   assert.match(html, /Champagne!/);
-  assert.match(html, /Rating 2,500/);
+  assert.match(html, /Rating <\/span>2,500</);
   assert.match(html, /Newton’s laws/);
   assert.match(html, /Open problem: Quick practice, Champagne!/);
   assert.doesNotMatch(html, /border-destructive|5 min|Hint \+ worked solution|scored subparts|Official solution/);
@@ -80,7 +80,7 @@ test("the rating block comes first, then one quiet source line above a larger ti
   });
   // On a narrow screen the card is one column with the rating block on top, and from sm up the block is on the left.
   assert.match(html, /class="[^"]*flex-col[^"]*sm:flex-row/);
-  const rating = html.indexOf("Rating 1,850, Advanced");
+  const rating = html.indexOf("data-rating-block");
   const source = html.indexOf(">IPhO</span>");
   const reference = html.indexOf(">2025 · T1</span>");
   const title = html.indexOf("<h4");
@@ -88,8 +88,11 @@ test("the rating block comes first, then one quiet source line above a larger ti
   // Source and reference share one line, and the title is larger than the old text-lg.
   assert.equal((html.match(/<p class="flex flex-wrap items-center[^"]*text-muted-foreground">/g) ?? []).length, 1);
   assert.match(html, /<h4[^>]*class="[^"]*text-xl font-semibold/);
-  // The band name stays visible as text, in a block that is a labelled group and not a second control.
-  assert.match(html, /role="group" aria-label="Rating 1,850, Advanced"/);
+  // The band name stays visible as text, in a plain block and not a second control. It is not a labelled group, which
+  // made a screen reader say "Rating 1,850, Advanced" and then read the same two lines again.
+  assert.match(html, /data-rating-block/);
+  assert.doesNotMatch(html, /role="group"|aria-label="Rating/);
+  assert.match(html, /<span class="sr-only">Rating <\/span>1,850<\/p>/);
   assert.match(html, />Advanced<\/p>/);
 });
 
@@ -97,7 +100,7 @@ test("the rating block has a soft band tint, a 4px stripe and the band colour on
   for (const [elo, level] of [[500, "beginner-olympiad"], [1200, "intermediate-olympiad"], [2100, "advanced"], [3000, "mastery"]] as const) {
     const html = render({ ...base, elo, onOpen() {} });
     assert.ok(html.includes(`data-level="${level}"`), level);
-    const block = html.slice(html.indexOf('role="group"'), html.indexOf("</div>", html.indexOf('role="group"')));
+    const block = html.slice(html.indexOf("data-rating-block"), html.indexOf("</div>", html.indexOf("data-rating-block")));
     // Soft tint for the area, strong colour on the 4px stripe, the number and the label.
     assert.match(block, /bg-\[hsl\(var\(--band\)\/0\.1\)\]/);
     assert.match(block, /border-t-4 /);
@@ -108,7 +111,7 @@ test("the rating block has a soft band tint, a 4px stripe and the band colour on
   }
   // The band colour is not on the rest of the card, which has no tint, stripe or coloured text of its own.
   const html = render({ ...base, elo: 1200, onOpen() {} });
-  const rest = html.slice(html.indexOf("</div>", html.indexOf('role="group"')));
+  const rest = html.slice(html.indexOf("</div>", html.indexOf("data-rating-block")));
   assert.doesNotMatch(rest, /--band|elo-|band-/);
   // Not a hex colour anywhere in the card.
   assert.doesNotMatch(html, /#[0-9a-fA-F]{3,8}\b/);
@@ -180,7 +183,7 @@ test("only the one control opens the problem, so an attribution link or button i
 test("cards without a supplied difficulty never invent an estimate", () => {
   const html = render({ ...base, source: "Physcratic Arena", href: "/dashboard/problems/test-problem" });
   assert.match(html, /Unrated/);
-  assert.doesNotMatch(html, /Rating \d|~[\d,]+ ELO/);
+  assert.doesNotMatch(html, /Rating <\/span>\d|~[\d,]+ ELO/);
   assert.match(html, /href="\/dashboard\/problems\/test-problem"/);
   assert.doesNotMatch(html, /<button/);
 });
@@ -201,7 +204,8 @@ test("practice cards identify difficulty ratings as estimates and preserve ratin
     const html = render({ ...base, elo, onOpen() {} });
     const formatted = elo.toLocaleString("en-US");
     assert.ok(html.includes(`>${formatted}</p>`));
-    assert.ok(html.includes(`Rating ${formatted}, ${band}`));
+    assert.ok(html.includes(`<span class="sr-only">Rating </span>${formatted}</p>`));
+    assert.ok(html.includes(`>${band}</p>`));
     // The band name is shown under the rating, not only read out.
     assert.ok(html.includes(`<p class="text-sm font-medium text-[hsl(var(--band))]">${band}</p>`), `${band} is shown on the card`);
     assert.ok(html.includes("tabular-nums"));
@@ -240,9 +244,9 @@ test("Arena cards use the archive template and retain their individual difficult
     query: "", topic: "all", difficulty: "all", onReset() {},
   }));
   assert.equal([...html.matchAll(/data-problem-card=/g)].length, 10);
-  assert.equal([...html.matchAll(/aria-label="Rating /g)].length, 10);
+  assert.equal([...html.matchAll(/data-rating-block/g)].length, 10);
   for (const problem of arena.problems.slice(0, 10)) {
-    assert.ok(html.includes(`Rating ${getEstimatedProblemElo(problem.id).toLocaleString("en-US")},`));
+    assert.ok(html.includes(`<span class="sr-only">Rating </span>${getEstimatedProblemElo(problem.id).toLocaleString("en-US")}</p>`));
     assert.ok(html.includes(`href="/dashboard/problems/${problem.id}"`));
   }
   assert.doesNotMatch(html, /Unrated|Self-review|Statement \+ worked solution/);
@@ -263,8 +267,7 @@ function renderCollection(count: number, totalCount = count, page?: number, pagi
     filterKey: "all",
     pagination: page === undefined ? undefined : { key: paginationKey, page, onChange() {} },
     renderProblem: (problem) => createElement("article", { "data-problem-card": problem.id }, problem.id),
-    emptyTitle: "No matching problems",
-    emptyDescription: "Try another filter.",
+    emptyMessage: "No matching problems.",
     onReset() {},
   }));
 }
@@ -313,9 +316,12 @@ test("the shared collection reports filtered results against the topic total", (
 test("empty collections keep the archive shell and reset action without misleading pagination", () => {
   const html = renderCollection(0, 18);
   assert.match(html, /0 of 18 problems/);
-  assert.match(html, /No matching problems/);
-  assert.match(html, /Try another filter/);
-  assert.match(html, /Clear filters/);
+  // One plain line and the button. No icon, no second line of advice.
+  assert.match(html, /<p>No matching problems\.<\/p>/);
+  assert.match(html, /<button[^>]*>.*Clear filters<\/button>/);
+  assert.doesNotMatch(html, /Try another|data-slot="empty/);
+  assert.equal((html.match(/<button[\s>]/g) ?? []).length, 1, "Clear filters is the only control");
+  assert.equal((html.match(/<svg/g) ?? []).length, 1, "only the button icon");
   assert.doesNotMatch(html, /<nav |Showing|Page 1 of|data-problem-card=/);
 });
 
@@ -323,7 +329,7 @@ test("all imported archive cards display their individual estimate in the rating
   for (const problem of catalogProblems) {
     const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }));
     const elo = getEstimatedProblemElo(problem.id).toLocaleString("en-US");
-    assert.ok(html.includes(`Rating ${elo},`), problem.id);
+    assert.ok(html.includes(`<span class="sr-only">Rating </span>${elo}</p>`), problem.id);
     assert.ok(html.includes(`>${elo}</p>`), problem.id);
     assert.doesNotMatch(html, /Unrated/);
   }
@@ -493,4 +499,85 @@ test("a rate-limited change shows the error in words, as an alert", () => {
   assert.match(likeButton(html), /aria-pressed="false"/);
   assert.doesNotMatch(likeButton(html), /\sdisabled=""|\saria-disabled="/);
   assert.doesNotMatch(html, /text-destructive|\b(?:text|fill|bg)-red/);
+});
+
+// Phase 4: polish. The hover and motion rules are in app/globals.css, so the tests that cover them read it.
+import { readFileSync } from "node:fs";
+import { ProblemCardSkeleton, ProblemCardSkeletonList } from "../components/physics/problem-card";
+
+test("the card sits in a wrapper that takes the hover, and its text wraps instead of running out of the card", () => {
+  const html = render({ ...base, href: "/dashboard/problems/test-problem" });
+  // The wrapper is outermost and holds the card, so the lift moves the card and never the thing under the pointer.
+  assert.match(html, /^<div class="problem-entry-lift min-w-0"><div[^>]*data-problem-card="test-problem"/);
+  // Long words and addresses break, so nothing sideways-scrolls at 375px.
+  assert.match(html, /\[overflow-wrap:anywhere\]/);
+  // The hover is not in the card's own classes. It is one rule in the stylesheet, so it cannot drift between callers.
+  const root = html.match(/<div [^>]*data-problem-card="test-problem"[^>]*>/)![0];
+  assert.doesNotMatch(root, /hover:|transition|translate/);
+});
+
+test("edge cases keep the same structure: a long title, a Russian title, many tags, no description and no rating", () => {
+  const long = render({ ...base, title: `Equilibrium ${"Thermoelectromagnetohydrodynamic".repeat(3)}`, source: "IPhO", reference: "2016 · T1", elo: 2650, href: "/dashboard/problems/x" });
+  assert.match(long, /<h3[^>]*>Equilibrium Thermoelectromagnetohydrodynamic/);
+  assert.match(long, /\[overflow-wrap:anywhere\]/);
+  const russian = render({ ...base, title: "Движение заряженной частицы", titleLanguage: "ru", statementLanguage: "ru", onOpen() {} });
+  assert.match(russian, /<h3[^>]*lang="ru"[^>]*>Движение заряженной частицы/);
+  assert.match(russian, /<p lang="ru"[^>]*>русский<\/p>/);
+  const tags = Array.from({ length: 11 }, (_, index) => `Tag ${index + 1}`);
+  const many = render({ ...base, tags, onOpen() {} });
+  assert.equal((many.match(/>Tag \d+</g) ?? []).length, 11);
+  assert.match(many, /flex min-w-0 flex-wrap gap-2/);
+  const bare = render({ ...base, description: undefined, details: undefined, onOpen() {} });
+  assert.doesNotMatch(bare, /line-clamp-2/);
+  assert.match(bare, /Unrated/);
+  // With and without the like control, the footer holds the open action and the tags in the same order.
+  const withLike = render({ ...base, likeCount: 3, liked: false, onToggleLike() {}, href: "/dashboard/problems/x" });
+  const without = render({ ...base, href: "/dashboard/problems/x" });
+  assert.ok(withLike.indexOf("Open problem") < withLike.indexOf("data-like-control") && withLike.indexOf("data-like-control") < withLike.indexOf("Mechanics"));
+  assert.ok(without.indexOf("Open problem") < without.indexOf("Mechanics"));
+});
+
+test("the like slot keeps the height of the toggle while statistics load, and a refresh takes no room", () => {
+  const loading = render({ ...base, onOpen() {}, likeAccess: "ready", likeBusy: true, likeStatus: "Loading statistics…" });
+  assert.match(loading, /<div class="flex min-h-11 items-center"><p role="status">Loading statistics…<\/p><\/div>/);
+  const loaded = render({ ...base, onOpen() {}, likeCount: 4, liked: true, onToggleLike() {} });
+  assert.match(loaded, /data-like-control[^>]*><div class="flex min-h-11 flex-wrap items-center gap-2">/);
+  // After a change the new statistics are fetched. That is announced, but it is not drawn, so the footer does not move.
+  const refreshing = render({ ...base, onOpen() {}, likeCount: 4, liked: true, onToggleLike() {}, likeBusy: true, likeStatus: "Refreshing statistics…" });
+  assert.match(refreshing, /<p role="status" class="sr-only">Refreshing statistics…<\/p>/);
+});
+
+test("the skeleton has the same box as a card, is hidden from assistive technology and has nothing to press", () => {
+  const html = renderToStaticMarkup(createElement(ProblemCardSkeleton));
+  const card = render({ ...base, onOpen() {} });
+  for (const shared of [/problem-entry relative flex min-w-0 flex-col gap-0 overflow-hidden py-0 sm:flex-row \[overflow-wrap:anywhere\]/, /problem-entry-details flex flex-col gap-4 px-4 py-4 sm:flex-row-reverse sm:items-end sm:justify-between sm:px-6/, /flex min-w-0 flex-1 flex-col/, /flex flex-1 flex-col gap-4 p-4 sm:p-6/, /sm:w-40 sm:border-b-0 sm:border-l-4/]) {
+    assert.match(html, shared);
+    assert.match(card, shared);
+  }
+  assert.match(html, /^<div class="problem-entry-lift min-w-0" aria-hidden="true" data-problem-card-skeleton/);
+  assert.doesNotMatch(html, /<a[\s>]|<button[\s>]|role="article"|tabindex/);
+  // The pulse is only for people who have not asked for less motion.
+  assert.match(html, /motion-safe:animate-pulse/);
+  assert.doesNotMatch(html.replaceAll("motion-safe:animate-pulse", ""), /animate-/);
+  // One announcement for the list, and the placeholders are the only other thing in it.
+  const list = renderToStaticMarkup(createElement(ProblemCardSkeletonList, { label: "Loading collection…", count: 3 }));
+  assert.match(list, /^<div role="status" aria-busy="true"[^>]*><span class="sr-only">Loading collection…<\/span>/);
+  assert.equal((list.match(/data-problem-card-skeleton/g) ?? []).length, 3);
+});
+
+test("the stylesheet lifts the card 2px and darkens its border on hover, and only where hover and motion are allowed", () => {
+  const css = readFileSync("app/globals.css", "utf8");
+  const lift = css.match(/@media \(hover: hover\) and \(prefers-reduced-motion: no-preference\) \{\s*\.problem-entry-lift:hover > \.problem-entry \{\s*transform: translateY\(-2px\);/);
+  assert.ok(lift, "the 2px lift is inside hover and no-preference");
+  assert.equal((css.match(/translateY\(-2px\)/g) ?? []).length, 1);
+  // The transition is inside no-preference too, so a person who asked for less motion sees no animation at all.
+  assert.match(css, /@media \(prefers-reduced-motion: no-preference\) \{\s*\.problem-entry \{\s*transition:/);
+  const outside = css.replace(/@media \(prefers-reduced-motion: no-preference\) \{[\s\S]*?\n\}\n/, "");
+  assert.doesNotMatch(outside.slice(outside.indexOf(".problem-entry {"), outside.indexOf(".featured-contest-card")), /transition:/);
+  // A stronger border for hover and keyboard focus. The old 40% was lighter than the resting border on a light card.
+  assert.match(css, /\.problem-entry:has\(:focus-visible\) \{\s*border-color: hsl\(var\(--foreground\) \/ 0\.7\);/);
+  // Keyboard focus also outlines the whole card in the foreground colour. It does not depend on hover or on the button ring token.
+  assert.match(css, /\.problem-entry:has\(:focus-visible\) \{[^}]*outline: 2px solid hsl\(var\(--foreground\)\);\s*outline-offset: 2px;/);
+  assert.match(css, /@media \(hover: hover\) \{\s*\.problem-entry-lift:hover > \.problem-entry \{\s*border-color: hsl\(var\(--foreground\) \/ 0\.7\);/);
+  assert.doesNotMatch(css, /foreground \/ 0\.4\);/);
 });

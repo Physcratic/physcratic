@@ -83,17 +83,15 @@ test("the band colour keeps 4.5:1 for text on its soft tint, and 3:1 for the str
   }
 })
 
-test("the card maps each band id to its token, and the competition badges and card border are neutral", () => {
+test("the card maps each band id to its token, the card border is neutral and no competition has a badge colour", () => {
   for (const [band, name] of ratingBands.map((entry, index) => [entry, names[index]] as const)) {
     assert.match(css, new RegExp(`\\.problem-entry\\[data-level="${band.id}"\\]\\s*\\{\\s*--band:\\s*var\\(--band-${name}\\);`), band.id)
   }
   const card = css.slice(css.indexOf(".problem-entry {"), css.indexOf("}", css.indexOf(".problem-entry {")))
   assert.match(card, /border:\s*1px solid hsl\(var\(--border\)\)/)
   assert.doesNotMatch(css, /\.problem-entry\[data-competition/)
+  // The neutral ipho, apho and eupho badge variants were unused after phase 2, so they are gone. The host flag tells the
+  // competitions apart, and nothing can give one of them a colour of its own.
   const badge = readFileSync("components/ui/badge.tsx", "utf8")
-  for (const competition of ["ipho", "apho", "eupho"]) {
-    const line = new RegExp(`${competition}:\\s*"([^"]*)"`).exec(badge)
-    assert.ok(line, competition)
-    assert.doesNotMatch(line[1], /elo-|band-|primary/, `${competition} is neutral`)
-  }
+  for (const competition of ["ipho", "apho", "eupho"]) assert.doesNotMatch(badge, new RegExp(`\\b${competition}:`), competition)
 })
