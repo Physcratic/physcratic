@@ -1,4 +1,25 @@
-# Temporary serving LOGIN assertion
+# Serving LOGIN attestation record
+
+## Owner-accepted Production evidence (19 November 2026)
+
+The owner accepted the restricted serving LOGIN sample on
+`dpl_4UWwiYwhWZs28XPuKo5mpSv3Jgbq` at source
+`cd1e2c79b41e3d57e9eaa72bdef8e12a80014dc7`. The private
+`runtime_login_attestation` version 2 receipt recorded `verified` at
+`2026-11-19T11:47:47.606Z`, and the collection HTTP acceptance passed.
+The receipt applies to that deployment and sampled application pool.
+
+The owner confirmed that the window expired at `2026-11-19T12:00:00.000Z`
+and the temporary Production environment variable was removed. The code
+cleanup restores the ordinary Arena collection handler and removes the
+observer, its tests and its CI step. Preserve the existing Production
+`DATABASE_URL` binding to `physcratic_runtime_app`. Later releases still
+require their own deployment and binding continuity checks.
+
+## Archived PR #212 procedure
+
+<details>
+<summary>Historical operator runbook and pre-observation evidence</summary>
 
 ## Evidence and current decision
 
@@ -154,3 +175,5 @@ saturated pool. A local built-Next smoke can be enabled with
 `ATTESTATION_SERVING_SMOKE=1` on the same disposable PG runner. It checks the
 ordinary and approved HTTP responses and the post-response receipt. Actual
 Vercel runtime logs and the pooled Production binding remain owner evidence.
+
+</details>
