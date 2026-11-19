@@ -22,7 +22,13 @@
       "statementFile": "01_Mind_the_Gap_Problem.pdf",
       "solutionFile": "01_Mind_the_Gap_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-mind-the-gap.json"
+      "path": "/corpus/arena/arena-mind-the-gap.json",
+      "image": {
+        "src": "/corpus/arena/figures/mind-the-gap-statement.png",
+        "alt": "Lens resting on a reference surface, with ring radius and air gap labelled",
+        "width": 720,
+        "height": 350
+      }
     },
     {
       "id": "arena-the-bubble-treaty",
@@ -37,7 +43,13 @@
       "statementFile": "01_The_Bubble_Treaty_Problem.pdf",
       "solutionFile": "01_The_Bubble_Treaty_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-the-bubble-treaty.json"
+      "path": "/corpus/arena/arena-the-bubble-treaty.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-bubble-treaty-statement.png",
+        "alt": "Cross sections of attached bubbles with a shared film",
+        "width": 670,
+        "height": 200
+      }
     },
     {
       "id": "arena-the-cosmic-kitchen",
@@ -52,7 +64,13 @@
       "statementFile": "01_The_Cosmic_Kitchen_Problem.pdf",
       "solutionFile": "01_The_Cosmic_Kitchen_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-the-cosmic-kitchen.json"
+      "path": "/corpus/arena/arena-the-cosmic-kitchen.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-cosmic-kitchen-statement.png",
+        "alt": "Comoving points A and B with position vectors from O",
+        "width": 300,
+        "height": 230
+      }
     },
     {
       "id": "arena-the-five-fold-collision",
@@ -67,7 +85,13 @@
       "statementFile": "01_The_Five_Fold_Collision_Problem.pdf",
       "solutionFile": "01_The_Five_Fold_Collision_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-the-five-fold-collision.json"
+      "path": "/corpus/arena/arena-the-five-fold-collision.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-five-fold-collision-statement.png",
+        "alt": "Particle of mass 4m moving at 0.6c toward a stationary mass m",
+        "width": 630,
+        "height": 134
+      }
     },
     {
       "id": "arena-the-phantom-charge",
@@ -82,7 +106,13 @@
       "statementFile": "01_The_Phantom_Charge_Problem.pdf",
       "solutionFile": "01_The_Phantom_Charge_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-the-phantom-charge.json"
+      "path": "/corpus/arena/arena-the-phantom-charge.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-phantom-charge-statement.png",
+        "alt": "Charged sheet, annulus and observation point P on the z-axis",
+        "width": 490,
+        "height": 372
+      }
     },
     {
       "id": "arena-the-string-that-answered-back",
@@ -97,7 +127,13 @@
       "statementFile": "01_The_String_That_Answered_Back_Problem.pdf",
       "solutionFile": "01_The_String_That_Answered_Back_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-the-string-that-answered-back.json"
+      "path": "/corpus/arena/arena-the-string-that-answered-back.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-string-that-answered-back-statement.png",
+        "alt": "String fixed at both ends with a force applied at x = a",
+        "width": 670,
+        "height": 200
+      }
     },
     {
       "id": "arena-the-clock-in-the-racing-mirror",
@@ -112,7 +148,13 @@
       "statementFile": "02_The_Clock_in_the_Racing_Mirror_Problem.pdf",
       "solutionFile": "02_The_Clock_in_the_Racing_Mirror_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-the-clock-in-the-racing-mirror.json"
+      "path": "/corpus/arena/arena-the-clock-in-the-racing-mirror.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-clock-in-the-racing-mirror-statement.png",
+        "alt": "Camera and clock facing an approaching mirror, with light paths",
+        "width": 650,
+        "height": 194
+      }
     },
     {
       "id": "arena-the-dodecahedron-conspiracy",
@@ -127,7 +169,13 @@
       "statementFile": "02_The_Dodecahedron_Conspiracy_Problem.pdf",
       "solutionFile": "02_The_Dodecahedron_Conspiracy_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-the-dodecahedron-conspiracy.json"
+      "path": "/corpus/arena/arena-the-dodecahedron-conspiracy.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-dodecahedron-conspiracy-statement.png",
+        "alt": "A regular dodecahedron with pentagonal faces",
+        "width": 380,
+        "height": 320
+      }
     },
     {
       "id": "arena-the-gas-with-elbows",
@@ -157,7 +205,13 @@
       "statementFile": "02_The_Quantum_Escape_Room_Problem.pdf",
       "solutionFile": "02_The_Quantum_Escape_Room_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-the-quantum-escape-room.json"
+      "path": "/corpus/arena/arena-the-quantum-escape-room.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-quantum-escape-room-statement.png",
+        "alt": "Particle meeting a potential barrier at an angle",
+        "width": 330,
+        "height": 230
+      }
     },
     {
       "id": "arena-the-three-way-wave-split",
@@ -172,7 +226,13 @@
       "statementFile": "02_The_Three_Way_Wave_Split_Problem.pdf",
       "solutionFile": "02_The_Three_Way_Wave_Split_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-the-three-way-wave-split.json"
+      "path": "/corpus/arena/arena-the-three-way-wave-split.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-three-way-wave-split-statement.png",
+        "alt": "Three strings meeting at a junction",
+        "width": 550,
+        "height": 370
+      }
     },
     {
       "id": "arena-titans-double-take",
@@ -187,7 +247,13 @@
       "statementFile": "02_Titans_Double_Take_Problem.pdf",
       "solutionFile": "02_Titans_Double_Take_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-titans-double-take.json"
+      "path": "/corpus/arena/arena-titans-double-take.json",
+      "image": {
+        "src": "/corpus/arena/figures/titans-double-take-statement.png",
+        "alt": "Sunlight, observer and rainbow cone with a 49 degree half-angle",
+        "width": 650,
+        "height": 600
+      }
     },
     {
       "id": "arena-a-grin-and-a-wiggle",
@@ -202,7 +268,13 @@
       "statementFile": "03_A_GRIN_and_a_Wiggle_Problem.pdf",
       "solutionFile": "03_A_GRIN_and_a_Wiggle_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-a-grin-and-a-wiggle.json"
+      "path": "/corpus/arena/arena-a-grin-and-a-wiggle.json",
+      "image": {
+        "src": "/corpus/arena/figures/a-grin-and-a-wiggle-statement.png",
+        "alt": "Rays through a graded-index cylinder, drawn twice",
+        "width": 930,
+        "height": 250
+      }
     },
     {
       "id": "arena-an-atom-with-stage-fright",
@@ -232,7 +304,13 @@
       "statementFile": "03_The_Invisible_Brake_Problem.pdf",
       "solutionFile": "03_The_ Invisible_Brake_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-the-invisible-brake.json"
+      "path": "/corpus/arena/arena-the-invisible-brake.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-invisible-brake-statement.png",
+        "alt": "Moving parallel plates and gas flow through a pipe",
+        "width": 680,
+        "height": 210
+      }
     },
     {
       "id": "arena-the-bending-beam-riddle",
@@ -247,7 +325,13 @@
       "statementFile": "03_The_Bending_Beam_Riddle_Problem.pdf",
       "solutionFile": "03_The_Bending_Beam_Riddle_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-the-bending-beam-riddle.json"
+      "path": "/corpus/arena/arena-the-bending-beam-riddle.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-bending-beam-riddle-statement.png",
+        "alt": "Beam with shear forces, a bent beam and a beam wave",
+        "width": 860,
+        "height": 180
+      }
     },
     {
       "id": "arena-the-capacitors-missing-energy",
@@ -262,7 +346,13 @@
       "statementFile": "03_The_Capacitors_Missing_Energy_Problem.pdf",
       "solutionFile": "03_The_Capacitors_Missing_Energy_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-the-capacitors-missing-energy.json"
+      "path": "/corpus/arena/arena-the-capacitors-missing-energy.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-capacitors-missing-energy-statement.png",
+        "alt": "Parallel-plate capacitor with insulating struts in a field",
+        "width": 420,
+        "height": 270
+      }
     },
     {
       "id": "arena-the-infinite-v",
@@ -277,7 +367,13 @@
       "statementFile": "03_The_Infinite_V_Problem.pdf",
       "solutionFile": "03_The_Infinite_V_Solution.pdf",
       "importedOn": "2026-10-31",
-      "path": "/corpus/arena/arena-the-infinite-v.json"
+      "path": "/corpus/arena/arena-the-infinite-v.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-infinite-v-statement.png",
+        "alt": "Two charged half-planes forming a V, with a point P",
+        "width": 590,
+        "height": 366
+      }
     },
     {
       "id": "arena-cat-on-a-plank",
@@ -307,7 +403,13 @@
           "Set $$ML/(6m)=L/3$$ and solve for $$m$$. The length cancels."
         ]
       },
-      "path": "/corpus/arena/arena-cat-on-a-plank.json"
+      "path": "/corpus/arena/arena-cat-on-a-plank.json",
+      "image": {
+        "src": "/corpus/arena/figures/cat-on-a-plank-statement.svg",
+        "alt": "Cat on a plank that overhangs a table edge",
+        "width": 560,
+        "height": 300
+      }
     },
     {
       "id": "arena-two-sleds-one-rope",
@@ -456,7 +558,13 @@
           "Use $$t=\\theta/\\omega$$ with the angle of part (b) in radians, $$\\theta=\\pi/6$$."
         ]
       },
-      "path": "/corpus/arena/arena-the-magnetic-slab.json"
+      "path": "/corpus/arena/arena-the-magnetic-slab.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-magnetic-slab-statement.svg",
+        "alt": "Charged particle bending through a magnetic slab",
+        "width": 560,
+        "height": 300
+      }
     },
     {
       "id": "arena-two-charges-head-on",
@@ -518,7 +626,13 @@
           "The lower ball gains at the rate $$\\omega/2$$, so the time is $$2\\pi/(\\omega/2)=2T$$, with $$T=2\\pi\\tan\\alpha\\sqrt{h/g}$$."
         ]
       },
-      "path": "/corpus/arena/arena-round-the-funnel.json"
+      "path": "/corpus/arena/arena-round-the-funnel.json",
+      "image": {
+        "src": "/corpus/arena/figures/round-the-funnel-statement.svg",
+        "alt": "Two balls circling at different heights inside a cone",
+        "width": 560,
+        "height": 300
+      }
     },
     {
       "id": "arena-the-rectangular-cycle",
@@ -549,7 +663,13 @@
           "The factors $$p_0V_0$$ cancel, leaving $$2$$ divided by $$23/2$$."
         ]
       },
-      "path": "/corpus/arena/arena-the-rectangular-cycle.json"
+      "path": "/corpus/arena/arena-the-rectangular-cycle.json",
+      "image": {
+        "src": "/corpus/arena/figures/the-rectangular-cycle-statement.svg",
+        "alt": "Rectangular cycle on a pressure and volume diagram",
+        "width": 560,
+        "height": 300
+      }
     },
     {
       "id": "arena-a-lamp-under-a-raft",
@@ -579,7 +699,13 @@
           "Solve the result of part (a) for the depth, $$h=R\\sqrt{n^2-1}$$."
         ]
       },
-      "path": "/corpus/arena/arena-a-lamp-under-a-raft.json"
+      "path": "/corpus/arena/arena-a-lamp-under-a-raft.json",
+      "image": {
+        "src": "/corpus/arena/figures/a-lamp-under-a-raft-statement.svg",
+        "alt": "Lamp under a floating raft with a ray at the critical angle",
+        "width": 560,
+        "height": 300
+      }
     },
     {
       "id": "arena-walking-past-two-speakers",
@@ -610,7 +736,13 @@
           "Put $$d=3.0\\ \\mathrm m$$ and $$\\Delta=0.5\\ \\mathrm m$$ into your result from part (a)."
         ]
       },
-      "path": "/corpus/arena/arena-walking-past-two-speakers.json"
+      "path": "/corpus/arena/arena-walking-past-two-speakers.json",
+      "image": {
+        "src": "/corpus/arena/figures/walking-past-two-speakers-statement.svg",
+        "alt": "Listener walking away from two speakers on a vertical line",
+        "width": 560,
+        "height": 300
+      }
     },
     {
       "id": "arena-two-isotopes-one-sample",
