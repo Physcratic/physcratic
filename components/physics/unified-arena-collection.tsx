@@ -7,6 +7,7 @@ import { AchievementShowcase } from '@/components/community/achievement-badge';
 import {ProblemStatsBatch,useProblemFavourite,type ProblemFavourite} from '@/components/community/problem-stats';
 import { ProblemCard, ProblemCardSkeletonList } from './problem-card';
 import { describeEstimate } from '@/lib/rating-bands';
+import { arenaCardImage } from '@/lib/arena/card-image';
 
 // Card props for the favourite control. Empty without statistics, so the card renders as it did before.
 function likeProps(f:ProblemFavourite|null){
@@ -21,7 +22,7 @@ function likeProps(f:ProblemFavourite|null){
 export function UnifiedProblemCard({problem}:{problem:CollectionEntry}) {
  const favourite=useProblemFavourite(problem.key),solves=favourite?.stat?.solves;
  return <ProblemCard id={problem.key} title={problem.title} source={problem.kind==='arena'?'Physcratic':'Community'}
-  description={problem.summary} tags={problem.tags} elo={problem.elo} href={problemHref(problem)} {...likeProps(favourite)}
+  description={problem.summary} tags={problem.tags} elo={problem.elo} href={problemHref(problem)} image={problem.kind==='arena'?arenaCardImage(problem.id):undefined} {...likeProps(favourite)}
   attribution={<>{solves!==undefined&&solves!==null&&<p className="text-sm">{`${solves.toLocaleString('en-US')} verified ${solves===1?'solve':'solves'}`}</p>}{problem.kind==='arena'?<p className="text-sm">Published by Physcratic</p>:<>
    <p className="text-sm">By {problem.author?<Link className="underline" href={`/u/${problem.author.handle}`}>{problem.author.displayName||'@'+problem.author.handle}</Link>:'Community author'}</p>
    {problem.author&&<AchievementShowcase ids={problem.author.selectedIds} medals={problem.author.medals}/>}

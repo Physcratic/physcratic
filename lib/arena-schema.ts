@@ -31,7 +31,16 @@ export const arenaProblemSchema = z.object({
 });
 export type ArenaProblem = z.infer<typeof arenaProblemSchema>;
 export type ArenaSeed = Omit<ArenaProblem, "importedOn" | "solutionFile"> & { solutionFile?: string; importedOn?: string };
-export type ArenaCatalogEntry = Omit<ArenaProblem, "statement" | "solution"> & { path: string };
+/** The figure a card shows. It is the first image of the statement, never a solution image, and it is a public static file. */
+export const arenaCardImageSchema = z.object({
+  src: z.string().regex(/^\/corpus\/arena\/figures\/[a-z0-9-]+-statement\.(?:png|svg)$/),
+  /** A short description of the figure for a screen reader, not a file name. */
+  alt: z.string().min(10).max(90),
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+});
+export type ArenaCardImage = z.infer<typeof arenaCardImageSchema>;
+export type ArenaCatalogEntry = Omit<ArenaProblem, "statement" | "solution"> & { path: string; image?: ArenaCardImage };
 
 export function filterArena(problems: ArenaCatalogEntry[], { query = "", topic = "all", difficulty = "all" }: { query?: string; topic?: string; difficulty?: string }) {
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);

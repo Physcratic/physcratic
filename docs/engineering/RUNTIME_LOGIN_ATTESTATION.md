@@ -1,5 +1,23 @@
 # Temporary serving LOGIN assertion
 
+## Evidence and current decision
+
+The [Phase B report](PHASE_B_OWNER_REPORT.md) records an earlier owner-accepted
+sample from the serving application pool. The owner also confirmed the PR204
+cleanup deployment `dpl_A4rYge5pwgYzVMhD6JYgabQ8NexB` from
+`4f840e67f359e558d49f44a4b81966012638fc9a` and removal of the temporary variable.
+The [historical instrumentation and removal record](https://github.com/Physcratic/physcratic/blob/e125a983c261baa9dc30d9f4928bcea2db38dd8a/docs/engineering/RUNTIME_LOGIN_ATTESTATION.md)
+retains the original evidence and procedure.
+
+At this review, Vercel resolved `physcratic.com` to READY Production deployment
+`dpl_FGmJjtsCjiePTeiqGrDqPo3xWUGr`, from
+`e125a983c261baa9dc30d9f4928bcea2db38dd8a`. This establishes the alias and source
+only. The current serving LOGIN is unverified. Cutover remains **NO-GO** until
+the owner reconciles the current binding and accepts a sample for the exact
+candidate. Recheck the actual alias and source before any operation.
+
+## Mechanism and limits
+
 The Phase C cutover needs evidence from the serving application pool. Neon
 pooler connection logs identify PgBouncer, and the available log fields and
 Vercel invocation metadata do not join a request to an authenticated PostgreSQL
@@ -32,30 +50,56 @@ history, transcripts, request-log capture and shared artifacts.
 
 ## Owner procedure
 
-1. Obtain approval of the exact release SHA, Production binding change, temporary
-   configuration, one guest request, private logs, observation budget and removal.
-   Confirm the existing pooled host and `verify-full` settings, preserve Batch A
-   and the other gates, and retain the prior READY owner-bound deployment and
-   recoverable saved binding. Verify that runtime system variables expose
-   `VERCEL_ENV`, full `VERCEL_GIT_COMMIT_SHA` and `VERCEL_DEPLOYMENT_ID`.
-   The Function duration needs room for its normal response plus the probe.
-2. Privately prepare a new 16-byte random lowercase hex `runId` and a separate
-   32-byte random lowercase hex `requestKey`. Set the sensitive,
-   Production-scoped `PHYSCRATIC_RUNTIME_LOGIN_ATTESTATION` value for the approved
-   release. The JSON has exactly these fields. Use JS ISO UTC timestamps with
-   milliseconds and a positive window of at most 15 minutes. Place the start
-   after the expected release readiness.
+1. After exact-head review and passing required CI, obtain code-merge approval.
+   Leave the temporary configuration absent and preserve the Production binding
+   during the code merge. The normal Git deployment, if eligible, runs with the
+   probe off. Record the actual final `main` release SHA after merge and verify
+   its CI. Squash and merge commits can have a different SHA from the PR head.
+   A blocked Git deployment is a stop under repository rules.
+2. Before requesting the separately authorized cutover candidate, confirm the
+   project, current `physcratic.com` assignment, exact release SHA and recovery
+   references. The rollback deployment must be READY and independently usable.
+   Record its exact saved binding privately and verify both recovery paths.
+   Confirm the pooled target and `verify-full` settings, Batch A and all other
+   gates, owner runtime-log access, and a Function duration that leaves room
+   for the normal response plus the probe.
+
+   **System variable preflight.** [Vercel documents](https://vercel.com/docs/environment-variables/system-environment-variables)
+   `VERCEL_ENV`, `VERCEL_GIT_COMMIT_SHA` and `VERCEL_DEPLOYMENT_ID` at runtime
+   when system variables are exposed. Deployment metadata showed the project's
+   Production Git SHA and deployment ID, but did not establish injection into
+   the Function. The owner must verify that **Automatically expose System
+   Environment Variables** is already enabled in the project and that the
+   approved Git-backed release provides all three at runtime. Stop if availability
+   cannot be established. Do not set substitute values, change the setting or
+   use a prebuilt or otherwise unqualified deploy path to force the probe on.
+3. Obtain explicit approval for the candidate deployment, restricted binding,
+   temporary configuration, one guest read, private logs, window and removal.
+   Generate a new 16-byte random lowercase hex `runId` and a separate 32-byte
+   random lowercase hex `requestKey`. Set the sensitive Production-only
+   `PHYSCRATIC_RUNTIME_LOGIN_ATTESTATION` value with the actual final SHA. Use
+   ISO UTC timestamps with milliseconds. Set `notBefore` after the expected
+   build and READY/alias verification, leaving a build buffer before the window.
+   Set `expiresAt` at most 15 minutes after `notBefore`. The build buffer is
+   outside the observation window. Use exactly these fields.
 
    ```json
    {"runId":"<32 lowercase hex>","commitSha":"<40 lowercase hex>","notBefore":"<ISO UTC with milliseconds>","expiresAt":"<ISO UTC with milliseconds>","requestKey":"<64 lowercase hex>"}
    ```
 
-3. Release through the approved owner process with the restricted pooled binding.
-   Confirm the actual READY deployment and `physcratic.com` alias. In a private
-   PowerShell 7.2+ session, use the approved run ID, SHA and actual deployment ID in
-   the following command during the window. The request key is entered in a hidden
-   prompt. The request sends neither a cookie nor an Authorization header and
-   follows no redirects.
+4. Save the approved candidate binding and temporary configuration before the
+   new build starts. [Vercel applies environment edits only to new deployments](https://vercel.com/docs/environment-variables/managing-environment-variables).
+   The owner uses the approved Vercel Git-backed Production redeploy of the
+   eligible final-SHA deployment, keeping the original Git revision, or the
+   equivalent authorized Git-backed release pinned to that SHA. Verify a new
+   deployment ID, the exact SHA, READY and actual alias routing before the
+   window opens. A promotion alone cannot pick up the configuration. If
+   readiness or routing misses the planned start, stop and record UNPROVEN.
+   Any later attempt needs a fresh approved window, run ID, request key and new
+   deployment. Never redeploy a blocked commit.
+5. During the approved window, use the actual serving deployment ID, final SHA
+   and run ID in a private PowerShell 7.2+ session. The command prompts for the
+   key privately, sends no cookie or Authorization header, and follows no redirects.
 
    ```powershell
    $RunId = Read-Host 'Approved run ID'
@@ -80,7 +124,7 @@ history, transcripts, request-log capture and shared artifacts.
    }
    ```
 
-4. Accept only a normal HTTP 200 collection read with the expected booleans
+6. Accept only a normal HTTP 200 collection read with the expected booleans
    and one private `verified` record correlated to that invocation's provider
    deployment metadata, exact run ID and SHA, and an in-window time. An absent
    record, mismatch, unavailable, late deployment or wrong context is unproven.
@@ -91,8 +135,9 @@ history, transcripts, request-log capture and shared artifacts.
 
 At expiry the probe stops accepting requests. If cutover fails, follow the
 approved owner rollback for both routing and the persistent Production binding.
-Use the recorded prior deployment and saved binding, then recheck role, alias,
-Batch A and current sessions. Keep migrations, grants and data in place.
+Restore routing to the recorded prior READY deployment and restore its exact
+saved Production binding. Then recheck alias, effective role evidence, Batch A
+and current sessions. Keep migrations, grants and data in place.
 
 After acceptance or rollback, remove the temporary saved configuration through
 the approved owner process. Verify the intended serving deployment and observe

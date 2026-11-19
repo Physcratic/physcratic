@@ -86,3 +86,11 @@ No em dashes, en dashes or semicolons. No banned words from CONTRIBUTING.md. Spe
 - The base `.problem-entry` rule is gone because the Card utilities set the same values. `data-competition` stays because `tests/archive.browser.mjs` reads it.
 - The light `--ring` is 22 65% 48% (3.52:1 on the page, 3.88:1 on the card). The card keeps its own foreground outline. The shared ring open item from phase 4 is closed.
 - Files: `app/globals.css`, `components/physics/problem-card.tsx`, `lib/rating-band-colours.test.ts`, `tests/problem-card.test.ts`, three docs. No file pinned by an activation or runtime-role manifest changed.
+
+### Phase 5 Card image (C2)
+- `ProblemCard` takes an optional `image` ({src, alt, width, height}). With none, the markup is identical. Only the two Arena callers pass it (`unified-arena-collection.tsx` for Arena entries, `arena-collection.tsx`). Corpus, olympiad and archive callers pass nothing.
+- Frame: 120px high on a phone and 160px from 640px (width 176px, 240px from 1024px), `rounded-lg` (the card radius token) with 8px padding, white ground because the figures are drawn on white, `object-contain`. The picture's own corners are the token minus the 8px padding, 4px. Strictly, a frame inset 16px or 24px from the card edge would have a nested radius of 0, so the rule is applied inside the frame.
+- Placement: DOM order is text, then picture, then footer, so below 640px it sits between the title block and the footer. From 640px the content row is `sm:flex-row` and the picture is on the right. The stretched link still covers the picture, so a press opens the problem. No new control, no tab stop.
+- Data: `scripts/build-arena.ts` takes the first statement figure, measures it with sharp and adds `image` to `lib/arena/index.json`. Short alt text is in `lib/arena/card-images.ts`. `lib/arena-card-images.test.ts` guards that no path is a solution image, every file exists with the stored size, and alt is short and not a file name.
+- Open: the loading skeleton has no picture slot, so a card with a figure is taller than its skeleton, by 38px on desktop and 136px on a phone in the cards measured (the 11 problems without a figure are unchanged). Community cards have no image, since their media route is `private, no-store` and serves full-size originals.
+
