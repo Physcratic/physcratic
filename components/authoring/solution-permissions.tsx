@@ -8,6 +8,7 @@ import {
 } from "@/lib/authored-student";
 import { Button } from "@/components/ui/button";
 import { Field, inputClass } from "./editor-fields";
+import { dateInputToExpiry, expiryDateProblem, expiryToDateInput, todayUtc } from "@/lib/solution-expiry";
 const id = z.uuid();
 const metadata = z.object({
   problemId: id,
@@ -30,6 +31,7 @@ export function SolutionPermissions({ problemId }: { problemId: string }) {
     [images, setImages] = useState(false),
     [message, setMessage] = useState(""),
     [busy, setBusy] = useState(false);
+  const expiryProblem = expiryDateProblem(expiryToDateInput(expiry));
   const epoch = useRef(0),
     lock = useRef(false);
   useEffect(
@@ -258,21 +260,29 @@ export function SolutionPermissions({ problemId }: { problemId: string }) {
             </label>
           ))}
           <Field
-            label="Solution expiry (UTC ISO 8601, optional)"
+            label="Student access ends on (optional)"
           >
             {(id) => (
-              <input
-                id={id}
-                className={inputClass}
-                value={expiry}
-                onChange={(e) => setExpiry(e.target.value)}
-              />
+              <>
+                <input
+                  id={id}
+                  type="date"
+                  className={`${inputClass} sm:max-w-56`}
+                  min={todayUtc()}
+                  value={expiryToDateInput(expiry)}
+                  aria-invalid={expiryProblem ? true : undefined}
+                  aria-describedby={expiryProblem ? `${id}-help ${id}-error` : `${id}-help`}
+                  onChange={(e) => setExpiry(dateInputToExpiry(e.target.value, data?.expiresAt) ?? "")}
+                />
+                <p id={`${id}-help`} className="text-sm text-muted-foreground">Access lasts through this day, counted in UTC. Leave it empty for no end date.</p>
+                {expiryProblem && <p id={`${id}-error`} className="text-sm font-medium text-destructive">{expiryProblem}</p>}
+              </>
             )}
           </Field>
           <div className="flex flex-wrap gap-3">
             <Button
               type="button"
-              disabled={busy}
+              disabled={busy || Boolean(expiryProblem)}
               onClick={() => void save(true)}
             >
               Confirm student access

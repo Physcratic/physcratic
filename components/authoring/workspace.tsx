@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, FilePlus2, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ErrorText, HowItWorksLink, studioTokens } from "./studio-ui";
+import { ErrorText, HowItWorksLink, RecoverySection, studioTokens } from "./studio-ui";
 import {
   draftRequest,
   editorBase,
@@ -160,7 +160,8 @@ export function AuthoringWorkspace({ userId, publicSolutionsEnabled=false }: { u
             New problem
           </Button>
         </div>
-        <div className="my-4 space-y-2">
+        <RecoverySection active={false}>
+        <div className="space-y-2">
           <Button
             type="button"
             variant="outline"
@@ -197,6 +198,7 @@ export function AuthoringWorkspace({ userId, publicSolutionsEnabled=false }: { u
               "Private uploads removed from drafts can be cleaned after 24 hours. Historical files are retained."}
           </p>
         </div>
+        </RecoverySection>
         {(error || refreshRequired) && (
           <div
             role="alert"

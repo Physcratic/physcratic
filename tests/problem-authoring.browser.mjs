@@ -1016,6 +1016,7 @@ try {
   await remove.click();
   await page.getByRole("alert").getByText(/Removal was not confirmed/).waitFor();
   assert.equal(await remove.isDisabled(), true);
+  await page.getByRole("button", { name: "Recovery", exact: true }).click();
   await page.getByRole("button", { name: "Clean old unused uploads", exact: true }).click();
   await page.getByRole("alert").getByText(/Reload the list to check the removal status/).waitFor();
   await page.getByRole("button", { name: "Retry loading drafts", exact: true }).click();
