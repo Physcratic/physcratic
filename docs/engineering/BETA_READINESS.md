@@ -1,5 +1,9 @@
 # Beta readiness log
 
+## Library browser CI timeout (19 November 2026)
+
+The Public problem library browser job hit its 15-minute limit on PRs #205 and #209 because installing Chromium with system packages took up to 9.5 minutes on the runner. Its timeout is now 25 minutes. Test content is unchanged. The community statistics browser job is not changed, because its workflow file is pinned in scripts/activation/PACKAGE_SHA256SUMS. The workflow file is listed in scripts/public-solutions-release/PACKAGE_SHA256SUMS, which already failed before this change and is not checked by CI.
+
 ## Arena card image C2 (19 November 2026)
 
 An Arena card can now show the first image of its problem statement. 22 of the 33 Arena problems have one, and the other 11 render as before. The figure, its width and height come from the first image in the statement, read by `scripts/build-arena.ts` into `lib/arena/index.json`, with a short alt text for each in `lib/arena/card-images.ts`. The generator refuses a figure with no alt text, an alt text with no figure, and any path that is not a statement figure. `ProblemCard` takes an optional `image`. The frame is 120px high on a phone and 160px from 640px, light in both themes because the figures are drawn on white, with object-fit contain, lazy loading, async decoding and explicit width and height. From 640px the picture sits to the right of the text, below that it sits between the text and the footer. The card keeps one control, the stretched link. Only the Arena collections pass an image, so corpus, olympiad and archive cards are unchanged. The index grew by 4.8 KB and a page of 24 cards loads about 235 KB of figures lazily. Community problem cards stay text only, because their images are private-cache and full size. Pull request, not merged. No schema, auth, grading, flag or deployment change.
