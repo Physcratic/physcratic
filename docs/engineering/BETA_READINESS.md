@@ -4,6 +4,14 @@
 
 Problem pages have one way back and one clean header. The link reads "All problems" and is first after the skip link, 44px high. It goes to the dashboard problem list when signed in and to `/problems` for a guest. An archive problem goes to the archive list at its year, for both, for example `/problems/archive#ipho-2025`. The problem pages are built once with no session, so the server HTML links to `/problems` and a client component swaps the target when the session is known. The "Problem room" label and the `showLabel` option are gone. The Arena reader's own "Back to Physcratic Arena" link is gone (the code had one at the top and none at the bottom). The archive reader's "Back to all problems" button is hidden on a problem's own page and kept where the reader is embedded in the dashboard list. The wordmark stays on the right as "Physcratic home", linking to `/`, with no arrow. The breadcrumb is in the server HTML for crawlers and guests, and a signed-in person does not see it once the session is known, so there can be a brief flash of it on first load. The BreadcrumbList JSON-LD is untouched, and `tests/problem-header.test.ts` pins the hash of all 145 problem pages. The authored problem page uses the same header. No auth, routing, middleware, schema or deployment change, and no pinned file touched.
 
+## Serving LOGIN assertion recovery (19 November 2026)
+
+Draft PR #212 restores a default-off, deployment-bound probe for the existing
+Arena collection request. The earlier owner-accepted sample and PR204 cleanup
+remain historical evidence. The current serving LOGIN is unverified and the
+cutover remains NO-GO pending a new owner-accepted sample for the actual candidate.
+See [the owner procedure and exact acceptance criteria](RUNTIME_LOGIN_ATTESTATION.md).
+
 ## Library browser CI timeout (19 November 2026)
 
 The Public problem library browser job hit its 15-minute limit on PRs #205 and #209 because installing Chromium with system packages took up to 9.5 minutes on the runner. Its timeout is now 25 minutes. Test content is unchanged. The community statistics browser job is not changed, because its workflow file is pinned in scripts/activation/PACKAGE_SHA256SUMS. The workflow file is listed in scripts/public-solutions-release/PACKAGE_SHA256SUMS, which already failed before this change and is not checked by CI.

@@ -1,16 +1,17 @@
 # Production runtime role cutover proposal
 
-## Phase B checkpoint (19 November 2026)
+## Historical Phase B checkpoint (19 November 2026)
 
 Main4f840e67f359e558d49f44a4b81966012638fc9a includes cleanup PR204.
 The owner has accepted sampled serving-LOGIN evidence and confirmed cleanup
 Production dpl_A4rYge5pwgYzVMhD6JYgabQ8NexB, Ready on physcratic.com,
 with the temporary variable removed, profiles OFF and statistics ON. These
 private provider facts are owner-confirmed; source removal and exact-main CI
-were independently rechecked. Do not repeat attestation or its cleanup based on
-older pending/UNPROVEN prose below. They are historical checkpoints.
-Current authority: [Phase B report](PHASE_B_OWNER_REPORT.md) and
-[owner-only permission/activation checklist](PHASE_C_B1_RELEASE_CHECKLIST.md).
+were independently rechecked. The earlier sample applies to that checkpoint.
+Current serving LOGIN remains unverified. See [the serving LOGIN procedure](RUNTIME_LOGIN_ATTESTATION.md)
+for the cutover stop conditions and candidate evidence. The [Phase B report](PHASE_B_OWNER_REPORT.md)
+and [owner-only permission checklist](PHASE_C_B1_RELEASE_CHECKLIST.md) retain the
+historical permission evidence and separate approval requirements.
 Permission reconciliation still requires separate exact-artifact approvals.
 No Production operation is authorized or performed by this engineering task.
 
