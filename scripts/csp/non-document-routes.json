@@ -63,6 +63,7 @@
   "/api/solution-evidence/[id]",
   "/api/submission-info/[id]",
   "/api/submissions",
+  "/card-images/[problemId]/[revisionId]",
   "/coaching/opengraph-image",
   "/dashboard/problems/[id]/opengraph-image",
   "/learn/[slug]/opengraph-image",

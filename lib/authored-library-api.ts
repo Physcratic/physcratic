@@ -36,7 +36,7 @@ export async function authoredRating(pool: Pool, problemId: string): Promise<{ f
  * (a banned author keeps their published problems), shows none. The restriction table may be missing or unreadable on an
  * older deployment, and then nothing can be checked, so no image is shown and the list itself still works.
  */
-async function imageAllowed(pool: Pool, ids: string[]): Promise<Set<string>> {
+export async function imageAllowed(pool: Pool, ids: string[]): Promise<Set<string>> {
   if (!ids.length) return new Set();
   try {
     const query = {
