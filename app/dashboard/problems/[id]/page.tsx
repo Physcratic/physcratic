@@ -8,6 +8,8 @@ import { ArenaProblemReader } from "@/components/physics/arena-problem-reader";
 import { ArenaDocument } from "@/components/physics/arena-document";
 import { ArchiveStatementText } from "@/components/problems/archive-statement";
 import { CrumbTrail, RelatedProblems } from "@/components/problems/problem-links";
+import { GuestOnly } from "@/components/physics/problem-nav";
+import { archiveBackHref } from "@/lib/problem-back";
 import arena from "@/lib/arena/index.json";
 import type { ArenaCatalogEntry } from "@/lib/arena-schema";
 import { problemCrumbs } from "@/lib/seo/json-ld";
@@ -55,14 +57,15 @@ export default async function PracticeProblemPage({ params }: Props) {
   const { id } = await params;
   const page = findProblemPage(id);
   if (!page) notFound();
-  const crumbs = <div className="mx-auto w-full max-w-4xl"><CrumbTrail crumbs={problemCrumbs(page)} /></div>;
+  // The breadcrumb is in the server HTML for crawlers and guests. A signed-in person has the back link instead.
+  const crumbs = <GuestOnly><div className="mx-auto w-full max-w-4xl"><CrumbTrail crumbs={problemCrumbs(page)} /></div></GuestOnly>;
   const related = <div className="mx-auto mt-8 w-full max-w-4xl"><RelatedProblems page={page} related={relatedProblems(page)} /></div>;
 
   const arenaProblem = arena.problems.find((item) => item.id === id);
   if (arenaProblem) {
     const text = arenaStatementText(id);
     return (
-      <ProblemRoom>
+      <ProblemRoom backHref={archiveBackHref(page)}>
         {crumbs}
         <ArenaProblemReader
           moderationEnabled={communityModerationUiEnabled()}
@@ -79,7 +82,7 @@ export default async function PracticeProblemPage({ params }: Props) {
   if (!imported) notFound();
   const view = archiveStatementView(page);
   return (
-    <ProblemRoom>
+    <ProblemRoom backHref={archiveBackHref(page)}>
       {crumbs}
       <ImportedProblemRoute problem={imported.titleOrigin === "problem-identifier" ? { ...imported, title: page.title, titleLanguage: "en" } : imported} initialData={view?.native} />
       <div className="mx-auto mt-8 flex w-full max-w-4xl flex-col gap-8">

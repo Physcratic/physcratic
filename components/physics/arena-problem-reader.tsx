@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import Link from "next/link";
 import useSWRImmutable from "swr/immutable";
-import { ArrowLeft, RotateCcw } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import { arenaProblemSchema, type ArenaCatalogEntry } from "@/lib/arena-schema";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -40,7 +39,6 @@ function ArenaReader({ problem,statement,statsEnabled=false,commentsEnabled=fals
   const position = arenaIndex.problems.findIndex((item) => item.id === problem.id);
   const nextProblem = position >= 0 ? arenaIndex.problems[position + 1] : undefined;
   return <section className={`mx-auto flex w-full max-w-[1440px] min-w-0 flex-col gap-6 ${solveTokens}`} aria-labelledby="arena-problem-title">
-    <div><Button variant="ghost" className="min-h-11" asChild><Link href="/dashboard?view=problems&collection=arena"><ArrowLeft data-icon="inline-start" />Back to Physcratic Arena</Link></Button></div>
     <ProblemHeading id="arena-problem-title" title={problem.title} source="Physcratic Arena" estimate={String(getEstimatedProblemElo(problem.id))} tags={[problem.topic, ...problem.tags]}>
       <p className="text-pretty leading-relaxed text-muted-foreground">{problem.summary}</p>
       <p className="text-sm text-muted-foreground">Published by Physcratic</p>

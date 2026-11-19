@@ -193,7 +193,8 @@ export function ImportedProblemReader({
   initialData,
 }: {
   problem: CatalogProblem;
-  onBack: () => void;
+  /** Only for the embedded reader. On its own page the problem room header has the way back. */
+  onBack?: () => void;
   onOpenPilot?: (id: string) => void;
   /** True on the problem's own page, where the title is the page's h1. Inside the library it stays an h2. */
   asPage?: boolean;
@@ -228,20 +229,25 @@ export function ImportedProblemReader({
       className={`flex min-w-0 flex-col gap-5 ${solveTokens}`}
       aria-labelledby="imported-problem-title"
     >
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <Button variant="ghost" className="min-h-11" onClick={onBack}>
-          <ArrowLeft data-icon="inline-start" /> Back to all problems
-        </Button>
-        {problem.hasPilotGuide && onOpenPilot && (
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => onOpenPilot(problem.id)}
-          >
-            <BookOpen data-icon="inline-start" /> Structured subpart guide
-          </Button>
-        )}
-      </div>
+      {/* On its own page the problem room header has the one way back. Embedded in the dashboard list, this is it. */}
+      {((!asPage && onBack) || (problem.hasPilotGuide && onOpenPilot)) && (
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          {!asPage && onBack && (
+            <Button variant="ghost" className="min-h-11" onClick={onBack}>
+              <ArrowLeft data-icon="inline-start" /> Back to all problems
+            </Button>
+          )}
+          {problem.hasPilotGuide && onOpenPilot && (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => onOpenPilot(problem.id)}
+            >
+              <BookOpen data-icon="inline-start" /> Structured subpart guide
+            </Button>
+          )}
+        </div>
+      )}
       <ProblemHeading id="imported-problem-title" as={asPage ? "h1" : "h2"} title={problem.title} lang={problem.titleLanguage} source={problem.competition} year={problem.year} task={problem.code} estimate={String(getEstimatedProblemElo(problem.id))} tags={getProblemTags(problem)}>
         <p className="text-sm leading-relaxed text-muted-foreground">
           Complete statement and original diagrams stored in this app.
