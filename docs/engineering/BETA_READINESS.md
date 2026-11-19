@@ -1,5 +1,9 @@
 # Beta readiness log
 
+## Library browser CI timeout (19 November 2026)
+
+The Public problem library browser job hit its 15-minute limit on PRs #205 and #209 because installing Chromium with system packages took up to 9.5 minutes on the runner. Its timeout is now 25 minutes. Test content is unchanged. The community statistics browser job is not changed, because its workflow file is pinned in scripts/activation/PACKAGE_SHA256SUMS. The workflow file is listed in scripts/public-solutions-release/PACKAGE_SHA256SUMS, which already failed before this change and is not checked by CI.
+
 ## Link preview template L1 (18 November 2026)
 
 Every link preview image now comes from one template, `lib/og/link-preview.tsx`, instead of eight copied layouts. A page preview takes a label and a title. A brand preview serves the home page and coaching. Long titles are clamped to 120 characters and set in a smaller size so they stay inside the image. The terms page keeps inheriting the home preview, because a new route needs a CSP review first. Only public strings go in, as in #190, and the template reads only `public/logo-mark-transparent.png`. `lib/og-link-preview.test.ts` fails if an opengraph-image route builds its own image, reads a file or leaves out the standard size, and it lists the eight routes that have one. `scripts/check-opengraph-build.mjs` passes unchanged. No change to `next.config.ts`, metadata text, schema, auth, grading, flags or deployment.
