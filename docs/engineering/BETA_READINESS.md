@@ -1,5 +1,15 @@
 # Beta readiness log
 
+## Serving LOGIN assertion recovery (19 November 2026)
+
+PR preparation from main `5e929d7`. Provider logs do not tie a serving
+Vercel invocation to its authenticated pooled database role. Restore the
+temporary post-response probe with an owner-approved deployment ID and
+the existing guest Arena collection request. The probe stays OFF by
+default and emits only the fixed verification record. The owner must
+approve the candidate, window, actual serving evidence and removal.
+[Procedure and qualification](RUNTIME_LOGIN_ATTESTATION.md).
+
 ## Arena favourite key pattern F2 (18 November 2026)
 
 Migration 0021 replaces the fixed list of 18 Arena keys in the favourites constraint with a shape pattern. Before it, favouriting any of the 15 Arena problems added after 0012 passed the API catalogue check and then failed the database check, so the API answered 503. The API still accepts only catalogue keys. Down refuses while a favourite uses a newer key. `lib/community-favourite-arena-keys.test.ts` covers accepted, rejected and authored keys and runs up, down, up on a disposable database. Draft pull request, not merged. The owner runs the read-only pre-check and the apply steps in the PR description. No production SQL was run by the agent.
