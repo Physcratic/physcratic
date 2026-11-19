@@ -4,6 +4,10 @@
 
 The Public problem library browser job hit its 15-minute limit on PRs #205 and #209 because installing Chromium with system packages took up to 9.5 minutes on the runner. Its timeout is now 25 minutes. Test content is unchanged. The community statistics browser job is not changed, because its workflow file is pinned in scripts/activation/PACKAGE_SHA256SUMS. The workflow file is listed in scripts/public-solutions-release/PACKAGE_SHA256SUMS, which already failed before this change and is not checked by CI.
 
+## Arena favourite key pattern F2 (18 November 2026)
+
+Migration 0021 replaces the fixed list of 18 Arena keys in the favourites constraint with a shape pattern. Before it, favouriting any of the 15 Arena problems added after 0012 passed the API catalogue check and then failed the database check, so the API answered 503. The API still accepts only catalogue keys. Down refuses while a favourite uses a newer key. `lib/community-favourite-arena-keys.test.ts` covers accepted, rejected and authored keys and runs up, down, up on a disposable database. Draft pull request, not merged. The owner runs the read-only pre-check and the apply steps in the PR description. No production SQL was run by the agent.
+
 ## Link preview template L1 (18 November 2026)
 
 Every link preview image now comes from one template, `lib/og/link-preview.tsx`, instead of eight copied layouts. A page preview takes a label and a title. A brand preview serves the home page and coaching. Long titles are clamped to 120 characters and set in a smaller size so they stay inside the image. The terms page keeps inheriting the home preview, because a new route needs a CSP review first. Only public strings go in, as in #190, and the template reads only `public/logo-mark-transparent.png`. `lib/og-link-preview.test.ts` fails if an opengraph-image route builds its own image, reads a file or leaves out the standard size, and it lists the eight routes that have one. `scripts/check-opengraph-build.mjs` passes unchanged. No change to `next.config.ts`, metadata text, schema, auth, grading, flags or deployment.
