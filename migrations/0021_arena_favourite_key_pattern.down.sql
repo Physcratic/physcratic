@@ -1,0 +1,10 @@
+-- Restores the fixed list of 18 Arena keys from 0012. Refuses while any favourite uses a newer Arena key, because the
+-- old constraint would reject that row. Disable the favourites flag instead and keep the data.
+LOCK TABLE community_favourite IN ACCESS EXCLUSIVE MODE;
+DO $$ BEGIN
+ IF EXISTS(SELECT 1 FROM community_favourite WHERE problem_key LIKE 'arena:%' AND problem_key<>ALL(ARRAY['arena:arena-mind-the-gap','arena:arena-the-bubble-treaty','arena:arena-the-cosmic-kitchen','arena:arena-the-five-fold-collision','arena:arena-the-phantom-charge','arena:arena-the-string-that-answered-back','arena:arena-the-clock-in-the-racing-mirror','arena:arena-the-dodecahedron-conspiracy','arena:arena-the-gas-with-elbows','arena:arena-the-quantum-escape-room','arena:arena-the-three-way-wave-split','arena:arena-titans-double-take','arena:arena-a-grin-and-a-wiggle','arena:arena-an-atom-with-stage-fright','arena:arena-the-invisible-brake','arena:arena-the-bending-beam-riddle','arena:arena-the-capacitors-missing-energy','arena:arena-the-infinite-v']::text[])) THEN
+  RAISE EXCEPTION 'Preserve favourites for newer Arena problems; disable flags instead';
+ END IF;
+END $$;
+ALTER TABLE community_favourite DROP CONSTRAINT community_favourite_key_check;
+ALTER TABLE community_favourite ADD CONSTRAINT community_favourite_key_check CHECK(problem_key ~ '^authored:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' OR problem_key=ANY(ARRAY['arena:arena-mind-the-gap','arena:arena-the-bubble-treaty','arena:arena-the-cosmic-kitchen','arena:arena-the-five-fold-collision','arena:arena-the-phantom-charge','arena:arena-the-string-that-answered-back','arena:arena-the-clock-in-the-racing-mirror','arena:arena-the-dodecahedron-conspiracy','arena:arena-the-gas-with-elbows','arena:arena-the-quantum-escape-room','arena:arena-the-three-way-wave-split','arena:arena-titans-double-take','arena:arena-a-grin-and-a-wiggle','arena:arena-an-atom-with-stage-fright','arena:arena-the-invisible-brake','arena:arena-the-bending-beam-riddle','arena:arena-the-capacitors-missing-energy','arena:arena-the-infinite-v']::text[]));

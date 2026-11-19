@@ -4,7 +4,7 @@
 
 ## 1. Confirm the accepted release gate and obtain the first exact approval
 
-- The reviewed source for these commands is **b66117e76c8888eeec8233e1e4fac5ac82f8586a**. The last owner-confirmed cleanup deployment was **dpl_A4rYge5pwgYzVMhD6JYgabQ8NexB** from **4f840e67f359e558d49f44a4b81966012638fc9a**. Before execution, verify the current Ready deployment ID, source SHA and actual physcratic.com assignment in financial-dashboard under neuterions-projects. Confirm binding continuity against the accepted sampled serving-LOGIN evidence and preserve its private reference. PR204 removed the instrumentation, and the owner confirmed removal of the temporary variable.
+- The reviewed source for these commands is **5e929d7ff8c4cc93b0755fcf3c968396caed54b8**. The last owner-confirmed cleanup deployment was **dpl_A4rYge5pwgYzVMhD6JYgabQ8NexB** from **4f840e67f359e558d49f44a4b81966012638fc9a**. Before execution, verify the current Ready deployment ID, source SHA and actual physcratic.com assignment in financial-dashboard under neuterions-projects. Confirm binding continuity against the accepted sampled serving-LOGIN evidence and preserve its private reference. PR204 removed the instrumentation, and the owner confirmed removal of the temporary variable.
 - Confirm profiles OFF, statistics ON, all unrelated gates unchanged. Confirm actual current accepted rollback deployment and private persistent restricted-binding recovery references through owner control-plane access independent of the app. Missing private confirmations do not authorize another deploy or credential change. Stop on relevant source/deployment/binding drift.
 - In Neon confirm **divine-mode-82940461 / br-quiet-dawn-b7m2zrt3 / ep-snowy-heart-b7c1220y / neondb**, PG18.7 and restricted LOGIN **physcratic_runtime_app**. SQL database name alone cannot identify the provider branch. Use the approved private TLS-verified administrative/metadata connection; do not retrieve or paste credentials here. Record the executing administrative identity separately from serving LOGIN.
 - Coordinate a permission-change window with no competing grants/DDL. Approve target, role, source, exact revoke artifact/hash, post-checks and stop/recovery scope. Revoke and profile grants require **separate approvals**; never run them as an unattended combined script. No full role provisioning, old favourites-grant replay, migration or automatic repair.
@@ -13,7 +13,7 @@ From a clean checkout pinned to the reviewed release, verify artifacts before op
 
 ```bash
 set -euo pipefail
-test "$(git rev-parse HEAD)" = 'b66117e76c8888eeec8233e1e4fac5ac82f8586a'
+test "$(git rev-parse HEAD)" = '5e929d7ff8c4cc93b0755fcf3c968396caed54b8'
 sha256sum -c <<'HASHES'
 dcec5ac29b8a363fc2fd42742ffb7fce89e0a45522e4ffb25a505b5cfc7e28d2  scripts/activation/revoke-authored-problem-id.review.sql
 ec8b59b652501014ec3f390b8fab7865ab51ecfa17581b68ff5b96c14215a1bd  scripts/activation/profiles-grants.review.sql
@@ -68,7 +68,9 @@ SET physcratic.audit_contract='batch-a';
 \i scripts/runtime-role/verify.readonly.sql
 ```
 
-This setting lasts only in this psql connection and does not change application flags or stored permissions. Before revocation, the only permitted unresolved effective privilege finding is the independently confirmed UPDATE(id) overgrant. Require the canonical0001–0018 ledger/provenance, no invalid constraints/indexes/disabled triggers, approved ownership/default ACL/routine paths, nonprivileged role, exact35-table baseline and Batch A, no hidden table-wide/inherited/PUBLIC authority. Missing six profile rights is `expected_missing_disabled`. If id is already absent or B1 rights already exist, stop to reconcile state instead of replaying operations.
+Compare the returned ledger with the last accepted Production baseline, 0001 through 0018, and verify its checksums and original provenance against `scripts/production-upgrade/migrations.json`. The repository also contains 0019, 0020 and 0021. A source commit or deployment does not establish that those migrations ran. #209 adds the 0021 Arena key constraint change to source. It requires separate owner approval and ledger verification and is outside this Phase B permission window. If the live ledger includes later rows, or if any baseline row is missing or differs, stop and reconcile the read-only evidence with the owner before proceeding.
+
+The audit contract applies only to this psql connection. Before revocation, the only permitted unresolved effective privilege finding is the independently confirmed UPDATE(id) overgrant. Require valid constraints and indexes, enabled triggers, approved ownership, default ACLs and routine paths, a nonprivileged role, the exact 35-table baseline and Batch A, and zero hidden table-wide, inherited or PUBLIC authority. Missing six profile rights is `expected_missing_disabled`. If id is already absent or B1 rights already exist, stop to reconcile state instead of replaying operations.
 
 **ON_ERROR_STOP does not turn audit finding rows into errors.** Read the entire inventory and final findings. The explicit guards below cover the narrow mutations; manual independent acceptance of the full inventories is mandatory. Do not pipe these multi-result audits to a simplistic empty-output check.
 
