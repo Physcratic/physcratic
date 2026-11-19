@@ -18,7 +18,7 @@ test("the alt text is trimmed and cut to 140 whole characters, and an empty alt 
   for (const empty of ["", "   ", "\n\t", null, undefined, 7]) assert.equal(clampCardAlt(empty), "");
   const [problem, revision] = ids();
   for (const empty of ["", "   ", undefined]) assert.equal(authoredCardImage(problem, revision, empty), undefined);
-  assert.deepEqual(authoredCardImage(problem, revision, " Pulley "), { src: `/api/authored-problems/${problem}/card-image/${revision}`, alt: "Pulley", width: 640, height: 480 });
+  assert.deepEqual(authoredCardImage(problem, revision, " Pulley "), { src: `/card-images/${problem}/${revision}`, alt: "Pulley", width: 640, height: 480 });
 });
 
 test("the image is strict: only the future thumbnail address, a short alt, a ratio, and nothing else", () => {
@@ -27,7 +27,7 @@ test("the image is strict: only the future thumbnail address, a short alt, a rat
   assert.ok(authoredCardImageSchema.safeParse(ok).success);
   for (const bad of [
     { ...ok, extra: 1 }, { ...ok, alt: "" }, { ...ok, alt: "x".repeat(141) }, { ...ok, width: 0 },
-    { ...ok, src: `/api/authored-problems/${problem}/media/${revision}` },
+    { ...ok, src: `/api/authored-problems/${problem}/media/${revision}` }, { ...ok, src: `/api/authored-problems/${problem}/card-image/${revision}` },
     { ...ok, src: "https://example.com/a.png" }, { ...ok, src: `${authoredCardImageSrc(problem, revision)}?x=1` },
   ]) assert.equal(authoredCardImageSchema.safeParse(bad).success, false, JSON.stringify(bad).slice(0, 80));
 });
@@ -75,7 +75,7 @@ test("an image is returned only for problems the restriction check allows, and a
   const [a, b] = ids();
   const allowed = await list(fakePool("allow", [a, b]));
   assert.equal(allowed.problems.length, 2);
-  assert.ok(allowed.problems.every((p) => p.image?.alt === "A figure" && p.image.src.startsWith(`/api/authored-problems/${p.problemId}/card-image/`)));
+  assert.ok(allowed.problems.every((p) => p.image?.alt === "A figure" && p.image.src.startsWith(`/card-images/${p.problemId}/`)));
   const restricted = await list(fakePool("none", [a, b]));
   assert.equal(restricted.problems.length, 2);
   assert.ok(restricted.problems.every((p) => p.image === undefined));
@@ -148,7 +148,7 @@ test("on PostgreSQL only a ready, linked, statement first image of a published, 
 
     const found = await bySeed();
     assert.equal(found.get(good.problem)?.image?.alt, "A beam on two supports");
-    assert.equal(found.get(good.problem)?.image?.src, `/api/authored-problems/${good.problem}/card-image/${good.revision}`);
+    assert.equal(found.get(good.problem)?.image?.src, `/card-images/${good.problem}/${good.revision}`);
     assert.equal(found.get(later.problem)?.image?.alt, "Found later", "the first image block, even when it is not the first block");
     assert.equal(found.get(inSection.problem)?.image?.alt, "In a section");
     assert.equal(found.get(long.problem)?.image?.alt, "z".repeat(140));

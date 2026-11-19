@@ -1,15 +1,15 @@
 import { z } from "zod";
 
 // The first image of a published community problem, for its card. Data only: the thumbnail route does not exist yet
-// (C3b), so `src` is the address it will have. No file is read here. Dimensions are not stored for community images,
+// (C3b, at /card-images, outside /api so its own cache headers apply), so `src` is the address it has. No file is read here. Dimensions are not stored for community images,
 // so every card image is the same fixed 4:3 display box, which is a ratio and not the size of the file.
 export const authoredCardImageAltMax = 140;
 export const authoredCardImageBox = { width: 640, height: 480 } as const;
 
-export const authoredCardImageSrc = (problemId: string, revisionId: string) => `/api/authored-problems/${problemId}/card-image/${revisionId}`;
+export const authoredCardImageSrc = (problemId: string, revisionId: string) => `/card-images/${problemId}/${revisionId}`;
 
 export const authoredCardImageSchema = z.strictObject({
-  src: z.string().regex(/^\/api\/authored-problems\/[0-9a-f-]{36}\/card-image\/[0-9a-f-]{36}$/),
+  src: z.string().regex(/^\/card-images\/[0-9a-f-]{36}\/[0-9a-f-]{36}$/),
   alt: z.string().min(1).max(authoredCardImageAltMax),
   width: z.number().int().positive(),
   height: z.number().int().positive(),
