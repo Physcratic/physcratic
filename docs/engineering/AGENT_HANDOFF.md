@@ -1,5 +1,13 @@
 # Agent handoff
 
+## Serving LOGIN assertion recovery (19 November 2026)
+
+Draft PR #212 restores a default-off, deployment-bound probe for the existing
+Arena collection request. The earlier owner-accepted sample and PR204 cleanup
+remain historical evidence. The current serving LOGIN is unverified and the
+cutover remains NO-GO pending a new owner-accepted sample for the actual candidate.
+See [the owner procedure and exact acceptance criteria](RUNTIME_LOGIN_ATTESTATION.md).
+
 ## Arena card image C2 (19 November 2026)
 
 An Arena card can now show the first image of its problem statement. 22 of the 33 Arena problems have one, and the other 11 render as before. The figure, its width and height come from the first image in the statement, read by `scripts/build-arena.ts` into `lib/arena/index.json`, with a short alt text for each in `lib/arena/card-images.ts`. The generator refuses a figure with no alt text, an alt text with no figure, and any path that is not a statement figure. `ProblemCard` takes an optional `image`. The frame is 120px high on a phone and 160px from 640px, light in both themes because the figures are drawn on white, with object-fit contain, lazy loading, async decoding and explicit width and height. From 640px the picture sits to the right of the text, below that it sits between the text and the footer. The card keeps one control, the stretched link. Only the Arena collections pass an image, so corpus, olympiad and archive cards are unchanged. The index grew by 4.8 KB and a page of 24 cards loads about 235 KB of figures lazily. Community problem cards stay text only, because their images are private-cache and full size. Pull request, not merged. No schema, auth, grading, flag or deployment change.

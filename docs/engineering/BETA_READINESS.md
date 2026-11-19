@@ -1,5 +1,13 @@
 # Beta readiness log
 
+## Serving LOGIN assertion recovery (19 November 2026)
+
+Draft PR #212 restores a default-off, deployment-bound probe for the existing
+Arena collection request. The earlier owner-accepted sample and PR204 cleanup
+remain historical evidence. The current serving LOGIN is unverified and the
+cutover remains NO-GO pending a new owner-accepted sample for the actual candidate.
+See [the owner procedure and exact acceptance criteria](RUNTIME_LOGIN_ATTESTATION.md).
+
 ## Library browser CI timeout (19 November 2026)
 
 The Public problem library browser job hit its 15-minute limit on PRs #205 and #209 because installing Chromium with system packages took up to 9.5 minutes on the runner. Its timeout is now 25 minutes. Test content is unchanged. The community statistics browser job is not changed, because its workflow file is pinned in scripts/activation/PACKAGE_SHA256SUMS. The workflow file is listed in scripts/public-solutions-release/PACKAGE_SHA256SUMS, which already failed before this change and is not checked by CI.
