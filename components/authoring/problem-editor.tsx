@@ -1,7 +1,7 @@
 "use client";
 import { SolutionPermissions } from "./solution-permissions";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { ArrowLeft, CircleAlert, Eye, FilePenLine, Save, ShieldCheck } from "lucide-react";
+import { ArrowLeft, CircleAlert, Eye, FilePenLine, Save } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   authoredDraftSchema,
@@ -15,8 +15,6 @@ import {
   draftRequest,
   editorBase,
   editorDraftSchema,
-  moveItem,
-  setPartAnswerMode,
   type EditorDraft,
 } from "@/lib/problem-authoring-editor";
 import { normalizeStatementImages } from "@/lib/author-media";
@@ -25,7 +23,9 @@ import {
   MediaAttachments,
   StatementPdfLinks,
 } from "./media-controls";
-import { AnswerPanel } from "./answer-panel";
+import { SectionsEditor, SectionsOutline } from "./advanced-sections";
+import { ProvenanceFields } from "./advanced-provenance";
+import { UnpublishZone } from "./advanced-unpublish";
 import { TagPicker, MissingTagNote } from "./tag-picker";
 import { HowItWorksLink, RecoverySection, StatusBar, StepCard, studioTokens } from "./studio-ui";
 import { SimpleEditor } from "./simple-editor";
@@ -39,7 +39,6 @@ import {
   BlocksEditor,
   Field,
   inputClass,
-  OrderControls,
   ReaderBlocks,
 } from "./editor-fields";
 
@@ -275,20 +274,6 @@ export function ProblemEditor({
     } finally {
       leaving.current = false;
     }
-  }
-  function addSection() {
-    edit((d) => {
-      d.content.sections.push({
-        id: crypto.randomUUID(),
-        title: "",
-        blocks: [],
-        parts: [],
-      });
-    });
-    setNotice("Section added. Use Tab or the outline to reach it.");
-  }
-  function setMode(partId: string, mode: "numeric" | "expression" | "manual") {
-    edit(d => setPartAnswerMode(d, partId, mode));
   }
   const previewCheck = authoredDocumentSchema.safeParse(draft.content);
   const safePreview = previewCheck.success
@@ -792,264 +777,7 @@ export function ProblemEditor({
                 step={2}
                 title="Parts and answers"
               >
-              {draft.content.sections.map((section, si) => (
-                <section
-                  key={section.id}
-                  data-order-item
-                  id={`section-${section.id}`}
-                  tabIndex={-1}
-                  className="scroll-mt-24 space-y-6 rounded-lg border bg-background p-4 sm:p-5"
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-lg font-semibold">
-                      Section {si + 1}
-                    </h3>
-                    <OrderControls
-                      label={`section ${si + 1}`}
-                      index={si}
-                      count={draft.content.sections.length}
-                      move={(delta) => {
-                        edit((d) => {
-                          d.content.sections = moveItem(
-                            d.content.sections,
-                            si,
-                            delta,
-                          );
-                        });
-                        setNotice(
-                          `Section ${si + 1} moved to position ${si + delta + 1}.`,
-                        );
-                      }}
-                      remove={() => {
-                        if (
-                          !window.confirm(
-                            "Delete this section, its parts, and their private answer content?",
-                          )
-                        )
-                          return false;
-                        edit((d) => {
-                          const ids = new Set(
-                            d.content.sections[si].parts.map((p) => p.id),
-                          );
-                          d.content.sections.splice(si, 1);
-                          d.privateParts = d.privateParts.filter(
-                            (p) => !ids.has(p.partId),
-                          );
-                        });
-                        setNotice("Section deleted.");
-                      }}
-                    />
-                  </div>
-                  <Field label={`Section ${si + 1} title`}>
-                    {(id) => (
-                      <input
-                        id={id}
-                        className={inputClass}
-                        value={section.title}
-                        maxLength={200}
-                        onChange={(e) =>
-                          edit((d) => {
-                            d.content.sections[si].title = e.target.value;
-                          })
-                        }
-                      />
-                    )}
-                  </Field>
-                  <BlocksEditor
-                    label={`Section ${si + 1} context`}
-                    blocks={section.blocks}
-                    onChange={(blocks) =>
-                      edit((d) => {
-                        d.content.sections[si].blocks = blocks;
-                      })
-                    }
-                  />
-                  {section.parts.map((part, pi) => {
-                    const entry = draft.privateParts.find(
-                      (p) => p.partId === part.id,
-                    ) ?? {
-                      partId: part.id,
-                      key: null,
-                      hints: [],
-                      solution: [],
-                    };
-                    return (
-                      <section
-                        key={part.id}
-                        data-order-item
-                        tabIndex={-1}
-                        style={partStyle(editorColours.get(part.id) ?? 0)}
-                        className={`space-y-5 rounded-lg border bg-muted/30 p-4 ${partBorder}`}
-                      >
-                        <div className="flex items-center justify-between">
-                          <h4 className="font-semibold">
-                            <PartChip index={editorColours.get(part.id) ?? 0}>Part {part.label || pi + 1}</PartChip>
-                          </h4>
-                          <OrderControls
-                            label={`section ${si + 1} part ${pi + 1}`}
-                            index={pi}
-                            count={section.parts.length}
-                            move={(delta) => {
-                              edit((d) => {
-                                d.content.sections[si].parts = moveItem(
-                                  d.content.sections[si].parts,
-                                  pi,
-                                  delta,
-                                );
-                              });
-                              setNotice(
-                                `Part ${pi + 1} moved to position ${pi + delta + 1}.`,
-                              );
-                            }}
-                            remove={() => {
-                              if (
-                                !window.confirm(
-                                  "Delete this part and its private answer content?",
-                                )
-                              )
-                                return false;
-                              edit((d) => {
-                                d.content.sections[si].parts.splice(pi, 1);
-                                d.privateParts = d.privateParts.filter(
-                                  (p) => p.partId !== part.id,
-                                );
-                              });
-                              setNotice("Part deleted.");
-                            }}
-                          />
-                        </div>
-                        <Field
-                          label={`Section ${si + 1} part ${pi + 1} label`}
-                        >
-                          {(id) => (
-                            <input
-                              id={id}
-                              className={inputClass}
-                              maxLength={80}
-                              value={part.label}
-                              onChange={(e) =>
-                                edit((d) => {
-                                  d.content.sections[si].parts[pi].label =
-                                    e.target.value;
-                                })
-                              }
-                            />
-                          )}
-                        </Field>
-                        <BlocksEditor
-                          label={`Part ${part.label || pi + 1} statement`}
-                          blocks={part.blocks}
-                          onChange={(blocks) =>
-                            edit((d) => {
-                              d.content.sections[si].parts[pi].blocks =
-                                blocks;
-                            })
-                          }
-                        />
-                        <details style={partStyle(editorColours.get(part.id) ?? 0)} className={`rounded-lg border bg-card p-4 ${partBorder}`}>
-                          <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-medium">
-                            <ShieldCheck className="size-4" />
-                            Answer key, hints and solution for part{" "}
-                            {part.label || pi + 1}
-                          </summary>
-                          <div className="mt-5">
-                            <AnswerPanel
-                              entry={entry}
-                              mode={part.answerMode}
-                              onChange={(value) =>
-                                edit((d) => {
-                                  d.privateParts = [
-                                    ...d.privateParts.filter(
-                                      (p) => p.partId !== part.id,
-                                    ),
-                                    value,
-                                  ];
-                                })
-                              }
-                              onMode={(mode) => {
-                                if (
-                                  !entry.key ||
-                                  entry.key.kind === mode ||
-                                  window.confirm(
-                                    "Change answer type? This replaces the current private grading configuration. Hints and solution remain.",
-                                  )
-                                ) {
-                                  if (
-                                    !draft.privateParts.some(
-                                      (p) => p.partId === part.id,
-                                    )
-                                  )
-                                    edit((d) => {
-                                      d.privateParts.push(entry);
-                                    });
-                                  setMode(part.id, mode);
-                                }
-                              }}
-                            />
-                            {!entry.key && (
-                              <Button
-                                type="button"
-                                variant="outline"
-                                className="mt-4"
-                                onClick={() => {
-                                  edit((d) => {
-                                    d.privateParts = [
-                                      ...d.privateParts.filter(
-                                        (p) => p.partId !== part.id,
-                                      ),
-                                      { ...entry, key: { kind: "manual" } },
-                                    ];
-                                    d.content.sections[si].parts[
-                                      pi
-                                    ].answerMode = "manual";
-                                  });
-                                }}
-                              >
-                                Set explicit manual grading
-                              </Button>
-                            )}
-                          </div>
-                        </details>
-                      </section>
-                    );
-                  })}
-                  <Button
-                    type="button"
-                    variant="outline"
-                    disabled={section.parts.length >= 50}
-                    onClick={() =>
-                      edit((d) => {
-                        const id = crypto.randomUUID();
-                        d.content.sections[si].parts.push({
-                          id,
-                          label: String(
-                            d.content.sections[si].parts.length + 1,
-                          ),
-                          blocks: [],
-                          answerMode: "manual",
-                        });
-                        d.privateParts.push({
-                          partId: id,
-                          key: { kind: "manual" },
-                          hints: [],
-                          solution: [],
-                        });
-                      })
-                    }
-                  >
-                    + Add part to section {si + 1}
-                  </Button>
-                </section>
-              ))}
-              <Button
-                type="button"
-                variant="outline"
-                className="w-full border-dashed py-6"
-                disabled={draft.content.sections.length >= 30}
-                onClick={addSection}
-              >
-                + Add section
-              </Button>
+              <SectionsEditor draft={draft} edit={edit} colours={editorColours} notify={setNotice} />
               </StepCard>
               <StepCard
                 id="step-tags"
@@ -1087,61 +815,7 @@ export function ProblemEditor({
                 step={5}
                 title="Publish"
               >
-                <Field label="Content provenance">
-                  {(id) => (
-                    <select
-                      id={id}
-                      className={inputClass}
-                      value={draft.content.provenance.kind}
-                      onChange={(e) =>
-                        edit((d) => {
-                          d.content.provenance.kind = e.target.value as
-                            | "original"
-                            | "authorized";
-                        })
-                      }
-                    >
-                      <option value="original">My original work</option>
-                      <option value="authorized">Used with permission</option>
-                    </select>
-                  )}
-                </Field>
-                <Field
-                  label="Source / permission reference"
-                >
-                  {(id) => (
-                    <input
-                      id={id}
-                      className={inputClass}
-                      maxLength={2000}
-                      value={draft.content.provenance.source}
-                      onChange={(e) =>
-                        edit((d) => {
-                          d.content.provenance.source = e.target.value;
-                        })
-                      }
-                    />
-                  )}
-                </Field>
-                <Field
-                  label="Rights declaration"
-                >
-                  {(id) => (
-                    <textarea
-                      id={id}
-                      className={inputClass}
-                      rows={2}
-                      maxLength={4000}
-                      value={draft.content.provenance.rightsDeclaration}
-                      onChange={(e) =>
-                        edit((d) => {
-                          d.content.provenance.rightsDeclaration =
-                            e.target.value;
-                        })
-                      }
-                    />
-                  )}
-                </Field>
+                <ProvenanceFields provenance={draft.content.provenance} edit={edit} />
                 <div className="rounded-lg border bg-background p-4">
                   <h3 className="text-sm font-semibold">Publication checks</h3>
                   {issues.length ? (
@@ -1167,18 +841,9 @@ export function ProblemEditor({
                 </div>
                 {!draft.publishedSolutionPolicy && <SolutionPermissions key={draft.problemId} problemId={draft.problemId} />}
                 {draft.state === "published" && (
-                  <div className="space-y-3 rounded-lg border border-destructive p-4">
-                  <h3 className="text-sm font-semibold">Danger zone</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Unpublishing stops the problem being publicly readable.
-                    Previous revisions stay retained.
-                  </p>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    className="border-destructive text-destructive hover:bg-destructive/10 hover:text-destructive"
+                  <UnpublishZone
                     disabled={uploads > 0}
-                    onClick={() => {
+                    onUnpublish={() => {
                       if (
                         window.confirm(
                           "Unpublish this problem? It will stop being publicly readable. Previous revisions stay retained.",
@@ -1192,62 +857,11 @@ export function ProblemEditor({
                           ),
                         );
                     }}
-                  >
-                    Unpublish problem
-                  </Button>
-                  </div>
+                  />
                 )}
               </StepCard>
             </fieldset>
-            <aside className="hidden lg:block">
-              <nav
-                aria-label="Document outline"
-                className="sticky top-24 space-y-3 rounded-lg border bg-card p-5"
-              >
-                <h2 className="text-sm font-semibold text-muted-foreground">
-                  Steps
-                </h2>
-                <ol className="space-y-1 text-sm">
-                  <li>
-                    <a href="#step-statement" className="flex min-h-11 items-center rounded-sm hover:underline">
-                      1. Statement
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#step-parts" className="flex min-h-11 items-center rounded-sm hover:underline">
-                      2. Parts and answers
-                    </a>
-                    <ul className="ml-4 space-y-1 border-l pl-3">
-                      {draft.content.sections.map((section, i) => (
-                        <li key={section.id}>
-                          <a
-                            href={`#section-${section.id}`}
-                            className="flex min-h-11 items-center truncate rounded-sm text-muted-foreground hover:text-foreground hover:underline"
-                          >
-                            {section.title || `Section ${i + 1}`}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#step-tags" className="flex min-h-11 items-center rounded-sm hover:underline">
-                      3. Tags
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#author-assets" className="flex min-h-11 items-center rounded-sm hover:underline">
-                      4. Images and PDFs
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#publication" className="flex min-h-11 items-center rounded-sm hover:underline">
-                      5. Publish
-                    </a>
-                  </li>
-                </ol>
-              </nav>
-            </aside>
+            <SectionsOutline sections={draft.content.sections} />
           </div>
         ) : null}
           </>}
