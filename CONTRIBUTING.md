@@ -8,6 +8,7 @@ This guide is for people and for AI tools (Claude Code, Codex, v0). Claude Code 
 2. Never build on an old branch. A `v0/*` branch more than a day behind `main` counts as old. v0 users start a new v0 chat from `main` instead.
 3. One feature per PR. Small PRs get reviewed faster.
 4. Don't edit another area's paths without asking its owner. If your task seems to need them, stop and ask.
+5. Deploy economy: every push to a branch and every merge to main starts a paid Vercel build. Finish and check work locally, then push once. Do not push merge-of-main commits unless GitHub reports a conflict, resolve handoff doc conflicts in one push, do not open docs-only PRs, and never trigger a Vercel redeploy.
 
 ## Ownership
 

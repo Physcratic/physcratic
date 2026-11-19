@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
-import { Check, CircleAlert, ImagePlus, Plus, Trash2 } from "lucide-react";
+import { ArrowDown, ArrowUp, Check, ChevronDown, CircleAlert, ImagePlus, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MathAnswerField } from "@/components/physics/math-answer-field";
 import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
@@ -9,7 +9,8 @@ import { displayName } from "@/lib/answer-reader";
 import { physicsTopics, resolvePhysicsTag } from "@/lib/physics-taxonomy";
 import { addTag, hasTag } from "@/lib/studio-tags";
 import type { EditorDraft } from "@/lib/problem-authoring-editor";
-import { inputClass } from "./editor-fields";
+import { Field, inputClass } from "./editor-fields";
+import { PartOptions } from "./advanced-part-options";
 import { DifficultyRatingField } from "./difficulty-rating-field";
 import { MediaImage, useAuthorMediaUpload } from "./media-controls";
 import { RichMathText } from "./rich-math-text";
@@ -29,10 +30,14 @@ import {
   answerText,
   applyAnswer,
   blocksSpans,
+  boxOwnsAnswer,
+  isHandGraded,
   contextPictureOf,
   ensureSimpleShape,
   mathSymbols,
+  movePart,
   partLetter,
+  partNeedsOptions,
   pictureOf,
   privateFor,
   readAnswer,
@@ -54,6 +59,7 @@ import {
   sourceState,
   simpleIssues,
   testAnswer,
+  unitHint,
   verdictExplanation,
   verdictLabel,
   type Key,
@@ -101,7 +107,18 @@ export function SimpleEditor(props: SimpleProps) {
   useEffect(() => { try { sessionStorage.setItem(workflowKey, fileFirst ? "files" : "text"); } catch { /* Saved content and recovery remain authoritative. */ } }, [workflowKey, fileFirst]);
   const [workflowError, setWorkflowError] = useState("");
   const parts = allParts(draft);
-  const issues = simpleIssues(draft, typed, fileFirst);
+  // Parts the author chose to hand-grade, kept in this browser only. It is a view choice, like the PDF choice above.
+  const gradedKey = `physcratic.studio.explain.v1:${userId}:${draft.problemId}`;
+  const [handGraded, setHandGraded] = useState<ReadonlySet<string>>(() => {
+    try { return new Set<string>(JSON.parse(localStorage.getItem(gradedKey) ?? "[]")); } catch { return new Set<string>(); }
+  });
+  function markHandGraded(partId: string, on: boolean) {
+    const next = new Set(handGraded);
+    if (on) next.add(partId); else next.delete(partId);
+    setHandGraded(next);
+    try { localStorage.setItem(gradedKey, JSON.stringify([...next])); } catch { /* The choice only lasts for this visit. */ }
+  }
+  const issues = simpleIssues(draft, typed, fileFirst, handGraded);
   const colours = colorsByPartId(draft.content.sections);
   const shown = (field: string) => issues.find((i) => i.field === field && (attempted || touched[field]));
   const touch = (field: string) => setTouched((t) => (t[field] ? t : { ...t, [field]: true }));
@@ -215,6 +232,9 @@ export function SimpleEditor(props: SimpleProps) {
           touch={touch}
           edit={edit}
           onAnswer={(text) => answerChanged(part.id, text)}
+          handGraded={isHandGraded(draft, part.id, handGraded)}
+          onHandGraded={(on) => markHandGraded(part.id, on)}
+          onForgetTyped={() => setTyped((t) => Object.fromEntries(Object.entries(t).filter(([id]) => id !== part.id)))}
           onRemove={() => {
             if (!window.confirm("Remove this part and its answer?")) return;
             edit((d) => removePart(d, part.id));
@@ -521,7 +541,7 @@ function TopicRow({ values, change }: { values: string[]; change: (values: strin
 
 function PartEditor({
   draft, partId, first, fileFirst, multipart, letter, colour, typed, canRemove, provisional, questionIssue, solutionIssue, answerIssue, unitIssue, pictureIssue,
-  touch, edit, onAnswer, onRemove,
+  touch, edit, onAnswer, handGraded, onHandGraded, onForgetTyped, onRemove,
 }: {
   draft: EditorDraft;
   partId: string;
@@ -541,6 +561,11 @@ function PartEditor({
   touch: (field: string) => void;
   edit: SimpleProps["edit"];
   onAnswer: (text: string) => void;
+  /** The author chose hand-grading for this part, so the answer box is replaced by a note. */
+  handGraded: boolean;
+  onHandGraded: (on: boolean) => void;
+  /** Drops the text typed in the answer box, so the box shows the saved answer again. */
+  onForgetTyped: () => void;
   onRemove: () => void;
 }) {
   const base = useId();
@@ -552,6 +577,15 @@ function PartEditor({
   const keySymbols = key?.kind === "expression" ? key.variables.map((v) => v.name) : [];
   const symbols = useMemo(() => [...new Set([...keySymbols, ...mathSymbols(questionSpans)])], [keySymbols.join(","), JSON.stringify(questionSpans)]); // eslint-disable-line react-hooks/exhaustive-deps
   const picture = pictureOf(part.blocks);
+  // The answer box owns the answer text, the units and the worked solution. More options owns the rest. A part the box cannot show has no box.
+  // A hand-graded choice hides the box. A manual key nobody chose, such as a new part, keeps it so the answer can be typed.
+  const owns = boxOwnsAnswer(entry) && !handGraded;
+  const needsOptions = partNeedsOptions(draft, partId) || handGraded || (!owns && !!answerIssue);
+  const [optionsOpen, setOptionsOpen] = useState(needsOptions);
+  useEffect(() => { if (needsOptions) setOptionsOpen(true); }, [needsOptions]);
+  const section = draft.content.sections.find((s) => s.parts.some((p) => p.id === partId))!;
+  const position = section.parts.findIndex((p) => p.id === partId);
+  const optionsRef = useRef<HTMLDivElement>(null);
   const upload = useImageUpload(provisional, (mediaId) =>
     edit((d) => {
       removePicture(d, partId);
@@ -641,6 +675,12 @@ function PartEditor({
       </div>
 
       <div className="space-y-3" data-tour={first ? "studio-answer" : undefined}>
+        {!owns ? <div className="space-y-3" data-simple-field={`a:${partId}`}>
+          <p className={labelClass}>Final Answer (Solution)</p>
+          <p className="text-base">{key?.kind === "manual" ? "Students explain this part and nothing is checked automatically. You can change that in More options." : "This part uses answer settings in More options."}</p>
+          <Button type="button" variant="outline" className="min-h-11 border-2" onClick={() => { setOptionsOpen(true); requestAnimationFrame(() => optionsRef.current?.querySelector<HTMLElement>("select")?.focus()); }}>Show answer settings</Button>
+          {answerIssue && <ErrorLine id={`${base}-a-error`}>{answerIssue}</ErrorLine>}
+        </div> : <>
         <label id={`${base}-a-label`} htmlFor={`${base}-a`} className={labelClass}>Final Answer (Solution)</label>
         <div data-simple-field={`a:${partId}`}>
           <MathAnswerField
@@ -659,6 +699,7 @@ function PartEditor({
           />
         </div>
         {answerIssue && <ErrorLine id={`${base}-a-error`}>{answerIssue}</ErrorLine>}
+        {key?.kind === "manual" && read.kind === "empty" && <p className="text-base text-muted-foreground">Leave this empty if students should explain, with no automatic check.</p>}
         {read.kind === "number" && key?.kind === "numeric" && (
           <div className="space-y-2 pt-1">
             <label htmlFor={`${base}-u`} className={labelClass}>Unit (optional)</label>
@@ -678,6 +719,7 @@ function PartEditor({
             />
             <datalist id={`${base}-units`}>{UNITS.map((u) => <option key={u} value={u} />)}</datalist>
             {unitIssue && <ErrorLine id={`${base}-u-error`}>{unitIssue}</ErrorLine>}
+            {!unitIssue && unitHint(key) && <p className="text-base text-muted-foreground">{unitHint(key)}</p>}
           </div>
         )}
         {read.kind === "expression" && (
@@ -690,10 +732,36 @@ function PartEditor({
             </ul>
           </div>
         )}
+        </>}
       </div>
 
       </>}
       <TryAnswer draft={draft} partId={partId} label={letter} tour={first} />
+      {!fileFirst && <div ref={optionsRef}><PartOptions
+        part={part}
+        si={draft.content.sections.indexOf(section)}
+        pi={position}
+        entry={entry}
+        hasPrivate={draft.privateParts.some((p) => p.partId === partId)}
+        colour={colour}
+        edit={(fn) => edit((d) => { fn(d); if (privateFor(d, partId).key?.kind !== key?.kind) queueMicrotask(onForgetTyped); })}
+        open={optionsOpen}
+        onOpenChange={setOptionsOpen}
+        heading={<summary aria-label={multipart ? `More options for part ${letter}` : "More options"} className="flex min-h-11 w-full cursor-pointer list-none items-center justify-between gap-2 text-base font-medium">
+          More options
+          <ChevronDown aria-hidden="true" className={`size-5 shrink-0 transition-transform ${optionsOpen ? "rotate-180" : ""}`} />
+        </summary>}
+        lead={<div className="mb-6 space-y-4">
+          <Field label="Part label shown to students">
+            {(id) => <input id={id} className={fieldClass} maxLength={80} value={part.label} onChange={(e) => edit((d) => { const ref = allParts(d).find((r) => r.part.id === partId); if (ref) ref.part.label = e.target.value; })} />}
+          </Field>
+          {multipart && <div className="flex flex-wrap gap-2" role="group" aria-label={`Order of part ${letter}`}>
+            <Button type="button" variant="outline" className="min-h-11" disabled={position === 0} onClick={() => edit((d) => movePart(d, partId, -1))}><ArrowUp aria-hidden="true" className="mr-2 size-4" />Move part {letter} up</Button>
+            <Button type="button" variant="outline" className="min-h-11" disabled={position === section.parts.length - 1} onClick={() => edit((d) => movePart(d, partId, 1))}><ArrowDown aria-hidden="true" className="mr-2 size-4" />Move part {letter} down</Button>
+          </div>}
+        </div>}
+        answer={{ boxOwns: owns, manualLabel: "Students explain, no automatic check", placeholder: (!key || key.kind === "manual") && !handGraded ? "Set by the final answer above" : undefined, hideManualButton: true, onChosen: (mode) => onHandGraded(mode === "manual") }}
+      /></div>}
     </section>
   );
 }

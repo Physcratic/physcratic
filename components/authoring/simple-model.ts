@@ -16,7 +16,7 @@ import { checkSampled, undecidedMessage } from "@/lib/sampled-check";
 import { answerFromBuffer } from "@/lib/authored-student";
 import { normalizeNumericUnits } from "@/lib/authored-grading-contracts";
 import { authoredKeySchema, hasAuthoredStatement } from "@/lib/problem-authoring";
-import type { EditorBlock, EditorDraft } from "@/lib/problem-authoring-editor";
+import { moveItem, type EditorBlock, type EditorDraft } from "@/lib/problem-authoring-editor";
 
 export type Key = EditorDraft["privateParts"][number]["key"];
 export type PrivatePart = EditorDraft["privateParts"][number];
@@ -386,6 +386,42 @@ export function setUnits(d: EditorDraft, partId: string, units: string) {
   upsertPrivate(d, entry);
 }
 
+/** True when the answer box can show and edit this part's answer. An answer the box cannot read is edited in More options instead. */
+export function boxOwnsAnswer(entry: PrivatePart): boolean {
+  const key = entry.key;
+  if (!key || key.kind === "manual" || key.kind === "numeric") return true;
+  return key.kind === "expression" && readAnswer(key.expected).kind === "expression";
+}
+/**
+ * A part is hand-graded by choice when its key is manual and the author picked that, or the problem was already published
+ * with it. A new part also holds a manual key, so until the author picks hand-grading it still needs a final answer.
+ * `marked` holds the part ids the author picked in this browser. Nothing about it is saved in the draft.
+ */
+export function isHandGraded(d: EditorDraft, partId: string, marked: ReadonlySet<string> = new Set()): boolean {
+  return privateFor(d, partId).key?.kind === "manual" && (marked.has(partId) || d.state !== "draft");
+}
+/** True when More options holds something other than the defaults, so it should start open. */
+export function partNeedsOptions(d: EditorDraft, partId: string): boolean {
+  const entry = privateFor(d, partId);
+  const key = entry.key;
+  if (entry.hints.length > 0 || !boxOwnsAnswer(entry)) return true;
+  if (key?.kind === "numeric") return key.absTol !== DEFAULT_ABS_TOL || key.relTol !== DEFAULT_REL_TOL;
+  if (key?.kind === "expression")
+    return key.angleUnit !== "radians" || key.exclusions.length > 0 || key.variables.some((v) => v.min !== undefined || v.max !== undefined || v.assumptions.length > 0);
+  return false;
+}
+/** Moves a part up or down inside its section. */
+export function movePart(d: EditorDraft, partId: string, delta: -1 | 1) {
+  for (const s of d.content.sections) {
+    const at = s.parts.findIndex((p) => p.id === partId);
+    if (at >= 0) return void (s.parts = moveItem(s.parts, at, delta));
+  }
+}
+/** Not a publish rule: students must type a unit exactly as the key spells it, so an unusual spelling gets a heads up. */
+export function unitHint(key: Key): string {
+  return key?.kind === "numeric" && !knownUnit(key.units) ? `We don't know the unit "${key.units}". Students must type it exactly like this.` : "";
+}
+
 // ---------------------------------------------------------------------------------------------------------------
 // Publish rights
 // ---------------------------------------------------------------------------------------------------------------
@@ -449,29 +485,30 @@ export function setDifficulty(d: EditorDraft, text: string): boolean {
 
 export type SimpleIssue = { field: string; message: string };
 /** `reads` holds what the author has typed for each part's answer, when it differs from the saved key. */
-export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, string>> = {}, fileFirst = false): SimpleIssue[] {
+export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, string>> = {}, fileFirst = false, handGraded: ReadonlySet<string> = new Set()): SimpleIssue[] {
   const issues: SimpleIssue[] = [];
   const parts = allParts(d);
   if (fileFirst && !hasAuthoredStatement(d.content)) issues.push({ field: "statement", message: "Upload a statement PDF or add statement images or native instructions." });
   if (parts.length === 0) issues.push({ field: "parts", message: "Add a question first." });
+  // The server wants a statement somewhere in the problem, not one in every part.
+  if (!fileFirst && parts.length > 0 && !hasAuthoredStatement(d.content)) issues.push({ field: `question:${parts[0].part.id}`, message: "Write the question first." });
+  // A worked solution is asked for on a problem that has never been published. Older problems publish without one.
+  const neverPublished = d.state === "draft";
   for (const { part } of parts) {
-    if (!fileFirst && !blocksSpans(part.blocks).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
-      issues.push({ field: `question:${part.id}`, message: "Write the question first." });
     const missingImageDescription = part.blocks.some(b => b.kind === "image" && !b.alt.trim());
     if (missingImageDescription) issues.push({ field: `picture:${part.id}`, message: "Describe the image so everyone can follow it." });
     const entry = privateFor(d, part.id);
     // Simple asks for a worked solution. Advanced and older problems can still publish without one.
-    if (!fileFirst && !blocksSpans(entry.solution).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
+    if (!fileFirst && neverPublished && !blocksSpans(entry.solution).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
       issues.push({ field: `solution:${part.id}`, message: "Add the worked solution." });
     const typed = part.id in reads ? reads[part.id] : answerText(entry.key);
     const read = readAnswer(typed);
     if (fileFirst) {
       if (!authoredKeySchema.safeParse(entry.key).success) issues.push({ field: `answer:${part.id}`, message: "Complete this part's private answer configuration." });
-    } else if (read.kind === "empty" || (read.kind !== "error" && entry.key?.kind === "manual"))
-      issues.push({ field: `answer:${part.id}`, message: "Add the final answer." });
-    else if (read.kind === "error") issues.push({ field: `answer:${part.id}`, message: read.message });
-    else if (entry.key?.kind === "numeric" && !knownUnit(entry.key.units))
-      issues.push({ field: `units:${part.id}`, message: `We don't know the unit "${entry.key.units}". Pick one from the list or leave it empty.` });
+    } else if (read.kind === "empty") {
+      // A part the author chose to hand-grade has no final answer and publishes as it is.
+      if (!isHandGraded(d, part.id, handGraded)) issues.push({ field: `answer:${part.id}`, message: "Add the final answer." });
+    } else if (read.kind === "error") issues.push({ field: `answer:${part.id}`, message: read.message });
   }
   if (!d.content.title.trim()) issues.push({ field: "title", message: "Give it a title, or write the question and we'll make one." });
   const source = sourceState(d);
