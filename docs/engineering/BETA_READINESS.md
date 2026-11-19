@@ -4,9 +4,13 @@
 
 The Public problem library browser job hit its 15-minute limit on PRs #205 and #209 because installing Chromium with system packages took up to 9.5 minutes on the runner. Its timeout is now 25 minutes. Test content is unchanged. The community statistics browser job is not changed, because its workflow file is pinned in scripts/activation/PACKAGE_SHA256SUMS. The workflow file is listed in scripts/public-solutions-release/PACKAGE_SHA256SUMS, which already failed before this change and is not checked by CI.
 
+## Arena card image C2 (19 November 2026)
+
+An Arena card can now show the first image of its problem statement. 22 of the 33 Arena problems have one, and the other 11 render as before. The figure, its width and height come from the first image in the statement, read by `scripts/build-arena.ts` into `lib/arena/index.json`, with a short alt text for each in `lib/arena/card-images.ts`. The generator refuses a figure with no alt text, an alt text with no figure, and any path that is not a statement figure. `ProblemCard` takes an optional `image`. The frame is 120px high on a phone and 160px from 640px, light in both themes because the figures are drawn on white, with object-fit contain, lazy loading, async decoding and explicit width and height. From 640px the picture sits to the right of the text, below that it sits between the text and the footer. The card keeps one control, the stretched link. Only the Arena collections pass an image, so corpus, olympiad and archive cards are unchanged. The index grew by 4.8 KB and a page of 24 cards loads about 235 KB of figures lazily. Community problem cards stay text only, because their images are private-cache and full size. Pull request, not merged. No schema, auth, grading, flag or deployment change.
+
 ## Arena favourite key pattern F2 (18 November 2026)
 
-Migration 0021 replaces the fixed list of 18 Arena keys in the favourites constraint with a shape pattern. Before it, favouriting any of the 15 Arena problems added after 0012 passed the API catalogue check and then failed the database check, so the API answered 503. The API still accepts only catalogue keys. Down refuses while a favourite uses a newer key. `lib/community-favourite-arena-keys.test.ts` covers accepted, rejected and authored keys and runs up, down, up on a disposable database. Draft pull request, not merged. The owner runs the read-only pre-check and the apply steps in the PR description. No production SQL was run by the agent.
+Migration 0021 replaces the fixed list of 18 Arena keys in the favourites constraint with a shape pattern. Before it, favouriting any of the 15 Arena problems added after 0012 passed the API catalogue check and then failed the database check, so the API answered 503. The API still accepts only catalogue keys. Down refuses while a favourite uses a newer key. `lib/community-favourite-arena-keys.test.ts` covers accepted, rejected and authored keys and runs up, down, up on a disposable database. [PR #209](https://github.com/Physcratic/physcratic/pull/209) merged into source at `5e929d7ff8c4cc93b0755fcf3c968396caed54b8`. The last accepted Phase B Production ledger covers 0001 through 0018. Confirm any later migration through the owner’s read-only ledger review. Applying 0021 requires its own reviewed migration procedure and owner approval.
 
 ## Link preview template L1 (18 November 2026)
 
@@ -19,6 +23,20 @@ The D1 baseline is nearly empty. 75 separator glyphs, 12 of 13 `font-mono` uses 
 ## Design rules D1 (18 November 2026)
 
 Two design rules are now written in CLAUDE.md, AGENTS.md and CONTRIBUTING.md with the same wording. No glyph between words, and one typeface (IBM Plex Sans) with sentence case labels. `lib/copy-rules.test.ts` fails on a middle dot or bullet in app and components text, on `font-mono` outside code and kbd, and on uppercase with wide tracking. Older offenders are in a counted baseline in that test, which D2 empties (75 glyphs in 32 files, 13 mono in 11 files, 7 uppercase in 7 files). Applied now to the problem card source line (source, year and task as three spans, 8px gap), the problem heading badges (rating number and band name as two spans, accessible name "Rating 1,850, Advanced"), the Problem room label, the library tabs and the collection count line. `describeEstimate` now returns "1,850 Advanced" and `estimateParts` gives the two parts. No schema, auth, grading, flag or deployment change.
+
+## Phase B checkpoint (19 November 2026)
+
+Main4f840e67f359e558d49f44a4b81966012638fc9a includes cleanup PR204.
+The owner has accepted sampled serving-LOGIN evidence and confirmed cleanup
+Production dpl_A4rYge5pwgYzVMhD6JYgabQ8NexB, Ready on physcratic.com,
+with the temporary variable removed, profiles OFF and statistics ON. These
+private provider facts are owner-confirmed; source removal and exact-main CI
+were independently rechecked. Do not repeat attestation or its cleanup based on
+older pending/UNPROVEN prose below. They are historical checkpoints.
+Current authority: [Phase B report](PHASE_B_OWNER_REPORT.md) and
+[owner-only permission/activation checklist](PHASE_C_B1_RELEASE_CHECKLIST.md).
+Permission reconciliation still requires separate exact-artifact approvals.
+No Production operation is authorized or performed by this engineering task.
 
 ## Pending instrumentation removal (19 November 2026)
 
@@ -35,7 +53,6 @@ approves the cleanup release. This branch performs no provider operation.
 See [owner release checklist](PHASE_C_B1_RELEASE_CHECKLIST.md). Historical sections
 below describe the instrumentation source before removal, not an active mechanism
 after this cleanup is released. Local test results are recorded in the delivery.
-
 
 ## Arena card redesign (19 November 2026)
 
@@ -70,7 +87,6 @@ requires a future observation window, existing Function time budget, scoped
 sampling and independently usable restricted-binding rollback/removal. Runtime
 assertion code is unchanged by this review. PR199 integration/CI and provider
 metadata remain separate gates; GitHub API access is Forbidden here.
-
 
 ## Phase C runtime audit correction (18 November 2026)
 
@@ -196,16 +212,13 @@ A reproduced stalled MathLive import now has an authored-only 10-second fallback
 
 Stacked locally on batch four `234ed8a`, this user-requested batch adds EuPhO 2023 T2-T3, all 2024/2025 T1-T3, IPhO 2010 T2 and APhO 2014 T2. **35 native, 77 PDFs remain** out of 112. Every EuPhO archive problem is now native. Adds 41 original crops, 36 automatic fields and 11 self-review fields. The previous ten conversions and all other 102 collection records are preserved. [Source conventions, corrections, QA and publication boundary](NATIVE_ARCHIVE_BATCH_5.md). Focused91, server986 pass/31 skip/one TODO and components204 pass, typecheck/lint/offline guards/final build pass. Browser/DB/Actions results remain unverified. Public push remains blocked by automatic approval review pending explicit user publication approval. Local implementation `9c717a6` on `codex/archive-next-10`. No PR, merge, deployment or live-data operation.
 
-
 ## Native archive ten-problem conversion (15 November 2026)
 
 Following merged #179 at `81d9cc5`, this batch converts exactly EuPhO 2017 T1-T3, 2021 T1-T3, 2022 T1-T3 and 2023 T1. The archive has 112 records: **25 native, 87 PDFs remaining**. Adds complete native statements and worked alternatives, 25 original crops, 28 automatic fields and seven self-review fields. The other 102 records, identities, ratings, original PDFs and account-persistence catalogue are preserved. [Source conventions, corrections and QA](NATIVE_ARCHIVE_BATCH_4.md) and batch-four ledgers bind the sources. Local server954 pass/31 skip/one TODO, components204 pass, focused59 pass, typecheck/lint/offline guards/build pass. Chromium is blocked before page load by the environment's Unix-socket policy. Exact-head build/browser/database CI evidence belongs to the delivery PR. Local implementation `3918b5e` on `codex/archive-next-10`. Automatic approval review blocked public push pending explicit user approval, so no PR or GitHub CI result yet. No merge or deployment.
 
-
 ## Native archive EuPhO 2020 conversion (15 November 2026)
 
 Continuation of #178 at `6884fb3` adds EuPhO 2020 T1/T2/T3 with native LaTeX, nine original crops, worked alternatives and six automatic fields plus one graph self-review field. Archive: 112 records, 15 native, **97 PDFs remaining**. Earlier nine conversions, identities, ratings, original PDFs and account persistence are preserved. [Source conventions, checks and environment limits](NATIVE_ARCHIVE_BATCH_3.md) and third-batch ledgers record the evidence. Six local production-reader/sampled-checker physics and source tests pass. Full schema/type/build/integration CI and browser results must be taken from the follow-up PR, not inferred from local execution. No merge or deployment.
-
 
 ## Native olympiad archive, batch 2 (15 November 2026)
 
@@ -827,7 +840,6 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 - **How it works:** a link to `/learn/how-to-write-a-problem` in the Studio header (list and editor) and in the empty state. The guide may not exist yet.
 - **Not changed:** what authoring saves, validates or grades. The Playwright browser harness strings were updated for the renamed "Answer key, hints and solution" summary (not run here, it needs Postgres).
 
-
 ## 2026-11-02 - Phase C offline acceptance reconciled with current main
 
 - Baseline `bbcfe194b76a974b9587a8e11c3fc57668d7a530`. Adapted only the independent offline runner/transport guard. Reused the released API, PostgreSQL and fixture coverage instead of copying a second workflow framework.
@@ -846,7 +858,6 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 - **Wordmark:** the brand is "Physcratic". A search of `app/`, `components/` and `lib/` (header, sidebar, coaching header and footer, the OG images, titles, `SITE.name`) found no trailing full stop in any wordmark, so nothing needed changing. The only "Physcratic." matches are sentence endings in prose.
 - **Coaching fixes:** the fixed "Get a consultation" bar now hides while the hero call to action or the footer is on screen, and the footer keeps 4rem (the bar plus its margin) of room under it on small screens. Every footer link and the Instagram link is at least 44px tall on touch screens (`pointer: coarse`), and the desktop footer is unchanged. Both are marked fixed in `docs/engineering/coaching-review.md`.
 - **Problem descriptions:** first-law, heat, incline, projectile and spring now have 70 to 160 character descriptions in `lib/problem-meta.ts`, used by `app/dashboard/problems/[id]/page.tsx` (metadata only). The known-offenders list in `lib/seo-metadata-guard.test.ts` is removed.
-
 
 ## 2026-11-03 - P1: defer the equation calculator engine
 
@@ -941,7 +952,6 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 - Additive 0014 and exact least-privilege grants are in COMMUNITY_STATUS.md. Existing production discussion lock is preserved; moderation/staff gates default OFF. No production SQL, deployment, provider changes or feature enablement.
 - Disposable PostgreSQL security/race/migration tests, full regressions, Chromium permission/XSS/accessibility, typecheck/lint/build and disabled-schema/production-lock smoke pass locally. [PR #109](https://github.com/Physcratic/physcratic/pull/109) merged as `a9bff60a1ad7ab408875d3e06b432d5a1cf21925` after exact-head standard CI #190 and browser #3 passed. Details in COMMUNITY_STATUS.md.
 
-
 ## 2026-11-04 - Community Batch 5B moderation UI and launch readiness
 
 - Added responsive private moderation queues/evidence/audit/actions, user report controls, private report/appeal history and restricted-comment appeals. Existing role-locked 5A authorization remains authoritative. UI defaults OFF and production discussion lock remains intact.
@@ -951,7 +961,6 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 ## 4 November 2026: Batch 5B completion verification
 
 Reconciled the independently merged PR #112. Added explicit staff-action confirmation/cancellation and numeric private-audit pagination, plus reader withdrawal, ambiguous retry, rejected appeal, account-switch and limiter-concurrency regressions. Full disposable verification: 697 server pass plus one inherited TODO, 43 component pass. Exact-head checks are recorded in the [completion PR #115](https://github.com/Physcratic/physcratic/pull/115). No production launch, SQL, migrations, grants, provider changes or CSP change. Launch remains NO-GO pending the runbook prerequisites and explicit operator/user approval.
-
 
 ## 2026-11-04 - Community Security S1 remediation
 
@@ -1121,7 +1130,6 @@ Reconciled the independently merged PR #112. Added explicit staff-action confirm
 - **Extra 2, the signed-in sweep stages nobody had checked:** submissions, settings (with the new Tours card) and the authored student page of a problem published through Simple, with every Studio stage and both tours open, at 375, 390, 768 and 1440 in light and dark: 0 failures, lowest text 4.81:1, lowest border 3.41:1. The guest sweep ends at 0 failures for everything but the Guided reader (fixed above) and the unreproduced `/coaching` axe flake recorded under Phase 4c.
 - **Left for the owner:** `components/authored/library-collection.tsx` is dead code. `GET /api/progress` has a caller, but `recordResult` was its only writer, so `practice_attempt` now has no writer anywhere. `lib/ipho-archive.ts` still lists `symbolicTaskId` for three subparts.
 
-
 ## 2026-11-06 - Phase 7a: Math Pad and tour fixes
 
 - **Math Pad:** the one-row palette is now a pad with tabs Problem, Operations, Relations, Greek, Trig and Other (`components/physics/math-pad.tsx`, data in `answer-palette.ts`). Problem comes first, only when the problem has symbols, in the accent orange. Greek shows lowercase first and "Show more" for capitals. One pad is used in answer fields, Studio's final answer and the Try an answer box, Studio's equation editor and the Advanced equation field. The equation editor behind Studio's question and solution text shows every button (`padMode="full"`), and so does the Advanced field. The final answer is an answer field, so it hides what the checker cannot read. Answer fields show only what the checker reads, so Relations, `!`, `∞`, `∂`, `∇`, degrees and the vector buttons are hidden there. The Arena part that accepts `∞` still gets it.
@@ -1261,7 +1269,6 @@ PR #133 now gates all private practice endpoints on exact server `PRACTICE_CHECK
 
 The owner authorizes a code-only squash merge after applicable QA, including the stated exception only for genuinely unexecuted Actions. This does not authorize installation, Production/shared data or grant changes, environment/flag activation, manual deployment, billing or CSP changes. Migration 0017 is unchanged. Activation remains blocked on verified account deletion, actual provider backup facts and separate operator approval. B2B PR #134 is next and must reconcile the final B2A merge while preserving OFF/guest behavior.
 
-
 ## Friday B2B checkpoint (10 November 2026)
 
 Branch `codex/friday-b2b-progress-ui` explicitly depends on unmerged B2A PR #133, base `6c4da5862a205719a7749a4f0a2337568c020ca3`. Its separate draft PR records the final head. See [progress contract](PRACTICE_PROGRESS.md). B1 PR #132 remains independent. No additional migration or grant is introduced by B2B.
@@ -1271,7 +1278,6 @@ Verified practice/Arena checks save through the trusted ledger. Guest/unverified
 PASS: Node 22 frozen install, Next typegen/TypeScript, zero-warning lint, offline guards and guarded production build. Server 802 pass, 25 DB skips, one inherited TODO. Components 136 pass. Disposable PG18.6 ledger 20 pass. Actual component/API/PG Chromium browser passes 375/1440 light/dark axe, lost committed receipt/reload/exact retry, newer-draft feedback, account switching, initial numeric/MathLive focus, existing-draft choice, version changes, provider/storage failure and links. Existing built guest reader functional/contrast suite passes 40 combinations, minimum text 4.64:1 and border 3.70:1, zero failures. Existing assertions are unchanged. One DB startup exited before assertions and passed after build-cache cleanup, cause not independently established.
 
 BLOCKED: Actions usage and missing Firefox/WebKit executables. NOT RUN: full signed-in global sweep, physical devices/OS keyboards, live Better Auth/providers/Preview. Browser sessions and surrounding dashboard data are synthetic. Confirmed receipt feedback now says saved instead of retaining the stateless Nothing is saved sentence. The public summary signature and correctness flags are unchanged. Reset synchronization runs before paint, preserving its existing immediate browser assertion without weakening it. Old unscoped drafts remain untouched and are not automatically attributed to accounts/versions. Review legacy-draft communication/recovery policy, independent review and B2A retention/installation/grants before rollout. No merge, deployment, shared SQL, settings, billing, workflow, flag or CSP enforcement change. Next is B3 attribution/header work, then scoped B4 layout.
-
 
 ## 11 November 2026: unified solving and dashboard history
 

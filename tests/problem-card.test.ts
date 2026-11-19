@@ -597,3 +597,68 @@ test("the stylesheet lifts the card 2px and darkens its border on hover, and onl
   assert.match(css, /@media \(hover: hover\) \{\s*\.problem-entry-lift:hover > \.problem-entry \{\s*border-color: hsl\(var\(--foreground\) \/ 0\.7\);/);
   assert.doesNotMatch(css, /foreground \/ 0\.4\);/);
 });
+
+// Card image (C2). Only Arena cards pass one. Corpus, olympiad and archive cards pass nothing and must not change.
+const figure = { src: "/corpus/arena/figures/mind-the-gap-statement.png", alt: "Lens resting on a reference surface, with ring radius and air gap labelled", width: 720, height: 350 };
+
+test("a card with no image renders exactly as before and has no picture", () => {
+  const without = render({ ...base, href: "/dashboard/problems/test-problem", elo: 1200 });
+  assert.equal(render({ ...base, href: "/dashboard/problems/test-problem", elo: 1200, image: undefined }), without);
+  assert.doesNotMatch(without, /data-card-image|<img|sm:flex-row sm:items-start/);
+});
+
+test("a card with an image shows it in a fixed frame with alt text, lazy loading and its own size", () => {
+  const html = render({ ...base, href: "/dashboard/problems/test-problem", elo: 1200, image: figure });
+  const frame = html.match(/<div data-card-image="true" class="([^"]*)">/);
+  assert.ok(frame, "the frame is there");
+  assert.match(frame[1], /\bh-\[120px\]/);
+  assert.match(frame[1], /\bsm:h-40\b/);
+  assert.match(frame[1], /\bbg-white\b/);
+  assert.match(frame[1], /\brounded-lg\b/);
+  const img = html.match(/<img src="\/corpus\/arena\/figures\/mind-the-gap-statement\.png"[^>]*>/);
+  assert.ok(img, "the picture is there");
+  assert.match(img[0], /alt="Lens resting on a reference surface, with ring radius and air gap labelled"/);
+  assert.match(img[0], /width="720"/);
+  assert.match(img[0], /height="350"/);
+  assert.match(img[0], /loading="lazy"/);
+  assert.match(img[0], /decoding="async"/);
+  assert.match(img[0], /object-contain/);
+  assert.match(img[0], /rounded-\[calc\(var\(--radius\)-0\.5rem\)\]/);
+});
+
+test("the image sits after the title and before the footer, and the card keeps one control", () => {
+  const html = render({ ...base, href: "/dashboard/problems/test-problem", elo: 1200, image: figure, headingLevel: 4 });
+  const title = html.indexOf("<h4");
+  const picture = html.indexOf("data-card-image");
+  const footer = html.indexOf("problem-entry-details");
+  assert.ok(title > 0 && title < picture && picture < footer, "title, then picture, then footer (the order on a phone)");
+  assert.match(html, /flex flex-1 flex-col gap-4 p-4 sm:p-6 sm:flex-row sm:items-start sm:gap-6/, "from 640px the picture sits to the right of the text");
+  assert.equal((html.match(/<a[\s>]/g) ?? []).length, 1, "the stretched link is still the only link");
+  assert.equal((html.match(/<button[\s>]/g) ?? []).length, 0);
+  assert.match(html, /aria-label="Open problem: Quick practice, A block on an incline"/);
+  assert.doesNotMatch(html.slice(picture, html.indexOf("</div>", picture)), /tabindex|<a |<button/, "the picture is not a control");
+});
+
+test("the Arena collection shows a picture only for problems that have a statement figure", () => {
+  const html = renderToStaticMarkup(createElement(ArenaCollection, { query: "", topic: "all", difficulty: "all", onReset() {} }));
+  const firstPage = arena.problems.slice(0, 10);
+  assert.equal((html.match(/data-card-image/g) ?? []).length, firstPage.filter((problem) => "image" in problem).length);
+  for (const problem of firstPage) {
+    const start = html.indexOf(`data-problem-card="${problem.id}"`);
+    const next = html.indexOf("data-problem-card=", start + 1);
+    const card = html.slice(start, next < 0 ? undefined : next);
+    assert.equal(card.includes("data-card-image"), "image" in problem, problem.id);
+  }
+});
+
+test("corpus, olympiad and archive cards pass no image and look unchanged", () => {
+  for (const problem of catalogProblems) {
+    const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }));
+    assert.doesNotMatch(html, /data-card-image/, problem.id);
+  }
+  const root = new URL("../components/physics/", import.meta.url);
+  for (const file of ["corpus-collection.tsx", "olympiad-problem-card.tsx", "olympiad-catalog.tsx"]) {
+    assert.doesNotMatch(readFileSync(new URL(file, root), "utf8"), /\bimage=/, file);
+  }
+  assert.doesNotMatch(readFileSync(new URL("../../components/problems/topic-directory.tsx", root), "utf8"), /\bimage=/);
+});
