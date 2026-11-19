@@ -2,7 +2,7 @@
 
 ## Arena favourite key pattern F2 (18 November 2026)
 
-Migration 0021 replaces the fixed list of 18 Arena keys in the favourites constraint with a shape pattern. Before it, favouriting any of the 15 Arena problems added after 0012 passed the API catalogue check and then failed the database check, so the API answered 503. The API still accepts only catalogue keys. Down refuses while a favourite uses a newer key. `lib/community-favourite-arena-keys.test.ts` covers accepted, rejected and authored keys and runs up, down, up on a disposable database. Draft pull request, not merged. The owner runs the read-only pre-check and the apply steps in the PR description. No production SQL was run by the agent.
+Migration 0021 replaces the fixed list of 18 Arena keys in the favourites constraint with a shape pattern. Before it, favouriting any of the 15 Arena problems added after 0012 passed the API catalogue check and then failed the database check, so the API answered 503. The API still accepts only catalogue keys. Down refuses while a favourite uses a newer key. `lib/community-favourite-arena-keys.test.ts` covers accepted, rejected and authored keys and runs up, down, up on a disposable database. [PR #209](https://github.com/Physcratic/physcratic/pull/209) merged into source at `5e929d7ff8c4cc93b0755fcf3c968396caed54b8`. The last accepted Phase B Production ledger covers 0001 through 0018. Confirm any later migration through the owner’s read-only ledger review. Applying 0021 requires its own reviewed migration procedure and owner approval.
 
 ## Link preview template L1 (18 November 2026)
 
@@ -15,6 +15,21 @@ The D1 baseline is nearly empty. 75 separator glyphs, 12 of 13 `font-mono` uses 
 ## Design rules D1 (18 November 2026)
 
 Two design rules are now written in CLAUDE.md, AGENTS.md and CONTRIBUTING.md with the same wording. No glyph between words, and one typeface (IBM Plex Sans) with sentence case labels. `lib/copy-rules.test.ts` fails on a middle dot or bullet in app and components text, on `font-mono` outside code and kbd, and on uppercase with wide tracking. Older offenders are in a counted baseline in that test, which D2 empties (75 glyphs in 32 files, 13 mono in 11 files, 7 uppercase in 7 files). Applied now to the problem card source line (source, year and task as three spans, 8px gap), the problem heading badges (rating number and band name as two spans, accessible name "Rating 1,850, Advanced"), the Problem room label, the library tabs and the collection count line. `describeEstimate` now returns "1,850 Advanced" and `estimateParts` gives the two parts. No schema, auth, grading, flag or deployment change.
+
+## Phase B checkpoint (19 November 2026)
+
+Main4f840e67f359e558d49f44a4b81966012638fc9a includes cleanup PR204.
+The owner has accepted sampled serving-LOGIN evidence and confirmed cleanup
+Production dpl_A4rYge5pwgYzVMhD6JYgabQ8NexB, Ready on physcratic.com,
+with the temporary variable removed, profiles OFF and statistics ON. These
+private provider facts are owner-confirmed; source removal and exact-main CI
+were independently rechecked. Do not repeat attestation or its cleanup based on
+older pending/UNPROVEN prose below. They are historical checkpoints.
+Current authority: [Phase B report](PHASE_B_OWNER_REPORT.md) and
+[owner-only permission/activation checklist](PHASE_C_B1_RELEASE_CHECKLIST.md).
+Permission reconciliation still requires separate exact-artifact approvals.
+No Production operation is authorized or performed by this engineering task.
+
 
 ## Pending instrumentation removal (19 November 2026)
 

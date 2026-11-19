@@ -64,7 +64,24 @@ test('0012 favourites, exact solve eligibility, isolation and concurrency on dis
  SELECT gen_random_uuid(),$1,$2,$3,$4,gen_random_uuid(),' {"kind":"numeric","value":2,"units":"1"}'::jsonb,'correct','within-tolerance','numeric-v1',n FROM generate_series(100,20100) n`,[owner,p.id,p.revision.id,p.parts[0].id]);
  assert.equal((await read()).problems[0].solves,null);
  await assert.rejects(pool.query('BEGIN;'+down+'COMMIT;'));await pool.query('ROLLBACK');
- await pool.query('DELETE FROM community_favourite_limit WHERE user_id=$1',[student]);for(let i=0;i<60;i++)assert.equal((await write(student,staticKey)).status,200);assert.equal((await write(student,staticKey)).status,429);
+ // Keep the quota burst in one deterministic database minute. The real wall
+ // clock can cross a minute during CI, legitimately resetting request61 to200.
+ // Only this disposable schema/pool shadows the clock; production SQL is unchanged.
+ const clock = async (minute: '00' | '01') => pool.query(`CREATE OR REPLACE FUNCTION ${schema}.clock_timestamp()
+   RETURNS timestamptz LANGUAGE sql STABLE AS $$ SELECT TIMESTAMPTZ '2026-11-19T00:${minute}:00Z' $$`);
+ await clock('00');
+ const limitPool=new Pool({connectionString:url,options:`-c search_path=${schema},pg_catalog,public -c role=${role}`});
+ try {
+  const limitApi=createProblemStatsApi({...f.deps,pool:limitPool});
+  const limitedWrite=()=>limitApi(req(student,{key:staticKey,favourite:true},'PUT','/api'));
+  await pool.query('DELETE FROM community_favourite_limit WHERE user_id=$1',[student]);
+  for(let i=0;i<60;i++)assert.equal((await limitedWrite()).status,200);
+  const blocked=await limitedWrite();assert.equal(blocked.status,429);assert.equal(blocked.headers.get('Retry-After'),'60');
+  assert.equal((await pool.query('SELECT requests FROM community_favourite_limit WHERE user_id=$1',[student])).rows[0].requests,61);
+  await clock('01');
+  assert.equal((await limitedWrite()).status,200,'the next database minute resets quota');
+  assert.equal((await pool.query('SELECT requests FROM community_favourite_limit WHERE user_id=$1',[student])).rows[0].requests,1);
+ } finally {await limitPool.end();}
  }finally{await runtime?.end();await pool.end();await admin.query(`DROP SCHEMA ${schema} CASCADE;DROP ROLE ${role}`);await admin.end();}
 });
 
