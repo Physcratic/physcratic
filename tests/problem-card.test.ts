@@ -4,8 +4,11 @@ import { createElement, Fragment } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import {
   ProblemCard,
+  visibleCardImage,
   type ProblemCardProps,
 } from "../components/physics/problem-card";
+import { UnifiedProblemCard } from "../components/physics/unified-arena-collection";
+import type { CollectionEntry } from "../lib/unified-arena";
 
 import { TagFilterContext } from "../components/physics/tag-filter";
 import { ArenaCollection } from "../components/physics/arena-collection";
@@ -661,4 +664,53 @@ test("corpus, olympiad and archive cards pass no image and look unchanged", () =
     assert.doesNotMatch(readFileSync(new URL(file, root), "utf8"), /\bimage=/, file);
   }
   assert.doesNotMatch(readFileSync(new URL("../../components/problems/topic-directory.tsx", root), "utf8"), /\bimage=/);
+});
+
+// Community cards (C3c). The collection gives a community entry an optional image, and the card shows it in the C2 frame.
+const communityId = "11111111-1111-4111-8111-111111111111", communityRevision = "22222222-2222-4222-8222-222222222222";
+const communityImage = { src: `/card-images/${communityId}/${communityRevision}`, alt: "A beam on two supports", width: 640, height: 480 };
+const community = (image?: typeof communityImage): CollectionEntry => ({ key: `authored:${communityId}`, kind: "authored", id: communityId, title: "A community problem", tags: ["Mechanics"], summary: "Published community problem", estimatedDifficulty: null, author: null, ...(image ? { image } : {}) });
+const unified = (entry: CollectionEntry) => renderToStaticMarkup(createElement(UnifiedProblemCard, { problem: entry }));
+
+test("a community entry with an image shows it with the given address, alt text and size", () => {
+  const html = unified(community(communityImage));
+  assert.match(html, /<div data-card-image="true" class="[^"]*\bh-\[120px\][^"]*\bsm:h-40\b/);
+  const img = html.match(/<img src="\/card-images\/[^"]*"[^>]*>/)?.[0] ?? "";
+  assert.ok(img.includes(`src="${communityImage.src}"`));
+  assert.ok(img.includes('alt="A beam on two supports"'));
+  assert.ok(img.includes('width="640"') && img.includes('height="480"'));
+  assert.ok(img.includes('loading="lazy"') && img.includes('decoding="async"') && img.includes("object-contain"));
+  assert.equal((html.match(/<a[\s>]/g) ?? []).length, 1, "the stretched link is still the only link");
+});
+
+test("a community entry without an image renders exactly as before", () => {
+  const html = unified(community());
+  assert.doesNotMatch(html, /data-card-image|<img|sm:flex-row sm:items-start/);
+  assert.equal(unified(community()), unified({ ...community(), image: undefined }));
+});
+
+test("no alt text or an address that failed to load means no frame, and a different address is kept", () => {
+  assert.equal(visibleCardImage(undefined, null), undefined);
+  for (const alt of ["", "   "]) assert.equal(visibleCardImage({ ...communityImage, alt }, null), undefined, JSON.stringify(alt));
+  assert.equal(visibleCardImage(communityImage, communityImage.src), undefined);
+  assert.deepEqual(visibleCardImage(communityImage, "/card-images/other/other"), communityImage);
+  assert.doesNotMatch(unified(community({ ...communityImage, alt: " " })), /data-card-image|<img/);
+  // The load error handler is on the picture and records its own address.
+  const card = readFileSync(new URL("../components/physics/problem-card.tsx", import.meta.url), "utf8");
+  assert.match(card, /<img src=\{shown\.src\}[^>]*onError=\{\(\) => setFailedSrc\(shown\.src\)\}/);
+});
+
+test("Arena entries still take their picture from the Arena index, whatever an entry carries", () => {
+  const arenaEntry = (id: string, extra: object = {}): CollectionEntry => ({ key: `arena:${id}`, kind: "arena", id, title: "T", tags: [], summary: "S", estimatedDifficulty: null, author: null, ...extra });
+  const withFigure = arena.problems.find((problem) => "image" in problem)!;
+  const without = arena.problems.find((problem) => !("image" in problem))!;
+  assert.ok(unified(arenaEntry(withFigure.id)).includes(`src="${(withFigure as { image: { src: string } }).image.src}"`));
+  assert.doesNotMatch(unified(arenaEntry(without.id)), /data-card-image/);
+  assert.doesNotMatch(unified(arenaEntry(without.id, { image: communityImage })), /card-images/, "an Arena entry never shows a community address");
+});
+
+test("the loading card has the picture slot in the same place and size", () => {
+  const html = renderToStaticMarkup(createElement(ProblemCardSkeleton));
+  assert.match(html, /data-card-image-slot="true" class="[^"]*\bh-\[120px\][^"]*\bsm:h-40\b[^"]*\blg:w-60\b/);
+  assert.match(html, /sm:flex-row sm:items-start sm:gap-6/);
 });

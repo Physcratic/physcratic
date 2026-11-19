@@ -32,6 +32,11 @@ export type ProblemCardImage = { src: string; alt: string; width: number; height
 const imageFrameClass = "h-[120px] w-full shrink-0 overflow-hidden rounded-lg bg-white p-2 sm:h-40 sm:w-44 lg:w-60";
 const imageClass = "h-full w-full rounded-[calc(var(--radius)-0.5rem)] object-contain";
 
+/** The picture to show, or undefined: none given, no alt text to read, or this address already failed to load. */
+export function visibleCardImage(image: ProblemCardImage | undefined, failedSrc: string | null): ProblemCardImage | undefined {
+  return image && image.alt.trim() && image.src !== failedSrc ? image : undefined;
+}
+
 export type ProblemCardProps = {
   id: string;
   title: string;
@@ -101,6 +106,9 @@ export function ProblemCard({
   onOpen,
 }: ProblemCardProps) {
   const titleId = React.useId();
+  // A picture that cannot load (removed after publication, or offline) leaves no frame, no broken icon and no gap.
+  const [failedSrc, setFailedSrc] = React.useState<string | null>(null);
+  const shown = visibleCardImage(image, failedSrc);
   const Heading = headingLevel === 4 ? "h4" : "h3";
   const band = elo === undefined ? undefined : ratingBand(elo);
   const tagFilter = useTagFilter();
@@ -296,13 +304,13 @@ export function ProblemCard({
         </div>
       )}
       <div className={bodyClass}>
-        <div className={image ? `${contentClass} sm:flex-row sm:items-start sm:gap-6` : contentClass}>
-          {image ? <div className="flex min-w-0 flex-1 flex-col gap-4">{textBlocks}</div> : textBlocks}
-          {image && (
+        <div className={shown ? `${contentClass} sm:flex-row sm:items-start sm:gap-6` : contentClass}>
+          {shown ? <div className="flex min-w-0 flex-1 flex-col gap-4">{textBlocks}</div> : textBlocks}
+          {shown && (
             <div data-card-image className={imageFrameClass}>
               {/* A plain img: the figures are static public files, and the explicit width and height reserve the box. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" draggable={false} className={imageClass} />
+              <img src={shown.src} alt={shown.alt} width={shown.width} height={shown.height} loading="lazy" decoding="async" draggable={false} className={imageClass} onError={() => setFailedSrc(shown.src)} />
             </div>
           )}
         </div>
@@ -344,8 +352,8 @@ export function ProblemCard({
 }
 
 /** A bar of the loading placeholder. It pulses, and stands still when the person asks for less motion. */
-function Bar({ className }: { className: string }) {
-  return <div className={cn("rounded bg-muted motion-safe:animate-pulse", className)} />;
+function Bar({ className, ...props }: React.ComponentProps<"div"> & { className: string }) {
+  return <div {...props} className={cn("rounded bg-muted motion-safe:animate-pulse", className)} />;
 }
 
 /**
@@ -363,18 +371,22 @@ export function ProblemCardSkeleton() {
           <Bar className="h-5 w-24" />
         </div>
         <div className={bodyClass}>
-          <div className={contentClass}>
-            <div className="flex flex-col gap-2">
-              <Bar className="h-5 w-40" />
-              <Bar className="h-7 w-3/4" />
-              {/* A description line is 22.75px tall. It takes two lines on a narrow card and usually one on a wide one. */}
-              <div className="flex flex-col">
-                <div className="flex h-[22.75px] items-center"><Bar className="h-4 w-full" /></div>
-                <div className="flex h-[22.75px] items-center lg:hidden"><Bar className="h-4 w-2/3" /></div>
+          {/* The picture slot of a card with an image, in the same place and size, so the list does not jump when cards arrive. */}
+          <div className={`${contentClass} sm:flex-row sm:items-start sm:gap-6`}>
+            <div className="flex min-w-0 flex-1 flex-col gap-4">
+              <div className="flex flex-col gap-2">
+                <Bar className="h-5 w-40" />
+                <Bar className="h-7 w-3/4" />
+                {/* A description line is 22.75px tall. It takes two lines on a narrow card and usually one on a wide one. */}
+                <div className="flex flex-col">
+                  <div className="flex h-[22.75px] items-center"><Bar className="h-4 w-full" /></div>
+                  <div className="flex h-[22.75px] items-center lg:hidden"><Bar className="h-4 w-2/3" /></div>
+                </div>
               </div>
+              {/* The line that names the publisher, so the placeholder is as tall as a card with attribution. */}
+              <Bar className="h-5 w-48" />
             </div>
-            {/* The line that names the publisher, so the placeholder is as tall as a card with attribution. */}
-            <Bar className="h-5 w-48" />
+            <Bar data-card-image-slot className="h-[120px] w-full shrink-0 rounded-lg sm:h-40 sm:w-44 lg:w-60" />
           </div>
           <div className={footerClass}>
             <Bar className="h-11 w-full sm:w-40" />
