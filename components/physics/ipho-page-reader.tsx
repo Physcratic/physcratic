@@ -97,7 +97,7 @@ export function IphoPageReader({
           />
         </a>
         <figcaption className="px-3 py-2 text-sm leading-relaxed text-muted-foreground">
-          {paper.code} · {label}, page {page} of {total}. Select another page
+          {paper.code}, {label}, page {page} of {total}. Select another page
           for shared setup or continuing derivations. Click the page to enlarge
           it.
         </figcaption>

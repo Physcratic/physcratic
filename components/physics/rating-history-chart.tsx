@@ -101,7 +101,7 @@ export function RatingHistoryChart({
                 const point = payload[0]?.payload;
                 return point ? (
                   <span>
-                    {dateLabel(point.date)} · {point.contest}
+                    {dateLabel(point.date)}, {point.contest}
                   </span>
                 ) : null;
               }}

@@ -116,7 +116,7 @@ async function guideShots(page) {
     await page.getByLabel(new RegExp(`^Part ${label} statement text 1$`, "i")).fill(text);
     if (!key) continue;
     const card = page.locator("section[data-order-item]").filter({ has: page.getByLabel(`Section 1 part ${index + 1} label`, { exact: true }) }).last();
-    await card.getByText(`Answer key, hints and solution · part ${label}`, { exact: true }).click();
+    await card.getByText(`Answer key, hints and solution for part ${label}`, { exact: true }).click();
     await card.getByLabel("Answer type", { exact: true }).selectOption("numeric");
     await card.getByLabel("Expected value", { exact: true }).fill(key[0]);
     await card.getByLabel("Units", { exact: true }).fill(key[1]);
@@ -125,7 +125,7 @@ async function guideShots(page) {
   await until(async () => (await page.getByRole("status").allTextContents()).some((t) => t.includes("All changes saved")), "autosave");
   await page.evaluate(() => window.scrollTo(0, 0));
   await save("studio-editor");
-  await top(page.getByText("Answer key, hints and solution · part a", { exact: true }), 140);
+  await top(page.getByText("Answer key, hints and solution for part a", { exact: true }), 140);
   await save("studio-parts");
   await page.getByRole("button", { name: "Student preview", exact: true }).click();
   await page.getByRole("article", { name: "Student-facing preview" }).waitFor();
@@ -138,7 +138,7 @@ async function guideShots(page) {
   await page.getByText("Add a difficulty rating from 0 to 4,000.", { exact: true }).waitFor();
   assert.equal(await page.getByRole("button", { name: "Publish problem", exact: true }).isDisabled(), true, "Publish is disabled for 4001");
   await page.getByLabel("Difficulty rating", { exact: true }).fill("2100");
-  assert.equal((await page.getByTestId("difficulty-band").innerText()).trim(), "2,100 · Advanced");
+  assert.equal((await page.getByTestId("difficulty-band").innerText()).replace(/\s+/g, " ").trim(), "2,100 Advanced");
   await page.getByRole("button", { name: "Publish problem", exact: true }).click();
   await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state === "published", "publish");
   const learnerContext = await browser.newContext({ viewport: { width: 1280, height: 1000 } });
@@ -398,7 +398,7 @@ try {
     .getByRole("button", { name: "+ Add part to section 1", exact: true })
     .click();
   await page
-    .getByText("Answer key, hints and solution · part 1", { exact: true })
+    .getByText("Answer key, hints and solution for part 1", { exact: true })
     .click();
   await page.getByLabel("Answer type", { exact: true }).selectOption("numeric");
   await page.getByLabel("Expected value", { exact: true }).fill("");
@@ -435,7 +435,7 @@ try {
     .locator("section[data-order-item]")
     .filter({ has: page.getByLabel("Section 2 title", { exact: true }) });
   await secondSection
-    .getByText("Answer key, hints and solution · part 1", { exact: true })
+    .getByText("Answer key, hints and solution for part 1", { exact: true })
     .click();
   await secondSection
     .getByLabel("Answer type", { exact: true })
@@ -845,7 +845,7 @@ try {
     .getByRole("button", { name: "+ Add part to section 2", exact: true })
     .click();
   await secondSection
-    .getByText("Answer key, hints and solution · part 2", { exact: true })
+    .getByText("Answer key, hints and solution for part 2", { exact: true })
     .click();
   await secondSection
     .getByLabel("Answer type", { exact: true })
@@ -906,7 +906,7 @@ try {
     .getByRole("button", { name: "Submit answer", exact: true })
     .click();
   await learner
-    .getByRole("heading", { name: /^Correct · saved attempt/ })
+    .getByRole("heading", { name: /^Correct, saved attempt/ })
     .waitFor();
   assert.equal(
     (await learner.locator("body").innerText()).includes(
@@ -938,7 +938,7 @@ try {
     .getByRole("button", { name: "Submit answer", exact: true })
     .click();
   await learner
-    .getByRole("heading", { name: /^Correct · saved attempt/ })
+    .getByRole("heading", { name: /^Correct, saved attempt/ })
     .waitFor();
   await learner.getByText(/Assisted \(server record\)/).waitFor();
   await learner
@@ -951,7 +951,7 @@ try {
     .getByRole("button", { name: "Submit answer", exact: true })
     .click();
   await learner
-    .getByRole("heading", { name: /^Ungraded · saved attempt/ })
+    .getByRole("heading", { name: /^Ungraded, saved attempt/ })
     .waitFor();
   const records = (
     await pool.query(

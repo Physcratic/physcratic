@@ -595,9 +595,8 @@ function PrivateWorkspace({
           </h2>
           <p className="text-sm leading-relaxed">
             Original revision{" "}
-            <span className="font-mono">{short(pending.body.revisionId)}</span>{" "}
-            · part{" "}
-            <span className="font-mono">{short(pending.body.partId)}</span>. A
+            <code>{short(pending.body.revisionId)}</code>, part{" "}
+            <code>{short(pending.body.partId)}</code>. A
             retry sends this original answer and key. It never changes revisions
             or creates a new intended attempt.
           </p>
@@ -683,7 +682,7 @@ function PrivateWorkspace({
                       >
                         {parts.map((p, i) => (
                           <option key={p.id} value={p.id}>
-                            {i + 1}. {p.sectionTitle || "Section"} · Part{" "}
+                            {i + 1}. {p.sectionTitle || "Section"}, Part{" "}
                             {p.label || i + 1}
                           </option>
                         ))}
@@ -701,11 +700,11 @@ function PrivateWorkspace({
                       <FeedbackBox
                         titleAs="h3"
                         tone={feedbackTone[receipt.attempt.status]}
-                        title={`${feedback[receipt.attempt.status].label} · saved attempt ${receipt.attempt.attemptNumber}`}
+                        title={`${feedback[receipt.attempt.status].label}, saved attempt ${receipt.attempt.attemptNumber}`}
                       >
                         <p>{feedback[receipt.attempt.status].text}</p>
                         <p className="break-words text-xs">
-                          {receipt.attempt.solutionEvidence ? "Assistance cannot be verified for this public-solution revision" : receipt.attempt.assisted ? "Assisted (server record)" : "Unassisted (server record)"} · Submitted answer: {answerText(receipt.attempt.answer)}
+                          {receipt.attempt.solutionEvidence ? "Assistance cannot be verified for this public-solution revision" : receipt.attempt.assisted ? "Assisted (server record)" : "Unassisted (server record)"}. Submitted answer: {answerText(receipt.attempt.answer)}
                         </p>
                         {receipt.attempt.status !== "correct" && (
                           <div className="pt-2">

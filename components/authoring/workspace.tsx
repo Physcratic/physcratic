@@ -240,7 +240,7 @@ export function AuthoringWorkspace({ userId, publicSolutionsEnabled=false }: { u
                         {item.title || "Untitled problem"}
                       </h2>
                       <p className="mt-1 text-xs capitalize text-muted-foreground">
-                        {item.state} · version {item.version} ·{" "}
+                        {item.state}, version {item.version},{" "}
                         {new Date(item.updatedAt).toLocaleDateString()}
                       </p>
                     </div>

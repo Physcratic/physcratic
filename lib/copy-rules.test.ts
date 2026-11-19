@@ -183,66 +183,16 @@ describe("no banned words or joined clauses in the app", () => {
   });
 });
 
-// Design rules (D1): no separator glyph between words, one typeface for interface text, no wide-tracked uppercase labels.
-// Existing offenders outside D1 are counted per file below. D2 empties this baseline. Until then a file may not go above
-// its count (a new offender fails), and may not stay above the real count either (fix one, lower the number).
+// Design rules: no separator glyph between words, one typeface for interface text, no wide-tracked uppercase labels.
+// D2 removed every older offender except the one file below. A file may not go above its count, and may not stay above
+// the real count either (fix one, lower the number).
+// components/community/account-settings.tsx is pinned in scripts/activation/PACKAGE_SHA256SUMS, so an agent cannot edit it.
+// It keeps one font-mono username input and one wide-tracked uppercase label until the owner re-pins the activation
+// package with the fixed file. Remove both entries then.
 const DESIGN_BASELINE: Record<DesignFinding["rule"], Record<string, number>> = {
-  "separator glyph": {
-    "app/dashboard/author/page.tsx": 1,
-    "app/dashboard/authored/[id]/page.tsx": 1,
-    "app/learn/[slug]/page.tsx": 1,
-    "app/learn/page.tsx": 1,
-    "app/terms/page.tsx": 2,
-    "components/authored/student-workspace.tsx": 4,
-    "components/authoring/answer-panel.tsx": 1,
-    "components/authoring/difficulty-rating-field.tsx": 1,
-    "components/authoring/editor-fields.tsx": 1,
-    "components/authoring/media-controls.tsx": 1,
-    "components/authoring/problem-editor.tsx": 1,
-    "components/authoring/solution-permissions.tsx": 2,
-    "components/authoring/workspace.tsx": 2,
-    "components/coaching/coaching-highlight.tsx": 1,
-    "components/community/achievement-settings.tsx": 1,
-    "components/community/discussions.tsx": 1,
-    "components/community/medal-badge.tsx": 6,
-    "components/community/moderation-dashboard.tsx": 2,
-    "components/community/verification-dashboard.tsx": 4,
-    "components/community/verification-settings.tsx": 2,
-    "components/physics/answer-palette.ts": 2,
-    "components/physics/corpus-document-reader.tsx": 2,
-    "components/physics/corpus-problem-reader.tsx": 6,
-    "components/physics/dashboard-highlights.tsx": 2,
-    "components/physics/imported-problem-reader.tsx": 4,
-    "components/physics/individual-rating-summary.tsx": 1,
-    "components/physics/ipho-navigation.tsx": 5,
-    "components/physics/ipho-page-reader.tsx": 1,
-    "components/physics/problem-history.tsx": 3,
-    "components/physics/rating-history-chart.tsx": 1,
-    "components/physics/solution-submission-form.tsx": 8,
-    "components/physics/submission-history.tsx": 4,
-  },
-  "font-mono outside code and kbd": {
-    "components/authored/student-workspace.tsx": 2,
-    "components/authoring/answer-panel.tsx": 1,
-    "components/authoring/editor-fields.tsx": 1,
-    "components/community/account-settings.tsx": 1,
-    "components/community/verification-settings.tsx": 1,
-    "components/contests/contest-room.tsx": 2,
-    "components/physics/archive-answer-panel.tsx": 1,
-    "components/physics/individual-rating-summary.tsx": 1,
-    "components/physics/math-answer-field.tsx": 1,
-    "components/physics/plain-math-check.tsx": 1,
-    "components/ui/chart.tsx": 1,
-  },
-  "uppercase with tracking": {
-    "app/admin/moderation/page.tsx": 1,
-    "app/admin/verification/page.tsx": 1,
-    "components/authoring/editor-fields.tsx": 1,
-    "components/authoring/problem-editor.tsx": 1,
-    "components/authoring/tag-picker.tsx": 1,
-    "components/community/account-settings.tsx": 1,
-    "components/community/profile-card.tsx": 1,
-  },
+  "separator glyph": {},
+  "font-mono outside code and kbd": { "components/community/account-settings.tsx": 1 },
+  "uppercase with tracking": { "components/community/account-settings.tsx": 1 },
 };
 
 describe("design rule scanner", () => {

@@ -127,11 +127,10 @@ function ProblemToCheckOut() {
                 <Badge
                   variant={band.variant}
                   aria-label={`Rating ${rating.toLocaleString("en-US")}, ${band.name}`}
-                  title={`${band.name} · ${band.range}`}
-                  className="shrink-0 rounded-md"
+                  title={`${band.name}, ${band.range}`}
+                  className="shrink-0 gap-2 rounded-md"
                 >
                   <span className="text-sm tabular-nums">{rating.toLocaleString("en-US")}</span>
-                  <span aria-hidden="true" className="px-1.5 text-sm">·</span>
                   <span className="text-sm">{band.name}</span>
                 </Badge>
               )}

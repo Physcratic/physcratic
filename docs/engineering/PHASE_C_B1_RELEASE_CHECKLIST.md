@@ -4,7 +4,7 @@
 
 ## 1. Confirm the accepted release gate and obtain the first exact approval
 
-- Reconfirm main **4f840e67f359e558d49f44a4b81966012638fc9a**, Vercel **dpl_A4rYge5pwgYzVMhD6JYgabQ8NexB**, financial-dashboard under neuterions-projects, Ready and assigned to physcratic.com. Exact-main [CI44370052597](https://github.com/Physcratic/physcratic/actions/runs/44370052597) succeeded. PR204 removed instrumentation; the owner reports its variable removed and accepted sampled serving-LOGIN evidence. Preserve the private evidence reference. This is sampled evidence, not proof of every Function, connection, region or drained old deployment.
+- The reviewed source for these commands is **b66117e76c8888eeec8233e1e4fac5ac82f8586a**. The last owner-confirmed cleanup deployment was **dpl_A4rYge5pwgYzVMhD6JYgabQ8NexB** from **4f840e67f359e558d49f44a4b81966012638fc9a**. Before execution, verify the current Ready deployment ID, source SHA and actual physcratic.com assignment in financial-dashboard under neuterions-projects. Confirm binding continuity against the accepted sampled serving-LOGIN evidence and preserve its private reference. PR204 removed the instrumentation, and the owner confirmed removal of the temporary variable.
 - Confirm profiles OFF, statistics ON, all unrelated gates unchanged. Confirm actual current accepted rollback deployment and private persistent restricted-binding recovery references through owner control-plane access independent of the app. Missing private confirmations do not authorize another deploy or credential change. Stop on relevant source/deployment/binding drift.
 - In Neon confirm **divine-mode-82940461 / br-quiet-dawn-b7m2zrt3 / ep-snowy-heart-b7c1220y / neondb**, PG18.7 and restricted LOGIN **physcratic_runtime_app**. SQL database name alone cannot identify the provider branch. Use the approved private TLS-verified administrative/metadata connection; do not retrieve or paste credentials here. Record the executing administrative identity separately from serving LOGIN.
 - Coordinate a permission-change window with no competing grants/DDL. Approve target, role, source, exact revoke artifact/hash, post-checks and stop/recovery scope. Revoke and profile grants require **separate approvals**; never run them as an unattended combined script. No full role provisioning, old favourites-grant replay, migration or automatic repair.
@@ -13,7 +13,7 @@ From a clean checkout pinned to the reviewed release, verify artifacts before op
 
 ```bash
 set -euo pipefail
- test "$(git rev-parse HEAD)" = '4f840e67f359e558d49f44a4b81966012638fc9a'
+test "$(git rev-parse HEAD)" = 'b66117e76c8888eeec8233e1e4fac5ac82f8586a'
 sha256sum -c <<'HASHES'
 dcec5ac29b8a363fc2fd42742ffb7fce89e0a45522e4ffb25a505b5cfc7e28d2  scripts/activation/revoke-authored-problem-id.review.sql
 ec8b59b652501014ec3f390b8fab7865ab51ecfa17581b68ff5b96c14215a1bd  scripts/activation/profiles-grants.review.sql

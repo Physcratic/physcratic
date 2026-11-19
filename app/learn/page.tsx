@@ -54,10 +54,9 @@ export default function LearnPage() {
                   {article.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
-                Updated <time dateTime={article.updated}>{formatDate(article.updated)}</time>
-                {" · "}
-                {article.readingMinutes} min read
+              <CardContent className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
+                <span>Updated <time dateTime={article.updated}>{formatDate(article.updated)}</time></span>
+                <span>{article.readingMinutes} min read</span>
               </CardContent>
             </Card>
           </li>

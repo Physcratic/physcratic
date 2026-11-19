@@ -53,7 +53,7 @@ export function DifficultyRatingField({ stored, save, tour, attempted }: { store
           onChange={(e) => type(e.target.value)}
         />
         <div aria-live="polite" className="min-w-0 text-base font-medium tabular-nums" data-testid="difficulty-band">
-          {typed !== null && band ? <Badge variant={band.variant}>{typed.toLocaleString("en-US")} · {band.name}</Badge> : null}
+          {typed !== null && band ? <Badge variant={band.variant} className="gap-1.5"><span>{typed.toLocaleString("en-US")}</span> <span>{band.name}</span></Badge> : null}
         </div>
         <RatingBandsPopover />
       </div>
