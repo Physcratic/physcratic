@@ -3,6 +3,7 @@ import { filterProblemsByTag, getProblemTags } from "@/lib/problem-tags";
 import { getEstimatedProblemElo } from "@/lib/problem-archive";
 import arena from "@/lib/arena/index.json";
 import { filterArena, type ArenaCatalogEntry } from "@/lib/arena-schema";
+import { arenaCardImage } from "@/lib/arena/card-image";
 import { ProblemCard } from "./problem-card";
 import { ProblemCollection } from "./problem-collection";
 
@@ -40,6 +41,7 @@ export function ArenaCollection({
           description={problem.summary}
           elo={getEstimatedProblemElo(problem.id)}
           tags={getProblemTags(problem)}
+          image={arenaCardImage(problem.id)}
           href={`/dashboard/problems/${problem.id}`}
         />
       )}

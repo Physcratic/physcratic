@@ -23,6 +23,15 @@ const bodyClass = "flex min-w-0 flex-1 flex-col";
 const contentClass = "flex flex-1 flex-col gap-4 p-4 sm:p-6";
 const footerClass = "problem-entry-details flex flex-col gap-4 px-4 py-4 sm:flex-row sm:items-end sm:px-6";
 
+/** A figure for the card. Only Arena cards pass one. The width and height are the file's own, so the frame never moves. */
+export type ProblemCardImage = { src: string; alt: string; width: number; height: number };
+
+// The figure sits in a fixed frame (120px high, 160px from 640px) on a light page-white ground, because the Arena figures
+// are drawn on white and a dark frame would show a seam. The frame is p-2 inside the card radius token, so the picture's
+// own corners are that radius minus the 8px padding (4px).
+const imageFrameClass = "h-[120px] w-full shrink-0 overflow-hidden rounded-lg bg-white p-2 sm:h-40 sm:w-44 lg:w-60";
+const imageClass = "h-full w-full rounded-[calc(var(--radius)-0.5rem)] object-contain";
+
 export type ProblemCardProps = {
   id: string;
   title: string;
@@ -39,6 +48,8 @@ export type ProblemCardProps = {
   details?: readonly string[];
   tags: readonly string[];
   elo?: number;
+  /** The first statement figure of an Arena problem. With none, the card renders exactly as before. */
+  image?: ProblemCardImage;
   attribution?: React.ReactNode;
   /**
    * The favourite control. With none of these the card has no control and renders exactly as before, so callers
@@ -77,6 +88,7 @@ export function ProblemCard({
   details,
   tags,
   elo,
+  image,
   attribution,
   likeCount,
   liked,
@@ -191,6 +203,63 @@ export function ProblemCard({
     </div>
   ) : null;
 
+  const textBlocks = (
+    <>
+      <div className="flex flex-col gap-2">
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+          {competition && host && (
+            <span
+              role="img"
+              aria-label={`Hosted by ${host.country}${host.online ? " (online)" : ""}`}
+              title={`Hosted by ${host.country}${host.online ? " (online)" : ""}`}
+              data-host-flag
+              className="inline-flex shrink-0 items-center gap-1"
+            >
+              {host.flags.map((code) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={code}
+                  src={`/flags/${code}.svg`}
+                  alt=""
+                  aria-hidden="true"
+                  width={21}
+                  height={16}
+                  draggable={false}
+                  className="h-4 w-auto shrink-0 rounded-[2px] border border-foreground/30"
+                />
+              ))}
+            </span>
+          )}
+          <span className="font-medium">{source}</span>
+          {year !== undefined && <span>{year}</span>}
+          {task && <span>{task}</span>}
+        </p>
+        <Heading
+          id={titleId}
+          lang={titleLanguage}
+          className="text-pretty text-xl font-semibold leading-snug text-foreground"
+        >
+          {title}
+        </Heading>
+        {description && (
+          <p className="line-clamp-2 text-pretty text-sm leading-relaxed text-muted-foreground">
+            {description}
+          </p>
+        )}
+      </div>
+      {details?.length ? (
+        <p className="flex flex-wrap gap-x-4 gap-y-1 text-sm leading-relaxed text-muted-foreground">
+          {details.map((detail) => <span key={detail}>{detail}</span>)}
+        </p>
+      ) : null}
+      {attribution && (
+        <div className="pointer-events-none relative z-10 flex flex-col gap-2 [&_a]:pointer-events-auto [&_button]:pointer-events-auto [&_details]:pointer-events-auto">
+          {attribution}
+        </div>
+      )}
+    </>
+  );
+
   return (
     // The wrapper never moves. The hover lift is on the card inside it (see .problem-entry-lift in globals.css), so the
     // pointer stays over the wrapper while the card rises 2px and the card cannot flicker at its lower edge.
@@ -227,57 +296,13 @@ export function ProblemCard({
         </div>
       )}
       <div className={bodyClass}>
-        <div className={contentClass}>
-          <div className="flex flex-col gap-2">
-            <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
-              {competition && host && (
-                <span
-                  role="img"
-                  aria-label={`Hosted by ${host.country}${host.online ? " (online)" : ""}`}
-                  title={`Hosted by ${host.country}${host.online ? " (online)" : ""}`}
-                  data-host-flag
-                  className="inline-flex shrink-0 items-center gap-1"
-                >
-                  {host.flags.map((code) => (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      key={code}
-                      src={`/flags/${code}.svg`}
-                      alt=""
-                      aria-hidden="true"
-                      width={21}
-                      height={16}
-                      draggable={false}
-                      className="h-4 w-auto shrink-0 rounded-[2px] border border-foreground/30"
-                    />
-                  ))}
-                </span>
-              )}
-              <span className="font-medium">{source}</span>
-              {year !== undefined && <span>{year}</span>}
-              {task && <span>{task}</span>}
-            </p>
-            <Heading
-              id={titleId}
-              lang={titleLanguage}
-              className="text-pretty text-xl font-semibold leading-snug text-foreground"
-            >
-              {title}
-            </Heading>
-            {description && (
-              <p className="line-clamp-2 text-pretty text-sm leading-relaxed text-muted-foreground">
-                {description}
-              </p>
-            )}
-          </div>
-          {details?.length ? (
-            <p className="flex flex-wrap gap-x-4 gap-y-1 text-sm leading-relaxed text-muted-foreground">
-              {details.map((detail) => <span key={detail}>{detail}</span>)}
-            </p>
-          ) : null}
-          {attribution && (
-            <div className="pointer-events-none relative z-10 flex flex-col gap-2 [&_a]:pointer-events-auto [&_button]:pointer-events-auto [&_details]:pointer-events-auto">
-              {attribution}
+        <div className={image ? `${contentClass} sm:flex-row sm:items-start sm:gap-6` : contentClass}>
+          {image ? <div className="flex min-w-0 flex-1 flex-col gap-4">{textBlocks}</div> : textBlocks}
+          {image && (
+            <div data-card-image className={imageFrameClass}>
+              {/* A plain img: the figures are static public files, and the explicit width and height reserve the box. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" draggable={false} className={imageClass} />
             </div>
           )}
         </div>
