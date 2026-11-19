@@ -5,6 +5,7 @@ import {
   authoredLibraryPageSchema,
 } from "./authored-library-contracts";
 import { publicAuthoredMetadata } from "./problem-authoring";
+import { authoredCardImage } from "./authored-card-image";
 import { authoredLibraryTagPredicate } from "./authored-library-tags";
 
 const headers = {
@@ -28,6 +29,27 @@ export async function authoredRating(pool: Pool, problemId: string): Promise<{ f
   };
   const { rows } = await pool.query<{ rating: number | null }>(query);
   return rows.length ? { found: true, rating: rows[0].rating } : { found: false, rating: null };
+}
+
+/**
+ * Which of these published problems may show an image. A problem removed by staff, or by an author who is restricted
+ * (a banned author keeps their published problems), shows none. The restriction table may be missing or unreadable on an
+ * older deployment, and then nothing can be checked, so no image is shown and the list itself still works.
+ */
+async function imageAllowed(pool: Pool, ids: string[]): Promise<Set<string>> {
+  if (!ids.length) return new Set();
+  try {
+    const query = {
+      text: `SELECT p.id AS "problemId" FROM authored_problem p WHERE p.id=ANY($1::uuid[]) AND NOT EXISTS(
+        SELECT 1 FROM community_restriction c WHERE c.restricted AND ((c.kind='problem' AND c.problem_id=p.id) OR (c.kind='user' AND c.user_id=p.owner_id)))`,
+      values: [ids],
+      query_timeout: 5000,
+    };
+    const { rows } = await pool.query<{ problemId: string }>(query);
+    return new Set(rows.map((row) => row.problemId));
+  } catch {
+    return new Set();
+  }
 }
 
 export function createAuthoredLibraryApi(pool: Pool) {
@@ -93,18 +115,43 @@ export function createAuthoredLibraryApi(pool: Pool) {
         jsonb_build_object('title',r.content->'title','topicTags',r.content->'topicTags',
           'methodTags',r.content->'methodTags','estimatedDifficulty',r.content->'estimatedDifficulty',
           'provenance',r.content->'provenance') AS metadata
+        ,img.alt AS "imageAlt",
+        (img.media_id IS NOT NULL AND EXISTS(SELECT 1 FROM author_revision_media rm
+          JOIN author_media m ON m.id=rm.media_id AND m.problem_id=rm.problem_id AND m.purpose=rm.purpose
+          WHERE rm.revision_id=r.id AND rm.problem_id=p.id AND rm.purpose='statement-image' AND m.state='ready'
+          AND rm.media_id::text=lower(img.media_id))) AS "imageLinked"
         FROM authored_problem p JOIN authored_revision r ON r.id=p.published_revision_id
+        LEFT JOIN LATERAL (
+          -- The first image block of this published revision's public content, in reading order: the context, then each
+          -- section's blocks, then each part's blocks. Private parts, hints and solutions are not part of r.content.
+          SELECT k.blk->>'mediaId' AS media_id,btrim(k.blk->>'alt') AS alt FROM (
+            SELECT ARRAY[0,0,0,c.ord::int] AS ord,c.blk FROM jsonb_array_elements(coalesce(r.content->'context','[]'::jsonb)) WITH ORDINALITY c(blk,ord)
+            UNION ALL
+            SELECT ARRAY[1,s.ord::int,0,b.ord::int],b.blk FROM jsonb_array_elements(coalesce(r.content->'sections','[]'::jsonb)) WITH ORDINALITY s(sec,ord)
+              CROSS JOIN LATERAL jsonb_array_elements(coalesce(s.sec->'blocks','[]'::jsonb)) WITH ORDINALITY b(blk,ord)
+            UNION ALL
+            SELECT ARRAY[1,s.ord::int,q.ord::int,b.ord::int],b.blk FROM jsonb_array_elements(coalesce(r.content->'sections','[]'::jsonb)) WITH ORDINALITY s(sec,ord)
+              CROSS JOIN LATERAL jsonb_array_elements(coalesce(s.sec->'parts','[]'::jsonb)) WITH ORDINALITY q(part,ord)
+              CROSS JOIN LATERAL jsonb_array_elements(coalesce(q.part->'blocks','[]'::jsonb)) WITH ORDINALITY b(blk,ord)
+          ) k WHERE k.blk->>'kind'='image' ORDER BY k.ord LIMIT 1
+        ) img ON true
         WHERE ${where.join(" AND ")} ORDER BY ${byRating ? `${authoredRatingSql} ASC NULLS LAST,` : ""}p.id ASC LIMIT 25`,
         values,
         query_timeout: 5000,
       };
       const { rows } = await pool.query(query);
-      const problems = rows.slice(0, 24).map((row) => ({
-        problemId: row.problemId,
-        revisionId: row.revisionId,
-        ...publicAuthoredMetadata(row.metadata),
-        ...(byRating ? { rating: row.rating as number | null } : {}),
-      }));
+      const page = rows.slice(0, 24);
+      const withImage = await imageAllowed(pool, page.filter((row) => row.imageLinked && row.imageAlt?.trim()).map((row) => row.problemId));
+      const problems = page.map((row) => {
+        const image = withImage.has(row.problemId) ? authoredCardImage(row.problemId, row.revisionId, row.imageAlt) : undefined;
+        return {
+          problemId: row.problemId,
+          revisionId: row.revisionId,
+          ...publicAuthoredMetadata(row.metadata),
+          ...(byRating ? { rating: row.rating as number | null } : {}),
+          ...(image ? { image } : {}),
+        };
+      });
       return Response.json(
         authoredLibraryPageSchema.parse({
           problems,

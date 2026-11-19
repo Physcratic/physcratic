@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { publicAuthoredMetadataSchema } from "./problem-authoring";
+import { authoredCardImageSchema } from "./authored-card-image";
 
 export const authoredLibraryFiltersSchema = z.strictObject({
   q: z.string().trim().max(200).default(""),
@@ -32,6 +33,8 @@ export const authoredLibraryPageSchema = z.strictObject({
         revisionId: z.uuid(),
         // Only with sort=rating: the rating the order used, null when the label is not a rating.
         rating: z.number().int().min(0).max(4000).nullable().optional(),
+        // The first image of the published revision, only when it is a ready statement image with alt text and nothing restricts it.
+        image: authoredCardImageSchema.optional(),
       }),
     )
     .max(24),

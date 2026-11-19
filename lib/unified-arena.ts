@@ -3,6 +3,7 @@ import arena from './arena/index.json';
 import { filterArena, type ArenaCatalogEntry } from './arena-schema';
 import { getEstimatedProblemElo } from './problem-archive';
 import { bandFilterIds } from './rating-bands';
+import { authoredCardImageSchema } from './authored-card-image';
 import { getProblemTags } from './problem-tags';
 import { authoredLibraryPageSchema } from './authored-library-contracts';
 import { publicShowcaseSchema } from './community/achievements';
@@ -26,6 +27,8 @@ export const collectionEntrySchema = z.strictObject({
   summary:z.string(), elo:z.number().optional(), estimatedDifficulty:z.string().nullable(),
   provenance:authoredLibraryPageSchema.shape.problems.element.shape.provenance.optional(),
   author:publicAuthorSchema.nullable(),
+  // Community problems only: the card image of the published revision. Arena cards take theirs from lib/arena/card-image.ts.
+  image:authoredCardImageSchema.optional(),
 });
 export const unifiedArenaPageSchema = z.strictObject({problems:z.array(collectionEntrySchema).max(24),nextCursor:problemKeySchema.nullable(),authoredUnavailable:z.boolean(),attributionUnavailable:z.boolean(),statsEnabled:z.boolean().optional()});
 export type CollectionEntry = z.infer<typeof collectionEntrySchema>;

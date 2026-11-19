@@ -38,7 +38,7 @@ export function createUnifiedArenaApi(pool:Pool, flags:()=>{authors:boolean;badg
     const response=await library(new Request('https://library.internal/?'+p));
     if(!response.ok){authoredUnavailable=true;}else{
      const page=await response.json();moreAuthored=Boolean(page.nextCursor);
-     entries=page.problems.map((v:{problemId:string;title:string;topicTags:string[];methodTags:string[];estimatedDifficulty:string|null;provenance:CollectionEntry['provenance'];rating?:number|null})=>{ratings.set(v.problemId,v.rating??null);return {key:`authored:${v.problemId}`,kind:'authored',id:v.problemId,title:v.title,tags:[...new Set([...v.topicTags,...v.methodTags])],summary:'Published community problem',estimatedDifficulty:v.estimatedDifficulty,provenance:v.provenance,author:null};});
+     entries=page.problems.map((v:{problemId:string;title:string;topicTags:string[];methodTags:string[];estimatedDifficulty:string|null;provenance:CollectionEntry['provenance'];rating?:number|null;image?:CollectionEntry['image']})=>{ratings.set(v.problemId,v.rating??null);return {key:`authored:${v.problemId}`,kind:'authored',id:v.problemId,title:v.title,tags:[...new Set([...v.topicTags,...v.methodTags])],summary:'Published community problem',estimatedDifficulty:v.estimatedDifficulty,provenance:v.provenance,author:null,...(v.image?{image:v.image}:{})};});
     }
    }
    const rank=(e:CollectionEntry)=>({kind:e.kind,id:e.id,rating:e.kind==='arena'?e.elo??null:ratings.get(e.id)??null});
