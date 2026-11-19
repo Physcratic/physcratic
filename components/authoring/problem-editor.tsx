@@ -27,7 +27,7 @@ import {
 } from "./media-controls";
 import { AnswerPanel } from "./answer-panel";
 import { TagPicker, MissingTagNote } from "./tag-picker";
-import { HowItWorksLink, StatusBar, StepCard, studioTokens } from "./studio-ui";
+import { HowItWorksLink, RecoverySection, StatusBar, StepCard, studioTokens } from "./studio-ui";
 import { SimpleEditor } from "./simple-editor";
 import { GuidedTour } from "@/components/tour/guided-tour";
 import { TourHelpButton } from "@/components/tour/tour-help";
@@ -420,10 +420,19 @@ export function ProblemEditor({
         </p>
         {modeReady && snapshot.storageWarning && (
           <p role="alert" className="mb-4 rounded-lg border p-4 text-sm">
-            Tab recovery storage is unavailable. Download a private copy
-            before leaving if saving fails.
+            Tab recovery storage is unavailable. Download a private copy from
+            Recovery before leaving if saving fails.
           </p>
         )}
+        <RecoverySection narrow={mode === "simple"} active={Boolean(snapshot.recoveryRaw || recovery || phase === "conflict" || phase === "error")}>
+        <div className="space-y-2">
+          <Button type="button" variant="outline" onClick={() => download(draft)}>
+            Download private copy
+          </Button>
+          <p className="text-sm text-muted-foreground">
+            Saves your current work as a file on this device. It includes private answer keys, so keep it private.
+          </p>
+        </div>
         {snapshot.recoveryRaw && (
           <section
             role="alert"
@@ -523,13 +532,6 @@ export function ProblemEditor({
               <Button
                 type="button"
                 variant="outline"
-                onClick={() => download(draft)}
-              >
-                Download private local copy
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
                 disabled={fetchingLatest || uploads > 0}
                 onClick={() => void compare()}
               >
@@ -605,6 +607,7 @@ export function ProblemEditor({
             )}
           </section>
         )}
+        </RecoverySection>
         {modeReady && <>
         <div className="mb-8 flex flex-wrap items-center justify-between gap-3 border-b pb-3">
           <div className="flex gap-2" role="group" aria-label="Editor view">
@@ -1163,16 +1166,6 @@ export function ProblemEditor({
                   )}
                 </div>
                 {!draft.publishedSolutionPolicy && <SolutionPermissions key={draft.problemId} problemId={draft.problemId} />}
-                {draft.state === "published" && (
-                  <a
-                    href={`/dashboard/authored/${draft.problemId}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex min-h-11 items-center text-sm font-medium underline underline-offset-4"
-                  >
-                    Open student problem room
-                  </a>
-                )}
                 {draft.state === "published" && (
                   <div className="space-y-3 rounded-lg border border-destructive p-4">
                   <h3 className="text-sm font-semibold">Danger zone</h3>
