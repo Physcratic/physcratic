@@ -221,7 +221,7 @@ export function StudentWorkspace({
   useEffect(() => setAuthDenied(false), [accountKey, viewer.state]);
   const denyAuth = useCallback(() => setAuthDenied(true), []);
   return (
-    <ProblemRoom showLabel={false}>
+    <ProblemRoom>
         <div className="flex flex-wrap items-end justify-between gap-4 border-b pb-6">
           <ProblemHeading title={availability === "ready" ? revision?.content.title ?? "Physics problem" : "Physics problem"} source="Community-authored problem" estimate={availability === "ready" ? revision?.content.estimatedDifficulty : null} tags={availability === "ready" ? [...(revision?.content.topicTags ?? []), ...(revision?.content.methodTags ?? [])] : []}>
             {availability === "ready" && revision && (attributionEnabled ? <PublicAuthorName key={`${problemId}:${revision.id}`} problemId={problemId} revisionId={revision.id} /> : null)}

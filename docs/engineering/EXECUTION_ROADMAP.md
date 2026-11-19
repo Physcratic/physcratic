@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## Problem page header H2 (19 November 2026)
+
+Problem pages have one way back and one clean header. The link reads "All problems" and is first after the skip link, 44px high. It goes to the dashboard problem list when signed in and to `/problems` for a guest. An archive problem goes to the archive list at its year, for both, for example `/problems/archive#ipho-2025`. The problem pages are built once with no session, so the server HTML links to `/problems` and a client component swaps the target when the session is known. The "Problem room" label and the `showLabel` option are gone. The Arena reader's own "Back to Physcratic Arena" link is gone (the code had one at the top and none at the bottom). The archive reader's "Back to all problems" button is hidden on a problem's own page and kept where the reader is embedded in the dashboard list. The wordmark stays on the right as "Physcratic home", linking to `/`, with no arrow. The breadcrumb is in the server HTML for crawlers and guests, and a signed-in person does not see it once the session is known, so there can be a brief flash of it on first load. The BreadcrumbList JSON-LD is untouched, and `tests/problem-header.test.ts` pins the hash of all 145 problem pages. The authored problem page uses the same header. No auth, routing, middleware, schema or deployment change, and no pinned file touched.
+
 ## Serving LOGIN assertion recovery (19 November 2026)
 
 Draft PR #212 restores a default-off, deployment-bound probe for the existing
