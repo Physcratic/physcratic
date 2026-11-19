@@ -8,8 +8,9 @@ Production dpl_A4rYge5pwgYzVMhD6JYgabQ8NexB, Ready on physcratic.com,
 with the temporary variable removed, profiles OFF and statistics ON. These
 private provider facts are owner-confirmed; source removal and exact-main CI
 were independently rechecked. The earlier sample applies to that checkpoint.
-Current serving LOGIN remains unverified. See [the serving LOGIN procedure](RUNTIME_LOGIN_ATTESTATION.md)
-for the cutover stop conditions and candidate evidence. The [Phase B report](PHASE_B_OWNER_REPORT.md)
+The owner also accepted the November 19 PR #212 serving sample and confirmed
+temporary variable removal. See [the accepted deployment and archived runbook](RUNTIME_LOGIN_ATTESTATION.md).
+Confirm deployment and binding continuity for later releases. The [Phase B report](PHASE_B_OWNER_REPORT.md)
 and [owner-only permission checklist](PHASE_C_B1_RELEASE_CHECKLIST.md) retain the
 historical permission evidence and separate approval requirements.
 Permission reconciliation still requires separate exact-artifact approvals.

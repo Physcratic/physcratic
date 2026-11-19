@@ -1,5 +1,10 @@
 # Phase C audit correction and B1 owner sequence
 
+The [November 19 serving LOGIN record](RUNTIME_LOGIN_ATTESTATION.md) records
+owner acceptance and temporary variable removal after PR #212. The checkpoints
+and ordered operations below record the earlier Phase B preparation. Verify
+deployment and binding continuity before a later release.
+
 ## Phase B checkpoint (19 November 2026)
 
 Main4f840e67f359e558d49f44a4b81966012638fc9a includes cleanup PR204.

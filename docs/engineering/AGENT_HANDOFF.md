@@ -8,13 +8,13 @@ Layout and wording only. The recovery tools now sit in one collapsed "Recovery" 
 
 Problem pages have one way back and one clean header. The link reads "All problems" and is first after the skip link, 44px high. It goes to the dashboard problem list when signed in and to `/problems` for a guest. An archive problem goes to the archive list at its year, for both, for example `/problems/archive#ipho-2025`. The problem pages are built once with no session, so the server HTML links to `/problems` and a client component swaps the target when the session is known. The "Problem room" label and the `showLabel` option are gone. The Arena reader's own "Back to Physcratic Arena" link is gone (the code had one at the top and none at the bottom). The archive reader's "Back to all problems" button is hidden on a problem's own page and kept where the reader is embedded in the dashboard list. The wordmark stays on the right as "Physcratic home", linking to `/`, with no arrow. The breadcrumb is in the server HTML for crawlers and guests, and a signed-in person does not see it once the session is known, so there can be a brief flash of it on first load. The BreadcrumbList JSON-LD is untouched, and `tests/problem-header.test.ts` pins the hash of all 145 problem pages. The authored problem page uses the same header. No auth, routing, middleware, schema or deployment change, and no pinned file touched.
 
-## Serving LOGIN assertion recovery (19 November 2026)
+## Serving LOGIN attestation cleanup (19 November 2026)
 
-Draft PR #212 restores a default-off, deployment-bound probe for the existing
-Arena collection request. The earlier owner-accepted sample and PR204 cleanup
-remain historical evidence. The current serving LOGIN is unverified and the
-cutover remains NO-GO pending a new owner-accepted sample for the actual candidate.
-See [the owner procedure and exact acceptance criteria](RUNTIME_LOGIN_ATTESTATION.md).
+The owner accepted the sampled restricted LOGIN on deployment
+`dpl_4UWwiYwhWZs28XPuKo5mpSv3Jgbq` at `cd1e2c7` and confirmed expiry and
+removal of the temporary Production variable. This code-only cleanup removes
+the observer and restores the ordinary Arena collection handler. Preserve the
+restricted Production binding. [Accepted evidence and archived runbook](RUNTIME_LOGIN_ATTESTATION.md).
 
 ## Arena card image C2 (19 November 2026)
 
@@ -51,9 +51,9 @@ Permission reconciliation still requires separate exact-artifact approvals.
 No Production operation is authorized or performed by this engineering task.
 
 
-## Pending instrumentation removal (19 November 2026)
+## Historical PR #204 instrumentation removal (19 November 2026)
 
-DO NOT MERGE UNTIL THE PRODUCTION ATTESTATION IS COMPLETE AND THE OWNER AUTHORIZES REMOVAL.
+PR #204 was gated on accepted Production evidence and owner removal approval.
 
 Prepared from main 8d350c5a239d91b4009d1069e50d149ecd7bf744. This cleanup removes
 only the temporary assertion helper, pool observer and temporary unit/PG CI tests.
@@ -70,7 +70,7 @@ after this cleanup is released. Local test results are recorded in the delivery.
 
 From main 998ae77, the Arena card redesign landed in PRs #193, #196, #197 and #198, and the follow-ups from the independent review are in claude/arena-card-p4b. PR #195 is superseded by owner decision. The band colours are teal, blue, violet and amber, with no red or green. The favourite control reuses the existing save, with no new API. Two reviewed manifest digests changed in #197, see [BETA_READINESS.md](BETA_READINESS.md). The favourites allowlist in migration 0012 rejects newer Arena problems, so favourites on them need a migration with owner approval. The light focus ring is darker so it reaches 3:1, and that applies site-wide. No Production, schema or flag change.
 
-## Temporary serving-LOGIN assertion proposal (18 November 2026)
+## Historical serving-LOGIN assertion proposal (18 November 2026)
 
 Separate codex/phasec-login-attestation change stacked on the runtime audit fix.
 [Design, approval and removal](RUNTIME_LOGIN_ATTESTATION.md) define an OFF-by-default
