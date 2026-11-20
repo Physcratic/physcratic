@@ -103,6 +103,29 @@ const hiddenBlocks = (blocks: readonly EditorBlock[]) => {
   return Math.max(0, blocks.length - text - picture);
 };
 
+/**
+ * The shared setup blocks Simple's main question does not show. The main question owns the first text block and the first picture,
+ * and whatever sits between and around them stays where it is. This is the same split as `hiddenBlocks` counts.
+ */
+const mainQuestionSlots = (blocks: readonly EditorBlock[]) => new Set([firstTextIndex(blocks), firstImageIndex(blocks)].filter((i) => i >= 0));
+export function sharedSetupBlocks(blocks: readonly EditorBlock[]): EditorBlock[] {
+  const mine = mainQuestionSlots(blocks);
+  return blocks.filter((_, i) => !mine.has(i));
+}
+/** Puts an edited list of shared setup blocks back. The main question's blocks keep their place, and nothing outside the list is dropped or reordered. */
+export function withSharedSetupBlocks(blocks: readonly EditorBlock[], shown: readonly EditorBlock[]): EditorBlock[] {
+  const mine = mainQuestionSlots(blocks);
+  // With no main question text yet, a text block added here would turn into it and leave the list. An empty one takes that place first.
+  const lead: EditorBlock[] = firstTextIndex(blocks) < 0 && shown.some((b) => b.kind === "text") ? [{ id: crypto.randomUUID(), kind: "text", spans: [{ kind: "text", text: "" }] }] : [];
+  const out: EditorBlock[] = [];
+  let next = 0;
+  blocks.forEach((block, i) => {
+    if (mine.has(i)) out.push(block);
+    else if (next < shown.length) out.push(shown[next++]);
+  });
+  return [...lead, ...out, ...shown.slice(next)];
+}
+
 /** The first words of a question as a title: up to five words, title case, no equations. */
 export function deriveTitle(spans: readonly Span[]): string {
   const small = new Set(["a", "an", "the", "of", "in", "on", "at", "to", "is", "are", "and", "or", "for", "by", "with"]);
@@ -519,6 +542,28 @@ export function setDifficulty(d: EditorDraft, text: string): boolean {
 
 const ALT_RULE = "Every image requires descriptive alternative text before publication";
 const PROVENANCE_RULE = "Title and rights provenance required";
+const DUPLICATE_TAGS_RULE = "Duplicate tags";
+/** The plain messages for the whole problem. Each one is shown by Simple itself, so the server's wording is not shown beside it. */
+export const PROBLEM_MESSAGES = {
+  images: "Describe each image in the shared setup and sections, in More options.",
+  source: "Say where it's from, in More options.",
+  methodRepeated: "Each method tag can only be used once, in More options.",
+  methodOther: "Check the method tags in More options. A problem can have up to 30, and each one can be up to 80 characters.",
+  topicRepeated: "A topic is listed twice. Switch the repeated topic off and on again, or remove it in Advanced.",
+  topicOther: "Check the topics. A problem can have up to 30, and each one can be up to 80 characters. You can fix them in Advanced.",
+} as const;
+/** The server's publish rules that Simple words and shows next to its own fields. Anything else is listed by the Publish button. */
+const SIMPLE_OWNED_RULES = /^(Title and rights provenance required|Add a statement and at least one part\. Use text, statement images or a statement PDF\.|Every published part requires a key or explicit manual mode|Add a difficulty rating from 0 to 4,000\.|Every image requires descriptive alternative text before publication)$/;
+const isTagPath = (path: readonly PropertyKey[]) => path[0] === "content" && (path[1] === "methodTags" || path[1] === "topicTags");
+/** The server messages Simple does not already say in its own words, so each problem is shown once. Tags are Simple's whole, whatever the rule. */
+export function otherIssueMessages(issues: readonly { message: string; path: readonly PropertyKey[] }[]): string[] {
+  return issues.filter((i) => !isTagPath(i.path) && !SIMPLE_OWNED_RULES.test(i.message)).map((i) => i.message);
+}
+/** The `data-simple-field` an issue's field is shown at, and where Publish moves focus. */
+export function issueTarget(field: string): string {
+  const [kind, id] = field.split(":");
+  return kind === "question" ? `q:${id}` : kind === "answer" ? `a:${id}` : kind === "units" ? `u:${id}` : kind === "picture" ? `p:${id}` : kind === "solution" ? `s:${id}` : kind === "options" ? `o:${id}` : kind;
+}
 export type SimpleIssue = { field: string; message: string };
 /** `reads` holds what the author has typed for each part's answer, when it differs from the saved key. */
 export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, string>> = {}, fileFirst = false, handGraded: ReadonlySet<string> = new Set()): SimpleIssue[] {
@@ -531,8 +576,10 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
   // A worked solution is asked for on a problem that has never been published. Older problems publish without one.
   const neverPublished = d.state === "draft";
   for (const { part } of parts) {
-    const missingImageDescription = part.blocks.some(b => b.kind === "image" && !b.alt.trim());
-    if (missingImageDescription) issues.push({ field: `picture:${part.id}`, message: "Describe the image so everyone can follow it." });
+    const pictures = part.blocks.filter((b) => b.kind === "image");
+    // Simple shows the first picture of a part. A later one is described in Advanced, and the message says so.
+    if (pictures.some((b) => !b.alt.trim()))
+      issues.push({ field: `picture:${part.id}`, message: pictures[0].alt.trim() ? "Describe each image. You can do that in Advanced." : "Describe the image so everyone can follow it." });
     const entry = privateFor(d, part.id);
     // The server also wants a description for every image in the hints and the worked solution.
     const undescribed = (blocks: readonly EditorBlock[]) => blocks.some((b) => b.kind === "image" && !b.alt.trim());
@@ -568,9 +615,14 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
   const serverSays = (message: string) => server.some((i) => i.message === message);
   const covered = (pattern: RegExp) => issues.some((i) => pattern.test(i.field));
   const inOptions = (message: string) => issues.push({ field: "options:problem", message });
-  if (serverSays(ALT_RULE) && !covered(/^(picture|options):/)) inOptions("Describe each image in the shared setup and sections, in More options.");
-  if (serverSays(PROVENANCE_RULE) && !covered(/^(title|source|rights)$/)) inOptions("Say where it's from, in More options.");
-  if (server.some((i) => i.path[1] === "methodTags")) inOptions("Each method tag can only be used once, in More options.");
+  if (serverSays(ALT_RULE) && !covered(/^(picture|options):/)) inOptions(PROBLEM_MESSAGES.images);
+  if (serverSays(PROVENANCE_RULE) && !covered(/^(title|source|rights)$/)) inOptions(PROBLEM_MESSAGES.source);
+  // Any tag problem is Simple's to word, so the server's own line is not shown beside it. Only a repeat has a message of its own.
+  const tagIssues = (list: "methodTags" | "topicTags") => server.filter((i) => i.path[0] === "content" && i.path[1] === list);
+  const method = tagIssues("methodTags");
+  if (method.length) inOptions(method.some((i) => i.message === DUPLICATE_TAGS_RULE) ? PROBLEM_MESSAGES.methodRepeated : PROBLEM_MESSAGES.methodOther);
+  const topics = tagIssues("topicTags");
+  if (topics.length) issues.push({ field: "topics", message: topics.some((i) => i.message === DUPLICATE_TAGS_RULE) ? PROBLEM_MESSAGES.topicRepeated : PROBLEM_MESSAGES.topicOther });
   return issues;
 }
 

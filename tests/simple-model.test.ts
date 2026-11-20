@@ -24,6 +24,10 @@ import {
   addPicture,
   addSection,
   problemOptionsHaveContent,
+  otherIssueMessages,
+  PROBLEM_MESSAGES,
+  sharedSetupBlocks,
+  withSharedSetupBlocks,
   removeSection,
   advancedNote,
   blocksSpans,
@@ -979,4 +983,129 @@ test("an older draft opened in Simple and only retitled publishes everything els
   assert.equal(after.content.title, "A new title");
   assert.deepEqual({ ...after, content: { ...after.content, title: before.content.title } }, before, "only the title differs");
   assert.equal(serverAccepts(d), true);
+});
+
+// ---------------------------------------------------------------------------------------------------------------
+// S3c-fix: one message per problem, tags, and the shared setup the main question does not own
+// ---------------------------------------------------------------------------------------------------------------
+
+const serverIssues = (d: EditorDraft) => publishableDraftSchema.safeParse({ problemId: d.problemId, version: 1, ...draftPayload(d) }).error?.issues ?? [];
+const image = (alt: string, mediaId = uuid()) => ({ id: uuid(), kind: "image" as const, mediaId, alt, caption: "" });
+const manyTags = (n: number) => Array.from({ length: n }, (_, i) => `tag ${i}`);
+/** The editor's normaliser lists each statement image as an attachment. Fixtures do the same, so only the rule under test fails. */
+function settle(d: EditorDraft) {
+  const blocks = [...d.content.context, ...d.content.sections.flatMap((s) => [...s.blocks, ...s.parts.flatMap((p) => p.blocks)])];
+  d.content.attachments = [...d.content.attachments.filter((a) => a.purpose !== "statement-image"), ...blocks.flatMap((b) => (b.kind === "image" ? [{ id: b.mediaId, purpose: "statement-image" as const }] : []))];
+}
+
+test("a repeated method tag and too many method tags say different things", () => {
+  const repeated = easyDraft("9.8", "m/s^2");
+  repeated.content.methodTags = ["energy-methods", "energy-methods"];
+  assert.ok(serverIssues(repeated).some((i) => i.message === "Duplicate tags"));
+  assert.deepEqual(simpleIssues(repeated).filter((i) => i.field === "options:problem").map((i) => i.message), [PROBLEM_MESSAGES.methodRepeated]);
+  const many = easyDraft("9.8", "m/s^2");
+  many.content.methodTags = manyTags(31);
+  assert.equal(serverAccepts(many), false);
+  const said = simpleIssues(many).filter((i) => i.field === "options:problem").map((i) => i.message);
+  assert.deepEqual(said, [PROBLEM_MESSAGES.methodOther]);
+  assert.doesNotMatch(said[0], /only be used once/);
+  const long = easyDraft("9.8", "m/s^2");
+  long.content.methodTags = ["x".repeat(81)];
+  assert.deepEqual(simpleIssues(long).filter((i) => i.field === "options:problem").map((i) => i.message), [PROBLEM_MESSAGES.methodOther]);
+  // Thirty is the limit, so thirty distinct tags are fine.
+  const thirty = easyDraft("9.8", "m/s^2");
+  thirty.content.methodTags = manyTags(30);
+  assert.deepEqual(fieldsOf(thirty), []);
+});
+
+test("a repeated topic and too many topics are named by Simple too, because the server refuses them", () => {
+  const repeated = easyDraft("9.8", "m/s^2");
+  repeated.content.topicTags = ["mechanics", "mechanics"];
+  assert.equal(serverAccepts(repeated), false);
+  assert.deepEqual(simpleIssues(repeated).filter((i) => i.field === "topics").map((i) => i.message), [PROBLEM_MESSAGES.topicRepeated]);
+  const many = easyDraft("9.8", "m/s^2");
+  many.content.topicTags = manyTags(31);
+  assert.deepEqual(simpleIssues(many).filter((i) => i.field === "topics").map((i) => i.message), [PROBLEM_MESSAGES.topicOther]);
+  // The server trims before it compares, and so does it for a tag with only spaces being empty. Case and a different spelling are different tags.
+  const spaced = easyDraft("9.8", "m/s^2");
+  spaced.content.topicTags = ["mechanics", " mechanics "];
+  assert.equal(serverAccepts(spaced), false);
+  assert.deepEqual(fieldsOf(spaced), ["topics"]);
+  const cased = easyDraft("9.8", "m/s^2");
+  cased.content.topicTags = ["mechanics", "Mechanics"];
+  assert.equal(serverAccepts(cased), true);
+  assert.deepEqual(fieldsOf(cased), []);
+});
+
+test("every problem Simple names is shown once, because the server's own line for it is not shown beside it", () => {
+  const cases: [string, (d: EditorDraft) => void][] = [
+    ["an image without a description in a section", (d) => void (d.content.sections[0].blocks = [image("")])],
+    ["an image without a description in the shared setup", (d) => void (d.content.context = [textBlock("Setup"), image("A ramp"), image(" ")])],
+    ["a second image in a part without a description", (d) => void (allParts(d)[0].part.blocks.push(image("A ramp"), image("")))],
+    ["a repeated method tag", (d) => void (d.content.methodTags = ["a", "a"])],
+    ["thirty-one method tags", (d) => void (d.content.methodTags = manyTags(31))],
+    ["a repeated topic", (d) => void (d.content.topicTags = ["mechanics", "mechanics"])],
+    ["thirty-one topics", (d) => void (d.content.topicTags = manyTags(31))],
+    ["custom rights with no source", (d) => void (d.content.provenance = { kind: "authorized", source: "  ", rightsDeclaration: "By permission." })],
+  ];
+  for (const state of ["draft", "published"] as const)
+    for (const [name, change] of cases) {
+      const d = withState(easyDraft("9.8", "m/s^2"), state);
+      change(d);
+      settle(d);
+      const issues = serverIssues(d);
+      assert.ok(issues.length > 0, `${name}: the server refuses it`);
+      assert.deepEqual(otherIssueMessages(issues), [], `${name}: nothing is left for the line beside Publish`);
+      const simple = simpleIssues(d, {}, false, hand(d));
+      assert.equal(simple.length, 1, `${name}: Simple says it once, not ${simple.map((i) => i.field)}`);
+    }
+  // A rule Simple does not word is still listed.
+  const d = easyDraft("9.8", "m/s^2");
+  d.content.sections[0].id = d.content.context[0]?.id ?? allParts(d)[0].part.id;
+  const other = otherIssueMessages(serverIssues(d));
+  assert.deepEqual(other, ["Duplicate section, part or block ID"]);
+  assert.deepEqual(otherIssueMessages([{ message: "Duplicate tags", path: ["content", "topicTags"] }, { message: "Something else", path: [] }]), ["Something else"]);
+});
+
+test("the shared setup the main question does not own: opening, editing and closing leave the main question's blocks as they were", () => {
+  const main = textBlock("Main question");
+  const picture = image("The main picture");
+  const equation = { id: uuid(), kind: "math" as const, latex: "E=mc^2" };
+  const later = textBlock("Later text");
+  const blocks = [equation, main, later, picture];
+  assert.deepEqual(sharedSetupBlocks(blocks), [equation, later], "the first text and the first picture are the main question's");
+  assert.deepEqual(withSharedSetupBlocks(blocks, sharedSetupBlocks(blocks)), blocks, "nothing changes when nothing is edited");
+  // Edit a shared block.
+  const edited = withSharedSetupBlocks(blocks, [equation, { ...later, spans: [{ kind: "text", text: "Changed" }] }]);
+  assert.equal(edited[1], main);
+  assert.equal(edited[3], picture);
+  assert.deepEqual(edited.map((b) => b.id), blocks.map((b) => b.id));
+  // Move, delete and add. The main question's blocks keep their order and are never dropped.
+  const moved = withSharedSetupBlocks(blocks, [later, equation]);
+  assert.deepEqual(moved.map((b) => b.id), [later.id, main.id, equation.id, picture.id]);
+  const deleted = withSharedSetupBlocks(blocks, [later]);
+  assert.deepEqual(deleted.map((b) => b.id), [later.id, main.id, picture.id]);
+  const added = withSharedSetupBlocks(blocks, [equation, later, textBlock("New")]);
+  assert.deepEqual(added.slice(0, 4).map((b) => b.id), blocks.map((b) => b.id));
+  assert.equal(added.length, 5);
+  // The real draft: the main question box still reads and writes the same text after a shared block was edited.
+  const d = easyDraft("9.8", "m/s^2");
+  d.content.context = structuredClone(blocks);
+  settle(d);
+  const before = structuredClone(d.content.context);
+  d.content.context = withSharedSetupBlocks(d.content.context, sharedSetupBlocks(d.content.context).map((b) => (b.kind === "text" ? { ...b, spans: [{ kind: "text" as const, text: "Edited" }] } : b)));
+  assert.deepEqual(d.content.context[1], before[1]);
+  assert.deepEqual(d.content.context[3], before[3]);
+  assert.equal(blocksText(d.content.context), "Main question");
+  assert.equal(serverAccepts(d), true);
+});
+
+test("a text block added to the shared setup before there is a main question stays in the shared setup", () => {
+  const added = textBlock("Shared");
+  const next = withSharedSetupBlocks([], [added]);
+  assert.equal(next.length, 2);
+  assert.equal(blocksText(next), "", "the main question is still empty");
+  assert.deepEqual(sharedSetupBlocks(next), [added]);
+  const math = { id: uuid(), kind: "math" as const, latex: "x" };
+  assert.deepEqual(withSharedSetupBlocks([], [math]), [math], "an equation does not become the main question");
 });

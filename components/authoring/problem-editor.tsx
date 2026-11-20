@@ -31,7 +31,7 @@ import { HowItWorksLink, RecoverySection, StatusBar, StepCard, studioTokens } fr
 import { SimpleEditor } from "./simple-editor";
 import { GuidedTour } from "@/components/tour/guided-tour";
 import { TourHelpButton } from "@/components/tour/tour-help";
-import { STUDIO_MODE_KEY, readStudioMode, setDifficulty, type StudioMode } from "./simple-model";
+import { STUDIO_MODE_KEY, otherIssueMessages, readStudioMode, setDifficulty, type StudioMode } from "./simple-model";
 import { DifficultyRatingField } from "./difficulty-rating-field";
 import { colorsByPartId } from "@/lib/part-colors";
 import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
@@ -174,9 +174,8 @@ export function ProblemEditor({
     ...draftPayload(draft),
   });
   const issues = publishable.success ? [] : publishable.error.issues;
-  // Publish rules Simple shows next to its own fields. Anything else is listed by the Publish button.
-  const simpleOwned = /^(Title and rights provenance required|Add a statement and at least one part\. Use text, statement images or a statement PDF\.|Every published part requires a key or explicit manual mode|Add a difficulty rating from 0 to 4,000\.)$/;
-  const otherIssues = issues.map((i) => i.message).filter((m) => !simpleOwned.test(m));
+  // Publish rules Simple words and shows next to its own fields. Anything else is listed by the Publish button.
+  const otherIssues = otherIssueMessages(issues);
   function unpublish() {
     if (
       window.confirm(

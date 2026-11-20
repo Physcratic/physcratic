@@ -15,7 +15,7 @@ import { DifficultyRatingField } from "./difficulty-rating-field";
 import { MediaImage, useAuthorMediaUpload } from "./media-controls";
 import { RichMathText } from "./rich-math-text";
 import { MediaAttachments } from "./media-controls";
-import { ProblemMoreOptions, SIMPLE_TEXT_SCOPE } from "./simple-more-options";
+import { PROBLEM_OPTIONS_ERROR_ID, ProblemMoreOptions, SIMPLE_TEXT_SCOPE } from "./simple-more-options";
 import { AnswerPanel } from "./answer-panel";
 import { BlocksEditor } from "./editor-fields";
 import { setPartAnswerMode } from "@/lib/problem-authoring-editor";
@@ -24,6 +24,7 @@ import {
   RIGHTS_TEXT,
   UNITS,
   addContextPicture,
+  issueTarget,
   addPart,
   addPicture,
   advancedNote,
@@ -130,11 +131,10 @@ export function SimpleEditor(props: SimpleProps) {
   const note = advancedNote(draft);
   const rights = rightsState(draft);
   const blocked = issues.length > 0 || otherIssues.length > 0;
-  // More options for the whole problem opens by itself for saved content or an error inside it, then the author can close it.
+  // More options for the whole problem opens when the problem loads with saved content in it, and when Publish reports an error inside it.
+  // Nothing else opens it, so once the author closes it, typing elsewhere never brings it back. Only the next Publish does.
   const optionsIssue = shown("options:problem")?.message;
-  const optionsNeeded = problemOptionsHaveContent(draft) || fileFirst || !!optionsIssue;
-  const [moreOpen, setMoreOpen] = useState(optionsNeeded);
-  useEffect(() => { if (optionsNeeded) setMoreOpen(true); }, [optionsNeeded]);
+  const [moreOpen, setMoreOpen] = useState(() => problemOptionsHaveContent(draft) || fileFirst);
 
   // A draft made in Advanced can have no part yet. Simple starts it with part a.
   const noParts = parts.length === 0;
@@ -153,17 +153,16 @@ export function SimpleEditor(props: SimpleProps) {
       // An error that belongs in More options opens it again, even after the author closed it.
       if (issues.some((issue) => issue.field === "options:problem")) setMoreOpen(true);
       // Every missing item shows its message at once. Focus goes to the one highest on the page.
-      const targets = issues.map((issue) => {
-        const [kind, id] = issue.field.split(":");
-        return kind === "question" ? `q:${id}` : kind === "answer" ? `a:${id}` : kind === "units" ? `u:${id}` : kind === "picture" ? `p:${id}` : kind === "solution" ? `s:${id}` : kind === "options" ? `o:${id}` : kind;
-      });
+      const targets = issues.map((issue) => issueTarget(issue.field));
       requestAnimationFrame(() => {
         const hosts = targets
           .map((target) => document.querySelector<HTMLElement>(`[data-simple-field="${CSS.escape(target)}"]`))
           .filter((host): host is HTMLElement => Boolean(host))
           .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
         const host = hosts[0];
-        const control = host?.matches("input,textarea") ? host : (host?.querySelector<HTMLElement>("input,textarea,[contenteditable=true],math-field") ?? host?.querySelector<HTMLElement>("button,select"));
+        // For the whole problem's More options the error line takes focus, so it is read out, not the first field inside.
+        const alert = host?.dataset.simpleField === "o:problem" ? document.getElementById(PROBLEM_OPTIONS_ERROR_ID) : null;
+        const control = alert ?? (host?.matches("input,textarea") ? host : (host?.querySelector<HTMLElement>("input,textarea,[contenteditable=true],math-field") ?? host?.querySelector<HTMLElement>("button,select")));
         (control ?? host)?.focus();
         (control ?? host)?.scrollIntoView({ block: "center" });
       });
@@ -196,7 +195,7 @@ export function SimpleEditor(props: SimpleProps) {
 
       <DifficultyRatingField stored={draft.content.estimatedDifficulty} save={(text) => { let saved = false; edit((d) => void (saved = setDifficulty(d, text))); return saved; }} tour attempted={attempted} />
 
-      <TopicRow values={draft.content.topicTags} change={(v) => edit((d) => void (d.content.topicTags = v))} />
+      <TopicRow values={draft.content.topicTags} change={(v) => edit((d) => void (d.content.topicTags = v))} issue={shown("topics")?.message} />
 
   </>;
   const pdfChoice = <div className="space-y-2">
@@ -530,10 +529,10 @@ function SourceField({ draft, edit, touch, issue }: { draft: EditorDraft; edit: 
   );
 }
 
-function TopicRow({ values, change }: { values: string[]; change: (values: string[]) => void }) {
+function TopicRow({ values, change, issue }: { values: string[]; change: (values: string[]) => void; issue?: string }) {
   const id = useId();
   return (
-    <div className="space-y-3">
+    <div className="space-y-3" data-simple-field="topics">
       <p id={id} className={labelClass}>Pick a topic so people can find it (optional)</p>
       <div role="group" aria-labelledby={id} className="flex flex-wrap gap-2">
         {physicsTopics.map((tag) => {
@@ -552,6 +551,7 @@ function TopicRow({ values, change }: { values: string[]; change: (values: strin
           );
         })}
       </div>
+      {issue && <ErrorLine id={`${id}-error`}>{issue}</ErrorLine>}
     </div>
   );
 }
