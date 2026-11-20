@@ -9,12 +9,15 @@ export function AnswerPanel({
   onMode,
   compact = false,
   boxOwns = false,
+  solutionElsewhere = false,
   manualLabel,
   placeholder,
 }: {
   compact?: boolean;
-  /** Simple's answer box owns the expected value, units, expected expression and worked solution, so they are not shown here. */
+  /** Simple's answer box owns the expected value, units, expected expression and symbols, so they are not edited here. */
   boxOwns?: boolean;
+  /** Simple edits the worked solution in its own field, so it is not shown here. */
+  solutionElsewhere?: boolean;
   manualLabel?: string;
   /** Shown as the choice while no answer type has been picked. */
   placeholder?: string;
@@ -31,7 +34,7 @@ export function AnswerPanel({
         blocks={entry.hints}
         onChange={(hints) => onChange({ ...entry, hints })}
       />
-      {!boxOwns && <BlocksEditor
+      {!solutionElsewhere && <BlocksEditor
         scope="solution"
         label="Worked solution"
         blocks={entry.solution}
@@ -139,12 +142,13 @@ export function AnswerPanel({
                 Variable {index + 1}, real
               </legend>
               <div className="grid gap-3 sm:grid-cols-3">
-                <Field label="Symbol">
+                <Field label="Symbol" help={boxOwns ? "Set by the final answer above." : undefined}>
                   {(id) => (
                     <input
                       id={id}
                       className={inputClass}
                       maxLength={32}
+                      readOnly={boxOwns || undefined}
                       value={variable.name}
                       onChange={(e) =>
                         onChange({
@@ -227,7 +231,7 @@ export function AnswerPanel({
                   ),
                 )}
               </div>
-              <button
+              {!boxOwns && <button
                 type="button"
                 className="min-h-11 text-sm underline"
                 onClick={() =>
@@ -241,10 +245,10 @@ export function AnswerPanel({
                 }
               >
                 Remove variable {index + 1}
-              </button>
+              </button>}
             </fieldset>
           ))}
-          <button
+          {!boxOwns && <button
             type="button"
             disabled={key.variables.length >= 20}
             className="min-h-11 text-sm underline"
@@ -262,7 +266,7 @@ export function AnswerPanel({
             }
           >
             + Add variable
-          </button>
+          </button>}
           <Field
             label="Domain exclusions"
           >

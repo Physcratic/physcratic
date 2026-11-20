@@ -16,7 +16,7 @@ import { checkSampled, undecidedMessage } from "@/lib/sampled-check";
 import { answerFromBuffer } from "@/lib/authored-student";
 import { normalizeNumericUnits } from "@/lib/authored-grading-contracts";
 import { authoredKeySchema, hasAuthoredStatement } from "@/lib/problem-authoring";
-import { moveItem, type EditorBlock, type EditorDraft } from "@/lib/problem-authoring-editor";
+import { moveItem, setPartAnswerMode, type EditorBlock, type EditorDraft } from "@/lib/problem-authoring-editor";
 
 export type Key = EditorDraft["privateParts"][number]["key"];
 export type PrivatePart = EditorDraft["privateParts"][number];
@@ -386,19 +386,29 @@ export function setUnits(d: EditorDraft, partId: string, units: string) {
   upsertPrivate(d, entry);
 }
 
-/** True when the answer box can show and edit this part's answer. An answer the box cannot read is edited in More options instead. */
+/**
+ * True when the answer box can show and edit this part's saved answer. An empty expression, such as one just picked in
+ * More options, belongs to the box. A saved expression the box cannot read is edited in More options instead.
+ */
 export function boxOwnsAnswer(entry: PrivatePart): boolean {
   const key = entry.key;
   if (!key || key.kind === "manual" || key.kind === "numeric") return true;
-  return key.kind === "expression" && readAnswer(key.expected).kind === "expression";
+  return key.kind === "expression" && (!key.expected.trim() || readAnswer(key.expected).kind === "expression");
 }
 /**
- * A part is hand-graded by choice when its key is manual and the author picked that, or the problem was already published
- * with it. A new part also holds a manual key, so until the author picks hand-grading it still needs a final answer.
- * `marked` holds the part ids the author picked in this browser. Nothing about it is saved in the draft.
+ * A part is hand-graded only when its key is manual and the author picked that. A new part, or an answer box that was
+ * cleared, also holds a manual key, so it still needs a final answer until the author picks hand-grading.
+ * `marked` holds the part ids the author picked in this browser. The draft does not say which parts the published
+ * revision had, so a problem opened in another browser asks again.
  */
 export function isHandGraded(d: EditorDraft, partId: string, marked: ReadonlySet<string> = new Set()): boolean {
-  return privateFor(d, partId).key?.kind === "manual" && (marked.has(partId) || d.state !== "draft");
+  return privateFor(d, partId).key?.kind === "manual" && marked.has(partId);
+}
+/** Changes the answer type the way More options does, with the same default tolerances as an answer typed in the box. */
+export function setSimpleAnswerMode(d: EditorDraft, partId: string, mode: "numeric" | "expression" | "manual") {
+  setPartAnswerMode(d, partId, mode);
+  const entry = d.privateParts.find((p) => p.partId === partId);
+  if (entry?.key?.kind === "numeric") entry.key = { ...entry.key, absTol: DEFAULT_ABS_TOL, relTol: DEFAULT_REL_TOL };
 }
 /** True when More options holds something other than the defaults, so it should start open. */
 export function partNeedsOptions(d: EditorDraft, partId: string): boolean {
@@ -498,17 +508,26 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
     const missingImageDescription = part.blocks.some(b => b.kind === "image" && !b.alt.trim());
     if (missingImageDescription) issues.push({ field: `picture:${part.id}`, message: "Describe the image so everyone can follow it." });
     const entry = privateFor(d, part.id);
+    // The server also wants a description for every image in the hints and the worked solution.
+    const undescribed = (blocks: readonly EditorBlock[]) => blocks.some((b) => b.kind === "image" && !b.alt.trim());
+    if (undescribed(entry.hints)) issues.push({ field: `options:${part.id}`, message: "Describe each image in the hints." });
+    if (undescribed(entry.solution)) issues.push({ field: `options:${part.id}`, message: "Describe each image in the worked solution. You can do that in Advanced." });
     // Simple asks for a worked solution. Advanced and older problems can still publish without one.
     if (!fileFirst && neverPublished && !blocksSpans(entry.solution).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
       issues.push({ field: `solution:${part.id}`, message: "Add the worked solution." });
     const typed = part.id in reads ? reads[part.id] : answerText(entry.key);
     const read = readAnswer(typed);
+    const keyOk = authoredKeySchema.safeParse(entry.key).success;
     if (fileFirst) {
-      if (!authoredKeySchema.safeParse(entry.key).success) issues.push({ field: `answer:${part.id}`, message: "Complete this part's private answer configuration." });
+      if (!keyOk) issues.push({ field: `answer:${part.id}`, message: "Complete this part's private answer configuration." });
+    } else if (!boxOwnsAnswer(entry)) {
+      // A key from Advanced that the box cannot read is checked the way the server checks it.
+      if (!keyOk) issues.push({ field: `answer:${part.id}`, message: "Complete the answer settings in More options." });
     } else if (read.kind === "empty") {
       // A part the author chose to hand-grade has no final answer and publishes as it is.
       if (!isHandGraded(d, part.id, handGraded)) issues.push({ field: `answer:${part.id}`, message: "Add the final answer." });
     } else if (read.kind === "error") issues.push({ field: `answer:${part.id}`, message: read.message });
+    else if (!keyOk) issues.push({ field: `answer:${part.id}`, message: "Check the answer settings in More options." });
   }
   if (!d.content.title.trim()) issues.push({ field: "title", message: "Give it a title, or write the question and we'll make one." });
   const source = sourceState(d);
