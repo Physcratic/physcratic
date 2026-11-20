@@ -733,6 +733,89 @@ try {
     log(`Student at ${width}: Correct`);
     await s.close();
   }
+  // ------------------------------------------------------------------ 5. One editor, end to end
+  // A two part problem with one described image and a number answer with a unit: write it, preview it, publish it, reload it,
+  // open it as a student, and check that the public response carries no answer key.
+  {
+    const { context: ectx, page: ep } = await newPage(1440);
+    await ep.goto(origin);
+    await ep.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
+    const partRegion = (name) => ep.getByRole("region", { name, exact: true });
+    const a = ep.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true });
+    const aq = a.getByRole("textbox", { name: "What's the question?" });
+    await aq.click();
+    await aq.pressSequentially("A cart rolls down the ramp in the picture. How fast is it at the bottom?");
+    await ep.waitForURL((url) => url.searchParams.has("draft"));
+    const eid = draftId(ep);
+    await saved(ep);
+    const [pick] = await Promise.all([ep.waitForEvent("filechooser"), a.getByRole("button", { name: "Choose an image" }).click()]);
+    await pick.setFiles({ name: "ramp.png", mimeType: "image/png", buffer: png });
+    await a.getByLabel("Describe the image").waitFor({ timeout: 20000 });
+    await a.getByLabel("Describe the image").fill("A cart on a ramp, 30 degrees above the floor");
+    await a.getByRole("textbox", { name: "Worked solution (required)" }).click();
+    await a.getByRole("textbox", { name: "Worked solution (required)" }).pressSequentially("Energy is conserved on the way down.");
+    await (await mathField(a.locator("[data-simple-field^='a:']"))).click();
+    await ep.waitForTimeout(300);
+    await ep.keyboard.type("9.8");
+    await a.getByLabel("Unit (optional)").fill("m/s");
+    await ep.getByRole("button", { name: "Add part b" }).click();
+    const b = partRegion("Part b");
+    await b.getByRole("textbox", { name: "What's the question?" }).click();
+    await b.getByRole("textbox", { name: "What's the question?" }).pressSequentially("How long does the trip take?");
+    await b.getByRole("textbox", { name: "Worked solution (required)" }).click();
+    await b.getByRole("textbox", { name: "Worked solution (required)" }).pressSequentially("Divide the length by the average speed.");
+    await (await mathField(b.locator("[data-simple-field^='a:']"))).click();
+    await ep.waitForTimeout(300);
+    await ep.keyboard.type("2.5");
+    await b.getByLabel("Unit (optional)").fill("s");
+    await ep.getByLabel("Title", { exact: true }).fill("Cart on a Ramp");
+    await ep.getByLabel("Difficulty rating", { exact: true }).fill("1200");
+    await ep.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/).check();
+    await saved(ep);
+    // The preview shows the statement and the picture, and nothing of the answers.
+    await ep.getByRole("button", { name: "Student preview", exact: true }).click();
+    const preview = ep.getByRole("article", { name: "Student-facing preview" });
+    await preview.waitFor();
+    const previewText = await preview.innerText();
+    assert.ok(previewText.includes("Cart on a Ramp") && previewText.includes("How long does the trip take?"), "the preview shows the title and both parts");
+    assert.ok(!/9\.8|2\.5/.test(previewText), "the preview shows no answer");
+    assert.ok(await preview.getByRole("img", { name: "A cart on a ramp, 30 degrees above the floor" }).isVisible(), "the preview shows the described image");
+    await ep.getByRole("button", { name: "Write", exact: true }).click();
+    // Publish, with the one label a new problem has.
+    await ep.getByRole("button", { name: "Publish", exact: true }).click();
+    await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [eid])).rows[0].state === "published", "the end to end problem publishes");
+    await ep.getByRole("button", { name: "Publish new version", exact: true }).waitFor();
+    // Reload: everything is still there, and the label for a published problem stays.
+    await ep.reload();
+    await ep.getByLabel("Title", { exact: true }).waitFor({ timeout: 20000 });
+    assert.equal(await ep.getByLabel("Title", { exact: true }).inputValue(), "Cart on a Ramp");
+    await ep.getByRole("button", { name: "Publish new version", exact: true }).waitFor();
+    assert.equal(await ep.getByRole("button", { name: "Publish", exact: true }).count(), 0, "a published problem has only the new version label");
+    const stored = await savedContent(eid);
+    assert.deepEqual(stored.sections[0].parts.map((x) => x.label), ["a", "b"]);
+    const attached = JSON.stringify(stored);
+    assert.ok(attached.includes("A cart on a ramp, 30 degrees above the floor"), "the image description is saved");
+    const keys = (await pool.query("SELECT data FROM authored_draft_private_part WHERE problem_id=$1 ORDER BY part_id", [eid])).rows.map((r) => r.data.key);
+    assert.deepEqual(keys.map((k) => [k.kind, k.value, k.units]).sort(), [["numeric", 2.5, "s"], ["numeric", 9.8, "m/s"]], "two number keys with their units");
+    await ectx.close();
+    // A student opens it. Every response the page reads is kept, and none may hold a key.
+    const sctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+    await sctx.addCookies([{ name: "viewer", value: "workflow-student", url: origin }]);
+    const sp = await sctx.newPage();
+    const bodies = [];
+    sp.on("response", async (response) => {
+      if (response.url().includes("/api/") && response.status() === 200) bodies.push(await response.text().catch(() => ""));
+    });
+    await sp.goto(`${origin}/dashboard/authored/${eid}`);
+    await sp.locator("[id^='part-']").first().waitFor({ timeout: 20000 });
+    assert.equal(await sp.locator("[id^='part-']").count(), 2, "the student sees two parts");
+    assert.ok(await sp.getByRole("img", { name: "A cart on a ramp, 30 degrees above the floor" }).first().isVisible(), "the student sees the image");
+    assert.ok(bodies.some((text) => text.includes("Cart on a Ramp")), "the public problem response was read");
+    for (const text of bodies) assert.ok(!/privateParts|absTol|relTol|"key"|Energy is conserved/.test(text), "no answer key or private worked solution in a public response");
+    await sctx.close();
+    log("One editor, end to end: two parts, a described image, number answers with units, preview, publish, reload, student, no key in the public response.");
+  }
+
   // Pictures for the Learn guide. Only when GUIDE_SHOT_DIR is set. Light mode, 1280px wide, real editor and API.
   if (process.env.GUIDE_SHOT_DIR) {
     const { mkdirSync } = await import("node:fs");
