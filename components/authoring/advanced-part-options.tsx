@@ -1,4 +1,5 @@
 "use client";
+import type { ReactNode } from "react";
 import { ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { setPartAnswerMode, type EditorDraft } from "@/lib/problem-authoring-editor";
@@ -13,7 +14,7 @@ type Entry = EditorDraft["privateParts"][number];
  * `hasPrivate` is whether the draft already stores a private entry for this part. `si` and `pi` locate the part.
  */
 export function PartOptions({
-  part, si, pi, entry, hasPrivate, colour, edit,
+  part, si, pi, entry, hasPrivate, colour, edit, heading, open, onOpenChange, lead, answer,
 }: {
   part: Part;
   si: number;
@@ -22,16 +23,26 @@ export function PartOptions({
   hasPrivate: boolean;
   colour: number;
   edit: (fn: (value: EditorDraft) => void) => void;
+  /** Simple only: a different summary, an open state it controls, content above the panel, and panel options. */
+  heading?: ReactNode;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  lead?: ReactNode;
+  answer?: { boxOwns?: boolean; manualLabel?: string; placeholder?: string; hideManualButton?: boolean; onChosen?: (mode: "numeric" | "expression" | "manual") => void };
 }) {
   return (
-    <details style={partStyle(colour)} className={`rounded-lg border bg-card p-4 ${partBorder}`}>
-      <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-medium">
+    <details style={partStyle(colour)} className={`rounded-lg border bg-card p-4 ${partBorder}`} open={open} onToggle={onOpenChange ? (e) => onOpenChange(e.currentTarget.open) : undefined}>
+      {heading ?? <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-medium">
         <ShieldCheck className="size-4" />
         Answer key, hints and solution for part{" "}
         {part.label || pi + 1}
-      </summary>
+      </summary>}
       <div className="mt-5">
+        {lead}
         <AnswerPanel
+          boxOwns={answer?.boxOwns}
+          manualLabel={answer?.manualLabel}
+          placeholder={answer?.placeholder}
           entry={entry}
           mode={part.answerMode}
           onChange={(value) =>
@@ -58,11 +69,12 @@ export function PartOptions({
                 edit((d) => {
                   d.privateParts.push(entry);
                 });
+              answer?.onChosen?.(mode);
               edit((d) => setPartAnswerMode(d, part.id, mode));
             }
           }}
         />
-        {!entry.key && (
+        {!entry.key && !answer?.hideManualButton && (
           <Button
             type="button"
             variant="outline"

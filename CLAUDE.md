@@ -13,6 +13,7 @@
 Next.js 15.5 App Router, TypeScript, Tailwind, shadcn/ui (components/ui), Better Auth, Drizzle + Postgres, deployed on Vercel. Package manager: pnpm. Node 22.
 
 Read CONTRIBUTING.md before starting.
+- Deploy economy: every push to a branch and every merge to main starts a paid Vercel build. Finish and check work locally, then push once. Do not push merge-of-main commits unless GitHub reports a conflict, resolve handoff doc conflicts in one push, do not open docs-only PRs, and never trigger a Vercel redeploy.
 
 ## Commands
 - Unit tests: `pnpm test` (node:test via tsx over lib/*.test.ts). One file: `pnpm exec tsx --conditions=react-server --test lib/<name>.test.ts`

@@ -8,8 +8,16 @@ export function AnswerPanel({
   onChange,
   onMode,
   compact = false,
+  boxOwns = false,
+  manualLabel,
+  placeholder,
 }: {
   compact?: boolean;
+  /** Simple's answer box owns the expected value, units, expected expression and worked solution, so they are not shown here. */
+  boxOwns?: boolean;
+  manualLabel?: string;
+  /** Shown as the choice while no answer type has been picked. */
+  placeholder?: string;
   entry: Entry;
   mode: "numeric" | "expression" | "manual";
   onChange: (entry: Entry) => void;
@@ -23,12 +31,12 @@ export function AnswerPanel({
         blocks={entry.hints}
         onChange={(hints) => onChange({ ...entry, hints })}
       />
-      <BlocksEditor
+      {!boxOwns && <BlocksEditor
         scope="solution"
         label="Worked solution"
         blocks={entry.solution}
         onChange={(solution) => onChange({ ...entry, solution })}
-      />
+      />}
   </>;
   return (
     <div className="space-y-6">
@@ -37,10 +45,11 @@ export function AnswerPanel({
           <select
             id={id}
             className={inputClass}
-            value={mode}
+            value={placeholder ? "" : mode}
             onChange={(e) => onMode(e.target.value as typeof mode)}
           >
-            <option value="manual">Manual / ungraded</option>
+            {placeholder && <option value="" disabled>{placeholder}</option>}
+            <option value="manual">{manualLabel ?? "Manual / ungraded"}</option>
             <option value="numeric">Numeric with units</option>
             <option value="expression">Expression</option>
           </select>
@@ -54,7 +63,7 @@ export function AnswerPanel({
               ["absTol", "Absolute tolerance"],
               ["relTol", "Relative tolerance"],
             ] as const
-          ).map(([name, label]) => (
+          ).filter(([name]) => !(boxOwns && name === "value")).map(([name, label]) => (
             <Field key={name} label={label}>
               {(id) => (
                 <NumberInput
@@ -68,7 +77,7 @@ export function AnswerPanel({
               )}
             </Field>
           ))}
-          <Field label="Units">
+          {!boxOwns && <Field label="Units">
             {(id) => (
               <input
                 id={id}
@@ -80,12 +89,12 @@ export function AnswerPanel({
                 }
               />
             )}
-          </Field>
+          </Field>}
         </div>
       )}
       {key?.kind === "expression" && (
         <div className="space-y-5">
-          <Field
+          {!boxOwns && <Field
             label="Expected expression"
           >
             {(id) => (
@@ -102,7 +111,7 @@ export function AnswerPanel({
                 }
               />
             )}
-          </Field>
+          </Field>}
           <Field label="Angle convention">
             {(id) => (
               <select
