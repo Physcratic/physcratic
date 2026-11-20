@@ -165,7 +165,7 @@ try {
     await page.keyboard.type('x'.repeat(70));
     const visible=cleanLatex(await page.locator('math-field').evaluate(el=>el.value));
     assert.ok(visible.length>180);
-    assert.equal(await page.evaluate(recoveredExpression),visible);
+    await page.waitForFunction(()=>sessionStorage.getItem(`physcratic:solve:v1:A:${window.__student.problemId}`)!==null,null,{timeout:5000});assert.equal(await page.evaluate(recoveredExpression),visible);
     await page.reload();await page.getByLabel('Choose part',{exact:true}).selectOption({index:1});
     await page.locator('math-field').waitFor();
     assert.equal(cleanLatex(await page.locator('math-field').evaluate(el=>el.value)),visible);checks++;
