@@ -316,8 +316,12 @@ try {
   const click = async (l) => { await l.click(); counts.clicks++; };
   const focusClick = async (l) => { await l.click(); counts.focusClicks++; };
   const typed = async (l, text, opts) => { await l.pressSequentially(text, opts); counts.typedFields++; counts.keys += text.length; };
-  assert.equal(await page.getByRole("button", { name: "Simple" }).getAttribute("aria-pressed"), "true", "Simple is the default");
-  assert.equal(await page.getByRole("button", { name: "Advanced" }).getAttribute("aria-pressed"), "false");
+  // One editor: no Simple and Advanced toggle, and the only way to the old layout is the Classic editor link.
+  assert.equal(await page.getByRole("group", { name: "Editor mode" }).count(), 0, "no mode toggle");
+  assert.equal(await page.getByRole("button", { name: "Simple", exact: true }).count() + (await page.getByRole("button", { name: "Advanced", exact: true }).count()), 0, "no Simple or Advanced button");
+  assert.equal(await page.getByRole("button", { name: "Classic editor", exact: true }).count(), 1, "one Classic editor link");
+  assert.ok((await page.getByRole("button", { name: "Classic editor", exact: true }).boundingBox()).height >= 44, "the link is a 44px target");
+  assert.equal(await page.evaluate(() => localStorage.getItem("physcratic.studio.mode")), null, "nothing is written until the link is clicked");
   assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).count(), 1, "one Publish button");
   assert.equal(await page.locator("select:visible").count(), 0, "no select on the page");
   for (const text of ["Main question (optional)", "What's the question?", "Add an image (optional)", "Worked solution (required)", "Final Answer (Solution)", "Answer preview", "Only you see this", "Where's it from?", "Difficulty rating", "Pick a topic so people can find it (optional)"])
@@ -456,15 +460,26 @@ try {
 
   // Switching modes loses nothing and saves nothing.
   const before = (await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [id])).rows[0].version;
-  await page.getByRole("button", { name: "Advanced" }).click();
+  await page.getByRole("button", { name: "Classic editor", exact: true }).click();
+  assert.equal(await page.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "classic");
   assert.equal(await page.getByLabel("Problem title", { exact: true }).inputValue(), "A Ball is Thrown Up");
   assert.ok(await page.getByRole("button", { name: /Insert equation in Part a statement text 1/ }).count(), "Advanced text fields have the Equation button");
-  await page.getByRole("button", { name: "Simple" }).click();
+  await page.getByRole("button", { name: "Back to the new editor", exact: true }).click();
   assert.equal(await page.getByLabel("Title", { exact: true }).inputValue(), "A Ball is Thrown Up");
   assert.equal(await question.locator("[data-math-id]").count(), 1);
   await page.waitForTimeout(2500);
   assert.equal((await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [id])).rows[0].version, before, "switching modes saves nothing");
   assert.equal(await page.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "simple");
+  // A saved "advanced" from before this release is ignored. Only the Classic link writes the new value.
+  {
+    const { context: old, page: oldPage } = await newPage(1440);
+    await old.addInitScript(() => localStorage.setItem("physcratic.studio.mode", "advanced"));
+    await oldPage.goto(origin);
+    await oldPage.getByLabel("Title", { exact: true }).waitFor();
+    assert.equal(await oldPage.getByRole("button", { name: "Classic editor", exact: true }).count(), 1, "an old saved advanced still opens the new editor");
+    assert.equal(await oldPage.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "advanced", "and it is not rewritten");
+    await old.close();
+  }
 
   // Another part, and taking it away again.
   await page.getByRole("button", { name: "Add part b" }).click();
