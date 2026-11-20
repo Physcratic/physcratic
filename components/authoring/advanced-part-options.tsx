@@ -28,7 +28,18 @@ export function PartOptions({
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   lead?: ReactNode;
-  answer?: { boxOwns?: boolean; manualLabel?: string; placeholder?: string; hideManualButton?: boolean; onChosen?: (mode: "numeric" | "expression" | "manual") => void };
+  answer?: {
+    boxOwns?: boolean;
+    solutionElsewhere?: boolean;
+    manualLabel?: string;
+    placeholder?: string;
+    hideManualButton?: boolean;
+    onChosen?: (mode: "numeric" | "expression" | "manual") => void;
+    /** Changes the answer type. Defaults to the Advanced change. */
+    setMode?: (draft: EditorDraft, partId: string, mode: "numeric" | "expression" | "manual") => void;
+    /** Extra classes for everything inside the disclosure, such as a larger text size. */
+    bodyClass?: string;
+  };
 }) {
   return (
     <details style={partStyle(colour)} className={`rounded-lg border bg-card p-4 ${partBorder}`} open={open} onToggle={onOpenChange ? (e) => onOpenChange(e.currentTarget.open) : undefined}>
@@ -37,10 +48,11 @@ export function PartOptions({
         Answer key, hints and solution for part{" "}
         {part.label || pi + 1}
       </summary>}
-      <div className="mt-5">
+      <div className={answer?.bodyClass ? `mt-5 ${answer.bodyClass}` : "mt-5"}>
         {lead}
         <AnswerPanel
           boxOwns={answer?.boxOwns}
+          solutionElsewhere={answer?.solutionElsewhere}
           manualLabel={answer?.manualLabel}
           placeholder={answer?.placeholder}
           entry={entry}
@@ -59,6 +71,8 @@ export function PartOptions({
             if (
               !entry.key ||
               entry.key.kind === mode ||
+              // Simple shows a placeholder while nothing is configured, so there is nothing to replace.
+              answer?.placeholder !== undefined ||
               window.confirm(
                 "Change answer type? This replaces the current private grading configuration. Hints and solution remain.",
               )
@@ -70,7 +84,7 @@ export function PartOptions({
                   d.privateParts.push(entry);
                 });
               answer?.onChosen?.(mode);
-              edit((d) => setPartAnswerMode(d, part.id, mode));
+              edit((d) => (answer?.setMode ?? setPartAnswerMode)(d, part.id, mode));
             }
           }}
         />

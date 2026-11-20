@@ -38,7 +38,9 @@ import {
   applyAnswer,
   blocksText,
   boxOwnsAnswer,
+  checkNumberLikeStudent,
   ensureSimpleShape,
+  setSimpleAnswerMode,
   isHandGraded,
   knownUnit,
   movePart,
@@ -644,13 +646,13 @@ test("a hand-graded part publishes without a final answer, and an empty numeric 
   const id = allParts(d)[0].part.id;
   applyAnswer(d, id, readAnswer(""), "");
   assert.deepEqual(privateFor(d, id).key, { kind: "manual" });
-  // A new part is manual until an answer is typed, so it still asks for one. Choosing hand-grading, or an already published problem, does not.
+  // A new part is manual until an answer is typed, so it still asks for one. Only choosing hand-grading does not.
   assert.deepEqual(fieldsOf(d), [`answer:${id}`]);
   assert.deepEqual(simpleIssues(d, {}, false, new Set([id])), []);
-  assert.deepEqual(fieldsOf(withState(d, "published")), []);
+  assert.deepEqual(fieldsOf(withState(d, "published")), [`answer:${id}`], "a published problem does not hand-grade a cleared box by itself");
   assert.equal(isHandGraded(d, id), false);
   assert.equal(isHandGraded(d, id, new Set([id])), true);
-  assert.equal(isHandGraded(withState(d, "archived"), id), true);
+  assert.equal(isHandGraded(withState(d, "archived"), id), false);
   assert.equal(serverAccepts(d), true);
   assert.deepEqual(simpleIssues(d, { [id]: "x+" }, false, new Set([id])).map((i) => i.field), [`answer:${id}`], "an unreadable typed answer still blocks");
   setPartAnswerMode(d, id, "numeric");
@@ -670,7 +672,8 @@ test("an older problem with sections and hints raises nothing Simple cannot expl
   const extra = uuid();
   d.content.sections.push({ id: uuid(), title: "More", blocks: [textBlock("Context")], parts: [{ id: extra, label: "1", blocks: [textBlock("Second question")], answerMode: "manual" }] });
   d.privateParts.push({ partId: extra, key: { kind: "manual" }, hints: [textBlock("A hint")], solution: [] });
-  assert.deepEqual(fieldsOf(withState(d, "published")), []);
+  assert.deepEqual(fieldsOf(withState(d, "published")), [`answer:${extra}`], "a part nobody chose to hand-grade in this browser asks again");
+  assert.deepEqual(simpleIssues(withState(d, "published"), {}, false, new Set([extra])), []);
   assert.deepEqual(fieldsOf(withState(d, "draft")), [`solution:${extra}`, `answer:${extra}`], "a part nobody chose to hand-grade still needs its answer");
   assert.equal(serverAccepts(d), true);
   assert.match(advancedNote(d), /2 sections/);
@@ -747,4 +750,114 @@ test("edits made through More options keep the key, hints and solution in privat
   const pub = JSON.stringify(publicAuthoredContent(authoredDocumentSchema.parse(d.content)));
   for (const secret of ["SECRETEXPR", "SECRETHINT", "SECRETSOLUTION", "degrees", "exclusions"]) assert.equal(pub.includes(secret), false, `${secret} is not public`);
   assert.equal(d.privateParts.length, 1);
+});
+
+// ---------------------------------------------------------------------------------------------------------------
+// S3b fixes
+// ---------------------------------------------------------------------------------------------------------------
+const answerMessage = (d: EditorDraft, id: string, marked: ReadonlySet<string> = new Set()) =>
+  simpleIssues(d, {}, false, marked).find((i) => i.field === `answer:${id}`)?.message;
+
+test("on a published problem a new part and a cleared answer ask for the final answer until the author marks them", () => {
+  const d = withState(easyDraft("9.8", "m/s^2"), "published");
+  const first = allParts(d)[0].part.id;
+  addPart(d);
+  const added = allParts(d)[1].part.id;
+  setQuestion(d, added, words("Find the time."));
+  assert.equal(answerMessage(d, added), "Add the final answer.", "a new part is not hand-graded by itself");
+  applyAnswer(d, first, readAnswer(""), "");
+  assert.equal(answerMessage(d, first), "Add the final answer.", "a cleared box is not hand-graded by itself");
+  assert.equal(boxOwnsAnswer(privateFor(d, first)), true, "a cleared box keeps the box");
+  assert.equal(serverAccepts(d), true, "the server would publish both with no answer, so Simple has to ask");
+  const marked = new Set([first, added]);
+  assert.deepEqual(simpleIssues(d, {}, false, marked), []);
+  assert.equal(serverAccepts(d), true);
+});
+
+test("picking Numeric in More options gives the same tolerances as typing a number in the box", () => {
+  const d = easyDraft("x");
+  const id = allParts(d)[0].part.id;
+  setSimpleAnswerMode(d, id, "manual");
+  setSimpleAnswerMode(d, id, "numeric");
+  applyAnswer(d, id, readAnswer("3e8"), "3e8");
+  const key = privateFor(d, id).key as Extract<NonNullable<EditorDraft["privateParts"][number]["key"]>, { kind: "numeric" }>;
+  const typed = easyDraft("3e8").privateParts[0].key as typeof key;
+  assert.deepEqual({ absTol: key.absTol, relTol: key.relTol }, { absTol: typed.absTol, relTol: typed.relTol });
+  assert.deepEqual({ absTol: key.absTol, relTol: key.relTol }, { absTol: 1e-9, relTol: 0.01 });
+  assert.equal(checkNumberLikeStudent({ value: 3.02e8, units: "" }, key).status, "correct", "one percent, not plus or minus 0.01");
+  assert.equal(partNeedsOptions(d, id), false);
+});
+
+test("an expression picked in More options stays with the box while it is typed", () => {
+  const d = easyDraft("9.8");
+  const id = allParts(d)[0].part.id;
+  setSimpleAnswerMode(d, id, "expression");
+  assert.equal(boxOwnsAnswer(privateFor(d, id)), true, "an empty expression belongs to the box");
+  assert.equal(answerMessage(d, id), "Add the final answer.");
+  for (const text of ["x", "x+", "x+1", "x+1)", "x+10"]) {
+    applyAnswer(d, id, readAnswer(text), text);
+    assert.equal(boxOwnsAnswer(privateFor(d, id)), true, text);
+  }
+  assert.deepEqual(simpleIssues(d), []);
+});
+
+test("a saved key the box cannot read passes when the server schema accepts it", () => {
+  const d = easyDraft("9.8");
+  const id = allParts(d)[0].part.id;
+  setPartAnswerMode(d, id, "expression");
+  privateFor(d, id).key = { kind: "expression", expected: "log(x)", variables: [{ name: "x", domain: "real", assumptions: [] }], angleUnit: "radians", exclusions: [] };
+  assert.equal(boxOwnsAnswer(privateFor(d, id)), false);
+  assert.deepEqual(simpleIssues(d), []);
+  assert.equal(serverAccepts(d), true);
+  privateFor(d, id).key = { kind: "expression", expected: "log(x)", variables: [{ name: "x", domain: "real", min: 2, max: 1, assumptions: [] }], angleUnit: "radians", exclusions: [] };
+  assert.equal(answerMessage(d, id), "Complete the answer settings in More options.");
+  assert.equal(serverAccepts(d), false);
+});
+
+test("images in hints and solutions need a description, with a plain message", () => {
+  const d = easyDraft("9.8");
+  const id = allParts(d)[0].part.id;
+  const image = { id: uuid(), kind: "image" as const, mediaId: uuid(), alt: "", caption: "" };
+  privateFor(d, id).hints = [image];
+  assert.deepEqual(simpleIssues(d).map((i) => i.message), ["Describe each image in the hints."]);
+  assert.equal(serverAccepts(d), false);
+  privateFor(d, id).hints = [{ ...image, alt: "A block" }];
+  assert.deepEqual(simpleIssues(d), []);
+});
+
+test("every draft Simple lets through is also accepted by the server publish schema", () => {
+  type Key = EditorDraft["privateParts"][number]["key"];
+  const keys: [string, Key, EditorDraft["content"]["sections"][number]["parts"][number]["answerMode"]][] = [
+    ["null", null, "numeric"],
+    ["manual", { kind: "manual" }, "manual"],
+    ["numeric", { kind: "numeric", value: 9.8, units: "m/s^2", absTol: 1e-9, relTol: 0.01 }, "numeric"],
+    ["numeric unknown unit", { kind: "numeric", value: 2, units: "furlong", absTol: 1e-9, relTol: 0.01 }, "numeric"],
+    ["numeric negative tolerance", { kind: "numeric", value: 2, units: "", absTol: -1, relTol: 0.01 }, "numeric"],
+    ["numeric empty", { kind: "numeric", value: null as unknown as number, units: "", absTol: 0.01, relTol: 0 }, "numeric"],
+    ["expression", { kind: "expression", expected: "x+1", variables: [{ name: "x", domain: "real", assumptions: [] }], angleUnit: "radians", exclusions: [] }, "expression"],
+    ["expression empty", { kind: "expression", expected: "", variables: [], angleUnit: "radians", exclusions: [] }, "expression"],
+    ["expression reversed bounds", { kind: "expression", expected: "x+1", variables: [{ name: "x", domain: "real", min: 3, max: 1, assumptions: [] }], angleUnit: "radians", exclusions: [] }, "expression"],
+    ["unreadable", { kind: "expression", expected: "log(x)", variables: [{ name: "x", domain: "real", assumptions: [] }], angleUnit: "radians", exclusions: [] }, "expression"],
+    ["unreadable bad variable", { kind: "expression", expected: "log(x)", variables: [{ name: "pi", domain: "real", assumptions: [] }], angleUnit: "radians", exclusions: [] }, "expression"],
+  ];
+  const image = (alt: string) => ({ id: uuid(), kind: "image" as const, mediaId: uuid(), alt, caption: "" });
+  const mismatches: string[] = [];
+  let accepted = 0;
+  for (const state of ["draft", "published", "archived"] as const)
+    for (const [name, key, mode] of keys)
+      for (const marked of [false, true])
+        for (const hints of [[], [textBlock("Hint")], [image("")], [image("A block")]])
+          for (const solution of [[], [textBlock("Use energy.")]])
+            for (const rating of ["2100", null]) {
+              const d = withState(easyDraft("9.8"), state);
+              const id = allParts(d)[0].part.id;
+              d.content.sections[0].parts[0].answerMode = mode;
+              Object.assign(privateFor(d, id), { key: structuredClone(key), hints, solution });
+              d.content.estimatedDifficulty = rating;
+              if (simpleIssues(d, {}, false, marked ? new Set([id]) : new Set()).length) continue;
+              accepted++;
+              if (!serverAccepts(d)) mismatches.push(`${state} ${name} marked=${marked} hints=${hints.length} solution=${solution.length} rating=${rating}`);
+            }
+  assert.ok(accepted > 50, `${accepted} fixtures passed Simple`);
+  assert.deepEqual(mismatches, []);
 });

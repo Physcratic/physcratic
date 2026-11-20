@@ -39,6 +39,7 @@ import {
   partLetter,
   partNeedsOptions,
   pictureOf,
+  setSimpleAnswerMode,
   privateFor,
   readAnswer,
   removeContextPicture,
@@ -143,7 +144,7 @@ export function SimpleEditor(props: SimpleProps) {
       // Every missing item shows its message at once. Focus goes to the one highest on the page.
       const targets = issues.map((issue) => {
         const [kind, id] = issue.field.split(":");
-        return kind === "question" ? `q:${id}` : kind === "answer" ? `a:${id}` : kind === "units" ? `u:${id}` : kind === "picture" ? `p:${id}` : kind === "solution" ? `s:${id}` : kind;
+        return kind === "question" ? `q:${id}` : kind === "answer" ? `a:${id}` : kind === "units" ? `u:${id}` : kind === "picture" ? `p:${id}` : kind === "solution" ? `s:${id}` : kind === "options" ? `o:${id}` : kind;
       });
       requestAnimationFrame(() => {
         const hosts = targets
@@ -151,7 +152,7 @@ export function SimpleEditor(props: SimpleProps) {
           .filter((host): host is HTMLElement => Boolean(host))
           .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
         const host = hosts[0];
-        const control = host?.matches("input,textarea") ? host : host?.querySelector<HTMLElement>("input,textarea,[contenteditable=true],math-field");
+        const control = host?.matches("input,textarea") ? host : (host?.querySelector<HTMLElement>("input,textarea,[contenteditable=true],math-field") ?? host?.querySelector<HTMLElement>("button,select"));
         (control ?? host)?.focus();
         (control ?? host)?.scrollIntoView({ block: "center" });
       });
@@ -229,6 +230,7 @@ export function SimpleEditor(props: SimpleProps) {
           answerIssue={shown(`answer:${part.id}`)?.message}
           unitIssue={shown(`units:${part.id}`)?.message}
           pictureIssue={shown(`picture:${part.id}`)?.message}
+          optionsIssue={shown(`options:${part.id}`)?.message}
           touch={touch}
           edit={edit}
           onAnswer={(text) => answerChanged(part.id, text)}
@@ -540,7 +542,7 @@ function TopicRow({ values, change }: { values: string[]; change: (values: strin
 }
 
 function PartEditor({
-  draft, partId, first, fileFirst, multipart, letter, colour, typed, canRemove, provisional, questionIssue, solutionIssue, answerIssue, unitIssue, pictureIssue,
+  draft, partId, first, fileFirst, multipart, letter, colour, typed, canRemove, provisional, questionIssue, solutionIssue, answerIssue, unitIssue, pictureIssue, optionsIssue,
   touch, edit, onAnswer, handGraded, onHandGraded, onForgetTyped, onRemove,
 }: {
   draft: EditorDraft;
@@ -558,6 +560,8 @@ function PartEditor({
   answerIssue?: string;
   unitIssue?: string;
   pictureIssue?: string;
+  /** Something in More options stops Publish, such as an image in the hints without a description. */
+  optionsIssue?: string;
   touch: (field: string) => void;
   edit: SimpleProps["edit"];
   onAnswer: (text: string) => void;
@@ -577,15 +581,27 @@ function PartEditor({
   const keySymbols = key?.kind === "expression" ? key.variables.map((v) => v.name) : [];
   const symbols = useMemo(() => [...new Set([...keySymbols, ...mathSymbols(questionSpans)])], [keySymbols.join(","), JSON.stringify(questionSpans)]); // eslint-disable-line react-hooks/exhaustive-deps
   const picture = pictureOf(part.blocks);
-  // The answer box owns the answer text, the units and the worked solution. More options owns the rest. A part the box cannot show has no box.
-  // A hand-graded choice hides the box. A manual key nobody chose, such as a new part, keeps it so the answer can be typed.
-  const owns = boxOwnsAnswer(entry) && !handGraded;
-  const needsOptions = partNeedsOptions(draft, partId) || handGraded || (!owns && !!answerIssue);
+  // The answer box owns the answer text and the units. More options owns the rest. A part the box cannot show has no box.
+  // Only the author's hand-graded choice hides the box. A manual key nobody chose, such as a new part or a cleared box, keeps it.
+  // Who owns the answer is decided when the answer type changes, never by the text, so a field never unmounts while it is typed in.
+  const ownsSaved = boxOwnsAnswer(entry);
+  const [ownership, setOwnership] = useState({ kind: key?.kind, owns: ownsSaved });
+  if (ownership.kind !== key?.kind) setOwnership({ kind: key?.kind, owns: ownsSaved });
+  const owns = (ownership.kind === key?.kind ? ownership.owns : ownsSaved) && !handGraded;
+  const needsOptions = partNeedsOptions(draft, partId) || handGraded || (!owns && !!answerIssue) || !!optionsIssue;
   const [optionsOpen, setOptionsOpen] = useState(needsOptions);
   useEffect(() => { if (needsOptions) setOptionsOpen(true); }, [needsOptions]);
   const section = draft.content.sections.find((s) => s.parts.some((p) => p.id === partId))!;
   const position = section.parts.findIndex((p) => p.id === partId);
   const optionsRef = useRef<HTMLDivElement>(null);
+  const noteRef = useRef<HTMLDivElement>(null);
+  const [focusBox, setFocusBox] = useState(false);
+  function chooseExplain() {
+    if (key?.kind !== "manual") edit((d) => setSimpleAnswerMode(d, partId, "manual"));
+    onForgetTyped();
+    onHandGraded(true);
+    requestAnimationFrame(() => noteRef.current?.querySelector<HTMLElement>("button")?.focus());
+  }
   const upload = useImageUpload(provisional, (mediaId) =>
     edit((d) => {
       removePicture(d, partId);
@@ -657,7 +673,7 @@ function PartEditor({
         {answerIssue && <ErrorLine id={`${base}-key-error`}>{answerIssue}</ErrorLine>}
       </div> : <>
       <div className="space-y-3" data-tour={first ? "studio-solution" : undefined}>
-        <p id={`${base}-s-label`} className={labelClass}>Worked solution (required)</p>
+        <p id={`${base}-s-label`} className={labelClass}>{draft.state === "draft" ? "Worked solution (required)" : "Worked solution"}</p>
         <div data-simple-field={`s:${partId}`} onBlur={() => touch(`solution:${partId}`)}>
           <RichMathText
             id={`${base}-s`}
@@ -675,10 +691,13 @@ function PartEditor({
       </div>
 
       <div className="space-y-3" data-tour={first ? "studio-answer" : undefined}>
-        {!owns ? <div className="space-y-3" data-simple-field={`a:${partId}`}>
+        {!owns ? <div ref={noteRef} className="space-y-3" data-simple-field={`a:${partId}`}>
           <p className={labelClass}>Final Answer (Solution)</p>
-          <p className="text-base">{key?.kind === "manual" ? "Students explain this part and nothing is checked automatically. You can change that in More options." : "This part uses answer settings in More options."}</p>
-          <Button type="button" variant="outline" className="min-h-11 border-2" onClick={() => { setOptionsOpen(true); requestAnimationFrame(() => optionsRef.current?.querySelector<HTMLElement>("select")?.focus()); }}>Show answer settings</Button>
+          <p className="text-base">{key?.kind === "manual" ? "Students explain this part and nothing is checked automatically." : "This part uses answer settings in More options."}</p>
+          <div className="flex flex-wrap gap-2">
+            {key?.kind === "manual" && <Button type="button" variant="outline" className="min-h-11 border-2" onClick={() => { setFocusBox(true); onHandGraded(false); }}>Type a final answer instead</Button>}
+            <Button type="button" variant="outline" className="min-h-11 border-2" onClick={() => { setOptionsOpen(true); requestAnimationFrame(() => optionsRef.current?.querySelector<HTMLElement>("select")?.focus()); }}>Show answer settings</Button>
+          </div>
           {answerIssue && <ErrorLine id={`${base}-a-error`}>{answerIssue}</ErrorLine>}
         </div> : <>
         <label id={`${base}-a-label`} htmlFor={`${base}-a`} className={labelClass}>Final Answer (Solution)</label>
@@ -696,10 +715,14 @@ function PartEditor({
             describedBy={answerIssue ? `${base}-a-error` : undefined}
             placeholder=""
             maxLength={180}
+            autoFocus={focusBox}
           />
         </div>
         {answerIssue && <ErrorLine id={`${base}-a-error`}>{answerIssue}</ErrorLine>}
-        {key?.kind === "manual" && read.kind === "empty" && <p className="text-base text-muted-foreground">Leave this empty if students should explain, with no automatic check.</p>}
+        {read.kind === "empty" && <div className="space-y-2">
+          <p className="text-base text-muted-foreground">Publish needs a final answer here. If students should explain instead, with nothing checked automatically, choose the button below.</p>
+          <Button type="button" variant="outline" className="min-h-11 border-2" onClick={chooseExplain}>Students explain, no automatic check</Button>
+        </div>}
         {read.kind === "number" && key?.kind === "numeric" && (
           <div className="space-y-2 pt-1">
             <label htmlFor={`${base}-u`} className={labelClass}>Unit (optional)</label>
@@ -737,7 +760,7 @@ function PartEditor({
 
       </>}
       <TryAnswer draft={draft} partId={partId} label={letter} tour={first} />
-      {!fileFirst && <div ref={optionsRef}><PartOptions
+      {!fileFirst && <div ref={optionsRef} data-simple-field={`o:${partId}`}><PartOptions
         part={part}
         si={draft.content.sections.indexOf(section)}
         pi={position}
@@ -760,8 +783,18 @@ function PartEditor({
             <Button type="button" variant="outline" className="min-h-11" disabled={position === section.parts.length - 1} onClick={() => edit((d) => movePart(d, partId, 1))}><ArrowDown aria-hidden="true" className="mr-2 size-4" />Move part {letter} down</Button>
           </div>}
         </div>}
-        answer={{ boxOwns: owns, manualLabel: "Students explain, no automatic check", placeholder: (!key || key.kind === "manual") && !handGraded ? "Set by the final answer above" : undefined, hideManualButton: true, onChosen: (mode) => onHandGraded(mode === "manual") }}
-      /></div>}
+        answer={{
+          boxOwns: owns,
+          solutionElsewhere: true,
+          manualLabel: "Students explain, no automatic check",
+          placeholder: (!key || key.kind === "manual") && !handGraded ? "Set by the final answer above" : undefined,
+          hideManualButton: true,
+          onChosen: (mode) => onHandGraded(mode === "manual"),
+          setMode: setSimpleAnswerMode,
+          // Simple text is 16px. Advanced keeps its own sizes.
+          bodyClass: "[&_.text-sm]:text-base [&_.text-xs]:text-base",
+        }}
+      />{optionsIssue && <ErrorLine id={`${base}-o-error`}>{optionsIssue}</ErrorLine>}</div>}
     </section>
   );
 }
