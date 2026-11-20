@@ -100,7 +100,7 @@ export function ProblemMoreOptions({
 }) {
   const published = draft.state === "published";
   return (
-    <details open={open} onToggle={(e) => onOpenChange(e.currentTarget.open)} data-simple-field="o:problem" className="rounded-lg border-2 p-4">
+    <details open={open} onToggle={(e) => onOpenChange(e.currentTarget.open)} data-simple-field="o:problem" data-tour="studio-more" className="rounded-lg border-2 p-4">
       <summary aria-label="More options for the whole problem" className="flex min-h-11 w-full cursor-pointer list-none items-center justify-between gap-2 text-base font-medium">
         More options
         <ChevronDown aria-hidden="true" className={`size-5 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />

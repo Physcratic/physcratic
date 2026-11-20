@@ -31,7 +31,7 @@ import { HowItWorksLink, RecoverySection, StatusBar, StepCard, studioTokens } fr
 import { SimpleEditor } from "./simple-editor";
 import { GuidedTour } from "@/components/tour/guided-tour";
 import { TourHelpButton } from "@/components/tour/tour-help";
-import { STUDIO_MODE_KEY, otherIssueMessages, readStudioMode, setDifficulty, type StudioMode } from "./simple-model";
+import { CLASSIC_MODE_VALUE, STUDIO_MODE_KEY, otherIssueMessages, readStudioMode, setDifficulty, type StudioMode } from "./simple-model";
 import { DifficultyRatingField } from "./difficulty-rating-field";
 import { colorsByPartId } from "@/lib/part-colors";
 import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
@@ -81,7 +81,7 @@ export function ProblemEditor({
     setModeState(next);
     setTab("edit");
     try {
-      window.localStorage.setItem(STUDIO_MODE_KEY, next);
+      window.localStorage.setItem(STUDIO_MODE_KEY, next === "advanced" ? CLASSIC_MODE_VALUE : "simple");
     } catch {
       /* Ignore. */
     }
@@ -319,20 +319,6 @@ export function ProblemEditor({
           </div>
           <div className="flex flex-wrap items-center gap-2">
             {mode === "simple" && <TourHelpButton tourId="studio" />}
-            <div role="group" aria-label="Editor mode" className="flex gap-1 rounded-lg border p-1">
-              {(["simple", "advanced"] as const).map((m) => (
-                <Button
-                  key={m}
-                  type="button"
-                  size="sm"
-                  aria-pressed={mode === m}
-                  variant={mode === m ? "secondary" : "ghost"}
-                  onClick={() => chooseMode(m)}
-                >
-                  {m === "simple" ? "Simple" : "Advanced"}
-                </Button>
-              ))}
-            </div>
             <span
               role="status"
               aria-live="polite"
@@ -379,8 +365,8 @@ export function ProblemEditor({
               {busy
                 ? "Working…"
                 : draft.state === "published"
-                  ? "Publish new revision"
-                  : "Publish problem"}
+                  ? "Publish new version"
+                  : "Publish"}
             </Button>
               </>
             )}
@@ -392,6 +378,18 @@ export function ProblemEditor({
         tabIndex={-1}
         className="focus:outline-none mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-12"
       >
+        {modeReady && (
+          <p className={`mb-3 text-base ${mode === "simple" ? "mx-auto max-w-2xl" : ""}`}>
+            <button
+              type="button"
+              data-classic-link=""
+              className="inline-flex min-h-11 items-center underline underline-offset-4"
+              onClick={() => chooseMode(mode === "simple" ? "advanced" : "simple")}
+            >
+              {mode === "simple" ? "Classic editor" : "Back to the new editor"}
+            </button>
+          </p>
+        )}
         <div className={`mb-8 flex flex-wrap items-end justify-between gap-4 ${mode === "simple" ? "mx-auto max-w-2xl" : ""}`}>
           <div>
             <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">

@@ -60,7 +60,7 @@ test("every step that points into the sidebar says what to do on a phone, where 
 test("the Welcome tour covers the places the owner asked for, in order", () => {
   const ids = tours.welcome.steps.map((s) => s.id);
   assert.deepEqual(ids, ["library", "topics", "coaching", "settings", "open", "answer", "typing", "palette", "check", "help"]);
-  assert.deepEqual(tours.studio.steps.map((s) => s.id), ["main", "question", "equation", "typing", "picture", "solution", "answer", "try", "source", "difficulty", "publish"]);
+  assert.deepEqual(tours.studio.steps.map((s) => s.id), ["main", "question", "equation", "typing", "picture", "solution", "answer", "try", "source", "difficulty", "more", "publish"]);
 });
 
 

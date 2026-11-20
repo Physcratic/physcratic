@@ -89,6 +89,7 @@ export const tours: Record<TourId, Tour> = {
       { id: "try", targets: ["studio-try"], title: "Answer preview", text: "Type an answer here to see what a student would get. Only you see this." },
       { id: "source", targets: ["studio-source"], title: "Where it's from", text: "Say if you wrote it or adapted it. If you adapted it, add the source." },
       { id: "difficulty", targets: ["studio-difficulty"], title: "Difficulty rating", text: "Type a whole number from 0 to 4,000, or pick a band to fill one in. Publish needs it." },
+      { id: "more", targets: ["studio-more"], title: "More options", text: "Extra sections, PDFs, method tags and your own rights wording are in here. Most problems do not need it." },
       { id: "publish", targets: ["studio-publish"], title: "Publish", text: "Happy with it? Tick the box above and press Publish." },
     ],
   },

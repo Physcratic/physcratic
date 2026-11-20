@@ -289,7 +289,7 @@ export function SimpleEditor(props: SimpleProps) {
         {attempted && otherIssues.length > 0 && (
           <ul role="alert" className="space-y-1 text-base text-destructive">
             {otherIssues.slice(0, 4).map((m, i) => (
-              <li key={i}>{m} {fileFirst ? "Review the fields above." : "Fix it in Advanced."}</li>
+              <li key={i}>{m} {fileFirst ? "Review the fields above." : "Fix it in the Classic editor."}</li>
             ))}
           </ul>
         )}
