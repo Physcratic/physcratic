@@ -3,9 +3,9 @@ import { createRequire } from "node:module";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { ratingBands } from "../lib/rating-bands"
-import { publishableDraftSchema, authoredDraftSchema } from "../lib/problem-authoring";
+import { publishableDraftSchema, authoredDraftSchema, authoredDocumentSchema, publicAuthoredContent } from "../lib/problem-authoring";
 import type { EditorDraft } from "../lib/problem-authoring-editor";
-import { editorDraftSchema, newProblem, draftPayload } from "../lib/problem-authoring-editor";
+import { editorDraftSchema, newProblem, draftPayload, setPartAnswerMode } from "../lib/problem-authoring-editor";
 import {
   ADAPTED_RIGHTS_TEXT,
   addContextPicture,
@@ -37,9 +37,13 @@ import {
   answerText,
   applyAnswer,
   blocksText,
+  boxOwnsAnswer,
   ensureSimpleShape,
+  isHandGraded,
   knownUnit,
+  movePart,
   partLetter,
+  partNeedsOptions,
   privateFor,
   readAnswer,
   setQuestion,
@@ -48,6 +52,7 @@ import {
   spansToText,
   testAnswer,
   textToSpans,
+  unitHint,
   verdictLabel,
 } from "../components/authoring/simple-model";
 
@@ -190,7 +195,10 @@ test("a number answer uses the default tolerance of the Arena checker, and a uni
   assert.deepEqual(simpleIssues(d), []);
   assert.ok(publishableDraftSchema.safeParse({ problemId: d.problemId, version: 1, ...draftPayload(d) }).success);
   setUnits(d, allParts(d)[0].part.id, "furlong");
-  assert.match(simpleIssues(d).find((i) => i.field.startsWith("units:"))?.message ?? "", /don't know the unit/);
+  // The server accepts any unit label, so an unusual one is a heads up and does not block Publish.
+  assert.deepEqual(simpleIssues(d), []);
+  assert.match(unitHint(privateFor(d, allParts(d)[0].part.id).key), /don't know the unit "furlong"/);
+  assert.equal(unitHint(privateFor(d, allParts(d)[0].part.id).key).includes("exactly"), true);
 });
 
 test("each thing that blocks Publish is named next to its own field", () => {
@@ -588,9 +596,11 @@ test("upload-first checklist accepts manual keys and optional solutions, retaini
   ensureSimpleShape(d); d.content.title = "Moving Cart"; setDifficulty(d, "1200"); setRights(d, true);
   d.content.attachments = [{ id: crypto.randomUUID(), purpose: "statement-pdf" }];
   assert.deepEqual(simpleIssues(d, {}, true), []);
-  assert.equal(simpleIssues(d).some(i => i.field.startsWith("question:")), true);
+  // A statement PDF counts as the statement, as on the server, so no question text is asked for.
+  assert.equal(simpleIssues(d).some(i => i.field.startsWith("question:")), false);
   d.privateParts[0].key = null; assert.equal(simpleIssues(d, {}, true).some(i => i.field.startsWith("answer:")), true);
   d.content.attachments = []; assert.equal(simpleIssues(d, {}, true).some(i => i.field === "statement"), true);
+  assert.equal(simpleIssues(d).some(i => i.field.startsWith("question:")), true);
 });
 
 
@@ -610,4 +620,131 @@ test("Simple PDF image editing preserves interleaved text, equations, IDs and pr
   assert.deepEqual(part.blocks,[text,c,equation,b]);
   assert.equal(part.id,partId);
   assert.deepEqual(draft.privateParts,privateBefore);
+});
+
+// ---------------------------------------------------------------------------------------------------------------
+// S3b: Simple publish checks match the server, and More options
+// ---------------------------------------------------------------------------------------------------------------
+const withState = (d: EditorDraft, state: EditorDraft["state"]): EditorDraft => ({ ...d, state });
+const fieldsOf = (d: EditorDraft) => simpleIssues(d).map((i) => i.field);
+const serverAccepts = (d: EditorDraft) => publishableDraftSchema.safeParse({ problemId: d.problemId, version: 1, ...draftPayload(d) }).success;
+const textBlock = (text: string) => ({ id: uuid(), kind: "text" as const, spans: [{ kind: "text" as const, text }] });
+
+test("a worked solution is asked for on a problem never published, and not on an older one", () => {
+  const d = easyDraft("9.8", "m/s^2");
+  const id = allParts(d)[0].part.id;
+  d.privateParts.find((p) => p.partId === id)!.solution = [];
+  assert.deepEqual(fieldsOf(withState(d, "draft")), [`solution:${id}`]);
+  for (const state of ["published", "archived"] as const) assert.deepEqual(fieldsOf(withState(d, state)), [], state);
+  assert.equal(serverAccepts(d), true, "the server publishes it without a solution");
+});
+
+test("a hand-graded part publishes without a final answer, and an empty numeric key still needs one", () => {
+  const d = easyDraft("9.8");
+  const id = allParts(d)[0].part.id;
+  applyAnswer(d, id, readAnswer(""), "");
+  assert.deepEqual(privateFor(d, id).key, { kind: "manual" });
+  // A new part is manual until an answer is typed, so it still asks for one. Choosing hand-grading, or an already published problem, does not.
+  assert.deepEqual(fieldsOf(d), [`answer:${id}`]);
+  assert.deepEqual(simpleIssues(d, {}, false, new Set([id])), []);
+  assert.deepEqual(fieldsOf(withState(d, "published")), []);
+  assert.equal(isHandGraded(d, id), false);
+  assert.equal(isHandGraded(d, id, new Set([id])), true);
+  assert.equal(isHandGraded(withState(d, "archived"), id), true);
+  assert.equal(serverAccepts(d), true);
+  assert.deepEqual(simpleIssues(d, { [id]: "x+" }, false, new Set([id])).map((i) => i.field), [`answer:${id}`], "an unreadable typed answer still blocks");
+  setPartAnswerMode(d, id, "numeric");
+  assert.deepEqual(fieldsOf(d), [`answer:${id}`]);
+  assert.equal(serverAccepts(d), false);
+});
+
+test("the difficulty rating is asked for on every problem, because the server asks for it", () => {
+  const d = easyDraft("9.8");
+  d.content.estimatedDifficulty = null;
+  for (const state of ["draft", "published", "archived"] as const) assert.equal(fieldsOf(withState(d, state)).includes("difficulty"), true, state);
+  assert.equal(serverAccepts(d), false);
+});
+
+test("an older problem with sections and hints raises nothing Simple cannot explain", () => {
+  const d = easyDraft("9.8", "m/s^2");
+  const extra = uuid();
+  d.content.sections.push({ id: uuid(), title: "More", blocks: [textBlock("Context")], parts: [{ id: extra, label: "1", blocks: [textBlock("Second question")], answerMode: "manual" }] });
+  d.privateParts.push({ partId: extra, key: { kind: "manual" }, hints: [textBlock("A hint")], solution: [] });
+  assert.deepEqual(fieldsOf(withState(d, "published")), []);
+  assert.deepEqual(fieldsOf(withState(d, "draft")), [`solution:${extra}`, `answer:${extra}`], "a part nobody chose to hand-grade still needs its answer");
+  assert.equal(serverAccepts(d), true);
+  assert.match(advancedNote(d), /2 sections/);
+});
+
+test("one statement anywhere is enough, as on the server", () => {
+  const d = blank();
+  addPart(d);
+  const [a, b] = allParts(d).map((r) => r.part.id);
+  assert.deepEqual(fieldsOf(d).filter((f) => f.startsWith("question:")), [`question:${a}`]);
+  setQuestion(d, b, words("Find the speed."));
+  assert.deepEqual(fieldsOf(d).filter((f) => f.startsWith("question:")), []);
+});
+
+test("the answer box owns what it can read, and More options holds the rest", () => {
+  const d = easyDraft("9.8", "m/s^2");
+  const id = allParts(d)[0].part.id;
+  const entry = () => privateFor(d, id);
+  assert.equal(boxOwnsAnswer({ ...entry(), key: null }), true);
+  assert.equal(boxOwnsAnswer({ ...entry(), key: { kind: "manual" } }), true);
+  assert.equal(boxOwnsAnswer(entry()), true);
+  assert.equal(boxOwnsAnswer({ ...entry(), key: { kind: "expression", expected: "x+1", variables: [], angleUnit: "radians", exclusions: [] } }), true);
+  assert.equal(boxOwnsAnswer({ ...entry(), key: { kind: "expression", expected: "log(x)", variables: [], angleUnit: "radians", exclusions: [] } }), false, "a bare log is no longer read, so it is fixed in More options");
+});
+
+test("More options starts open only when it holds more than the defaults", () => {
+  const d = easyDraft("9.8", "m/s^2");
+  const id = allParts(d)[0].part.id;
+  const entry = () => d.privateParts.find((p) => p.partId === id)!;
+  assert.equal(partNeedsOptions(d, id), false);
+  entry().hints = [textBlock("Try energy")];
+  assert.equal(partNeedsOptions(d, id), true);
+  entry().hints = [];
+  entry().key = { ...(entry().key as { kind: "numeric"; value: number; units: string; absTol: number; relTol: number }), absTol: 0.5 };
+  assert.equal(partNeedsOptions(d, id), true);
+  entry().key = { kind: "expression", expected: "x+1", variables: [{ name: "x", domain: "real", assumptions: [] }], angleUnit: "radians", exclusions: [] };
+  assert.equal(partNeedsOptions(d, id), false);
+  entry().key = { kind: "expression", expected: "x+1", variables: [{ name: "x", domain: "real", assumptions: ["positive"] }], angleUnit: "radians", exclusions: [] };
+  assert.equal(partNeedsOptions(d, id), true);
+  entry().key = { kind: "expression", expected: "x+1", variables: [], angleUnit: "degrees", exclusions: [] };
+  assert.equal(partNeedsOptions(d, id), true);
+});
+
+test("a part moves up and down inside its section", () => {
+  const d = blank();
+  addPart(d);
+  addPart(d);
+  const ids = () => allParts(d).map((r) => r.part.id);
+  const [a, b, c] = ids();
+  movePart(d, c, -1);
+  assert.deepEqual(ids(), [a, c, b]);
+  movePart(d, a, -1);
+  assert.deepEqual(ids(), [a, c, b], "the first part stays first");
+  movePart(d, b, 1);
+  assert.deepEqual(ids(), [a, c, b], "the last part stays last");
+});
+
+test("edits made through More options keep the key, hints and solution in privateParts and out of the public content", () => {
+  const d = easyDraft("9.8", "m/s^2");
+  const id = allParts(d)[0].part.id;
+  // The same changes the answer panel makes: a new key, tolerances, a hint and a different answer type.
+  setPartAnswerMode(d, id, "expression");
+  const entry = { ...privateFor(d, id) };
+  entry.key = { kind: "expression", expected: "SECRETEXPR+1", variables: [{ name: "x", domain: "real", assumptions: ["positive"] }], angleUnit: "degrees", exclusions: ["x=0"] };
+  entry.hints = [textBlock("SECRETHINT")];
+  entry.solution = [textBlock("SECRETSOLUTION")];
+  d.privateParts = [...d.privateParts.filter((p) => p.partId !== id), entry];
+  const content = JSON.stringify(d.content);
+  const privatePart = JSON.stringify(d.privateParts);
+  for (const secret of ["SECRETEXPR", "SECRETHINT", "SECRETSOLUTION"]) {
+    assert.equal(content.includes(secret), false, `${secret} is not in content`);
+    assert.equal(privatePart.includes(secret), true, `${secret} is in privateParts`);
+  }
+  const pub = JSON.stringify(publicAuthoredContent(authoredDocumentSchema.parse(d.content)));
+  for (const secret of ["SECRETEXPR", "SECRETHINT", "SECRETSOLUTION", "degrees", "exclusions"]) assert.equal(pub.includes(secret), false, `${secret} is not public`);
+  assert.equal(d.privateParts.length, 1);
 });
