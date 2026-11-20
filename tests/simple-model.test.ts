@@ -22,6 +22,13 @@ import {
   UNITS,
   addPart,
   addPicture,
+  addSection,
+  problemOptionsHaveContent,
+  otherIssueMessages,
+  PROBLEM_MESSAGES,
+  sharedSetupBlocks,
+  withSharedSetupBlocks,
+  removeSection,
   advancedNote,
   blocksSpans,
   deriveTitle,
@@ -860,4 +867,245 @@ test("every draft Simple lets through is also accepted by the server publish sch
             }
   assert.ok(accepted > 50, `${accepted} fixtures passed Simple`);
   assert.deepEqual(mismatches, []);
+});
+
+// ---------------------------------------------------------------------------------------------------------------
+// Problem-level More options
+// ---------------------------------------------------------------------------------------------------------------
+
+/** A published-ready draft that carries what Advanced can: a second section, hints, tags, a PDF, an image and custom rights. */
+function olderDraft(): EditorDraft {
+  const d = withState(easyDraft("9.8", "m/s^2"), "published");
+  const first = allParts(d)[0].part.id;
+  const extra = uuid();
+  const media = uuid();
+  d.content.sections[0].title = "Setup";
+  d.content.sections[0].blocks = [textBlock("Shared text")];
+  d.content.sections.push({ id: uuid(), title: "Second", blocks: [{ id: uuid(), kind: "image", mediaId: media, alt: "A ramp", caption: "" }], parts: [{ id: extra, label: "b", blocks: [textBlock("Next")], answerMode: "manual" }] });
+  d.privateParts.push({ partId: extra, key: { kind: "manual" }, hints: [textBlock("A hint")], solution: [] });
+  privateFor(d, first).hints.push(textBlock("First hint"));
+  d.content.methodTags = ["energy-methods", "free-form method"];
+  d.content.topicTags = ["mechanics"];
+  d.content.attachments = [{ id: media, purpose: "statement-image" }, { id: uuid(), purpose: "statement-pdf" }];
+  d.content.provenance = { kind: "authorized", source: "Permission email, 2 November", rightsDeclaration: "The school gave written permission." };
+  return d;
+}
+const hand = (d: EditorDraft) => new Set(allParts(d).map((r) => r.part.id));
+
+test("More options holds saved content, so it opens for it", () => {
+  assert.equal(problemOptionsHaveContent(blank()), false);
+  const probes: [string, (d: EditorDraft) => void][] = [
+    ["a section title", (d) => void (d.content.sections[0].title = "Setup")],
+    ["section text", (d) => void (d.content.sections[0].blocks = [textBlock("x")])],
+    ["a second section", (d) => addSection(d)],
+    ["a method tag", (d) => void (d.content.methodTags = ["energy-methods"])],
+    ["a PDF", (d) => void (d.content.attachments = [{ id: uuid(), purpose: "solution-pdf" }])],
+    ["custom rights", (d) => void (d.content.provenance = { kind: "original", source: "", rightsDeclaration: "My own words." })],
+    ["extra shared setup blocks", (d) => void (d.content.context = [textBlock("a"), { id: uuid(), kind: "math", latex: "E=mc^2" }])],
+  ];
+  for (const [name, change] of probes) {
+    const d = blank();
+    change(d);
+    assert.equal(problemOptionsHaveContent(d), true, name);
+  }
+  const ticked = blank();
+  setRights(ticked, true);
+  assert.equal(problemOptionsHaveContent(ticked), false, "the tick next to Publish is not saved content");
+});
+
+test("a section is added with one part and removed with its private content", () => {
+  const d = easyDraft("9.8");
+  addSection(d);
+  assert.deepEqual(allParts(d).map((r) => r.part.label), ["a", "b"]);
+  assert.equal(d.privateParts.length, 2);
+  removeSection(d, d.content.sections[1].id);
+  assert.deepEqual(allParts(d).map((r) => r.part.label), ["a"]);
+  assert.equal(d.privateParts.length, 1);
+});
+
+test("an image without a description in the shared setup or a section is named, and the server agrees", () => {
+  const d = olderDraft();
+  assert.deepEqual(fieldsOf(d).filter((f) => f !== `answer:${allParts(d)[1].part.id}`), []);
+  const image = d.content.sections[1].blocks[0];
+  assert.ok(image.kind === "image");
+  image.alt = "";
+  assert.equal(serverAccepts(d), false);
+  assert.ok(fieldsOf(d).includes("options:problem"));
+  image.alt = "A ramp";
+  assert.equal(fieldsOf(d).includes("options:problem"), false);
+  const shown = { id: uuid(), kind: "image" as const, mediaId: d.content.attachments[0].id, alt: "Shown", caption: "" };
+  d.content.context = [textBlock("Setup"), shown, { ...shown, id: uuid(), alt: " " }];
+  assert.ok(fieldsOf(d).includes("options:problem"), "an image hidden in the shared setup");
+});
+
+test("Simple lets through no draft with sections, tags, PDFs or custom rights that the server refuses", () => {
+  const mismatches: string[] = [];
+  let accepted = 0;
+  const rights = [
+    ["ticked", { kind: "original" as const, source: "", rightsDeclaration: RIGHTS_TEXT }],
+    ["custom", { kind: "original" as const, source: "", rightsDeclaration: "Written by my class." }],
+    ["permission", { kind: "authorized" as const, source: "Email from the author", rightsDeclaration: "I have written permission." }],
+    ["permission without source", { kind: "authorized" as const, source: "", rightsDeclaration: "I have written permission." }],
+    ["empty", { kind: "original" as const, source: "", rightsDeclaration: "" }],
+  ] as const;
+  for (const state of ["draft", "published"] as const)
+    for (const [rightsName, provenance] of rights)
+      for (const sections of [1, 3])
+        for (const tags of [[], ["energy-methods"], ["dup", "dup"]])
+          for (const pdfs of [[], ["statement-pdf", "solution-pdf"] as const])
+            for (const alt of ["A ramp", ""]) {
+              const d = withState(easyDraft("9.8", "m/s^2"), state);
+              for (let i = 1; i < sections; i++) addSection(d);
+              const media = uuid();
+              d.content.sections[sections - 1].blocks = [{ id: uuid(), kind: "image", mediaId: media, alt, caption: "" }];
+              d.content.attachments = [{ id: media, purpose: "statement-image" }, ...pdfs.map((purpose) => ({ id: uuid(), purpose }))];
+              d.content.methodTags = [...tags];
+              d.content.provenance = { ...provenance };
+              // Every later part is hand-graded, so only the problem-level items decide.
+              if (simpleIssues(d, {}, false, hand(d)).length) continue;
+              accepted++;
+              if (!serverAccepts(d)) mismatches.push(`${state} rights=${rightsName} sections=${sections} tags=${tags.join("+")} pdfs=${pdfs.length} alt="${alt}"`);
+            }
+  assert.ok(accepted > 20, `${accepted} fixtures passed Simple`);
+  assert.deepEqual(mismatches, []);
+});
+
+test("an older draft opened in Simple and only retitled publishes everything else as it was", () => {
+  const d = olderDraft();
+  const before = structuredClone(draftPayload(d));
+  assert.equal(serverAccepts(d), true);
+  // Opening runs ensureSimpleShape and nothing else. Then the author edits the title.
+  ensureSimpleShape(d);
+  assert.deepEqual(draftPayload(d), before, "opening changes nothing");
+  d.content.title = "A new title";
+  assert.deepEqual(simpleIssues(d, {}, false, hand(d)).map((i) => i.field), []);
+  const after = draftPayload(d);
+  assert.equal(after.content.title, "A new title");
+  assert.deepEqual({ ...after, content: { ...after.content, title: before.content.title } }, before, "only the title differs");
+  assert.equal(serverAccepts(d), true);
+});
+
+// ---------------------------------------------------------------------------------------------------------------
+// S3c-fix: one message per problem, tags, and the shared setup the main question does not own
+// ---------------------------------------------------------------------------------------------------------------
+
+const serverIssues = (d: EditorDraft) => publishableDraftSchema.safeParse({ problemId: d.problemId, version: 1, ...draftPayload(d) }).error?.issues ?? [];
+const image = (alt: string, mediaId = uuid()) => ({ id: uuid(), kind: "image" as const, mediaId, alt, caption: "" });
+const manyTags = (n: number) => Array.from({ length: n }, (_, i) => `tag ${i}`);
+/** The editor's normaliser lists each statement image as an attachment. Fixtures do the same, so only the rule under test fails. */
+function settle(d: EditorDraft) {
+  const blocks = [...d.content.context, ...d.content.sections.flatMap((s) => [...s.blocks, ...s.parts.flatMap((p) => p.blocks)])];
+  d.content.attachments = [...d.content.attachments.filter((a) => a.purpose !== "statement-image"), ...blocks.flatMap((b) => (b.kind === "image" ? [{ id: b.mediaId, purpose: "statement-image" as const }] : []))];
+}
+
+test("a repeated method tag and too many method tags say different things", () => {
+  const repeated = easyDraft("9.8", "m/s^2");
+  repeated.content.methodTags = ["energy-methods", "energy-methods"];
+  assert.ok(serverIssues(repeated).some((i) => i.message === "Duplicate tags"));
+  assert.deepEqual(simpleIssues(repeated).filter((i) => i.field === "options:problem").map((i) => i.message), [PROBLEM_MESSAGES.methodRepeated]);
+  const many = easyDraft("9.8", "m/s^2");
+  many.content.methodTags = manyTags(31);
+  assert.equal(serverAccepts(many), false);
+  const said = simpleIssues(many).filter((i) => i.field === "options:problem").map((i) => i.message);
+  assert.deepEqual(said, [PROBLEM_MESSAGES.methodOther]);
+  assert.doesNotMatch(said[0], /only be used once/);
+  const long = easyDraft("9.8", "m/s^2");
+  long.content.methodTags = ["x".repeat(81)];
+  assert.deepEqual(simpleIssues(long).filter((i) => i.field === "options:problem").map((i) => i.message), [PROBLEM_MESSAGES.methodOther]);
+  // Thirty is the limit, so thirty distinct tags are fine.
+  const thirty = easyDraft("9.8", "m/s^2");
+  thirty.content.methodTags = manyTags(30);
+  assert.deepEqual(fieldsOf(thirty), []);
+});
+
+test("a repeated topic and too many topics are named by Simple too, because the server refuses them", () => {
+  const repeated = easyDraft("9.8", "m/s^2");
+  repeated.content.topicTags = ["mechanics", "mechanics"];
+  assert.equal(serverAccepts(repeated), false);
+  assert.deepEqual(simpleIssues(repeated).filter((i) => i.field === "topics").map((i) => i.message), [PROBLEM_MESSAGES.topicRepeated]);
+  const many = easyDraft("9.8", "m/s^2");
+  many.content.topicTags = manyTags(31);
+  assert.deepEqual(simpleIssues(many).filter((i) => i.field === "topics").map((i) => i.message), [PROBLEM_MESSAGES.topicOther]);
+  // The server trims before it compares, and so does it for a tag with only spaces being empty. Case and a different spelling are different tags.
+  const spaced = easyDraft("9.8", "m/s^2");
+  spaced.content.topicTags = ["mechanics", " mechanics "];
+  assert.equal(serverAccepts(spaced), false);
+  assert.deepEqual(fieldsOf(spaced), ["topics"]);
+  const cased = easyDraft("9.8", "m/s^2");
+  cased.content.topicTags = ["mechanics", "Mechanics"];
+  assert.equal(serverAccepts(cased), true);
+  assert.deepEqual(fieldsOf(cased), []);
+});
+
+test("every problem Simple names is shown once, because the server's own line for it is not shown beside it", () => {
+  const cases: [string, (d: EditorDraft) => void][] = [
+    ["an image without a description in a section", (d) => void (d.content.sections[0].blocks = [image("")])],
+    ["an image without a description in the shared setup", (d) => void (d.content.context = [textBlock("Setup"), image("A ramp"), image(" ")])],
+    ["a second image in a part without a description", (d) => void (allParts(d)[0].part.blocks.push(image("A ramp"), image("")))],
+    ["a repeated method tag", (d) => void (d.content.methodTags = ["a", "a"])],
+    ["thirty-one method tags", (d) => void (d.content.methodTags = manyTags(31))],
+    ["a repeated topic", (d) => void (d.content.topicTags = ["mechanics", "mechanics"])],
+    ["thirty-one topics", (d) => void (d.content.topicTags = manyTags(31))],
+    ["custom rights with no source", (d) => void (d.content.provenance = { kind: "authorized", source: "  ", rightsDeclaration: "By permission." })],
+  ];
+  for (const state of ["draft", "published"] as const)
+    for (const [name, change] of cases) {
+      const d = withState(easyDraft("9.8", "m/s^2"), state);
+      change(d);
+      settle(d);
+      const issues = serverIssues(d);
+      assert.ok(issues.length > 0, `${name}: the server refuses it`);
+      assert.deepEqual(otherIssueMessages(issues), [], `${name}: nothing is left for the line beside Publish`);
+      const simple = simpleIssues(d, {}, false, hand(d));
+      assert.equal(simple.length, 1, `${name}: Simple says it once, not ${simple.map((i) => i.field)}`);
+    }
+  // A rule Simple does not word is still listed.
+  const d = easyDraft("9.8", "m/s^2");
+  d.content.sections[0].id = d.content.context[0]?.id ?? allParts(d)[0].part.id;
+  const other = otherIssueMessages(serverIssues(d));
+  assert.deepEqual(other, ["Duplicate section, part or block ID"]);
+  assert.deepEqual(otherIssueMessages([{ message: "Duplicate tags", path: ["content", "topicTags"] }, { message: "Something else", path: [] }]), ["Something else"]);
+});
+
+test("the shared setup the main question does not own: opening, editing and closing leave the main question's blocks as they were", () => {
+  const main = textBlock("Main question");
+  const picture = image("The main picture");
+  const equation = { id: uuid(), kind: "math" as const, latex: "E=mc^2" };
+  const later = textBlock("Later text");
+  const blocks = [equation, main, later, picture];
+  assert.deepEqual(sharedSetupBlocks(blocks), [equation, later], "the first text and the first picture are the main question's");
+  assert.deepEqual(withSharedSetupBlocks(blocks, sharedSetupBlocks(blocks)), blocks, "nothing changes when nothing is edited");
+  // Edit a shared block.
+  const edited = withSharedSetupBlocks(blocks, [equation, { ...later, spans: [{ kind: "text", text: "Changed" }] }]);
+  assert.equal(edited[1], main);
+  assert.equal(edited[3], picture);
+  assert.deepEqual(edited.map((b) => b.id), blocks.map((b) => b.id));
+  // Move, delete and add. The main question's blocks keep their order and are never dropped.
+  const moved = withSharedSetupBlocks(blocks, [later, equation]);
+  assert.deepEqual(moved.map((b) => b.id), [later.id, main.id, equation.id, picture.id]);
+  const deleted = withSharedSetupBlocks(blocks, [later]);
+  assert.deepEqual(deleted.map((b) => b.id), [later.id, main.id, picture.id]);
+  const added = withSharedSetupBlocks(blocks, [equation, later, textBlock("New")]);
+  assert.deepEqual(added.slice(0, 4).map((b) => b.id), blocks.map((b) => b.id));
+  assert.equal(added.length, 5);
+  // The real draft: the main question box still reads and writes the same text after a shared block was edited.
+  const d = easyDraft("9.8", "m/s^2");
+  d.content.context = structuredClone(blocks);
+  settle(d);
+  const before = structuredClone(d.content.context);
+  d.content.context = withSharedSetupBlocks(d.content.context, sharedSetupBlocks(d.content.context).map((b) => (b.kind === "text" ? { ...b, spans: [{ kind: "text" as const, text: "Edited" }] } : b)));
+  assert.deepEqual(d.content.context[1], before[1]);
+  assert.deepEqual(d.content.context[3], before[3]);
+  assert.equal(blocksText(d.content.context), "Main question");
+  assert.equal(serverAccepts(d), true);
+});
+
+test("a text block added to the shared setup before there is a main question stays in the shared setup", () => {
+  const added = textBlock("Shared");
+  const next = withSharedSetupBlocks([], [added]);
+  assert.equal(next.length, 2);
+  assert.equal(blocksText(next), "", "the main question is still empty");
+  assert.deepEqual(sharedSetupBlocks(next), [added]);
+  const math = { id: uuid(), kind: "math" as const, latex: "x" };
+  assert.deepEqual(withSharedSetupBlocks([], [math]), [math], "an equation does not become the main question");
 });

@@ -31,7 +31,7 @@ import { HowItWorksLink, RecoverySection, StatusBar, StepCard, studioTokens } fr
 import { SimpleEditor } from "./simple-editor";
 import { GuidedTour } from "@/components/tour/guided-tour";
 import { TourHelpButton } from "@/components/tour/tour-help";
-import { STUDIO_MODE_KEY, readStudioMode, setDifficulty, type StudioMode } from "./simple-model";
+import { STUDIO_MODE_KEY, otherIssueMessages, readStudioMode, setDifficulty, type StudioMode } from "./simple-model";
 import { DifficultyRatingField } from "./difficulty-rating-field";
 import { colorsByPartId } from "@/lib/part-colors";
 import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
@@ -174,9 +174,22 @@ export function ProblemEditor({
     ...draftPayload(draft),
   });
   const issues = publishable.success ? [] : publishable.error.issues;
-  // Publish rules Simple shows next to its own fields. Anything else is listed by the Publish button.
-  const simpleOwned = /^(Title and rights provenance required|Add a statement and at least one part\. Use text, statement images or a statement PDF\.|Every published part requires a key or explicit manual mode|Add a difficulty rating from 0 to 4,000\.)$/;
-  const otherIssues = issues.map((i) => i.message).filter((m) => !simpleOwned.test(m));
+  // Publish rules Simple words and shows next to its own fields. Anything else is listed by the Publish button.
+  const otherIssues = otherIssueMessages(issues);
+  function unpublish() {
+    if (
+      window.confirm(
+        "Unpublish this problem? It will stop being publicly readable. Previous revisions stay retained.",
+      )
+    )
+      void session.publish("unpublish", (d) =>
+        draftRequest(
+          `${editorBase}/${d.problemId}/unpublish`,
+          "POST",
+          { version: d.version },
+        ),
+      );
+  }
   useEffect(() => {
     session.activate();
     return () => session.dispose();
@@ -652,6 +665,7 @@ export function ProblemEditor({
               provisional={creating}
               otherIssues={otherIssues}
               publishing={busy}
+              onUnpublish={unpublish}
               onPublish={() => {
                 if (phase === "saving" || phase === "conflict") return;
                 void session.publish("publish", publishRequest);
@@ -843,20 +857,7 @@ export function ProblemEditor({
                 {draft.state === "published" && (
                   <UnpublishZone
                     disabled={uploads > 0}
-                    onUnpublish={() => {
-                      if (
-                        window.confirm(
-                          "Unpublish this problem? It will stop being publicly readable. Previous revisions stay retained.",
-                        )
-                      )
-                        void session.publish("unpublish", (d) =>
-                          draftRequest(
-                            `${editorBase}/${d.problemId}/unpublish`,
-                            "POST",
-                            { version: d.version },
-                          ),
-                        );
-                    }}
+                    onUnpublish={unpublish}
                   />
                 )}
               </StepCard>
@@ -866,7 +867,6 @@ export function ProblemEditor({
         ) : null}
           </>}
 
-        {modeReady && mode === "simple" && draft.state === "published" && !draft.publishedSolutionPolicy && <details className="mx-auto mt-8 max-w-2xl rounded-lg border p-4"><summary className="min-h-11 cursor-pointer font-medium">Solution access</summary>{!draft.publishedSolutionPolicy && <SolutionPermissions key={draft.problemId} problemId={draft.problemId} />}</details>}
       </main>
     </div>
     </AuthorMediaProvider>
