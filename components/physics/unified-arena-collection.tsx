@@ -6,7 +6,7 @@ import { unifiedArenaPageSchema, problemHref, type UnifiedArenaPage, type Collec
 import { AchievementShowcase } from '@/components/community/achievement-badge';
 import {ProblemStatsBatch,useProblemFavourite,type ProblemFavourite} from '@/components/community/problem-stats';
 import { ProblemCard, ProblemCardSkeletonList } from './problem-card';
-import { describeEstimate } from '@/lib/rating-bands';
+import { parseRating } from '@/lib/rating-bands';
 import { arenaCardImage } from '@/lib/arena/card-image';
 
 // Card props for the favourite control. Empty without statistics, so the card renders as it did before.
@@ -19,16 +19,17 @@ function likeProps(f:ProblemFavourite|null){
   likeStatus:!s?(f.loading?'Loading statistics…':f.loadError?'Statistics unavailable.':'Problem is no longer public or statistics are unavailable.'):f.loading?'Refreshing statistics…':undefined,
   likeError:f.actionError||f.loadError||undefined};
 }
+// A community problem's rating is the author's difficulty, a whole number from 0 to 4000. The card gets it as the same `elo`
+// an arena card gets, so the band, its tint and its tier name come from ratingBand in lib/rating-bands.ts. A free-text label is not a rating.
+const cardRating=(p:CollectionEntry)=>p.kind==='arena'?p.elo:parseRating(p.estimatedDifficulty??'')??undefined;
 export function UnifiedProblemCard({problem}:{problem:CollectionEntry}) {
  const favourite=useProblemFavourite(problem.key),solves=favourite?.stat?.solves;
  return <ProblemCard id={problem.key} title={problem.title} source={problem.kind==='arena'?'Physcratic':'Community'}
-  description={problem.summary} tags={problem.tags} elo={problem.elo} href={problemHref(problem)} image={problem.kind==='arena'?arenaCardImage(problem.id):problem.image} {...likeProps(favourite)}
-  attribution={<>{solves!==undefined&&solves!==null&&<p className="text-sm">{`${solves.toLocaleString('en-US')} verified ${solves===1?'solve':'solves'}`}</p>}{problem.kind==='arena'?<p className="text-sm">Published by Physcratic</p>:<>
+  description={problem.summary} tags={problem.tags} elo={cardRating(problem)} href={problemHref(problem)} image={problem.kind==='arena'?arenaCardImage(problem.id):problem.image} {...likeProps(favourite)}
+  attribution={problem.kind==='arena'?<>{solves!==undefined&&solves!==null&&<p className="text-sm">{`${solves.toLocaleString('en-US')} verified ${solves===1?'solve':'solves'}`}</p>}<p className="text-sm">Published by Physcratic</p></>:<>
    <p className="text-sm">By {problem.author?<Link className="underline" href={`/u/${problem.author.handle}`}>{problem.author.displayName||'@'+problem.author.handle}</Link>:'Community author'}</p>
    {problem.author&&<AchievementShowcase ids={problem.author.selectedIds} medals={problem.author.medals}/>}
-   <p className="text-sm text-muted-foreground">Difficulty: {describeEstimate(problem.estimatedDifficulty)||'Not specified'}</p>
-   {problem.provenance&&<details className="text-sm"><summary className="flex min-h-11 cursor-pointer items-center">Attribution and rights</summary><p className="whitespace-pre-wrap break-words">{problem.provenance.kind==='original'?'Original':'Authorized source'}{problem.provenance.source&&`, ${problem.provenance.source}`}</p><p className="whitespace-pre-wrap break-words">{problem.provenance.rightsDeclaration}</p></details>}
-  </>}</>}/>;
+  </>}/>;
 }
 export function UnifiedArenaCollection({query,topic,difficulty,source='all',onReset}:{query:string;topic:string;difficulty:string;source?:'all'|'authored';onReset:()=>void}) {
  const [cursors,setCursors]=useState<(string|undefined)[]>([undefined]);
