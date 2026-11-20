@@ -4,6 +4,8 @@ import {createRequire} from 'node:module';
 import {join} from 'node:path';
 import {mkdir} from 'node:fs/promises';
 import {statementPdfFixture,png} from './author-media-fixtures.ts';
+// Upload PDFs instead lives in the problem-level More options, which is closed until the problem has saved content.
+const openMore=async page=>{const summary=page.locator('summary[aria-label="More options for the whole problem"]');if(!(await summary.evaluate(el=>el.parentElement.open)))await summary.click();};
 const tools=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS,'package.json'));
 const {default:AxeBuilder}=tools('@axe-core/playwright');
 const file=(name,buffer,mimeType)=>({name,buffer,mimeType});
@@ -15,7 +17,7 @@ export async function runPdfStudioBrowser({browser,origin,pool,storage,setFail})
   const owner=`pdf-studio-${width}-${theme}`;await pool.query('INSERT INTO "user"(id) VALUES($1)',[owner]);await context.addCookies([{name:'studio_author',value:owner,url:origin}]);
   await context.addInitScript(theme=>{localStorage.setItem('physcratic.studio.mode','simple');localStorage.setItem('physcratic.tour.studio.v1','seen');addEventListener('DOMContentLoaded',()=>document.documentElement.classList.toggle('dark',theme==='dark'),{once:true});},theme);
   page.on('dialog',d=>d.accept());page.on('pageerror',e=>errors.push(e.stack??e.message));
-  await page.goto(origin);await page.getByLabel('Upload PDFs instead',{exact:true}).check();
+  await page.goto(origin);await openMore(page);await page.getByLabel('Upload PDFs instead',{exact:true}).check();
   await page.getByLabel('Title',{exact:true}).fill('Moving Cart');await page.waitForURL(url=>url.searchParams.has('draft'));
   const id=new URL(page.url()).searchParams.get('draft'),base=origin+'/api/authored-problems',headers={origin};
   const draft=async()=>{const r=await context.request.get(base+'/drafts/'+id);assert.equal(r.status(),200);return r.json();};
@@ -101,7 +103,7 @@ export async function runPdfStudioBrowser({browser,origin,pool,storage,setFail})
   await enter('x+');await page.getByText('The answer stops too soon. Something is missing after the last operator.',{exact:true}).waitFor();await page.getByRole('button',{name:'Student preview',exact:true}).click();await page.getByRole('button',{name:'Write',exact:true}).click();
   assert.equal(await field.inputValue(),'x+');await page.getByLabel('Upload PDFs instead',{exact:true}).click();await page.getByText('Correct the current final answer before changing workflows. Your input is retained.',{exact:true}).waitFor();assert.equal(await page.getByLabel('Upload PDFs instead',{exact:true}).isChecked(),false);
   await page.getByText('Correct the current final answer before changing workflows. Your input is retained.',{exact:true}).waitFor();
-  await enter('7');await saved();await page.reload();await page.waitForFunction(()=>document.querySelector('#simple-title')?.value==='Moving Cart');assert.equal(await page.getByLabel('Upload PDFs instead',{exact:true}).isChecked(),false);await page.getByLabel('Upload PDFs instead',{exact:true}).check();await saved();assert.deepEqual((await draft()).privateParts,imageDraft.privateParts);
+  await enter('7');await saved();await page.reload();await page.waitForFunction(()=>document.querySelector('#simple-title')?.value==='Moving Cart');assert.equal(await page.getByLabel('Upload PDFs instead',{exact:true}).isChecked(),false);await openMore(page);await page.getByLabel('Upload PDFs instead',{exact:true}).check();await saved();assert.deepEqual((await draft()).privateParts,imageDraft.privateParts);
   for(const target of [page,reader,student]){assert.equal(await target.evaluate(()=>document.documentElement.classList.contains('dark')),theme==='dark');assert.equal(await target.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);const result=await new AxeBuilder({page:target}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(result.violations.filter(v=>['serious','critical'].includes(v.impact)),[]);}
   if(process.env.PDF_STUDIO_SCREENSHOTS){await mkdir(process.env.PDF_STUDIO_SCREENSHOTS,{recursive:true});await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:join(process.env.PDF_STUDIO_SCREENSHOTS,`studio-${width}-${theme}.png`),fullPage:true});await reader.evaluate(()=>window.scrollTo(0,0));await reader.screenshot({path:join(process.env.PDF_STUDIO_SCREENSHOTS,`reader-${width}-${theme}.png`),fullPage:true});}
   assert.equal((await pool.query('SELECT attempts FROM author_media_usage WHERE user_id=$1',[owner])).rows[0].attempts,8,'isolated tutor stays within the unchanged daily upload limit');

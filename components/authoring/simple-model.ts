@@ -15,8 +15,8 @@ import { parseRating } from "@/lib/rating-bands";
 import { checkSampled, undecidedMessage } from "@/lib/sampled-check";
 import { answerFromBuffer } from "@/lib/authored-student";
 import { normalizeNumericUnits } from "@/lib/authored-grading-contracts";
-import { authoredKeySchema, hasAuthoredStatement } from "@/lib/problem-authoring";
-import { moveItem, setPartAnswerMode, type EditorBlock, type EditorDraft } from "@/lib/problem-authoring-editor";
+import { authoredKeySchema, hasAuthoredStatement, publishableDraftSchema } from "@/lib/problem-authoring";
+import { draftPayload, moveItem, setPartAnswerMode, type EditorBlock, type EditorDraft } from "@/lib/problem-authoring-editor";
 
 export type Key = EditorDraft["privateParts"][number]["key"];
 export type PrivatePart = EditorDraft["privateParts"][number];
@@ -176,6 +176,30 @@ export function addPart(d: EditorDraft) {
   const section = d.content.sections.at(-1)!;
   if (allParts(d).length >= 50) return;
   section.parts.push(newPart(d, allParts(d).length));
+}
+/** A further section starts with one part, so Simple always has a part to show in it. */
+export function addSection(d: EditorDraft) {
+  ensureSimpleShape(d);
+  if (d.content.sections.length >= 30 || allParts(d).length >= 50) return;
+  d.content.sections.push({ id: crypto.randomUUID(), title: "", blocks: [], parts: [newPart(d, allParts(d).length)] });
+}
+/** Removes a section with its parts and their private answer content, like Advanced. */
+export function removeSection(d: EditorDraft, sectionId: string) {
+  const gone = new Set(d.content.sections.find((s) => s.id === sectionId)?.parts.map((p) => p.id));
+  d.content.sections = d.content.sections.filter((s) => s.id !== sectionId);
+  d.privateParts = d.privateParts.filter((p) => !gone.has(p.partId));
+}
+/** What the problem-level More options holds that the author saved earlier. It opens by itself for these. */
+export function problemOptionsHaveContent(d: EditorDraft): boolean {
+  const c = d.content;
+  return (
+    c.sections.length > 1 ||
+    c.sections.some((s) => s.title.trim() || s.blocks.length) ||
+    hiddenBlocks(c.context) > 0 ||
+    c.methodTags.length > 0 ||
+    c.attachments.some((a) => a.purpose.endsWith("pdf")) ||
+    sourceState(d).choice === "advanced"
+  );
 }
 export function removePart(d: EditorDraft, partId: string) {
   for (const section of d.content.sections) section.parts = section.parts.filter((p) => p.id !== partId);
@@ -493,6 +517,8 @@ export function setDifficulty(d: EditorDraft, text: string): boolean {
 // What stops Publish, in plain words, each one tied to a field
 // ---------------------------------------------------------------------------------------------------------------
 
+const ALT_RULE = "Every image requires descriptive alternative text before publication";
+const PROVENANCE_RULE = "Title and rights provenance required";
 export type SimpleIssue = { field: string; message: string };
 /** `reads` holds what the author has typed for each part's answer, when it differs from the saved key. */
 export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, string>> = {}, fileFirst = false, handGraded: ReadonlySet<string> = new Set()): SimpleIssue[] {
@@ -537,6 +563,14 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
   if (difficultyRating(d) === null) issues.push({ field: "difficulty", message: "Add a difficulty rating from 0 to 4,000." });
   const contextPicture = contextPictureOf(d);
   if (contextPicture && !contextPicture.alt.trim()) issues.push({ field: "picture:main", message: "Describe the image so everyone can follow it." });
+  // What More options holds is judged by the server schema itself, never by a copy of its rules.
+  const server = publishableDraftSchema.safeParse({ problemId: d.problemId, version: d.version, ...draftPayload(d) }).error?.issues ?? [];
+  const serverSays = (message: string) => server.some((i) => i.message === message);
+  const covered = (pattern: RegExp) => issues.some((i) => pattern.test(i.field));
+  const inOptions = (message: string) => issues.push({ field: "options:problem", message });
+  if (serverSays(ALT_RULE) && !covered(/^(picture|options):/)) inOptions("Describe each image in the shared setup and sections, in More options.");
+  if (serverSays(PROVENANCE_RULE) && !covered(/^(title|source|rights)$/)) inOptions("Say where it's from, in More options.");
+  if (server.some((i) => i.path[1] === "methodTags")) inOptions("Each method tag can only be used once, in More options.");
   return issues;
 }
 

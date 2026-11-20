@@ -1,3 +1,7 @@
+## Problem Studio problem-level More options, S3c (20 November 2026)
+
+Simple has one collapsed "More options for the whole problem" row below the parts and above Publish. It holds "Upload PDFs instead" (moved from the header), the shared setup blocks, sections (title, shared text, order, delete, add) with a section outline when there are two or more, method tags, the free text source and rights, and, only when the problem is published, solution access and Unpublish. It reuses `BlocksEditor`, `OrderControls`, `TagPicker`, `ProvenanceFields`, `UnpublishZone` and `SolutionPermissions` unchanged, inside the same 16px scoped class as part More options. It opens by itself for saved sections, shared text blocks Simple cannot show, method tags, a PDF, rights in the author's own words, or when Publish reports an error that belongs inside it. `simpleIssues` asks the server schema about an undescribed image in the shared setup or a section, a source missing from a custom rights statement, and a repeated method tag. Nothing stored or sent changed. Proof: tests/simple-model.test.ts (parity over sections, tags, PDFs and custom rights, and an older draft that is only retitled), tests/simple-problem-options.test.ts and tests/simple-options.browser.mjs, now a step in the authored student browser workflow. Left for later: moving a part between sections, and "Add part" still adds to the last section.
+
 # Beta readiness log
 
 ## Problem Studio per-part More options, S3b (19 November 2026)

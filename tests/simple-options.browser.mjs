@@ -36,14 +36,14 @@ try {
   browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, headless: true, args: ["--no-sandbox"] });
   let checks = 0;
   const errors = [];
-  async function open(state = "draft") {
-    const context = await browser.newContext({ viewport: { width: 1000, height: 1200 } });
+  async function open(state = "draft", { fixture = "", width = 1000, extra = "" } = {}) {
+    const context = await browser.newContext({ viewport: { width, height: 1200 } });
     const page = await context.newPage();
     const dialogs = [];
-    page.on("pageerror", (e) => errors.push(e.message));
+    page.on("pageerror", (e) => { errors.push(e.message); if (process.env.DEBUG_ERRORS) console.error(e.message.slice(0, 300)); });
     page.on("dialog", (d) => { dialogs.push(d.message()); void d.accept(); });
-    await page.goto(`${origin}/?state=${state}`);
-    await page.locator('math-field[id$="-a"]').waitFor();
+    await page.goto(`${origin}/?state=${state}${fixture ? `&fixture=${fixture}` : ""}${extra}`);
+    await (extra ? page.locator("#simple-title") : page.locator('math-field[id$="-a"]').first()).waitFor();
     return { context, page, dialogs };
   }
   const key = (page) => page.evaluate(() => window.__draft.privateParts[0].key);
@@ -131,6 +131,69 @@ try {
     assert.deepEqual({ absTol: k.absTol, relTol: k.relTol }, { absTol: 1e-9, relTol: 0.01 });
     checks++;
     await context.close();
+  }
+
+  // 4. Problem-level More options: closed by default, opens by itself for saved sections, Unpublish only when published.
+  const whole = (page) => page.locator('summary[aria-label="More options for the whole problem"]');
+  const isOpen = (page) => whole(page).evaluate((el) => el.parentElement.open);
+  {
+    const { context, page } = await open("draft");
+    assert.equal(await isOpen(page), false, "closed on a new problem");
+    assert.equal(await page.getByRole("navigation", { name: "Sections outline" }).count(), 0, "no outline with one section");
+    await whole(page).click();
+    assert.equal(await page.getByRole("button", { name: "Unpublish problem" }).count(), 0, "not published, no Unpublish");
+    await page.getByRole("button", { name: "Add a section" }).click();
+    await page.getByRole("navigation", { name: "Sections outline" }).waitFor();
+    assert.equal(await page.evaluate(() => window.__draft.content.sections.length), 2);
+    checks++;
+    await context.close();
+  }
+  {
+    const { context, page } = await open("published", { fixture: "saved" });
+    assert.equal(await isOpen(page), true, "opens by itself with saved sections, a tag and custom rights");
+    assert.equal(await page.getByRole("navigation", { name: "Sections outline" }).count(), 1);
+    await page.getByRole("button", { name: "Unpublish problem" }).click();
+    assert.equal(await page.evaluate(() => window.__unpublished), 1);
+    checks++;
+    await context.close();
+  }
+
+  // 5. At 390px nothing inside the problem-level More options is a target under 44px or text under 16px.
+  for (const state of ["draft", "published"]) {
+    const { context, page } = await open(state, { fixture: "saved", width: 390 });
+    const found = await page.locator('summary[aria-label="More options for the whole problem"]').evaluate((summary) => {
+      const root = summary.parentElement;
+      const out = [];
+      for (const el of root.querySelectorAll("*")) {
+        if (!el.getClientRects().length) continue;
+        const style = getComputedStyle(el);
+        const own = [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()) || ["INPUT", "SELECT", "TEXTAREA"].includes(el.tagName) && el.type !== "checkbox" && el.type !== "radio";
+        if (own && parseFloat(style.fontSize) < 16) out.push(`text ${style.fontSize} ${el.tagName} ${el.textContent.trim().slice(0, 30)}`);
+        if (el.matches("a[href],button,select,textarea,input:not([type=hidden]),summary,[role=button]")) {
+          const box = (el.matches("input[type=checkbox],input[type=radio]") ? el.closest("label") ?? el : el).getBoundingClientRect();
+          if (box.height < 43.5) out.push(`target ${Math.round(box.height)}px ${el.tagName} ${(el.getAttribute("aria-label") || el.textContent).trim().slice(0, 30)}`);
+          if (!el.textContent.trim() && el.tagName === "BUTTON" && box.width < 43.5) out.push(`narrow ${Math.round(box.width)}px ${el.getAttribute("aria-label")}`);
+        }
+      }
+      return out;
+    });
+    assert.deepEqual(found, [], `${state}: small text or targets in More options`);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, `${state}: no sideways scroll`);
+    checks++;
+    await context.close();
+  }
+
+  // 6. A publish error that belongs inside More options opens it again, even after the author closed it.
+  {
+    const { context, page } = await open("draft", { fixture: "saved", extra: "&image=undescribed" });
+    assert.equal(await isOpen(page), true, "saved content opens it");
+    await whole(page).click();
+    assert.equal(await isOpen(page), false, "the author can close it, even with saved content");
+    await page.getByRole("button", { name: /^Publish/ }).last().click();
+    await page.getByRole("alert").filter({ hasText: "Describe each image in the shared setup and sections" }).first().waitFor();
+    assert.equal(await isOpen(page), true, "the error opened it");
+    await context.close();
+    checks++;
   }
   assert.deepEqual(errors, []);
   console.log(`Simple options browser checks passed: ${checks}`);

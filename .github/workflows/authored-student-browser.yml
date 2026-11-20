@@ -15,6 +15,7 @@ on:
       - 'tests/authored-student.browser.mjs'
       - 'tests/authored-expression.browser.mjs'
       - 'tests/authored-student-harness.tsx'
+      - 'tests/simple-options*'
       - 'tests/authored-public-solutions*'
       - 'migrations/0020_authored_public_solutions*'
       - 'lib/authored-*.ts'
@@ -70,6 +71,10 @@ jobs:
           PDF_STUDIO_ONLY: "1"
           PDF_STUDIO_SCREENSHOTS: ${{ runner.temp }}/studio-screenshots
         run: node --require ./tests/server-only-register.cjs --import tsx tests/problem-authoring.browser.mjs
+      - name: Simple Studio problem options, 16px text and 44px targets
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/authored-browser-tools
+        run: node --import tsx tests/simple-options.browser.mjs
       - name: Public worked solutions and explicit revision consent
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/authored-browser-tools

@@ -15,6 +15,7 @@ import { DifficultyRatingField } from "./difficulty-rating-field";
 import { MediaImage, useAuthorMediaUpload } from "./media-controls";
 import { RichMathText } from "./rich-math-text";
 import { MediaAttachments } from "./media-controls";
+import { ProblemMoreOptions, SIMPLE_TEXT_SCOPE } from "./simple-more-options";
 import { AnswerPanel } from "./answer-panel";
 import { BlocksEditor } from "./editor-fields";
 import { setPartAnswerMode } from "@/lib/problem-authoring-editor";
@@ -38,6 +39,7 @@ import {
   movePart,
   partLetter,
   partNeedsOptions,
+  problemOptionsHaveContent,
   pictureOf,
   setSimpleAnswerMode,
   privateFor,
@@ -92,10 +94,12 @@ export type SimpleProps = {
   otherIssues: string[];
   onPublish: () => void;
   publishing: boolean;
+  /** Unpublishes the problem after asking. Given by the editor, which owns saving. */
+  onUnpublish?: () => void;
 };
 
 export function SimpleEditor(props: SimpleProps) {
-  const { draft, userId, edit, locked, provisional, otherIssues, onPublish, publishing } = props;
+  const { draft, userId, edit, locked, provisional, otherIssues, onPublish, publishing, onUnpublish } = props;
   const workflowKey = `physcratic.studio.files.v1:${userId}:${draft.problemId}`;
   /** What the author typed for each answer, which can be ahead of the saved key when it cannot be read yet. */
   const [typed, setTyped] = useState<Record<string, string>>({});
@@ -126,6 +130,11 @@ export function SimpleEditor(props: SimpleProps) {
   const note = advancedNote(draft);
   const rights = rightsState(draft);
   const blocked = issues.length > 0 || otherIssues.length > 0;
+  // More options for the whole problem opens by itself for saved content or an error inside it, then the author can close it.
+  const optionsIssue = shown("options:problem")?.message;
+  const optionsNeeded = problemOptionsHaveContent(draft) || fileFirst || !!optionsIssue;
+  const [moreOpen, setMoreOpen] = useState(optionsNeeded);
+  useEffect(() => { if (optionsNeeded) setMoreOpen(true); }, [optionsNeeded]);
 
   // A draft made in Advanced can have no part yet. Simple starts it with part a.
   const noParts = parts.length === 0;
@@ -141,6 +150,8 @@ export function SimpleEditor(props: SimpleProps) {
   function publish() {
     setAttempted(true);
     if (blocked) {
+      // An error that belongs in More options opens it again, even after the author closed it.
+      if (issues.some((issue) => issue.field === "options:problem")) setMoreOpen(true);
       // Every missing item shows its message at once. Focus goes to the one highest on the page.
       const targets = issues.map((issue) => {
         const [kind, id] = issue.field.split(":");
@@ -188,13 +199,7 @@ export function SimpleEditor(props: SimpleProps) {
       <TopicRow values={draft.content.topicTags} change={(v) => edit((d) => void (d.content.topicTags = v))} />
 
   </>;
-  return (
-    <fieldset disabled={locked} className="mx-auto min-w-0 max-w-2xl space-y-12 disabled:opacity-70">
-      <legend className="sr-only">Problem</legend>
-      {note && !fileFirst && <p className="rounded-lg border-2 p-4 text-base">{note}</p>}
-
-      <div className="space-y-4">
-      {titleField}
+  const pdfChoice = <div className="space-y-2">
       <label className="flex min-h-11 items-center gap-3 text-base">
         <input type="checkbox" className="size-5" checked={fileFirst} onChange={e => {
           if (Object.values(typed).some(value => readAnswer(value).kind === "error")) { setWorkflowError("Correct the current final answer before changing workflows. Your input is retained."); return; }
@@ -203,6 +208,14 @@ export function SimpleEditor(props: SimpleProps) {
         Upload PDFs instead
       </label>
       {workflowError && <p role="alert" className="text-sm text-destructive">{workflowError}</p>}
+  </div>;
+  return (
+    <fieldset disabled={locked} className="mx-auto min-w-0 max-w-2xl space-y-12 disabled:opacity-70">
+      <legend className="sr-only">Problem</legend>
+      {note && !fileFirst && <p className="rounded-lg border-2 p-4 text-base">{note}</p>}
+
+      <div className="space-y-4">
+      {titleField}
       {fileFirst && <>
         <p className="text-sm text-muted-foreground">Upload a statement PDF or add images to the parts. Files must be at most 3 MiB. The solution PDF is private until you approve access after publication.</p>
         <fieldset disabled={provisional} className="min-w-0" data-simple-field="statement"><legend className="sr-only">PDF attachments</legend><MediaAttachments draft={draft} edit={edit} compact /></fieldset>
@@ -249,6 +262,8 @@ export function SimpleEditor(props: SimpleProps) {
       </Button>
 
       {!fileFirst && metadata}
+
+      <ProblemMoreOptions draft={draft} edit={edit} open={moreOpen} onOpenChange={setMoreOpen} issue={optionsIssue} pdf={pdfChoice} onUnpublish={draft.state === "published" ? onUnpublish : undefined} />
 
       <div className="space-y-5 border-t-2 pt-8">
         {rights === "advanced" ? null : (
@@ -792,7 +807,7 @@ function PartEditor({
           onChosen: (mode) => onHandGraded(mode === "manual"),
           setMode: setSimpleAnswerMode,
           // Simple text is 16px. Advanced keeps its own sizes.
-          bodyClass: "[&_.text-sm]:text-base [&_.text-xs]:text-base",
+          bodyClass: SIMPLE_TEXT_SCOPE,
         }}
       />{optionsIssue && <ErrorLine id={`${base}-o-error`}>{optionsIssue}</ErrorLine>}</div>}
     </section>

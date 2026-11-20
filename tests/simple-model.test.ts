@@ -22,6 +22,9 @@ import {
   UNITS,
   addPart,
   addPicture,
+  addSection,
+  problemOptionsHaveContent,
+  removeSection,
   advancedNote,
   blocksSpans,
   deriveTitle,
@@ -860,4 +863,120 @@ test("every draft Simple lets through is also accepted by the server publish sch
             }
   assert.ok(accepted > 50, `${accepted} fixtures passed Simple`);
   assert.deepEqual(mismatches, []);
+});
+
+// ---------------------------------------------------------------------------------------------------------------
+// Problem-level More options
+// ---------------------------------------------------------------------------------------------------------------
+
+/** A published-ready draft that carries what Advanced can: a second section, hints, tags, a PDF, an image and custom rights. */
+function olderDraft(): EditorDraft {
+  const d = withState(easyDraft("9.8", "m/s^2"), "published");
+  const first = allParts(d)[0].part.id;
+  const extra = uuid();
+  const media = uuid();
+  d.content.sections[0].title = "Setup";
+  d.content.sections[0].blocks = [textBlock("Shared text")];
+  d.content.sections.push({ id: uuid(), title: "Second", blocks: [{ id: uuid(), kind: "image", mediaId: media, alt: "A ramp", caption: "" }], parts: [{ id: extra, label: "b", blocks: [textBlock("Next")], answerMode: "manual" }] });
+  d.privateParts.push({ partId: extra, key: { kind: "manual" }, hints: [textBlock("A hint")], solution: [] });
+  privateFor(d, first).hints.push(textBlock("First hint"));
+  d.content.methodTags = ["energy-methods", "free-form method"];
+  d.content.topicTags = ["mechanics"];
+  d.content.attachments = [{ id: media, purpose: "statement-image" }, { id: uuid(), purpose: "statement-pdf" }];
+  d.content.provenance = { kind: "authorized", source: "Permission email, 2 November", rightsDeclaration: "The school gave written permission." };
+  return d;
+}
+const hand = (d: EditorDraft) => new Set(allParts(d).map((r) => r.part.id));
+
+test("More options holds saved content, so it opens for it", () => {
+  assert.equal(problemOptionsHaveContent(blank()), false);
+  const probes: [string, (d: EditorDraft) => void][] = [
+    ["a section title", (d) => void (d.content.sections[0].title = "Setup")],
+    ["section text", (d) => void (d.content.sections[0].blocks = [textBlock("x")])],
+    ["a second section", (d) => addSection(d)],
+    ["a method tag", (d) => void (d.content.methodTags = ["energy-methods"])],
+    ["a PDF", (d) => void (d.content.attachments = [{ id: uuid(), purpose: "solution-pdf" }])],
+    ["custom rights", (d) => void (d.content.provenance = { kind: "original", source: "", rightsDeclaration: "My own words." })],
+    ["extra shared setup blocks", (d) => void (d.content.context = [textBlock("a"), { id: uuid(), kind: "math", latex: "E=mc^2" }])],
+  ];
+  for (const [name, change] of probes) {
+    const d = blank();
+    change(d);
+    assert.equal(problemOptionsHaveContent(d), true, name);
+  }
+  const ticked = blank();
+  setRights(ticked, true);
+  assert.equal(problemOptionsHaveContent(ticked), false, "the tick next to Publish is not saved content");
+});
+
+test("a section is added with one part and removed with its private content", () => {
+  const d = easyDraft("9.8");
+  addSection(d);
+  assert.deepEqual(allParts(d).map((r) => r.part.label), ["a", "b"]);
+  assert.equal(d.privateParts.length, 2);
+  removeSection(d, d.content.sections[1].id);
+  assert.deepEqual(allParts(d).map((r) => r.part.label), ["a"]);
+  assert.equal(d.privateParts.length, 1);
+});
+
+test("an image without a description in the shared setup or a section is named, and the server agrees", () => {
+  const d = olderDraft();
+  assert.deepEqual(fieldsOf(d).filter((f) => f !== `answer:${allParts(d)[1].part.id}`), []);
+  const image = d.content.sections[1].blocks[0];
+  assert.ok(image.kind === "image");
+  image.alt = "";
+  assert.equal(serverAccepts(d), false);
+  assert.ok(fieldsOf(d).includes("options:problem"));
+  image.alt = "A ramp";
+  assert.equal(fieldsOf(d).includes("options:problem"), false);
+  const shown = { id: uuid(), kind: "image" as const, mediaId: d.content.attachments[0].id, alt: "Shown", caption: "" };
+  d.content.context = [textBlock("Setup"), shown, { ...shown, id: uuid(), alt: " " }];
+  assert.ok(fieldsOf(d).includes("options:problem"), "an image hidden in the shared setup");
+});
+
+test("Simple lets through no draft with sections, tags, PDFs or custom rights that the server refuses", () => {
+  const mismatches: string[] = [];
+  let accepted = 0;
+  const rights = [
+    ["ticked", { kind: "original" as const, source: "", rightsDeclaration: RIGHTS_TEXT }],
+    ["custom", { kind: "original" as const, source: "", rightsDeclaration: "Written by my class." }],
+    ["permission", { kind: "authorized" as const, source: "Email from the author", rightsDeclaration: "I have written permission." }],
+    ["permission without source", { kind: "authorized" as const, source: "", rightsDeclaration: "I have written permission." }],
+    ["empty", { kind: "original" as const, source: "", rightsDeclaration: "" }],
+  ] as const;
+  for (const state of ["draft", "published"] as const)
+    for (const [rightsName, provenance] of rights)
+      for (const sections of [1, 3])
+        for (const tags of [[], ["energy-methods"], ["dup", "dup"]])
+          for (const pdfs of [[], ["statement-pdf", "solution-pdf"] as const])
+            for (const alt of ["A ramp", ""]) {
+              const d = withState(easyDraft("9.8", "m/s^2"), state);
+              for (let i = 1; i < sections; i++) addSection(d);
+              const media = uuid();
+              d.content.sections[sections - 1].blocks = [{ id: uuid(), kind: "image", mediaId: media, alt, caption: "" }];
+              d.content.attachments = [{ id: media, purpose: "statement-image" }, ...pdfs.map((purpose) => ({ id: uuid(), purpose }))];
+              d.content.methodTags = [...tags];
+              d.content.provenance = { ...provenance };
+              // Every later part is hand-graded, so only the problem-level items decide.
+              if (simpleIssues(d, {}, false, hand(d)).length) continue;
+              accepted++;
+              if (!serverAccepts(d)) mismatches.push(`${state} rights=${rightsName} sections=${sections} tags=${tags.join("+")} pdfs=${pdfs.length} alt="${alt}"`);
+            }
+  assert.ok(accepted > 20, `${accepted} fixtures passed Simple`);
+  assert.deepEqual(mismatches, []);
+});
+
+test("an older draft opened in Simple and only retitled publishes everything else as it was", () => {
+  const d = olderDraft();
+  const before = structuredClone(draftPayload(d));
+  assert.equal(serverAccepts(d), true);
+  // Opening runs ensureSimpleShape and nothing else. Then the author edits the title.
+  ensureSimpleShape(d);
+  assert.deepEqual(draftPayload(d), before, "opening changes nothing");
+  d.content.title = "A new title";
+  assert.deepEqual(simpleIssues(d, {}, false, hand(d)).map((i) => i.field), []);
+  const after = draftPayload(d);
+  assert.equal(after.content.title, "A new title");
+  assert.deepEqual({ ...after, content: { ...after.content, title: before.content.title } }, before, "only the title differs");
+  assert.equal(serverAccepts(d), true);
 });
