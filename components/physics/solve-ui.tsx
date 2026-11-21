@@ -2,7 +2,7 @@ import * as React from "react";
 import { CircleAlert, CircleCheck, CircleX, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { partColor } from "@/lib/part-colors";
-import { describePartResult, type FeedbackStatus, type FeedbackTone } from "@/lib/solve-feedback";
+import { describePartResult, resultMessage, type FeedbackStatus, type FeedbackTone } from "@/lib/solve-feedback";
 
 /**
  * The solving screens used to raise `--border` and `--input` locally. The site-wide tokens in app/globals.css are now 3:1 or
@@ -117,7 +117,7 @@ export function ResultLine({ status, message, id }: { status: FeedbackStatus; me
   return (
     <p id={id} className={cn("flex items-start gap-2 text-sm leading-relaxed", toneText[tone])}>
       <Icon className="mt-0.5 size-4 shrink-0" aria-hidden={true} />
-      <span className="min-w-0"><strong className="font-semibold">{label}.</strong> {message}</span>
+      <span className="min-w-0"><strong className="font-semibold">{label}.</strong> {resultMessage(status, message)}</span>
     </p>
   );
 }

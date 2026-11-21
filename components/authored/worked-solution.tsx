@@ -1,4 +1,5 @@
 "use client";
+import { bareLabel } from "@/lib/part-colors";
 import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -213,7 +214,7 @@ export function WorkedSolution({
     >
       <h2 className="flex flex-wrap items-center gap-2 text-lg font-semibold">
         Worked solution
-        {partLabel && <PartChip index={partColour}>Part {partLabel}</PartChip>}
+        {partLabel && <PartChip index={partColour}>Part {bareLabel(partLabel)}</PartChip>}
       </h2>
       <p className="text-sm text-muted-foreground">
         Optional, before or after any attempt. Viewing any part assists future

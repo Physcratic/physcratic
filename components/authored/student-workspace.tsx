@@ -27,7 +27,7 @@ import {
   CheckCircle2,
   ShieldCheck,
 } from "lucide-react";
-import { colorsByPartId } from "@/lib/part-colors";
+import { bareLabel, colorsByPartId } from "@/lib/part-colors";
 import { FeedbackBox, PartChip, SolveSteps, StepNumber, partBorder, partStyle } from "@/components/physics/solve-ui";
 import { MathAnswerField } from "@/components/physics/math-answer-field";
 import type { FeedbackTone } from "@/lib/solve-feedback";
@@ -357,7 +357,7 @@ function PublicStatement({
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <PartHeading className={multipart ? "text-base font-semibold" : "sr-only"}>
-                    {multipart ? <PartChip index={partColours.get(part.id) ?? 0}>Part {part.label || pi + 1}</PartChip> : "Question"}
+                    {multipart ? <PartChip index={partColours.get(part.id) ?? 0}>Part {bareLabel(part.label) || pi + 1}</PartChip> : "Question"}
                   </PartHeading>
                   {onAnswer && (
                     <button
@@ -365,7 +365,7 @@ function PublicStatement({
                       className="min-h-11 text-sm font-medium underline underline-offset-4"
                       onClick={() => onAnswer(part.id)}
                     >
-                      {multipart ? `Answer part ${part.label || pi + 1}` : "Answer question"}
+                      {multipart ? `Answer part ${bareLabel(part.label) || pi + 1}` : "Answer question"}
                     </button>
                   )}
                 </div>
@@ -680,7 +680,7 @@ function PrivateWorkspace({
                   Submit an answer
                 </h2>
               </div>
-              {part && (parts.length > 1 || part.sectionTitle) && <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">{parts.length > 1 && <PartChip index={partColour}>Part {part.label || parts.indexOf(part) + 1}</PartChip>}{part.sectionTitle}</p>}
+              {part && (parts.length > 1 || part.sectionTitle) && <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">{parts.length > 1 && <PartChip index={partColour}>Part {bareLabel(part.label) || parts.indexOf(part) + 1}</PartChip>}{part.sectionTitle}</p>}
               {availability === "ready" && revision && part && buffer ? (
                 <>
                   {parts.length > 1 && <Field label="Choose part">
@@ -694,7 +694,7 @@ function PrivateWorkspace({
                         {parts.map((p, i) => (
                           <option key={p.id} value={p.id}>
                             {i + 1}. {p.sectionTitle || "Section"}, Part{" "}
-                            {p.label || i + 1}
+                            {bareLabel(p.label) || i + 1}
                           </option>
                         ))}
                       </select>
@@ -757,7 +757,7 @@ function PrivateWorkspace({
                       className="min-w-0 space-y-4"
                     >
                       <legend className="sr-only">
-                        Answer for part {part.label}
+                        Answer for part {bareLabel(part.label)}
                       </legend>
                       <AnswerFields
                         symbols={info?.parts.find((p) => p.partId === part.id)?.symbols ?? []}
@@ -844,7 +844,7 @@ function PrivateWorkspace({
                 </p>
               )}
             </section>
-            {availability === "ready" && revision && !revision.solutionPolicy && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={part.label || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
+            {availability === "ready" && revision && !revision.solutionPolicy && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={bareLabel(part.label) || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
           </AnswerWorkspace>,
           Boolean(availability === "ready" && revision && part && buffer),
         )}
