@@ -1,10 +1,8 @@
 import { APIError, createAuthMiddleware } from "better-auth/api";
 import type { BetterAuthOptions } from "better-auth";
 import { z } from "zod";
-import { profileHandleSchema } from "./community/profile-contracts";
+import { PROFILE_PUBLICATION_POLICY_VERSION, profileHandleSchema } from "./community/profile-contracts";
 import { getTermsAcceptance } from "./terms";
-
-export const PROFILE_PUBLICATION_POLICY_VERSION = "b1-v1";
 
 const profileSignupInput = z.object({
   username: profileHandleSchema,

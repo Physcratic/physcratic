@@ -6,6 +6,7 @@ import { betterAuth } from "better-auth";
 import { Pool } from "pg";
 import { createAuthOptions } from "./auth-config";
 import { authEmailOutbox } from "./auth-email-transport";
+import { createCommunityProfileApi } from "./community/profile-api";
 import { TERMS_VERSION } from "./terms";
 
 const connection = process.env.AUTHORING_TEST_DATABASE_URL;
@@ -65,6 +66,9 @@ test("atomic profile signup under the restricted PostgreSQL LOGIN", { skip: !con
   assert.deepEqual((await pool.query(`SELECT has_table_privilege('public."user"', 'DELETE') AS user_delete,
     has_table_privilege('public.community_profile', 'DELETE') AS profile_delete`)).rows[0],
     { user_delete: false, profile_delete: false });
+
+  const profiles = createCommunityProfileApi({ pool, user: async () => null, origin: () => false });
+  const publicProfile = (handle: string) => profiles("public", new Request(origin + "/api/community/profile/" + handle), handle);
 
   const pendingEmail: Promise<void>[] = [];
   const build = (profileSignupEnabled = false) => betterAuth(createAuthOptions({
@@ -148,6 +152,7 @@ test("atomic profile signup under the restricted PostgreSQL LOGIN", { skip: !con
     assert.ok(registered.credential);
     assert.equal(registered.handle, "foucault_1");
     assert.equal(registered.verified, false);
+    assert.equal((await publicProfile(registered.handle)).status, 404);
     assert.equal(registered.display_name, "");
     assert.equal(registered.public_visibility, false);
     assert.deepEqual(await publication(registered.handle), {
@@ -186,17 +191,28 @@ test("atomic profile signup under the restricted PostgreSQL LOGIN", { skip: !con
     assert.deepEqual(await find("retry-link"), before);
     assert.equal(await publication("different_handle"), undefined);
   });
-  await t.test("verification and session responses keep the private signup metadata out", async () => {
+  const verificationLink = async (label: string) => {
     await Promise.all(pendingEmail);
-    const mail = authEmailOutbox().find((message) => message.to === emailOf("registered"));
+    const mail = authEmailOutbox().find((message) => message.to === emailOf(label));
     const url = mail?.text.match(/http:\/\/localhost:3000\/api\/auth\/verify-email\?\S+/)?.[0];
     assert.ok(url);
+    return url;
+  };
+  await t.test("verification and session responses keep the private signup metadata out", async () => {
+    const url = await verificationLink("registered");
     for (let attempt = 0; attempt < 2; attempt++) {
       const verified = await corrected.handler(new Request(url, { redirect: "manual" }));
       assert.equal(verified.status, 302);
       await privateFieldsAbsent(verified);
     }
     assert.equal((await find("registered")).verified, true);
+    assert.deepEqual((await (await publicProfile("foucault_1")).json()).profile, {
+      handle: "foucault_1", displayName: "foucault_1", bio: "",
+      educationLevel: "prefer-not-to-say", favoriteTopicIds: [],
+    });
+    await schema.query(`UPDATE "user" SET "profileSignupPolicyVersion"='b1-v0' WHERE email=$1`, [emailOf("registered")]);
+    assert.equal((await publicProfile("foucault_1")).status, 404);
+    await schema.query(`UPDATE "user" SET "profileSignupPolicyVersion"='b1-v1' WHERE email=$1`, [emailOf("registered")]);
     const signedIn = await corrected.handler(new Request(origin + "/api/auth/sign-in/email", {
       method: "POST", headers: { origin, "content-type": "application/json" },
       body: JSON.stringify({ email: emailOf("registered"), password }),
@@ -226,6 +242,11 @@ test("atomic profile signup under the restricted PostgreSQL LOGIN", { skip: !con
       WHERE handle='foucault_1'`), { code: "23514" });
     await pool.query("UPDATE community_profile SET bio='A private edit' WHERE handle='foucault_1'");
     assert.ok((await publication("foucault_1")).deactivated_at);
+    await schema.query(`UPDATE "user" SET "emailVerified"=false WHERE email=$1`, [emailOf("registered")]);
+    const verifiedAgain = await corrected.handler(new Request(await verificationLink("registered"), { redirect: "manual" }));
+    assert.equal(verifiedAgain.status, 302);
+    assert.equal((await find("registered")).verified, true);
+    assert.equal((await publicProfile("foucault_1")).status, 404);
   });
   await t.test("an existing profile can record only its first legacy acknowledgement", async () => {
     await assert.rejects(pool.query(`UPDATE community_profile SET publication_basis='signup',

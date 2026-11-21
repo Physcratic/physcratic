@@ -1,3 +1,4 @@
+import { publicProfileEligible } from "./profile-publication";
 import 'server-only';
 import type { Pool, PoolClient } from 'pg';
 import { z } from 'zod';
@@ -72,7 +73,7 @@ export function createActionsApi(deps: Deps) {
           } else {
             if (input.by === 'handle') {
               if (!deps.profiles?.()) throw new Fault(404, 'Public profile not found.');
-              const row = (await c.query('SELECT user_id,handle FROM community_profile WHERE lower(handle)=$1 AND public_visibility=true', [id])).rows[0];
+              const row = (await c.query(`SELECT user_id,handle FROM community_profile cp WHERE lower(handle)=$1 AND ${publicProfileEligible("cp")}`, [id])).rows[0];
               if (!row) throw new Fault(404, 'Public profile not found.');
               id = row.user_id; label = '@' + row.handle;
             }

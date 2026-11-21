@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Corrected B1 profile publication (21 November 2026)
+
+PR 2 uses PR 1’s atomic signup claim and one verified publication rule for text profiles, author attribution, achievements and media. The legacy visibility field grants no public access. Settings separates profile editing, legacy acknowledgement and permanent deactivation. See the [corrected release gate](PHASE_C_B1_RELEASE_CHECKLIST.md#corrected-b1-release-gate).
+
 ## Corrected B1 username claims (21 November 2026)
 
 PR 1 adds the default-OFF signup claim and additive migration 0022. See the [migration notes](../../migrations/README.md#b1-atomic-signup-claims-0022) and restricted LOGIN tests in `lib/profile-signup.pg.test.ts`. The application still uses ordinary signup. Keep profiles OFF and review PR 1 before starting PR 2, which owns publication eligibility, public consumers, registration and Settings UI, and the notice. Migration installation and activation require separate owner approval.

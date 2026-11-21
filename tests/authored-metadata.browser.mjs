@@ -1,3 +1,4 @@
+import { installProfilePublicationFixture } from "./profile-publication-fixtures.ts";
 // Actual StudentWorkspace and current-consent API projection on disposable PostgreSQL.
 // Published statement/session fixtures are synthetic. No live providers or private user data.
 import assert from 'node:assert/strict';
@@ -11,7 +12,7 @@ import {execFileSync} from 'node:child_process';
 import {Pool} from 'pg';
 import {createAuthoredAttributionApi} from '../lib/authored-attribution-api.ts';
 import {createAuthoredAttributionRoute} from '../lib/authored-attribution-route.ts';
-async function noPublisher(page){await page.getByText(/^Published by /).waitFor({state:'hidden'});}
+async function noPublisher(page){await page.getByText(/^Published by (?!Community author$)/).waitFor({state:'hidden'});}
 const require=createRequire(import.meta.url),external=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS||'/tmp/physcratic-editor-test','package.json'));
 const {chromium}=external('playwright'),{default:AxeBuilder}=external('@axe-core/playwright'),{build}=createRequire(require.resolve('tsx'))('esbuild');
 const target=new URL(process.env.AUTHORING_TEST_DATABASE_URL||'http://invalid');assert.equal(target.hostname,'127.0.0.1');assert.equal(target.pathname,'/physcratic_authoring_test');
@@ -23,12 +24,14 @@ let revision={id:randomUUID(),problemId,number:1,schemaVersion:1,publishedAt:new
 let browser,server,origin,enabled=true,unavailable=false,holdNext=false,releaseHeld,published=true,checks=0;
 const errors=[];
 const route=createAuthoredAttributionRoute(()=>enabled,async()=>({authoredAttributionApi:createAuthoredAttributionApi(pool)}));
-async function visibility(value,name='Public Author'){await pool.query('UPDATE community_profile SET public_visibility=$1,display_name=$2',[value,name]);}
+async function visibility(value,name='Public Author'){await pool.query('UPDATE "user" SET "emailVerified"=$1',[value]);await pool.query('UPDATE community_profile SET display_name=$1',[name]);}
 async function focus(page){await page.bringToFront();await page.evaluate(()=>window.dispatchEvent(new Event('focus')));}
 async function text(page,value){await page.getByText(value,{exact:true}).waitFor();}
 try{
- await pool.query('CREATE TABLE authored_problem(id uuid PRIMARY KEY,owner_id text,state text,published_revision_id uuid); CREATE TABLE authored_revision(id uuid PRIMARY KEY,problem_id uuid); CREATE TABLE community_profile(user_id text PRIMARY KEY,display_name text,public_visibility boolean,bio text)');
- await pool.query('INSERT INTO authored_problem VALUES($1,$2,$3,$4)',[problemId,'PRIVATE_OWNER_ID','published',revision.id]);await pool.query('INSERT INTO authored_revision VALUES($1,$2)',[revision.id,problemId]);await pool.query("INSERT INTO community_profile VALUES('PRIVATE_OWNER_ID','Public Author',true,'PRIVATE_BIO')");
+ await pool.query('CREATE TABLE authored_problem(id uuid PRIMARY KEY,owner_id text,state text,published_revision_id uuid); CREATE TABLE authored_revision(id uuid PRIMARY KEY,problem_id uuid); CREATE TABLE "user"(id text PRIMARY KEY)');
+ await pool.query(await readFile('migrations/0007_community_profile.up.sql','utf8'));await installProfilePublicationFixture(pool);
+ await pool.query(`INSERT INTO "user"(id) VALUES('PRIVATE_OWNER_ID')`);
+ await pool.query('INSERT INTO authored_problem VALUES($1,$2,$3,$4)',[problemId,'PRIVATE_OWNER_ID','published',revision.id]);await pool.query('INSERT INTO authored_revision VALUES($1,$2)',[revision.id,problemId]);await pool.query("INSERT INTO community_profile(user_id,handle,display_name,bio,publication_basis,publication_policy_version,publication_recorded_at) VALUES('PRIVATE_OWNER_ID','public_author','Public Author','PRIVATE_BIO','legacy_acknowledgement','b1-v1',now())");
  const built=await build({entryPoints:['tests/authored-student-harness.tsx'],outdir:temp,entryNames:'bundle',chunkNames:'lazy-[name]-[hash]',bundle:true,splitting:true,metafile:true,format:'esm',platform:'browser',jsx:'automatic',alias:{'@':process.cwd()},define:{'process.env.NODE_ENV':'"development"','process.env':'{}'},logLevel:'silent'});
  const assets=new Set(Object.keys(built.metafile.outputs).map(p=>'/'+basename(p)));execFileSync('node_modules/.bin/tailwindcss',['-i','app/globals.css','-o',join(temp,'style.css')],{stdio:'pipe'});
  server=createServer(async(req,res)=>{try{

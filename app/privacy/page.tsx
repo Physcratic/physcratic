@@ -41,14 +41,14 @@ export default function PrivacyPage() {
         <section aria-labelledby="privacy-profiles" className="flex flex-col gap-3">
           <h2 id="privacy-profiles" className="text-xl font-semibold text-foreground">Community profiles</h2>
           <p>
-            Creating a profile is optional. We save the profile details you enter, link them to your account, and record
-            whether the profile is public and when it was created or updated. Settings may suggest your account name as
-            the display name. You can change it before saving.
+            When community profiles are available, new users choose a public username during registration. Their
+            pseudonymous profile becomes public after email verification. Existing accounts stay private until the
+            owner acknowledges the publication notice and chooses to publish.
           </p>
           <p>
-            Profiles start private. If you check the public visibility box and save, anyone with your profile link can see
-            your handle, display name, biography, education level and favourite topics. Your account email, internal
-            account ID and profile timestamps stay private.
+            A public text profile shows your username, display name, biography, education level and favourite topics.
+            The display name defaults to your username. Your private registration name, email, internal account ID
+            and session details stay private. Your public name can appear beside your published problems.
           </p>
           <p>
             Physcratic keeps an account-linked edit counter to enforce a limit of 10 profile edit requests per minute.
@@ -57,8 +57,9 @@ export default function PrivacyPage() {
         <section aria-labelledby="privacy-withdrawal" className="flex flex-col gap-3">
           <h2 id="privacy-withdrawal" className="text-xl font-semibold text-foreground">Hide your profile</h2>
           <p>
-            To hide a public profile, uncheck public visibility in Settings and save. The profile stops appearing on new
-            public requests. Your saved profile remains in Settings, and the edit-limit record remains stored.
+            Choose Deactivate public profile in Settings to hide your profile and public author name from new requests.
+            Your username, saved details, publication record and edit-limit record remain stored. Settings does not
+            offer reactivation.
             People who already saw or copied it may keep a copy.
           </p>
         </section>

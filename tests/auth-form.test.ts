@@ -19,3 +19,15 @@ for (const mode of ["sign-up", "sign-in"] as const) {
     assert.match(html, /type="password"[^>]*name="password"|name="password"[^>]*type="password"/);
   });
 }
+
+test("corrected signup explains public registration and keeps the account name private", () => {
+  const render = (enabled: boolean) => renderToStaticMarkup(createElement(AppRouterContext.Provider, { value: router },
+    createElement(AuthForm, { mode: "sign-up", returnTo: "/dashboard", publicProfileSignup: enabled })));
+  assert.doesNotMatch(render(false), /account-username|signup-profile-notice/);
+  const html = render(true);
+  assert.match(html, /Private account name/);
+  assert.match(html, /Public username/);
+  assert.match(html, /When you verify your email/);
+  assert.match(html, /name="username"/);
+  assert.match(html, /I agree to the Terms of Service/);
+});

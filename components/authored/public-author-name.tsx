@@ -33,5 +33,5 @@ export function PublicAuthorName({ problemId, revisionId }: { problemId: string;
     return () => { alive = false; stop(); clearInterval(interval); window.removeEventListener("focus", refresh); window.removeEventListener("blur", stop); document.removeEventListener("visibilitychange", visible); };
   }, [problemId, revisionId]);
   const name = author?.problemId === problemId && author.revisionId === revisionId && author.expiresAt > Date.now() ? author.name : null;
-  return name ? <p className="min-h-6 break-words text-sm text-muted-foreground [overflow-wrap:anywhere]">Published by {name}</p> : null;
+  return name ? <p className="min-h-6 break-words text-sm text-muted-foreground [overflow-wrap:anywhere]">Published by {name}</p> : <p className="min-h-6 text-sm text-muted-foreground">Published by Community author</p>;
 }
