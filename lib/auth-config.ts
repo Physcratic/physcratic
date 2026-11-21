@@ -1,16 +1,22 @@
 import "server-only";
 import type { BetterAuthOptions } from "better-auth";
 import type { Pool } from "pg";
-import { signupPolicy } from "@/lib/signup-policy";
+import { createSignupPolicy } from "@/lib/signup-policy";
 import { signupCaptcha } from "@/lib/signup-captcha";
 import { authoringStagingAuth } from "@/lib/authoring-staging";
 import { accountEmailOptions, accountSecurity, type Defer } from "@/lib/auth-account";
 import { assertAccountCanSignIn } from "@/lib/community/account-restriction";
 
 // One place for the auth settings, so the database tests run the same flows and limits as the app.
-export function createAuthOptions({ pool, defer, overrides = {} }: { pool: Pool; defer: Defer; overrides?: Partial<BetterAuthOptions> }) {
+export function createAuthOptions({ pool, defer, profileSignupEnabled = false, overrides = {} }: {
+  pool: Pool;
+  defer: Defer;
+  profileSignupEnabled?: boolean;
+  overrides?: Partial<BetterAuthOptions>;
+}) {
   const stagingAuth = authoringStagingAuth();
   const emails = accountEmailOptions({ pool, defer });
+  const signupPolicy = createSignupPolicy(profileSignupEnabled);
   return {
     database: pool,
     plugins: [signupCaptcha(), accountSecurity({ pool })],

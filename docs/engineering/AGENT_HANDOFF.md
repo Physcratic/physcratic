@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Corrected B1 username claims (21 November 2026)
+
+PR 1 adds the default-OFF signup claim and additive migration 0022. See the [migration notes](../../migrations/README.md#b1-atomic-signup-claims-0022) and restricted LOGIN tests in `lib/profile-signup.pg.test.ts`. The application still uses ordinary signup. Keep profiles OFF and review PR 1 before starting PR 2, which owns publication eligibility, public consumers, registration and Settings UI, and the notice. Migration installation and activation require separate owner approval.
+
 ## Community statement card and steps strip, C4d (21 November 2026)
 
 The community problem page now renders its statement in `DocumentCard` ("Problem statement" plus one line of context) and shows `SolveSteps` above the frame. The strip lists only steps with a real target, numbered in order: Read (the document), Answer (the answer column), Check (the answer form, signed in with a part to answer) and Solution (only for a public-solutions-v1 revision, with the tab). `SolveSteps` takes an optional `show` list and renders all four as before when it is not given, and `ProblemDocumentTabs` hides the tab row when there is no solution tab, so a legacy-private-v1 revision has no one-tab row while the statement stays mounted. The signed out and unverified sign-in card sits in the answer column as a flat Card, and its link is 44px high. Layout only. API routes, gates, flags, migrations, hints, keys and grading are unchanged, and the Physcratic page renders the same HTML (compared for five Arena problems). Tests: `tests/problem-frame.test.ts` (four states, mutation checked), authored-student and authored-public-solutions browser suites, lib/authored-public-solutions.test.ts.

@@ -19,9 +19,14 @@ export const user = pgTable("user", {
   id: text("id").primaryKey(), name: text("name").notNull(), email: text("email").notNull().unique(),
   emailVerified: boolean("emailVerified").notNull().default(false), image: text("image"),
   termsAcceptedVersion: text("termsAcceptedVersion"), termsAcceptedAt: timestamp("termsAcceptedAt", { withTimezone: true }),
+  profileSignupHandle: text("profileSignupHandle"), profileSignupPolicyVersion: text("profileSignupPolicyVersion"),
   createdAt: timestamp("createdAt").notNull().defaultNow(), updatedAt: timestamp("updatedAt").notNull().defaultNow(),
-});
-// Additive 0007 only. SQL owns the immutable identity/server timestamp trigger.
+}, (t) => [
+  check("user_profile_signup_pair", sql`(${t.profileSignupHandle} IS NULL AND ${t.profileSignupPolicyVersion} IS NULL)
+    OR (${t.profileSignupHandle} IS NOT NULL AND ${t.profileSignupPolicyVersion} IS NOT NULL
+      AND char_length(${t.profileSignupPolicyVersion}) BETWEEN 1 AND 80)`),
+]);
+// SQL owns the immutable identity, timestamps and publication transition triggers.
 export const communityProfiles = pgTable("community_profile", {
   userId: text("user_id").primaryKey().references(() => user.id, { onDelete: "cascade" }),
   handle: text("handle").notNull(),
@@ -30,6 +35,10 @@ export const communityProfiles = pgTable("community_profile", {
   educationLevel: text("education_level").$type<ProfileEducationLevel>().notNull().default("prefer-not-to-say"),
   favoriteTopicIds: text("favorite_topic_ids").array().$type<ProfileTopicId[]>().notNull().default(sql`'{}'::text[]`),
   publicVisibility: boolean("public_visibility").notNull().default(false),
+  publicationBasis: text("publication_basis").$type<"signup" | "legacy_acknowledgement">(),
+  publicationPolicyVersion: text("publication_policy_version"),
+  publicationRecordedAt: timestamp("publication_recorded_at", { withTimezone: true }),
+  deactivatedAt: timestamp("deactivated_at", { withTimezone: true }),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().default(sql`clock_timestamp()`),
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().default(sql`clock_timestamp()`),
 }, (t) => [
@@ -40,6 +49,11 @@ export const communityProfiles = pgTable("community_profile", {
   check("community_profile_bio_check", sql`char_length(${t.bio})<=500`),
   check("community_profile_education_level_check", sql`${t.educationLevel} IN ('high-school','university','other','prefer-not-to-say')`),
   check("community_profile_favorite_topic_ids_check", sql`cardinality(${t.favoriteTopicIds})<=6 AND (cardinality(${t.favoriteTopicIds})=0 OR array_ndims(${t.favoriteTopicIds})=1) AND array_position(${t.favoriteTopicIds},NULL) IS NULL AND ${t.favoriteTopicIds} <@ ARRAY['mechanics','electromagnetism','waves','thermodynamics','optics','modern-physics']::text[]`),
+  check("community_profile_publication_record", sql`(${t.publicationBasis} IS NULL AND ${t.publicationPolicyVersion} IS NULL
+    AND ${t.publicationRecordedAt} IS NULL AND ${t.deactivatedAt} IS NULL)
+    OR (${t.publicationBasis} IS NOT NULL AND ${t.publicationBasis} IN ('signup', 'legacy_acknowledgement')
+      AND ${t.publicationPolicyVersion} IS NOT NULL AND char_length(${t.publicationPolicyVersion}) BETWEEN 1 AND 80
+      AND ${t.publicationRecordedAt} IS NOT NULL)`),
 ]);
 export const communityProfileWriteLimits = pgTable("community_profile_write_limit", {
   userId: text("user_id").primaryKey().references(() => user.id, { onDelete: "cascade" }),
