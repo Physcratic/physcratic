@@ -19,6 +19,7 @@ export default function PrivacyPage() {
       </Button>
       <header className="flex flex-col gap-3">
         <h1 className="text-balance text-3xl font-semibold md:text-4xl">Privacy Notice</h1>
+        <p className="text-sm text-muted-foreground">Effective <time dateTime="2026-11-21">November 21, 2026</time></p>
         <p className="text-base leading-relaxed text-muted-foreground">
           Arrow Kristian operates Physcratic, an online platform, in a personal capacity. This notice covers accounts, text profiles and privacy requests.
         </p>
