@@ -13,7 +13,7 @@ export const howToWriteAProblem: ArticleDraft = {
   published: true,
   body: [
     { type: "heading", level: 2, text: "Open Problem Studio" },
-    { type: "paragraph", text: "Sign in with an email-verified account and choose Problem Studio in the sidebar. There is no separate staff invitation requirement. You can edit only your own problems. Studio opens on a new problem, and the Back to drafts arrow takes you back to the ones you already started." },
+    { type: "paragraph", text: "Sign in with an email-verified account and choose Problem Studio in the sidebar. There is no separate staff invitation requirement. You can edit only your own problems. Studio opens on your drafts. Press New problem to start a blank one, and the Back to drafts arrow in the editor takes you back to the list." },
     { type: "paragraph", text: "The Help button, a question mark at the top, plays the Write your first problem tour. It points at each part of the page." },
     { type: "siteLink", href: "/dashboard/author", label: "Open Problem Studio", note: "You need to be signed in with a verified email." },
     { type: "image", src: `${dir}/studio-simple.webp`, alt: "Problem Studio. The question about a ball thrown straight up has an equation inside the sentence, an Equation button sits under it, and a drawing of the ball\u2019s path is added as an image.", width: 1280, height: 1000, caption: "Problem Studio. Everything is in one column." },
