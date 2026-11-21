@@ -73,22 +73,23 @@ export default function PrivacyPage() {
         <section aria-labelledby="privacy-retention" className="flex flex-col gap-3">
           <h2 id="privacy-retention" className="text-xl font-semibold text-foreground">Retention and deletion</h2>
           <p>
-            Hiding a profile changes who can see it. It leaves the saved information in place. You can use the feedback
-            form to ask the operator about deletion. Information already included in a backup or recovery copy can
-            remain there after a change to the live service, until that copy expires or is removed.
+            Self-service account deletion is currently unavailable. You can use the feedback form to ask about
+            deletion. Information already included in a backup or recovery copy can remain there after a change to
+            the live service, until that copy expires or is removed.
           </p>
         </section>
         <section aria-labelledby="privacy-requests" className="flex flex-col gap-3">
           <h2 id="privacy-requests" className="text-xl font-semibold text-foreground">Privacy requests and abuse reports</h2>
           <p>
-            Use the feedback form to ask about access, correction or deletion, report profile abuse, or request removal of
-            public content. In “What happened?”, describe the request and say if the exposure is urgent. Include the
+            You can change your email in account settings and edit your profile in Settings when profiles are available.
+            Use the feedback form to ask about access, correction or deletion, report profile abuse, or request removal
+            of public content. In “What happened?”, describe the request and say if the exposure is urgent. Include the
             public profile link or handle when relevant. Keep passwords and verification codes out of the form.
           </p>
           <p>
-            The email field is optional. Enter an email address you can access if you need a response or the operator
-            needs to verify your identity or authority to act. The operator reviews each request and may ask for more
-            information before acting.
+            The email field is optional. Enter an email address you can access if you need a reply or account
+            verification. Before sharing or changing account information, the operator verifies that you control the
+            email address registered to the account or uses another secure way to verify your authority.
           </p>
           <p>
             For urgent unsafe exposure, the operator can temporarily disable community profiles across the site while
