@@ -24,7 +24,7 @@ export default function TermsPage() {
       </header>
       <Alert>
         <AlertTitle role="heading" aria-level={2}>Starter terms, pending legal review</AlertTitle>
-        <AlertDescription>This is a provisional agreement, not legal advice. Before a public launch, the operator must have it reviewed, add its legal identity and contact details, and publish a separate privacy notice.</AlertDescription>
+        <AlertDescription>This is a provisional agreement, not legal advice. Before a public launch, the operator must have it reviewed and add its legal identity and contact details. The Privacy Notice is published separately.</AlertDescription>
       </Alert>
       <section aria-labelledby="terms-profile-privacy" className="flex flex-col gap-2">
         <h2 id="terms-profile-privacy" className="text-xl font-semibold">Community profiles and privacy</h2>
