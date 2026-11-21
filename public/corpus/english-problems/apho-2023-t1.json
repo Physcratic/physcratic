@@ -1,1 +1,880 @@
-{"id":"apho-2023-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2023_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2023_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2023-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"Theory\nQ1-1\nEnglish (Official)\nTheoretical Problem 1:\nISS Orbital Decay Dynamics [10.0\npoints]\nIntroduction\nFigure 1: The International Space Station orbiting above the Earth.\nThe ISS is currently maintained in a nearly circular orbit with a minimum mean altitude of 370𝑘𝑚and a\nmaximum of 460𝑘𝑚, in the center of the thermosphere, at an inclination of 𝜃= 51.6∘(degrees) to Earth's\nequator. The trajectory of the spacecraft is similar to a spiral with a slowly changing distance from the\nstation to the Earth's surface, and during one cycle of revolution the change in altitude is inconsiderable.\nThe ISS mass is 𝑀𝑆= 4.5 × 105𝑘𝑔and overall length is 𝐿𝑆= 109𝑚. Huge solar panels with a width of\n𝑊𝑆= 73𝑚provide the ISS with electrical energy [NASA Official Report (2023].\nIncluding all batteries and other parts, the effective cross area (section) of the station is approximately\n𝑆≈2.5 × 103 m2 [European Space Agency, SDC6-23].\nThe ISS orbital decay is caused by one or more mechanisms which absorb energy from the orbital motion,\nthe essential ones being:\n• atmospheric drag at orbital altitude is caused by frequent collisions of gas molecules with the satel-\nlite,\n• the Ampere force arising from the motion of the conductive apparatus in the Earth's magnetic field,\n• the interaction with the atomic oxygen ions.\n\"... In May 2008, the altitude was 350 kilometers, the ISS lost 4.5𝑘𝑚and was re-boosted by the Progess-60\nsupply ship by 5.5𝑘𝑚. Again, the ISS continued to lose altitude by 5.5𝑘𝑚...\" [https://mod.jsc.nasa.gov]\n\nTheory\nQ1-2\nEnglish (Official)\nFigure 2: The altitude of ISS (𝑘𝑚) over the years.\nFigure 3: The ISS mean height (𝑘𝑚) in 2022-2023.\n”. . . The ISS loses up to 330𝑓𝑡( 100𝑚) of altitude each day . . . ” [NASA Control Data (2021)]. In 2023\nthe ISS flies at altitudes of 410 km, with an orbital decay about 70𝑚every day ( ∼2𝑘𝑚per month), and\nduring magnetic storms the daily descent reaches 300𝑚. The ISS accomplishes the de-orbit maneuvers by\nusing the propulsion capabilities of the ISS and its visiting vehicles [International Space Station Transition\nReport (2022)].\n\nTheory\nQ1-3\nEnglish (Official)\nFigure 4: ISS model with the cross sections from different aspect angles (𝑑𝑚2). The CROC\nprovides 2481𝑚2 cross section.\nDenotations and Physical constants:\nUniversal gas constant\n𝑅\n=\n8.31 𝐽⋅𝐾−1 ⋅𝑚𝑜𝑙−1\nAvogadro's number\n𝑁𝐴\n=\n6.022 ⋅1023 𝑚𝑜𝑙−1\nThe molar mass of gas (for air)\n𝜇\n=\n0.029 𝑘𝑔⋅𝑚𝑜𝑙−1\nMass of the Earth\n𝑀𝐸\n=\n5.97 ⋅1024 𝑘𝑔\nRadius of the Earth\n𝑅𝐸\n=\n6.38 ⋅106 𝑚\nGravitational universal constant\n𝐺\n=\n6.67 ⋅10−11 𝑚3 ⋅𝑠−2 ⋅𝑘𝑔−1\nDensity of air at Earth's surface\n𝜌0\n=\n1.29 𝑘𝑔/𝑚3\nGravitational acceleration at Earth's surface\n𝑔0\n=\n9.81 𝑚⋅𝑠−2\nAverage magnitude of Earth's magnetic field\n𝐵\n=\n5.0 ⋅10−5 𝑇\nThe electron absolute charge\n𝑒\n=\n1.60 ⋅10−19 𝐶\nPart A: Modified barometric formula [2.0 points]\nThe pressure of atmospheric air, composed mainly of neutral 𝑂2 and 𝑁2 molecules, can be found by\nusing the Clapeyron-Mendeleev law (the ideal gas law): 𝑝𝑉=\n𝑀\n𝜇𝑅𝑇. where 𝑝, 𝑉, 𝑇, 𝑀and 𝜇are the\npressure, volume, temperature, mass and molar mass of a portion of air, 𝑅is the ideal gas universal\nconstant.\nThere are two equations for computing air pressure as a function of height. The first equation is applica-\nble to the standard model of the troposphere (ℎ< 100𝑘𝑚) in which the temperature is assumed to vary\nwith altitude at a lapse rate.\nThe second equation belongs to the standard model of the thermosphere (ℎ> 250𝑘𝑚) in which the\ntemperature is assumed not to change considerably with altitude and is applicable to ISS.\nWe may assume that all pressure is hydrostatic and isotropic (i.e., it acts with equal magnitude in all\ndirections).\n\nTheory\nQ1-4\nEnglish (Official)\nA.1\nDerive the general integral expression for the air pressure 𝑝ℎat ISS altitude ℎ.\nThis equation is called the general barometric formula. Hint: the temperature\nand gravitation may depend on ℎ.\n0.5pt\nRemark 1. The temperature of Earth's thermosphere at altitude 300−600𝑘𝑚does not change considerably\nand reaches averagely about 800−900𝐾on the solar side [NASA data]. Therefore, one may put 𝑇ℎ= 𝑇=\n𝑐𝑜𝑛𝑠𝑡by investigating the ISS orbital flight. Particularly, since the spacecraft spends almost half of its\nflight time in the shadow side of the Earth, where the temperature drops sharply, we may take the value\nof 𝑇= 425𝐾as the average temperature at these altitudes. This temperature is also in agreement with\nthe air density value 𝜌ℎ∼10−12𝑘𝑔/m3 [MSISE-90 Model of Earth's Upper Atmosphere] at ℎ= 400𝑘𝑚.\nFigure 5: The Earth’s thermosphere.\nA.2\nWrite down the air pressure (the standard barometric formula) 𝑝𝑠𝑡𝑎\nℎ, when the\ntemperature and gravitation 𝑔ℎdo not depend on ℎ. Calculate the parameter\nℎ0 = 𝑅𝑇\n𝜇𝑔0 for 𝑇= 425𝐾.\n0.3pt\nA.3\nWrite down the air pressure (the improved barometric formula) 𝑝𝑖𝑚𝑝\nℎ\nwhen\nthe temperature is constant but the gravitation depends on ℎ.\nHint: Use\nthe leading-order correction only, with accuracy 𝑂(𝑧2\nℎ). Hereby, the flight alti-\ntude ℎabove the Earth's surface is significantly smaller than the Earth's radius:\n𝑧ℎ≐ℎ/𝑅𝐸≪1.\n0.6pt\nA.4\nWrite down the ratio of the 'standard' and 'improved' versions of the barometric\nformula 𝑝𝑖𝑚𝑝\nℎ\n/𝑝𝑠𝑡𝑎\nℎ. Estimate it for ℎ= 4.0 × 105𝑚. Further use the 'improved'\nversion.\n0.4pt\nA.5\nWrite down the air density 𝜌ℎand the concentration of neutral air molecules 𝑛ℎ\nat height ℎ, with accuracy 𝑂(𝑧2\nℎ).\n0.2pt\n\nTheory\nQ1-5\nEnglish (Official)\nPart B: Orbital deceleration and station descent rate [3.0 points]\nLet us consider the problem of determining the rate of orbital decay of a satellite with mass 𝑀𝑆that\nexperiences constant friction force\n⃗𝐹𝑑𝑟𝑎𝑔acting on it. We assume that the decrease in altitude 𝑑ℎis much\nless than the flight altitude ℎitself (𝑑ℎ≪ℎ).\nB.1\nWrite down the satellite velocity 𝑣ℎand revolution period 𝜏ℎon a stable orbit of\naltitude ℎ.\n0.5pt\nB.2\nWrite down the total energy 𝐸𝑆of a satellite moving along a circular orbit with\nradius 𝑅𝐸+ ℎ.\n0.5pt\nB.3\nThe total decelerating force exerted on a satellite of constant mass is given by\nsome external braking force\n⃗𝐹𝑑𝑟𝑎𝑔. As a result, the ISS slows down and its al-\ntitude decreases by a height 𝑑ℎfor a small time interval, 𝑑𝑡. Write down the\nequation for the total enery balance of the ISS and surrounding system, given\na value of 𝐹𝑑𝑟𝑎𝑔.\n1.0pt\nB.4\nDefine the rate of descent (de-orbiting ) speed 𝑢ℎof the satellite. Hint: The de-\norbiting speed depends on the friction force, and on the altitude of the satellite,\nand on the mass of the satellite.\n0.5pt\nB.5\nWrite down the amount of decent 𝐻ℎfor a revolution around the Earth and the\ntotal time 𝑇ℎfor which the satellite will fall from the altitude ℎto the earth's\nsurface due to the friction.\nHint: Take into account relations ℎ0 ≪ℎ≪𝑅𝐸.\n0.5pt\nPart C: Atmospheric drag [1.0 points]\nThe speed of the satellite 𝑣is many times greater than the average velocities (hundreds m/s) of the\nthermal motion of atmospheric molecules at a height ℎ≈300 −400𝑘𝑚, so we can assume that the\nmolecules were at rest before the collision with the ISS. To roughly estimate the drag force, we assume\nthat after the collision the molecules acquire the same speed as the satellite.\nC.1\nWrite down the air drag force 𝐹𝑎𝑖𝑟, the de-orbiting descending velocity 𝑢𝑎𝑖𝑟\nℎ\nand\nthe descent rate 𝐻𝑎𝑖𝑟\nℎ.\n0.5pt\nC.2\nDefine the total time 𝑇𝑎𝑖𝑟\nℎ\nfor which the satellite will fall from the altitude ℎto\nthe earth's surface due to air drag effect. Hint: Take into account relations ℎ0 ≪\nℎ≪𝑅𝐸.\n0.5pt\nPart D: Drag by atomic oxygen ion [1.0 points]\nIn the thermosphere, under the influence of ultraviolet and X-ray solar radiation and cosmic radiation,\nair ionization occurs (``polar lights''). Unlike 𝑂2, 𝑁2 does not undergo strong dissociation under the\naction of solar radiation, therefore, in general, there is much less atomic nitrogen 𝑁in the Earth's upper\natmosphere than atomic oxygen. At altitudes above 250𝑘𝑚, atomic oxygen 𝑂predominates. Layers\n\nTheory\nQ1-6\nEnglish (Official)\ncontaining electrons and ions of oxygen atoms appear on the day side of the atmosphere. In this case,\nthe concentration of atomic oxygen ions reaches 𝑛𝑖𝑜𝑛∼1012 𝑚−3\nD.1\nWrite down the decelerating force 𝐹𝑖𝑜𝑛, averaged during a 24-hour, associated\nwith the mechanical collisions of these particles. Take into account the strong\ndecrease in ionized layers are negligible during the night. Express the density\nof ionized oxygen molecules 𝜌𝑖𝑜𝑛.\n0.3pt\nD.2\nDefine the speed of fall of the satellite 𝑢𝑖𝑜𝑛\nℎ\ndue to deceleration by ions of atomic\noxygen. Write down the descent rate 𝐻𝑖𝑜𝑛\nℎ\nfor a revolution caused by the ioniza-\ntion effect. Hint: Take into account relations ℎ0 ≪ℎ≪𝑅𝐸.\n0.7pt\nPart E: Drag by the Earth's magnetic field [2.0 points]\nWe consider the influence on the motion of the satellite of the Earth's magnetic field, the value of which\nnear the Earth's surface is equal to (3.5 −6.5) ⋅10−5𝑇with an average value of 𝐵= 5 ⋅10−5𝑇.\nWhen a satellite moves at high speed in a magnetic field, an inducted electric current (electromotive force\n(EMF) ) occurs in the current-conducting elements of the satellite's structure. This electromotive force\ncauses a redistribution of electric charges in the current-conducting elements of the satellite structure.\nAn electric field appears around the satellite, which affects the movement electrically charged particles\nin the environment. Electrons are attracted to those parts of the satellite that have a positive potential\n(relative to the middle part of the satellite), and positively charged ions are attracted to those parts of the\nsatellite that have a negative potential. Electrons and ions that hit the surface of the satellite structures\nare combined into neutral oxygen atoms, while the electrons 'travel' in the satellite's conductive struc-\ntures, creating an electric current. The satellite, moving in space, 'collects' electrons and ions from the\nsurrounding space and collides with them. For a rough estimate of the magnitude of the current that\ncan flow through the conductive structures of the satellite, we will assume that the collection occurs only\nfrom an area equal to the cross-sectional area 𝑆of the satellite, and all ions and electrons participate in\nthe creation of this current.\nE.1\nEvaluate approximately the magnitude of the induced electric current 𝐼𝑖𝑛𝑑.\n0.6pt\nE.2\nDetermine an approximate expression for the induced 'braking' Ampere force\n𝐹𝑖𝑛𝑑in the direction opposite to the direction of the satellite's motion.\nLet 𝜙be the angle between the Earth magnetic field\n⃗𝐵along the longitude lines.\nTo simplify, you may approximate the length of the satellite 𝐿as the square root\nof the satellite area 𝑆. Additionally, instead of computing the average of sin(𝜙),\nyou may approximate it with sin(𝜋/2 −𝜃). You may use a discrete number of\nsample points to compute an average value.\n0.6pt\nE.3\nWrite down the descent speed 𝑢𝑖𝑛𝑑of the satellite due to Earth's magnetic field.\nWrite down the descent rate 𝐻𝑖𝑛𝑑\nℎ\nfor a revolution caused by the magnetic drag\neffect.\nHint: Take into account relations ℎ≪𝑅𝐸.\n0.8pt\nPart F: Numerical results and conclusion [1.0 points]\n\nTheory\nQ1-7\nEnglish (Official)\nF.1\nCalculate and fill Table 1 in the Answer Sheet.\n0.4pt\nF.2\nCalculate and fill Table 2 in the Answer Sheet.\n0.4pt\nF.3\nRank these three orbital slowing processes in order of how strong an impact\nthey have on ISS orbital altitudes higher than 380𝑘𝑚.\nFor the International Space Station, orbiting at an altitude above 380𝑘𝑚, write\ndown the most significant factors contributing to orbital decay.\n0.2pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2023-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7,8,9],"initialPage":1,"shared":false,"text":"ISS Orbital Decay Dynamics\n(Gurjav Ganbold)\nThe International Space Station (ISS) is the largest modular space station in low Earth\norbit. The station serves as a microgravity and space environment research laboratory in which\nscientiﬁc research is conducted in astrobiology, astronomy, meteorology, physics, and other\nﬁelds. The ISS is suited for testing the spacecraft systems and equipment required for possible\nfuture long-duration missions to the Moon and Mars. An international partnership of ﬁve space\nagencies from 15 countries operates ISS.\nFigure 1: The International Space Station orbiting above the Earth.\nThe ISS is currently maintained in a nearly circular orbit with a minimum mean altitude\nof 370 km and a maximum of 460 km, in the centre of the thermosphere, at an inclination of\nθ = 51.60 (degrees) to Earth’s equator. The trajectory of the spacecraft is similar to a spiral\nwith a slowly changing distance from the station to the Earth’s surface, and during one cycle\nof revolution this distance changes inconsiderable.\nFigure 2: The altitude of ISS (km) over the years.\n”In May 2008, the altitude was 350 kilometers, the ISS lost 4.5 km and was re-boosted by\nthe Progess-60 supply ship by 5.5 km. Again, in June, the ISS continued to lose altitude by\n5.5 km.” [https://mod.jsc.nasa.gov/] .\n1\n\nFigure 3: The ISS mean height (km) in 2022-2023.\nFigure 4: ISS model with the cross sections from diﬀerent aspect angles (dm2 = 10−2m2).\nThe DRAMA CROC provides 2481m2 cross section.\n”The ISS loses up to 330 ft ( 100 m) of altitude each day.” [NASA Control Data (2021)].\nIn 2023 the ISS ﬂies at altitudes of 410 km, with an orbital decay about 70 m every day\n(∼2 km per month), and during magnetic storms the daily descent reaches 300 m. The ISS\naccomplishes the de-orbit maneuvers by using the propulsion capabilities of the ISS and its\nvisiting vehicles [International Space Station Transition Report (2022)].\nThe ISS mass is MS = 4.5×105 kg and overall length is LS = 109 m. Huge solar panels with\na width of WS = 73 m provide the ISS with electrical energy [NASA Oﬃcial Report (2023)].\nIncluding all batteries and other parts, the eﬀective cross area (section) of the station is\napproximately S ≈2.5 × 103 m2 [European Space Agency, SDC6-23].\nThe ISS orbital decay is caused by one or more mechanisms which absorb energy from the\norbital motion, the essential ones being:\n- atmospheric drag at orbital altitude is caused by frequent collisions of gas molecules with\nthe satellite,\n- the Ampere force arising from the motion of the conductive apparatus in the Earth’s\nmagnetic ﬁeld,\n- the interaction with the atomic oxygen ions.\n2\n\nDenotations and Physical constants:\nR - Universal gas constant (8.31 J · K−1 · mol−1)\nNA - Avogadro’s number (6.022 · 1023 mol−1)\nµ - The molar mass of gas (for air: 0.029 kg · mol−1, for O2: 0.032 kg · mol−1)\nME - Mass of the Earth (5.97 · 1024 kg)\nRE - Radius of the Earth (6.38 · 106 m)\nG - Gravitational universal constant (6.67 · 10−11 m3 · s−2 · kg−1 )\nρ0 - Density of air at Earth’s surface (1.29 kg/m3)\ng0 - Gravitational acceleration at Earth’s surface (9.81 m · s−2)\nB - Average magnitude of Earth’s magnetic ﬁeld (5.0 · 10−5 T )\ne - The electron absolute charge (1.60 · 10−19 Q)\nA. Modiﬁed barometric formula\nThe pressure of atmospheric air, composed mainly of neutral O2 and N2 molecules, can be\nfound by using the Clapeyron-Mendeleev law:\np V = M\nµ R T .\n(1)\nwhere p, V, T, M and µ are the pressure, volume, temperature, mass and molar mass of a portion\nof air, R is the ideal gas universal constant.\nThere are two equations for computing air pressure as a function of height.\nThe ﬁrst\nequation is applicable to the standard model of the troposphere (h < 100 km) in which the\ntemperature is assumed to vary with altitude at a lapse rate.\nThe second equation belongs to the standard model of the thermosphere (h > 250 km) in\nwhich the temperature is assumed not to change considerably with altitude and is applicable\nto ISS.\nFigure 5: The Earth’s thermosphere.\n3\n\nWe may assume that all pressure is hydrostatic (i.e., it acts with equal magnitude in all\ndirections).\nThen, a perturbation of the air pressure dph on a variation of attitude dh may be written:\ndph .= ph+dh −ph = −gh (M/V ) dh\n(2)\nand dividing the dph by the ph expressed from the Clapeyron-Mendeleev law we obtain\ndph\nph\n= −ghµ\nR Th\ndh .\n(3)\nIntegrating this expression from the surface h = 0 to the altitude h we get the air pressure\nas follows:\nph = p0 exp\n\n−µ\nR\nh\n∫\n0\ndh gh\nTh\n\n,\n(4)\nwhere p0 is the air pressure at altitude h = 0.\nRemark 1. The temperature of Earth’s thermosphere at altitude 300 - 600 km does not\nchange considerably (see Fig.3) and reaches averagely about 800 - 900 K at solar side [NASA\ndata]. Therefore, one may put Th = T = const by investigating the ISS orbital ﬂight. Particu-\nlarly, since the spacecraft spends almost half of its ﬂight time in the shadow side of the Earth,\nwhere the temperature drops sharply, we may take the value of T = 425 K as the average\ntemperature at these altitudes. This temperature is also in agreement with the air density\nvalue ρh ∼10−12m−3 [MSISE-90 Model of Earth’s Upper Atmosphere] at h = 400 km.\nFurther, by accepting an approximation gh = g0 one obtains the standard barometric\nformula as follows:\npsta\nh\n= p0 exp\n(\n−h\nh0\n)\n,\nh0 .= R T\nµ g0\n.\n(5)\nWe ﬁx the parameter h0 as follows:\nh0 .= RT\nµg0\n=\n8.31 J K−1 · mol−1425K\n0.029 kg · mol−19.81 m · s−2 ≈12400 m .\n(6)\nRemark 2. The integral in Eq.(4) may be calculated by taking into account the dependence\nof gh on h in the leading-order correction, with accuracy O(z2\nh).\nIn the leading-order approximation one gets:\ngh ≃g0 (1 −2 zh) ,\nh\n∫\n0\ndh gh ≃g0 h (1 −zh) .\n(7)\nThen, we obtain a improved barometric formula\npimp\nh\n= p0 exp\n(\n−h (1 −zh)\nh0\n)\n.\n(8)\nLet us estimate the ratio of the ’standard’ and ’improved’ versions of the barometric formula:\npimp\nh\npsta\nh\n=\nexp\n(\n−h (1−zh)\nh0\n)\nexp\n(\n−h\nh0\n)\n= e\nh2\nh0 RE ≈7.54\nfor\nh = 4.0 × 105 m .\n(9)\n4\n\nThe gas density rises by almost eight times when the weakening of gravity at\nISS altitude is taken into account in the leading order.\nTherefore, to avoid signiﬁcant error in calculation for the ISS, when the air pressure or air\ndensity is involved, one should use the improved barometric formula in Eq.(8) instead of Eq.(5).\nAccording to Eq.(8), the air density at height h may be expressed by the formula\nρh .= M\nV = ρ0 exp(−h (1 −zh)/h0) .\n(10)\nThe concentration of neutral air molecules at altitude is expressed through a similar law\nnh = NA\nρ0\nµ exp(−h (1 −zh)/h0) .\n(11)\nB. Orbital deceleration and station descent rate\nLet us consider the problem of determining the rate of orbital decay of a satellite with mass\nMS that experiences friction force ⃗Fdrag acting against its velocity ⃗v during the time dt. We\nassume that the decrease in altitude dh is much less than the ﬂight altitude h itself (dh ≪h).\nThe satellite’s velocity may be found from its equation of motion in orbit (Newton’s second\nlaw) where the Earth’s gravitational force is balanced by the centrifugal force:\ngh =\nv2\nh\nRE(1 + zh) ,\ngh .=\ng0\n(1 + zh)2 .\n(12)\nThe solutions read\nvh =\n√\ng0 RE\n1 + zh\n,\nτh .= 2πRE + h\nvh\n= 2π\n√\nRE\ng0\n(1 + zh)3/2 .\n(13)\nBy the conservation of mechanical energy, the total energy of a satellite moving along an\nalmost circular orbit with radius RE + h is the sum of kinetic and gravitational potential\nenergies, in an unperturbed two-body orbit:\nES = MS · v2\nh\n2\n−MS gh RE (1 + zh) = −MS g0 RE\n2(1 + zh) .\n(14)\nThe total decelerating force exerted on a satellite of constant mass is given by some external\nbraking force ⃗Fdrag. The rate of loss of orbital energy dES is simply the rate at the external\nforce does negative work dAdrag on the satellite as the satellite traverses an inﬁnitesimal circular\narc-length dL = vdt :\ndAdrag = −Fdrag · vh · dt .\n(15)\nThe perturbation dES of the orbital energy at a change of the radius dh reads:\ndES = +\nMS g0\n2(1 + zh)2dh .\n(16)\nThe total energy conservation dES + dAdrag = 0 leads to the equation\nMS g0\n2(1 + zh)2dh = Fdrag · vh · dt .\n(17)\n5\n\nThen, we can ﬁnd the rate of descent speed of the satellite as follows:\nuh .= dh\ndt = 2Fdrag\nMS g0\nvh (1 + zh)2 = 2Fdrag\nMS\n√\nRE\ng0\n(1 + zh)3/2 .\n(18)\nThe de-orbiting speed depends on the friction force, and on the altitude of the satellite, and\non the mass of the satellite.\nThe friction force ⃗Fdrag itself, in turn, depends on the ﬂight altitude, on the eﬀective cross\nsection of the satellite S, and on the composition of the space environment at the satellite’s\nﬂight altitude h.\nThe descent rate Hh for a revolution around the Earth reads:\nHh .= uh τh = 4π RE\nMS g0\nFdrag(h) · (1 + zh)3 .\n(19)\nThe diﬀerential equation in Eq.(18) may be integrated out. Then, the total time Th for\nwhich the satellite will fall from the attitude h to the earth’s surface due to the friction may\nbe found from the relation:\nTh .=\n∫Th\n0\ndt = MS\n2\n√g0\nRE\n∫h\n0\ndh\n1\nFdrag(h) · (1 + zh)3/2 .\n(20)\nC. Atmospheric drag\nThe speed of the satellite v is many times greater than the average velocities (hundreds m/s) of\nthe thermal motion of atmospheric molecules at a height h ≈300 −400 km, so we can assume\nthat the molecules were at rest before the collision with the ISS. To roughly estimate the drag\nforce, we assume that after the collision the molecules acquire the same speed as the satellite.\nIn this case, the air drag force can be estimated as follows:\nFair = nhmair · v2\nh · S = Nairmair\nV\n· v2\nh · S = ρh · v2\nh · S .\n(21)\nBy substituting this expression into the formula in Eq.(18), we obtain\nuair\nh\n= 2ρ0S\n√\ng0 R3\nE\nMS\n(1 + zh)1/2 · exp(−h (1 −zh)/h0) .\n(22)\nThe descent rate Hair\nh\nfor a revolution around the Earth reads:\nHair\nh\n.= uair\nh τh = 4πS R2\nE\nMS\nρ0 · (1 + zh)2 · exp(−h (1 −zh)/h0) .\n(23)\nTo ﬁnd the total time T air\nh\nfor which the satellite will fall to the earth’s surface, we use\nEq.(20). We obtain:\nT air\nh\n≃\nMS\n2ρ0 S\n√\ng0 R3\nE\n∫h\n0\ndh\n(\n1 −\nh\n2RE\n)\ne+h/h0 ≈\nMS h0\n2ρ0S\n√\ng0 R3\nE\n(1 −\nh\n2RE\n) · e+h/h0 ,\n(24)\nwhere we took into account relations h0 ≪h ≪RE.\n6\n\nD. Drag by atomic oxygen ions\nIn the thermosphere, under the inﬂuence of ultraviolet and X-ray solar radiation and cosmic\nradiation, air ionization occurs (“polar lights”). Unlike O2, N2 does not undergo strong dis-\nsociation under the action of solar radiation, therefore, in general, there is much less atomic\nnitrogen N in the Earth’s upper atmosphere than atomic oxygen. At altitudes above 250 km,\natomic oxygen O predominates. Layers containing electrons and ions of oxygen atoms appear\non the day side of the atmosphere. In this case, the concentration of atomic oxygen ions reaches\nnion ∼10 13 m−3.\nThe decelerating force associated with the mechanical collisions of these particles on the\nsatellite can be calculated using the formula in Eq.(21) but taking into account the strong\ndecrease in ionization at night. Let the average value of the ion concentration be half the\nmaximum value. Then we have\nFion = 1\n2ρion · S · v2\nh ,\n(25)\nwhere\nρion = µion\nNA\n· nion .\n(26)\nTherefore, the speed of fall of the satellite due to deceleration by ions of atomic oxygen may\nbe roughly estimated as follows:\nuion\nh\n= ρion · S\n√\ng0 R3\nE\nMS\n(1 + zh)1/2 .\n(27)\nThe descent rate Hion\nh\nfor a revolution around the Earth reads:\nHion\nh\n.= uion\nh\nτh = ρion\n2πS R2\nE\nMS\n· (1 + zh)2 .\n(28)\nE. Drag by the Earth’s magnetic ﬁeld\nWe consider the inﬂuence on the motion of the satellite of the Earth’s magnetic ﬁeld, the\nvalue of which near the Earth’s surface is equal to (3.5 −6.5) · 10−5T with an average value of\nB = 5 · 10−5T.\nWhen a satellite moves at high speed in a magnetic ﬁeld, an inducted electric current\n(electro-motive force, EMF) occurs in the current-conducting elements of the satellite’s struc-\nture. This electromotive force causes a redistribution of electric charges in the current-conducting\nelements of the satellite structure. An electric ﬁeld appears around the satellite, which aﬀects\non the movement of electrically charged particles in the environment. Electrons are attracted\nto those parts of the satellite that have a positive potential (relative to the middle part of the\nsatellite), and positively charged ions are attracted to those parts of the satellite that have\na negative potential. Electrons and ions that hit the surface of the satellite structures are\ncombined into neutral oxygen atoms, while the electrons ’travel’ in the satellite’s conductive\nstructures, creating an electric current. The satellite, moving in space, ’collects’ electrons and\nions from the surrounding space and collides with them. For a rough estimate of the magnitude\nof the current that can ﬂow through the conductive structures of the satellite, we will assume\nthat the collection occurs only from an area equal to the cross-sectional area S of the ISS, and\nall ions and electrons participate in the creation of this current.\nThe number of electrons hitting the structure of the ISS body during the short time interval\ndt is\ndN = nion · vh · S · dt .\n(29)\n7\n\nTherefore, the magnitude of the current is of the order\nIind ≈edN\ndt = e · S · nion ·\n√\ng0 RE\n1 + zh\n.\n(30)\nThe orbital ’braking’ Ampere’s force is proportional to [⃗vh × ⃗B] = vhB| sin(ϕ)|, where ϕ is\nthe angle between the Earth’s magnetic ﬁeld ⃗B and the velocity of the ISS ⃗vh. Hereby, θ = 51.60\n(degrees) is the inclination angle of the ISS orbit to Earth’s equator.\nLet us consider a revolution starting from the ’north’ sample point in the ISS orbit with the\nhighest latitude (ϕ = π/2 −θ). After a half revolution the ISS arrives at the ’south’ point with\nthe lowest latitude (ϕ = π/2 + θ). The second part of the revolution cycle ends at the ’north\npoint’.\nThe averaging of the value | sin(ϕ)| during a revolution period may be performed as follows:\n⟨| sin(ϕ)|⟩= 1\n2θ\nπ/2+θ\n∫\nπ/2−θ\ndϕ | sin(ϕ)| = 0.93 ≈1 .\n(31)\nAn approximate result may be obtained by using four equidistant sample positions in the\nISS orbit as follows:\n⟨| sin(ϕ)|⟩= {sin(π/2 −θ) + sin(π/2) + sin(π/2 + θ) + sin(π/2)} /4 = 0.89 ≈1 .\n(32)\nFurther, we will use an approximation ⟨| sin(ϕ)|⟩≈1.\nWhen the induced current ﬂows through the conductive parts of the satellite, they are\naﬀected by the ’braking’ Ampere force directed opposite to the direction of the satellite’s\nspeed:\nFind = B · Iind · ⟨| sin(ϕ)|⟩· L ≈B · Iind ·\n√\nS = e · B · S3/2 · nion ·\n√\ng0 RE\n1 + zh\n,\n(33)\nwhere for the external linear size of the station, we can use the approximation L ∼S1/2.\nThen for the rate of descent of the satellite we obtain\nuind\nh\n≈2nion\neBS3/2RE\nMS\n· (1 + zh) .\n(34)\nThe descent rate Hind\nh\nfor a revolution around the Earth reads:\nHind\nh\n.= uind\nh\nτh = 4π e B (S RE)3/2\nMS√g0\n· (1 + zh)5/2 .\n(35)\n8\n\nF. Numerical results and conclusion\nTable 1: Various deorbit velocities on the height h above the Earth surface, compared to the\nISS-NASA data estimated for nion = 1013m−3. For nion = 1012m−3 the results for uion and uind\nwill decrease in 10 times.\nh [km]\nT air\nh\n[day]\nuair[m/day]\nuion[m/day]\nuind[m/day]\n∑[m/day]\nwISS[m/day]\n350\n316\n184\n14\n28\n226\n∼170 [in 2008]\n375\n2360\n30.9\n14\n29\n73\n-\n400\n17700\n5.3\n14\n29\n47\n≤100 [in 2021]\n410\n39500\n2.6\n14\n29\n45\n≤70) [in 2022]\nTable 2: The descent rates for a revolution of the ISS around the Earth for nion = 1013m−3.\nFor nion = 1012m−3 the results for Hion\nh\nand Hind\nH\nwill decrease in 10 times.\nh (km)\nHair\nh [m]\nHion\nh [m]\nHind\nh [m]\n350\n11.7\n0.9\n1.8\n375\n2.0\n0.9\n1.8\n400\n0.3\n0.9\n1.8\n410\n0.2\n0.9\n1.8\nFor the International Space Station, orbiting at an altitude above 380 km, the most signif-\nicant factors ensuring orbital decay are ranked as follows:\n1) the Ampere force arising from the motion of the conductive apparatus in the Earth’s\nmagnetic ﬁeld.\n2) Collisions of the station with ionized atoms of oxygen.\n3) The atmospheric drag caused by frequent collisions of neutral O2 molecules.\n9\n","textExtraction":"available"}}
+{
+  "id": "apho-2023-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2023_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2023_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2023-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "ISS Orbital Decay Dynamics"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Model the ISS as a satellite of mass \\(M_S=4.5\\times10^5\\,\\mathrm{kg}\\), effective area \\(S=2.5\\times10^3\\,\\mathrm{m^2}\\), length 109 m and panel width 73 m. Its nearly circular orbit has inclination \\(\\theta=51.6^\\circ\\). Use \\(R_E=6.38\\times10^6\\,\\mathrm m\\), \\(M_E=5.97\\times10^{24}\\,\\mathrm{kg}\\), \\(G=6.67\\times10^{-11}\\), \\(g_0=9.81\\,\\mathrm{m/s^2}\\), \\(R=8.31\\,\\mathrm{J/(mol\\,K)}\\), \\(N_A=6.022\\times10^{23}\\,\\mathrm{mol^{-1}}\\), air molar mass \\(\\mu=0.029\\,\\mathrm{kg/mol}\\), surface density \\(\\rho_0=1.29\\,\\mathrm{kg/m^3}\\), \\(B=5.0\\times10^{-5}\\,\\mathrm T\\), and \\(e=1.60\\times10^{-19}\\,\\mathrm C\\). Treat the thermosphere as isothermal at T=425 K. This is the problem model, not a realistic atmosphere over all heights. Write \\(z=h/R_E\\) and \\(h_0=RT/(\\mu g_0)\\). Use atomic oxygen molar mass 0.016 kg/mol and daytime ion number density \\(n_i=10^{12}\\,\\mathrm{m^{-3}}\\), negligible at night. The retained answer sheet instead often uses ten times this ion density."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1. General barometric formula"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Derive pressure at height h when gravity and temperature vary with height."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2. Constant-gravity scale height"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the standard isothermal pressure law and calculate h0."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.3. Gravity-corrected pressure"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Keep the leading gravitational correction for \\(h\\ll R_E\\). Find improved pressure."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.4. Correction ratio"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find \\(p_{imp}/p_{sta}\\) and evaluate at h=400 km."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.5. Density and number density"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the improved mass density and neutral-molecule number density."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1. Circular-orbit kinematics"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find speed and period at altitude h."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2. Orbital energy"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the total energy in the circular approximation."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.3. Energy-loss balance"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Write energy balance under a tangential drag magnitude F."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.4. Positive descent speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Define positive \\(u_h=-dh/dt\\) and express it in terms of F."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.5. Loss per orbit and lifetime"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find descent H per revolution and a formal lifetime integral for a height-dependent drag. For constant F simplify the lifetime."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.1. Neutral-air drag"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Assume molecules at rest are accelerated to satellite speed on collision. Find drag, descent speed and loss per orbit."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.2. Air-drag lifetime"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the formal lifetime under air drag for \\(h_0\\ll h\\ll R_E\\), using the improved density."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.1. Atomic-ion drag"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find oxygen-ion mass density and the 24-hour averaged drag, taking day and night as equal."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.2. Ion-induced descent"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find positive descent speed and loss per orbit due to the averaged ion drag."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "E.1. Collected electric current"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Estimate the current if every ion-electron pair swept over area S completes a circuit through the structure."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "E.2. Magnetic braking force"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Approximate conducting length as \\(\\sqrt S\\). With the supplied angular factor \\(s=\\sin(\\pi/2-\\theta)=\\cos\\theta\\), estimate the braking force. Discuss orbit averaging."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "E.3. Magnetic descent"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find descent speed and loss per orbit from this model force."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "F.1. Numerical descent table"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch9-iss-history.png",
+        "alt": "Original ISS altitude history and reboosts."
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch9-iss-recent-altitude.png",
+        "alt": "Original ISS mean altitude versus time in 2022 and 2023."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At h=350,375,400,410 km, calculate neutral lifetime, neutral descent, ion descent, magnetic descent and total descent, in days and m/day. Use the stated density and specify whether magnetic drag is daytime or full-day averaged. These columns replace the separate answer-sheet Table 1."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "F.2. Per-orbit numerical table"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At the same four altitudes calculate \\(H_{air},H_i,H_{ind}\\) in metres per orbit. These columns replace answer-sheet Table 2."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "F.3. Relative importance"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Rank the mechanisms above 380 km and identify the leading model contributions to orbital decay."
+          }
+        ]
+      }
+    ],
+    "text": "ISS Orbital Decay Dynamics\nModel the ISS as a satellite of mass \\(M_S=4.5\\times10^5\\,\\mathrm{kg}\\), effective area \\(S=2.5\\times10^3\\,\\mathrm{m^2}\\), length 109 m and panel width 73 m. Its nearly circular orbit has inclination \\(\\theta=51.6^\\circ\\). Use \\(R_E=6.38\\times10^6\\,\\mathrm m\\), \\(M_E=5.97\\times10^{24}\\,\\mathrm{kg}\\), \\(G=6.67\\times10^{-11}\\), \\(g_0=9.81\\,\\mathrm{m/s^2}\\), \\(R=8.31\\,\\mathrm{J/(mol\\,K)}\\), \\(N_A=6.022\\times10^{23}\\,\\mathrm{mol^{-1}}\\), air molar mass \\(\\mu=0.029\\,\\mathrm{kg/mol}\\), surface density \\(\\rho_0=1.29\\,\\mathrm{kg/m^3}\\), \\(B=5.0\\times10^{-5}\\,\\mathrm T\\), and \\(e=1.60\\times10^{-19}\\,\\mathrm C\\). Treat the thermosphere as isothermal at T=425 K. This is the problem model, not a realistic atmosphere over all heights. Write \\(z=h/R_E\\) and \\(h_0=RT/(\\mu g_0)\\). Use atomic oxygen molar mass 0.016 kg/mol and daytime ion number density \\(n_i=10^{12}\\,\\mathrm{m^{-3}}\\), negligible at night. The retained answer sheet instead often uses ten times this ion density.\nA.1. General barometric formula\nDerive pressure at height h when gravity and temperature vary with height.\nA.2. Constant-gravity scale height\nFind the standard isothermal pressure law and calculate h0.\nA.3. Gravity-corrected pressure\nKeep the leading gravitational correction for \\(h\\ll R_E\\). Find improved pressure.\nA.4. Correction ratio\nFind \\(p_{imp}/p_{sta}\\) and evaluate at h=400 km.\nA.5. Density and number density\nFind the improved mass density and neutral-molecule number density.\nB.1. Circular-orbit kinematics\nFind speed and period at altitude h.\nB.2. Orbital energy\nFind the total energy in the circular approximation.\nB.3. Energy-loss balance\nWrite energy balance under a tangential drag magnitude F.\nB.4. Positive descent speed\nDefine positive \\(u_h=-dh/dt\\) and express it in terms of F.\nB.5. Loss per orbit and lifetime\nFind descent H per revolution and a formal lifetime integral for a height-dependent drag. For constant F simplify the lifetime.\nC.1. Neutral-air drag\nAssume molecules at rest are accelerated to satellite speed on collision. Find drag, descent speed and loss per orbit.\nC.2. Air-drag lifetime\nFind the formal lifetime under air drag for \\(h_0\\ll h\\ll R_E\\), using the improved density.\nD.1. Atomic-ion drag\nFind oxygen-ion mass density and the 24-hour averaged drag, taking day and night as equal.\nD.2. Ion-induced descent\nFind positive descent speed and loss per orbit due to the averaged ion drag.\nE.1. Collected electric current\nEstimate the current if every ion-electron pair swept over area S completes a circuit through the structure.\nE.2. Magnetic braking force\nApproximate conducting length as \\(\\sqrt S\\). With the supplied angular factor \\(s=\\sin(\\pi/2-\\theta)=\\cos\\theta\\), estimate the braking force. Discuss orbit averaging.\nE.3. Magnetic descent\nFind descent speed and loss per orbit from this model force.\nF.1. Numerical descent table\n\n\nAt h=350,375,400,410 km, calculate neutral lifetime, neutral descent, ion descent, magnetic descent and total descent, in days and m/day. Use the stated density and specify whether magnetic drag is daytime or full-day averaged. These columns replace the separate answer-sheet Table 1.\nF.2. Per-orbit numerical table\nAt the same four altitudes calculate \\(H_{air},H_i,H_{ind}\\) in metres per orbit. These columns replace answer-sheet Table 2.\nF.3. Relative importance\nRank the mechanisms above 380 km and identify the leading model contributions to orbital decay.",
+    "figures": [
+      "/corpus/figures/native/batch9-iss-history.png",
+      "/corpus/figures/native/batch9-iss-recent-altitude.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2023-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "ISS Orbital Decay Dynamics"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1. General barometric formula"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hydrostatic balance and the gas law give \\(dp/dh=-\\rho g\\), \\(\\rho=\\mu p/(RT)\\). Integrate: \\[p(h)=p(0)\\exp\\left[-\\frac\\mu R\\int_0^h\\frac{g(s)}{T(s)}ds\\right].\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2. Constant-gravity scale height"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For constant g0, \\(p_{sta}=p_0e^{-h/h_0}\\), with \\(h_0=RT/(\\mu g_0)=12414\\,\\mathrm m\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.3. Gravity-corrected pressure"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(g(h)=g_0(1+h/R_E)^{-2}\\simeq g_0(1-2h/R_E)\\). Its integral is \\(g_0h(1-h/R_E)\\), giving \\[p_{imp}=p_0\\exp[-h(1-h/R_E)/h_0].\\] The exact isothermal result is \\(p_0\\exp[-h/(h_0(1+h/R_E))]\\). Accuracy refers to the expansion of the gravity integral, not to a uniformly small relative error after exponentiation."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.4. Correction ratio"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The ratio is \\(\\exp[h^2/(h_0R_E)]\\), about 7.54 at 400 km."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.5. Density and number density"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At fixed molar mass and temperature, \\[\\rho_h=\\rho_0e^{-h(1-h/R_E)/h_0},\\qquad n_h=N_A\\rho_h/\\mu.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1. Circular-orbit kinematics"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "With r=RE+h, \\(v_h=\\sqrt{GM_E/r}\\) and \\(\\tau_h=2\\pi\\sqrt{r^3/(GM_E)}\\). Equivalently use \\(GM_E=g_0R_E^2\\), with the slight rounding difference in the supplied constants."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2. Orbital energy"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Kinetic energy is \\(GM_EM_S/(2r)\\) and gravitational energy is \\(-GM_EM_S/r\\), so \\[E=-GM_EM_S/(2r).\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.3. Energy-loss balance"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\frac{GM_EM_S}{2r^2}\\frac{dh}{dt}=-Fv_h.\\] The drag does negative work and altitude decreases. The source uses a positive descent variable in a place labelled dh, producing a sign ambiguity. Here h is altitude and its derivative is negative."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.4. Positive descent speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From energy balance, \\[u_h=\\frac{2Fr^{3/2}}{M_S\\sqrt{GM_E}}=\\frac{2F}{M_S}\\sqrt{\\frac{R_E}{g_0}}(1+z)^{3/2}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.5. Loss per orbit and lifetime"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[H_h=u_h\\tau_h=\\frac{4\\pi Fr^3}{GM_EM_S},\\quad T=\\frac{M_S\\sqrt{GM_E}}2\\int_0^h\\frac{ds}{F(s)(R_E+s)^{3/2}}.\\] For constant F, \\(T=M_S\\sqrt{GM_E}[R_E^{-1/2}-(R_E+h)^{-1/2}]/F\\). Extending this circular model to the ground is only a formal extrapolation."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.1. Neutral-air drag"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The swept mass rate is \\(\\rho_hSv_h\\), so \\(F_{air}=\\rho_hSv_h^2\\). Substitution gives \\[u_{air}=\\frac{2\\rho_hS\\sqrt{GM_Er}}{M_S},\\qquad H_{air}=\\frac{4\\pi\\rho_hSr^2}{M_S}.\\] No empirical drag coefficient or factor one-half is inserted in this collision model."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "C.2. Air-drag lifetime"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The integral is \\[T_{air}=\\frac{M_S}{2\\rho_0S\\sqrt{GM_E}}\\int_0^h\\frac{\\exp[s(1-s/R_E)/h_0]}{\\sqrt{R_E+s}}ds.\\] Endpoint asymptotics give \\(T_{air}\\simeq h_0/[u_{air}(h)(1-2h/R_E)]\\). Retain the improved exponential. The printed source lifetime drops its h squared correction although its drag retains it, causing inconsistent lifetimes."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.1. Atomic-ion drag"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(\\rho_i=0.016n_i/N_A\\). The daytime collision drag is \\(\\rho_iSv_h^2\\), and the full-day average is \\(F_i=\\rho_iSv_h^2/2\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "D.2. Ion-induced descent"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[u_i=\\frac{\\rho_iS\\sqrt{GM_Er}}{M_S},\\qquad H_i=\\frac{2\\pi\\rho_iSr^2}{M_S}.\\] These values are ten times smaller for the stated ion density than in tables computed with \\(10^{13}\\,\\mathrm{m^{-3}}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "E.1. Collected electric current"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Each pair transfers one elementary charge through the circuit, giving daytime \\(I_{ind}\\sim eSn_iv_h\\). Do not count each electron and ion as two independent circuit charges."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "E.2. Magnetic braking force"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The model gives \\(F_{ind}=BI_{ind}\\sqrt S\\,s=eBn_iS^{3/2}v_hs\\). With the requested substitution \\(s=\\cos51.6^\\circ\\simeq0.621\\). A more detailed orbital average may use a different angular factor, but must state it. The source uses s approximately one and prints inconsistent numerical averages. For equal ion-free nights, halve this daytime force for a full-day average."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "E.3. Magnetic descent"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Daytime values are \\[u_{ind}=\\frac{2eBn_iS^{3/2}sr}{M_S},\\qquad H_{ind}=\\frac{4\\pi eBn_iS^{3/2}sr^{5/2}}{M_S\\sqrt{GM_E}}.\\] Full-day averaging halves both under the stated day/night simplification."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "F.1. Numerical descent table"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use \\(\\rho_h\\) from A.5 and the three u expressions, multiplying m/s by 86400 for m/day. Compute neutral lifetime by the improved-density integral in C.2 or its stated endpoint approximation. Full-day averaged ion descent is about 0.66 m/day throughout this range. Magnetic daytime descent with s=0.621 is about 1.6 m/day, and full-day averaged about 0.8 m/day. Neutral descent falls rapidly with height. The retained tables use different ion density, angular averaging and an inconsistent neutral lifetime approximation, so compare conventions explicitly. Using \\(GM_E=g_0R_E^2\\), the improved density and full-day magnetic averaging, the columns below are h in km, neutral lifetime in days, and neutral, ion, magnetic and total descent in m/day: \\[\\begin{array}{r|rrrrr}h&T_{air}&u_{air}&u_i&u_{ind}&u_{total}\\\\350 & 80.9 & 171.81 & 0.66 & 0.80 & 173.28\\\\375 & 485.2 & 28.88 & 0.66 & 0.81 & 30.35\\\\400 & 2865.9 & 4.93 & 0.66 & 0.81 & 6.41\\\\410 & 5806.4 & 2.44 & 0.66 & 0.81 & 3.92\\end{array}\\] The lifetimes use numerical integration, not the endpoint approximation."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "F.2. Per-orbit numerical table"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Multiply each descent speed by the orbital period in seconds. Neutral descent drops steeply with altitude. The full-day averaged ion loss is roughly 0.043 m/orbit and magnetic loss roughly 0.10 m/orbit in the daytime convention, half the latter with full-day averaging. Use the explicit formulas to retain the chosen angle and density. For full-day magnetic averaging, the columns below are h in km, followed by neutral, ion and magnetic losses in m/orbit: \\[\\begin{array}{r|rrr}h&H_{air}&H_i&H_{ind}\\\\350 & 10.917 & 0.042 & 0.051\\\\375 & 1.845 & 0.042 & 0.051\\\\400 & 0.317 & 0.043 & 0.052\\\\410 & 0.157 & 0.043 & 0.052\\end{array}\\] The source rounded table is not a unique key for the changed conventions."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "F.3. Relative importance"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The ranking depends on the supplied ion density and averaging choice as well as altitude. Neutral density decreases exponentially while the ion and magnetic model terms vary slowly. The source ranks magnetic, ion, neutral using its larger ion density and s approximately one. With the statement density and the requested angular factor, neutral drag can still dominate near 380 to 400 km. There is no altitude-independent ranking over all h greater than 380 km under these changed conventions. Compare the table rather than extrapolating one rounded ordering."
+          }
+        ]
+      }
+    ],
+    "text": "ISS Orbital Decay Dynamics\nA.1. General barometric formula\nHydrostatic balance and the gas law give \\(dp/dh=-\\rho g\\), \\(\\rho=\\mu p/(RT)\\). Integrate: \\[p(h)=p(0)\\exp\\left[-\\frac\\mu R\\int_0^h\\frac{g(s)}{T(s)}ds\\right].\\]\nA.2. Constant-gravity scale height\nFor constant g0, \\(p_{sta}=p_0e^{-h/h_0}\\), with \\(h_0=RT/(\\mu g_0)=12414\\,\\mathrm m\\).\nA.3. Gravity-corrected pressure\n\\(g(h)=g_0(1+h/R_E)^{-2}\\simeq g_0(1-2h/R_E)\\). Its integral is \\(g_0h(1-h/R_E)\\), giving \\[p_{imp}=p_0\\exp[-h(1-h/R_E)/h_0].\\] The exact isothermal result is \\(p_0\\exp[-h/(h_0(1+h/R_E))]\\). Accuracy refers to the expansion of the gravity integral, not to a uniformly small relative error after exponentiation.\nA.4. Correction ratio\nThe ratio is \\(\\exp[h^2/(h_0R_E)]\\), about 7.54 at 400 km.\nA.5. Density and number density\nAt fixed molar mass and temperature, \\[\\rho_h=\\rho_0e^{-h(1-h/R_E)/h_0},\\qquad n_h=N_A\\rho_h/\\mu.\\]\nB.1. Circular-orbit kinematics\nWith r=RE+h, \\(v_h=\\sqrt{GM_E/r}\\) and \\(\\tau_h=2\\pi\\sqrt{r^3/(GM_E)}\\). Equivalently use \\(GM_E=g_0R_E^2\\), with the slight rounding difference in the supplied constants.\nB.2. Orbital energy\nKinetic energy is \\(GM_EM_S/(2r)\\) and gravitational energy is \\(-GM_EM_S/r\\), so \\[E=-GM_EM_S/(2r).\\]\nB.3. Energy-loss balance\n\\[\\frac{GM_EM_S}{2r^2}\\frac{dh}{dt}=-Fv_h.\\] The drag does negative work and altitude decreases. The source uses a positive descent variable in a place labelled dh, producing a sign ambiguity. Here h is altitude and its derivative is negative.\nB.4. Positive descent speed\nFrom energy balance, \\[u_h=\\frac{2Fr^{3/2}}{M_S\\sqrt{GM_E}}=\\frac{2F}{M_S}\\sqrt{\\frac{R_E}{g_0}}(1+z)^{3/2}.\\]\nB.5. Loss per orbit and lifetime\n\\[H_h=u_h\\tau_h=\\frac{4\\pi Fr^3}{GM_EM_S},\\quad T=\\frac{M_S\\sqrt{GM_E}}2\\int_0^h\\frac{ds}{F(s)(R_E+s)^{3/2}}.\\] For constant F, \\(T=M_S\\sqrt{GM_E}[R_E^{-1/2}-(R_E+h)^{-1/2}]/F\\). Extending this circular model to the ground is only a formal extrapolation.\nC.1. Neutral-air drag\nThe swept mass rate is \\(\\rho_hSv_h\\), so \\(F_{air}=\\rho_hSv_h^2\\). Substitution gives \\[u_{air}=\\frac{2\\rho_hS\\sqrt{GM_Er}}{M_S},\\qquad H_{air}=\\frac{4\\pi\\rho_hSr^2}{M_S}.\\] No empirical drag coefficient or factor one-half is inserted in this collision model.\nC.2. Air-drag lifetime\nThe integral is \\[T_{air}=\\frac{M_S}{2\\rho_0S\\sqrt{GM_E}}\\int_0^h\\frac{\\exp[s(1-s/R_E)/h_0]}{\\sqrt{R_E+s}}ds.\\] Endpoint asymptotics give \\(T_{air}\\simeq h_0/[u_{air}(h)(1-2h/R_E)]\\). Retain the improved exponential. The printed source lifetime drops its h squared correction although its drag retains it, causing inconsistent lifetimes.\nD.1. Atomic-ion drag\n\\(\\rho_i=0.016n_i/N_A\\). The daytime collision drag is \\(\\rho_iSv_h^2\\), and the full-day average is \\(F_i=\\rho_iSv_h^2/2\\).\nD.2. Ion-induced descent\n\\[u_i=\\frac{\\rho_iS\\sqrt{GM_Er}}{M_S},\\qquad H_i=\\frac{2\\pi\\rho_iSr^2}{M_S}.\\] These values are ten times smaller for the stated ion density than in tables computed with \\(10^{13}\\,\\mathrm{m^{-3}}\\).\nE.1. Collected electric current\nEach pair transfers one elementary charge through the circuit, giving daytime \\(I_{ind}\\sim eSn_iv_h\\). Do not count each electron and ion as two independent circuit charges.\nE.2. Magnetic braking force\nThe model gives \\(F_{ind}=BI_{ind}\\sqrt S\\,s=eBn_iS^{3/2}v_hs\\). With the requested substitution \\(s=\\cos51.6^\\circ\\simeq0.621\\). A more detailed orbital average may use a different angular factor, but must state it. The source uses s approximately one and prints inconsistent numerical averages. For equal ion-free nights, halve this daytime force for a full-day average.\nE.3. Magnetic descent\nDaytime values are \\[u_{ind}=\\frac{2eBn_iS^{3/2}sr}{M_S},\\qquad H_{ind}=\\frac{4\\pi eBn_iS^{3/2}sr^{5/2}}{M_S\\sqrt{GM_E}}.\\] Full-day averaging halves both under the stated day/night simplification.\nF.1. Numerical descent table\nUse \\(\\rho_h\\) from A.5 and the three u expressions, multiplying m/s by 86400 for m/day. Compute neutral lifetime by the improved-density integral in C.2 or its stated endpoint approximation. Full-day averaged ion descent is about 0.66 m/day throughout this range. Magnetic daytime descent with s=0.621 is about 1.6 m/day, and full-day averaged about 0.8 m/day. Neutral descent falls rapidly with height. The retained tables use different ion density, angular averaging and an inconsistent neutral lifetime approximation, so compare conventions explicitly. Using \\(GM_E=g_0R_E^2\\), the improved density and full-day magnetic averaging, the columns below are h in km, neutral lifetime in days, and neutral, ion, magnetic and total descent in m/day: \\[\\begin{array}{r|rrrrr}h&T_{air}&u_{air}&u_i&u_{ind}&u_{total}\\\\350 & 80.9 & 171.81 & 0.66 & 0.80 & 173.28\\\\375 & 485.2 & 28.88 & 0.66 & 0.81 & 30.35\\\\400 & 2865.9 & 4.93 & 0.66 & 0.81 & 6.41\\\\410 & 5806.4 & 2.44 & 0.66 & 0.81 & 3.92\\end{array}\\] The lifetimes use numerical integration, not the endpoint approximation.\nF.2. Per-orbit numerical table\nMultiply each descent speed by the orbital period in seconds. Neutral descent drops steeply with altitude. The full-day averaged ion loss is roughly 0.043 m/orbit and magnetic loss roughly 0.10 m/orbit in the daytime convention, half the latter with full-day averaging. Use the explicit formulas to retain the chosen angle and density. For full-day magnetic averaging, the columns below are h in km, followed by neutral, ion and magnetic losses in m/orbit: \\[\\begin{array}{r|rrr}h&H_{air}&H_i&H_{ind}\\\\350 & 10.917 & 0.042 & 0.051\\\\375 & 1.845 & 0.042 & 0.051\\\\400 & 0.317 & 0.043 & 0.052\\\\410 & 0.157 & 0.043 & 0.052\\end{array}\\] The source rounded table is not a unique key for the changed conventions.\nF.3. Relative importance\nThe ranking depends on the supplied ion density and averaging choice as well as altitude. Neutral density decreases exponentially while the ion and magnetic model terms vary slowly. The source ranks magnetic, ion, neutral using its larger ion density and s approximately one. With the statement density and the requested angular factor, neutral drag can still dominate near 380 to 400 km. There is no altitude-independent ranking over all h greater than 380 km under these changed conventions. Compare the table rather than extrapolating one rounded ordering.",
+    "figures": [],
+    "shared": false
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "problemId": "ipho-2017-t3",
+  "version": "555cc6ae421b1f049c959aafd8238a55b779ece345f76727eed3797e333a6d55",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "First Friedmann coefficient",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Adiabatic continuity",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Equations of state",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "a.4",
+      "label": "Flat-universe scale factors",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "a.5",
+      "label": "Curvature-density relation",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\Omega",
+        "H",
+        "a",
+        "R_s",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\Omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "H",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_s",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\Omega, H, a, R_s, c. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.6",
+      "sourcePart": "a.6",
+      "label": "Geometry ranges",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Flatness problem",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Inflationary flattening",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "b.3",
+      "label": "Equivalent inflation conditions",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "b.4",
+      "label": "Slow-roll inflation bound",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Potential slow-roll formulas",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "d.1",
+      "label": "End of monomial inflation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "d.2",
+      "label": "Observable constraints and e-fold sign",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

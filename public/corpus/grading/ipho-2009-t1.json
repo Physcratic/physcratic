@@ -1,0 +1,671 @@
+{
+  "problemId": "ipho-2009-t1",
+  "version": "cf61f36c73a6c0e3695908d600056cae7049d0d3d58a39a56941ef5563cf8001",
+  "parts": [
+    {
+      "id": "1a",
+      "sourcePart": "1a",
+      "label": "Present angular momentum",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "I_E",
+        "\\omega_{E1}",
+        "I_{M1}",
+        "\\omega_{M1}"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "I_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_{E1}",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I_{M1}",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_{M1}",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use I_E, \\omega_{E1}, I_{M1}, \\omega_{M1}. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "1b",
+      "sourcePart": "1b",
+      "label": "Synchronous angular momentum",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "I_E",
+        "I_{M2}",
+        "\\omega_2"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "I_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I_{M2}",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_2",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use I_E, I_{M2}, \\omega_2. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "1c",
+      "sourcePart": "1c",
+      "label": "Angular momentum conservation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2a",
+      "sourcePart": "2a",
+      "label": "Final circular orbit",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2b",
+      "sourcePart": "2b",
+      "label": "Final separation",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "L_1",
+        "G",
+        "M_E",
+        "M_M"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "L_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_M",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use L_1, G, M_E, M_M. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2c",
+      "sourcePart": "2c",
+      "label": "Final angular frequency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M_E",
+        "M_M",
+        "L_1"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L_1",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, M_E, M_M, L_1. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2d",
+      "sourcePart": "2d",
+      "label": "Layered Earth inertia",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho_o",
+        "r_o",
+        "\\rho_i",
+        "r_i"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho_o",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_o",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_i",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_i",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\rho_o, r_o, \\rho_i, r_i. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2e",
+      "sourcePart": "2e",
+      "label": "Earth inertia value",
+      "kind": "numeric",
+      "unit": "kg m^2",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in kg m^2, without a unit suffix."
+    },
+    {
+      "id": "2f",
+      "sourcePart": "2f",
+      "label": "Total angular momentum value",
+      "kind": "numeric",
+      "unit": "kg m^2/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in kg m^2/s, without a unit suffix."
+    },
+    {
+      "id": "2g",
+      "sourcePart": "2g",
+      "label": "Final separation value",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter metres. Also give D_2/D_1 in your working."
+    },
+    {
+      "id": "2h",
+      "sourcePart": "2h",
+      "label": "Final day",
+      "kind": "numeric",
+      "unit": "1/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter angular frequency in inverse seconds. Also give the day length in your working."
+    },
+    {
+      "id": "2i",
+      "sourcePart": "2i",
+      "label": "Neglected spin ratio",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "3a",
+      "sourcePart": "3a",
+      "label": "Near-bulge force",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "m",
+        "M_M",
+        "D_1",
+        "r_o",
+        "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "D_1",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 8,
+          "max": 12
+        },
+        {
+          "symbol": "r_o",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.3
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, m, M_M, D_1, r_o, \\theta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3b",
+      "sourcePart": "3b",
+      "label": "Far-bulge force",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "m",
+        "M_M",
+        "D_1",
+        "r_o",
+        "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "D_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_o",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, m, M_M, D_1, r_o, \\theta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3c",
+      "sourcePart": "3c",
+      "label": "Near-bulge torque",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "m",
+        "M_M",
+        "D_1",
+        "r_o",
+        "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "D_1",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 8,
+          "max": 12
+        },
+        {
+          "symbol": "r_o",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.3
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, m, M_M, D_1, r_o, \\theta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3d",
+      "sourcePart": "3d",
+      "label": "Far-bulge torque",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "m",
+        "M_M",
+        "D_1",
+        "r_o",
+        "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "D_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_o",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, m, M_M, D_1, r_o, \\theta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3e",
+      "sourcePart": "3e",
+      "label": "Net tidal torque",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "m",
+        "M_M",
+        "r_o",
+        "\\theta",
+        "D_1"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_o",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "D_1",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, m, M_M, r_o, \\theta, D_1. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3f",
+      "sourcePart": "3f",
+      "label": "Torque value",
+      "kind": "numeric",
+      "unit": "N m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in N m, without a unit suffix."
+    },
+    {
+      "id": "3g",
+      "sourcePart": "3g",
+      "label": "Annual recession",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m, without a unit suffix."
+    },
+    {
+      "id": "3h",
+      "sourcePart": "3h",
+      "label": "Spin slowdown and day length",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "4a",
+      "sourcePart": "4a",
+      "label": "System energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "I_E",
+        "\\omega_{E1}",
+        "G",
+        "M_E",
+        "M_M",
+        "D_1"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "I_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_{E1}",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "D_1",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use I_E, \\omega_{E1}, G, M_E, M_M, D_1. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "4b",
+      "sourcePart": "4b",
+      "label": "Annual mechanical energy change",
+      "kind": "numeric",
+      "unit": "J",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in J, without a unit suffix."
+    },
+    {
+      "id": "4c",
+      "sourcePart": "4c",
+      "label": "Mass of tidal water",
+      "kind": "numeric",
+      "unit": "kg",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in kg, without a unit suffix."
+    },
+    {
+      "id": "4d",
+      "sourcePart": "4d",
+      "label": "Annual tidal heat",
+      "kind": "numeric",
+      "unit": "J",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in J, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

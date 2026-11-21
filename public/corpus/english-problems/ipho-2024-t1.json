@@ -1,1 +1,640 @@
-{"id":"ipho-2024-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2024_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2024_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2024-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"The Greenhouse E ect\nIn 2021, Syukuro Manabe and Klaus Hasselmann were awarded half of the Nobel Prize in Physics for their\nwork in modeling Earth's climate and accurately predicting the global warming caused by human\nindustrial activities. In this problem, we will examine a simple model of global warming due to the\ngreenhouse e ect. The greenhouse gases alter the optical properties of the Earth's atmosphere in\ntransmitting or absorbing Earth's infrared radiation, resulting in a rise in the average temperature of the\nplanet.\nAll objects, at di erent temperatures, emit thermal radiation. The quantity \n indicates the\nthermal radiative power per unit area of an object at temperature \n between the wavelengths \nand \n. According to Planck’s theory of blackbody radiation, we have\n,      (1)\nin which \n and\n. The wavelength corresponding\nto the maximum of \n  comes from the relation \n  (Wien’s displacement law).\nIndeed, using equation (1), it can be shown that \n, where the dimensionless quantity \n is\nthe non-trivial root of an equation of the form \n; you are asked to nd the function \n in\none of the following tasks. Total radiative power per unit area of a blackbody in all wavelengths is\ngiven by the Stephan-Boltzmann\nlaw as \n  where \n.\nMoreover, according to Kirchho ’s law of radiation, at thermal equilibrium a body absorbing a\ncertain fraction of the incident radiation at a speci c wavelength, will radiate the same fraction of\nthe blackbody radiation at that same wavelength.\nThroughout this problem assume that the Sun is a blackbody at its average surface temperature\nof \n. The Sun’s radius is \n and the average distance between\nthe Earth and the Sun is \n. We denote by \n, the spectral solar power\nradiated into a unit area of the Earth normal to the direction of radiation. The integral of this\nquantity over all wavelengths, i.e. \n, is called the solar constant.\nIn this problem assume that the Earth is in thermal equilibrium and has the same temperature at\nall points on its surface. In all parts of the problem, express the desired quantity in parametric\nform in terms of the data given in the problem and then nd its numerical value accurate to three\nsigni cant gures. The required units are indicated on the answer sheet.\n     A. Earth as a Blackbody\nu(λ, T)dλ\nT\nλ\nλ + dλ\nu(λ, T) = 2πhc2\nλ5\n1\nexp(\nhc\nλkBT ) −1\nhc = 1. 24 × 103 eV ⋅nm\nkB = 8. 62 × 10−5  eV /K\nu(λ, T)\nλmaxT = b\nb =\nhc\nxmkB\nxm\nf(x) = 0\nf(x)\nU(T) = σT 4\nσ = 5. 67 × 10−8 W/m2K4\nTS = 5. 77 × 103 K\nRS = 6. 96 × 108 m\nd = 1. 50 × 1011 m\n˜uS(λ)\nS0 = ∫˜uS(λ)dλ\nPoints: 30\nTime: 5.0 Hours\nIPhO 2024\nTheory, English (Official)\nPage 1 of 16\n\nIn this part, consider the Earth’s surface as a blackbody and neglect the Earth's atmosphere.\nA-1\nFind the solar constant, \n.\n0.6 pt\nA-2\nFind the Earth’s temperature, \n.\n0.6 pt\nA-3\nFind the function \n.\n0.4 pt\nA-4\nCalculate the numerical value of \n , and from this value \n , nd the\nvalue of  .\n0.4 pt\nA-5\nFind \n for the Sun and the Earth.\n0.2 pt\nIn gure 1 the functions \nand \n are plotted versus , where  is a dimensionless\ncoe\ncient to rescale \n such that the values of the two peaks coincide.\nA-6\nDetermine .\n0.8 pt\nS0\nTE \nf(x)\nxm\nxm\nb\nλmax\nγ˜uS(λ)\nu(λ, TE)\nλ\nγ\n˜uS(λ)\nγ\nPoints: 30\nTime: 5.0 Hours\nIPhO 2024\nTheory, English (Official)\nPage 2 of 16\n\nFigure 1 - The plot of \n (red) and\n(blue) versus \n   B. The Greenhouse E ect\nIn this part, we introduce a simple model in which the Earth’s atmosphere is modeled as a thin\nlayer at a small distance above the Earth’s surface so that the di erence between the area of the\natmosphere’s layer and the area of the Earth's surface can be neglected (see gure 2).   In what\nfollows assume that the major part of the thermal radiation from the Earth and the Sun are\nemitted at wavelengths near the \n for each one. Also assume that the “atmosphere layer”\nre ects a fraction \nof the visible-ultraviolet radiation incident from above or below, and\ncompletely transmits the rest. Assume that the atmosphere does not re ect any part of the\ninfrared radiation, however, it absorbs a fraction \nof the infrared radiation and transmits the rest.\nThis behavior, known as the greenhouse e ect, changes the average temperature of the Earth. The\nEarth’s surface, on the other hand, re ects a fraction \nof the visible-ultraviolet radiation and\nabsorbs the rest of this radiation and all the infrared radiation.\nu(λ, TE)\nγ˜uS(λ)\nλ\nλmax\nrA = 0. 255\nε\nrE\nPoints: 30\nTime: 5.0 Hours\nIPhO 2024\nTheory, English (Official)\nPage 3 of 16\n\nFigure 2 - Thermal ows between the Earth and the atmosphere\nB-1\nAssume that \n and\n, and calculate the Earth’s temperature \n and the atmosphere’s temperature \n. \n1.0 pt\nNow assume that \n. In this case, the combined system of “Earth + atmosphere” re ects a\ndi erent fraction of the solar radiation, called “albedo” and denoted by \n.\nB-2\nDetermine the albedo, \n, in terms of \nand \n. Then calculate its\nnumerical value assuming \n(and \n).\n1.6 pt\nε = 1\nrE = 0\nTE\nTA\nrE ≠0\nα\nα\nrE\nrA\nrE = 0. 102\nrA = 0. 255\nPoints: 30\nTime: 5.0 Hours\nIPhO 2024\nTheory, English (Official)\nPage 4 of 16\n\nB-3\na) Express the Earth’s temperature in terms of  , \n, \n, and .\nb) Using the given data and the calculated albedo, nd the numerical\nvalue of \nwhich leads to the current average temperature of \nfor the Earth.\n1.0 pt\nB-4\nFind \n and determine by how much the Earth’s temperature increases\nif \nincreases by one percent.\n0.8 pt\nAssume \n and \n. These values come from real data and may di er from the\nresults which you have obtained in the previous tasks. Now suppose that a non-radiative (e. g.\nconvective) thermal \now \nis maintained from the Earth to the atmosphere,\nwhere \nis a constant. The quantity, \n, is the transmitted power per unit area.\nB-5\nCalculate \nand \nin terms of \n, \n, , \n, and \n.\n1.6 pt\nB-6\na) Di erentiating the equations obtained in part B-5 with respect to , nd\nthe two algebraic equations satis ed by \nand \n.\nb) Use these equations to nd the numerical value of change in the Earth’s\ntemperature as a result of a one percent increase in the value of  .\n1.0 pt\nσ α S0\nε\nε\nTE = 288 K\ndTE\ndε\nε\nTA = 245 K\nTE = 288 K\nJNR = k(TE −TA)\nk\nJNR\nε\nk\nTE TA σ α\nS0\nε\ndTA\ndε\ndTE\ndε\nε\nPoints: 30\nTime: 5.0 Hours\nIPhO 2024\nTheory, English (Official)\nPage 5 of 16\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2024-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":" \n \n \nS1-1 \n \n \nA. Earth as a blackbody \n \nA-1. All the energy emitted from the surface of the Sun, will reach a sphere of radius 𝑑 , therefore: \n \n𝜎𝑇S\n4. (4𝜋𝑅S\n2) = (4𝜋𝑑2). 𝑆0 \n𝑆0 = 𝜎𝑇S\n4. (𝑅S\n𝑑)\n2\n= 5.67 × 10−8\n W\nm2K4 × (5.77 × 103 K)4 × (6.96 × 108 m\n1.5 × 1011 m)\n2\n= 1.35 × 103 W\nm2 \n \nA-1 (0.6 pt) \n \n𝑆0 = 𝜎𝑇S\n4. (\n𝑅S\n𝑑)\n2\n                                                   , Numerical value of 𝑆0 = 1.35 × 103 W/m2 \n \nA-2. It is assumed that the Earth is in thermal equilibrium. Therefore, the energy it receives per unit \ntime should be equal to the energy it radiates per unit time. The Earth’s cross-section intercepting \nthe solar radiation at this distance has an area of 𝜋𝑅E\n2 , but the Earth radiates heat from all points \non its surface with an area of  4𝜋𝑅E\n2, so:  \n𝜋𝑅E\n2. 𝑆0 = 4𝜋𝑅E\n2𝜎𝑇E\n4   →𝑇E = (𝑆0\n4𝜎)\n1\n4\n= 278 K \n \nA-2 (0.6 pt) \n \n𝑇E = (\n𝑆0\n4𝜎)\n1\n4 = √\n𝑅S\n2𝑑𝑇S                                                          , Numerical value of 𝑇E = 278 K \n \nA-3. The radiation is maximum at the wavelength for which the derivative of  𝑢 with respect to 𝜆 is \nzero: \n𝑑𝑢\n𝑑𝜆= 2𝜋ℎ𝑐2\n𝜆6\n.\n1\n𝑒𝑥𝑝( ℎ𝑐\n𝜆𝑘B𝑇) −1\n. [−5 +\nℎ𝑐\n𝜆𝑘B𝑇 \n𝑒𝑥𝑝( ℎ𝑐\n𝜆𝑘B𝑇)\n𝑒𝑥𝑝( ℎ𝑐\n𝜆𝑘B𝑇) −1\n] \n \n𝑑𝑢\n𝑑𝜆|𝜆=𝜆m = 0     ⇒       \nℎ𝑐\n𝜆m𝑘𝐵𝑇 \n𝑒𝑥𝑝(\nℎ𝑐\n𝜆m𝑘B𝑇)\n𝑒𝑥𝑝(\nℎ𝑐\n𝜆m𝐾B𝑇) −1\n= 5 \n \nDefining  𝑥m ≡\nℎ𝑐\n𝜆m𝑘B𝑇   we obtain the following transcendental equation: \n \n5(1 −𝑒−𝑥m) −𝑥m = 0 \n \n\n \n \n \nS1-2 \n \n \nA-3 (0.4 pt) \n \n𝑓(𝑥) = 5(1 −𝑒−𝑥) −𝑥                                                                       \n \nA-4. The first guess is  𝑥m\n(1) = 5 . Substituting repeatedly for 𝑥m we can continue as follows: \n𝑥m\n(2) = 5(1 −𝑒−5) = 4.97 \n𝑥m\n(3) = 5(1 −𝑒−4.97) = 4.97 \n \nFurther iterations do not change the value of 𝑥m to three significant figures, so: \n \n𝜆m𝑇=\nℎ𝑐\n𝑥m𝑘B\n= 𝑏= 1240 eV ∙nm ×\n1\n4.97 × 8.62 × 10−5 eVK−1 = 2.89 × 106 nm ∙K \n \nA-4 (0.4 pt) \n \n𝑥m = {4.96,4.97}                                   , Numerical value of 𝑏=  [2.89,2.90] × 106 nm ∙K \n \n \nA-5. Using Wien’s displacement law and the constant 𝑏 obtained in the previous part, we can calculate \nthe wavelength at which the radiation from the Sun and the Earth reaches its maximum: \n \n𝜆max\nSun = 𝑏\n𝑇S\n= 2.89 × 106 nm ∙K\n5.77 × 103 K\n= [5.01, 5.02] × 102 nm \n \n𝜆max\nEarth = 𝑏\n𝑇E\n= 2.89 × 106 nm ∙K\n278 K\n= 1.04 × 104 nm \n \nA-5 (0.2 pt) \n \n𝜆max\nSun = [5.01, 5.02] × 102 nm                             , 𝜆max\nEarth = 1.04 × 104 nm \n \nA-6. From the diagram, it can clearly be seen that  𝛾𝑢̃S(𝜆max\nS\n) = 𝑢(𝜆max\nEarth, 𝑇E) , so we have: \n𝑢̃S(𝜆max\nSun ) = (𝑅S\n𝑑)\n2 2𝜋ℎ𝑐2\n(𝜆max\nSun )\n5\n1\n𝑒𝑥𝑝(\nℎ𝑐\n𝜆max\nSun 𝑘B𝑇S\n) −1\n= (𝑅S\n𝑑)\n2 2𝜋ℎ𝑐2\n(𝜆max\nSun )\n5\n1\n𝑒𝑥𝑝( ℎ𝑐\n𝑘B𝑏) −1\n \n \n𝑢(𝜆max\nEarth, 𝑇E) =\n2𝜋ℎ𝑐2\n(𝜆max\nEarth)\n5\n1\n𝑒𝑥𝑝(\nℎ𝑐\n𝜆max\nEarth𝑘B𝑇E\n) −1\n=\n2𝜋ℎ𝑐2\n(𝜆max\nEarth)\n5\n1\n𝑒𝑥𝑝( ℎ𝑐\n𝑘B𝑏) −1\n \nDividing these two quantities we’ll find: \n \n\n \n \n \nS1-3 \n \n \n𝛾= ( 𝑑\n𝑅S\n)\n2\n× (𝑇E\n𝑇S\n)\n5\n= [1.20,1.21] × 10−2 \n \nA-6 (0.8 pt) \n \n𝛾= (\n𝑑\n𝑅S)\n2\n× (\n𝑇E\n𝑇S)\n5\n= (\n𝑑\n𝑅S)\n2\n× (\n𝜆max\nSun\n𝜆max\nEarth)\n5\n               , Numerical value of 𝛾= [1.20,1.21] × 10−2 \n \n \n \nB. The Greenhouse Effect \n \nB-1. Both the Earth and its atmosphere are in thermal equilibrium, so one can write an equation that \nbalances the input and output powers. For the Earth we have: \n (𝜋𝑅E\n2)(1 −𝑟A)𝑆0 + (4𝜋𝑅E\n2)𝜎𝑇A\n4 = (4𝜋𝑅E\n2)𝜎𝑇E\n4, \n \nand for the atmosphere: \n \n(4𝜋𝑅E\n2)𝜎𝑇E\n4 = 2(4𝜋𝑅E\n2)𝜎𝑇A\n4. \n \nNote that the coefficient 2 on the right-hand side of the equation is due to the atmosphere \nradiating heat on both sides (above and below). Eliminating 𝑇𝐸 from the two relations we \nobtain: \n \n𝑇A = (\n(1 −𝑟A) 𝑆0\n4\n𝜎\n)\n1\n4\n= 2.58 × 102 K       ⇒    𝑇E = (2𝑇A\n4)\n1\n4 = 3.07 × 102 K \n \nB-1 (1.0 pt) \n \n𝑇A = (\n(1−𝑟A)𝑆0\n4\n𝜎\n)\n1\n4\n                                                    , Numerical value of 𝑇𝐴=  2.58 × 102 K \n \n𝑇E = (\n(1−𝑟A)𝑆0\n2\n𝜎\n)\n1\n4\n                                                    , Numerical value of 𝑇E = 3.07 × 102 K \n \nB-2. As can be seen in the figure, a fraction (1 −𝑟A) of the solar radiation reaches the Earth’s surface \nafter traversing the atmosphere. A fraction 𝑟E of this light is reflected back and reaches the \natmosphere, where a fraction  𝑟A is reflected and returns to the Earth’s surface. This process \nrepeats ad infinitum and the sum of the powers transmitted at all these instances, determines the \nalbedo. Denoting the power returned to space after 𝑛 reflections by 𝑆̃𝑛, we’ll have  𝑆̃0 = 𝑟A𝑆0 and \n\n \n \n \nS1-4 \n \n \nthe remaining power i.e. (1 −𝑟A)𝑆0 , reaches the Earth’s surface. From this power, (1 −𝑟A)𝑟E𝑆0  \nis reflected, and a fraction 1 −𝑟A of it is transmitted through the atmosphere to the space, hence:  \n𝑆̃1 = (1 −𝑟A)2𝑟E𝑆0 = (1 −𝑟A)2\n𝑟A\n 𝑟E𝑆̃0 \nThe power that is reflected back to the Earth by the atmosphere after (𝑛−1) reflections is \n𝑆̃𝑛−1 (\n𝑟A\n1−rA), of which a fraction 𝑟E is again sent back towards the atmosphere on the 𝑛’th \nreflection, and the atmosphere allows a fraction 1 −𝑟A of this reflected power to escape into the \nspace, thus:  \n𝑆̃𝑛= 𝑆̃𝑛−1\n1 −𝑟A\n𝑟A𝑟E × (1 −𝑟A) = 𝑟A𝑟E𝑆̃𝑛−1 = (𝑟A𝑟E)𝑛−1𝑆̃1 \nBy adding all these terms, one obtains the power returned per unit area from the Earth-atmosphere \nsystem: \n𝑆̃ = ∑𝑆̃𝑛\n∞\n𝑛=0\n= 𝑆̃0 + 𝑆̃1 ∑(𝑟A𝑟E)𝑛−1\n∞\n𝑛=1\n= 𝑟A𝑆0 + (1 −𝑟A)2𝑟E𝑆0 ×\n1\n1 −𝑟A𝑟E\n= [𝑟A + (1 −𝑟A)2𝑟E\n1 −𝑟A𝑟E\n] × 𝑆0 \nDividing by the solar constant we get the value for albedo: \n𝛼= 𝑆̃\n𝑆0\n= 𝑟A + (1 −𝑟A)2𝑟E\n1 −𝑟A𝑟E\n= 3.13 × 10−1 \n \nB-2 (1.6 pt) \n \n𝛼= 𝑟A +\n(1−𝑟A)2𝑟E\n1−𝑟A𝑟E                                                                     , Numerical value of 𝛼= 3.13 × 10−1 \n \nB-3. Again, thermal equilibrium requires the input and output powers to be equal both for the Earth \nand for the atmosphere, the only difference being that the Earth absorbs now a fraction 1 −𝛼 of \nthe Sun’s radiation. Thus, for Earth we have: \n(4𝜋𝑅E\n2)𝜖𝜎𝑇A\n4 + (𝜋𝑅E\n2)(1 −𝛼)𝑆0 = (4𝜋𝑅E\n2)𝜎𝑇E\n4, \nand for the atmosphere: \n(4𝜋𝑅E\n2)𝜖𝜎𝑇E\n4 = 2(4𝜋𝑅E\n2)𝜖𝜎𝑇A\n4 \n𝑇E = [ (1 −𝛼)\n2𝜎(2 −𝜖) 𝑆0]\n1\n4\n                 ,                     𝑇A = (𝑇E\n4\n2 )\n1\n4\n \n \n\n \n \n \nS1-5 \n \n \n𝜖=\n[𝜎𝑇E\n4 −(1 −𝛼)\n4\n𝑆0]\n𝜎𝑇A\n4\n= 2\n[𝜎𝑇E\n4 −(1 −𝛼)\n4\n𝑆0]\n𝜎𝑇E\n4\n= [8.07, 8.11] × 10−1 \n \nB-3 (1.0 pt) \n \n𝑇E = [\n(1−𝛼)\n2𝜎(2−𝜖) 𝑆0]\n1\n4                                                               , Numerical value of 𝜖= [8.07 , 8.11] × 10−1 \n \n \nB-4. \n𝑑𝑇E\n𝑑𝜖= 1\n4 [(1 −𝛼)𝑆0\n2𝜎(2 −𝜖)]\n1\n4\n1\n(2 −𝜖)   \n \n𝑑𝑇E = 𝑑𝑇E\n𝑑𝜖𝜖𝑑𝜖\n𝜖= [\n4𝜎𝑇E\n4\n(1 −𝛼)𝑆0\n−1] 𝑇E\n4 × 0.01 = [4.87,4.92] × 10−1                      \n \nB-4 (0.8pt) \n \n𝑑𝑇E\n𝑑𝜖= \n1\n4 [\n(1−𝛼)𝑆0\n2𝜎(2−𝜖)]\n1\n4\n1\n(2−𝜖)                                      , Numerical value of 𝛿𝑇E = [4.87,4.92] × 10−1 K \n \nB-5. The equations for thermal equilibrium are similar to those for Part B.3, only a non-radiative \nthermal current needs to be added. For the Earth:  \n \n(𝜋𝑅E\n2)(1 −𝛼)𝑆0 + (4𝜋𝑅E\n2)𝜖𝜎𝑇A\n4 = (4𝜋𝑅E\n2)𝜎𝑇E\n4 + (4𝜋𝑅E\n2)𝑘(𝑇E −𝑇A), \n \nand for the atmosphere: \n \n(4𝜋𝑅E\n2)𝜖𝜎𝑇E\n4 + (4𝜋𝑅E\n2)𝑘(𝑇E −𝑇A) = 2(4𝜋𝑅E\n2)𝜖𝜎𝑇A\n4. \n \nAfter completing the calculations, we will have: \n \n𝜖=\n𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4  \n𝜎(𝑇E\n4 −𝑇A\n4)\n= [8.47,8.52] × 10−1 \n \n \n𝑘= 𝜖𝜎(2𝑇A\n4 −𝑇E\n4)\n𝑇E −𝑇A\n=\n(2𝑇A\n4 −𝑇E\n4) × [𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4  ]\n(𝑇E\n4 −𝑇A\n4) × (𝑇E −𝑇A)\n= [3.57,3.66] × 10−1 W/m2K \n\n \n \n \nS1-6 \n \n \n \n \nB-5 (1.6pt) \n \n𝜖= \n𝜎𝑇E\n4−(1−𝛼)𝑆0\n4  \n𝜎(𝑇E\n4−𝑇A\n4)                                      , Numerical value of 𝜖= [8.47,8.52] × 10−1 \n \n \n \n𝑘=\n(2𝑇A\n4−𝑇E\n4)×[𝜎𝑇E\n4−(1−𝛼)𝑆0\n4  ]\n(𝑇E\n4−𝑇A\n4)×(𝑇E−𝑇A)\n                  , Numerical value of 𝑘= [3.57,3.66] × 10−1   W/m2K \n \n \n \nB-6. In order to find the change in the temperatures of the Earth and the atmosphere in terms of 𝜖 and \n𝑘, we take the logarithm of both sides of the relations before taking the derivative: \n \n𝑙𝑛𝜖= 𝑙𝑛[𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4 ] −𝑙𝑛𝜎−𝑙𝑛 (𝑇E\n4 −𝑇A\n4) \n \n𝑙𝑛𝑘= 𝑙𝑛𝜖+ 𝑙𝑛𝜎+ 𝑙𝑛(2𝑇A\n4 −𝑇E\n4) −𝑙𝑛(𝑇E −𝑇A) \n \n \n1\n𝜖= \n4𝜎𝑇E\n3 𝑑𝑇E\n𝑑𝜖\n𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4\n−\n4𝑇E\n3 𝑑𝑇E\n𝑑𝜖−4𝑇A\n3 𝑑𝑇A\n𝑑𝜖\n𝑇E\n4 −𝑇A\n4\n  \n \n0 = 1\n𝜖+\n8𝑇A\n3 𝑑𝑇A\n𝑑𝜖−4𝑇E\n3 𝑑𝑇E\n𝑑𝜖\n2𝑇A\n4 −𝑇E\n4\n−\n𝑑𝑇E\n𝑑𝜖−𝑑𝑇A\n𝑑𝜖\n𝑇E −𝑇A\n \n \n𝜖[\n1\n𝑇E −𝑇A\n+\n4𝑇E\n3\n2𝑇A\n4 −𝑇E\n4] 𝑑𝑇E\n𝑑𝜖 = 1 + 𝜖[\n8𝑇A\n3\n2𝑇A\n4 −𝑇E\n4 +\n1\n𝑇E −𝑇A\n] 𝑑𝑇A\n𝑑𝜖 \n \n \n1 + 𝜖[\n4𝑇E\n3\n𝑇E\n4 −𝑇A\n4 −\n4𝜎𝑇E\n3\n𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4\n] 𝑑𝑇E\n𝑑𝜖 =\n4𝑇A\n3\n𝑇E\n4 −𝑇A\n4 𝜖𝑑𝑇A\n𝑑𝜖 \n \nSolving this set of linear equations and substituting 𝜖 in B-5, we find: \n \n \n\n \n \n \nS1-7 \n \n \n𝑑𝑇E\n𝑑𝜖=\n[\n𝜎(𝑇E\n4 −𝑇A\n4)\n𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4  \n] [1 + (𝑇E\n4 −𝑇A\n4\n4𝑇A\n3\n) [\n8𝑇A\n3\n2𝑇A\n4 −𝑇E\n4 +\n1\n𝑇E −𝑇A]]\n[\n1\n𝑇E −𝑇A +\n4𝑇E\n3\n2𝑇A\n4 −𝑇E\n4] −(\n𝜎𝑇A\n4 −(1 −𝛼) 𝑆0\n4\n𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4\n) (𝑇E\n𝑇A)\n3\n[\n8𝑇A\n3\n2𝑇A\n4 −𝑇E\n4 +\n1\n𝑇E −𝑇A]\n \n \n𝜖𝑑𝑇E\n𝑑𝜖=\n1 + (𝑇E\n4 −𝑇A\n4\n4𝑇A\n3\n) [\n8𝑇A\n3\n2𝑇A\n4 −𝑇E\n4 +\n1\n𝑇E −𝑇𝐴]\n[\n1\n𝑇E −𝑇A +\n4𝑇E\n3\n2𝑇A\n4 −𝑇E\n4] −(\n𝜎𝑇A\n4 −(1 −𝛼) 𝑆0\n4\n𝜎𝑇E\n4 −(1 −𝛼) 𝑆0\n4\n) (𝑇E\n𝑇A)\n3\n[\n8𝑇A\n3\n2𝑇A\n4 −𝑇E\n4 +\n1\n𝑇E −𝑇A]\n \n \n𝑑𝑇E = 𝜖𝑑𝑇E\n𝑑𝜖\n𝑑𝜖\n𝜖= [5.21 , 5.28] × 10−1 K  \n \n \nB-6 (1.0pt) \n \n \n(a)       \n{  \n  𝜖[\n1\n𝑇E−𝑇A +\n4𝑇E\n3\n2𝑇A\n4−𝑇E\n4] 𝑑𝑇E\n𝑑𝜖 = 1 + 𝜖[\n8𝑇A\n3\n2𝑇A\n4−𝑇E\n4 +\n1\n𝑇E−𝑇A] 𝑑𝑇A\n𝑑𝜖\n1 + 𝜖[ 4𝑇E\n3\n𝑇E\n4−𝑇A\n4 −\n4𝜎𝑇E\n3\n𝜎𝑇E\n4−(1−𝛼)𝑆0\n4\n] 𝑑𝑇E\n𝑑𝜖 =\n4𝑇A\n3\n𝑇E\n4−𝑇A\n4 𝜖𝑑𝑇A\n𝑑𝜖\n \n   \n \n \n \n (b) 𝛿𝑇E = [5.21 , 5.28] × 10−1 K \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2024-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2024-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "The greenhouse effect"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use Planck spectral exitance \\(u(\\lambda,T)=2\\pi hc^2/[\\lambda^5(e^{hc/(\\lambda k_BT)}-1)]\\), Stefan-Boltzmann exitance σT⁴ and Kirchhoff equality of absorptivity and emissivity at each wavelength. Take hc=1240 eV nm, kB=\\(8.62\\times10^{-5}\\) eV/K, σ=\\(5.67\\times10^{-8}\\) W m⁻² K⁻⁴. The blackbody Sun has TS=5770 K, RS=\\(6.96\\times10^{8}\\) m and distance d=\\(1.50\\times10^{11}\\) m. Earth is isothermal and in equilibrium. Give parametric results and numerical values to three significant figures. The solar constant S0 is solar power per area normal to the rays at Earth, integrated over wavelength. In B, a thin atmospheric layer has the same area as Earth. It reflects visible/UV fraction rA=0.255 from either direction, transmits the rest and absorbs none. Earth's surface reflects visible/UV fraction rE and absorbs all infrared. The atmosphere absorbs infrared fraction ε, transmits the rest and reflects none. Approximate each source spectrum by its dominant wavelength band."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a-1. Solar constant"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find S0."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a-2. Airless blackbody Earth"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Neglect the atmosphere and find TE."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a-3. Wien equation"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Write the equation f(x)=0 for the nonzero maximum, with x=hc/(λkBT)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a-4. Wien constant"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Calculate xm and b in λmaxT=b."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a-5. Solar and terrestrial peaks"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find λmax for the Sun and airless Earth."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a-6. Equal-height rescaling"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch8-greenhouse-spectra.png",
+        "alt": "Original equal-height scaled solar and terrestrial blackbody spectra."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Solar spectral irradiance at Earth is \\(\\tilde u_S=(R_S/d)^2u(\\lambda,T_S)\\). Find γ so that γũS and u(λ,TE) have equal peak heights."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-1. Opaque infrared atmosphere"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch8-greenhouse-flows.png",
+        "alt": "Original shortwave transmission and reflection and infrared absorption and re-emission."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For ε=1 and rE=0, find TE and TA."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-2. Multiple-reflection albedo"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find combined albedo α in terms of rE,rA. Evaluate at rE=0.102."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-3a. Partially absorbing atmosphere"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find TE as a function of σ,α,S0,ε with no non-radiative heat flow."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-3b. Present-temperature emissivity"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find ε giving TE=288 K with the calculated α."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-4. Radiative temperature sensitivity"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find dTE/dε and the temperature change for a one-percent relative increase in ε."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-5. Non-radiative transfer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now use TA=245 K, TE=288 K and upward non-radiative flux JNR=k(TE−TA). Find ε and k in terms of the data and evaluate them."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-6a. Coupled sensitivity equations"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At fixed k, α and S0, differentiate the B5 balances with respect to ε to obtain two linear equations for X=dTE/dε and Y=dTA/dε."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-6b. Sensitivity with heat transfer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use those equations to find ΔTE for a one-percent relative rise in ε."
+          }
+        ]
+      }
+    ],
+    "text": "The greenhouse effect\nUse Planck spectral exitance \\(u(\\lambda,T)=2\\pi hc^2/[\\lambda^5(e^{hc/(\\lambda k_BT)}-1)]\\), Stefan-Boltzmann exitance σT⁴ and Kirchhoff equality of absorptivity and emissivity at each wavelength. Take hc=1240 eV nm, kB=\\(8.62\\times10^{-5}\\) eV/K, σ=\\(5.67\\times10^{-8}\\) W m⁻² K⁻⁴. The blackbody Sun has TS=5770 K, RS=\\(6.96\\times10^{8}\\) m and distance d=\\(1.50\\times10^{11}\\) m. Earth is isothermal and in equilibrium. Give parametric results and numerical values to three significant figures. The solar constant S0 is solar power per area normal to the rays at Earth, integrated over wavelength. In B, a thin atmospheric layer has the same area as Earth. It reflects visible/UV fraction rA=0.255 from either direction, transmits the rest and absorbs none. Earth's surface reflects visible/UV fraction rE and absorbs all infrared. The atmosphere absorbs infrared fraction ε, transmits the rest and reflects none. Approximate each source spectrum by its dominant wavelength band.\na-1. Solar constant\nFind S0.\na-2. Airless blackbody Earth\nNeglect the atmosphere and find TE.\na-3. Wien equation\nWrite the equation f(x)=0 for the nonzero maximum, with x=hc/(λkBT).\na-4. Wien constant\nCalculate xm and b in λmaxT=b.\na-5. Solar and terrestrial peaks\nFind λmax for the Sun and airless Earth.\na-6. Equal-height rescaling\n\nSolar spectral irradiance at Earth is \\(\\tilde u_S=(R_S/d)^2u(\\lambda,T_S)\\). Find γ so that γũS and u(λ,TE) have equal peak heights.\nb-1. Opaque infrared atmosphere\n\nFor ε=1 and rE=0, find TE and TA.\nb-2. Multiple-reflection albedo\nFind combined albedo α in terms of rE,rA. Evaluate at rE=0.102.\nb-3a. Partially absorbing atmosphere\nFind TE as a function of σ,α,S0,ε with no non-radiative heat flow.\nb-3b. Present-temperature emissivity\nFind ε giving TE=288 K with the calculated α.\nb-4. Radiative temperature sensitivity\nFind dTE/dε and the temperature change for a one-percent relative increase in ε.\nb-5. Non-radiative transfer\nNow use TA=245 K, TE=288 K and upward non-radiative flux JNR=k(TE−TA). Find ε and k in terms of the data and evaluate them.\nb-6a. Coupled sensitivity equations\nAt fixed k, α and S0, differentiate the B5 balances with respect to ε to obtain two linear equations for X=dTE/dε and Y=dTA/dε.\nb-6b. Sensitivity with heat transfer\nUse those equations to find ΔTE for a one-percent relative rise in ε.",
+    "figures": [
+      "/corpus/figures/native/batch8-greenhouse-spectra.png",
+      "/corpus/figures/native/batch8-greenhouse-flows.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2024-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "The greenhouse effect"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a-1. Solar constant"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Conserve solar luminosity over a sphere of radius d: \\(S_0=\\sigma T_S^4(R_S/d)^2=1.35\\times10^3\\,\\mathrm{W/m^2}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a-2. Airless blackbody Earth"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The absorbing disc has one quarter the radiating surface area. Thus \\(T_E=[S_0/(4\\sigma)]^{1/4}=T_S\\sqrt{R_S/(2d)}=278\\,\\mathrm K\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a-3. Wien equation"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Differentiating u with respect to λ gives \\(f(x)=5(1-e^{-x})-x=0\\). Any nonzero multiple yields the same root. Any nonzero constant multiple defines the same equation, so the derivation and equation use self-review rather than a unique expression key."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a-4. Wien constant"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Iterate x=5(1−e⁻ˣ) starting near 5. The physical root is xm=4.965≈4.97. Hence \\(b=hc/(x_mk_B)\\simeq2.90\\times10^6\\,\\mathrm{nm\\,K}\\). The supplied rounded constants allow 2.89 to 2.90 million nm K."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a-5. Solar and terrestrial peaks"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use b/T, giving approximately 502 nm for the Sun and \\(1.04\\times10^{4}\\) nm for Earth."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a-6. Equal-height rescaling"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At the maximum, x has the same value for both temperatures, and the peak exitance scales as T⁵. Thus \\(\\gamma=(d/R_S)^2(T_E/T_S)^5\\simeq1.20\\times10^{-2}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-1. Opaque infrared atmosphere"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let F=(1−rA)S0/4. Surface balance is F+σTA⁴=σTE⁴ and atmospheric balance is σTE⁴=2σTA⁴. Thus \\(T_A=(F/\\sigma)^{1/4}=258\\,\\mathrm K\\) and \\(T_E=(2F/\\sigma)^{1/4}=307\\,\\mathrm K\\). The factor two counts upward and downward emission."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-2. Multiple-reflection albedo"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The direct reflected fraction is rA. The once-surface-reflected escaped fraction is (1−rA)²rE, with successive ratio rArE. Therefore \\[\\alpha=r_A+\\frac{(1-r_A)^2r_E}{1-r_Ar_E}=0.313.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-3a. Partially absorbing atmosphere"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For ε>0 atmospheric balance gives TE⁴=2TA⁴. Surface balance is (1−α)S0/4+εσTA⁴=σTE⁴. Hence \\[T_E=\\left[\\frac{(1-\\alpha)S_0}{2\\sigma(2-\\epsilon)}\\right]^{1/4}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-3b. Present-temperature emissivity"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Rearrange B3a: \\(\\epsilon=2-(1-\\alpha)S_0/(2\\sigma T_E^4)\\simeq0.809\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-4. Radiative temperature sensitivity"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At fixed S0 and α, \\(dT_E/d\\epsilon=T_E/[4(2-\\epsilon)]\\). A relative increase means Δε=0.01ε, not 0.01. At TE=288 K and ε≈0.809, ΔTE≈0.489 K."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-5. Non-radiative transfer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Put F=(1−α)S0/4. The balances are \\(F+\\epsilon\\sigma T_A^4=\\sigma T_E^4+k(T_E-T_A)\\) and \\(\\epsilon\\sigma T_E^4+k(T_E-T_A)=2\\epsilon\\sigma T_A^4\\). Thus \\[\\epsilon=\\frac{\\sigma T_E^4-F}{\\sigma(T_E^4-T_A^4)},\\qquad k=\\frac{\\epsilon\\sigma(2T_A^4-T_E^4)}{T_E-T_A}.\\] Numerically ε≈0.850 and k≈0.361 W m⁻² K⁻¹."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-6a. Coupled sensitivity equations"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Differentiating the surface and atmospheric balances directly gives \\[(4\\sigma T_E^3+k)X-(4\\epsilon\\sigma T_A^3+k)Y=\\sigma T_A^4,\\] \\[(4\\epsilon\\sigma T_E^3+k)X-(8\\epsilon\\sigma T_A^3+k)Y=\\sigma(2T_A^4-T_E^4).\\] These are algebraically equivalent to the logarithmic-derivative equations in the official solution."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b-6b. Sensitivity with heat transfer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Solve the two linear equations at the B5 equilibrium and multiply X by 0.01ε. The result is approximately 0.524 K, with the source rounding range 0.521 to 0.528 K."
+          }
+        ]
+      }
+    ],
+    "text": "The greenhouse effect\na-1. Solar constant\nConserve solar luminosity over a sphere of radius d: \\(S_0=\\sigma T_S^4(R_S/d)^2=1.35\\times10^3\\,\\mathrm{W/m^2}\\).\na-2. Airless blackbody Earth\nThe absorbing disc has one quarter the radiating surface area. Thus \\(T_E=[S_0/(4\\sigma)]^{1/4}=T_S\\sqrt{R_S/(2d)}=278\\,\\mathrm K\\).\na-3. Wien equation\nDifferentiating u with respect to λ gives \\(f(x)=5(1-e^{-x})-x=0\\). Any nonzero multiple yields the same root. Any nonzero constant multiple defines the same equation, so the derivation and equation use self-review rather than a unique expression key.\na-4. Wien constant\nIterate x=5(1−e⁻ˣ) starting near 5. The physical root is xm=4.965≈4.97. Hence \\(b=hc/(x_mk_B)\\simeq2.90\\times10^6\\,\\mathrm{nm\\,K}\\). The supplied rounded constants allow 2.89 to 2.90 million nm K.\na-5. Solar and terrestrial peaks\nUse b/T, giving approximately 502 nm for the Sun and \\(1.04\\times10^{4}\\) nm for Earth.\na-6. Equal-height rescaling\nAt the maximum, x has the same value for both temperatures, and the peak exitance scales as T⁵. Thus \\(\\gamma=(d/R_S)^2(T_E/T_S)^5\\simeq1.20\\times10^{-2}\\).\nb-1. Opaque infrared atmosphere\nLet F=(1−rA)S0/4. Surface balance is F+σTA⁴=σTE⁴ and atmospheric balance is σTE⁴=2σTA⁴. Thus \\(T_A=(F/\\sigma)^{1/4}=258\\,\\mathrm K\\) and \\(T_E=(2F/\\sigma)^{1/4}=307\\,\\mathrm K\\). The factor two counts upward and downward emission.\nb-2. Multiple-reflection albedo\nThe direct reflected fraction is rA. The once-surface-reflected escaped fraction is (1−rA)²rE, with successive ratio rArE. Therefore \\[\\alpha=r_A+\\frac{(1-r_A)^2r_E}{1-r_Ar_E}=0.313.\\]\nb-3a. Partially absorbing atmosphere\nFor ε>0 atmospheric balance gives TE⁴=2TA⁴. Surface balance is (1−α)S0/4+εσTA⁴=σTE⁴. Hence \\[T_E=\\left[\\frac{(1-\\alpha)S_0}{2\\sigma(2-\\epsilon)}\\right]^{1/4}.\\]\nb-3b. Present-temperature emissivity\nRearrange B3a: \\(\\epsilon=2-(1-\\alpha)S_0/(2\\sigma T_E^4)\\simeq0.809\\).\nb-4. Radiative temperature sensitivity\nAt fixed S0 and α, \\(dT_E/d\\epsilon=T_E/[4(2-\\epsilon)]\\). A relative increase means Δε=0.01ε, not 0.01. At TE=288 K and ε≈0.809, ΔTE≈0.489 K.\nb-5. Non-radiative transfer\nPut F=(1−α)S0/4. The balances are \\(F+\\epsilon\\sigma T_A^4=\\sigma T_E^4+k(T_E-T_A)\\) and \\(\\epsilon\\sigma T_E^4+k(T_E-T_A)=2\\epsilon\\sigma T_A^4\\). Thus \\[\\epsilon=\\frac{\\sigma T_E^4-F}{\\sigma(T_E^4-T_A^4)},\\qquad k=\\frac{\\epsilon\\sigma(2T_A^4-T_E^4)}{T_E-T_A}.\\] Numerically ε≈0.850 and k≈0.361 W m⁻² K⁻¹.\nb-6a. Coupled sensitivity equations\nDifferentiating the surface and atmospheric balances directly gives \\[(4\\sigma T_E^3+k)X-(4\\epsilon\\sigma T_A^3+k)Y=\\sigma T_A^4,\\] \\[(4\\epsilon\\sigma T_E^3+k)X-(8\\epsilon\\sigma T_A^3+k)Y=\\sigma(2T_A^4-T_E^4).\\] These are algebraically equivalent to the logarithmic-derivative equations in the official solution.\nb-6b. Sensitivity with heat transfer\nSolve the two linear equations at the B5 equilibrium and multiply X by 0.01ε. The result is approximately 0.524 K, with the source rounding range 0.521 to 0.528 K.",
+    "figures": [],
+    "shared": false
+  }
+}

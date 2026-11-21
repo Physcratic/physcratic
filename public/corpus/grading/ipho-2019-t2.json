@@ -1,0 +1,270 @@
+{
+  "problemId": "ipho-2019-t2",
+  "version": "f5b3dcc06338f3104379e230e22dd3b01297447df0fcf9344da499718b263106",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Cavity resonance estimate",
+      "kind": "numeric",
+      "unit": "GHz",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in GHz, without a unit suffix."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Crossed-field trajectories",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Gyromotion radius bound",
+      "kind": "numeric",
+      "unit": "mm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in mm, without a unit suffix."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "a.4",
+      "label": "Radial drift directions",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "a.5",
+      "label": "Angular focusing",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.6",
+      "sourcePart": "a.6",
+      "label": "Electron spokes",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "f"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "f",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter angular speed in terms of f. Compare the spoke count, positions and rotation direction separately."
+    },
+    {
+      "id": "a.7",
+      "sourcePart": "a.7",
+      "label": "Operating voltage",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "f",
+        "B_0",
+        "b",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "f",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 1
+        }
+      ],
+      "help": "Use f, B_0, b, a. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Dipole torque and work",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Mean dielectric heating",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\beta",
+        "\\epsilon_0",
+        "\\omega",
+        "E_0",
+        "\\delta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\beta, \\epsilon_0, \\omega, E_0, \\delta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "b.3",
+      "label": "Attenuation with depth",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "I_0",
+        "\\beta",
+        "\\omega",
+        "z",
+        "\\delta",
+        "c",
+        "\\epsilon_r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "I_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use I_0, \\beta, \\omega, z, \\delta, c, \\epsilon_r. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "b.4",
+      "label": "Polarization coefficient",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\epsilon_r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\epsilon_r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\epsilon_r. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "b.5",
+      "label": "Penetration depth and temperature",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

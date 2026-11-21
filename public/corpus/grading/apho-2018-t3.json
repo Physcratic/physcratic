@@ -1,0 +1,393 @@
+{
+  "problemId": "apho-2018-t3",
+  "version": "ea091de0d6fb77994504c44fdefdfeebb73427e8bd35a7b6ad939458b7b7c279",
+  "parts": [
+    {
+      "id": "a1.1",
+      "sourcePart": "a1.1",
+      "label": "Temperature profile with Joule heating",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a1.2",
+      "sourcePart": "a1.2",
+      "label": "Heat current along a leg",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a2.1",
+      "sourcePart": "a2.1",
+      "label": "Reversible hot-side heat",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\pi_1",
+        "I"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\pi_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\pi_1, I. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a2.2",
+      "sourcePart": "a2.2",
+      "label": "Reversible cold-side heat",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\pi_2",
+        "I"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\pi_2",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\pi_2, I. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a2.3",
+      "sourcePart": "a2.3",
+      "label": "Reversible electrical power",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\alpha",
+        "T_1",
+        "T_2",
+        "I"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_2",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\alpha, T_1, T_2, I. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a2.4",
+      "sourcePart": "a2.4",
+      "label": "Kelvin relation",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\alpha",
+        "T"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\alpha, T. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a3.1",
+      "sourcePart": "a3.1",
+      "label": "Generator heat balances",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a3.2",
+      "sourcePart": "a3.2",
+      "label": "Efficiency with a load",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a3.3",
+      "sourcePart": "a3.3",
+      "label": "Figure-of-merit form",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a4.1",
+      "sourcePart": "a4.1",
+      "label": "Efficiency at maximum power",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a4.2",
+      "sourcePart": "a4.2",
+      "label": "Load for maximum efficiency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Z",
+        "T_1",
+        "T_2"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "Z",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_2",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use Z, T_1, T_2. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a4.3",
+      "sourcePart": "a4.3",
+      "label": "Maximum generator efficiency",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a5.1",
+      "sourcePart": "a5.1",
+      "label": "Optimal leg-area ratio",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho_B",
+        "k_A",
+        "\\rho_A",
+        "k_B"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\rho_B, k_A, \\rho_A, k_B. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a5.2",
+      "sourcePart": "a5.2",
+      "label": "Best material figure of merit",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a6.1",
+      "sourcePart": "a6.1",
+      "label": "Numerical efficiency at maximum power",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "a6.2",
+      "sourcePart": "a6.2",
+      "label": "Numerical maximum efficiency",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "b1.1",
+      "sourcePart": "b1.1",
+      "label": "Cooling power",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b1.2",
+      "sourcePart": "b1.2",
+      "label": "Maximum temperature depression",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Z",
+        "T_1"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "Z",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_1",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use Z, T_1. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b2.1",
+      "sourcePart": "b2.1",
+      "label": "Minimum cold temperature",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in K, without a unit suffix."
+    },
+    {
+      "id": "b2.2",
+      "sourcePart": "b2.2",
+      "label": "Working current at the limit",
+      "kind": "numeric",
+      "unit": "A",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in A, without a unit suffix."
+    },
+    {
+      "id": "b3.1",
+      "sourcePart": "b3.1",
+      "label": "Coefficient of performance",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b3.2",
+      "sourcePart": "b3.2",
+      "label": "Current for maximum COP",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b3.3",
+      "sourcePart": "b3.3",
+      "label": "Maximum COP",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

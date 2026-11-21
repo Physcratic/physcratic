@@ -1,0 +1,455 @@
+{
+  "problemId": "ipho-2010-t1",
+  "version": "cbafeefeb14efb42103d9cfe4faeaf64c3cd54f903f0ca161c0e6b3b2b8a4f3f",
+  "parts": [
+    {
+      "id": "1a",
+      "sourcePart": "1a",
+      "label": "Sphere potential",
+      "kind": "numeric",
+      "unit": "V",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in V, without a unit suffix."
+    },
+    {
+      "id": "1b.q",
+      "sourcePart": "1b.q",
+      "label": "Image charge",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "R",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use q, R, d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "1b.d",
+      "sourcePart": "1b.d",
+      "label": "Image position",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use R, d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "1c",
+      "sourcePart": "1c",
+      "label": "Force magnitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "R",
+        "d",
+        "\\epsilon_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.3,
+          "max": 1
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use q, R, d, \\epsilon_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2a",
+      "sourcePart": "2a",
+      "label": "Field behind the sphere",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "r",
+        "R",
+        "d",
+        "\\epsilon_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 15,
+          "max": 20
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.3,
+          "max": 1
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use q, r, R, d, \\epsilon_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2b",
+      "sourcePart": "2b",
+      "label": "Far field",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "R",
+        "d",
+        "\\epsilon_0",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.3,
+          "max": 1
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 30,
+          "max": 40
+        }
+      ],
+      "help": "Enter the signed field including both the inverse-square term and the inverse-cube correction. Use q, epsilon_0, R, d and r, with r much larger than d."
+    },
+    {
+      "id": "2c",
+      "sourcePart": "2c",
+      "label": "Complete screening",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "3a",
+      "sourcePart": "3a",
+      "label": "Pendulum force",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "3b",
+      "sourcePart": "3b",
+      "label": "Tangential force magnitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "R",
+        "l",
+        "\\alpha",
+        "\\epsilon_0",
+        "L"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.2,
+          "max": 0.6
+        },
+        {
+          "symbol": "l",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 5,
+          "max": 7
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.01,
+          "max": 0.2
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "help": "Use q, R, l, \\alpha, \\epsilon_0, L. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3c",
+      "sourcePart": "3c",
+      "label": "Small-oscillation angular frequency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "R",
+        "l",
+        "\\epsilon_0",
+        "m",
+        "L"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.2,
+          "max": 0.6
+        },
+        {
+          "symbol": "l",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 5,
+          "max": 7
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "help": "Use q, R, l, \\epsilon_0, m, L. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "4a",
+      "sourcePart": "4a",
+      "label": "External-induced interaction energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "R",
+        "\\epsilon_0",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.3,
+          "max": 1
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "help": "Use q, R, \\epsilon_0, d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "4b",
+      "sourcePart": "4b",
+      "label": "Induced-charge mutual energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "R",
+        "\\epsilon_0",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.3,
+          "max": 1
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "help": "Use q, R, \\epsilon_0, d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "4c",
+      "sourcePart": "4c",
+      "label": "Total interaction energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "R",
+        "\\epsilon_0",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.3,
+          "max": 1
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "help": "Use q, R, \\epsilon_0, d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

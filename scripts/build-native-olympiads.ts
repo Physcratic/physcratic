@@ -10,6 +10,14 @@ import "../lib/olympiad/native-pancharatnam";
 import "../lib/olympiad/native-2020";
 import "../lib/olympiad/native-batch-4";
 import "../lib/olympiad/native-batch-5";
+import "../lib/olympiad/native-batch-6";
+import "../lib/olympiad/native-batch-7";
+import "../lib/olympiad/native-batch-8";
+import "../lib/olympiad/native-batch-9";
+import { batchNineParts } from "../lib/olympiad/keys-batch-9";
+import { batchEightParts } from "../lib/olympiad/keys-batch-8";
+import { batchSevenParts } from "../lib/olympiad/keys-batch-7";
+import { batchSixParts } from "../lib/olympiad/keys-batch-6";
 import { batchFiveParts } from "../lib/olympiad/keys-batch-5";
 import { olympiadDefinitions } from "../lib/olympiad/keys";
 import { publicArchiveMetadata } from "../lib/archive-grading/catalog";
@@ -22,7 +30,7 @@ const figures = (nodes: ImportedNode[]): string[] => nodes.flatMap(n => n.type =
 const index = load("lib/corpus/import-index.json");
 const manifest = load("lib/corpus/import-manifest.json");
 const collection = load("public/corpus/collection.json");
-const changedAssets = new Set<string>();
+const changedAssets = new Set<string>(["/corpus/documents/english-ipho-2022-t2-supplement/answer-sheet.pdf", "/corpus/documents/english-ipho-2022-t2-supplement/full-official-solutions.pdf"]);
 const ledger = [];
 
 for (const [id, content] of Object.entries(nativeOlympiadContent)) {
@@ -79,3 +87,11 @@ console.log("Built " + Object.keys(nativeOlympiadContent).length + " native olym
 save("docs/engineering/native-archive-batch-4-sources.json", ledger.filter(item => /^(eupho-2017-|eupho-202[12]-|eupho-2023-t1$)/.test(item.id)));
 
 save("docs/engineering/native-archive-batch-5-sources.json", ledger.filter(item => Object.hasOwn(batchFiveParts, item.id)));
+
+save("docs/engineering/native-archive-batch-6-sources.json", ledger.filter(item => Object.hasOwn(batchSixParts, item.id)));
+
+save("docs/engineering/native-archive-batch-7-sources.json", ledger.filter(item => Object.hasOwn(batchSevenParts, item.id)));
+
+save("docs/engineering/native-archive-batch-8-sources.json", ledger.filter(item => Object.hasOwn(batchEightParts, item.id)));
+
+save("docs/engineering/native-archive-batch-9-sources.json", ledger.filter(item => Object.hasOwn(batchNineParts, item.id)));

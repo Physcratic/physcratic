@@ -1,0 +1,116 @@
+{
+  "problemId": "apho-2023-t3",
+  "version": "6e82b3cf06615d5f29b7af3e84577e17891d1f2222770f6494dbc996c4e487c3",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Collapse time scale",
+      "kind": "numeric",
+      "unit": "s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in s, without a unit suffix."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Critical pressure",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Bubble equation of motion",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Exposure to vacuum",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "State the air thermal law. The adiabatic model rebounds before the formal terminal branch. Compare its turning radius with the conditional isothermal growth estimate. No unique terminal-speed key is enforced."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Pressure-jump rebound",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "B.4",
+      "label": "Final-collapse exponent",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "B.5",
+      "label": "Bubble resonance",
+      "kind": "numeric",
+      "unit": "kHz",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in kHz, without a unit suffix."
+    },
+    {
+      "id": "b.6",
+      "sourcePart": "B.6",
+      "label": "Standing-wave force",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Diffusive dissolution",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Air trapped in a crevice",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

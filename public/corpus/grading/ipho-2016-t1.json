@@ -1,0 +1,314 @@
+{
+  "problemId": "ipho-2016-t1",
+  "version": "c95bddeb3347b6937c367bbfba993304b5a7c35c5718e246f8b6770cd0bafcc5",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Centre of mass offset",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "r_1",
+        "\\Theta",
+        "\\phi"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\Theta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\phi",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use r_1, \\Theta, \\phi. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Suspended-cylinder period",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "M",
+        "g",
+        "b",
+        "T"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use M, g, b, T. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "A.3",
+      "label": "Disk offset",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "M",
+        "b",
+        "r_1",
+        "h_1",
+        "\\rho_1"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 20,
+          "max": 30
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_1",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.2
+        },
+        {
+          "symbol": "h_1",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.2
+        },
+        {
+          "symbol": "\\rho_1",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "help": "Use M, b, r_1, h_1, \\rho_1. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "A.4",
+      "label": "Geometrical inertia",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "A.5",
+      "label": "Hidden-disk dimensions",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Artificial gravity",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "g_E",
+        "R"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "g_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use g_E, R. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Earth spring oscillator",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use k, m. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Station spring oscillator",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k",
+        "m",
+        "w"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 10,
+          "max": 20
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 2
+        },
+        {
+          "symbol": "w",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.5
+        }
+      ],
+      "help": "Use w for omega_ss."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "B.4",
+      "label": "Terrestrial gravity gradient",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "B.5",
+      "label": "Indistinguishable frequencies",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R_E"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R_E",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use R_E. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.6",
+      "sourcePart": "B.6",
+      "label": "Small-height drop",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.7",
+      "sourcePart": "B.7",
+      "label": "Return to the tower base",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless ratio H/R."
+    },
+    {
+      "id": "b.8",
+      "sourcePart": "B.8",
+      "label": "Unconstrained oscillator trajectory",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

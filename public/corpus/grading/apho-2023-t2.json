@@ -1,0 +1,203 @@
+{
+  "problemId": "apho-2023-t2",
+  "version": "23ca1d18704d675a30ceb4f3380763c67a13f21ae05ed00d67e55be347310317",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Rolling constraint",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Ball acceleration",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "A.3",
+      "label": "Velocity-position relation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "A.4",
+      "label": "Explicit trajectory",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "A.5",
+      "label": "Return to a table mark",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Freely rotating constraint",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Table angular acceleration",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Table speed versus radius",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "B.4",
+      "label": "Maximum possible table speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "O",
+        "\\alpha",
+        "m",
+        "R_0",
+        "I_d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "O",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I_d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use O for the positive initial rate magnitude."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "B.5",
+      "label": "Conic trajectories",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Charged-ball equations",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Magnetic acceleration",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "C.3",
+      "label": "Removing the gyroscopic term",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.4",
+      "sourcePart": "C.4",
+      "label": "Expanding spiral",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.5",
+      "sourcePart": "C.5",
+      "label": "Spiral energy growth",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

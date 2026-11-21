@@ -1,0 +1,339 @@
+{
+  "problemId": "apho-2023-t1",
+  "version": "e3d63cfbba2b3be0c1fb32453522c2ae104460ec9a8ede2d1aa03aff74313a09",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "General barometric formula",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Constant-gravity scale height",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m, without a unit suffix."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "A.3",
+      "label": "Gravity-corrected pressure",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "p_0",
+        "h",
+        "R_E",
+        "h_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "p_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use p_0, h, R_E, h_0. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "A.4",
+      "label": "Correction ratio",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "A.5",
+      "label": "Density and number density",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Circular-orbit kinematics",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Orbital energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M_E",
+        "M_S",
+        "R_E",
+        "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_E",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, M_E, M_S, R_E, h. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Energy-loss balance",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "B.4",
+      "label": "Positive descent speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "F",
+        "R_E",
+        "h",
+        "M_S",
+        "G",
+        "M_E"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "F",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_E",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use F, R_E, h, M_S, G, M_E. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "B.5",
+      "label": "Loss per orbit and lifetime",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Neutral-air drag",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Air-drag lifetime",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "D.1",
+      "label": "Atomic-ion drag",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "D.2",
+      "label": "Ion-induced descent",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "e.1",
+      "sourcePart": "E.1",
+      "label": "Collected electric current",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "S",
+        "n_i",
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n_i",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use v for the orbital speed. This is the daytime model current."
+    },
+    {
+      "id": "e.2",
+      "sourcePart": "E.2",
+      "label": "Magnetic braking force",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "e.3",
+      "sourcePart": "E.3",
+      "label": "Magnetic descent",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "f.1",
+      "sourcePart": "F.1",
+      "label": "Numerical descent table",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "f.2",
+      "sourcePart": "F.2",
+      "label": "Per-orbit numerical table",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "f.3",
+      "sourcePart": "F.3",
+      "label": "Relative importance",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

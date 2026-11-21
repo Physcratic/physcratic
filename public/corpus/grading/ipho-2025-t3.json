@@ -1,0 +1,271 @@
+{
+  "problemId": "ipho-2025-t3",
+  "version": "a1f7af7b1a5e723aa6ac659447c86e7a1c39dbcc435353d8d5f032663ba1f573",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Bubble pressure",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "P_0",
+        "\\sigma",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "P_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use P_0, \\sigma, a. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Critical nucleation radius",
+      "kind": "numeric",
+      "unit": "um",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in um, without a unit suffix."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "A.3",
+      "label": "Growth laws",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "A.4",
+      "label": "Rising bubble and viscosity",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "A.5",
+      "label": "Radius at the surface",
+      "kind": "numeric",
+      "unit": "mm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in mm, without a unit suffix."
+    },
+    {
+      "id": "a.6",
+      "sourcePart": "A.6",
+      "label": "Dissolved-gas decay",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "g",
+        "V",
+        "N",
+        "f",
+        "\\eta",
+        "K",
+        "H"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "f",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\eta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "K",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "H",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use rho,g,V,N,f,H for liquid density, gravity, liquid volume, site count, bubble frequency and liquid height."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Film retraction speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\sigma",
+        "\\rho",
+        "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\sigma, \\rho, h. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Helmholtz frequency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\gamma",
+        "P_0",
+        "S",
+        "m_p",
+        "V_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "P_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_p",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\gamma, P_0, S, m_p, V_0. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Bubble film dimensions",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Closed-bottle pressure",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Expansion temperature and fog",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "C.3",
+      "label": "Cork maximum height",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "problemId": "apho-2009-t1",
+  "version": "8ff08893b99a3e11f564b347ecf4e6d52b5a200700592ed4292ef9da4e63f039",
+  "parts": [
+    {
+      "id": "1.1",
+      "sourcePart": "1.1",
+      "label": "Rolling constraint",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R",
+        "\\phi",
+        "r",
+        "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\phi",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use R, \\phi, r, \\theta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "1.2",
+      "sourcePart": "1.2",
+      "label": "Spin acceleration",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "1.3",
+      "sourcePart": "1.3",
+      "label": "Driven centre equation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "1.4",
+      "sourcePart": "1.4",
+      "label": "Period with fixed rotation rate",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R",
+        "r",
+        "g"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 1
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use R, r, g. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "1.5",
+      "sourcePart": "1.5",
+      "label": "Steady-rotation equilibrium",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "1.6",
+      "sourcePart": "1.6",
+      "label": "Accelerating-shell equilibrium",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "1.7",
+      "sourcePart": "1.7",
+      "label": "Freely rotating outer cylinder",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R",
+        "r",
+        "M",
+        "m",
+        "g"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 1
+        },
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use R, r, M, m, g. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "1.8",
+      "sourcePart": "1.8",
+      "label": "Abrupt stop and full ascent",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "g",
+        "R",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 1
+        }
+      ],
+      "help": "Use g, R, r. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

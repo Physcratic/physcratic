@@ -171,7 +171,7 @@
         "children": [
           {
             "type": "text",
-            "text": "On the other hand, the moment of inertia \\(I\\) could be found independently from geometric considerations. Although \\(I\\) could be found using the distances from the balls to the CM (the triangle's median centre), it is more convenient to use the following formula for the moment of inertia of a collection of point masses with respect to the CM, as printed in the source"
+            "text": "On the other hand, the moment of inertia \\(I\\) could be found independently from geometric considerations. Although \\(I\\) could be found using the distances from the balls to the CM (the triangle's median centre), it is more convenient to use the following formula for the moment of inertia of a collection of point masses with respect to the CM, with every unordered pair counted once"
           }
         ]
       },
@@ -181,7 +181,7 @@
         "children": [
           {
             "type": "text",
-            "text": "\\[I=\\frac{\\sum_{i,j}m_i m_j(\\mathbf r_i-\\mathbf r_j)^2}{\\sum_i m_i}.\\]"
+            "text": "\\[I=\\frac{\\sum_{i<j}m_i m_j(\\mathbf r_i-\\mathbf r_j)^2}{\\sum_i m_i}.\\]"
           }
         ]
       },
@@ -231,12 +231,12 @@
         "children": [
           {
             "type": "text",
-            "text": "Transcription note: the source's double-sum notation needs each unordered pair to be counted once. The explicit three-pair calculation (2) fixes the intended convention."
+            "text": "The source omits the factor one half from its unrestricted double sum. The corrected sum above counts each unordered pair once and agrees with the explicit calculation (2)."
           }
         ]
       }
     ],
-    "text": "1. Three balls\nLet the ball \\(A\\) be given an initial velocity \\(v\\) along the axis \\(Y\\), which is perpendicular to the rod. The total momentum of the system is conserved, therefore the centre of mass (CM) of the system moves with a constant velocity\n\\[v_{\\mathrm{CM}}=\\frac{mv}{3m}=\\frac v3\\]\nalong \\(Y\\). In what follows, we will work in the CM frame of reference, which is an inertial system of reference. Therefore, in the CM frame the laws of conservation of energy, momentum, and angular momentum hold true. The initial velocities of the three balls along \\(Y\\) are\n\\[v_A=\\frac{2v}{3},\\qquad v_B=v_C=-\\frac v3.\\]\nCorrespondingly, the total kinetic energy of the balls is\n\\[E=\\frac{mv^2}{2}\\left(\\frac49+\\frac19+\\frac19\\right)=\\frac{mv^2}{3}\\]\nand the total angular momentum with respect to the CM equals\n\\[L=m\\frac{2v}{3}\\ell-m\\frac v3(-\\ell)=mv\\ell.\\]\nAt any moment the three balls form an isosceles triangle with an angle \\(2\\varphi\\) at the top vertex. The distance between \\(A\\) and \\(C\\) is minimal when either \\(\\varphi=0\\), or \\(\\dot\\varphi=0\\). For \\(\\varphi=0\\), however, the laws of conservation are not consistent with the rigidity of the rods. Therefore, at the minimal distance \\(\\dot\\varphi=0\\), and in this particular instance the system behaves as a rigid body whose moment of inertia with respect to the CM can be obtained through\n\\[I=\\frac{L^2}{2E}=\\frac32m\\ell^2.\\tag{1}\\]\nOn the other hand, the moment of inertia \\(I\\) could be found independently from geometric considerations. Although \\(I\\) could be found using the distances from the balls to the CM (the triangle's median centre), it is more convenient to use the following formula for the moment of inertia of a collection of point masses with respect to the CM, as printed in the source\n\\[I=\\frac{\\sum_{i,j}m_i m_j(\\mathbf r_i-\\mathbf r_j)^2}{\\sum_i m_i}.\\]\nIn our case\n\\[I=\\frac{m^2}{3m}(AB^2+BC^2+AC^2)=\\frac m3(2\\ell^2+d^2).\\tag{2}\\]\nFrom (1) and (2), we obtain the minimal distance\n\\[d=\\ell\\sqrt{\\frac52}\\approx1.58\\ell.\\]\nTranscription note: the source's double-sum notation needs each unordered pair to be counted once. The explicit three-pair calculation (2) fixes the intended convention.",
+    "text": "1. Three balls\nLet the ball \\(A\\) be given an initial velocity \\(v\\) along the axis \\(Y\\), which is perpendicular to the rod. The total momentum of the system is conserved, therefore the centre of mass (CM) of the system moves with a constant velocity\n\\[v_{\\mathrm{CM}}=\\frac{mv}{3m}=\\frac v3\\]\nalong \\(Y\\). In what follows, we will work in the CM frame of reference, which is an inertial system of reference. Therefore, in the CM frame the laws of conservation of energy, momentum, and angular momentum hold true. The initial velocities of the three balls along \\(Y\\) are\n\\[v_A=\\frac{2v}{3},\\qquad v_B=v_C=-\\frac v3.\\]\nCorrespondingly, the total kinetic energy of the balls is\n\\[E=\\frac{mv^2}{2}\\left(\\frac49+\\frac19+\\frac19\\right)=\\frac{mv^2}{3}\\]\nand the total angular momentum with respect to the CM equals\n\\[L=m\\frac{2v}{3}\\ell-m\\frac v3(-\\ell)=mv\\ell.\\]\nAt any moment the three balls form an isosceles triangle with an angle \\(2\\varphi\\) at the top vertex. The distance between \\(A\\) and \\(C\\) is minimal when either \\(\\varphi=0\\), or \\(\\dot\\varphi=0\\). For \\(\\varphi=0\\), however, the laws of conservation are not consistent with the rigidity of the rods. Therefore, at the minimal distance \\(\\dot\\varphi=0\\), and in this particular instance the system behaves as a rigid body whose moment of inertia with respect to the CM can be obtained through\n\\[I=\\frac{L^2}{2E}=\\frac32m\\ell^2.\\tag{1}\\]\nOn the other hand, the moment of inertia \\(I\\) could be found independently from geometric considerations. Although \\(I\\) could be found using the distances from the balls to the CM (the triangle's median centre), it is more convenient to use the following formula for the moment of inertia of a collection of point masses with respect to the CM, with every unordered pair counted once\n\\[I=\\frac{\\sum_{i<j}m_i m_j(\\mathbf r_i-\\mathbf r_j)^2}{\\sum_i m_i}.\\]\nIn our case\n\\[I=\\frac{m^2}{3m}(AB^2+BC^2+AC^2)=\\frac m3(2\\ell^2+d^2).\\tag{2}\\]\nFrom (1) and (2), we obtain the minimal distance\n\\[d=\\ell\\sqrt{\\frac52}\\approx1.58\\ell.\\]\nThe source omits the factor one half from its unrestricted double sum. The corrected sum above counts each unordered pair once and agrees with the explicit calculation (2).",
     "figures": [],
     "shared": false
   }

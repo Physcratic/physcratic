@@ -38,7 +38,7 @@ nativeOlympiadContent["eupho-2017-t2"] = {
     eq(t`P_1\sim nk_B\sqrt{T_0T_1}\gg P_0,\quad F\sim Snk_B\sqrt{T_0T_1},\quad a_0\sim\frac{S\rho k_B\sqrt{T_0T_1}}{mM}.`),
     p("The disk accelerates away from the hot face. It is incorrect to use the equilibrium pressure at the hot temperature, since the incident molecular flux is fixed by the cold gas."),
     sub("Maximum speed"),
-    p(t`Once the disk moves at a speed comparable to \(v_0=\sqrt{k_BT_0/m}\), the molecular flux catching its hot rear face drops very rapidly because of the Maxwell velocity distribution. The source gives rough flux ratios of \(10^{-3}\) at \(2v_0\) and \(10^{-6}\) at \(3v_0\). This suppresses the initial pressure bias of order \(\sqrt{T_1/T_0}\simeq30\). Thus`),
+    p(t`Once the disk moves at a speed comparable to \(v_0=\sqrt{k_BT_0/m}\), the molecular flux catching its hot rear face drops very rapidly because of the Maxwell velocity distribution. For a Maxwellian normal velocity, write \(u=v/v_0\), \(\phi(u)=e^{-u^2/2}/\sqrt{2\pi}\) and \(Q(u)=\int_u^\infty\phi(s)\,ds\). The incident flux on the receding rear face is \(j(v)=nv_0[\phi(u)-uQ(u)]\). Its ratios to \(j(0)\) are about \(2.13\times10^{-2}\) at \(u=2\) and \(9.58\times10^{-4}\) at \(u=3\). The much smaller ratios printed in the source are not consistent with its definition of \(v_0\). Rear-face propulsion falls while front-face drag grows, removing the initial pressure bias of order \(\sqrt{T_1/T_0}\simeq30\) at a speed of order \(v_0\). Thus`),
     eq(t`v_{\max}\sim\sqrt{\frac{k_BT_0}{m}}.`),
     sub("Check that cooling is slow"),
     p(t`The acceleration time and initial heat-removal power scale as`),

@@ -116,5 +116,5 @@ test("EuPhO 2019 shared papers are split without other problems leaking into eac
   }
   assert.equal(get("apho-2012-t3").statement.nodes.filter((n: {tag?: string})=>n.tag==="h3").length, 8);
   assert.match(get("apho-2012-t3").solution.text, /signed amplitude/);
-  assert.match(get("apho-2012-t3").solution.text, /not exact as printed/);
+  assert.match(get("apho-2012-t3").solution.text, /Both are corrected here/);
 });

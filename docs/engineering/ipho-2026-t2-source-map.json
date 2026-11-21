@@ -54,8 +54,8 @@
     "solution": {
       "sha256": "2256104b843dcaa7031ab3d14a9f32eea6f6be6714a3f284ee028c752b73493f",
       "pdfPages": 5,
-      "nodes": 138,
-      "mathExpressions": 119,
+      "nodes": 139,
+      "mathExpressions": 123,
       "displayedExpressions": 63,
       "pages": [
         {
@@ -94,21 +94,26 @@
           "nodeStart": 90,
           "mathStart": 80,
           "displayStart": 37,
-          "nodeEnd": 116,
-          "mathEnd": 101,
+          "nodeEnd": 117,
+          "mathEnd": 105,
           "displayEnd": 49
         },
         {
           "pdfPage": 5,
           "printedPage": 9,
-          "nodeStart": 117,
-          "mathStart": 102,
+          "nodeStart": 118,
+          "mathStart": 106,
           "displayStart": 50,
-          "nodeEnd": 138,
-          "mathEnd": 119,
+          "nodeEnd": 139,
+          "mathEnd": 123,
           "displayEnd": 63
         }
-      ]
+      ],
+      "editorialCorrection": {
+        "pdfPage": 4,
+        "node": 117,
+        "review": "NATIVE_ARCHIVE_PHYSICS_REVIEW.md"
+      }
     }
   }
 }

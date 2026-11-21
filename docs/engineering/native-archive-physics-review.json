@@ -1,0 +1,2246 @@
+{
+  "baseline": "d6b7c91b88c3cd655033ce3d1c4305ba9b80299e",
+  "reviewer": "Codex model review, not external human sign-off",
+  "records": [
+    {
+      "id": "ipho-2026-t3",
+      "review": "model-and-key-review",
+      "focus": "Magnetic source work, exact entropy differential and finite-cooling Carnot integral",
+      "before": "729811d1df71f32c5ac099dca83399d8afc37a4ba8077f349b5e8a325911926d",
+      "after": "729811d1df71f32c5ac099dca83399d8afc37a4ba8077f349b5e8a325911926d",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/2026/ipho-t3/statement.pdf",
+          "sha256": "1fc6e246a0f1a369719f5bd39bfc12f7b665353be84a91485c8643370330b224"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/2026/ipho-t3/solution.pdf",
+          "sha256": "3ef1952f8a7466beb809764b2b0dcdd8191f71fd42ad4f71a96c0b53ab5bcb01"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2026-t2",
+      "review": "model-and-key-review",
+      "focus": "Specular ray geometry, tangent envelope and cusp Taylor expansion",
+      "before": "6138dc75666392434d5ac94f0c2979b88ab8bde93caa86c3e448ace0bbb4cbe6",
+      "after": "7942dc15f879323357223089614bf1f2ee4ffafc578af8232e770ed9e7ae28cd",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/2026/ipho-t2/statement.pdf",
+          "sha256": "d105a67ea95650c035c3c1c2f7649b27fc594843e8037485927af1711225ce55"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/2026/ipho-t2/solution.pdf",
+          "sha256": "2256104b843dcaa7031ab3d14a9f32eea6f6be6714a3f284ee028c752b73493f"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2026-t1",
+      "review": "model-and-key-review",
+      "focus": "Gate torque, two-body conics and constrained nonnegative-momentum ozone threshold",
+      "before": "47058c46a8aa6c7d500423580e878aac72e9b35bcad004701ddfc26d7c63d9da",
+      "after": "3ba4f037cc91a52570ccd8c617a1a7b1176c8fd84c3bad04c213cd5681b3740b",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/2026/ipho-t1/statement.pdf",
+          "sha256": "0fc29bcca76d88b36c6cc6630cddb9bd22fceb96da857a527b675b72cb97f833"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/2026/ipho-t1/solution.pdf",
+          "sha256": "9e6855ade0068a9451f3476d6781fece4a222d3b5a412f894f5bf28778f7ef6f"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2025-t1",
+      "review": "model-and-key-review",
+      "focus": "Bohr scales, hyperfine convention, sightline geometry and MOND interpolation",
+      "before": "fbb21091c8cf4d7e58c611906a5569ed667466a60fdcecea7409bddbf56e555c",
+      "after": "fbb21091c8cf4d7e58c611906a5569ed667466a60fdcecea7409bddbf56e555c",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2025-t1-statement/document.pdf",
+          "sha256": "866d34e6f1c5469c9a33761f9b8fea94e41620cb28831ed5401b056febdc4485"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2025-t1-solution/document.pdf",
+          "sha256": "4551f43739a66723fae135aa80f5811cca0c719a9d8e9ca2d72c63ec9d28d988"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2025-t2",
+      "review": "model-and-key-review",
+      "focus": "Hydrostatic load, pressure switching and limiting cycle-work optimization",
+      "before": "dd5bbacf255f7fdffcac42e994b5eb214ff305c4fc5434d767dd5a58bfbb913a",
+      "after": "dd5bbacf255f7fdffcac42e994b5eb214ff305c4fc5434d767dd5a58bfbb913a",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2025-t2-statement/document.pdf",
+          "sha256": "2a23bf9c8451fbaa7036ca6eaf83aaae49995d3b5aa5f2600874296319ddd333"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2025-t2-solution/document.pdf",
+          "sha256": "4845538076deabf1207426c57ee2948fe8d9939163b26fb68e77761a45ffedb8"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2025-t3",
+      "review": "model-and-key-review",
+      "focus": "Gas transport, film retraction, Helmholtz mode and cork work",
+      "before": "3f5ec55a9ea2a4072e9935f4d6b49eb36757c02221132ca6fefa64f22fd779d8",
+      "after": "3f5ec55a9ea2a4072e9935f4d6b49eb36757c02221132ca6fefa64f22fd779d8",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2025-t3-statement/document.pdf",
+          "sha256": "d8715ed3a2c6e552f294aef451382db869c8e7fd800621a7b1b30886c705cdd8"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2025-t3-solution/document.pdf",
+          "sha256": "fed9e276bcc33b300fcf58a510554ccbe503f0a5da1b27ab22b9414aeca7c913"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2024-t1",
+      "review": "model-and-key-review",
+      "focus": "Spectral maximum, multiple-reflection albedo and coupled heat sensitivities",
+      "before": "cc15af917872e4004db8420486e906dd80dd52d74cabafded4cd57084f22ef9b",
+      "after": "b0db5ade0cb2281594fc31f1eb893b371a19f4c563b7e496fea15eeded85b298",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2024-t1-statement/document.pdf",
+          "sha256": "a513d544b6dc80e8fd6454d908e14b378b6e4306cb3bc49d26f826558862803a"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2024-t1-solution/document.pdf",
+          "sha256": "c7006bbcadf2bdfa1feaf99c89cac6c7aa8b41f66cc742d0a12dc41a90bf6e52"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2024-t2",
+      "review": "model-and-key-review",
+      "focus": "Ring-field instability, micromotion averaging and recoil-heating balance",
+      "before": "78b25c88f630ab9e42829b99e93fe920fe79c9f21b4c251009ba3c6c35c6fa1b",
+      "after": "78b25c88f630ab9e42829b99e93fe920fe79c9f21b4c251009ba3c6c35c6fa1b",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2024-t2-statement/document.pdf",
+          "sha256": "0f3b3e4f6162f1e0341cfe0ab33b22e98fadb3d9750de53ebf2fb169d9263df4"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2024-t2-solution/document.pdf",
+          "sha256": "084625e46ab1bff700c9434a9a663a846ab66f7c59c895bd4394bbf079c4711b"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2024-t3",
+      "review": "model-and-key-review",
+      "focus": "Conservative mass transfer, supplied disc model and polytrope stability",
+      "before": "b142ad2382e02311262bcb13b017e3bdeb6dfa987cd489097dec1f668d3798d2",
+      "after": "b142ad2382e02311262bcb13b017e3bdeb6dfa987cd489097dec1f668d3798d2",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2024-t3-statement/document.pdf",
+          "sha256": "2ff2d180492f1655f30d2655847b2aeaff827d69ccba54ff5d0dbcb9f7489ddb"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2024-t3-solution/document.pdf",
+          "sha256": "6199c3c566ae49a2c542e70b3a6ff2cbaf70dab821a5e4a173e6dc315cd557d0"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2023-t1",
+      "review": "model-and-key-review",
+      "focus": "Impulse response, diffusion moments and deterministic force-barrier threshold",
+      "before": "9355e1c53be28bdd9bc7bcf5e92cb02cb2008a2753898693f099f3f8c058f287",
+      "after": "fe23812c2071386a2218531af0bf0a1e60e48452fb387a68bb6391adcd6d0220",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2023-t1-statement/document.pdf",
+          "sha256": "4fef805edaaa3c236c1e6a326bb5dd217e2915bee3bddfeb42652355cd7154c0"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2023-t1-solution/document.pdf",
+          "sha256": "a813483dd978f206c2c237e2516abc8b6ae922bb794491c51d1b1abb33a3e03c"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2023-t2",
+      "review": "model-and-key-review",
+      "focus": "Binding extrema, fission energy, clock sign and Shapiro logarithms",
+      "before": "2bf901e83a55dbc34253329ffae81dad144cee375619a6e0757c00e73f72c774",
+      "after": "2bf901e83a55dbc34253329ffae81dad144cee375619a6e0757c00e73f72c774",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2023-t2-statement/document.pdf",
+          "sha256": "1952ff21f907107b23c3757af34ecdcb362f38b56085aae32bc183d287beb4cd"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2023-t2-solution/document.pdf",
+          "sha256": "a202c939bb78a0e384830b2e2d901a660661051ecba28214ab64f7dfd1b9942d"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2023-t3",
+      "review": "model-and-key-review",
+      "focus": "Capillary first integral, contact-force signs and midpoint symmetry",
+      "before": "d57ca070f3ea5981ff2442b83fb53976fc224425eb4590b5c141681226cc8155",
+      "after": "d57ca070f3ea5981ff2442b83fb53976fc224425eb4590b5c141681226cc8155",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2023-t3-statement/document.pdf",
+          "sha256": "fe25d0f5ef076db853d8b64a1a9d58ca343665087ab8afe1dec294e53d8a9016"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2023-t3-solution/document.pdf",
+          "sha256": "d86cee21f6fe4322ef9a796061ac6021a63115e56e0285593ce33141b527d7fc"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2022-t1",
+      "review": "model-and-key-review",
+      "focus": "Dipole forces, chain support, permeable images and removal-energy counting",
+      "before": "2fe4f32f1423a064b084957f787cf11c2d0fbcec1beac3b424842879789fe05b",
+      "after": "2fe4f32f1423a064b084957f787cf11c2d0fbcec1beac3b424842879789fe05b",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2022-t1-statement/document.pdf",
+          "sha256": "0f90f13d7fc724fdda8393698e0e7450f3c1e47970bd91b36dbd96eefeaff99d"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2022-t1-solution/document.pdf",
+          "sha256": "083e6564c94c7dd195009bf058386c34b39ef782e6c942d2f20db75fe1fcb7c0"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2022-t2",
+      "review": "model-and-key-review",
+      "focus": "Diffraction conventions, Poisson counts, conditional shield model and enthalpy",
+      "before": "a603dcc266d5eeae3412b2dc194c15e994be85704b5157f25354b55220372058",
+      "after": "9db9706be3c79b1057aeaa6346de1486a921e9c4fe4f782c4c2b02ba44ddeee6",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2022-t2-statement/document.pdf",
+          "sha256": "6566f8eff10a54679574c2834ed1d1e9888fe4533a5b6d7f546d061fe53c0337"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2022-t2-solution/document.pdf",
+          "sha256": "c55c66cb13929fbae8d4d65513c05f93580fb37b4616f0e1cf5516441bb1fa97"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2022-t3",
+      "review": "model-and-key-review",
+      "focus": "Bending and capillary scales, proper-time legs and critical damping",
+      "before": "468433676d00b0cc5e7a18aae19b5da5e7ad35e93b2118edc052db9c8a9dbb2c",
+      "after": "468433676d00b0cc5e7a18aae19b5da5e7ad35e93b2118edc052db9c8a9dbb2c",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2022-t3-statement/document.pdf",
+          "sha256": "d3fc5f300c6854c3a0d91554f7c52b9cb54d2bb3b9d15dfcea0a2d38ea983bf6"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2022-t3-solution/document.pdf",
+          "sha256": "48eeb9fdd698aa0d48ef95694d5ac72615ba204d38ad43761930345c73964a88"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2021-t1",
+      "review": "model-and-key-review",
+      "focus": "Hydrostatic crust loads, seismic circular rays and surface-energy normalization",
+      "before": "8c1194e45d5ef7722d16a9a1030363ee1e62681564c29c8db0d9809b420459c0",
+      "after": "8c1194e45d5ef7722d16a9a1030363ee1e62681564c29c8db0d9809b420459c0",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2021-t1-statement/document.pdf",
+          "sha256": "f37517d2efa23f5d2b7c1426452bb6af43302aba01ba5c2fb516ca4e763342c1"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2021-t1-solution/document.pdf",
+          "sha256": "aa13de734a87886a58f99b95e00ae4c1e7c93404b7ec4f742179170886767392"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2021-t2",
+      "review": "model-and-key-review",
+      "focus": "Ring-potential curvature, lens impulse and complete RC discharge tail",
+      "before": "987c7ea7a76024c86f29cd95d3340bd5b022bf13124ccf19fe7f0e04ad58526f",
+      "after": "987c7ea7a76024c86f29cd95d3340bd5b022bf13124ccf19fe7f0e04ad58526f",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2021-t2-statement/document.pdf",
+          "sha256": "7c90dde74ecbae904c90324acf177348b68ef8f5b00b865e890bd5a3cf296a2f"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2021-t2-solution/document.pdf",
+          "sha256": "26a1fdb2a4987f4062a46468afb8e3a4516f5c6daa563632138cd0b33c548e0a"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2021-t3",
+      "review": "model-and-key-review",
+      "focus": "Level filling, dipole decay, lattice saddles and Rydberg length",
+      "before": "161073241c044aa82f96c16ba354050a689ce14b2f8bdd9a1bf82c578239eae8",
+      "after": "161073241c044aa82f96c16ba354050a689ce14b2f8bdd9a1bf82c578239eae8",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2021-t3-statement/document.pdf",
+          "sha256": "c065e99f72751b1f7e544c95516ba292aecc2f3320d42b25b96e7faf7c5750b4"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2021-t3-solution/document.pdf",
+          "sha256": "f8804d3a8b37708c5beda7dfb51145b3b850e30cde7b792ef40fff768cacc84a"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2019-t1",
+      "review": "model-and-key-review",
+      "focus": "Variable-mass collapse, centre-of-mass fall and dissipated spring energy",
+      "before": "18e2ebd72eb1091e28379ec336b3e7f3057500229042a3b7eaa82a9adc4e86c5",
+      "after": "18e2ebd72eb1091e28379ec336b3e7f3057500229042a3b7eaa82a9adc4e86c5",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2019-t1-statement/document.pdf",
+          "sha256": "96b623b665b38e671740257d7e28b7b2b2d92db3450be39e5043f00e22ef6927"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2019-t1-solution/document.pdf",
+          "sha256": "b6edd014adb2f8bab5a47289b137f3b61f84186bd602b7212fa86088e7bbbce2"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2019-t2",
+      "review": "model-and-key-review",
+      "focus": "Crossed-field drift, cavity estimate and dielectric loss balance",
+      "before": "e402d7031383b54dc1b57da6b3add9c4f49f49cd60f8b5311e22945dd735db02",
+      "after": "e402d7031383b54dc1b57da6b3add9c4f49f49cd60f8b5311e22945dd735db02",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2019-t2-statement/document.pdf",
+          "sha256": "a33326a968579e95499464f29c90da9bffb3c4e6e715d54bab49e9f5319a8ee1"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2019-t2-solution/document.pdf",
+          "sha256": "ad1a091d3213eddd0946745ed8ef72a1f5fd1b2f2a82532b21ae238645946888"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2019-t3",
+      "review": "model-and-key-review",
+      "focus": "Acoustic parcel phases, cycle work and transported heat",
+      "before": "3fbc5e58bb7efd4951500b97c7a8684ee56461ae0ecce28134bf1dd7ea662fee",
+      "after": "3fbc5e58bb7efd4951500b97c7a8684ee56461ae0ecce28134bf1dd7ea662fee",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2019-t3-statement/document.pdf",
+          "sha256": "30182f27b8154b5fa2e7c12b99e11b98c3a3dc136b77ad74722df26bdf040362"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2019-t3-solution/document.pdf",
+          "sha256": "21e25ca7ce7449d7936893b7a96394f9b19395d671d0e8388ad3398b1e8e6be4"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2018-t1",
+      "review": "model-and-key-review",
+      "focus": "Quadrupole derivatives, orbital chirp integration and compactness estimate",
+      "before": "337901499ee7dee2ddcc13c2203ca873b9359c02dcc2239fe62b0a79661d4ca4",
+      "after": "337901499ee7dee2ddcc13c2203ca873b9359c02dcc2239fe62b0a79661d4ca4",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2018-t1-statement/document.pdf",
+          "sha256": "5d0ba5473601aec11962a660ed55bc759485db68a0b66109c324335fbebf9752"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2018-t1-solution/document.pdf",
+          "sha256": "e6b70d5098fd1952bef4bcd0cee54003a24ea2edd080160d4e9759282e358613"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2018-t2",
+      "review": "model-and-key-review",
+      "focus": "Synchrotron dimensions and unsquared neutrino four-momentum constraint",
+      "before": "339ac46da433166828706a198d219cf0115374aa586961f9e0f03ed2dfd7cfb3",
+      "after": "339ac46da433166828706a198d219cf0115374aa586961f9e0f03ed2dfd7cfb3",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2018-t2-statement/document.pdf",
+          "sha256": "848199e2cc3a3118555fb8e73dbfbd3d0f05969beb37317d5757c1499f48e1f6"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2018-t2-solution/document.pdf",
+          "sha256": "b03fc35de0fdf623b1d0100006388abfded702582df2e1634fa14aaf15787846"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2018-t3",
+      "review": "model-and-key-review",
+      "focus": "Vessel-network scaling, complex transfer and tumour heat-flow boundaries",
+      "before": "dc6a10c24d30d1bbfd79ce0ba83c9780893be1ea4590eff42152f4e1a89cadba",
+      "after": "dc6a10c24d30d1bbfd79ce0ba83c9780893be1ea4590eff42152f4e1a89cadba",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2018-t3-statement/document.pdf",
+          "sha256": "fdce49fdb954bb317d0e6c5e227adef48a758ac90e0d45bbcecdb6991c40165e"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2018-t3-solution/document.pdf",
+          "sha256": "7667b3768d15b8ba7baf58124634d0882fe22633214273c2f7decddd6294e4e9"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2008-t1",
+      "review": "model-and-key-review",
+      "focus": "Water centroid, spilling geometry and approximate torque-cycle areas",
+      "before": "6090dd77c1c8d35a509043e33567fc516f06cd2951b7cd3e24401885be535c1c",
+      "after": "6090dd77c1c8d35a509043e33567fc516f06cd2951b7cd3e24401885be535c1c",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2008-t1-statement/document.pdf",
+          "sha256": "06d0070a48ec398a02c337a160be4b0d59e106257b7e95ad53d139fb2e95114e"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2008-t1-solution/document.pdf",
+          "sha256": "3480c3404fa6cdbef4f75aa4a445ba3aa27feabfb34247633c01f57c9e614152"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2017-t2",
+      "review": "model-and-key-review",
+      "focus": "Seismic ray parameter, head-wave geometry and turning-point rounding",
+      "before": "64504ef9926673262cdb8dec1cabca131f4391ded50969767fed0cdfa5dfa49d",
+      "after": "64504ef9926673262cdb8dec1cabca131f4391ded50969767fed0cdfa5dfa49d",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2017-t2-statement/document.pdf",
+          "sha256": "56af240e6ee694b30404ad210c50544a8e2b37ff656a8dd2f26909c06a314e4f"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2017-t2-solution/document.pdf",
+          "sha256": "e7dfa9566d96ca5dea0442227b4bc6364045619492862f3806fa3eec06fc448d"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2017-t3",
+      "review": "model-and-key-review",
+      "focus": "Continuity equation, curvature scaling and signed e-fold convention",
+      "before": "dcf1f34515132a1db28a806dbe946bdc68dd1156dcda4676f20c1229ade8c87d",
+      "after": "dcf1f34515132a1db28a806dbe946bdc68dd1156dcda4676f20c1229ade8c87d",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2017-t3-statement/document.pdf",
+          "sha256": "23dab6c537a9007370eba4f67c31c715c71f2aaa856716b7a3fdee357b543e61"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2017-t3-solution/document.pdf",
+          "sha256": "a1d8218781278d86d74490b63b8ec49b22eba61475b1a7d746b7c3ad1afd90d5"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2016-t2",
+      "review": "model-and-key-review",
+      "focus": "Load-line intersections, inductive stability and capacitive dwell times",
+      "before": "892144f5818ecf3d09fac938cf31a13c5aae4f91c1e39b24335c0be3778f2e06",
+      "after": "892144f5818ecf3d09fac938cf31a13c5aae4f91c1e39b24335c0be3778f2e06",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2016-t2-statement/document.pdf",
+          "sha256": "6bf5c3371973491e192442bc6585262a6574d0f8fd34debeca2e83625041a1b7"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2016-t2-solution/document.pdf",
+          "sha256": "e55ce8e3ab2507ad0f33eee724c241171d9aa9121d932494f08565a036165b22"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2005-t1",
+      "review": "model-and-key-review",
+      "focus": "Conic energy, unchanged angular momentum and escape asymptote",
+      "before": "aa67495e6582053abc7d564915361a43407a9a1475429f7856d6349c0c3334c7",
+      "after": "aa67495e6582053abc7d564915361a43407a9a1475429f7856d6349c0c3334c7",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2005-t1-statement/document.pdf",
+          "sha256": "7ab175fc3932a60b47f0f7999e1ad5cd91c12f9d47ff54c47b958f05bf04a847"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2005-t1-solution/document.pdf",
+          "sha256": "727521a1884ddd4aecea001f600f536f2a9070de2e053a4207fc24755f7dbd33"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2015-t1",
+      "review": "model-and-key-review",
+      "focus": "Wien integrals, optimum band gap, neutrino Doppler width and energy transfer",
+      "before": "8d3e3db93c92028855cb6918f35b30288faf7ab2a0565062cd47bdc17acd4760",
+      "after": "8d3e3db93c92028855cb6918f35b30288faf7ab2a0565062cd47bdc17acd4760",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2015-t1-statement/document.pdf",
+          "sha256": "8a2011423c093bffb23b121b63e7e07f8422f20a49d5a6521623a58d44759f9c"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2015-t1-solution/document.pdf",
+          "sha256": "1fc4e7a3ecf0c6eecd1d5ff3602c73a6f45e3d8b07079a8b199bc67e3f94dff4"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2015-t2",
+      "review": "model-and-key-review",
+      "focus": "Fixed-energy action, optical invariant and two-slit phase difference",
+      "before": "f30b40cc6073569a31d99f5e1b451653218d64c7f0c2f09bea0f6efde9d2b973",
+      "after": "f30b40cc6073569a31d99f5e1b451653218d64c7f0c2f09bea0f6efde9d2b973",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2015-t2-statement/document.pdf",
+          "sha256": "408546e55fec4a800aebb7ea20aaddc70bf87e9e5899772518130da6aa98a891"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2015-t2-solution/document.pdf",
+          "sha256": "009df4f7fef4808869f07c156686856957df76f4a2fc0c3a1b9380557c091cb8"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2015-t3",
+      "review": "model-and-key-review",
+      "focus": "Mass defect, cylindrical heat flow, elastic collisions and leakage optimization",
+      "before": "e705b730351f97960ffd02ad374864ebac8a881bfbccb0e0c06c9905fb904c66",
+      "after": "e705b730351f97960ffd02ad374864ebac8a881bfbccb0e0c06c9905fb904c66",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2015-t3-statement/document.pdf",
+          "sha256": "9d713aaa58ff54b62a0c07496328cb82b5d209fc0e6ba4eab0ca57825a72c892"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2015-t3-solution/document.pdf",
+          "sha256": "9beed7a47d96aad3014b1c664affeb9cfd8ebc7b00dd93a98be9989280afb821"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2016-t1",
+      "review": "model-and-key-review",
+      "focus": "Excess-mass inertia, gravity gradients and correct station-return branch",
+      "before": "485e1196d72ec544b41e73736930264db081caeb5536092e1506bfa59d41ee81",
+      "after": "485e1196d72ec544b41e73736930264db081caeb5536092e1506bfa59d41ee81",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2016-t1-statement/document.pdf",
+          "sha256": "bb5f498da4d5f0fe13e8540346780e17a12a1a5aefd1f3ee1f1b8c8bab724300"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2016-t1-solution/document.pdf",
+          "sha256": "8cc8664f1cfc01c33270e65a9571aec3d8adff673189acb02be2cfb36637f75f"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2014-t3",
+      "review": "model-and-key-review",
+      "focus": "Pair production-recombination balance and Townsend feedback threshold",
+      "before": "e71331cb100e98033d112a50e570039c259d543495cb6b50ad93e1a3d52c5b4f",
+      "after": "e71331cb100e98033d112a50e570039c259d543495cb6b50ad93e1a3d52c5b4f",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2014-t3-statement/document.pdf",
+          "sha256": "0e3dcc253bdf2e889af946083bcba30328cdcc920ac2a3da0fa54c94bcce2138"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2014-t3-solution/document.pdf",
+          "sha256": "910439829cf48dfcc008f560e0fac1dda8f44e694ab450b2b392574b3f98cad5"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2013-t1",
+      "review": "model-and-key-review",
+      "focus": "Meteor triangulation, thermal diffusion, isotope decay and impact momentum",
+      "before": "c5699f3fd50080ee3649c6757a7c49f2da5cd3024e108f8ebbede0f0581410a9",
+      "after": "c5699f3fd50080ee3649c6757a7c49f2da5cd3024e108f8ebbede0f0581410a9",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2013-t1-statement/document.pdf",
+          "sha256": "2c684cd54d06972ad1b220c0d9554a70e56112e984bcb3590be5c084a94a9875"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2013-t1-solution/document.pdf",
+          "sha256": "b98f225380755f27a81ae8b7250fb000861d3c6833abdfc9fd171c8c2877336a"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2013-t2",
+      "review": "model-and-key-review",
+      "focus": "Charge-cloud restoring energy and equivalent circuit power accounting",
+      "before": "7164c5741e3a89907a3a582ee0f5fcf53840c2f1d2bbb958c7a310c8aed1e3c8",
+      "after": "7164c5741e3a89907a3a582ee0f5fcf53840c2f1d2bbb958c7a310c8aed1e3c8",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2013-t2-statement/document.pdf",
+          "sha256": "5f7951cb064f66701ac13e3b584cc74d2af76da8725b134b6f325f6010950be8"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2013-t2-solution/document.pdf",
+          "sha256": "2c8f13c50b96025ff547e77747e80bcfcd927c78c37928b141ffdaa335c54cb1"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2013-t3",
+      "review": "model-and-key-review",
+      "focus": "Ice pressure tractions, mass conservation, age integral and sea potential",
+      "before": "4bed055f3353c14840f1938da59e1b41305ebeb61a5bab3d7bda550c63a40776",
+      "after": "4bed055f3353c14840f1938da59e1b41305ebeb61a5bab3d7bda550c63a40776",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2013-t3-statement/document.pdf",
+          "sha256": "8b84c2f2f11830442b585c49db7b0859f83de57d43fd36e74ce14ba96f82ea30"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2013-t3-solution/document.pdf",
+          "sha256": "d37b0711e8adbc031cfc1a014a68c82bb07bc48f6cea1e14de30763e8d59c4bc"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2012-t2",
+      "review": "model-and-key-review",
+      "focus": "Capillary detachment, electric pressure and dropper energy limit",
+      "before": "4fdc4142b19fbbeb12e20cc736a179e03f611ec56573d805be25d28108df7f5a",
+      "after": "4fdc4142b19fbbeb12e20cc736a179e03f611ec56573d805be25d28108df7f5a",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2012-t2-statement/document.pdf",
+          "sha256": "2861013a629439e55c3db905e764fd115fb31c9b1ce294d1e1aab3c78a19b2a2"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2012-t2-solution/document.pdf",
+          "sha256": "214e34713f3d8e5c95c0069c888952a37a4451f01cf745dd5bffc5ec19bcaa33"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2011-t1",
+      "review": "model-and-key-review",
+      "focus": "Triangular force balance and explicitly restricted radial approximation",
+      "before": "ec17abb2e5387d114a0c1ecc867751b2ae1ed6707d61f19e41d11112d846f182",
+      "after": "ec17abb2e5387d114a0c1ecc867751b2ae1ed6707d61f19e41d11112d846f182",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2011-t1-statement/document.pdf",
+          "sha256": "356ee3ec4a4f3ea200393a2b814b7bbdcdfc4bbd831cf99055cb1db093d0aaae"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2011-t1-solution/document.pdf",
+          "sha256": "06f6156471f82b403cf10adf6cbf8479d062cbf922c2762239013d212a152e26"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2010-t1",
+      "review": "model-and-key-review",
+      "focus": "Sphere image charge, energy half-factor and pendulum stiffness",
+      "before": "2cdc1ce1f03dadd79ae487f3be83716e55d70f9501b0c3ef482957f1108061bd",
+      "after": "2cdc1ce1f03dadd79ae487f3be83716e55d70f9501b0c3ef482957f1108061bd",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2010-t1-statement/document.pdf",
+          "sha256": "67701ceca004cc12a187b6f0d8dc950a73ec9af64dc1a22b2f7e0bba0af0d195"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2010-t1-solution/document.pdf",
+          "sha256": "b7b89a6e6394a7b4a10d21c091d0eb90b9b58ed5bac5df9044e69c82e9fbe20f"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2010-t2",
+      "review": "model-and-key-review",
+      "focus": "Chimney hydrostatics, Bernoulli draft and heat-flow efficiency",
+      "before": "c3ec1c8e9e6f785d1434a2f1c371047d2e3d74f53303f82d9690002ca6f8f25e",
+      "after": "c3ec1c8e9e6f785d1434a2f1c371047d2e3d74f53303f82d9690002ca6f8f25e",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2010-t2-statement/document.pdf",
+          "sha256": "04358456d1e6541487927ff56142df9615213af4453a5c3872994865fb504c0f"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2010-t2-solution/document.pdf",
+          "sha256": "6c28269b658ecd0dd4feef3cbdc3905d0f9e980d315442b4e964223a56b3575d"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2008-t2",
+      "review": "model-and-key-review",
+      "focus": "Cherenkov threshold, relativistic momentum and angular half-widths",
+      "before": "8c507709ff935a33d264fc09e04a66fb3ed0efd489b1791b943fbe4209c19a90",
+      "after": "8c507709ff935a33d264fc09e04a66fb3ed0efd489b1791b943fbe4209c19a90",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2008-t2-statement/document.pdf",
+          "sha256": "75e6b3948a145525ff31121ea279d7d2071fc8db2e7a0bd82330aac0a43685a6"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2008-t2-solution/document.pdf",
+          "sha256": "5dc0c1abba3d7d496c0e2cace0ac10b137f1e006118abb091f6af73ae314f9f9"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2007-t2",
+      "review": "model-and-key-review",
+      "focus": "Fixed-charge energy, differential force and step-response overshoot",
+      "before": "c45f5c809605099c587ee05a7f9ba86f549936232b8b18c5632f564cf3a56f09",
+      "after": "c45f5c809605099c587ee05a7f9ba86f549936232b8b18c5632f564cf3a56f09",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2007-t2-statement/document.pdf",
+          "sha256": "a5553bf1e5702140aa3c4e3496acde6fb826e114b976b17e50bb7bcd906dd48b"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2007-t2-solution/document.pdf",
+          "sha256": "161f46402b8ed8c52cf0e5bd422e7eaf318eef5a5f4d024b86cf1bc6ba03f4c0"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2009-t1",
+      "review": "model-and-key-review",
+      "focus": "Tidal-torque expansion, angular momentum and mechanical energy loss",
+      "before": "32ba7bca3261b3f71c73927a656a8aeaeb5e7c5835fc581dc6de73d85ecbeed5",
+      "after": "32ba7bca3261b3f71c73927a656a8aeaeb5e7c5835fc581dc6de73d85ecbeed5",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2009-t1-statement/document.pdf",
+          "sha256": "d33c90b9353747045d51c1fcf29c28290371fcdc036ae79aa6dc41409bc56560"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2009-t1-solution/document.pdf",
+          "sha256": "ce30702d56bfd330316994aa217f3b66b716b465efadcdebc9ecdf21982982be"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2005-t2",
+      "review": "model-and-key-review",
+      "focus": "Faraday emf, motional disc voltage and balance restoring torque",
+      "before": "6f2955787e59b3f65361e4e0e5219cb4ba662d8f72bd6e2bdcdcb599bd8c7383",
+      "after": "6f2955787e59b3f65361e4e0e5219cb4ba662d8f72bd6e2bdcdcb599bd8c7383",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2005-t2-statement/document.pdf",
+          "sha256": "ccdc01b92366f30ddeb017eeba5223765b436ddfdee0101ea774c8ae0e76ef49"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2005-t2-solution/document.pdf",
+          "sha256": "08581879a750b3f096d3a605c25bfd04fe63bee32f331d920ab463d06ec2d6e5"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2009-t2",
+      "review": "model-and-key-review",
+      "focus": "Photon energy-momentum balance, detuning signs and friction per atom",
+      "before": "d847126db301bc841db3efa2d163f2705f7141ccc13293c93918a97601de8a14",
+      "after": "d847126db301bc841db3efa2d163f2705f7141ccc13293c93918a97601de8a14",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2009-t2-statement/document.pdf",
+          "sha256": "456e8dcc4e97c4a6a3d95ca24b09eab5c9d03aa4e5d0230ab568ba9777104bac"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2009-t2-solution/document.pdf",
+          "sha256": "3cd04b42dacfff97486c6a84182924c4e32b5e6b839a2e3efdbff84934bc68b8"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2004-t3",
+      "review": "model-and-key-review",
+      "focus": "Damped oscillator phase, lock-in averaging and electrostatic gradient",
+      "before": "b1e47243dcf9e19aef9856254ead404a90355a9b1ba5ec68daeb5d5dbc5ad520",
+      "after": "b1e47243dcf9e19aef9856254ead404a90355a9b1ba5ec68daeb5d5dbc5ad520",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-ipho-2004-t3-statement/document.pdf",
+          "sha256": "a9a4e9f678153ab190f268dc19930dab8067d05f1fbcb1d38cb9b38610f9ba4b"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-ipho-2004-t3-solution/document.pdf",
+          "sha256": "f603df2f6c8226653eaeb61917c37919e41cc87ad25624b9d61aa65bfff2338e"
+        }
+      ]
+    },
+    {
+      "id": "apho-2025-t1",
+      "review": "model-and-key-review",
+      "focus": "Ring tidal tensor, removed-cap torque and averaged lunar contribution",
+      "before": "29c8ecc6121c5fa066315d2a4b756de05ecbe243365393fae52c4022a1599656",
+      "after": "29c8ecc6121c5fa066315d2a4b756de05ecbe243365393fae52c4022a1599656",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2025-t1-statement/document.pdf",
+          "sha256": "147955df3edee9127aeee3eaac3e457a33773976dca5a13c03159b4f7d28bd38"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2025-t1-solution/document.pdf",
+          "sha256": "2d21348ab2d688c0099fb1d769c985dc6a45a89cee9de2094f1d393d882b7f36"
+        }
+      ]
+    },
+    {
+      "id": "apho-2025-t2",
+      "review": "model-and-key-review",
+      "focus": "Signed spin torque, dispersion and prescribed versus exact 1D statistical models",
+      "before": "7dd86b54211f41992f56e6ef9015c78cf65af8011bce733a28f95b987504df08",
+      "after": "7dd86b54211f41992f56e6ef9015c78cf65af8011bce733a28f95b987504df08",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2025-t2-statement/document.pdf",
+          "sha256": "5d83bac49bd75466a699c054a5cd70d0e141cac327bd5260733869154a20536f"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2025-t2-solution/document.pdf",
+          "sha256": "9c3b53aa167f4fc963ca864f302afc48304016122cf6f33ec06738a6c9ab6719"
+        }
+      ]
+    },
+    {
+      "id": "apho-2025-t3",
+      "review": "model-and-key-review",
+      "focus": "Radiative balances, Gaussian line width, buoyancy sign and halo deviation",
+      "before": "0f5f4036d2b6bbbe3cd5698d80dd59962a41eea3431d376f24430c1b537f10d9",
+      "after": "0f5f4036d2b6bbbe3cd5698d80dd59962a41eea3431d376f24430c1b537f10d9",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2025-t3-statement/document.pdf",
+          "sha256": "1bf6709ccd044f96985d6cb75373f6711e878046493cfcf0dda5e0c72ce68258"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2025-t3-solution/document.pdf",
+          "sha256": "2e7b2dff2a82b50193208b258b1a8b7369a4b7ba7d177581088ed2a758e868b6"
+        }
+      ]
+    },
+    {
+      "id": "apho-2024-t1",
+      "review": "model-and-key-review",
+      "focus": "Projectile envelope and source-band to ground-annulus Jacobian",
+      "before": "48662957661fb9e59a81d43e3fb9827c475c79ff12ea5c2a3e509869a077be98",
+      "after": "48662957661fb9e59a81d43e3fb9827c475c79ff12ea5c2a3e509869a077be98",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2024-t1-statement/document.pdf",
+          "sha256": "2e39c2cb44119a4f92adb2d688ac13f54d14b582956ca192d2565fee0ce64ab9"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2024-t1-solution/document.pdf",
+          "sha256": "0479d1a959a85cdd88e3b90de100fe675b6dbe3a14aad1da131488d475b6e036"
+        }
+      ]
+    },
+    {
+      "id": "apho-2024-t2",
+      "review": "model-and-key-review",
+      "focus": "Separate side/end reflection conditions and bent-fibre impact parameter",
+      "before": "6767aee58d788ea579071608ba1ba5ac98d4084e605781e904c9a7a10786f3b8",
+      "after": "6767aee58d788ea579071608ba1ba5ac98d4084e605781e904c9a7a10786f3b8",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2024-t2-statement/document.pdf",
+          "sha256": "bedb16eb1c7436e141e6481a6e0a38f0db4fe4a6f15d8daa9ebb8825760c54fe"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2024-t2-solution/document.pdf",
+          "sha256": "bafdebf0c9cab74075b42734bceb73b32ccffc0949f629d83de4ccd67fd0e471"
+        }
+      ]
+    },
+    {
+      "id": "apho-2024-t3",
+      "review": "model-and-key-review",
+      "focus": "Occultation projection, spectral luminosity units and accretion half-factor",
+      "before": "e8dd073d94e98b22d485d9c0861eba1049d4a10802db51eb49dc231330fc16d9",
+      "after": "e8dd073d94e98b22d485d9c0861eba1049d4a10802db51eb49dc231330fc16d9",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2024-t3-statement/document.pdf",
+          "sha256": "b76c445714fb8c56a197163171c4f80abbc99cc2c35bed577cfd127bba74d5dc"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2024-t3-solution/document.pdf",
+          "sha256": "5b275efc5059714722f09f05768797e4afb424c028e70e4767d35fb0719e5bf0"
+        }
+      ]
+    },
+    {
+      "id": "apho-2023-t1",
+      "review": "model-and-key-review",
+      "focus": "Orbital drag power, gravity-corrected density and consistent day/night averaging",
+      "before": "13c64a58767e635f230d8d7f10063a85eb81e28c1f8b02c324ca4e78305d9be1",
+      "after": "13c64a58767e635f230d8d7f10063a85eb81e28c1f8b02c324ca4e78305d9be1",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2023-t1-statement/document.pdf",
+          "sha256": "c107325e7d34217900653f8dc337ceddb80aa9e7cd2e1ff53c591f2cd92c8e28"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2023-t1-solution/document.pdf",
+          "sha256": "b96f04c5f589bcddb0076c92f7e691786ca5f411734001136215b30546d7fac2"
+        }
+      ]
+    },
+    {
+      "id": "apho-2023-t2",
+      "review": "model-and-key-review",
+      "focus": "Rolling constraint, conserved conic branch and signed electromagnetic coefficients",
+      "before": "d4ab888ac21d0618525ba453c4119143cff3a9b43ef50093b493806885efaf0e",
+      "after": "d4ab888ac21d0618525ba453c4119143cff3a9b43ef50093b493806885efaf0e",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2023-t2-statement/document.pdf",
+          "sha256": "3bbff44638e7bbd44d369a4469014b73095efedb60708fa2d9d4dac7107add44"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2023-t2-solution/document.pdf",
+          "sha256": "58a38d67e7f097a033c6ec735a7a231c5476ee91556605f9bb2fd8592c0638f9"
+        }
+      ]
+    },
+    {
+      "id": "apho-2023-t3",
+      "review": "model-and-key-review",
+      "focus": "Rayleigh-Plesset first integral, inaccessible growth branch and diffusion balance",
+      "before": "fad57d1eb5b3193bd59bb30ead931c586952020c19473f81d953778a57a65d0e",
+      "after": "c50bbecae7872768b128254e620e99c3ade88198a98963622c5f6d9962cf2d89",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2023-t3-statement/document.pdf",
+          "sha256": "897d0121a46051f906b7a141f9249a585c4ed3e389b7e8426194da709b45cba0"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2023-t3-solution/document.pdf",
+          "sha256": "ece1e5c3ed1d16e798b12e213c0ce7e72fa5902003689143d26381c9c5a92355"
+        }
+      ]
+    },
+    {
+      "id": "apho-2011-t2",
+      "review": "model-and-key-review",
+      "focus": "Stick-slip symmetry, dissipative threshold and thin-wall torsion",
+      "before": "f93bf0a124ea33fca8edce643291d604a777cf566d1d0c516bd96b9ccf5f3bfb",
+      "after": "f93bf0a124ea33fca8edce643291d604a777cf566d1d0c516bd96b9ccf5f3bfb",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2011-t2-statement/document.pdf",
+          "sha256": "8462e48e92094017d3ec904a8c6cbc60c680d7a28266016fa1a86a57aab44b15"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2011-t2-solution/document.pdf",
+          "sha256": "be31437d7e2a5c5c64285d270cd8b3b84581e004e4c4fe10e48c0ed7640e6881"
+        }
+      ]
+    },
+    {
+      "id": "apho-2022-t1",
+      "review": "model-and-key-review",
+      "focus": "Two-wire field signs, pole geometry and beam-deflection uncertainty",
+      "before": "4816193fea47d630fcc930221df7809c21f34d8a10dc77fa990e5b32c8db1078",
+      "after": "4816193fea47d630fcc930221df7809c21f34d8a10dc77fa990e5b32c8db1078",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2022-t1-statement/document.pdf",
+          "sha256": "2ea57b3ea45d3e0688ee32a6883d8bde86bec6863a4187c645bf8ae26e3a8fa9"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2022-t1-solution/document.pdf",
+          "sha256": "1139a5228eb5d8351e9c40d994f1ea33dbb36f707e69d5cd7e6abcf5460fd15b"
+        }
+      ]
+    },
+    {
+      "id": "apho-2022-t2",
+      "review": "model-and-key-review",
+      "focus": "Specified bead force law, potential curvature and directional limiting friction",
+      "before": "0f184adfeb0c4db72935d85c82230b182393750676cdc07b37f5cb3f85d92fc4",
+      "after": "0f184adfeb0c4db72935d85c82230b182393750676cdc07b37f5cb3f85d92fc4",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2022-t2-statement/document.pdf",
+          "sha256": "b5bc5ffcd53a30943215d5a4bb8d48221ed6ae6e0cfb3d397bbda07ec4494481"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2022-t2-solution/document.pdf",
+          "sha256": "3781256cd2e3b3b30a595b7160acef2cba706f5dd484554180dbe2e30fb31922"
+        }
+      ]
+    },
+    {
+      "id": "apho-2022-t3",
+      "review": "model-and-key-review",
+      "focus": "Signed molecular response, Rayleigh attenuation and fixed visibility reference",
+      "before": "38a6220d3591c110ea44be5c615c2e70aef3ac807b49e306a28800bf7c1ee8f3",
+      "after": "38a6220d3591c110ea44be5c615c2e70aef3ac807b49e306a28800bf7c1ee8f3",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2022-t3-statement/document.pdf",
+          "sha256": "8fc87dbae975d577745dfdfe351b3419172145f2aad70a83a0563db53beee55c"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2022-t3-solution/document.pdf",
+          "sha256": "59cecef7d93bba5ca5b8a52d004278aba70c9e996d7a40408af0ad924f20eeec"
+        }
+      ]
+    },
+    {
+      "id": "apho-2021-t1",
+      "review": "model-and-key-review",
+      "focus": "Moving-front continuity, stated bulk modulus and valve-reflection recursion",
+      "before": "6207d1bc3954e3ef7cba7a0b4eb5100ad039f32ce3a5202db1573d4b5d4f9b9a",
+      "after": "6207d1bc3954e3ef7cba7a0b4eb5100ad039f32ce3a5202db1573d4b5d4f9b9a",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2021-t1-statement/document.pdf",
+          "sha256": "2a1fb6322b5c85c41fde5e2ba952d8c18f8f3ebe43bc6875421a2d04a9aeb746"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2021-t1-solution/document.pdf",
+          "sha256": "7490ed2a57d12df13b2c5ab9f50de6713ed6296e29e7ab11ca2b3bbbc1f5a8f8"
+        }
+      ]
+    },
+    {
+      "id": "apho-2021-t2",
+      "review": "model-and-key-review",
+      "focus": "Maxwell eigenmodes, walk-off geometry and normalized entangled probabilities",
+      "before": "adf240c10455ac968450d2c3f4e35e6bccb7a756024a266083812bc22fcfb0ac",
+      "after": "adf240c10455ac968450d2c3f4e35e6bccb7a756024a266083812bc22fcfb0ac",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2021-t2-statement/document.pdf",
+          "sha256": "c2fe02a61d641a44e6a8c3f6048a87061736e7d65ccbf217ccb2797d87f863dd"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2021-t2-solution/document.pdf",
+          "sha256": "cafdc1d5a6f6400ee9b01154cec4f44f1d24d6d6b0d6a18c83866b837a52dadb"
+        }
+      ]
+    },
+    {
+      "id": "apho-2021-t3",
+      "review": "model-and-key-review",
+      "focus": "Receding-image boundary condition, lift/drag limits and levitation stiffness",
+      "before": "8093c000140913e3edb8bc7b459271bcee4698949d6ae9cf095b642e8958814b",
+      "after": "8093c000140913e3edb8bc7b459271bcee4698949d6ae9cf095b642e8958814b",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2021-t3-statement/document.pdf",
+          "sha256": "aae77264d35880893c40cc5dd551c54e44965c9dfe19ee04b2a34e67e4d1dd17"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2021-t3-solution/document.pdf",
+          "sha256": "5f0308f8ea44f8e95c9dd436501b2a4eef64d6f8241cb5f7ce36a6a3e1ea6b66"
+        }
+      ]
+    },
+    {
+      "id": "apho-2019-t1",
+      "review": "model-and-key-review",
+      "focus": "TEM energy, complex reflections and exact matching-network topology",
+      "before": "d32e74e14d491aa7208ad4094a76d8590a0d06b377ae3b3143a3772d4d20db10",
+      "after": "d32e74e14d491aa7208ad4094a76d8590a0d06b377ae3b3143a3772d4d20db10",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2019-t1-statement/document.pdf",
+          "sha256": "aa38cd9596f44656d9ed4b7973778ae5ec284d29b7c7ca21df9fe77917de2601"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2019-t1-solution/document.pdf",
+          "sha256": "dcb877086e63cad93dde2b3abca90f3bff8811e5f23c14b2465af950623df0a5"
+        }
+      ]
+    },
+    {
+      "id": "apho-2019-t2",
+      "review": "model-and-key-review",
+      "focus": "Proper-density flux, pressure integral and adiabatic spectral-bin Jacobian",
+      "before": "716f495785aae36ab056db6ecf18ee142ad79ca73003e55bf26c185451e99fae",
+      "after": "716f495785aae36ab056db6ecf18ee142ad79ca73003e55bf26c185451e99fae",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2019-t2-statement/document.pdf",
+          "sha256": "5efc7dcba95a671a062f53a2278dc7a473b9893cc7293c253b0ebfa6e939f03f"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2019-t2-solution/document.pdf",
+          "sha256": "ce7da27669e382e8466cedfcd8fb35804e1d322a6596d1ca8ba9b974cb4b4a58"
+        }
+      ]
+    },
+    {
+      "id": "apho-2019-t3",
+      "review": "model-and-key-review",
+      "focus": "Moving contact point, contact power and differentiated Jellett invariant",
+      "before": "8d9b28d638f01ebf131b239cbbbdd6044b2ac5244ff1ed33a2fb8d53be12fa52",
+      "after": "8d9b28d638f01ebf131b239cbbbdd6044b2ac5244ff1ed33a2fb8d53be12fa52",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2019-t3-statement/document.pdf",
+          "sha256": "b4d75088981628eec08fa7ca1156d9782365c265b7b740d76344f8633caff44b"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2019-t3-solution/document.pdf",
+          "sha256": "92f6642ec76407a48895524426d98fde1e874ea8dfa3c138f58c9b30079301a5"
+        }
+      ]
+    },
+    {
+      "id": "apho-2018-t1",
+      "review": "model-and-key-review",
+      "focus": "Passive polarizability phase, radiative loss and oscillator-width conventions",
+      "before": "bc01d310f65d80616b9da578b15fe5094726237f0b51fefe06cab7b1e60f0417",
+      "after": "bc01d310f65d80616b9da578b15fe5094726237f0b51fefe06cab7b1e60f0417",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2018-t1-statement/document.pdf",
+          "sha256": "5337e5696833799cf565cb5ef6ca90cb195ae45075a56b7e6128d4d63a17050f"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2018-t1-solution/document.pdf",
+          "sha256": "b3aa97212a8c8b3b38fe8381f0ef4cba1d91b0726ddb3471b95f1ae83abdd100"
+        }
+      ]
+    },
+    {
+      "id": "apho-2018-t2",
+      "review": "model-and-key-review",
+      "focus": "Rotating-cable force balance, taper equation and explicit nanotube-area model",
+      "before": "eb5e221f116cdaf0c2f429801f66e28dd3248746fb367ec3355a6a2523785d6a",
+      "after": "eb5e221f116cdaf0c2f429801f66e28dd3248746fb367ec3355a6a2523785d6a",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2018-t2-statement/document.pdf",
+          "sha256": "06c54bf0fe8e9e4d1e5ccc104ff608a41bff74cde4bea53c8f87f2eb1396400b"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2018-t2-solution/document.pdf",
+          "sha256": "abac49a42939d8a4639c07e9892560fb8336b1f5c0cf7e503e30b1a059d804ad"
+        }
+      ]
+    },
+    {
+      "id": "apho-2018-t3",
+      "review": "model-and-key-review",
+      "focus": "Split Joule heat, Kelvin relation and generator/refrigerator extrema",
+      "before": "87ed4c2c8714e43c4c7b3b8bcfd231062ea9aa4de806c2a7fd7a67818607a4ad",
+      "after": "87ed4c2c8714e43c4c7b3b8bcfd231062ea9aa4de806c2a7fd7a67818607a4ad",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2018-t3-statement/document.pdf",
+          "sha256": "64100f01973713343700f62a8b5e51a76c7985f2a5bf8265322fa31fd3ad7292"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2018-t3-solution/document.pdf",
+          "sha256": "ddb6ac87b744095a0664a59179bd35fe2b9e62d91541cd6a6a42843f083404aa"
+        }
+      ]
+    },
+    {
+      "id": "apho-2017-t1",
+      "review": "model-and-key-review",
+      "focus": "Circulation, vortex impulses, leading logarithms and wall-image invariant",
+      "before": "c2ad2bc19c45337bc8e652f81263b2657be343dd5c2a7369979f69ab2eb70e62",
+      "after": "a26195610cfebee452dc9d9e8e2d823b36689fcf88b69f842ff7fede9b619447",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2017-t1-statement/document.pdf",
+          "sha256": "250263c0501cf00c413bb068fdea601a2b7b0adc9ff94d0fbcb170cea378e24b"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2017-t1-solution/document.pdf",
+          "sha256": "5543d7cf45403b3139af927526f892fdf0f180845b4929d50c24c8ccf3fb616d"
+        }
+      ]
+    },
+    {
+      "id": "apho-2017-t2",
+      "review": "model-and-key-review",
+      "focus": "Scattering impulse, slingshot rate and supplied nonstandard radiation coefficient",
+      "before": "6c2bdd79087dbdd59c9f7c4db8a4eeadb6c2ee4b7085fe57ea55818932894706",
+      "after": "6c2bdd79087dbdd59c9f7c4db8a4eeadb6c2ee4b7085fe57ea55818932894706",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2017-t2-statement/document.pdf",
+          "sha256": "e39d71efe30ec9eae62b74f90c31675b6075baa92e42cac9182d0284c868202a"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2017-t2-solution/document.pdf",
+          "sha256": "8d22819a21f53c4073194b9436fc45796ee8b1fa09be0adc02802f35fbb8eeb8"
+        }
+      ]
+    },
+    {
+      "id": "apho-2017-t3",
+      "review": "model-and-key-review",
+      "focus": "Rigid-body energy, shell-current torque and orbit-averaged spin evolution",
+      "before": "85315c00c592db3af97fae6b58005a512f8eee913981d31f21d5bb4c1d481def",
+      "after": "85315c00c592db3af97fae6b58005a512f8eee913981d31f21d5bb4c1d481def",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2017-t3-statement/document.pdf",
+          "sha256": "39c6a0c5b6c28dc54e4c4ae4ca67c02f7369631705b69b2dcb2ae45c6c4bce73"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2017-t3-solution/document.pdf",
+          "sha256": "a68dd4493eccde788e9d805bab0b21561e255b6c6d206d4d5d4e3773734d588a"
+        }
+      ]
+    },
+    {
+      "id": "apho-2016-t1",
+      "review": "model-and-key-review",
+      "focus": "Plate-centre kinetic metric, potential curvature and optimal virtual work",
+      "before": "841166e035aa1171b80af30e8aba8067e3efcf53b67a6cf25e99e865b1402038",
+      "after": "841166e035aa1171b80af30e8aba8067e3efcf53b67a6cf25e99e865b1402038",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2016-t1-statement/document.pdf",
+          "sha256": "a09471cbeaa43759b19fa7f508b687156ab4dbdcbb753b4aba827ef348d67a76"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2016-t1-solution/document.pdf",
+          "sha256": "c318b8f120d4f6fa54dde09d89a9881695e13111e0dc02f4ff7de28c1b92d8dd"
+        }
+      ]
+    },
+    {
+      "id": "apho-2009-t1",
+      "review": "model-and-key-review",
+      "focus": "Rolling signs, outer-shell torque and initial skid energy loss",
+      "before": "a8a6ca978ee98e737b1e807f73919bb450c7b8d06f2d24b29ec2a2221c64407a",
+      "after": "a8a6ca978ee98e737b1e807f73919bb450c7b8d06f2d24b29ec2a2221c64407a",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2009-t1-statement/document.pdf",
+          "sha256": "775f096f642e87b459f2433ba83b870889531977c4113249cfb656d62b9240da"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2009-t1-solution/document.pdf",
+          "sha256": "67ede6d73f3935409f4dc204ed583e16580af1d537a767403e99ef80dbed419e"
+        }
+      ]
+    },
+    {
+      "id": "apho-2016-t3",
+      "review": "model-and-key-review",
+      "focus": "Spin signs, Gaussian variational energy and Ising pair criterion",
+      "before": "058ebd3310719643286bdc1cb31c8b0af4139074611d701a8a3d2701077b6f23",
+      "after": "058ebd3310719643286bdc1cb31c8b0af4139074611d701a8a3d2701077b6f23",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2016-t3-statement/document.pdf",
+          "sha256": "2c1d1c4d62c9e78a235a96cebd86ce699b030e6d52b906ba0f3410dd7dde554b"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2016-t3-solution/document.pdf",
+          "sha256": "989cba1161ad8ebb0283a4fc6836c4d6af37669bd5b801e574c49bd8342e85df"
+        }
+      ]
+    },
+    {
+      "id": "apho-2015-t1",
+      "review": "model-and-key-review",
+      "focus": "Hall drift, flux increment, Coulomb scale and Poisson charge variance",
+      "before": "263799e4304ffc3be6e78becdf331b8b7044cfb1b989d2bddb4add56acabe87c",
+      "after": "263799e4304ffc3be6e78becdf331b8b7044cfb1b989d2bddb4add56acabe87c",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2015-t1-statement/document.pdf",
+          "sha256": "71e314181b1b58b3a4f62e823e917f4810c46a466265b348325ebe4963d9fe91"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2015-t1-solution/document.pdf",
+          "sha256": "7cdb8ea6a2c6a0c3a2182d2249210956d706f965dd7336904f9a9ea76f658bd4"
+        }
+      ]
+    },
+    {
+      "id": "apho-2015-t2",
+      "review": "model-and-key-review",
+      "focus": "Dipole signs, magnetic-moment invariant, loss cone and pressure convention",
+      "before": "90bb1f39ecf2205f9c986fb53df51bb02a722638e02d5880d89e8f6c7970453d",
+      "after": "90bb1f39ecf2205f9c986fb53df51bb02a722638e02d5880d89e8f6c7970453d",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2015-t2-statement/document.pdf",
+          "sha256": "93fea0aa00d3d25dc88221a9e80bff5a93986132db869cf7467bebd7dbba5c9c"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2015-t2-solution/document.pdf",
+          "sha256": "3555ec0187782336bb332dc86f932905f83ca97c5efd2d5d66bcc93717500a09"
+        }
+      ]
+    },
+    {
+      "id": "apho-2015-t3",
+      "review": "model-and-key-review",
+      "focus": "Etalon phase width, full Zeeman gaps and transmitted-comb estimates",
+      "before": "3f486565a0a429471bf3f2ce6bb5fba3d2fcab2cc32618dbba983494a1cb9807",
+      "after": "3f486565a0a429471bf3f2ce6bb5fba3d2fcab2cc32618dbba983494a1cb9807",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2015-t3-statement/document.pdf",
+          "sha256": "81a3d2e03f8585eca26cb872c2e4181b652f792b6c7677ad97526bd3e66879a4"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2015-t3-solution/document.pdf",
+          "sha256": "ea72af7482eb68dc2ca81707691d5358c16dbe4b8866202511c134102dc38cce"
+        }
+      ]
+    },
+    {
+      "id": "apho-2006-t2",
+      "review": "model-and-key-review",
+      "focus": "Shifted phase ellipses, static sticking interval and half-cycle count",
+      "before": "abc71a95ea3cd0ff1b02f80cce32d75a20ad869285fa004b3c0627a8ad5cc788",
+      "after": "abc71a95ea3cd0ff1b02f80cce32d75a20ad869285fa004b3c0627a8ad5cc788",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2006-t2-statement/document.pdf",
+          "sha256": "9a229d0e841347a9ec2d8d3fd134c7b59621440fac408b3585a890facbf6e49a"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2006-t2-solution/document.pdf",
+          "sha256": "7f912dd1f1d611176ba80b3670f50a20a5c0fbd365a81cd8a6610aa89f76b8cc"
+        }
+      ]
+    },
+    {
+      "id": "apho-2014-t2",
+      "review": "model-and-key-review",
+      "focus": "Electron impulse, relativistic wavelength and distinct plane/spherical models",
+      "before": "d289a036e9f4441a1d3564e5eeb603a931804ad2d4bebf6dab0554b01a182aa5",
+      "after": "71adf7b801cb3067438e8ed106ef2895503212db82982a8937afa2e64284874f",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2014-t2-statement/document.pdf",
+          "sha256": "36457730acc639e286c2e447277876fdd3edd71cf8fd01bd7b038f33f57b9b43"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2014-t2-solution/document.pdf",
+          "sha256": "2cc4f79bba40e23017ab263939eed3d6a4ab2d9019aee5868142dbd9bfbd9e43"
+        }
+      ]
+    },
+    {
+      "id": "apho-2014-t3",
+      "review": "model-and-key-review",
+      "focus": "Point-source lens equation, angular geometry and Newtonian-radius limitation",
+      "before": "737f1f20cc19b37765a2daac856a8d912da3084e6805aafd94c5b1b63321717e",
+      "after": "737f1f20cc19b37765a2daac856a8d912da3084e6805aafd94c5b1b63321717e",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2014-t3-statement/document.pdf",
+          "sha256": "3507ee19e53fa1e9a782722f3d6c51d6ade6d3dda3d132519c757fca7ad4bfe7"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2014-t3-solution/document.pdf",
+          "sha256": "11fdc9aa88f96d31f6c601046ddd5230f9ae70dd27d41a69679771154b76b8c5"
+        }
+      ]
+    },
+    {
+      "id": "apho-2013-t1",
+      "review": "model-and-key-review",
+      "focus": "Bipolar equipotentials, leakage RC identity and Ampere-field branches",
+      "before": "99017c57af930659543bf6bad8e16241794c85975ce4fdec292537e80b12a166",
+      "after": "99017c57af930659543bf6bad8e16241794c85975ce4fdec292537e80b12a166",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2013-t1-statement/document.pdf",
+          "sha256": "c367ae27d70e1b04de8be8dcb550696c20fc3a004a5ec5df192bb6a5ca83f766"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2013-t1-solution/document.pdf",
+          "sha256": "162c21f08ae1fa1fcb27b693b8fea70d56d06e02364209034dba470e5ca7c895"
+        }
+      ]
+    },
+    {
+      "id": "apho-2013-t3",
+      "review": "model-and-key-review",
+      "focus": "Rotating-frame derivative, Rabi populations and beam-resolution uncertainty",
+      "before": "5eae4c383fd57c4a8a29cd029cef0264afd53cc2b47c6a07e23cdc71aaee0ea4",
+      "after": "5eae4c383fd57c4a8a29cd029cef0264afd53cc2b47c6a07e23cdc71aaee0ea4",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2013-t3-statement/document.pdf",
+          "sha256": "9827ab77ad668760a97a15cad9cfeef4baf19881f9b4ef125bccbaf3d60a83de"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2013-t3-solution/document.pdf",
+          "sha256": "50381c3693a220ee37be80155e86ce6eb52e3533d7c636a4a3f9688b4a0fb42b"
+        }
+      ]
+    },
+    {
+      "id": "apho-2012-t1",
+      "review": "model-and-key-review",
+      "focus": "Flux derivative, drag-power integral and microscopic versus macroscopic work",
+      "before": "29ae245bfebd2b2102488b92a7e058e77949d643074406394680a1d7e1b463e2",
+      "after": "18c79c5e07e224cc30a275d8bded0060e66599d0bb20ba450cc7d1bbba657d8b",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2012-t1-statement/document.pdf",
+          "sha256": "ee699cfd960016652e8058a68439bd0fb669738a7dd1f6977250a20394905c75"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2012-t1-solution/document.pdf",
+          "sha256": "e26d6d64e8a52ddfdf5319a9ba873d3709de6cc132462eb870a2978aa34d3a5c"
+        }
+      ]
+    },
+    {
+      "id": "apho-2012-t3",
+      "review": "model-and-key-review",
+      "focus": "Instantaneous polarization fields, projections and oriented phase branch",
+      "before": "15504d1beaf0e081efe36c918de81c31bff08cac8735969650d141f3e7d30e16",
+      "after": "f1a99a70768eb5fe910bc3844333ce0eff7da21abc2b1f3fc66f6f3a67330a67",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/english-apho-2012-t3-statement/document.pdf",
+          "sha256": "c96a44cdc5476b3b921d0dd2b0253daff1ced71b28e13aa5e29f3905bdea42f9"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/english-apho-2012-t3-solution/document.pdf",
+          "sha256": "b3a5406b544b2a96ad06726006c899a24d949c8b1ce2fe9d2611617dd9b92460"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2025-t1",
+      "review": "model-and-key-review",
+      "focus": "Reflected-strip power and both first-order ring-position contributions",
+      "before": "0ab87a05b5de8154f8beaff39fc3871a7db6dc9eb0c8b661b775e6d877464352",
+      "after": "0ab87a05b5de8154f8beaff39fc3871a7db6dc9eb0c8b661b775e6d877464352",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2025-statement/document.pdf",
+          "sha256": "49d08947fe41354aa57bfa745c2dfa494e08613ddac3c485a71ee288911b0e36"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2025-solution/document.pdf",
+          "sha256": "0faca703487040c3e4d5c19fde4208a0cbacc8769d33401f810309a60f6deb9f"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2025-t2",
+      "review": "model-and-key-review",
+      "focus": "Tension moments, second-order constraints and small-oscillation inertia",
+      "before": "9d3283bfd21301800800d6bdb4f321afc12202490a56b0fcdf3094ae19828ad4",
+      "after": "9d3283bfd21301800800d6bdb4f321afc12202490a56b0fcdf3094ae19828ad4",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2025-statement/document.pdf",
+          "sha256": "49d08947fe41354aa57bfa745c2dfa494e08613ddac3c485a71ee288911b0e36"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2025-solution/document.pdf",
+          "sha256": "0faca703487040c3e4d5c19fde4208a0cbacc8769d33401f810309a60f6deb9f"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2025-t3",
+      "review": "model-and-key-review",
+      "focus": "Thin flux-tube conservation and tightly wound field-line length",
+      "before": "e89d898aadb8b37f901a9296a68d4f53d16965e410832d3dc45f8620a5cb9923",
+      "after": "e89d898aadb8b37f901a9296a68d4f53d16965e410832d3dc45f8620a5cb9923",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2025-statement/document.pdf",
+          "sha256": "49d08947fe41354aa57bfa745c2dfa494e08613ddac3c485a71ee288911b0e36"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2025-solution/document.pdf",
+          "sha256": "0faca703487040c3e4d5c19fde4208a0cbacc8769d33401f810309a60f6deb9f"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2024-t1",
+      "review": "model-and-key-review",
+      "focus": "Translation-spin impulse, sliding-to-rolling threshold and piecewise exit speed",
+      "before": "4b4cad2e3ba48fed881ce1956da1925790c7ba462e2dd0ce7ee46e1840da4855",
+      "after": "4b4cad2e3ba48fed881ce1956da1925790c7ba462e2dd0ce7ee46e1840da4855",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2024-statement/document.pdf",
+          "sha256": "b133e366dbae9a412098b33271fca7bd5cb420471c9a576d163f0c7a2f52d57a"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2024-solution/document.pdf",
+          "sha256": "3552bfea2e675a9124633aff27b5399436615ab56292e8e38ca4364d58a1c467"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2024-t2",
+      "review": "model-and-key-review",
+      "focus": "Emission-event boosts, arrival intervals and past-light-cone counting",
+      "before": "2ce964f4fc7fec7f239004a4e466294970152eed1cadac1f85070fafe6888fa4",
+      "after": "2ce964f4fc7fec7f239004a4e466294970152eed1cadac1f85070fafe6888fa4",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2024-statement/document.pdf",
+          "sha256": "b133e366dbae9a412098b33271fca7bd5cb420471c9a576d163f0c7a2f52d57a"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2024-solution/document.pdf",
+          "sha256": "3552bfea2e675a9124633aff27b5399436615ab56292e8e38ca4364d58a1c467"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2024-t3",
+      "review": "model-and-key-review",
+      "focus": "Unitary mirror coefficients, stored energy and energy-decay convention",
+      "before": "1f97f2525cf76391eaa4ede7faadb950d3b769358e78ca931b7588c9188982cb",
+      "after": "1f97f2525cf76391eaa4ede7faadb950d3b769358e78ca931b7588c9188982cb",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2024-statement/document.pdf",
+          "sha256": "b133e366dbae9a412098b33271fca7bd5cb420471c9a576d163f0c7a2f52d57a"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2024-solution/document.pdf",
+          "sha256": "3552bfea2e675a9124633aff27b5399436615ab56292e8e38ca4364d58a1c467"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2023-t1",
+      "review": "model-and-key-review",
+      "focus": "Radial heat flow, matched temperature slope and optical-path curvature",
+      "before": "33f0e5ae657eb51b03605ac70fd6feff71ac31e780ce20f859d60ca6fad8a0c3",
+      "after": "33f0e5ae657eb51b03605ac70fd6feff71ac31e780ce20f859d60ca6fad8a0c3",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2023-statement/document.pdf",
+          "sha256": "160e0caa8018b81910ed4e347a271c1253478d05ea12226e50f3ffb87041c7db"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2023-solution/document.pdf",
+          "sha256": "bbfefa159262b696980648a1696ed5553fc63915120a20d6f59a90e3653d8859"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2023-t2",
+      "review": "model-and-key-review",
+      "focus": "Equal Coulomb-friction forces and conserved difference of relative speeds",
+      "before": "c131be2058220a67ffd13a04b803ca583273a20cdc48b0913f01c454fe335aa2",
+      "after": "c131be2058220a67ffd13a04b803ca583273a20cdc48b0913f01c454fe335aa2",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2023-statement/document.pdf",
+          "sha256": "160e0caa8018b81910ed4e347a271c1253478d05ea12226e50f3ffb87041c7db"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2023-solution/document.pdf",
+          "sha256": "bbfefa159262b696980648a1696ed5553fc63915120a20d6f59a90e3653d8859"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2023-t3",
+      "review": "model-and-key-review",
+      "focus": "Normal-current continuity, dipolar potential and total Joule loss",
+      "before": "a8ecf823c27b1ef3ce71690531e85774c1138b4866eb16c658e2859535eed865",
+      "after": "a8ecf823c27b1ef3ce71690531e85774c1138b4866eb16c658e2859535eed865",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2023-statement/document.pdf",
+          "sha256": "160e0caa8018b81910ed4e347a271c1253478d05ea12226e50f3ffb87041c7db"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2023-solution/document.pdf",
+          "sha256": "bbfefa159262b696980648a1696ed5553fc63915120a20d6f59a90e3653d8859"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2022-t1",
+      "review": "model-and-key-review",
+      "focus": "Annular liquid inertia, continuity and gravitational curvature",
+      "before": "3748c44071b3d05ab780aee323f46fa8f5d61ce6166de08d8a100fd53c22ac49",
+      "after": "3748c44071b3d05ab780aee323f46fa8f5d61ce6166de08d8a100fd53c22ac49",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2022-statement/document.pdf",
+          "sha256": "bf780fa814a4ec9e6ef26c18dceb3972e40645bf8bcd488fad4d7f2b51a49605"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2022-solution/document.pdf",
+          "sha256": "4c319ea0930f16c2d652f8875b1970bf451529c8c4f5370cdbf44686e312b7bc"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2022-t2",
+      "review": "model-and-key-review",
+      "focus": "Current relaxation, resistance switching and squared-temperature ratio",
+      "before": "376164648efe7af52d5579501ba257156379a1612a7585a6d44b25adf0cfe417",
+      "after": "376164648efe7af52d5579501ba257156379a1612a7585a6d44b25adf0cfe417",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2022-statement/document.pdf",
+          "sha256": "bf780fa814a4ec9e6ef26c18dceb3972e40645bf8bcd488fad4d7f2b51a49605"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2022-solution/document.pdf",
+          "sha256": "4c319ea0930f16c2d652f8875b1970bf451529c8c4f5370cdbf44686e312b7bc"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2022-t3",
+      "review": "model-and-key-review",
+      "focus": "Generalized momentum, Lorentz torque, separatrix and asymptote",
+      "before": "0a142907f0d7bab267c96fce6bec365ec0aa7de9445d3b1e1ef0d5ad8e5bc60a",
+      "after": "0a142907f0d7bab267c96fce6bec365ec0aa7de9445d3b1e1ef0d5ad8e5bc60a",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2022-statement/document.pdf",
+          "sha256": "bf780fa814a4ec9e6ef26c18dceb3972e40645bf8bcd488fad4d7f2b51a49605"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2022-solution/document.pdf",
+          "sha256": "4c319ea0930f16c2d652f8875b1970bf451529c8c4f5370cdbf44686e312b7bc"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2021-t1",
+      "review": "model-and-key-review",
+      "focus": "Open-chamber energy balance and entropy of the remaining gas",
+      "before": "0427521d60182f7caf41b7322109ee1c414302a7d8358314b38120d909309530",
+      "after": "0427521d60182f7caf41b7322109ee1c414302a7d8358314b38120d909309530",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2021-statement/document.pdf",
+          "sha256": "8e0cc9c57463e94ebb0199361a45e7c66af5fd3bf4667cd5270d98c71e0e0a2a"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2021-solution/document.pdf",
+          "sha256": "6e94a7b91aea5b517d645d93ebbbf74a913382752c96a83fac9dc46a619e7aa8"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2021-t2",
+      "review": "model-and-key-review",
+      "focus": "Unfolded capstan geometry, normal reaction and arc-length integral",
+      "before": "337e0f0db56c0b9193d13e0973beb67f7cedc43e8841f1dc8a786e85f5414836",
+      "after": "337e0f0db56c0b9193d13e0973beb67f7cedc43e8841f1dc8a786e85f5414836",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2021-statement/document.pdf",
+          "sha256": "8e0cc9c57463e94ebb0199361a45e7c66af5fd3bf4667cd5270d98c71e0e0a2a"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2021-solution/document.pdf",
+          "sha256": "6e94a7b91aea5b517d645d93ebbbf74a913382752c96a83fac9dc46a619e7aa8"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2021-t3",
+      "review": "model-and-key-review",
+      "focus": "Snell-law fold, paired images and second-order dispersion width",
+      "before": "bfbf36d0b04fbab94a4752adae926da8f2708ef02e52455998c92bb2a7effe00",
+      "after": "bfbf36d0b04fbab94a4752adae926da8f2708ef02e52455998c92bb2a7effe00",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2021-statement/document.pdf",
+          "sha256": "8e0cc9c57463e94ebb0199361a45e7c66af5fd3bf4667cd5270d98c71e0e0a2a"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2021-solution/document.pdf",
+          "sha256": "6e94a7b91aea5b517d645d93ebbbf74a913382752c96a83fac9dc46a619e7aa8"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2020-t1",
+      "review": "model-and-key-review",
+      "focus": "Mutual inductance, source work, Lenz signs and end-force limits",
+      "before": "a7eceb5e2aa9cc6b63a1b8468919429376173836c782f8f9899e6d842f150e1f",
+      "after": "a7eceb5e2aa9cc6b63a1b8468919429376173836c782f8f9899e6d842f150e1f",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2020-statement/document.pdf",
+          "sha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2020-solution/document.pdf",
+          "sha256": "a6cfffa08852197b55ba923f8ffbab42005c9fe74d479b245d924ebb60198ccf"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2020-t2",
+      "review": "model-and-key-review",
+      "focus": "Rotating velocity basis, detachment and translating-frame maximum",
+      "before": "6bb10482e65674b8408010a7331c14b0b8f9a653f0d7f94ad53d9e8bbb2b3de7",
+      "after": "6bb10482e65674b8408010a7331c14b0b8f9a653f0d7f94ad53d9e8bbb2b3de7",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2020-statement/document.pdf",
+          "sha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2020-solution/document.pdf",
+          "sha256": "a6cfffa08852197b55ba923f8ffbab42005c9fe74d479b245d924ebb60198ccf"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2020-t3",
+      "review": "model-and-key-review",
+      "focus": "Radiance conservation, paraxial lens conjugates and crescent geometry",
+      "before": "464af8cd967ed4c83092d682bcfcdac1c67b603ae0aab6d9cfc324f99987e5e7",
+      "after": "464af8cd967ed4c83092d682bcfcdac1c67b603ae0aab6d9cfc324f99987e5e7",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2020-statement/document.pdf",
+          "sha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2020-solution/document.pdf",
+          "sha256": "a6cfffa08852197b55ba923f8ffbab42005c9fe74d479b245d924ebb60198ccf"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2019-t1",
+      "review": "model-and-key-review",
+      "focus": "Heat-area ratios, thermal lag and gravitational dissipation estimate",
+      "before": "27cb9aeeba07d68db8399161523f493b226da51d9057e17ede5ef0972b308e83",
+      "after": "ca32f41024b643d8e2d6c1cae39c96b8e67c198799d7312d0328c8e81dbfc681",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2019-statement/document.pdf",
+          "sha256": "b3f2dbbe54979f53cffaa4f9755162a6f25d6657e9f7e1e0345bc6896589ccbb"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2019-solution/document.pdf",
+          "sha256": "1f4748031b50ef3ec9089c0f49fbc3202ed84828ad8009aef1ce23f7a6f720c4"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2019-t2",
+      "review": "model-and-key-review",
+      "focus": "Charge-volume force and torque, rolling constraint and circular orbit",
+      "before": "c6ac0385f930c47e1012175ff191da345033a3e00445e4659b919d03f158fc5d",
+      "after": "c6ac0385f930c47e1012175ff191da345033a3e00445e4659b919d03f158fc5d",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2019-statement/document.pdf",
+          "sha256": "b3f2dbbe54979f53cffaa4f9755162a6f25d6657e9f7e1e0345bc6896589ccbb"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2019-solution/document.pdf",
+          "sha256": "1f4748031b50ef3ec9089c0f49fbc3202ed84828ad8009aef1ce23f7a6f720c4"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2019-t3",
+      "review": "model-and-key-review",
+      "focus": "Ballistic envelope, continuous-stream maximum and graph uncertainty",
+      "before": "44cfeda7ef16317a9ed5ebf1bf5b5bbac74f7b77a5789721df2acef88d15e5aa",
+      "after": "44cfeda7ef16317a9ed5ebf1bf5b5bbac74f7b77a5789721df2acef88d15e5aa",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2019-statement/document.pdf",
+          "sha256": "b3f2dbbe54979f53cffaa4f9755162a6f25d6657e9f7e1e0345bc6896589ccbb"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2019-solution/document.pdf",
+          "sha256": "1f4748031b50ef3ec9089c0f49fbc3202ed84828ad8009aef1ce23f7a6f720c4"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2018-t1",
+      "review": "model-and-key-review",
+      "focus": "Centre-of-mass energy, pair inertia and turning configuration",
+      "before": "19926eb760fa84b58d95097279364c7a6a89eef9e6d279090dbcab1ce20e76d4",
+      "after": "36de74b639195dca9cf5cd089f61a64c58f4433125570a62f48eb33b6f54466e",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2018-statement/document.pdf",
+          "sha256": "5c34a3b07086609182001506f2d9ae1f81c21e11a40ad36acd335bcac7933f01"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2018-solution/document.pdf",
+          "sha256": "72ed8d502770a6ecfa3c4b575d3c6fb01c47288d7ddd45516aee6a41c7fcf64d"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2018-t2",
+      "review": "model-and-key-review",
+      "focus": "Diamagnetic pressure, solenoid field and boiling approximation",
+      "before": "b436dda7dbdf65df89ae1d6d98a5f4368fd0fed7231b25eb7f8799eaee6c5729",
+      "after": "b436dda7dbdf65df89ae1d6d98a5f4368fd0fed7231b25eb7f8799eaee6c5729",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2018-statement/document.pdf",
+          "sha256": "5c34a3b07086609182001506f2d9ae1f81c21e11a40ad36acd335bcac7933f01"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2018-solution/document.pdf",
+          "sha256": "72ed8d502770a6ecfa3c4b575d3c6fb01c47288d7ddd45516aee6a41c7fcf64d"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2018-t3",
+      "review": "model-and-key-review",
+      "focus": "Profile inversion, volume-preserving step variation and exponent",
+      "before": "f947f4ade9179396038e3f1d834c6aa508abf542dd107d6ceac17ab74c33eb9f",
+      "after": "1a56dd99d951bea26ee87d397b8366fbd6ec88bd3cffec4295f1df579a215758",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2018-statement/document.pdf",
+          "sha256": "5c34a3b07086609182001506f2d9ae1f81c21e11a40ad36acd335bcac7933f01"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2018-solution/document.pdf",
+          "sha256": "72ed8d502770a6ecfa3c4b575d3c6fb01c47288d7ddd45516aee6a41c7fcf64d"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2017-t1",
+      "review": "model-and-key-review",
+      "focus": "Hanging-rope tension, pendulum estimate and Bessel-mode ratios",
+      "before": "b69a73f6d2ba024564c9e3146f3007c91b674ecc8def93a1c5950ab481d71437",
+      "after": "b69a73f6d2ba024564c9e3146f3007c91b674ecc8def93a1c5950ab481d71437",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2017-statement/document.pdf",
+          "sha256": "4c48b3b95fdccf57bd38c69c589f9ef146e94b5f24424b483bd92cf9f2a4edce"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2017-solution/document.pdf",
+          "sha256": "728a37eae2ada41fafde7eafb8f3d4fcd7885d3235d759a728839d2dd9cea2cf"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2017-t2",
+      "review": "model-and-key-review",
+      "focus": "Half-Maxwellian incident flux, momentum transfer and cooling scales",
+      "before": "b83793af1e7bd7d69cda0cf578bbcdf3e8e7f3c912df1607e050d75d71045a8c",
+      "after": "f7f26dca683551b90d357a5358d07e45a1e57011a5095a9d6e98480859a31e02",
+      "changed": true,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2017-statement/document.pdf",
+          "sha256": "4c48b3b95fdccf57bd38c69c589f9ef146e94b5f24424b483bd92cf9f2a4edce"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2017-solution/document.pdf",
+          "sha256": "728a37eae2ada41fafde7eafb8f3d4fcd7885d3235d759a728839d2dd9cea2cf"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2017-t3",
+      "review": "model-and-key-review",
+      "focus": "Trapped normal flux, image dipoles and restoring-force derivative",
+      "before": "183281edff4b51d74e0edf784f5aa585ba01a78f0744abd35cf1ec22b97cd93a",
+      "after": "183281edff4b51d74e0edf784f5aa585ba01a78f0744abd35cf1ec22b97cd93a",
+      "changed": false,
+      "originals": [
+        {
+          "kind": "statement",
+          "path": "/corpus/documents/eupho-2017-statement/document.pdf",
+          "sha256": "4c48b3b95fdccf57bd38c69c589f9ef146e94b5f24424b483bd92cf9f2a4edce"
+        },
+        {
+          "kind": "solution",
+          "path": "/corpus/documents/eupho-2017-solution/document.pdf",
+          "sha256": "728a37eae2ada41fafde7eafb8f3d4fcd7885d3235d759a728839d2dd9cea2cf"
+        }
+      ]
+    }
+  ]
+}

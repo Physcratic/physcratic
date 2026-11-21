@@ -1,0 +1,381 @@
+{
+  "problemId": "ipho-2005-t1",
+  "version": "181646d387e4d6fe078f88ac1998e8801d4a14c87eb4a69153330bc2e2100780",
+  "parts": [
+    {
+      "id": "1.1",
+      "sourcePart": "1.1",
+      "label": "Geosynchronous radius",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m, without a unit suffix."
+    },
+    {
+      "id": "1.2.formula",
+      "sourcePart": "1.2.formula",
+      "label": "Initial speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R_T",
+        "g",
+        "r_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R_T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use R_T, g, r_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "1.2.value",
+      "sourcePart": "1.2.value",
+      "label": "Initial speed value",
+      "kind": "numeric",
+      "unit": "m/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m/s, without a unit suffix."
+    },
+    {
+      "id": "1.3.l",
+      "sourcePart": "1.3.L",
+      "label": "Initial angular momentum",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "g",
+        "R_T",
+        "v_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, g, R_T, v_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "1.3.e",
+      "sourcePart": "1.3.E",
+      "label": "Initial energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "v_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, v_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2.1.l",
+      "sourcePart": "2.1.l",
+      "label": "Semi-latus rectum",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "r_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use r_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2.1.e",
+      "sourcePart": "2.1.e",
+      "label": "Eccentricity",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\beta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\beta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2.2",
+      "sourcePart": "2.2",
+      "label": "Major-axis angle",
+      "kind": "numeric",
+      "unit": "rad",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in rad, without a unit suffix."
+    },
+    {
+      "id": "2.3.min",
+      "sourcePart": "2.3.min",
+      "label": "Perigee radius",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "r_0",
+        "\\beta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use r_0, \\beta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2.3.max",
+      "sourcePart": "2.3.max",
+      "label": "Apogee radius",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "r_0",
+        "\\beta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.8
+        }
+      ],
+      "help": "Use r_0, \\beta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2.3.values",
+      "sourcePart": "2.3.values",
+      "label": "Turning radii for beta = 1/4",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2.4",
+      "sourcePart": "2.4",
+      "label": "New orbital period",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "T_0",
+        "\\beta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "T_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.8
+        }
+      ],
+      "help": "Use T_0, \\beta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3.1",
+      "sourcePart": "3.1",
+      "label": "Escape threshold",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "3.2",
+      "sourcePart": "3.2",
+      "label": "Closest approach at escape",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "r_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use r_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "4.1",
+      "sourcePart": "4.1",
+      "label": "Asymptotic speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v_0",
+        "\\beta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1.2,
+          "max": 4
+        }
+      ],
+      "help": "Use v_0, \\beta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "4.2",
+      "sourcePart": "4.2",
+      "label": "Impact parameter",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "r_0",
+        "\\beta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1.2,
+          "max": 4
+        }
+      ],
+      "help": "Use r_0, \\beta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "4.3",
+      "sourcePart": "4.3",
+      "label": "Asymptotic direction",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\beta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1.2,
+          "max": 4
+        }
+      ],
+      "help": "Use \\beta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

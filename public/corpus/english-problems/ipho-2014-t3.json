@@ -1,1 +1,473 @@
-{"id":"ipho-2014-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2014_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2014_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2014-t3-statement/document.pdf","pages":[],"sourcePages":[1,2],"initialPage":1,"shared":false,"text":"            Theoretical competition. Tuesday, 15 July 2014                      1/2 \n \nProblem3. Simplest model of gas discharge (10 points) \nAn electric current flowing through a gas is called a gas discharge. There are many types of gas \ndischarges including glow discharge in lighting lamps, arc discharge inwelding and the well known spark \ndischarge that occurs between the clouds and the earth in the form of lightning. \nPart А. Non-self-sustained gas discharge (4.8points) \nIn this part of the problem the so-called non-self-sustained gas discharge is studied. To maintain it a \npermanent operationan external ionizer is needed, which creates 𝑍ext  pairs of singly ionized ions and free \nelectrons per unit volume and per unit time uniformly in the volume. \nWhen an external ionizer is switched on, the number of electrons and ions starts to grow. Unlimited \nincrease in the number densities of electrons and ions in the gas is prevented by the recombination process in \nwhich a free electron recombineswith an ion to form a neutral atom. The number of recombining \nevents𝑍rec that occurs in the gas per unit volume and per unit time is given by \n𝑍rec = 𝑟𝑛𝑒𝑛𝑖, \nwhere 𝑟 is a constant called the recombination coefficient, and 𝑛𝑒,𝑛𝑖denotethe electron and ion number \ndensities, respectively. \nSuppose that at time 𝑡= 0the external ionizer is switched on and the initial number densities of \nelectrons and ions in the gas are both equal to zero. Then, the electron number density 𝑛𝑒(𝑡) depends on \ntime𝑡as follows: \n𝑛𝑒 𝑡 = 𝑛0 + 𝑎tanh 𝑏𝑡, \nwhere 𝑛0, 𝑎 and 𝑏are some constants, and tanh 𝑥stands for the hyperbolic tangent. \nA1 Find𝑛0, 𝑎, 𝑏and express them in terms of𝑍ext and𝑟.(1.8points) \nAssume that there are two external ionizers available. When the first one is switched on, the electron \nnumber density in the gas reaches its equilibrium value of be 𝑛𝑒1 = 12 ∙1010cm−3. When the second \nexternal ionizer is switched on, the electron number density reaches its equilibrium value of 𝑛𝑒2 = 16 ∙\n1010cm−3. \nA2 Find the electron number density𝑛𝑒at equilibriumwhen both external ionizers are switched on \nsimultaneously.(0.6 points) \nAttention!In what follows it is assumed that the external ionizer is switched on for quite long period \nof time such that all processes have become stationary and do not depend on time. Completely neglect the \nelectric field due the charge carriers. \nAssume that the gas fills in the tube between the two parallel conductive plates of area 𝑆 separated by \nthe distance 𝐿≪ 𝑆 from each other. The voltage 𝑈 is applied across the plates to create an electric field \nbetween them. Assume that the number densities of both kinds of charge carriers remain almost constant \nalong the tube. \nAssumethat both the electrons (denoted by thesubscript𝑒) and the ions (denoted by the subscript𝑖) \nacquire the same ordered speed𝑣due to the electric field strength𝐸 found as \n𝑣= 𝛽𝐸, \nwhere 𝑏isa constant called charge mobility. \nA3 Express the electric current𝐼in the tube in terms of 𝑈, 𝛽, 𝐿, 𝑆, 𝑍ext , 𝑟 and 𝑒whichis the elementary \ncharge.(1.7 points) \nA4 Find the resistivity𝜌gas of the gas at sufficiently small values of the voltage applied and express it in \nterms of𝛽, 𝐿, 𝑍ext , 𝑟 and 𝑒.(0.7 points) \n \n \n \n\n            Theoretical competition. Tuesday, 15 July 2014                      2/2 \n \nPartB. Self-sustained gas discharge (5.2 points) \nIn this part of the problemthe ignition of the self-sustained gas discharge is consideredto show how \nthe electric current in the tube becomes self-maintaining. \nAttention!In the sequel assume that the external ionizer continues to operatewith the same 𝑍ext rate, \nneglect the electric field due to the charge carriers such that the electric field is uniform along the tube, and \nthe recombination can be completely ignored. \nFor the self-sustained gas discharge there are two \nimportant processes not considered above. The first process \nisasecondary electron emission, and the second one isa \nformation of electron avalanche. The secondary electron \nemission occurs when ions hit on the negative electrode, \ncalled a cathode, and the electrons are knocked out of it to \nmove towards the positive electrode, called an anode. The \nratio of the number of the knocked electrons𝑁 𝑒per unit \ntimeto the number of ions𝑁𝑖  hitting the cathode per unit \ntime is called the coefficient of the secondary electron \nemission,𝛾= 𝑁 𝑒/𝑁𝑖 .The \nformation \nof \nthe \nelectron \navalanche isexplained as follows. The electric field accelerates free electrons which acquire enough kinetic \nenergy to ionize the atoms in the gas by hitting them. As a result the number of free electrons moving \ntowards the anodesignificantly increases. This process is described by the Townsend coefficient 𝛼, which \ncharacterizes an increase in the number of electrons𝑑𝑁𝑒due to moving 𝑁𝑒 electrons that have passed the \ndistance𝑑𝑙, i.e. \n𝑑𝑁𝑒\n𝑑𝑙= 𝛼𝑁𝑒. \nThe total current𝐼 in any cross section of the gas tube consists of the ion 𝐼𝑖(𝑥)and the electron𝐼𝑒(𝑥) \ncurrents which, in the steady state, depend on the coordinate 𝑥, shown in the figureabove. The electron \ncurrent 𝐼𝑒(𝑥) varies along the 𝑥-axis according to the formula \n𝐼𝑒 𝑥 = 𝐶1𝑒𝐴1𝑥+ 𝐴2, \nwhere 𝐴1, 𝐴2, 𝐶1 are some constants. \nB1 \nFind𝐴1, 𝐴2and express them in terms of𝑍ext , 𝛼, 𝑒, 𝐿, 𝑆.(2 points) \nThe ion current 𝐼𝑖(𝑥) varies along the 𝑥-axis according to the formula  \n𝐼𝑖 𝑥 = 𝐶2 + 𝐵1𝑒𝐵2𝑥, \nwhere 𝐵1, 𝐵2, 𝐶2 are some constants. \nB2 \nFind𝐵1, 𝐵2and express them in terms of𝑍ext , 𝛼, 𝑒, 𝐿, 𝑆, 𝐶1.(0.6 points) \nB3 \nWrite down the condition for 𝐼𝑖(𝑥)at𝑥= 𝐿.(0.3 points) \nB4 \nWrite down the condition for𝐼𝑖(𝑥)and𝐼𝑒(𝑥)at 𝑥= 0.(0.6 points) \nB5 \nFind the total current𝐼and express it in terms of𝑍ext , 𝛼, 𝛾, 𝑒, 𝐿, 𝑆.Assume that it remains finite  \n(1.2 points) \nLet the Townsend coefficient 𝛼be constant. When the length of the tube turns out greater than some \ncritical value, i.e. 𝐿> 𝐿cr, the external ionizer can be turned off and the discharge becomes self-sustained. \nB6 \nFind𝐿𝑐𝑟and express it in terms of𝑍ext , 𝛼, 𝛾, 𝑒, 𝐿, 𝑆.(0.5 points) \n \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2014-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"             Theoretical competition. Tuesday, 15 July 2014                      1/3 \n \nProblem 3. Simplest model of gas discharge \nSolution \nPart А. Non-self-sustained gas discharge \nA1.Let us derive an equation describing the change of the electron number density with time. It is \ndetermined by the two processes; the generation of ion pairs by external ionizer and the recombination of \nelectrons with ions. At ionization process electrons and ions are generated in pairs, and at recombination \nprocessthey disappear in pairs as well.Thus, their concentrations are alwaysequal at any given time, i.e. \n \n \n𝑛 𝑡 = 𝑛𝑒 𝑡 = 𝑛𝑖(𝑡) \n \n \n \n \n \n \n(A1.1). \nThen the equation describing the numberdensityevolution of electrons and ions in time can be written \nas \n \n \n𝑑𝑛(𝑡)\n𝑑𝑡\n= 𝑍𝑒𝑥𝑡−𝑟𝑛(𝑡)2 \n \n \n \n \n \n \n(A1.2). \nIt is easy to show that at𝑡→0 the function tanh 𝑏𝑡→0, therefore, by virtue of the initial condition \n𝑛 0 = 0,one finds \n \n \n𝑛0 = 0 \n \n \n \n \n \n \n \n \n(A1.3). \nSubstituting 𝑛𝑒 𝑡 = 𝑎tanh 𝑏𝑡 in (A1.2) and separating it in the independent functions (hyperbolic, \nor 1 and𝑒𝑥), one gets \n \n \n𝑎=  \n𝑍𝑒𝑥𝑡\n𝑟 \n \n \n \n \n \n \n \n \n(A1.4), \n \n \n𝑏=  𝑟𝑍𝑒𝑥𝑡 \n \n \n \n \n \n \n \n \n(A1.5). \nA2.According to equation (A1.4) the number density of electronsat steady-state is expressed in terms of the \nexternal ionizer activity as \n \n \n𝑛𝑒1 =  \n𝑍𝑒𝑥𝑡1\n𝑟  \n \n \n \n \n \n \n \n(A2.1), \n \n \n𝑛𝑒2 =  \n𝑍𝑒𝑥𝑡2\n𝑟  \n \n \n \n \n \n \n \n(A2.2), \n \n \n𝑛𝑒=  \n𝑍𝑒𝑥𝑡1+𝑍𝑒𝑥𝑡2\n𝑟\n \n \n \n \n \n \n \n \n(A2.3). \nThus,the following analogue of the Pythagorean theorem is obtained as \n \n \n𝑛𝑒=  𝑛𝑒1\n2 + 𝑛𝑒2\n2 = 20.0 ∙1010cm−3. \n \n \n \n \n(A2.4) \nA3.In the steady state, the balance equations of electrons and ions in the tube volume take the form \n \n \n \n𝑍𝑒𝑥𝑡𝑆𝐿= 𝑟𝑛𝑒𝑛𝑖𝑆𝐿+\n𝐼𝑒\n𝑒 \n \n \n \n \n \n \n(A3.1), \n \n \n \n𝑍𝑒𝑥𝑡𝑆𝐿= 𝑟𝑛𝑒𝑛𝑖𝑆𝐿+\n𝐼𝑖\n𝑒 \n \n \n \n \n \n \n(A3.2). \nIt follows from equations (A3.1) and (A3.2) that the ion and electron currents are equal, i.e. \n \n \n \n𝐼𝑒= 𝐼𝑖  \n \n \n \n \n \n \n \n \n(A3.3). \nAt the same time the total current in each tube section is the sum of the electron and ion currents \n \n \n \n𝐼= 𝐼𝑒+ 𝐼𝑖 \n \n \n \n \n \n \n \n \n(A3.4). \nBy definition ofthe current density the following relations hold \n \n \n \n𝐼𝑒=\n𝐼\n2 = 𝑒𝑛𝑒𝑣𝑆= 𝑒𝛽𝑛𝑒𝐸𝑆  \n \n \n \n \n \n(A3.5), \n \n \n \n𝐼𝑖=\n𝐼\n2 = 𝑒𝑛𝑖𝑣𝑆= 𝑒𝛽𝑛𝑖𝐸𝑆 \n \n \n \n \n \n \n(A3.6). \nSubstituting (A3.5) and (A3.6) into (A3.1) and (A3.2), the following quadratic equation for the \ncurrent is derived \n \n \n \n𝑍𝑒𝑥𝑡𝑆𝐿= 𝑟𝑆𝐿 \n𝐼\n2𝑒𝛽𝐸𝑆 \n2\n+\n𝐼\n2𝑒  \n \n \n \n \n \n(A3.7). \nThe electric field strength in the gas is equal to \n \n \n \n𝐸=\n𝑈\n𝐿  \n \n \n \n \n \n \n \n \n(A3.8). \nand solution to the quadratic equation (A3.7) takes the form \n \n \n \n𝐼=\n𝑒𝛽2𝑈2𝑆\n𝑟𝐿3\n −1 ±  1 +\n4𝑟𝑍𝑒𝑥𝑡𝐿4\n𝛽2𝑈2   \n \n \n \n \n \n(A3.9). \n\n             Theoretical competition. Tuesday, 15 July 2014                      2/3 \n \nIt is obvious that only positive root does make sense, i.e. \n \n \n \n𝐼=\n𝑒𝛽2𝑈2𝑆\n𝑟𝐿3\n  1 +\n4𝑟𝑍𝑒𝑥𝑡𝐿4\n𝛽2𝑈2\n−1  \n \n \n \n \n \n(A3.10). \nA4.At low voltages (A3.10) simplifies and gives the following expression \n \n \n \n𝐼= 2𝑈𝑒𝛽 \n𝑍𝑒𝑥𝑡\n𝑟\n𝑆\n𝐿. \n \n \n \n \n \n \n \n(A4.1) \nwhich is actually the Ohm law. \nUsing the well-known relation \n \n \n \n𝑅=\n𝑈\n𝐼  \n \n \n \n \n \n \n \n \n(A4.2) \ntogether with \n \n \n \n𝑅= 𝜌\n𝐿\n𝑆 \n \n \n \n \n \n \n \n \n(A4.3), \none gets \n \n \n \n𝜌=\n1\n2𝑒𝛽 \n𝑟\n𝑍𝑒𝑥𝑡  \n \n \n \n \n \n \n \n(A4.4). \nPart B. Self-sustained gas discharge \nB1.Consider a gas layer located between 𝑥and𝑥+ 𝑑𝑥.The rate of change in the electron number inside the \nlayer due to the electric current is givenfor a small time interval 𝑑𝑡 by \n \n \n𝑑𝑁𝑒\n𝐼=\n𝐼𝑒 𝑥+𝑑𝑥 −𝐼𝑒(𝑥)\n𝑒\n𝑑𝑡=\n1\n𝑒\n𝑑𝐼𝑒 𝑥 \n𝑑𝑥\n𝑑𝑥𝑑𝑡. \n \n \n \n \n(B1.1). \nThis change is due to the effect of the external ionization and the electron avalanche formation. \nThe external ionizer creates the following number of electrons in the volume𝑆𝑑𝑥 \n \n \n𝑑𝑁𝑒\n𝑒𝑥𝑡= 𝑍𝑒𝑥𝑡𝑆𝑑𝑥𝑑𝑡  \n \n \n \n \n \n \n(B1.2). \nwhereas the electron avalanche produces the number of electrons found as \n \n \n𝑑𝑁𝑒\n𝑎= 𝛼𝑁𝑒𝑑𝑙= 𝑛𝑒𝑆𝑑𝑥𝑣𝑑𝑡= 𝛼\n𝐼𝑒(𝑥)\n𝑒\n𝑑𝑥𝑑𝑡  \n \n \n \n(B1.3). \nThe balance equationfor the number of electrons is written as \n \n \n𝑑𝑁𝑒\n𝐼= 𝑑𝑁𝑒\n𝑒𝑥𝑡+ 𝑑𝑁𝑒\n𝑎  \n \n \n \n \n \n \n(B1.4), \nwhichresults in the following differential equation for the electron current \n \n \n𝑑𝐼𝑒(𝑥)\n𝑑𝑥\n= 𝑒𝑍𝑒𝑥𝑡𝑆+ 𝛼𝐼𝑒(𝑥) \n \n \n \n \n \n \n(B1.5). \nOn substituting𝐼𝑒 𝑥 = 𝐶1𝑒𝐴1𝑥+ 𝐴2,one derives \n \n \n𝐴1 = 𝛼 \n \n \n \n \n \n \n \n \n(B1.6), \n \n \n𝐴2 = −\n𝑒𝑍𝑒𝑥𝑡𝑆\n𝛼\n  \n \n \n \n \n \n \n \n(B1.7). \nB2.Given the fact that the ions flow in the direction opposite to the electron motion,the balance equationfor \nthe number of ionsis written as \n \n \n𝑑𝑁𝑖\n𝐼= 𝑑𝑁𝑖\n𝑒𝑥𝑡+ 𝑑𝑁𝑖\n𝑎  \n \n \n \n \n \n \n(B2.1), \nwhere \n \n \n𝑑𝑁𝑖\n𝐼=\n𝐼𝑖 𝑥 −𝐼𝑖(𝑥+𝑑𝑥)\n𝑒\n𝑑𝑡= −\n1\n𝑒\n𝑑𝐼𝑖 𝑥 \n𝑑𝑥\n𝑑𝑥𝑑𝑡 \n \n \n \n \n(B2.2). \n \n \n𝑑𝑁𝑖\n𝑒𝑥𝑡= 𝑍𝑒𝑥𝑡𝑆𝑑𝑥𝑑𝑡  \n \n \n \n \n \n \n(B2.3). \n \n \n𝑑𝑁𝑖\n𝑎= 𝛼\n𝐼𝑒(𝑥)\n𝑒\n𝑑𝑥𝑑𝑡  \n \n \n \n \n \n \n(B2.4). \nHence, the following differential equation for the ion current is obtained \n \n \n−\n𝑑𝐼𝑖(𝑥)\n𝑑𝑥\n= 𝑒𝑍𝑒𝑥𝑡𝑆+ 𝛼𝐼𝑒(𝑥).  \n \n \n \n \n \n(B2.5) \nOnsubstituting the previouslyfound electron current together with the ion current,𝐼𝑖 𝑥 = 𝐶2 +\n𝐵1𝑒𝐵2𝑥,yields \n \n \n𝐵1 = −𝐶1 \n \n \n \n \n \n \n \n \n(B2.6), \n \n \n𝐵2 = 𝛼 \n \n \n \n \n \n \n \n \n(B2.7). \nB3.Sincetheionsstartstomovefrom the anode located at𝑥= 𝐿, the following condition holds \n \n \n \n𝐼𝑖 𝐿 = 0 \n \n \n \n \n \n \n \n \n(B3.1). \nB4.By definition of secondary electron emission coefficient the following condition should be imposed  \n \n \n𝐼𝑒 0 = 𝛾𝐼𝑖 0  \n \n \n \n \n \n \n \n(B4.1). \n\n             Theoretical competition. Tuesday, 15 July 2014                      3/3 \n \nB5.Total current in each tube section is the sum of the electron and ion currents: \n𝐼= 𝐼𝑒+ 𝐼𝑖= 𝐶2 −\n𝑒𝑍𝑒𝑥𝑡𝑆\n𝛼\n \n \n \n \n \n \n \n(B5.1). \nAftersubstituting the boundary conditions (B3.1) and (B4.1): \n𝐶2 −𝐶1𝑒𝛼𝐿= 0 \n \n \n \n \n \n \n \n(B5.2) \nand \n𝐶1 −\n𝑒𝑍𝑒𝑥𝑡𝑆\n𝛼\n= 𝛾(𝐶2 −𝐶1) \n \n \n \n \n \n \n(B5.3). \nSolving (B5.2) and (B5.3) one can obtain: \n𝐶2 =\n𝑒𝑍𝑒𝑥𝑡𝑆\n𝛼\n \n1\n𝑒−𝛼𝐿(1+𝛾)−𝛾  \n \n \n \n \n \n \n(B5.4). \nSo the total current: \n𝐼=\n𝑒𝑍𝑒𝑥𝑡𝑆\n𝛼\n \n1\n𝑒−𝛼𝐿(1+𝛾)−𝛾−1   \n \n \n \n \n \n(B5.5). \nB6.When the discharge gap length is increased, the denominator in formula (B5.1) decreases. At that \nmoment, when it turns zero, the electric current in the gas becomes self-sustaining and external ionizer can \nbe turned off. Thus, \n𝐿𝑐𝑟=\n1\n𝛼ln  1 +\n1\n𝛾  \n \n \n \n \n \n \n \n(B6.1). \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2014-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2014_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2014_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2014-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Simplest model of gas discharge"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An external ionizer creates \\(Z_{ext}\\) electron and singly charged ion pairs per unit volume per unit time. Recombination removes pairs at rate \\(rn_en_i\\), where \\(r\\) is constant. Initially both densities are zero. In part A ignore the electric field of the carriers. For current measurements a gas-filled tube has parallel electrodes of area \\(S\\), separation \\(L\\ll\\sqrt S\\), and voltage \\(U\\). Both carrier species have drift-speed magnitude \\(v=\\beta E\\), and their densities are approximated as uniform."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A1. Density growth constants"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Write \\(n_e(t)=n_0+a\\tanh(bt)\\). Determine \\(n_0,a,b\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A2. Two ionizers"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Two ionizers separately produce equilibrium electron densities \\(12\\times10^{10}\\,\\mathrm{cm^{-3}}\\) and \\(16\\times10^{10}\\,\\mathrm{cm^{-3}}\\). Find the density with both operating."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A3. Current-voltage law"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "With the ionizer operating for a long time, express total current in terms of \\(U,\\beta,L,S,Z_{ext},r,e\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A4. Low-voltage resistivity"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find gas resistivity at sufficiently small voltage."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B1. Electron current constants"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch6-gas-discharge.png",
+        "alt": "Original parallel cathode and anode, drift directions of ions and electrons, and x axis from zero to L."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For part B neglect recombination, keep \\(Z_{ext}\\), and take uniform field. The cathode is at \\(x=0\\), anode at \\(x=L\\). Avalanches obey \\(dN_e/dl=\\alpha N_e\\). Write \\(I_e(x)=C_1e^{A_1x}+A_2\\) and find \\(A_1,A_2\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B2. Ion current constants"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Write \\(I_i(x)=C_2+B_1e^{B_2x}\\). Find \\(B_1,B_2\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B3. Anode boundary"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "State the ion-current boundary condition at the anode."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B4. Cathode boundary"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Each ion striking the cathode releases on average \\(\\gamma\\) electrons. State the boundary condition at \\(x=0\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B5. Finite total current"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the total steady current while the subcritical solution remains finite."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B6. Critical gap length"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the gap length above which secondary emission can maintain discharge without the external ionizer."
+          }
+        ]
+      }
+    ],
+    "text": "Simplest model of gas discharge\nAn external ionizer creates \\(Z_{ext}\\) electron and singly charged ion pairs per unit volume per unit time. Recombination removes pairs at rate \\(rn_en_i\\), where \\(r\\) is constant. Initially both densities are zero. In part A ignore the electric field of the carriers. For current measurements a gas-filled tube has parallel electrodes of area \\(S\\), separation \\(L\\ll\\sqrt S\\), and voltage \\(U\\). Both carrier species have drift-speed magnitude \\(v=\\beta E\\), and their densities are approximated as uniform.\nA1. Density growth constants\nWrite \\(n_e(t)=n_0+a\\tanh(bt)\\). Determine \\(n_0,a,b\\).\nA2. Two ionizers\nTwo ionizers separately produce equilibrium electron densities \\(12\\times10^{10}\\,\\mathrm{cm^{-3}}\\) and \\(16\\times10^{10}\\,\\mathrm{cm^{-3}}\\). Find the density with both operating.\nA3. Current-voltage law\nWith the ionizer operating for a long time, express total current in terms of \\(U,\\beta,L,S,Z_{ext},r,e\\).\nA4. Low-voltage resistivity\nFind gas resistivity at sufficiently small voltage.\nB1. Electron current constants\n\nFor part B neglect recombination, keep \\(Z_{ext}\\), and take uniform field. The cathode is at \\(x=0\\), anode at \\(x=L\\). Avalanches obey \\(dN_e/dl=\\alpha N_e\\). Write \\(I_e(x)=C_1e^{A_1x}+A_2\\) and find \\(A_1,A_2\\).\nB2. Ion current constants\nWrite \\(I_i(x)=C_2+B_1e^{B_2x}\\). Find \\(B_1,B_2\\).\nB3. Anode boundary\nState the ion-current boundary condition at the anode.\nB4. Cathode boundary\nEach ion striking the cathode releases on average \\(\\gamma\\) electrons. State the boundary condition at \\(x=0\\).\nB5. Finite total current\nFind the total steady current while the subcritical solution remains finite.\nB6. Critical gap length\nFind the gap length above which secondary emission can maintain discharge without the external ionizer.",
+    "figures": [
+      "/corpus/figures/native/batch6-gas-discharge.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2014-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Simplest model of gas discharge"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A1. Density growth constants"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Pairs are created and destroyed together, so \\(n_e=n_i=n\\) and \\(\\dot n=Z_{ext}-rn^2\\). The initial condition and substitution give \\[n_0=0,\\quad a=\\sqrt{Z_{ext}/r},\\quad b=\\sqrt{rZ_{ext}}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A2. Two ionizers"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Rates add, not equilibrium densities. Thus \\(n=\\sqrt{n_1^2+n_2^2}=20\\times10^{10}\\,\\mathrm{cm^{-3}}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A3. Current-voltage law"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Each carrier current is \\(I/2=en\\beta US/L\\). Pair balance is \\(Z_{ext}SL=rn^2SL+I/(2e)\\). The positive quadratic root gives \\[I=\\frac{e\\beta^2U^2S}{rL^3}\\left(\\sqrt{1+\\frac{4rZ_{ext}L^4}{\\beta^2U^2}}-1\\right).\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A4. Low-voltage resistivity"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As \\(U\\to0\\), \\(n\\to\\sqrt{Z_{ext}/r}\\) and \\(I=2e\\beta US\\sqrt{Z_{ext}/r}/L\\). Hence \\[\\rho_{gas}=\\frac1{2e\\beta}\\sqrt{r/Z_{ext}}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B1. Electron current constants"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Local balance gives \\(dI_e/dx=eZ_{ext}S+\\alpha I_e\\), so \\(A_1=\\alpha\\), \\(A_2=-eZ_{ext}S/\\alpha\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B2. Ion current constants"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Ion production gives \\(-dI_i/dx=eZ_{ext}S+\\alpha I_e\\). Therefore \\(B_1=-C_1\\) and \\(B_2=\\alpha\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B3. Anode boundary"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "No ions enter from beyond the anode, so \\(I_i(L)=0\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B4. Cathode boundary"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The secondary-emission condition is \\(I_e(0)=\\gamma I_i(0)\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B5. Finite total current"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total current \\(I=I_e+I_i=C_2-eZ_{ext}S/\\alpha\\) is independent of position. Use \\(C_2=C_1e^{\\alpha L}\\) and the cathode condition to obtain \\[I=\\frac{eZ_{ext}S}{\\alpha}\\left[\\frac1{(1+\\gamma)e^{-\\alpha L}-\\gamma}-1\\right].\\] The physical externally sustained branch has \\(\\gamma(e^{\\alpha L}-1)<1\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B6. Critical gap length"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The avalanche feedback threshold is \\(\\gamma(e^{\\alpha L}-1)=1\\). Thus \\[L_{cr}=\\frac1\\alpha\\ln(1+1/\\gamma).\\] The linear model diverges at threshold and cannot predict the saturated discharge current."
+          }
+        ]
+      }
+    ],
+    "text": "Simplest model of gas discharge\nA1. Density growth constants\nPairs are created and destroyed together, so \\(n_e=n_i=n\\) and \\(\\dot n=Z_{ext}-rn^2\\). The initial condition and substitution give \\[n_0=0,\\quad a=\\sqrt{Z_{ext}/r},\\quad b=\\sqrt{rZ_{ext}}.\\]\nA2. Two ionizers\nRates add, not equilibrium densities. Thus \\(n=\\sqrt{n_1^2+n_2^2}=20\\times10^{10}\\,\\mathrm{cm^{-3}}\\).\nA3. Current-voltage law\nEach carrier current is \\(I/2=en\\beta US/L\\). Pair balance is \\(Z_{ext}SL=rn^2SL+I/(2e)\\). The positive quadratic root gives \\[I=\\frac{e\\beta^2U^2S}{rL^3}\\left(\\sqrt{1+\\frac{4rZ_{ext}L^4}{\\beta^2U^2}}-1\\right).\\]\nA4. Low-voltage resistivity\nAs \\(U\\to0\\), \\(n\\to\\sqrt{Z_{ext}/r}\\) and \\(I=2e\\beta US\\sqrt{Z_{ext}/r}/L\\). Hence \\[\\rho_{gas}=\\frac1{2e\\beta}\\sqrt{r/Z_{ext}}.\\]\nB1. Electron current constants\nLocal balance gives \\(dI_e/dx=eZ_{ext}S+\\alpha I_e\\), so \\(A_1=\\alpha\\), \\(A_2=-eZ_{ext}S/\\alpha\\).\nB2. Ion current constants\nIon production gives \\(-dI_i/dx=eZ_{ext}S+\\alpha I_e\\). Therefore \\(B_1=-C_1\\) and \\(B_2=\\alpha\\).\nB3. Anode boundary\nNo ions enter from beyond the anode, so \\(I_i(L)=0\\).\nB4. Cathode boundary\nThe secondary-emission condition is \\(I_e(0)=\\gamma I_i(0)\\).\nB5. Finite total current\nTotal current \\(I=I_e+I_i=C_2-eZ_{ext}S/\\alpha\\) is independent of position. Use \\(C_2=C_1e^{\\alpha L}\\) and the cathode condition to obtain \\[I=\\frac{eZ_{ext}S}{\\alpha}\\left[\\frac1{(1+\\gamma)e^{-\\alpha L}-\\gamma}-1\\right].\\] The physical externally sustained branch has \\(\\gamma(e^{\\alpha L}-1)<1\\).\nB6. Critical gap length\nThe avalanche feedback threshold is \\(\\gamma(e^{\\alpha L}-1)=1\\). Thus \\[L_{cr}=\\frac1\\alpha\\ln(1+1/\\gamma).\\] The linear model diverges at threshold and cannot predict the saturated discharge current.",
+    "figures": [],
+    "shared": false
+  }
+}

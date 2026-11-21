@@ -1,0 +1,330 @@
+{
+  "problemId": "ipho-2017-t2",
+  "version": "56c2dc39e5b06dfa5ac3d6992ee6998338941c075d3eb09b761a71ec660ab947",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Mixture equilibrium temperature",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m_w",
+        "c_w",
+        "T_w",
+        "m_m",
+        "c_m",
+        "T_m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m_w",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c_w",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_w",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c_m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use c_w and c_m for the two specific constant-volume heat capacities."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Mixture equilibrium pressure",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R",
+        "T_e",
+        "v_e"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v_e",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use R, T_e, v_e. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "A.3",
+      "label": "Eruption velocity scaling",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "K",
+        "p",
+        "V",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "K",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "p",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use K, p, V, m. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Crust P-wave velocity",
+      "kind": "numeric",
+      "unit": "km/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in km/s, without a unit suffix."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Direct and reflected arrivals",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Mantle velocity",
+      "kind": "numeric",
+      "unit": "km/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in km/s, without a unit suffix."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "B.4",
+      "label": "Continuously varying crust",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "p",
+        "v_0",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "p",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.05,
+          "max": 0.1
+        },
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 3
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use p, v_0, a. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "B.5",
+      "label": "Travel-time integral",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.6",
+      "sourcePart": "B.6",
+      "label": "Three-layer travel time",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Uplift potential energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "g",
+        "\\lambda",
+        "L",
+        "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\lambda",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\rho, g, \\lambda, L, h. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Shallow-water wave speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "g",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Take the dimensionless factor as one."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "C.3",
+      "label": "Shoaling amplitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "A_0",
+        "d_0",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "A_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use A_0, d_0, d. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

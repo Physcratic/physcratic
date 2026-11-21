@@ -1,0 +1,471 @@
+{
+  "problemId": "apho-2017-t1",
+  "version": "3733c29cd8718a744b0a5a23915443dd483dba960583e1d65466e8a1972f39cc",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Straight-filament flow",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\kappa",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\kappa",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\kappa, r. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Single-vortex surface",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "z_0",
+        "\\kappa",
+        "g",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\kappa",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use z_0, \\kappa, g, r. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Equal-circulation pair",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Lattice trajectories",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Lattice velocity",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\kappa",
+        "r",
+        "u"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\kappa",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "u",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\kappa, r, u. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "B.4",
+      "label": "Lattice spacing in time",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "d_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "d_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use d_0 for AB(0)."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "B.5",
+      "label": "Smoothed lattice surface",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "z_0",
+        "\\kappa",
+        "r",
+        "g",
+        "u"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\kappa",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "u",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use z_0, \\kappa, r, g, u. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Rectangular-loop momentum",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\kappa",
+        "\\rho",
+        "b",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\kappa",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\kappa, \\rho, b, d. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Rectangular-loop energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "\\kappa",
+        "d",
+        "b",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\kappa",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 10,
+          "max": 20
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.01,
+          "max": 0.1
+        }
+      ],
+      "help": "Use \\rho, \\kappa, d, b, a. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "C.3",
+      "label": "Shifted-filament momentum",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "D.1",
+      "label": "Charged straight filament",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "D.2",
+      "label": "Charged-ring radius",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R_0",
+        "E",
+        "l",
+        "t",
+        "\\rho",
+        "\\kappa"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "l",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "t",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\kappa",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use l for the positive initial charge-density magnitude."
+    },
+    {
+      "id": "d.3",
+      "sourcePart": "D.3",
+      "label": "Charged-ring velocity",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.4",
+      "sourcePart": "D.4",
+      "label": "Field switched off",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use v_0 for v star."
+    },
+    {
+      "id": "e.1",
+      "sourcePart": "E.1",
+      "label": "One flat wall",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\kappa",
+        "h_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\kappa",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\kappa, h_0. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "e.2",
+      "sourcePart": "E.2",
+      "label": "Right-angle corner",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\kappa",
+        "h_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\kappa",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\kappa, h_0. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "e.3",
+      "sourcePart": "E.3",
+      "label": "Corner trajectory",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "e.4",
+      "sourcePart": "E.4",
+      "label": "Long-time corner speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\kappa",
+        "h_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\kappa",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\kappa, h_0. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

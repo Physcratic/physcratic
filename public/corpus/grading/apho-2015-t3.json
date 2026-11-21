@@ -1,0 +1,136 @@
+{
+  "problemId": "apho-2015-t3",
+  "version": "732e086a47d0fbb03e215cacd035bb8d645141d01fc35bdf1120ad06b402e0de",
+  "parts": [
+    {
+      "id": "a.i",
+      "sourcePart": "a.i",
+      "label": "First three orders",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.ii",
+      "sourcePart": "a.ii",
+      "label": "Ring angles",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.iii",
+      "sourcePart": "a.iii",
+      "label": "Ring diameters",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.i",
+      "sourcePart": "b.i",
+      "label": "Phase linewidth",
+      "kind": "numeric",
+      "unit": "rad",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in rad, without a unit suffix."
+    },
+    {
+      "id": "b.ii",
+      "sourcePart": "b.ii",
+      "label": "Resolving power",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "c",
+      "sourcePart": "c",
+      "label": "Air refractive index",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "d",
+      "sourcePart": "d",
+      "label": "Four Zeeman frequencies",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "e",
+      "sourcePart": "e",
+      "label": "Splittings from ring diameters",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "f",
+      "sourcePart": "f",
+      "label": "Measured Landé factors",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "g",
+      "sourcePart": "g",
+      "label": "Solar magnetic field",
+      "kind": "numeric",
+      "unit": "T",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in T, without a unit suffix."
+    },
+    {
+      "id": "h.i",
+      "sourcePart": "h.i",
+      "label": "LED transmitted comb",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "h.ii",
+      "sourcePart": "h.ii",
+      "label": "Individual comb linewidth",
+      "kind": "numeric",
+      "unit": "Hz",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in Hz, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

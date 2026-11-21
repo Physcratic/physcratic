@@ -1,0 +1,237 @@
+{
+  "problemId": "ipho-2018-t2",
+  "version": "850b38761767a2c94e414161c14405ffec8fcbfea11582b75d78bd90a81128e5",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Classical cyclotron radius",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "K",
+        "e",
+        "B"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "K",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, K, e, B. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Escape momentum",
+      "kind": "numeric",
+      "unit": "MeV/c",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in MeV/c, without a unit suffix."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Ultrarelativistic radiation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "a.4",
+      "label": "Energy loss coefficient",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "B",
+        "\\epsilon_0",
+        "m",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use e, B, \\epsilon_0, m, c. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "a.5",
+      "label": "Radiated energy on escape",
+      "kind": "numeric",
+      "unit": "MeV",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in MeV, without a unit suffix."
+    },
+    {
+      "id": "a.6",
+      "sourcePart": "a.6",
+      "label": "Time-dependent angular frequency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "c",
+        "B",
+        "\\alpha",
+        "E_0",
+        "t"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "t",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use e, c, B, \\alpha, E_0, t. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "W mass constraint",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Two neutrino solutions",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "b.3",
+      "label": "Reconstructed top masses",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "b.4",
+      "label": "Select the likely candidate",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "b.5",
+      "label": "Distance before decay",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

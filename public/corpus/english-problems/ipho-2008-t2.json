@@ -1,1 +1,593 @@
-{"id":"ipho-2008-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2008_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2008_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2008-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"                 39th International Physics Olympiad - Hanoi - Vietnam - 2008                                   \n                                Theoretical Problem No. 2   \n                           \nCHERENKOV LIGHT AND RING IMAGING COUNTER \n \n \nLight propagates in vacuum with the speed \n. There is no particle which moves with \na speed higher than \n. However, it is possible that in a transparent medium a particle \nmoves with a speed \n higher than the speed of the light in the same medium \nc\nc\nv\nc\nn\n, where \n is the refraction index of the medium. Experiment (Cherenkov, 1934) and theory \n(Tamm and Frank, 1937) showed that a charged particle, moving with a speed \n in a \ntransparent medium with refractive index \n such that \nn\nv\nn\nc\nn\n>\nv\n, radiates light, called \nCherenkov light, in directions forming \nwith \nthe \ntrajectory \nan \nangle  \n \n1\narccos\nn\nθ\nβ\n=\n   \n \n \n(1) \nθ\nθ\nA\nB \nwhere \nc\nβ = v .  \n1. To establish this fact, consider a particle moving at constant velocity \nc\nn\n>\nv\n on a \nstraight line. It passes A at time 0 and B at time \n. As the problem is symmetric with \nrespect to rotations around AB, it is sufficient to consider light rays in a plane containing \nAB. \n1t\n \nAt any point C between A and B, the particle emits a spherical light wave, which \npropagates with velocity c\nn\n. We define the wave front at a given time \nas the envelope \nof all these spheres at this time.  \nt\n \n1.1. Determine the wave front at time \n and draw its intersection with a plane \ncontaining the trajectory of the particle.  \n1t\n  1.2. Express the angle ϕ  between this intersection and the trajectory of the particle \nin terms of \n and \nn\nβ . \n2. Let us consider a beam of particles moving with velocity \nc\nn\n>\nv\n, such that the angle \nθ  is small, along a straight line IS. The beam crosses a concave spherical mirror of focal \nlength f and center C, at point S. SC makes with SI a small angle α  (see the figure in \nthe Answer Sheet). The particle beam creates a ring image in the focal plane of the mirror. \n \n1\n\n                 39th International Physics Olympiad - Hanoi - Vietnam - 2008                                   \n                                Theoretical Problem No. 2   \n                           \nExplain why with the help of a sketch illustrating this fact. Give the position of the center \nO and the radius \n of the ring image.  \nr\n This set up is used in ring imaging Cherenkov counters (RICH) and the medium which \nthe particle traverses is called the radiator. \nNote: in all questions of the present problem, terms of second order and higher in α  \nand θ  will be neglected. \n \n3. A beam of particles of known momentum \n10 0 GeV/\n.\np\nc\n=\n consists of three types of \nparticles: protons, kaons and pions, with rest mass \n2\np\n0 94 GeV\n.\n/\nM\nc\n=\n,  \n2\nκ\n0 50 GeV\n.\n/\nM\nc\n=\n and \n2\nπ\n0 14 GeV\n.\n/\nM\nc\n=\n, respectively. Remember that \n and \npc\n2\nMc  have the dimension of an energy, and 1 eV is the energy acquired by an electron \nafter being accelerated by a voltage 1 V, and 1 GeV = 109 eV, 1 MeV = 106 eV.  \n \nThe particle beam traverses an air medium (the radiator) under the pressure \n. The \nrefraction index of air depends on the air pressure\naccording to the relation \nwhere a = 2.7×10\nP\nP\n1\nn\na\n= + P\n-4 atm-1\n \n3.1. Calculate for each of the three particle types the minimal value \nof the air \npressure such that they emit Cherenkov light. \nmin\nP\n \n3.2. Calculate the pressure \n1\n2\nP  such that the ring image of kaons has a radius equal \nto one half of that corresponding to pions. Calculate the values of \nκ\nθ  and \nπ\nθ  in this \ncase.  \n \nIs it possible to observe the ring image of protons under this pressure? \n \n \n4. Assume now that the beam is not perfectly monochromatic: the particles momenta are \ndistributed over an interval centered at 10 \n having a half width at half height \n. This makes the ring image broaden, correspondingly \nGeV / c\np\nΔ\nθ  distribution has a half \nwidth at half height \nθ\nΔ\n. The pressure of the radiator is \n1\n2\nP  determined in 3.2.  \n \n4.1. Calculate \nκ\np\nθ\nΔ\nΔ\n and \nπ\np\nθ\nΔ\nΔ\n, the values taken by \np\nθ\nΔ\nΔ\nin the pions and kaons \ncases. \n \n4.2. When the separation between the two ring images, \nπ\nκ\nθ\nθ\n−\n, is greater than 10 \n \n2\n\n                 39th International Physics Olympiad - Hanoi - Vietnam - 2008                                   \n                                Theoretical Problem No. 2   \n                           \nπ\ntimes the half-width sum \nκ\nθ\nθ\nΔ\n= Δ\n+ Δθ , that is \nπ\nκ\n10\nθ\nθ\nθ\n−\n>\nΔ\n, it is possible to \ndistinguish well the two ring images. Calculate the maximal value of \n such that the \ntwo ring images can still be well distinguished. \np\nΔ\n5. Cherenkov first discovered the effect bearing his name when he was observing a bottle \nof water located near a radioactive source. He saw that the water in the bottle emitted \nlight.  \n \n5.1. Find out the minimal kinetic energy \n of a particle with a rest mass \nmin\nT\nM  \nmoving in water, such that it emits Cherenkov light. The index of refraction of water is  \nn = 1.33. \n5.2. The radioactive source used by Cherenkov emits either α particles (i.e. helium \nnuclei) having a rest mass \n2\nα\n3 8 GeV\n.\n/\nM\nc\n=\n or β particles (i.e. electrons) having a \nrest mass \n2\ne\n0 51 MeV\n.\n/\nM\nc\n=\n. Calculate the numerical values of \n for α particles \nand β particles.  \nmin\nT\nKnowing that the kinetic energy of particles emitted by radioactive sources never \nexceeds a few MeV, find out which particles give rise to the radiation observed by \nCherenkov. \n \n6. In the previous sections of the problem, the dependence of the Cherenkov effect on \nwavelength λ  has been ignored. We now take into account the fact that the Cherenkov \nradiation of a particle has a broad continuous spectrum including the visible range  \n(wavelengths from 0.4 µm to 0.8 µm). We know also that the index of refraction \n of \nthe radiator decreases linearly by 2% of \nn\n1\nn − whenλ  increases over this range.  \n \n6.1. Consider a beam of pions with definite momentum of \n moving in \nair at pressure 6 atm. Find out the angular difference \n10 0 GeV\n.\nc\n/\nδθ  associated with the two ends \nof the visible range. \n \n6.2. On this basis, study qualitatively the effect of the dispersion on the ring image of \npions with momentum distributed over an interval centered at \nand \nhaving a half width at half height\n10 GeV /\np\nc\n=\n0 3 GeV\n.\n/\np\nc\nΔ =\n.  \n6.2.1. Calculate the broadening due to dispersion (varying refraction index) and \nthat due to achromaticity of the beam (varying momentum). \n6.2.2. Describe how the color of the ring changes when going from its inner to \nouter edges by checking the appropriate boxes in the Answer Sheet. \n \n3\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2008-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n1\n \nSolution \n \n \n1. \n \n \n                                                                                 \n                                                                                    \n                           \n \n \n \n                                                                                     \n                                                                                 \nA\nθ\nC\nB\nD\nE\nD’\n \nFigure 1 \n                                           \nLet us consider a plane containing the particle trajectory. At \n, the particle \nposition is at point A. It reaches point B at \n0\nt =\n1\nt\nt\n=\n. According to the Huygens principle, at \nmoment \n, the radiation emitted at A reaches the circle with a radius equal to AD \nand the one emitted at C reaches the circle of radius CE. The radii of the spheres are \nproportional to the distance of their centre to B: \n1\n0\nt\nt\n< <\n(\n)\n(\n)\n1\n1\nCE\n1\nconst\nCB\n/\nc t\nt\nn\nt\nt\nn\nβ\n−\n=\n=\n=\n−\nv\n \nThe spheres are therefore transformed into each other by homothety of vertex B and \ntheir envelope is the cone of summit B and half aperture \n1\n2\nArcsin\nn\nπ\nϕ\nθ\nβ\n=\n=\n−\n, \nwhere θ  is the angle made by the light ray CE with the particle trajectory.  \n1.1. The intersection of the wave front with the plane is two straight lines, BD and \nBD'. \n1.2. They make an angle \n1\nArcsin\nn\nϕ\nβ\n=\nwith the particle trajectory.  \n\n                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n2\n \n2. The construction for finding the ring image of the particles beam is taken in the plane  \ncontaining the trajectory of the particle and the optical axis of the mirror.  \nWe adopt the notations: \nS – the point where the beam crosses the spherical mirror \n \nF – the focus of the spherical mirror  \n \nC – the center of the spherical mirror \n \nIS – the straight-line trajectory of the charged particle making a small angle α with \nthe optical axis of the mirror. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nI \nθ\nθ\nC\nF\nO\nM\nN\nS\nα \nA \nP \nQ \nFigure 2 \n \n \nCF = FS = f \n \n \nCO//IS \n \n \nCM//AP \n \n \nCN//AQ \n \n \nn\nFCO\nα\n=\n⇒FO\nf\nα\n=\n×\n \n \n \nn\nn\nMCO\nOCN\nθ\n=\n=\n⇒MO\nf\nθ\n=\n×\n \n \nWe draw a straight line parallel to IS passing through the center C. The line intersects \nthe focal plane at O. We have FO ≈ f × α  . \n \nStarting from C, we draw two lines in both sides of the line CO making with it an \nangle θ. These two lines intersect the focal plane at M and N, respectively. All the rays of \nCherenkov radiation in the plane of the sketch, striking the mirror and being reflected, \n\n                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n3\nintersect at M or N. \n \nIn three-dimension case, the Cherenkov radiation gives a ring in the focal plane with \nthe center at O (FO ≈ f × α) and with the radius MO ≈ f × θ.  \n \nIn the construction, all the lines are in the plane of the sketch. Exceptionally, the ring \nis illustrated spatially by a dash line.  \n \n3. \n \n3.1. For the Cherenkov effect to occur it is necessary that \nc\nn > v\n , that is  \nmin\nc\nn\n= v\n. \nPutting \n,  we get      \n4\n1\n2 7 10\n.\nn\n−\nζ =\n−=\n×\nP\n \n \n4\nmin\nmin\n1\n2 7 10\n1\n1\n.\nc\nP\nζ\nβ\n−\n=\n×\n=\n−=\n−\nv\n      \n \n \n \n \n \n \n(1)                   \nBecause \n2\n2\n2\n1\n1\nMc\nMc\nMc\nK\nMv\npc\np\nβ\nβ\nβ\n−\n=\n=\n=\n=\n−\n                       (2)                   \nthen K = 0.094 ; 0.05 ; 0.014 for proton, kaon and pion, respectively. \n \nFrom (2) we can express β through K as \n        \n2\n1\n1\nK\nβ =\n+\n           \n \n \n \n \n \n \n \n \n \n \n(3)                  \nSince \n for all three kinds of particles we can neglect the terms of order \nhigher than 2 in K . We get \n2\n1\nK <<\n     \n2\n2\n1\n1\n1\n1\n2\n1\nK\nK\nβ\n−\n= −\n≈\n+\n= \n2\n1\n2\nMc\np\n⎛\n⎞\n⎜\n⎟\n⎝\n⎠\n     \n                   (3a) \n    \n2\n2\n1\n1\n1\n1\n1\n2\nK\nK\nβ −=\n+\n−≈\n=\n2\n1\n2\nMc\np\n⎛\n⎞\n⎜\n⎟\n⎝\n⎠\n    \n \n \n \n \n \n \n \n(3b)  \n                            \n \nPutting (3b) into (1), we obtain \n\n                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n4\n    \n \n2\nmin\n4\n1\n1\n2\n2 7 10\n.\nP\n−\n=\n×\n×\nK\nκ\n                                (4) \n \n \nWe get the following numerical values of the minimal pressure:   \nmin\nP\n= 16 atm      for protons, \nmin\nP\n= 4.6 atm     for kaons, \nmin\nP\n= 0.36 atm     for pions. \n \n3.2. For \nπ\n2\nθ\nθ\n=\n  we have \n      \n    \n \n \n \n \n \n \n \n \n(5)                   \n2\nπ\nκ\nκ\n2\n2\ncos\ncos\ncos\nθ\nθ\nθ\n=\n=\n1\n−\nWe denote  \n     \n2\n2\n1\n1\n1\n1\n2\n1\nK\nK\nε\nβ\n= −\n= −\n≈\n+\n   \n \n \n \n \n \n \n \n \n \n(6)                   \nFrom (5) we obtain \n      \n2\n2\nπ\nκ\n1\n2\n1\nn\nn\nβ\nβ\n=\n−                          \n \n \n \n \n \n(7)                   \nSubstituting \n1\nβ\nε\n= −\n and \n1\nn\nζ\n= +\n into (7), we get approximately: \n                                           \n      \n(\n)\n2\n2\n2\n2\nκ\nπ\n1\nκ\nπ\n2\n4\n1\n1\n4\n4 0 05\n0 014\n3\n6\n6\n.( .\n)\n( .\n)\nK\nK\nε\nε\nζ\n−\n⎡\n⎤\n=\n=\n−\n=\n−\n⎣\n⎦, \n      \n1\n1\n4\n2\n2\n1\n6 atm\n2 7 10\n.\nP\n−\n=\nζ\n=\n×\n. \n \nThe corresponding value of refraction index is n = 1.00162. We get: \n       \nκ\nθ  = 1.6o ;        \n. \no\nπ\nκ\n2\n3 2.\nθ\nθ\n=\n=\nWe do not observe the ring image of protons since \n        \n1\nm\n2\n6atm\n16atm\nin\nP\nP\n=\n<\n=\n for protons. \n \n\n                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n5\n4. \n \n4.1. \nTaking \nlogarithmic \ndifferentiation \nof \nboth \nsides \nof \nthe \nequation            \n1\ncos\nn\nθ\nβ\n=\n, we obtain \n       sin\ncos\nθ\nθ\nθ\n×Δ\n = \nβ\nβ\nΔ\n    \n \n \n \n \n \n \n \n \n \n \n \n(8)      \n \n                                                     \n \nLogarithmically differentiating equation (3a) gives \n       \n2\n1\np\np\nβ\nβ\nΔ\nΔ\n=\n−\n      \n \n \n \n \n \n \n \n \n \n \n \n \n(9)                   \n \nCombining (8) and (9), taking into account (3b) and putting approximately \ntanθ\nθ\n=\n, we derive \n       \n2\n2\n1\nK\np\np\nθ\nβ\np\nθ\nβ\nθ\nΔ\n−\n=\n×\n=\nΔ\n      \n \n \n \n \n \n \n \n \n \n \n(10)                 \n \n \nWe obtain \n \n-for kaons \n ,\n \nκ\n0 05\n.\nK =\no\nκ\n1 6\n1 6\nrad\n180\n.\n.\nπ\nθ =\n=\n, and so,  \no\nκ\n1\n0 51GeV\n.\n/\np\nc\nθ\nΔ\n=\nΔ\n, \n \n-for \npions\nπ\n0 014\n.\nK =\n, \n, \nand             \no\nπ\n3 2.\nθ =\no\nπ\n1\n0 02 GeV\n.\n/\np\nc\nθ\nΔ\n=\nΔ\n . \n \n4.2.  \nκ\nπ\np\nθ\nθ\nΔ\n+ Δ\n≡\nΔ\n(\n)\no\no\n1\n1\n0 51 0 02\n0 53\nGeV\nGeV\n.\n.\n.\n/\n/\np\nc\nc\nθ\nΔ\n=\n+\n=\nΔ\n. \n \nThe \ncondition \nfor \ntwo \nring \nimages \nto \nbe \ndistinguishable \nis \n. \no\nπ\nκ\n0 1\n0 16\n. (\n)\n.\nθ\nθ\nθ\nΔ\n<\n−\n=\n \nIt follows  \n1\n1 6\n0 3 GeV\n10\n0 53\n.\n.\n/\n.\np\nc\nΔ <\n×\n=\n. \n \n\n                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n6\n5.  \n \n5.1. The lower limit of β  giving rise to Cherenkov effect is \n \n   \n1\n1\n1 33\n.\nn\nβ =\n=\n.                                           \n(11) \n \nThe kinetic energy of a particle having rest mass M  and energy E  is given by the \nexpression \n       \n2\n2\n2\n2\n2\n2\n1\n1\n1\n1\nMc\nT\nE\nMc\nMc\nMc\nβ\nβ\n⎡\n⎤\n⎢\n⎥\n=\n−\n=\n−\n=\n−\n⎢\n⎥\n−\n−\n⎣\n⎦\n.   \n \n \n(12) \nSubstituting the limiting value (11) of β  into (12), we get the minimal kinetic energy of \nthe particle for Cherenkov effect to occur: \n \n \n2\n2\nmin\n2\n1\n1\n0 517\n1\n1\n1 33\n.\n.\nT\nMc\nM\n⎡\n⎤\n⎢\n⎥\n⎢\n⎥\n=\n−\n=\n⎢\n⎥\n⎛\n⎞\n⎢\n⎥\n−⎜\n⎟\n⎢\n⎥\n⎝\n⎠\n⎣\n⎦\nc   \n \n \n \n \n \n(13) \n                                  \n \n5.2.  \n \nFor α particles, \n. \nmin\n0 517\n3 8 GeV\n1 96 GeV\n.\n.\n.\nT\n=\n×\n=\n \nFor electrons,  \n. \nmin\n0 517\n0 51 MeV\n0 264 MeV\n.\n.\n.\nT\n=\n×\n=\n \nSince the kinetic energy of the particles emitted by radioactive source does not \nexceed a few MeV, these are electrons which give rise to Cherenkov radiation in the \nconsidered experiment. \n \n6. For a beam of particles having a definite momentum the dependence of the angle θ  \non the refraction index \n of the medium is given by the expression \nn\n     \n1\ncos\nn\nθ\nβ\n=\n  \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n(14) \n              \n \n6.1. Let δθ  be the difference of θ  between two rings corresponding to two \nwavelengths limiting the visible range, i.e. to wavelengths of 0.4 µm (violet) and     \n0.8 µm (red), respectively. The difference in the refraction indexes at these wavelengths \nis \n(\n)\nv\nr\n0 02\n1\n.\nn\nn\nn\nδ\nn\n−\n=\n=\n−\n. \n    Logarithmically differentiating both sides of equation (14) gives \n\n                     39th International Physics Olympiad - Hanoi - Vietnam - 2008 \n                                                             \n                                 Theoretical Problem No. 2 / Solution \n \n  \n \n7\n        \nsin\ncos\nn\nn\nθ\nδθ\nδ\nθ\n×\n=\n                                      \n(15)        \n \nCorresponding to the pressure of the radiator P = 6 atm we have from 4.2. the values            \nπ\nθ = 3.2o , \n1.00162.  \nn =\n \nPutting approximately tanθ\nθ\n=\n  and  n = 1, we get  \no\n0 033\n.\nn\nδ\nδθ\nθ\n=\n=\n.        \n \n6.2.  \n \n6.2.1. The broadening due to dispersion in terms of half width at half height is, \naccording to (6.1), \no\n1\n0 017\n2\n.\nδθ =\n. \n \n6.2.2. \nThe \nbroadening \ndue \nto \nachromaticity \nis, \nfrom \n4.1., \no\no\n1\n0 02\n0 3 GeV/c\n0 006\nGeV/c\n.\n.\n×\n= .\n, that is three times smaller than above. \n    6.2.3. The color of the ring changes from red to white then blue from the inner \nedge to the outer one. \n  \n \n                                        \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2008-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2008_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2008_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2008-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "CHERENKOV LIGHT AND RING IMAGING COUNTER"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A charged particle travels at \\(v=\\beta c>c/n\\) in a transparent medium of index n. Its Cherenkov light makes angle \\(\\theta=\\arccos[1/(\\beta n)]\\) with its trajectory. Keep only the requested small-angle terms in \\(\\theta\\) and mirror-axis tilt \\(\\alpha\\). In a ring-imaging Cherenkov counter, the beam crosses a concave spherical mirror at S. Its centre is C, focal length f, and the beam line IS makes small angle alpha with SC. Numerical momenta are in GeV/c and rest masses in GeV/\\(c^2\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch7-cherenkov-cone.png",
+        "alt": "Original particle path from A to B and rays making Cherenkov angle theta with the trajectory."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1. Wavefront construction"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A particle passes A at time zero and B at time \\(t_1\\), emitting spherical waves along the path at speed \\(c/n\\). Draw the envelope at \\(t_1\\) in a plane containing AB."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2. Wavefront cone angle"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the angle \\(\\varphi\\) between a side of this wavefront cone and the particle trajectory."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "2. Ring centre and radius"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use a ray sketch to explain the ring image and find its centre O and radius."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.1. Threshold radiator pressures"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A beam with momentum 10.0 GeV/c contains protons, kaons and pions of masses 0.94, 0.50 and 0.14 GeV/\\(c^2\\). Air has \\(n=1+aP\\), \\(a=2.7\\times10^{-4}\\,\\mathrm{atm^{-1}}\\). Find the threshold pressures for each species."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.2.pressure. Half-radius kaon ring"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find pressure \\(P_{1/2}\\) such that the kaon ring radius is half the pion ring radius."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.2.angles. Ring angles and proton visibility"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At that pressure find both angles, and determine whether protons make a ring."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.1. Momentum-to-angle width"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At \\(P_{1/2}\\), the momentum distribution is centred on 10 GeV/c with half width at half height \\(\\Delta p\\). Find \\(\\Delta\\theta_K/\\Delta p\\) and \\(\\Delta\\theta_\\pi/\\Delta p\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.2. Resolvable momentum width"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Require \\(\\theta_\\pi-\\theta_K>10(\\Delta\\theta_K+\\Delta\\theta_\\pi)\\). Find the largest permitted momentum half width."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "5.1. Water radiation threshold"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For water with n = 1.33, find threshold kinetic energy for rest mass M."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "5.2. Radioactive particles"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find threshold energies for alpha particles of mass 3.8 GeV/\\(c^2\\) and electrons of mass 0.51 MeV/\\(c^2\\). A radioactive source emits particles with at most a few MeV. Which species explains Cherenkov's observed water light?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.1. Chromatic angular spread"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Visible wavelengths span 0.4 to 0.8 micrometres. Across this range n decreases linearly by 2 percent of \\(n-1\\). For 10 GeV/c pions in air at 6 atm, find the angular difference between the two ends of the visible spectrum."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.2.1. Two broadening mechanisms"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The pion momentum half width is now 0.3 GeV/c at a centre of 10 GeV/c. Estimate ring broadening from dispersion and from momentum spread, using half-width conventions."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.2.2. Ring colour ordering"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Describe colour from the inner edge to the outer edge."
+          }
+        ]
+      }
+    ],
+    "text": "CHERENKOV LIGHT AND RING IMAGING COUNTER\nA charged particle travels at \\(v=\\beta c>c/n\\) in a transparent medium of index n. Its Cherenkov light makes angle \\(\\theta=\\arccos[1/(\\beta n)]\\) with its trajectory. Keep only the requested small-angle terms in \\(\\theta\\) and mirror-axis tilt \\(\\alpha\\). In a ring-imaging Cherenkov counter, the beam crosses a concave spherical mirror at S. Its centre is C, focal length f, and the beam line IS makes small angle alpha with SC. Numerical momenta are in GeV/c and rest masses in GeV/\\(c^2\\).\n\n1.1. Wavefront construction\nA particle passes A at time zero and B at time \\(t_1\\), emitting spherical waves along the path at speed \\(c/n\\). Draw the envelope at \\(t_1\\) in a plane containing AB.\n1.2. Wavefront cone angle\nFind the angle \\(\\varphi\\) between a side of this wavefront cone and the particle trajectory.\n2. Ring centre and radius\nUse a ray sketch to explain the ring image and find its centre O and radius.\n3.1. Threshold radiator pressures\nA beam with momentum 10.0 GeV/c contains protons, kaons and pions of masses 0.94, 0.50 and 0.14 GeV/\\(c^2\\). Air has \\(n=1+aP\\), \\(a=2.7\\times10^{-4}\\,\\mathrm{atm^{-1}}\\). Find the threshold pressures for each species.\n3.2.pressure. Half-radius kaon ring\nFind pressure \\(P_{1/2}\\) such that the kaon ring radius is half the pion ring radius.\n3.2.angles. Ring angles and proton visibility\nAt that pressure find both angles, and determine whether protons make a ring.\n4.1. Momentum-to-angle width\nAt \\(P_{1/2}\\), the momentum distribution is centred on 10 GeV/c with half width at half height \\(\\Delta p\\). Find \\(\\Delta\\theta_K/\\Delta p\\) and \\(\\Delta\\theta_\\pi/\\Delta p\\).\n4.2. Resolvable momentum width\nRequire \\(\\theta_\\pi-\\theta_K>10(\\Delta\\theta_K+\\Delta\\theta_\\pi)\\). Find the largest permitted momentum half width.\n5.1. Water radiation threshold\nFor water with n = 1.33, find threshold kinetic energy for rest mass M.\n5.2. Radioactive particles\nFind threshold energies for alpha particles of mass 3.8 GeV/\\(c^2\\) and electrons of mass 0.51 MeV/\\(c^2\\). A radioactive source emits particles with at most a few MeV. Which species explains Cherenkov's observed water light?\n6.1. Chromatic angular spread\nVisible wavelengths span 0.4 to 0.8 micrometres. Across this range n decreases linearly by 2 percent of \\(n-1\\). For 10 GeV/c pions in air at 6 atm, find the angular difference between the two ends of the visible spectrum.\n6.2.1. Two broadening mechanisms\nThe pion momentum half width is now 0.3 GeV/c at a centre of 10 GeV/c. Estimate ring broadening from dispersion and from momentum spread, using half-width conventions.\n6.2.2. Ring colour ordering\nDescribe colour from the inner edge to the outer edge.",
+    "figures": [
+      "/corpus/figures/native/batch7-cherenkov-cone.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2008-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "CHERENKOV LIGHT AND RING IMAGING COUNTER"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1. Wavefront construction"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Every emitted sphere has radius \\((c/n)(t_1-t)\\), proportional to its centre's distance \\(v(t_1-t)\\) behind B. The common tangent envelope is a cone with vertex B. In the selected plane its two sides are straight tangent lines extending backwards from B. Draw the endpoint cap if restricting emission to the finite segment AB."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2. Wavefront cone angle"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The right triangle between B, a wave centre and its tangent point gives \\(\\sin\\varphi=1/(\\beta n)\\). Thus \\(\\varphi=\\arcsin[1/(\\beta n)]=\\pi/2-\\theta\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "2. Ring centre and radius"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Parallel Cherenkov rays at a given azimuth focus to one point of the focal plane. Their fixed angle theta around IS generates a circle. The line through C parallel to IS intersects that plane at O. If F is the axial focus, \\(FO=f\\alpha\\) to first order, and ring radius \\(r=f\\theta\\). The ray diagram must show these constructions."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.1. Threshold radiator pressures"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "With \\(K=Mc/p\\), \\(\\beta=1/\\sqrt{1+K^2}\\). The exact threshold is \\(P_{min}=(\\sqrt{1+K^2}-1)/a\\), approximately \\(K^2/(2a)\\). This gives about 16 atm for protons, 4.6 atm for kaons and 0.36 atm for pions. Radiation requires pressure above the threshold."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.2.pressure. Half-radius kaon ring"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For small theta and small \\(n-1\\), \\(\\theta^2\\simeq2aP-K^2\\). Set \\(\\theta_\\pi=2\\theta_K\\), giving \\[aP_{1/2}=\\frac{4K_K^2-K_\\pi^2}{6}.\\] The pressure is about 6.0 atm."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3.2.angles. Ring angles and proton visibility"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The angles are \\(\\theta_K\\simeq0.0277\\,\\mathrm{rad}=1.6^\\circ\\), \\(\\theta_\\pi\\simeq0.0554\\,\\mathrm{rad}=3.2^\\circ\\). Protons do not radiate because this pressure is below their approximately 16 atm threshold."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.1. Momentum-to-angle width"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Differentiate \\(\\cos\\theta=1/(n\\beta)\\) at fixed n. To leading order, \\[\\frac{d\\theta}{dp}\\simeq\\frac{K^2}{\\theta p}.\\] The values are about \\(0.51^\\circ/(\\mathrm{GeV}/c)\\) for kaons and \\(0.020^\\circ/(\\mathrm{GeV}/c)\\) for pions."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4.2. Resolvable momentum width"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The angular separation is about \\(1.6^\\circ\\) and the sum-width coefficient is \\(0.53^\\circ/(\\mathrm{GeV}/c)\\). Therefore \\(\\Delta p<1.6/(10\\times0.53)\\simeq0.30\\,\\mathrm{GeV}/c\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "5.1. Water radiation threshold"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At threshold \\(\\beta=1/n\\). Relativistic kinetic energy gives \\[T_{min}=Mc^2\\left[\\frac1{\\sqrt{1-1/n^2}}-1\\right]\\simeq0.517Mc^2.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "5.2. Radioactive particles"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thresholds are \\(1.96\\,\\mathrm{GeV}\\) for alpha particles and \\(0.264\\,\\mathrm{MeV}\\) for electrons. Only electrons can exceed their threshold at the given radioactive energies."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.1. Chromatic angular spread"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(\\delta n=0.02(n-1)\\), and differentiating the Cherenkov relation gives \\(\\delta\\theta=\\delta n/(n\\tan\\theta)\\simeq\\delta n/\\theta\\). With \\(n=1.00162\\), \\(\\theta\\simeq0.055\\,\\mathrm{rad}\\), this is \\(0.033^\\circ\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.2.1. Two broadening mechanisms"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The full visible angular spread from 6.1 corresponds to an approximate dispersion half width \\(0.017^\\circ\\). Momentum spread contributes \\(0.020\\times0.3=0.006^\\circ\\). Dispersion is about three times larger. The source treats the spectral half-span as a half-width estimate, not a specified exact spectral line shape."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "6.2.2. Ring colour ordering"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Long-wavelength red light has lower n and smaller theta. Short-wavelength blue/violet light has larger theta. The ordering is red, then a white overlap region, then blue/violet at the outside."
+          }
+        ]
+      }
+    ],
+    "text": "CHERENKOV LIGHT AND RING IMAGING COUNTER\n1.1. Wavefront construction\nEvery emitted sphere has radius \\((c/n)(t_1-t)\\), proportional to its centre's distance \\(v(t_1-t)\\) behind B. The common tangent envelope is a cone with vertex B. In the selected plane its two sides are straight tangent lines extending backwards from B. Draw the endpoint cap if restricting emission to the finite segment AB.\n1.2. Wavefront cone angle\nThe right triangle between B, a wave centre and its tangent point gives \\(\\sin\\varphi=1/(\\beta n)\\). Thus \\(\\varphi=\\arcsin[1/(\\beta n)]=\\pi/2-\\theta\\).\n2. Ring centre and radius\nParallel Cherenkov rays at a given azimuth focus to one point of the focal plane. Their fixed angle theta around IS generates a circle. The line through C parallel to IS intersects that plane at O. If F is the axial focus, \\(FO=f\\alpha\\) to first order, and ring radius \\(r=f\\theta\\). The ray diagram must show these constructions.\n3.1. Threshold radiator pressures\nWith \\(K=Mc/p\\), \\(\\beta=1/\\sqrt{1+K^2}\\). The exact threshold is \\(P_{min}=(\\sqrt{1+K^2}-1)/a\\), approximately \\(K^2/(2a)\\). This gives about 16 atm for protons, 4.6 atm for kaons and 0.36 atm for pions. Radiation requires pressure above the threshold.\n3.2.pressure. Half-radius kaon ring\nFor small theta and small \\(n-1\\), \\(\\theta^2\\simeq2aP-K^2\\). Set \\(\\theta_\\pi=2\\theta_K\\), giving \\[aP_{1/2}=\\frac{4K_K^2-K_\\pi^2}{6}.\\] The pressure is about 6.0 atm.\n3.2.angles. Ring angles and proton visibility\nThe angles are \\(\\theta_K\\simeq0.0277\\,\\mathrm{rad}=1.6^\\circ\\), \\(\\theta_\\pi\\simeq0.0554\\,\\mathrm{rad}=3.2^\\circ\\). Protons do not radiate because this pressure is below their approximately 16 atm threshold.\n4.1. Momentum-to-angle width\nDifferentiate \\(\\cos\\theta=1/(n\\beta)\\) at fixed n. To leading order, \\[\\frac{d\\theta}{dp}\\simeq\\frac{K^2}{\\theta p}.\\] The values are about \\(0.51^\\circ/(\\mathrm{GeV}/c)\\) for kaons and \\(0.020^\\circ/(\\mathrm{GeV}/c)\\) for pions.\n4.2. Resolvable momentum width\nThe angular separation is about \\(1.6^\\circ\\) and the sum-width coefficient is \\(0.53^\\circ/(\\mathrm{GeV}/c)\\). Therefore \\(\\Delta p<1.6/(10\\times0.53)\\simeq0.30\\,\\mathrm{GeV}/c\\).\n5.1. Water radiation threshold\nAt threshold \\(\\beta=1/n\\). Relativistic kinetic energy gives \\[T_{min}=Mc^2\\left[\\frac1{\\sqrt{1-1/n^2}}-1\\right]\\simeq0.517Mc^2.\\]\n5.2. Radioactive particles\nThresholds are \\(1.96\\,\\mathrm{GeV}\\) for alpha particles and \\(0.264\\,\\mathrm{MeV}\\) for electrons. Only electrons can exceed their threshold at the given radioactive energies.\n6.1. Chromatic angular spread\n\\(\\delta n=0.02(n-1)\\), and differentiating the Cherenkov relation gives \\(\\delta\\theta=\\delta n/(n\\tan\\theta)\\simeq\\delta n/\\theta\\). With \\(n=1.00162\\), \\(\\theta\\simeq0.055\\,\\mathrm{rad}\\), this is \\(0.033^\\circ\\).\n6.2.1. Two broadening mechanisms\nThe full visible angular spread from 6.1 corresponds to an approximate dispersion half width \\(0.017^\\circ\\). Momentum spread contributes \\(0.020\\times0.3=0.006^\\circ\\). Dispersion is about three times larger. The source treats the spectral half-span as a half-width estimate, not a specified exact spectral line shape.\n6.2.2. Ring colour ordering\nLong-wavelength red light has lower n and smaller theta. Short-wavelength blue/violet light has larger theta. The ordering is red, then a white overlap region, then blue/violet at the outside.",
+    "figures": [],
+    "shared": false
+  }
+}

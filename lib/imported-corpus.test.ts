@@ -103,8 +103,10 @@ test("2019 official solutions are split by the actual solution code, not the rep
     ["ipho-2019-t3", 3],
   ] as const) {
     const solution = content.find((problem) => problem.id === id)!.solution;
-    assert.equal(solution.format, "pdf");
     if (solution.format === "pdf") assert.equal(solution.sourcePages.length, pages);
+    const originalPdf = solution.format === "pdf" ? solution.pdf : solution.referencePdf!;
+    const retainedPages = readLocal(originalPdf).toString("latin1").match(/\/Type\s*\/Page\b/g) ?? [];
+    assert.equal(retainedPages.length, pages, id + " retained original solution page count");
   }
 });
 

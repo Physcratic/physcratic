@@ -1,0 +1,814 @@
+{
+  "problemId": "ipho-2009-t2",
+  "version": "8b1645235957819fbed316a7db25dd7eb41c05b38df09fe77fc5453e9f5fc145",
+  "parts": [
+    {
+      "id": "1a",
+      "sourcePart": "1a",
+      "label": "Absorption resonance",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "1b",
+      "sourcePart": "1b",
+      "label": "Momentum after absorption",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "v",
+        "\\hbar",
+        "q"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, v, \\hbar, q. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "1c",
+      "sourcePart": "1c",
+      "label": "Energy after absorption",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "v",
+        "\\hbar",
+        "\\omega_L"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_L",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, v, \\hbar, \\omega_L. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2a",
+      "sourcePart": "2a",
+      "label": "Backward photon energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "\\omega_L"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_L",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\hbar, \\omega_L. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2b",
+      "sourcePart": "2b",
+      "label": "Backward photon momentum",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "q"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\hbar, q. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2c",
+      "sourcePart": "2c",
+      "label": "Atom after backward emission",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, v. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2d",
+      "sourcePart": "2d",
+      "label": "Atom energy after backward emission",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, v. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3a",
+      "sourcePart": "3a",
+      "label": "Forward photon energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "\\omega_L",
+        "v",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\hbar, \\omega_L, v, c. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3b",
+      "sourcePart": "3b",
+      "label": "Forward photon momentum",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "\\omega_L",
+        "v",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\hbar, \\omega_L, v, c. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3c",
+      "sourcePart": "3c",
+      "label": "Atom after forward emission",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "v",
+        "\\hbar",
+        "q"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, v, \\hbar, q. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3d",
+      "sourcePart": "3d",
+      "label": "Atom energy after forward emission",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "v",
+        "\\hbar",
+        "q"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, v, \\hbar, q. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "4a",
+      "sourcePart": "4a",
+      "label": "Mean emitted photon energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "\\omega_L",
+        "v",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\hbar, \\omega_L, v, c. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "4b",
+      "sourcePart": "4b",
+      "label": "Mean emitted photon momentum",
+      "kind": "numeric",
+      "unit": "kg m/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in kg m/s, without a unit suffix."
+    },
+    {
+      "id": "4c",
+      "sourcePart": "4c",
+      "label": "Mean final atomic energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "v",
+        "\\hbar",
+        "q"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, v, \\hbar, q. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "4d",
+      "sourcePart": "4d",
+      "label": "Mean final atomic momentum",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "v",
+        "\\hbar",
+        "q"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, v, \\hbar, q. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "5a",
+      "sourcePart": "5a",
+      "label": "Mean energy transfer",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "q",
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\hbar, q, v. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "5b",
+      "sourcePart": "5b",
+      "label": "Mean momentum transfer",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "q"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\hbar, q. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "6a",
+      "sourcePart": "6a",
+      "label": "Co-propagating energy transfer",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "w",
+        "v",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "w",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use w for the co-propagating laser frequency."
+    },
+    {
+      "id": "6b",
+      "sourcePart": "6b",
+      "label": "Co-propagating momentum transfer",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "w",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "w",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use w for the co-propagating laser frequency."
+    },
+    {
+      "id": "7a",
+      "sourcePart": "7a",
+      "label": "Two-beam force",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "N",
+        "\\Gamma",
+        "\\hbar",
+        "q",
+        "\\Omega_R",
+        "\\delta",
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\Gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\Omega_R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use delta = omega_0 - omega_L and q = omega_L/c. F is the total force on N atoms."
+    },
+    {
+      "id": "8a",
+      "sourcePart": "8a",
+      "label": "Linear friction force",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "N",
+        "\\hbar",
+        "q",
+        "\\Omega_R",
+        "\\Gamma",
+        "\\delta",
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\Omega_R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\Gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use delta = omega_0 - omega_L. Enter total linearized force."
+    },
+    {
+      "id": "8b",
+      "sourcePart": "8b",
+      "label": "Positive force condition",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "8c",
+      "sourcePart": "8c",
+      "label": "Zero force condition",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "8d",
+      "sourcePart": "8d",
+      "label": "Cooling condition",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "8e",
+      "sourcePart": "8e",
+      "label": "Cooling for opposite motion",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "9a",
+      "sourcePart": "9a",
+      "label": "Velocity decay",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v_0",
+        "b",
+        "t",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "t",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use t for elapsed time tau and b for the per-atom coefficient."
+    },
+    {
+      "id": "9b",
+      "sourcePart": "9b",
+      "label": "Temperature decay",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "T_0",
+        "b",
+        "t",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "T_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "t",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use t for tau and b for the per-atom damping coefficient."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

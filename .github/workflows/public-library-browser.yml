@@ -54,19 +54,6 @@ jobs:
         run: |
           node --conditions=react-server --import tsx scripts/build-native-olympiads.ts
           git diff --exit-code -- lib/corpus public/corpus docs/engineering/native-archive-*.json
-      - name: Native archive guest and verified solving
-        env:
-          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/library-tools
-        run: |
-          node --require ./tests/server-only-register.cjs --import tsx tests/native-olympiad.browser.mjs
-          NATIVE_BROWSER_SESSION=guest node --require ./tests/server-only-register.cjs --import tsx tests/native-olympiad.browser.mjs
-      - name: Native archive visual evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: native-archive-screenshots
-          path: work/native-*.png
-          if-no-files-found: warn
       - name: Production build with synthetic configuration
         env:
           BETTER_AUTH_SECRET: ci-build-only-physcratic-synthetic-secret-0000000000000000
@@ -95,4 +82,39 @@ jobs:
         with:
           name: public-library-screenshots
           path: ${{ runner.temp }}/library-screenshots
+          if-no-files-found: warn
+
+  native:
+    name: Native archive (${{ matrix.session }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        session: [verified, guest]
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      NATIVE_BROWSER_SESSION: ${{ matrix.session }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: External browser tooling
+        run: |
+          npm install --prefix "$RUNNER_TEMP/library-tools" --no-audit --no-fund playwright@1.64.1 @axe-core/playwright@4.14.0
+          "$RUNNER_TEMP/library-tools/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Native archive solving
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/library-tools
+        run: node --require ./tests/server-only-register.cjs --import tsx tests/native-olympiad.browser.mjs
+      - name: Native archive visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-archive-${{ matrix.session }}-screenshots
+          path: work/native-*.png
           if-no-files-found: warn

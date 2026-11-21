@@ -1,0 +1,245 @@
+{
+  "problemId": "apho-2022-t3",
+  "version": "31bbfc1fa29bdaaf497b7dc7b4d9c8c33fd1db22721d0f6f6bb5546227205eac",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Driven cloud equation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Oscillation amplitude",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Induced dipole",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "E_0",
+        "m",
+        "\\omega_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "E_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use q, E_0, m, \\omega_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "a.4",
+      "label": "Natural frequency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "\\epsilon_0",
+        "m",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "q",
+          "assumptions": [],
+          "min": 0.5,
+          "max": 3
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use q, \\epsilon_0, m, r. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Radiated-power dimensions",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Low-frequency radiated power",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "E_0",
+        "\\epsilon_0",
+        "m",
+        "c",
+        "\\omega",
+        "\\omega_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "E_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use q, E_0, \\epsilon_0, m, c, \\omega, \\omega_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Attenuation equation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "c.2",
+      "label": "Attenuation length",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "c.3",
+      "label": "Molecular attenuation estimate",
+      "kind": "numeric",
+      "unit": "km",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in km, without a unit suffix."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "d.1",
+      "label": "Visible mountain heights",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "e.1",
+      "sourcePart": "e.1",
+      "label": "Unpolluted visibility ratio",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "f.1",
+      "sourcePart": "f.1",
+      "label": "Aerosol attenuation",
+      "kind": "numeric",
+      "unit": "km",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in km, without a unit suffix."
+    },
+    {
+      "id": "g.1",
+      "sourcePart": "g.1",
+      "label": "Polluted visibility",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

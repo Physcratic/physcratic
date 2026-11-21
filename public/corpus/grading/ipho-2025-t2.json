@@ -1,0 +1,157 @@
+{
+  "problemId": "ipho-2025-t2",
+  "version": "7f7b4ebb46b860c3683f06b8ffa57965be0846d776f4d529092a65a981d48003",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Submerged-tube force",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "\\rho",
+        "S",
+        "h",
+        "g"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, \\rho, S, h, g. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Three water temperatures",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "A.3",
+      "label": "Mercury vapour correction",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Added mercury mass",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Added mass versus lift",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Pressure-driven mass amplitude",
+      "kind": "numeric",
+      "unit": "kg",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in kg, without a unit suffix."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Motion threshold",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Tension at the stop",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "C.3",
+      "label": "Operating regimes",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.4",
+      "sourcePart": "C.4",
+      "label": "Optimal recovered energy",
+      "kind": "numeric",
+      "unit": "mJ",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in mJ, without a unit suffix."
+    },
+    {
+      "id": "c.5",
+      "sourcePart": "C.5",
+      "label": "Atmospheric work and efficiency",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the work ratio. Show the pressure work and cycle in your working."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

@@ -1,0 +1,318 @@
+{
+  "problemId": "ipho-2021-t3",
+  "version": "0a8171370c532234df80e1a28c873412cc31979af44d29b8e919ccfef4dfd5cd",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Ground-state energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "h",
+        "m",
+        "L"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use h, m, L. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "All box levels",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "h",
+        "n",
+        "m",
+        "L"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use h, n, m, L. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "First emission wavelength",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "c",
+        "L",
+        "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, c, L, h. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Cy5 absorption edge",
+      "kind": "numeric",
+      "unit": "nm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in nm, without a unit suffix."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Cy3 spectral shift",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "b.3",
+      "label": "Spontaneous emission rate",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "d",
+        "\\epsilon_0",
+        "h",
+        "\\lambda"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\lambda",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use d, \\epsilon_0, h, \\lambda. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "b.4",
+      "label": "Cy5 lifetime",
+      "kind": "numeric",
+      "unit": "ns",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in ns, without a unit suffix."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Thermal momentum and wavelength",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "c.2",
+      "label": "Condensation estimate",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "h",
+        "n",
+        "m",
+        "k_B"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use h, n, m, k_B. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "c.3",
+      "label": "Critical density and comparison",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "d.1",
+      "label": "Three-beam lattice potential",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "d.2",
+      "label": "Sixfold symmetry",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.3",
+      "sourcePart": "d.3",
+      "label": "Axis profiles and extrema",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.4",
+      "sourcePart": "d.4",
+      "label": "True lattice minima",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\lambda"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\lambda",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use lambda for laser wavelength. Compare the saddle analysis and all six coordinates separately."
+    },
+    {
+      "id": "d.5",
+      "sourcePart": "d.5",
+      "label": "Rydberg quantum number",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

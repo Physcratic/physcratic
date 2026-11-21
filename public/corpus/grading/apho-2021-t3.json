@@ -1,0 +1,285 @@
+{
+  "problemId": "apho-2021-t3",
+  "version": "9449538039b856ca7b29b14fff3afd73f432235c11564cfb204186c0319bc99a",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Initial field above the film",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Initial field below the film",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Initial surface flux",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "a.4",
+      "label": "Induced current density",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "a.5",
+      "label": "First-order surface evolution",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.6",
+      "sourcePart": "a.6",
+      "label": "Surface evolution solution",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.7",
+      "sourcePart": "a.7",
+      "label": "Receding image speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "\\sigma",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu_0, \\sigma, d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Hopping-source images",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Image monopole potential",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "b.3",
+      "label": "Lift and drag on a vertical dipole",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "b.4",
+      "label": "Copper image speed",
+      "kind": "numeric",
+      "unit": "m/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m/s, without a unit suffix."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "b.5",
+      "label": "Skin-depth correction",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.6",
+      "sourcePart": "b.6",
+      "label": "Crossover speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "h",
+        "\\mu_0",
+        "\\sigma",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use h, \\mu_0, \\sigma, d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Superconducting equilibrium height",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "m",
+        "M_0",
+        "g"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu_0, m, M_0, g. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "c.2",
+      "label": "Vertical oscillation frequency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "g",
+        "h_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use g, h_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "c.3",
+      "label": "Micromagnet height",
+      "kind": "numeric",
+      "unit": "μm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in μm, without a unit suffix."
+    },
+    {
+      "id": "c.4",
+      "sourcePart": "c.4",
+      "label": "Micromagnet oscillations",
+      "kind": "numeric",
+      "unit": "rad/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in rad/s, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

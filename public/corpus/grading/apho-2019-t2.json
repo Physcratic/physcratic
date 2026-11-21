@@ -1,0 +1,366 @@
+{
+  "problemId": "apho-2019-t2",
+  "version": "424f9c0946b690dfad18d92e02269616c0dc3fa5ba4f728e7a907dbd10edc25f",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "AGN-frame density",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\gamma",
+        "n"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\gamma, n. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Particle flux",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\gamma",
+        "n",
+        "A",
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\gamma, n, A, v. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Mass-loading continuity",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "a.4",
+      "label": "Energy balance",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "a.5",
+      "label": "Jet-power derivative",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "a.6",
+      "sourcePart": "a.6",
+      "label": "End mass fluxes",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.7",
+      "sourcePart": "a.7",
+      "label": "Momentum flux increase",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.8",
+      "sourcePart": "a.8",
+      "label": "External pressure force",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.9",
+      "sourcePart": "a.9",
+      "label": "Momentum-balance discrepancy",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Electron energy density",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Wall momentum transfer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "b.3",
+      "label": "Ultrarelativistic equation of state",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "b.4",
+      "label": "Adiabatic expansion law",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Gyration angular frequency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "B",
+        "\\gamma",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the true gyrofrequency about B. Discuss the separate velocity-direction sweep rate."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "c.2",
+      "label": "Observed synchrotron pulse duration",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "c.3",
+      "label": "Characteristic radiation frequency",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.4",
+      "sourcePart": "c.4",
+      "label": "Synchrotron cooling time",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\epsilon_0",
+        "m",
+        "c",
+        "e",
+        "B",
+        "E",
+        "\\phi"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\phi",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.2,
+          "max": 1.3
+        }
+      ],
+      "help": "Use \\epsilon_0, m, c, e, B, E, \\phi. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "d.1",
+      "label": "Frozen-in magnetic field",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "B_0",
+        "V",
+        "V_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "B_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use B_0, V, V_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "d.2",
+      "label": "Expanded energy distribution",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.3",
+      "sourcePart": "d.3",
+      "label": "Cooling distortion",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.4",
+      "sourcePart": "d.4",
+      "label": "Interpret knot fading",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

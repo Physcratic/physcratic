@@ -1,0 +1,152 @@
+{
+  "problemId": "apho-2016-t1",
+  "version": "65a358b522598a7b0ffb857b0253baad26217c3f1378001483d9dabb8ab599ab",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Four-plate potential",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "M",
+        "g",
+        "l",
+        "\\alpha"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "l",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use M, g, l, \\alpha. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Four-plate equilibrium",
+      "kind": "numeric",
+      "unit": "rad",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in rad, without a unit suffix."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "A.3",
+      "label": "Four-plate oscillation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "General lattice equilibrium",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "N"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 2,
+          "max": 20
+        }
+      ],
+      "help": "Use N. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Large-lattice scaling",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Optimal force point",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Minimum holding force",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "N",
+        "M",
+        "g"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 2,
+          "max": 20
+        },
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the minimum magnitude. State the direction in your working."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

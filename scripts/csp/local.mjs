@@ -13,6 +13,7 @@ import { codecPdf } from './fixtures.mjs';
 import { collectionFixture } from './collection-fixture.mjs';
 import { verifyStaticResponse,decodeStaticBody } from './policy-artifact.mjs';
 import { documentFixtureEnvironment } from './document-fixtures.mjs';
+import {originalPdfFixture} from './original-pdf-fixture.mjs';
 const require = createRequire(import.meta.url);
 const { build } = createRequire(require.resolve('tsx'))('esbuild');
 const dashboard = { user: null, savedAttempts: 0, practiceAttempts: 0, solvedProblems: 0, archiveReviewed: 0, ratings: [], contests: [] };
@@ -66,6 +67,7 @@ export async function startLocal(mode, root = process.cwd(), options = {}) {
     const allowedAssets = (await readdir(resolve(root, '.next/static'), { recursive: true })).filter(name => /\.m?js$/.test(name)).map(name => '/_next/static/' + name);
     const worker = allowedAssets.find(name => name.includes('/pdf.worker.min.'));
     assert.ok(worker, 'Production PDF worker must be present');
+    const originalPdf=await originalPdfFixture(root,worker);
     const codec = await build({ stdin: { contents: `
       import * as pdfjs from 'pdfjs-dist/build/pdf.mjs';
       pdfjs.GlobalWorkerOptions.workerSrc=${JSON.stringify(worker)};
@@ -87,6 +89,9 @@ export async function startLocal(mode, root = process.cwd(), options = {}) {
       const send = (type, body, status = 200, extra = {}) => { res.writeHead(status, { ...headers, 'Content-Type': type, 'Cache-Control': 'no-store', ...extra }); res.end(body); };
       if (url.pathname === '/__csp/fixture') return send('text/html', '<!doctype html><title>Local CSP fixtures</title><script src="/__csp/zod.js"></script>');
       if (url.pathname === '/__csp/pdf-fixture') return send('text/html', '<!doctype html><title>Local PDF codec fixture</title><script src="/__csp/pdf-codec.js"></script>');
+      if (url.pathname === '/__csp/original-pdf') return send('text/html', '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Original PDF component test</title><link rel="stylesheet" href="/__csp/original-pdf.css"></head><body><h1>Original IPhO PDF</h1><div id="pdf-root" style="max-width:900px"></div><script type="module" src="/__csp/original-pdf.js"></script></body></html>');
+      if (url.pathname === '/__csp/original-pdf.js') return send('application/javascript',originalPdf.js);
+      if (url.pathname === '/__csp/original-pdf.css') return send('text/css',originalPdf.css);
       if (url.pathname === '/__csp/pdf-codec.js') return send('application/javascript', codec.outputFiles[0].text);
       if (['/__csp/wasm/openjpeg.wasm', '/__csp/wasm/openjpeg_nowasm_fallback.js'].includes(url.pathname)) {
         const data = await (await import('node:fs/promises')).readFile(resolve(root, 'node_modules/pdfjs-dist/wasm', url.pathname.split('/').at(-1)));

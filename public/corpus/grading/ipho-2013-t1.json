@@ -1,0 +1,146 @@
+{
+  "problemId": "ipho-2013-t1",
+  "version": "204862cc3f2f147fb8da9b7dd92194a3ce27e3e4d4b432f4373d30b39d1c8b0e",
+  "parts": [
+    {
+      "id": "1.1",
+      "sourcePart": "1.1",
+      "label": "Camera speed",
+      "kind": "numeric",
+      "unit": "km/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in km/s, without a unit suffix."
+    },
+    {
+      "id": "1.2a",
+      "sourcePart": "1.2a",
+      "label": "Atmospheric deceleration",
+      "kind": "numeric",
+      "unit": "s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in s, without a unit suffix."
+    },
+    {
+      "id": "1.2b",
+      "sourcePart": "1.2b",
+      "label": "Energy available for melting",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "1.3a",
+      "sourcePart": "1.3a",
+      "label": "Thermal penetration powers",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "1.3b",
+      "sourcePart": "1.3b",
+      "label": "Heated-layer thickness",
+      "kind": "numeric",
+      "unit": "mm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter thickness in mm. Also give x/R_M in your working."
+    },
+    {
+      "id": "1.4a",
+      "sourcePart": "1.4a",
+      "label": "Radioactive decay scheme",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "1.4b",
+      "sourcePart": "1.4b",
+      "label": "Isochron proof",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "1.4c",
+      "sourcePart": "1.4c",
+      "label": "Radiometric age",
+      "kind": "numeric",
+      "unit": "yr",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in yr, without a unit suffix."
+    },
+    {
+      "id": "1.5",
+      "sourcePart": "1.5",
+      "label": "Comet Encke period",
+      "kind": "numeric",
+      "unit": "yr",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in yr, without a unit suffix."
+    },
+    {
+      "id": "1.6a",
+      "sourcePart": "1.6a",
+      "label": "Maximum pole-impact tilt",
+      "kind": "numeric",
+      "unit": "rad",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in rad, without a unit suffix."
+    },
+    {
+      "id": "1.6b",
+      "sourcePart": "1.6b",
+      "label": "Radial equatorial impact",
+      "kind": "numeric",
+      "unit": "s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in s, without a unit suffix."
+    },
+    {
+      "id": "1.6c",
+      "sourcePart": "1.6c",
+      "label": "Tangential equatorial impact",
+      "kind": "numeric",
+      "unit": "s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in s, without a unit suffix."
+    },
+    {
+      "id": "1.7",
+      "sourcePart": "1.7",
+      "label": "Maximum impact speed",
+      "kind": "numeric",
+      "unit": "km/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in km/s, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

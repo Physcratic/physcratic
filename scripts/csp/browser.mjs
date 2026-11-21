@@ -105,7 +105,8 @@ for (const name of browserNames) {
         });
         await check('deferred MathJS and calculator results', async (page, server) => {
           await page.goto(server.origin + '/dashboard/problems/ipho-2025-t1', { waitUntil: 'networkidle' });
-          // Since the unified workspace, Your solution is a step on the page, not a tab.
+          // Native answer fields keep the full-working calculator inside this disclosure.
+          await page.getByText('Save full working or attachments', {exact:true}).click();
           const before = await page.evaluate(() => performance.getEntriesByType('resource').filter(e => /\.js/.test(e.name)).map(e => e.name));
           await page.getByText('Equation calculator', { exact: true }).first().click();
           for (const [equation, bindings, expected] of [['a=g*sin(theta)', 'g=9.81\ntheta=pi/6', 'a = 4.905'], ['2^(½)', '', '1.41421356237'], ['sqrt(-1)', '', 'finite and real'], ['2+2', '', 'result = 4']]) {
@@ -165,10 +166,14 @@ for (const name of browserNames) {
           return 'The booking form is an outbound link that opens in a new tab. No Tally script or frame loads in the page.';
         });
         await check('PDF.js actual reader and worker', async (page, server) => {
-          await page.goto(server.origin + '/dashboard/problems/ipho-2025-t1', { waitUntil: 'networkidle' });
+          // Every public archive page is now native. Keep real PDF rendering covered
+          // using the unmodified production component, original PDF and production worker.
+          await page.goto(server.origin + '/__csp/original-pdf', { waitUntil: 'networkidle' });
           await page.locator('[data-pdf-rendered="true"]').first().waitFor({ timeout: 45000 });
           assert.ok(await page.locator('canvas').count());
-          return 'First original PDF page rendered. Codec/WASM coverage is separate; this PDF does not establish every codec path.';
+          await page.waitForFunction(()=>document.querySelector('.textLayer')?.textContent?.trim().length>0);
+          assert.ok((await page.locator('.textLayer').textContent()).trim().length>0);
+          return 'Unmodified production PDF component rendered the retained original PDF with the production worker and selectable text. Codec/WASM coverage is separate.';
         });
         await check('PDF.js JPEG2000 WASM and JavaScript fallback', async (page, server) => {
           const assets = [];

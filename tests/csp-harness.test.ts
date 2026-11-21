@@ -3,6 +3,18 @@ import test from 'node:test';
 import { spawnSync } from 'node:child_process';
 import { childEnvironment, localOrigin, safeViolation, browserSelection } from '../scripts/csp/support.mjs';
 import { collectionFixture } from '../scripts/csp/collection-fixture.mjs';
+import {originalPdfFixture} from '../scripts/csp/original-pdf-fixture.mjs';
+
+test('original PDF CSP fixture bundles the real viewer and retains its production worker and source document',async()=>{
+ const worker='/_next/static/media/pdf.worker.min.synthetic.mjs';
+ const fixture=await originalPdfFixture(process.cwd(),worker);
+ assert.ok(fixture.inputs.some(p=>p.endsWith('components/physics/pdf-page-viewer.tsx')));
+ assert.ok(fixture.inputs.some(p=>p.endsWith('react-pdf/dist/Page/TextLayer.css')));
+ assert.ok(fixture.js.includes(worker)&&fixture.js.includes(fixture.file));
+ assert.match(fixture.file,/^\/corpus\/documents\/english-ipho-2025-t1-statement\/document\.pdf$/);
+ assert.ok(fixture.css.includes('.textLayer'));
+ await assert.rejects(originalPdfFixture(process.cwd(),'https://remote.invalid/worker.mjs'));
+});
 import { evalAttribution } from '../scripts/csp/attribute.mjs';
 
 test('an unrelated eval is not attributed to Zod just because Zod is loaded', () => {
