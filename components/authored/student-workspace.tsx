@@ -1,7 +1,7 @@
 "use client";
 import { PublicWorkedSolution } from "./public-worked-solution";
 import type { PublicSolution } from "@/lib/authored-public-solution-contracts";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ProblemDocumentTabs, ProblemFrame } from "@/components/physics/problem-frame";
 import { publicSolutionPolicy } from "@/lib/authored-solution-policy";
 import { StatementPdfs } from "./statement-pdfs";
 import { useSWRConfig } from "swr";
@@ -20,6 +20,7 @@ import {
   useRef,
   useState,
   useSyncExternalStore,
+  type ReactNode,
 } from "react";
 import {
   CheckCircle2,
@@ -220,6 +221,16 @@ export function StudentWorkspace({
   const accountKey = "id" in viewer ? viewer.id : viewer.state;
   useEffect(() => setAuthDenied(false), [accountKey, viewer.state]);
   const denyAuth = useCallback(() => setAuthDenied(true), []);
+  // The frame both problem pages share: document tabs on the left, the answer column after the statement.
+  // The Worked solution tab is there only for a revision sealed as public. A legacy revision keeps its per-part button.
+  const solutionTab = availability === "ready" && revision?.solutionPolicy === publicSolutionPolicy;
+  const frame = (statement: ReactNode, answer: ReactNode) => (
+    <ProblemFrame
+      document={<ProblemDocumentTabs value={readingTab} onValueChange={setReadingTab} listLabel="Problem steps" statementLabel="Problem statement" solutionLabel={solutionTab ? "Worked solution" : undefined} statement={statement}
+        solution={solutionTab && revision ? (publicSolutionsEnabled ? <PublicWorkedSolution key={revision.id} problemId={problemId} revisionId={revision.id} onStale={invalidate} initialSolution={initialSolution} /> : <p role="status">The worked solution is temporarily unavailable.</p>) : undefined} />}
+      answer={answer}
+    />
+  );
   return (
     <ProblemRoom>
         <div className="flex flex-wrap items-end justify-between gap-4 border-b pb-6">
@@ -250,12 +261,6 @@ export function StudentWorkspace({
             {publicMessage}
           </div>
         )}
-        <Tabs value={availability === "ready" && revision?.solutionPolicy === publicSolutionPolicy ? readingTab : "statement"} onValueChange={setReadingTab} className="min-w-0 space-y-4">
-          <TabsList aria-label="Problem steps" className={`h-auto max-w-full flex-wrap ${availability === "ready" && revision?.solutionPolicy === publicSolutionPolicy ? "" : "hidden"}`}>
-            <TabsTrigger value="statement" className="min-h-11">Problem statement</TabsTrigger>
-            <TabsTrigger value="solution" className="min-h-11">Worked solution</TabsTrigger>
-          </TabsList>
-          <TabsContent value="statement" forceMount className="data-[state=inactive]:hidden">
         {viewer.state === "verified" && !authDenied ? (
           <PrivateWorkspace
             key={`${accountKey}:${problemId}`}
@@ -265,13 +270,14 @@ export function StudentWorkspace({
             availability={availability}
             invalidate={invalidate}
             denyAuth={denyAuth}
+            frame={frame}
           />
         ) : (
-          <>
+          frame(
             <PublicStatement
               revision={availability === "ready" ? revision : null}
               problemId={problemId}
-            />
+            />,
             <section className="mx-auto max-w-3xl space-y-4 rounded-xl border bg-card p-6">
               <h2 className="text-xl font-semibold">
                 {viewer.state === "unverified"
@@ -294,11 +300,8 @@ export function StudentWorkspace({
                 Sign in to submit
               </a>
             </section>
-          </>
+          )
         )}
-          </TabsContent>
-          <TabsContent value="solution">{availability === "ready" && revision?.solutionPolicy === publicSolutionPolicy && (publicSolutionsEnabled ? <PublicWorkedSolution key={revision.id} problemId={problemId} revisionId={revision.id} onStale={invalidate} initialSolution={initialSolution} /> : <p role="status">The worked solution is temporarily unavailable.</p>)}</TabsContent>
-        </Tabs>
         {commentsEnabled && availability === "ready" && <Discussions moderationEnabled={moderationEnabled} problemKey={`authored:${problemId}`}/>}
     </ProblemRoom>
   );
@@ -381,6 +384,7 @@ function PrivateWorkspace({
   availability,
   invalidate,
   denyAuth,
+  frame,
 }: {
   userId: string;
   problemId: string;
@@ -388,6 +392,8 @@ function PrivateWorkspace({
   availability: Availability;
   invalidate: () => void;
   denyAuth: () => void;
+  /** Places the statement and the answer column in the shared problem frame. */
+  frame: (statement: ReactNode, answer: ReactNode) => ReactNode;
 }) {
   const { mutate } = useSWRConfig();
   const [session] = useState(() => {
@@ -648,12 +654,12 @@ function PrivateWorkspace({
           {state.error}
         </p>
       )}
-        <div className="grid min-w-0 items-start gap-6 xl:grid-cols-[minmax(0,1fr)_23rem]">
+        {frame(
           <PublicStatement
             revision={availability === "ready" ? revision : null}
             problemId={problemId}
             onAnswer={jump}
-          />
+          />,
           <AnswerWorkspace id="answer-workspace" className="scroll-mt-4">
             <section style={partStyle(partColour)} className={`space-y-5 rounded-xl border bg-card p-5 ${partBorder}`}>
               <div className="flex items-center gap-2">
@@ -832,8 +838,8 @@ function PrivateWorkspace({
               )}
             </section>
             {availability === "ready" && revision && !revision.solutionPolicy && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={part.label || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
-          </AnswerWorkspace>
-        </div>
+          </AnswerWorkspace>,
+        )}
     </div>
   );
 }
