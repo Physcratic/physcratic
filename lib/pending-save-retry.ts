@@ -5,10 +5,12 @@
  * Rules this class keeps:
  * - one attempt in flight at a time, so two triggers close together cause one save,
  * - a backoff timer with a cap, then it stops until the person or the browser gives a new signal,
+ * - a save the server rejected for good is not tried on a timer at all,
  * - a new signal is the next Check press, the browser coming back online or the tab becoming visible again,
  * - nothing here reads or changes the typed answers, and a failed attempt never discards the pending check.
  */
-export type SaveOutcome = "saved" | "failed" | "skipped";
+/** rejected: the server refused this save for good (it said so), so it is not tried again until a new signal. */
+export type SaveOutcome = "saved" | "failed" | "skipped" | "rejected";
 export type RetryReason = "check" | "online" | "visible" | "timer" | "start";
 /** idle: nothing pending. waiting: a timer is set. saving: an attempt is in flight. stalled: the cap was reached. */
 export type RetryStatus = "idle" | "waiting" | "saving" | "stalled";
@@ -78,6 +80,7 @@ export class PendingSaveRetrier {
       this.settle();
       return outcome;
     }
+    if (outcome === "rejected") { this.failures = this.policy.maxTimerAttempts + 1; this.set("stalled"); return outcome; }
     this.failures++;
     if (this.failures > this.policy.maxTimerAttempts) { this.set("stalled"); return outcome; }
     this.schedule();

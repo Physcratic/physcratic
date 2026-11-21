@@ -99,6 +99,23 @@ test("the backoff timer waits longer each time and stops at the cap", async () =
   retrier.dispose();
 });
 
+test("a save the server rejected for good is not retried on a timer", async () => {
+  let attempts = 0;
+  const fake = fakeHost({ attempt: async () => { attempts++; return "rejected"; } });
+  const retrier = new PendingSaveRetrier(fake.host);
+  retrier.arm();
+  await fake.fireNext();
+  assert.equal(attempts, 1);
+  assert.equal(fake.timers.size, 0);
+  assert.equal(fake.statuses.at(-1), "stalled");
+  // The next Check press is a new signal and tries once more.
+  fake.advance(retryPolicy.minGapMs);
+  assert.equal(await retrier.trigger("check"), "rejected");
+  assert.equal(attempts, 2);
+  assert.equal(fake.timers.size, 0);
+  retrier.dispose();
+});
+
 test("two quick triggers cause one save", async () => {
   let attempts = 0;
   const gate = deferred<SaveOutcome>();

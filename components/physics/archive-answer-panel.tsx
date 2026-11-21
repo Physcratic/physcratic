@@ -23,6 +23,9 @@ import { ConditionsLine } from "./inline-math";
 import { markSolved } from "./solved-problems";
 import { Skeleton } from "@/components/ui/skeleton";
 
+/** The server said it will not save this check. The same request would be refused again, so it is not retried on a timer. */
+class SaveRejected extends Error {}
+
 async function loadMetadata(url: string) {
   const response = await fetch(url);
   if (!response.ok) throw new Error("The answer fields could not be loaded.");
@@ -112,7 +115,8 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
     const body = await response.json();
     if (controller.signal.aborted) return null;
     if (!response.ok) {
-      throw new Error(typeof body.error === "string" ? body.error : "Could not check your answers. Please retry.");
+      const message = typeof body.error === "string" ? body.error : "Could not check your answers. Please retry.";
+      throw request && body.saveState === "rejected" ? new SaveRejected(message) : new Error(message);
     }
     const receipt = request ? practiceCheckReceiptSchema.parse(body) : null;
     const checked = archiveGradeResponseSchema.parse(receipt ? { problemId: receipt.attempt.problemId, version: receipt.attempt.version, results: receipt.attempt.results } : body);
@@ -185,8 +189,10 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
       finishCheck(sent.checked, sent.receipt, []);
       redraw(n => n + 1);
       return "saved";
-    } catch {
-      return controller.signal.aborted ? "skipped" : "failed";
+    } catch (reason) {
+      if (controller.signal.aborted) return "skipped";
+      if (reason instanceof SaveRejected) { setError(reason.message); return "rejected"; }
+      return "failed";
     } finally {
       if (syncing.current === controller) syncing.current = null;
     }
