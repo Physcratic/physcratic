@@ -714,3 +714,38 @@ test("the loading card has the picture slot in the same place and size", () => {
   assert.match(html, /data-card-image-slot="true" class="[^"]*\bh-\[120px\][^"]*\bsm:h-40\b[^"]*\blg:w-60\b/);
   assert.match(html, /sm:flex-row sm:items-start sm:gap-6/);
 });
+
+// C4a. A rated community card has the arena band, and drops the lines the band or the problem page already carry.
+const ratedCommunity = (estimatedDifficulty: string | null): CollectionEntry => ({
+  ...community(), estimatedDifficulty,
+  author: null, provenance: { kind: "original", source: "", rightsDeclaration: "I wrote this problem." },
+});
+const band = (html: string) => html.match(/<div data-rating-block[\s\S]*?<\/div>/)?.[0] ?? "";
+
+test("a rated community card shows the number and tier in the arena band and drops the old lines", () => {
+  const html = unified(ratedCommunity("750"));
+  assert.match(band(html), /Rating <\/span>750<\/p><p class="[^"]*">Beginner<\/p>/);
+  assert.match(html, /data-level="beginner-olympiad"/);
+  assert.doesNotMatch(html, /Unrated|English|verified solve|Attribution and rights|Difficulty:/);
+  assert.match(html, /By Community author/);
+  assert.match(html, /Open problem/);
+  // Same band markup as an Arena card of the same rating, so the layout, type size, tint and colours are shared.
+  const arenaHtml = unified({ key: "arena:x", kind: "arena", id: "x", title: "T", tags: [], summary: "S", estimatedDifficulty: null, author: null, elo: 750 } as CollectionEntry);
+  assert.equal(band(html), band(arenaHtml));
+  assert.match(unified(ratedCommunity("2,250")), /2,250<\/p><p class="[^"]*">Advanced/);
+});
+
+test("an unrated community card keeps the Unrated band, also for a free-text label", () => {
+  for (const label of [null, "", "Hard", "5000"]) {
+    const html = unified(ratedCommunity(label));
+    assert.match(band(html), /Unrated/, String(label));
+    assert.doesNotMatch(html, /Attribution and rights|Difficulty:|verified solve/);
+  }
+});
+
+test("an Arena card is unchanged", () => {
+  const id = arena.problems.find((problem) => getEstimatedProblemElo(problem.id) !== undefined)!.id;
+  const html = unified({ key: `arena:${id}`, kind: "arena", id, title: "T", tags: [], summary: "S", estimatedDifficulty: null, author: null, elo: getEstimatedProblemElo(id) } as CollectionEntry);
+  assert.match(html, /Published by Physcratic/);
+  assert.match(band(html), new RegExp(`Rating </span>${getEstimatedProblemElo(id)!.toLocaleString("en-US")}`));
+});
