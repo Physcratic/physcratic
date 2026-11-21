@@ -6,17 +6,17 @@ export const howToWriteAProblem: ArticleDraft = {
   kind: "product",
   slug: "how-to-write-a-problem",
   title: "How to write a problem in Problem Studio",
-  description: "Write a physics problem in Problem Studio's Simple mode, add the final answer and a picture, try an answer, publish it, and know when to use Advanced.",
+  description: "Write a physics problem in Problem Studio, add the final answer and a picture, try an answer, publish it, and find the extra settings in More options.",
   updated: "2026-11-12",
   reviewedBy: null,
   sources: [],
   published: true,
   body: [
     { type: "heading", level: 2, text: "Open Problem Studio" },
-    { type: "paragraph", text: "Sign in with an email-verified account and choose Problem Studio in the sidebar. There is no separate staff invitation requirement. You can edit only your own problems. Studio opens on a new problem in Simple mode, and the Back to drafts arrow takes you back to the ones you already started." },
+    { type: "paragraph", text: "Sign in with an email-verified account and choose Problem Studio in the sidebar. There is no separate staff invitation requirement. You can edit only your own problems. Studio opens on a new problem, and the Back to drafts arrow takes you back to the ones you already started." },
     { type: "paragraph", text: "The Help button, a question mark at the top, plays the Write your first problem tour. It points at each part of the page." },
     { type: "siteLink", href: "/dashboard/author", label: "Open Problem Studio", note: "You need to be signed in with a verified email." },
-    { type: "image", src: `${dir}/studio-simple.webp`, alt: "Problem Studio in Simple mode. The question about a ball thrown straight up has an equation inside the sentence, an Equation button sits under it, and a drawing of the ball\u2019s path is added as an image.", width: 1280, height: 1000, caption: "Simple mode. Everything is in one column." },
+    { type: "image", src: `${dir}/studio-simple.webp`, alt: "Problem Studio. The question about a ball thrown straight up has an equation inside the sentence, an Equation button sits under it, and a drawing of the ball\u2019s path is added as an image.", width: 1280, height: 1000, caption: "Problem Studio. Everything is in one column." },
 
     { type: "heading", level: 2, text: "Write the question" },
     { type: "paragraph", text: "If every part shares a setup, write it under Main question. Otherwise leave it empty and type the question under What’s the question? Press Equation, or type $ or Alt+=, and an equation box opens where your cursor is. Type the maths, then press Esc or Done. The equation shows as maths inside your text. Click it to change it." },
@@ -29,13 +29,13 @@ export const howToWriteAProblem: ArticleDraft = {
 
     { type: "heading", level: 2, text: "More parts, source and publishing" },
     { type: "paragraph", text: "Add part b repeats the question, solution and answer for the next part, and the button names the next letter. Each part gets its own colour." },
-    { type: "paragraph", text: "Studio saves by itself. Wait for All changes saved. Say where it is from: I wrote it, or Adapted from with the source. Give it a difficulty rating, a whole number from 0 to 4,000. Its difficulty band appears beside the number. Publish needs a rating. Pick a topic so people can find the problem. Tick the box that says you have the right to share it, then choose Publish. The server checks everything again." },
+    { type: "paragraph", text: "Studio saves by itself. Wait for All changes saved. Say where it is from: I wrote it, or Adapted from with the source. Give it a difficulty rating, a whole number from 0 to 4,000. Its difficulty band appears beside the number. Publish needs a rating. Pick a topic such as Mechanics so people can find the problem. Tick the box that says you have the right to share it, then choose Publish. The server checks everything again." },
     { type: "paragraph", text: "A published problem appears in the library under Physcratic Arena, on a card marked Community." },
     { type: "siteLink", href: "/dashboard?view=problems&collection=authored", label: "Browse published community problems" },
     { type: "image", src: `${dir}/studio-library.webp`, alt: "The problem library showing the topic buttons and a single Community card titled Forces on a cart with an Open problem button.", width: 1280, height: 1000, caption: "A published problem in the library." },
 
-    { type: "heading", level: 2, text: "Advanced" },
-    { type: "paragraph", text: "Choose Advanced for what Simple leaves out: hints, methods such as Newton’s laws and topics such as Mechanics, tolerances, conditions on symbols, several sections, extra pictures, PDFs and a rights declaration for work used with permission. Switching never loses anything. Advanced shows the same text, and each text box has an Equation button too." },
-    { type: "image", src: `${dir}/studio-advanced.webp`, alt: "The Problem Studio Advanced editor with the status bar showing Draft version 2, All changes saved and Ready to publish, and the Statement card open beside the Steps list.", width: 1280, height: 1000, caption: "Advanced keeps every setting." },
+    { type: "heading", level: 2, text: "More options and the Classic editor" },
+    { type: "paragraph", text: "More options, below the parts, holds what most problems do not need: extra sections, PDFs, method tags such as Newton’s laws and your own rights wording. For a while longer, a Classic editor link near the top opens the older layout, which also has hints, tolerances and conditions on symbols. Back to the new editor returns you. Switching keeps your draft, and each text box in the Classic editor has an Equation button too." },
+    { type: "image", src: `${dir}/studio-advanced.webp`, alt: "The Problem Studio Classic editor with the status bar showing Draft version 2, All changes saved and Ready to publish, and the Statement card open beside the Steps list.", width: 1280, height: 1000, caption: "The Classic editor keeps every setting." },
   ],
 };

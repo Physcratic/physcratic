@@ -434,6 +434,19 @@ try {
   await page.getByLabel("Difficulty rating", { exact: true }).fill("2310");
   await click(page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/));
   await saved(page);
+  // The confirm is shared with the Classic editor. Cancelling it publishes nothing and leaves Publish ready.
+  {
+    const asked = [];
+    page.removeAllListeners("dialog");
+    page.once("dialog", (d) => { asked.push(d.message()); void d.dismiss(); });
+    await page.getByRole("button", { name: "Publish", exact: true }).click();
+    await until(async () => asked.length === 1, "the publish confirm appears");
+    await page.waitForTimeout(1500);
+    assert.match(asked[0], /^Publish this version\? Its statement becomes public\. Your grading keys stay private\.$/, "the confirm text is unchanged");
+    assert.notEqual((await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state, "published", "a cancelled confirm publishes nothing");
+    assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).isEnabled(), true, "Publish is ready again");
+    page.on("dialog", (d) => d.accept());
+  }
   await click(page.getByRole("button", { name: "Publish", exact: true }));
   await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state === "published", "publish");
   log(`SIMPLE PUBLISH: ${JSON.stringify(counts)}  target ${JSON.stringify(TARGET)}`);
@@ -802,18 +815,57 @@ try {
     const sctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
     await sctx.addCookies([{ name: "viewer", value: "workflow-student", url: origin }]);
     const sp = await sctx.newPage();
-    const bodies = [];
-    sp.on("response", async (response) => {
-      if (response.url().includes("/api/") && response.status() === 200) bodies.push(await response.text().catch(() => ""));
+    // Every response body is awaited before it is checked, so a late one cannot slip past.
+    const reading = [];
+    sp.on("response", (response) => {
+      if (response.url().includes("/api/") && response.status() === 200) reading.push(response.text().catch(() => ""));
     });
     await sp.goto(`${origin}/dashboard/authored/${eid}`);
     await sp.locator("[id^='part-']").first().waitFor({ timeout: 20000 });
     assert.equal(await sp.locator("[id^='part-']").count(), 2, "the student sees two parts");
     assert.ok(await sp.getByRole("img", { name: "A cart on a ramp, 30 degrees above the floor" }).first().isVisible(), "the student sees the image");
+    await sp.waitForLoadState("networkidle");
+    const bodies = await Promise.all(reading);
     assert.ok(bodies.some((text) => text.includes("Cart on a Ramp")), "the public problem response was read");
-    for (const text of bodies) assert.ok(!/privateParts|absTol|relTol|"key"|Energy is conserved/.test(text), "no answer key or private worked solution in a public response");
+    for (const text of bodies) assert.ok(!/privateParts|absTol|relTol|"key"|"hints"|hints|Energy is conserved|Divide the length by the average speed/.test(text), "no answer key, hint or private worked solution of either part in a public response");
     await sctx.close();
     log("One editor, end to end: two parts, a described image, number answers with units, preview, publish, reload, student, no key in the public response.");
+  }
+
+  // ------------------------------------------------------------------ 6. The Classic editor round trip keeps what is only on screen
+  {
+    const { context: rctx, page: rp } = await newPage(1440);
+    await rp.goto(origin);
+    await rp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
+    const a = rp.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true });
+    const aq = a.getByRole("textbox", { name: "What's the question?" });
+    await aq.click();
+    await aq.pressSequentially("How fast does it go?");
+    await rp.waitForURL((url) => url.searchParams.has("draft"));
+    await saved(rp);
+    const field = await mathField(a.locator("[data-simple-field^='a:']"));
+    await field.click();
+    await rp.waitForTimeout(300);
+    await rp.keyboard.type("9.8e");
+    // The math editor, or the plain text box a fresh mount shows until the math editor has loaded.
+    const shown = () => a.locator("[data-simple-field^='a:']").first().evaluate((el) => [...el.querySelectorAll("math-field, input")].find((x) => x.offsetParent)?.value);
+    assert.equal(await shown(), "9.8e", "the text is in the box");
+    // Open More options, then go to the Classic editor and back.
+    const more = rp.locator("details[data-simple-field='o:problem']");
+    await more.locator("summary").click();
+    assert.equal(await more.evaluate((el) => el.open), true, "More options is open");
+    await saved(rp);
+    const version = (await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [draftId(rp)])).rows[0].version;
+    await rp.getByRole("button", { name: "Classic editor", exact: true }).click();
+    await rp.getByLabel("Problem title", { exact: true }).waitFor();
+    await rp.getByRole("button", { name: "Back to the new editor", exact: true }).click();
+    await rp.getByLabel("Title", { exact: true }).waitFor();
+    assert.equal(await shown(), "9.8e", "the typed text is still there after the round trip");
+    assert.equal(await rp.locator("details[data-simple-field='o:problem']").evaluate((el) => el.open), true, "More options is still open");
+    await rp.waitForTimeout(2500);
+    assert.equal((await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [draftId(rp)])).rows[0].version, version, "the round trip saves nothing");
+    await rctx.close();
+    log("Classic editor round trip: typed text and More options kept.");
   }
 
   // Pictures for the Learn guide. Only when GUIDE_SHOT_DIR is set. Light mode, 1280px wide, real editor and API.

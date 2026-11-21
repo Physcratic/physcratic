@@ -28,7 +28,7 @@ import { ProvenanceFields } from "./advanced-provenance";
 import { UnpublishZone } from "./advanced-unpublish";
 import { TagPicker, MissingTagNote } from "./tag-picker";
 import { HowItWorksLink, RecoverySection, StatusBar, StepCard, studioTokens } from "./studio-ui";
-import { SimpleEditor } from "./simple-editor";
+import { SimpleEditor, type SimpleView } from "./simple-editor";
 import { GuidedTour } from "@/components/tour/guided-tour";
 import { TourHelpButton } from "@/components/tour/tour-help";
 import { CLASSIC_MODE_VALUE, STUDIO_MODE_KEY, otherIssueMessages, readStudioMode, setDifficulty, type StudioMode } from "./simple-model";
@@ -73,6 +73,8 @@ export function ProblemEditor({
   const [mode, setModeState] = useState<StudioMode>("simple");
   // The saved choice is read in the browser, so nothing is drawn until it is known. No flash of the wrong mode.
   const [modeReady, setModeReady] = useState(false);
+  // What the new editor holds only on screen, kept while the Classic editor is shown.
+  const simpleMemory = useRef<SimpleView | null>(null);
   useEffect(() => {
     setModeState(readStudioMode());
     setModeReady(true);
@@ -149,7 +151,11 @@ export function ProblemEditor({
   );
   const { draft, phase, dirty, busy, message, recovery } = snapshot;
   async function publishRequest(d: EditorDraft) {
-    if (publicSolutionsEnabled && !window.confirm("Publish this revision and make all its worked solutions, solution images and attached solution PDFs public? Anyone can read them without signing in. Your grading keys stay private. Files already viewed or downloaded cannot be recalled.")) return undefined;
+    // One confirm for both layouts. With public solutions on, the consent dialog is the only one.
+    const question = publicSolutionsEnabled
+      ? "Publish this revision and make all its worked solutions, solution images and attached solution PDFs public? Anyone can read them without signing in. Your grading keys stay private. Files already viewed or downloaded cannot be recalled."
+      : "Publish this version? Its statement becomes public. Your grading keys stay private.";
+    if (!window.confirm(question)) return undefined;
     return draftRequest(`${editorBase}/${d.problemId}/publish`, "POST", { version: d.version, ...(publicSolutionsEnabled ? { publicSolutionConsent: true } : {}) });
   }
 
@@ -157,6 +163,8 @@ export function ProblemEditor({
   const [tab, setTab] = useState<"edit" | "preview">("edit");
   const [latest, setLatest] = useState<EditorDraft | null>(null);
   const [uploads, setUploads] = useState(0);
+  // Like "Continue your last draft": not while a save or an upload is running or a recovery copy is waiting.
+  const switchLocked = busy || uploads > 0 || !!recovery || !!snapshot.recoveryRaw;
   const uploadPending = useCallback(
     (delta: number) => setUploads((n) => Math.max(0, n + delta)),
     [],
@@ -318,7 +326,7 @@ export function ProblemEditor({
             <HowItWorksLink />
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            {mode === "simple" && <TourHelpButton tourId="studio" />}
+            {modeReady && mode === "simple" && <TourHelpButton tourId="studio" />}
             <span
               role="status"
               aria-live="polite"
@@ -358,8 +366,7 @@ export function ProblemEditor({
                 !publishable.success
               }
               onClick={() => {
-                if (publicSolutionsEnabled || window.confirm("Publish this version? Its statement becomes public. Your grading keys stay private."))
-                  void session.publish("publish", publishRequest);
+                void session.publish("publish", publishRequest);
               }}
             >
               {busy
@@ -383,11 +390,14 @@ export function ProblemEditor({
             <button
               type="button"
               data-classic-link=""
-              className="inline-flex min-h-11 items-center underline underline-offset-4"
+              className="inline-flex min-h-11 items-center underline underline-offset-4 disabled:no-underline disabled:opacity-100 disabled:text-muted-foreground"
+              disabled={switchLocked}
+              aria-describedby={switchLocked ? "mode-link-reason" : undefined}
               onClick={() => chooseMode(mode === "simple" ? "advanced" : "simple")}
             >
               {mode === "simple" ? "Classic editor" : "Back to the new editor"}
             </button>
+            {switchLocked && <span id="mode-link-reason" className="ml-3 text-base text-muted-foreground">Available when saving and uploads are done.</span>}
           </p>
         )}
         <div className={`mb-8 flex flex-wrap items-end justify-between gap-4 ${mode === "simple" ? "mx-auto max-w-2xl" : ""}`}>
@@ -663,6 +673,7 @@ export function ProblemEditor({
               provisional={creating}
               otherIssues={otherIssues}
               publishing={busy}
+              viewMemory={simpleMemory}
               onUnpublish={unpublish}
               onPublish={() => {
                 if (phase === "saving" || phase === "conflict") return;

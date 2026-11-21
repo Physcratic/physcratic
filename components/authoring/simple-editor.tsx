@@ -97,15 +97,32 @@ export type SimpleProps = {
   publishing: boolean;
   /** Unpublishes the problem after asking. Given by the editor, which owns saving. */
   onUnpublish?: () => void;
+  /** Where the editor keeps what is only on screen, so the Classic editor round trip gives it back. */
+  viewMemory?: { current: SimpleView | null };
+};
+
+/** What Simple holds only in the browser: text typed ahead of the saved key, what was touched, and More options. */
+export type SimpleView = {
+  typed: Record<string, string>;
+  /** The saved answer text of each part when this was kept. Typed text is given back only while the saved answer is the same. */
+  keyTexts: Record<string, string>;
+  touched: Record<string, boolean>;
+  attempted: boolean;
+  moreOpen: boolean;
 };
 
 export function SimpleEditor(props: SimpleProps) {
-  const { draft, userId, edit, locked, provisional, otherIssues, onPublish, publishing, onUnpublish } = props;
+  const { draft, userId, edit, locked, provisional, otherIssues, onPublish, publishing, onUnpublish, viewMemory } = props;
   const workflowKey = `physcratic.studio.files.v1:${userId}:${draft.problemId}`;
   /** What the author typed for each answer, which can be ahead of the saved key when it cannot be read yet. */
-  const [typed, setTyped] = useState<Record<string, string>>({});
-  const [touched, setTouched] = useState<Record<string, boolean>>({});
-  const [attempted, setAttempted] = useState(false);
+  const [typed, setTyped] = useState<Record<string, string>>(() => {
+    const kept = viewMemory?.current;
+    if (!kept) return {};
+    // A part whose saved answer changed meanwhile, for example in the Classic editor, shows the saved answer instead.
+    return Object.fromEntries(Object.entries(kept.typed).filter(([id]) => kept.keyTexts[id] === answerText(privateFor(draft, id).key)));
+  });
+  const [touched, setTouched] = useState<Record<string, boolean>>(() => viewMemory?.current?.touched ?? {});
+  const [attempted, setAttempted] = useState(() => viewMemory?.current?.attempted ?? false);
   const [fileFirst, setFileFirst] = useState(() => {
     try { const value = sessionStorage.getItem(workflowKey); if (value === "files" || value === "text") return value === "files"; } catch { /* View choice is optional. */ }
     return draft.content.attachments.some(a => a.purpose === "statement-pdf") || [...draft.content.context, ...draft.content.sections.flatMap(s => [...s.blocks, ...s.parts.flatMap(p => p.blocks)])].some(b => b.kind === "image");
@@ -134,7 +151,13 @@ export function SimpleEditor(props: SimpleProps) {
   // More options for the whole problem opens when the problem loads with saved content in it, and when Publish reports an error inside it.
   // Nothing else opens it, so once the author closes it, typing elsewhere never brings it back. Only the next Publish does.
   const optionsIssue = shown("options:problem")?.message;
-  const [moreOpen, setMoreOpen] = useState(() => problemOptionsHaveContent(draft) || fileFirst);
+  const [moreOpen, setMoreOpen] = useState(() => viewMemory?.current?.moreOpen ?? (problemOptionsHaveContent(draft) || fileFirst));
+  // Keep the on-screen state when the Classic editor takes over, and give it back on return.
+  const latest = useRef<SimpleView | null>(null);
+  useEffect(() => {
+    latest.current = { typed, touched, attempted, moreOpen, keyTexts: Object.fromEntries(parts.map(({ part }) => [part.id, answerText(privateFor(draft, part.id).key)])) };
+  });
+  useEffect(() => () => { if (viewMemory) viewMemory.current = latest.current; }, [viewMemory]);
 
   // A draft made in Advanced can have no part yet. Simple starts it with part a.
   const noParts = parts.length === 0;
