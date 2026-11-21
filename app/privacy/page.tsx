@@ -20,7 +20,7 @@ export default function PrivacyPage() {
       <header className="flex flex-col gap-3">
         <h1 className="text-balance text-3xl font-semibold md:text-4xl">Privacy Notice</h1>
         <p className="text-base leading-relaxed text-muted-foreground">
-          Physcratic is operated by its founder as an individual. This notice covers accounts, text profiles and privacy requests.
+          Arrow Kristian operates Physcratic, an online platform, in a personal capacity. This notice covers accounts, text profiles and privacy requests.
         </p>
       </header>
       <article className="flex flex-col gap-8 text-base leading-relaxed text-muted-foreground">
@@ -65,8 +65,9 @@ export default function PrivacyPage() {
           <h2 id="privacy-providers" className="text-xl font-semibold text-foreground">Service providers</h2>
           <p>
             Vercel hosts Physcratic, Neon stores account and profile records, and Resend delivers account emails.
-            Sign-up uses Google reCAPTCHA to help prevent automated registrations. The site includes Vercel Web Analytics
-            to measure visits. Tally processes what you enter in the feedback form, including an email address if you supply one.
+            Where enabled, Google reCAPTCHA checks sign-up requests for automated activity. The site uses Vercel Web
+            Analytics to measure visits. Tally processes what you enter in the feedback form, including an email
+            address if you supply one.
           </p>
         </section>
         <section aria-labelledby="privacy-retention" className="flex flex-col gap-3">
