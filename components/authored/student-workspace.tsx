@@ -1,7 +1,8 @@
 "use client";
 import { PublicWorkedSolution } from "./public-worked-solution";
 import type { PublicSolution } from "@/lib/authored-public-solution-contracts";
-import { ProblemDocumentTabs, ProblemFrame } from "@/components/physics/problem-frame";
+import { DocumentCard, ProblemDocumentTabs, ProblemFrame } from "@/components/physics/problem-frame";
+import { Card, CardContent } from "@/components/ui/card";
 import { publicSolutionPolicy } from "@/lib/authored-solution-policy";
 import { StatementPdfs } from "./statement-pdfs";
 import { useSWRConfig } from "swr";
@@ -27,7 +28,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { colorsByPartId } from "@/lib/part-colors";
-import { FeedbackBox, PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
+import { FeedbackBox, PartChip, SolveSteps, StepNumber, partBorder, partStyle } from "@/components/physics/solve-ui";
 import { MathAnswerField } from "@/components/physics/math-answer-field";
 import type { FeedbackTone } from "@/lib/solve-feedback";
 import { Button } from "@/components/ui/button";
@@ -224,13 +225,20 @@ export function StudentWorkspace({
   // The frame both problem pages share: document tabs on the left, the answer column after the statement.
   // The Worked solution tab is there only for a revision sealed as public. A legacy revision keeps its per-part button.
   const solutionTab = availability === "ready" && revision?.solutionPolicy === publicSolutionPolicy;
-  const frame = (statement: ReactNode, answer: ReactNode) => (
-    <ProblemFrame
-      document={<ProblemDocumentTabs value={readingTab} onValueChange={setReadingTab} listLabel="Problem steps" statementLabel="Problem statement" solutionLabel={solutionTab ? "Worked solution" : undefined} statement={statement}
-        solution={solutionTab && revision ? (publicSolutionsEnabled ? <PublicWorkedSolution key={revision.id} problemId={problemId} revisionId={revision.id} onStale={invalidate} initialSolution={initialSolution} /> : <p role="status">The worked solution is temporarily unavailable.</p>) : undefined} />}
-      answer={answer}
-    />
-  );
+  // The steps strip lists only what this page has: Read, Answer, Check once the answer form is there, and Solution with the tab.
+  const frame = (statement: ReactNode, answer: ReactNode, hasCheck = false) => {
+    const ready = availability === "ready" && revision;
+    const show = [1, 2, ...(hasCheck ? [3] : []), ...(solutionTab ? [4] : [])] as (1 | 2 | 3 | 4)[];
+    return <>
+      {ready && <SolveSteps show={show} hrefs={{ 1: "#problem-document", 2: "#answer-workspace", 3: "#step-check", 4: "#problem-document" }} onNavigate={(step) => { if (step === 1) setReadingTab("statement"); if (step === 4) setReadingTab("solution"); }} />}
+      <ProblemFrame
+        document={<ProblemDocumentTabs id="problem-document" value={readingTab} onValueChange={setReadingTab} listLabel="Problem steps" statementLabel={<><StepNumber>1</StepNumber>Problem statement</>} solutionLabel={solutionTab ? <><StepNumber>{show.length}</StepNumber>Worked solution</> : undefined}
+          statement={ready ? <DocumentCard title="Problem statement" description="Community-authored problem. Text and diagrams as published.">{statement}</DocumentCard> : statement}
+          solution={solutionTab && revision ? (publicSolutionsEnabled ? <PublicWorkedSolution key={revision.id} problemId={problemId} revisionId={revision.id} onStale={invalidate} initialSolution={initialSolution} /> : <p role="status">The worked solution is temporarily unavailable.</p>) : undefined} />}
+        answer={answer}
+      />
+    </>;
+  };
   return (
     <ProblemRoom>
         <div className="flex flex-wrap items-end justify-between gap-4 border-b pb-6">
@@ -278,28 +286,25 @@ export function StudentWorkspace({
               revision={availability === "ready" ? revision : null}
               problemId={problemId}
             />,
-            <section className="mx-auto max-w-3xl space-y-4 rounded-xl border bg-card p-6">
-              <h2 className="text-xl font-semibold">
+            <AnswerWorkspace id="answer-workspace" className="scroll-mt-4"><Card className="min-w-0 shadow-none"><CardContent className="space-y-4 pt-6">
+              <h2 className="text-lg font-semibold">
                 {viewer.state === "unverified"
                   ? "Verify your email to submit"
                   : "Sign in to practise"}
               </h2>
               <p className="text-sm leading-relaxed text-muted-foreground">
                 {viewer.state === "loading"
-                  ? "Checking your account. Published problem content stays available below."
+                  ? "Checking your account. Published problem content stays available."
                   : viewer.state === "error" || authDenied
                     ? "We could not verify your session. Refresh the page to retry. Submissions are paused."
                     : viewer.state === "unverified"
                       ? "Use your email verification link, then sign in again. No answer will be sent until your account is verified."
                       : "Published statements and public attachments are open to everyone. A verified account is required to submit answers."}
               </p>
-              <a
-                className="inline-block min-h-11 rounded-md bg-primary px-4 py-3 text-sm font-medium text-primary-foreground"
-                href={`/sign-in?returnTo=${encodeURIComponent(`/dashboard/authored/${problemId}`)}`}
-              >
-                Sign in to submit
-              </a>
-            </section>
+              <Button asChild className="min-h-11">
+                <a href={`/sign-in?returnTo=${encodeURIComponent(`/dashboard/authored/${problemId}`)}`}>Sign in to submit</a>
+              </Button>
+            </CardContent></Card></AnswerWorkspace>
           )
         )}
         {commentsEnabled && availability === "ready" && <Discussions moderationEnabled={moderationEnabled} problemKey={`authored:${problemId}`}/>}
@@ -322,7 +327,7 @@ function PublicStatement({
   return (
     <article
       aria-label="Published problem statement"
-      className="min-w-0 space-y-8 rounded-xl border bg-card p-5 sm:p-8"
+      className="min-w-0 space-y-8"
     >
       <StatementPdfs problemId={problemId} revisionId={revision.id} ids={doc.attachments.filter(a => a.purpose === "statement-pdf").map(a => a.id)} />
       <StatementBlocks
@@ -393,7 +398,7 @@ function PrivateWorkspace({
   invalidate: () => void;
   denyAuth: () => void;
   /** Places the statement and the answer column in the shared problem frame. */
-  frame: (statement: ReactNode, answer: ReactNode) => ReactNode;
+  frame: (statement: ReactNode, answer: ReactNode, hasCheck?: boolean) => ReactNode;
 }) {
   const { mutate } = useSWRConfig();
   const [session] = useState(() => {
@@ -729,6 +734,8 @@ function PrivateWorkspace({
                     </div>
                   )}
                   <form
+                    id="step-check"
+                    tabIndex={-1}
                     onSubmit={(e) => {
                       e.preventDefault();
                       if (ready)
@@ -738,7 +745,7 @@ function PrivateWorkspace({
                           part.answerMode,
                         );
                     }}
-                    className="space-y-4"
+                    className="scroll-mt-24 space-y-4 focus:outline-none"
                   >
                     <fieldset
                       disabled={
@@ -839,6 +846,7 @@ function PrivateWorkspace({
             </section>
             {availability === "ready" && revision && !revision.solutionPolicy && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={part.label || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
           </AnswerWorkspace>,
+          Boolean(availability === "ready" && revision && part && buffer),
         )}
     </div>
   );
