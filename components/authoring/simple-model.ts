@@ -24,10 +24,12 @@ type Part = EditorDraft["content"]["sections"][number]["parts"][number];
 
 export const STUDIO_MODE_KEY = "physcratic.studio.mode";
 export type StudioMode = "simple" | "advanced";
-/** The author's last choice, kept in this browser only. Simple until they pick Advanced (an old "easy" value means Simple). */
+/** The value written only when an author clicks "Classic editor". An older "advanced" value is not it, so it never counts. */
+export const CLASSIC_MODE_VALUE = "classic";
+/** The new editor for everyone. Only an author who clicked "Classic editor" (this release only) gets the old Advanced layout. */
 export function readStudioMode(): StudioMode {
   try {
-    return window.localStorage.getItem(STUDIO_MODE_KEY) === "advanced" ? "advanced" : "simple";
+    return window.localStorage.getItem(STUDIO_MODE_KEY) === CLASSIC_MODE_VALUE ? "advanced" : "simple";
   } catch {
     return "simple";
   }
@@ -323,7 +325,7 @@ export function advancedNote(d: EditorDraft): string {
     extra += Math.max(0, solution.length - (firstTextIndex(solution) >= 0 ? 1 : 0));
   }
   if (extra) found.push("more blocks");
-  return found.length ? `Advanced also has ${found.join(", ")}. We keep it and publish it with the rest.` : "";
+  return found.length ? `The Classic editor also has ${found.join(", ")}. We keep it and publish it with the rest.` : "";
 }
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -549,8 +551,8 @@ export const PROBLEM_MESSAGES = {
   source: "Say where it's from, in More options.",
   methodRepeated: "Each method tag can only be used once, in More options.",
   methodOther: "Check the method tags in More options. A problem can have up to 30, and each one can be up to 80 characters.",
-  topicRepeated: "A topic is listed twice. Switch the repeated topic off and on again, or remove it in Advanced.",
-  topicOther: "Check the topics. A problem can have up to 30, and each one can be up to 80 characters. You can fix them in Advanced.",
+  topicRepeated: "A topic is listed twice. Switch the repeated topic off and on again, or remove it in the Classic editor.",
+  topicOther: "Check the topics. A problem can have up to 30, and each one can be up to 80 characters. You can fix them in the Classic editor.",
 } as const;
 /** The server's publish rules that Simple words and shows next to its own fields. Anything else is listed by the Publish button. */
 const SIMPLE_OWNED_RULES = /^(Title and rights provenance required|Add a statement and at least one part\. Use text, statement images or a statement PDF\.|Every published part requires a key or explicit manual mode|Add a difficulty rating from 0 to 4,000\.|Every image requires descriptive alternative text before publication)$/;
@@ -579,12 +581,12 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
     const pictures = part.blocks.filter((b) => b.kind === "image");
     // Simple shows the first picture of a part. A later one is described in Advanced, and the message says so.
     if (pictures.some((b) => !b.alt.trim()))
-      issues.push({ field: `picture:${part.id}`, message: pictures[0].alt.trim() ? "Describe each image. You can do that in Advanced." : "Describe the image so everyone can follow it." });
+      issues.push({ field: `picture:${part.id}`, message: pictures[0].alt.trim() ? "Describe each image. You can do that in the Classic editor." : "Describe the image so everyone can follow it." });
     const entry = privateFor(d, part.id);
     // The server also wants a description for every image in the hints and the worked solution.
     const undescribed = (blocks: readonly EditorBlock[]) => blocks.some((b) => b.kind === "image" && !b.alt.trim());
     if (undescribed(entry.hints)) issues.push({ field: `options:${part.id}`, message: "Describe each image in the hints." });
-    if (undescribed(entry.solution)) issues.push({ field: `options:${part.id}`, message: "Describe each image in the worked solution. You can do that in Advanced." });
+    if (undescribed(entry.solution)) issues.push({ field: `options:${part.id}`, message: "Describe each image in the worked solution. You can do that in the Classic editor." });
     // Simple asks for a worked solution. Advanced and older problems can still publish without one.
     if (!fileFirst && neverPublished && !blocksSpans(entry.solution).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
       issues.push({ field: `solution:${part.id}`, message: "Add the worked solution." });

@@ -15,7 +15,7 @@ export async function runPdfStudioBrowser({browser,origin,pool,storage,setFail})
  for(const width of [375,1440])for(const theme of ['light','dark']) {
   const context=await browser.newContext({viewport:{width,height:1000}}),page=await context.newPage(),errors=[];
   const owner=`pdf-studio-${width}-${theme}`;await pool.query('INSERT INTO "user"(id) VALUES($1)',[owner]);await context.addCookies([{name:'studio_author',value:owner,url:origin}]);
-  await context.addInitScript(theme=>{localStorage.setItem('physcratic.studio.mode','simple');localStorage.setItem('physcratic.tour.studio.v1','seen');addEventListener('DOMContentLoaded',()=>document.documentElement.classList.toggle('dark',theme==='dark'),{once:true});},theme);
+  await context.addInitScript(theme=>{localStorage.setItem('physcratic.tour.studio.v1','seen');addEventListener('DOMContentLoaded',()=>document.documentElement.classList.toggle('dark',theme==='dark'),{once:true});},theme);
   page.on('dialog',d=>d.accept());page.on('pageerror',e=>errors.push(e.stack??e.message));
   await page.goto(origin);await openMore(page);await page.getByLabel('Upload PDFs instead',{exact:true}).check();
   await page.getByLabel('Title',{exact:true}).fill('Moving Cart');await page.waitForURL(url=>url.searchParams.has('draft'));

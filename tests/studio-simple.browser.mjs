@@ -316,8 +316,12 @@ try {
   const click = async (l) => { await l.click(); counts.clicks++; };
   const focusClick = async (l) => { await l.click(); counts.focusClicks++; };
   const typed = async (l, text, opts) => { await l.pressSequentially(text, opts); counts.typedFields++; counts.keys += text.length; };
-  assert.equal(await page.getByRole("button", { name: "Simple" }).getAttribute("aria-pressed"), "true", "Simple is the default");
-  assert.equal(await page.getByRole("button", { name: "Advanced" }).getAttribute("aria-pressed"), "false");
+  // One editor: no Simple and Advanced toggle, and the only way to the old layout is the Classic editor link.
+  assert.equal(await page.getByRole("group", { name: "Editor mode" }).count(), 0, "no mode toggle");
+  assert.equal(await page.getByRole("button", { name: "Simple", exact: true }).count() + (await page.getByRole("button", { name: "Advanced", exact: true }).count()), 0, "no Simple or Advanced button");
+  assert.equal(await page.getByRole("button", { name: "Classic editor", exact: true }).count(), 1, "one Classic editor link");
+  assert.ok((await page.getByRole("button", { name: "Classic editor", exact: true }).boundingBox()).height >= 44, "the link is a 44px target");
+  assert.equal(await page.evaluate(() => localStorage.getItem("physcratic.studio.mode")), null, "nothing is written until the link is clicked");
   assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).count(), 1, "one Publish button");
   assert.equal(await page.locator("select:visible").count(), 0, "no select on the page");
   for (const text of ["Main question (optional)", "What's the question?", "Add an image (optional)", "Worked solution (required)", "Final Answer (Solution)", "Answer preview", "Only you see this", "Where's it from?", "Difficulty rating", "Pick a topic so people can find it (optional)"])
@@ -430,6 +434,19 @@ try {
   await page.getByLabel("Difficulty rating", { exact: true }).fill("2310");
   await click(page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/));
   await saved(page);
+  // The confirm is shared with the Classic editor. Cancelling it publishes nothing and leaves Publish ready.
+  {
+    const asked = [];
+    page.removeAllListeners("dialog");
+    page.once("dialog", (d) => { asked.push(d.message()); void d.dismiss(); });
+    await page.getByRole("button", { name: "Publish", exact: true }).click();
+    await until(async () => asked.length === 1, "the publish confirm appears");
+    await page.waitForTimeout(1500);
+    assert.match(asked[0], /^Publish this version\? Its statement becomes public\. Your grading keys stay private\.$/, "the confirm text is unchanged");
+    assert.notEqual((await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state, "published", "a cancelled confirm publishes nothing");
+    assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).isEnabled(), true, "Publish is ready again");
+    page.on("dialog", (d) => d.accept());
+  }
   await click(page.getByRole("button", { name: "Publish", exact: true }));
   await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state === "published", "publish");
   log(`SIMPLE PUBLISH: ${JSON.stringify(counts)}  target ${JSON.stringify(TARGET)}`);
@@ -456,15 +473,26 @@ try {
 
   // Switching modes loses nothing and saves nothing.
   const before = (await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [id])).rows[0].version;
-  await page.getByRole("button", { name: "Advanced" }).click();
+  await page.getByRole("button", { name: "Classic editor", exact: true }).click();
+  assert.equal(await page.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "classic");
   assert.equal(await page.getByLabel("Problem title", { exact: true }).inputValue(), "A Ball is Thrown Up");
   assert.ok(await page.getByRole("button", { name: /Insert equation in Part a statement text 1/ }).count(), "Advanced text fields have the Equation button");
-  await page.getByRole("button", { name: "Simple" }).click();
+  await page.getByRole("button", { name: "Back to the new editor", exact: true }).click();
   assert.equal(await page.getByLabel("Title", { exact: true }).inputValue(), "A Ball is Thrown Up");
   assert.equal(await question.locator("[data-math-id]").count(), 1);
   await page.waitForTimeout(2500);
   assert.equal((await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [id])).rows[0].version, before, "switching modes saves nothing");
   assert.equal(await page.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "simple");
+  // A saved "advanced" from before this release is ignored. Only the Classic link writes the new value.
+  {
+    const { context: old, page: oldPage } = await newPage(1440);
+    await old.addInitScript(() => localStorage.setItem("physcratic.studio.mode", "advanced"));
+    await oldPage.goto(origin);
+    await oldPage.getByLabel("Title", { exact: true }).waitFor();
+    assert.equal(await oldPage.getByRole("button", { name: "Classic editor", exact: true }).count(), 1, "an old saved advanced still opens the new editor");
+    assert.equal(await oldPage.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "advanced", "and it is not rewritten");
+    await old.close();
+  }
 
   // Another part, and taking it away again.
   await page.getByRole("button", { name: "Add part b" }).click();
@@ -718,6 +746,128 @@ try {
     log(`Student at ${width}: Correct`);
     await s.close();
   }
+  // ------------------------------------------------------------------ 5. One editor, end to end
+  // A two part problem with one described image and a number answer with a unit: write it, preview it, publish it, reload it,
+  // open it as a student, and check that the public response carries no answer key.
+  {
+    const { context: ectx, page: ep } = await newPage(1440);
+    await ep.goto(origin);
+    await ep.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
+    const partRegion = (name) => ep.getByRole("region", { name, exact: true });
+    const a = ep.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true });
+    const aq = a.getByRole("textbox", { name: "What's the question?" });
+    await aq.click();
+    await aq.pressSequentially("A cart rolls down the ramp in the picture. How fast is it at the bottom?");
+    await ep.waitForURL((url) => url.searchParams.has("draft"));
+    const eid = draftId(ep);
+    await saved(ep);
+    const [pick] = await Promise.all([ep.waitForEvent("filechooser"), a.getByRole("button", { name: "Choose an image" }).click()]);
+    await pick.setFiles({ name: "ramp.png", mimeType: "image/png", buffer: png });
+    await a.getByLabel("Describe the image").waitFor({ timeout: 20000 });
+    await a.getByLabel("Describe the image").fill("A cart on a ramp, 30 degrees above the floor");
+    await a.getByRole("textbox", { name: "Worked solution (required)" }).click();
+    await a.getByRole("textbox", { name: "Worked solution (required)" }).pressSequentially("Energy is conserved on the way down.");
+    await (await mathField(a.locator("[data-simple-field^='a:']"))).click();
+    await ep.waitForTimeout(300);
+    await ep.keyboard.type("9.8");
+    await a.getByLabel("Unit (optional)").fill("m/s");
+    await ep.getByRole("button", { name: "Add part b" }).click();
+    const b = partRegion("Part b");
+    await b.getByRole("textbox", { name: "What's the question?" }).click();
+    await b.getByRole("textbox", { name: "What's the question?" }).pressSequentially("How long does the trip take?");
+    await b.getByRole("textbox", { name: "Worked solution (required)" }).click();
+    await b.getByRole("textbox", { name: "Worked solution (required)" }).pressSequentially("Divide the length by the average speed.");
+    await (await mathField(b.locator("[data-simple-field^='a:']"))).click();
+    await ep.waitForTimeout(300);
+    await ep.keyboard.type("2.5");
+    await b.getByLabel("Unit (optional)").fill("s");
+    await ep.getByLabel("Title", { exact: true }).fill("Cart on a Ramp");
+    await ep.getByLabel("Difficulty rating", { exact: true }).fill("1200");
+    await ep.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/).check();
+    await saved(ep);
+    // The preview shows the statement and the picture, and nothing of the answers.
+    await ep.getByRole("button", { name: "Student preview", exact: true }).click();
+    const preview = ep.getByRole("article", { name: "Student-facing preview" });
+    await preview.waitFor();
+    const previewText = await preview.innerText();
+    assert.ok(previewText.includes("Cart on a Ramp") && previewText.includes("How long does the trip take?"), "the preview shows the title and both parts");
+    assert.ok(!/9\.8|2\.5/.test(previewText), "the preview shows no answer");
+    assert.ok(await preview.getByRole("img", { name: "A cart on a ramp, 30 degrees above the floor" }).isVisible(), "the preview shows the described image");
+    await ep.getByRole("button", { name: "Write", exact: true }).click();
+    // Publish, with the one label a new problem has.
+    await ep.getByRole("button", { name: "Publish", exact: true }).click();
+    await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [eid])).rows[0].state === "published", "the end to end problem publishes");
+    await ep.getByRole("button", { name: "Publish new version", exact: true }).waitFor();
+    // Reload: everything is still there, and the label for a published problem stays.
+    await ep.reload();
+    await ep.getByLabel("Title", { exact: true }).waitFor({ timeout: 20000 });
+    assert.equal(await ep.getByLabel("Title", { exact: true }).inputValue(), "Cart on a Ramp");
+    await ep.getByRole("button", { name: "Publish new version", exact: true }).waitFor();
+    assert.equal(await ep.getByRole("button", { name: "Publish", exact: true }).count(), 0, "a published problem has only the new version label");
+    const stored = await savedContent(eid);
+    assert.deepEqual(stored.sections[0].parts.map((x) => x.label), ["a", "b"]);
+    const attached = JSON.stringify(stored);
+    assert.ok(attached.includes("A cart on a ramp, 30 degrees above the floor"), "the image description is saved");
+    const keys = (await pool.query("SELECT data FROM authored_draft_private_part WHERE problem_id=$1 ORDER BY part_id", [eid])).rows.map((r) => r.data.key);
+    assert.deepEqual(keys.map((k) => [k.kind, k.value, k.units]).sort(), [["numeric", 2.5, "s"], ["numeric", 9.8, "m/s"]], "two number keys with their units");
+    await ectx.close();
+    // A student opens it. Every response the page reads is kept, and none may hold a key.
+    const sctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+    await sctx.addCookies([{ name: "viewer", value: "workflow-student", url: origin }]);
+    const sp = await sctx.newPage();
+    // Every response body is awaited before it is checked, so a late one cannot slip past.
+    const reading = [];
+    sp.on("response", (response) => {
+      if (response.url().includes("/api/") && response.status() === 200) reading.push(response.text().catch(() => ""));
+    });
+    await sp.goto(`${origin}/dashboard/authored/${eid}`);
+    await sp.locator("[id^='part-']").first().waitFor({ timeout: 20000 });
+    assert.equal(await sp.locator("[id^='part-']").count(), 2, "the student sees two parts");
+    assert.ok(await sp.getByRole("img", { name: "A cart on a ramp, 30 degrees above the floor" }).first().isVisible(), "the student sees the image");
+    await sp.waitForLoadState("networkidle");
+    const bodies = await Promise.all(reading);
+    assert.ok(bodies.some((text) => text.includes("Cart on a Ramp")), "the public problem response was read");
+    for (const text of bodies) assert.ok(!/privateParts|absTol|relTol|"key"|"hints"|hints|Energy is conserved|Divide the length by the average speed/.test(text), "no answer key, hint or private worked solution of either part in a public response");
+    await sctx.close();
+    log("One editor, end to end: two parts, a described image, number answers with units, preview, publish, reload, student, no key in the public response.");
+  }
+
+  // ------------------------------------------------------------------ 6. The Classic editor round trip keeps what is only on screen
+  {
+    const { context: rctx, page: rp } = await newPage(1440);
+    await rp.goto(origin);
+    await rp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
+    const a = rp.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true });
+    const aq = a.getByRole("textbox", { name: "What's the question?" });
+    await aq.click();
+    await aq.pressSequentially("How fast does it go?");
+    await rp.waitForURL((url) => url.searchParams.has("draft"));
+    await saved(rp);
+    const field = await mathField(a.locator("[data-simple-field^='a:']"));
+    await field.click();
+    await rp.waitForTimeout(300);
+    await rp.keyboard.type("9.8e");
+    // The math editor, or the plain text box a fresh mount shows until the math editor has loaded.
+    const shown = () => a.locator("[data-simple-field^='a:']").first().evaluate((el) => [...el.querySelectorAll("math-field, input")].find((x) => x.offsetParent)?.value);
+    assert.equal(await shown(), "9.8e", "the text is in the box");
+    // Open More options, then go to the Classic editor and back.
+    const more = rp.locator("details[data-simple-field='o:problem']");
+    await more.locator("summary").click();
+    assert.equal(await more.evaluate((el) => el.open), true, "More options is open");
+    await saved(rp);
+    const version = (await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [draftId(rp)])).rows[0].version;
+    await rp.getByRole("button", { name: "Classic editor", exact: true }).click();
+    await rp.getByLabel("Problem title", { exact: true }).waitFor();
+    await rp.getByRole("button", { name: "Back to the new editor", exact: true }).click();
+    await rp.getByLabel("Title", { exact: true }).waitFor();
+    assert.equal(await shown(), "9.8e", "the typed text is still there after the round trip");
+    assert.equal(await rp.locator("details[data-simple-field='o:problem']").evaluate((el) => el.open), true, "More options is still open");
+    await rp.waitForTimeout(2500);
+    assert.equal((await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [draftId(rp)])).rows[0].version, version, "the round trip saves nothing");
+    await rctx.close();
+    log("Classic editor round trip: typed text and More options kept.");
+  }
+
   // Pictures for the Learn guide. Only when GUIDE_SHOT_DIR is set. Light mode, 1280px wide, real editor and API.
   if (process.env.GUIDE_SHOT_DIR) {
     const { mkdirSync } = await import("node:fs");

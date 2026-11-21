@@ -95,7 +95,7 @@ async function guideShots(page) {
   const save = (name) => page.screenshot({ path: join(dir, `${name}.png`) });
   const top = (locator, offset = 16) => locator.evaluate((el, o) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - o), offset);
   await page.setViewportSize({ width: 1280, height: 1000 });
-  // Problem Studio opens on a new, empty problem in the last mode used. This suite drives Advanced.
+  // Problem Studio opens on a new, empty problem. This suite drives the Classic editor (the old Advanced layout), which a saved "classic" value opens.
   await page.getByLabel("Problem title", { exact: true }).fill("Forces on a cart");
   await page.waitForURL((url) => url.searchParams.has("draft"));
   const id = new URL(page.url()).searchParams.get("draft");
@@ -133,13 +133,13 @@ async function guideShots(page) {
   await save("studio-preview");
   await page.getByRole("button", { name: "Write", exact: true }).click();
   // Publish waits for a difficulty rating, a whole number from 0 to 4,000.
-  assert.equal(await page.getByRole("button", { name: "Publish problem", exact: true }).isDisabled(), true, "Publish is disabled without a difficulty rating");
+  assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).isDisabled(), true, "Publish is disabled without a difficulty rating");
   await page.getByLabel("Difficulty rating", { exact: true }).fill("4001");
   await page.getByText("Add a difficulty rating from 0 to 4,000.", { exact: true }).waitFor();
-  assert.equal(await page.getByRole("button", { name: "Publish problem", exact: true }).isDisabled(), true, "Publish is disabled for 4001");
+  assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).isDisabled(), true, "Publish is disabled for 4001");
   await page.getByLabel("Difficulty rating", { exact: true }).fill("2100");
   assert.equal((await page.getByTestId("difficulty-band").innerText()).replace(/\s+/g, " ").trim(), "2,100 Advanced");
-  await page.getByRole("button", { name: "Publish problem", exact: true }).click();
+  await page.getByRole("button", { name: "Publish", exact: true }).click();
   await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state === "published", "publish");
   const learnerContext = await browser.newContext({ viewport: { width: 1280, height: 1000 } });
   await learnerContext.addCookies([{ name: "viewer", value: "workflow-student", url: origin }]);
@@ -338,7 +338,6 @@ try {
   const context = await browser.newContext({
     viewport: { width: 1440, height: 1000 },
   });
-  await context.addInitScript(() => localStorage.setItem("physcratic.studio.mode", "advanced"));
   const page = await context.newPage();
   const errors = [];
   page.on("pageerror", (e) => {
@@ -346,14 +345,24 @@ try {
     console.error("Browser error:", e.message);
   });
   page.on("dialog", (d) => d.accept());
+  // This suite drives the Classic editor, the old Advanced layout. A first visit clicks the "Classic editor" link, which saves the
+  // choice in this browser, and the page under test then opens a new problem in it, empty, as Advanced always did.
+  {
+    const first = await context.newPage();
+    await first.goto(origin);
+    await first.getByRole("button", { name: "Classic editor", exact: true }).click();
+    await first.getByLabel("Problem title", { exact: true }).waitFor();
+    assert.equal(await first.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "classic");
+    await first.close();
+  }
   await page.goto(origin);
+  await page.getByLabel("Problem title", { exact: true }).waitFor();
   if (process.env.GUIDE_SHOT_DIR) {
     // Screenshots for the Learn guide "How to write a problem in Problem Studio". Real editor and API on the
     // disposable PostgreSQL, 1280px wide, light mode. Stops here, so the rest of the suite is not run.
     await guideShots(page);
     throw new GuideDone();
   }
-  // Problem Studio opens on a new, empty problem in the last mode used. This suite drives Advanced.
   await page
     .getByLabel("Problem title", { exact: true })
     .fill("The pendulum experiment");
@@ -772,7 +781,7 @@ try {
   });
   await page.getByLabel("Difficulty rating", { exact: true }).fill("1800");
   await page
-    .getByRole("button", { name: "Publish problem", exact: true })
+    .getByRole("button", { name: "Publish", exact: true })
     .click();
   await until(
     async () =>
@@ -861,7 +870,7 @@ try {
   );
   await page.getByLabel("Difficulty rating", { exact: true }).fill("1800");
   await page
-    .getByRole("button", { name: "Publish problem", exact: true })
+    .getByRole("button", { name: "Publish", exact: true })
     .click();
   await until(
     async () =>
