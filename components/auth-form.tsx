@@ -10,12 +10,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Field, FieldContent, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Checkbox } from "@/components/ui/checkbox";
+import { PROFILE_PUBLICATION_POLICY_VERSION, profileHandleSchema } from "@/lib/community/profile-contracts";
 import { TERMS_VERSION } from "@/lib/terms";
 import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { VerificationNotice } from "@/components/verification-notice";
 
-export function AuthForm({ mode, returnTo, verified = false, verificationError = false }: { mode: "sign-in" | "sign-up"; returnTo: string; verified?: boolean; verificationError?: boolean }) {
+export function AuthForm({ mode, returnTo, verified = false, verificationError = false, publicProfileSignup = false }: { mode: "sign-in" | "sign-up"; returnTo: string; verified?: boolean; verificationError?: boolean; publicProfileSignup?: boolean }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setErrorText] = useState("");
@@ -35,16 +36,31 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
     setBusy(true);
     setError("");
     const form = new FormData(event.currentTarget);
+    const username = publicProfileSignup ? profileHandleSchema.safeParse(form.get("username")) : null;
+    if (username && !username.success) {
+      setError("Choose an available username with 3 to 24 letters, numbers or underscores. Start with a letter or number.");
+      document.getElementById("account-username")?.focus();
+      setBusy(false);
+      return;
+    }
     const credentials = { email: String(form.get("email")).trim(), password: String(form.get("password")) };
     const callbackURL = `/sign-in?verified=1&returnTo=${encodeURIComponent(returnTo)}`;
     try {
       const captchaToken = creating ? await getSignupCaptchaToken() : undefined;
       const result = creating
-        ? await authClient.signUp.email({ ...credentials, name: String(form.get("name")).trim(), callbackURL }, { body: { termsAccepted, termsVersion: TERMS_VERSION }, headers: { "x-captcha-response": captchaToken! } })
+        ? await authClient.signUp.email({ ...credentials, name: String(form.get("name")).trim(), callbackURL }, { body: { termsAccepted, termsVersion: TERMS_VERSION, ...(username?.success ? { username: username.data, profileDisclosureVersion: PROFILE_PUBLICATION_POLICY_VERSION } : {}) }, headers: { "x-captcha-response": captchaToken! } })
         : await authClient.signIn.email({ ...credentials, callbackURL });
       if (result.error) {
         if (creating && result.error.code === "TERMS_ACCEPTANCE_REQUIRED") {
           setError("The Terms of Service have changed since this page opened. Reload the page, read them and tick the box again.", "reload");
+          return;
+        }
+        if (creating && publicProfileSignup && result.error.code === "PROFILE_SIGNUP_REQUIRED") {
+          setError("Reload this page to review the current public profile notice and check your username.", "reload");
+          return;
+        }
+        if (creating && publicProfileSignup && result.error.code === "FAILED_TO_CREATE_USER") {
+          setError("We could not create your account. Try a different username, or sign in if you already have an account.", "sign-in");
           return;
         }
         if (!creating && result.error.code === "EMAIL_NOT_VERIFIED") {
@@ -79,7 +95,12 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
               <fieldset disabled={busy}><FieldGroup>
                 {!creating && verified && !verificationError && <Alert role="status"><AlertTitle>Ready to sign in</AlertTitle><AlertDescription>If your email verification succeeded, sign in below to continue.</AlertDescription></Alert>}
                 {!creating && verificationError && <Alert variant="destructive" role="alert"><AlertTitle>Link unavailable</AlertTitle><AlertDescription>This verification link is invalid or has expired. Request a new email below.</AlertDescription></Alert>}
-                {creating && <Field><FieldLabel htmlFor="account-name">Name</FieldLabel><Input id="account-name" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
+                {creating && <Field><FieldLabel htmlFor="account-name">{publicProfileSignup ? "Private account name" : "Name"}</FieldLabel><Input id="account-name" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
+                {creating && publicProfileSignup && <Field>
+                  <FieldLabel htmlFor="account-username">Public username</FieldLabel>
+                  <Input id="account-username" name="username" autoComplete="username" autoCapitalize="none" spellCheck={false} required minLength={3} maxLength={24} aria-describedby="signup-profile-notice" />
+                  <FieldDescription id="signup-profile-notice">Choose a permanent username with 3 to 24 letters, numbers or underscores. When you verify your email, this username becomes your public profile name. You can deactivate your public profile in Settings. <Link href="/privacy">Read the Privacy Notice</Link>.</FieldDescription>
+                </Field>}
                 <Field><FieldLabel htmlFor="account-email">Email</FieldLabel><Input id="account-email" name="email" type="email" autoComplete="email" required maxLength={254} /></Field>
                 <Field><FieldLabel htmlFor="account-password">Password</FieldLabel><Input id="account-password" name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p className="text-sm leading-relaxed text-muted-foreground">Use at least 8 characters. Choose a password you do not use elsewhere.</p>}{!creating && <Link href="/forgot-password" className="inline-flex min-h-11 w-fit items-center text-sm text-foreground underline underline-offset-4">Forgot password?</Link>}</Field>
                 {creating && <Field orientation="horizontal">

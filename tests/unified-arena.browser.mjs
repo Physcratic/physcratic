@@ -27,12 +27,12 @@ try{
  await page.getByLabel('Search',{exact:true}).fill('fixture');await page.waitForFunction(()=>document.querySelectorAll('[data-problem-card]').length===24&& !document.querySelector('[data-problem-card^="arena:"]'));
  await page.getByRole('button',{name:'Next page',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('[data-problem-card]').length===2);assert.equal(await page.locator('h2').evaluate(el=>document.activeElement===el),true);
  await page.getByRole('button',{name:'Previous page',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('[data-problem-card]').length===24);
- assert.ok(await page.getByRole('link',{name:'@'+(await pool.query('SELECT handle FROM community_profile WHERE user_id=$1',[owner])).rows[0].handle,exact:true}).count());
+ assert.ok(await page.getByRole('link',{name:(await pool.query('SELECT handle FROM community_profile WHERE user_id=$1',[owner])).rows[0].handle,exact:true}).count());
  // The fixtures carry the author's rating 1200. A rating filter uses it, so none of them is unrated.
  await page.getByLabel('Difficulty',{exact:true}).selectOption('unrated');await page.getByText('No matching problems found.',{exact:true}).waitFor();
  await page.getByLabel('Difficulty',{exact:true}).selectOption('all');await page.locator('[data-problem-card^="authored:"]').first().waitFor();
  for(const width of [1440,375]){await page.setViewportSize({width,height:1000});await page.waitForTimeout(350);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);const axe=await new AxeBuilder({page}).analyze();assert.deepEqual(axe.violations,[]);await page.screenshot({path:join(temp,`arena-${width}.png`),fullPage:true});}
- await pool.query('UPDATE community_profile SET public_visibility=false WHERE user_id=$1',[owner]);await page.getByRole('button',{name:'Refresh collection'}).click();await page.getByText('By Community author',{exact:true}).first().waitFor();assert.equal(await page.getByRole('link',{name:/^@u_/}).count(),0);
+ await pool.query('UPDATE "user" SET "emailVerified"=false WHERE id=$1',[owner]);await page.getByRole('button',{name:'Refresh collection'}).click();await page.getByText('By Community author',{exact:true}).first().waitFor();assert.equal(await page.getByRole('link',{name:/^@u_/}).count(),0);
  await page.getByLabel('Search',{exact:true}).fill('mind');await page.getByLabel('Difficulty',{exact:true}).selectOption('all');await page.locator('[data-problem-card="arena:arena-mind-the-gap"]').waitFor();assert.ok((await page.getByRole('link',{name:'Mind the Gap',exact:false}).first().getAttribute('href')).startsWith('/dashboard/problems/'));
  assert.deepEqual(errors,[]);console.log(JSON.stringify({result:'passed',views:2,artifacts:temp}));
 }finally{await browser?.close();if(server)await new Promise(r=>server.close(r));await pool.end();await admin.query(`DROP SCHEMA IF EXISTS ${schema} CASCADE`);await admin.end();}

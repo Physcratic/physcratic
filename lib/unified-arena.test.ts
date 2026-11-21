@@ -119,13 +119,13 @@ test('mixed collection paginates complete filtered discovery and respects live a
  assert.equal((await list({difficulty:'1200-1599'})).problems.filter(p=>p.kind==='authored').length,24);assert.equal((await list({difficulty:'advanced'})).problems.filter(p=>p.kind==='authored').length,0);
  // Publication/privacy changes between metadata discovery and author enrichment are rechecked.
  let intercepted=false;
- const racingPool={query:async(config:Parameters<Pool['query']>[0])=>{const result=await pool.query(config);if(!intercepted){intercepted=true;await pool.query('UPDATE community_profile SET public_visibility=false WHERE user_id=$1',[owner]);}return result;}} as unknown as Pool;
+ const racingPool={query:async(config:Parameters<Pool['query']>[0])=>{const result=await pool.query(config);if(!intercepted){intercepted=true;await pool.query('UPDATE "user" SET "emailVerified"=false WHERE id=$1',[owner]);}return result;}} as unknown as Pool;
  const racing=createUnifiedArenaApi(racingPool,()=>({authors:true,badges:true,medals:false}));
  const raced=await (await racing(new Request('https://test/?q=fixture'))).json();assert.ok(raced.problems.every((p:{author:unknown})=>p.author===null));
- await pool.query('UPDATE community_profile SET public_visibility=true WHERE user_id=$1',[owner]);
+ await pool.query('UPDATE "user" SET "emailVerified"=true WHERE id=$1',[owner]);
  const author=search.problems[0].author!;assert.equal(author.selectedIds.length,2);assert.ok(!JSON.stringify(search).includes(owner));
- await pool.query('UPDATE community_profile SET public_visibility=false WHERE user_id=$1',[owner]);assert.ok((await list({q:'fixture'})).problems.every(p=>p.author===null));
- await pool.query('UPDATE community_profile SET public_visibility=true WHERE user_id=$1',[owner]);
+ await pool.query('UPDATE "user" SET "emailVerified"=false WHERE id=$1',[owner]);assert.ok((await list({q:'fixture'})).problems.every(p=>p.author===null));
+ await pool.query('UPDATE "user" SET "emailVerified"=true WHERE id=$1',[owner]);
  for(const p of items.slice(1))await pool.query("UPDATE authored_problem SET state='draft' WHERE id=$1",[p.id]);
  const remaining=await list({q:'fixture'});assert.equal(remaining.problems.length,1);assert.deepEqual(remaining.problems[0].author!.selectedIds,['first-spark']);
  // Missing optional medal migration degrades author metadata, never discovery or private details.

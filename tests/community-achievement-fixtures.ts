@@ -1,3 +1,4 @@
+import { installProfilePublicationFixture } from "./profile-publication-fixtures";
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
 import { readFile } from "node:fs/promises";
@@ -12,6 +13,7 @@ export async function installAchievementFixtures(pool: Pool, { userTableExists =
   if (!userTableExists) await pool.query('CREATE TABLE "user"(id text PRIMARY KEY)');
   for (const name of [...achievementMigrations, "0009_community_achievements"])
     await pool.query(`BEGIN; ${await readFile(`migrations/${name}.up.sql`, "utf8")} COMMIT;`);
+  await installProfilePublicationFixture(pool);
 }
 export const achievementRequest = (who?: string, body?: unknown, method = body === undefined ? "GET" : "POST", path = "/api") => new Request(`https://physcratic.test${path}`, {
   method, headers: { origin: "https://physcratic.test", "content-type": "application/json", ...(who ? { "x-test-user": who } : {}) },
@@ -28,8 +30,8 @@ export function achievementFixtures(pool: Pool) {
   const solutions = createAuthoredSolutionApi({ ...deps, storage: { get: async () => null } });
   const text = (value: string) => ({ id: randomUUID(), kind: "text" as const, spans: [{ kind: "text" as const, text: value }] });
   async function user(id: string = randomUUID(), profile = true) {
-    await pool.query('INSERT INTO "user" VALUES($1)', [id]);
-    if (profile) await pool.query("INSERT INTO community_profile(user_id,handle,public_visibility) VALUES($1,$2,true)", [id, `u_${id.replaceAll("-", "").slice(0, 18)}`]);
+    await pool.query('INSERT INTO "user"(id) VALUES($1)', [id]);
+    if (profile) await pool.query("INSERT INTO community_profile(user_id,handle,publication_basis,publication_policy_version,publication_recorded_at) VALUES($1,$2,'legacy_acknowledgement','b1-v1',clock_timestamp())", [id, `u_${id.replaceAll("-", "").slice(0, 18)}`]);
     return id;
   }
   async function problem(owner: string, modes: ("numeric" | "expression" | "manual")[] = ["numeric"], publish = true, estimatedDifficulty = "1200") {

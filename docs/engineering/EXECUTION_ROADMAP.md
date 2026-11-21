@@ -2,7 +2,7 @@
 
 ## Corrected B1 public profiles (21 November 2026)
 
-Profiles remain OFF following the accepted rollback. Review the [atomic signup groundwork](AGENT_HANDOFF.md#corrected-b1-username-claims-21-november-2026) first. A separate PR will wire one publication policy across public consumers and add registration disclosure, legacy acknowledgement and deactivation.
+PR 2 implements publication, disclosure, legacy acknowledgement and deactivation on top of the merged username claim. [Owner release gates](PHASE_C_B1_RELEASE_CHECKLIST.md#corrected-b1-release-gate) remain pending. Keep profiles OFF.
 
 ## Community statement card and steps strip, C4d (21 November 2026)
 

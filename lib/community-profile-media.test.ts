@@ -1,3 +1,4 @@
+import { installProfilePublicationFixture } from "../tests/profile-publication-fixtures";
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
 import { readFile } from "node:fs/promises";
@@ -94,8 +95,9 @@ test("profile media lifecycle and privacy on disposable PostgreSQL", { skip: !ur
   const up7 = await readFile("migrations/0007_community_profile.up.sql", "utf8");
   const up = await readFile("migrations/0008_community_profile_media.up.sql", "utf8"), down = await readFile("migrations/0008_community_profile_media.down.sql", "utf8");
   await setup.query(`BEGIN; ${up7} ${up} COMMIT;`);
-  await setup.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role}; GRANT SELECT,INSERT,UPDATE ON community_profile,community_profile_media_limit TO ${role}; GRANT SELECT,INSERT,UPDATE,DELETE ON community_profile_media TO ${role}`);
-  await setup.query("INSERT INTO community_profile(user_id,handle,display_name) VALUES('owner','owner_handle','Chosen'),('other','other_handle','Other chosen')");
+  await installProfilePublicationFixture(setup);
+  await setup.query(`GRANT SELECT(id,"emailVerified","profileSignupHandle","profileSignupPolicyVersion") ON "user" TO ${role}; GRANT USAGE ON SCHEMA ${schema} TO ${role}; GRANT SELECT,INSERT,UPDATE ON community_profile,community_profile_media_limit TO ${role}; GRANT SELECT,INSERT,UPDATE,DELETE ON community_profile_media TO ${role}`);
+  await setup.query("INSERT INTO community_profile(user_id,handle,display_name,publication_basis,publication_policy_version,publication_recorded_at) VALUES('owner','owner_handle','Chosen','legacy_acknowledgement','b1-v1',now()),('other','other_handle','Other chosen','legacy_acknowledgement','b1-v1',now())");
   const objects = new Map<string, Uint8Array>();
   let failPut = false, latePut = false, failDel = false, puts = 0;
   let beforePut: (() => Promise<void>) | undefined;
@@ -118,7 +120,7 @@ test("profile media lifecycle and privacy on disposable PostgreSQL", { skip: !ur
   const image = (id: string, user = "guest") => apis[0]("image", request(undefined, user), id);
   const reset = () => setup.query("TRUNCATE community_profile_media_limit");
   t.beforeEach(async () => { await setup.query("TRUNCATE community_profile_media,community_profile_media_limit"); objects.clear(); failPut = latePut = failDel = false; puts = 0; beforePut = undefined;
-    await setup.query("UPDATE community_profile SET public_visibility=false"); });
+    await setup.query('UPDATE "user" SET "emailVerified"=false'); });
 
   await t.test("avatar crop metadata persists only normalized image bytes", async () => {
     const response = await apis[0]("upload", request(png, "owner", { "X-Profile-Picture-Crop": JSON.stringify({ zoom: 2, horizontal: 100, vertical: 0 }) }), "avatar");
@@ -145,9 +147,9 @@ test("profile media lifecycle and privacy on disposable PostgreSQL", { skip: !ur
     const metadata = await sharp(Buffer.from(await ownerImage.arrayBuffer())).metadata();
     assert.equal(metadata.width, 1600); assert.equal(metadata.height, 400); assert.equal(metadata.exif, undefined);
     assert.equal((await image(bannerId)).status, 404); assert.equal((await image(bannerId, "other")).status, 404);
-    await setup.query("UPDATE community_profile SET public_visibility=true WHERE user_id='owner'");
+    await setup.query(`UPDATE "user" SET "emailVerified"=true WHERE id='owner'`);
     assert.equal((await image(bannerId)).status, 200);
-    await setup.query("UPDATE community_profile SET public_visibility=false WHERE user_id='owner'");
+    await setup.query(`UPDATE "user" SET "emailVerified"=false WHERE id='owner'`);
     assert.equal((await image(bannerId)).status, 404);
     const removed = await apis[0]("remove", request(), "banner");
     assert.equal(removed.status, 200); assert.equal((await removed.json()).media.banner, null);
@@ -165,10 +167,10 @@ test("profile media lifecycle and privacy on disposable PostgreSQL", { skip: !ur
     assert.match(ownerImage.headers.get("cache-control")!, /private.*no-store/);
     assert.equal((await sharp(Buffer.from(await ownerImage.arrayBuffer())).metadata()).width, 512);
     assert.equal((await apis[0]("metadata", request(undefined, "guest", {}, "?handle=owner_handle"))).status, 404);
-    await setup.query("UPDATE community_profile SET public_visibility=true WHERE user_id='owner'");
+    await setup.query(`UPDATE "user" SET "emailVerified"=true WHERE id='owner'`);
     assert.equal((await image(id)).status, 200);
     assert.equal((await apis[0]("metadata", request(undefined, "guest", {}, "?handle=owner_handle"))).status, 200);
-    await setup.query("UPDATE community_profile SET public_visibility=false WHERE user_id='owner'");
+    await setup.query(`UPDATE "user" SET "emailVerified"=false WHERE id='owner'`);
     assert.equal((await image(id)).status, 404); assert.equal((await image(id, "owner")).status, 200);
     const removed = await apis[0]("remove", request(), "avatar"); assert.equal(removed.status, 200);
     assert.equal((await removed.json()).media.avatar, null); assert.equal((await image(id, "owner")).status, 404); assert.equal(objects.size, 0);

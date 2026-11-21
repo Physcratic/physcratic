@@ -1,3 +1,4 @@
+import { publicProfileEligible } from "./profile-publication";
 import "server-only";
 import { randomUUID } from "node:crypto";
 import type { Pool, PoolClient } from "pg";
@@ -80,9 +81,16 @@ export function createProfileMediaApi(deps: Dependencies) {
           if ([...params.keys()].length !== 1 || params.getAll("handle").length !== 1) throw new MediaError(404, "Profile not found.");
           const handle = profileHandleSchema.safeParse(params.get("handle"));
           if (!handle.success) throw new MediaError(404, "Profile not found.");
-          const profile = await deps.pool.query("SELECT user_id FROM community_profile WHERE lower(handle)=$1 AND public_visibility=true", [handle.data]);
-          if (!profile.rows[0]) throw new MediaError(404, "Profile not found.");
-          return profileReply({ media: await media(profile.rows[0].user_id) });
+          const { rows } = await deps.pool.query<{ id: string | null; kind: ProfileMediaKind | null }>(
+            `SELECT m.id,m.kind FROM community_profile p LEFT JOIN community_profile_media m
+              ON m.user_id=p.user_id AND m.state='active'
+              WHERE lower(p.handle)=$1 AND ${publicProfileEligible("p")}`, [handle.data]);
+          if (!rows.length) throw new MediaError(404, "Profile not found.");
+          const images: ProfileMediaSet = { avatar: null, banner: null };
+          for (const { id, kind } of rows) {
+            if (id && kind) images[kind] = { id, url: `/api/community/profile-media/image/${id}` };
+          }
+          return profileReply({ media: images });
         }
         if (params.size) throw new MediaError(400, "Invalid image request.");
       }
@@ -92,7 +100,7 @@ export function createProfileMediaApi(deps: Dependencies) {
         if (!id.success) throw new MediaError(404, "Image not found.");
         const { rows } = await deps.pool.query(`SELECT m.pathname FROM community_profile_media m
           JOIN community_profile p ON p.user_id=m.user_id WHERE m.id=$1 AND m.state='active'
-          AND (p.public_visibility=true OR m.user_id=$2)`, [id.data, user?.id ?? null]);
+          AND (${publicProfileEligible("p")} OR m.user_id=$2)`, [id.data, user?.id ?? null]);
         if (!rows[0]) throw new MediaError(404, "Image not found.");
         const body = await deps.storage.get(rows[0].pathname);
         if (!body) throw new MediaError(404, "Image not found.");

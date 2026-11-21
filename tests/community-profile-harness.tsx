@@ -1,3 +1,5 @@
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { AuthForm } from "../components/auth-form";
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { ThemeProvider } from "../components/theme-provider";
@@ -34,8 +36,9 @@ function PublicHarness({ handle }: { handle: string }) {
   if (failed) return <ProfileNotFound />;
   return <main className="mx-auto max-w-3xl p-5">{profile ? <ProfileCard profile={profile} media={images} badgeIds={badgeIds} medals={medals} /> : <p role="status">Loading profile…</p>}</main>;
 }
+const router = { back() {}, forward() {}, refresh() {}, hmrRefresh() {}, push() {}, replace() {}, prefetch() {} };
 const handle = location.pathname.match(/^\/u\/([^/]+)$/)?.[1];
 createRoot(document.getElementById("root")!).render(<React.StrictMode><ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-  {location.pathname==="/admin/verification"?<main className="mx-auto max-w-6xl p-5 [--border:240_5%_46%]"><h1 className="mb-6 text-3xl">Medal verification</h1><VerificationDashboard/></main>:handle ? <PublicHarness handle={handle} /> : location.pathname === "/settings" ? <AccountSettings profilesEnabled={flags.profiles} mediaEnabled={flags.media} achievementsEnabled={flags.achievements} verificationEnabled={flags.verification} onboarding={location.search.includes("onboarding=1")} />
+  {location.pathname === "/sign-up" ? <AppRouterContext.Provider value={router}><AuthForm mode="sign-up" returnTo="/dashboard" publicProfileSignup={flags.profiles} /></AppRouterContext.Provider> : location.pathname==="/admin/verification"?<main className="mx-auto max-w-6xl p-5 [--border:240_5%_46%]"><h1 className="mb-6 text-3xl">Medal verification</h1><VerificationDashboard/></main>:handle ? <PublicHarness handle={handle} /> : location.pathname === "/settings" ? <AccountSettings profilesEnabled={flags.profiles} mediaEnabled={flags.media} achievementsEnabled={flags.achievements} verificationEnabled={flags.verification} onboarding={location.search.includes("onboarding=1")} />
     : <main className="mx-auto max-w-5xl p-5"><h1 className="mb-6 text-2xl">Physcratic Arena</h1>{flags.profiles && <ProfileSetupPrompt />}</main>}
 </ThemeProvider></React.StrictMode>);

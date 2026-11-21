@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState, type FormEvent } from "react";
 import { ArrowLeft, KeyRound, LockKeyhole, Palette, UserRound, Image as ImageIcon, Eye, Check, CircleHelp } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { physicsTopics } from "@/lib/physics-taxonomy";
-import { profilePatchSchema, profileEducationLevels } from "@/lib/community/profile-contracts";
+import { PROFILE_PUBLICATION_POLICY_VERSION, profilePatchSchema, profileEducationLevels, type ProfileMutation } from "@/lib/community/profile-contracts";
 import { educationLabels, ownProfileResponse, profileRequest, ProfileRequestError, dismissProfileSetup, type OwnProfile, type PublicProfile } from "@/lib/community/profile-client";
 import { emptyProfileMedia } from "@/lib/community/profile-media-contracts";
 import { Button } from "@/components/ui/button";
@@ -23,26 +23,26 @@ import {ModerationHistory} from "./moderation-history";
 import { AccountDeletionSection } from "@/components/account/account-deletion";
 import { AccountSecurity } from "@/components/account/account-security";
 
-type Form = PublicProfile & { publicVisibility: boolean };
-const initialForm: Form = { handle: "", displayName: "", bio: "", educationLevel: "prefer-not-to-say", favoriteTopicIds: [], publicVisibility: false };
-// Accounts without a community profile start from their sign-up name. It only becomes the display name once saved here.
-function fromProfile(profile: OwnProfile | null, fallbackName = ""): Form {
-  if (!profile) return { ...initialForm, displayName: [...fallbackName.trim()].slice(0, 80).join("") };
-  const { handle, displayName, bio, educationLevel, favoriteTopicIds, publicVisibility } = profile;
-  return { handle, displayName, bio, educationLevel, favoriteTopicIds, publicVisibility };
+type Form = PublicProfile;
+const initialForm: Form = { handle: "", displayName: "", bio: "", educationLevel: "prefer-not-to-say", favoriteTopicIds: [] };
+function fromProfile(profile: OwnProfile | null): Form {
+  if (!profile) return initialForm;
+  const { handle, displayName, bio, educationLevel, favoriteTopicIds } = profile;
+  return { handle, displayName, bio, educationLevel, favoriteTopicIds };
 }
 
-function ProfileEditor({ userId, fallbackName, verified, mediaEnabled, achievementsEnabled, onboarding }: {
-  userId: string; fallbackName: string; verified: boolean; mediaEnabled: boolean; achievementsEnabled: boolean; onboarding: boolean;
+function ProfileEditor({ userId, verified, mediaEnabled, achievementsEnabled, onboarding }: {
+  userId: string; verified: boolean; mediaEnabled: boolean; achievementsEnabled: boolean; onboarding: boolean;
 }) {
   const [form, setForm] = useState(initialForm), [saved, setSaved] = useState<OwnProfile | null>(null);
   const [loading, setLoading] = useState(true), [loadFailed, setLoadFailed] = useState(false), [reload, setReload] = useState(0);
   const [saving, setSaving] = useState(false), [error, setError] = useState(""), [success, setSuccess] = useState("");
+  const [confirmDeactivate, setConfirmDeactivate] = useState(false);
   const [images, setImages] = useState(emptyProfileMedia);
   const [medals, setMedals] = useState<PublicMedal[]>([]);
   const [badgeIds, setBadgeIds] = useState<BadgeId[]>([]);
   const alive = useRef(true), saveController = useRef<AbortController | null>(null);
-  const dirty = JSON.stringify(form) !== JSON.stringify(fromProfile(saved, fallbackName));
+  const dirty = JSON.stringify(form) !== JSON.stringify(fromProfile(saved));
   useEffect(() => { alive.current = true; return () => { alive.current = false; saveController.current?.abort(); }; }, []);
   useEffect(() => {
     const controller = new AbortController();
@@ -51,11 +51,11 @@ function ProfileEditor({ userId, fallbackName, verified, mediaEnabled, achieveme
       if (controller.signal.aborted) return;
       const profile = ownProfileResponse.parse(data).profile;
       if (profile && profile.userId !== userId) throw new Error("Profile identity mismatch");
-      setSaved(profile); setForm(fromProfile(profile, fallbackName));
+      setSaved(profile); setForm(fromProfile(profile));
     }).catch(() => { if (!controller.signal.aborted) { setLoadFailed(true); setError("Your profile could not be loaded. Appearance settings are still available."); } })
       .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
-  }, [reload, userId, fallbackName]);
+  }, [reload, userId]);
   useEffect(() => {
     if (!dirty || loading) return;
     const guard = (event: BeforeUnloadEvent) => { event.preventDefault(); event.returnValue = ""; };
@@ -63,19 +63,32 @@ function ProfileEditor({ userId, fallbackName, verified, mediaEnabled, achieveme
     return () => window.removeEventListener("beforeunload", guard);
   }, [dirty, loading]);
   async function save(event: FormEvent) {
-    event.preventDefault(); setError(""); setSuccess("");
+    event.preventDefault();
+    setError(""); setSuccess("");
     const parsed = profilePatchSchema.safeParse(form);
     if (!parsed.success) { setError("Check your username, name and biography limits. Choose only the listed topics."); return; }
-    setSaving(true);
+    await mutate(parsed.data);
+  }
+  async function mutate(body: ProfileMutation) {
+    if (saving || !verified) return;
+    setError(""); setSuccess(""); setSaving(true);
     const controller = new AbortController(); saveController.current = controller;
     try {
       const response = await profileRequest("/api/community/profile", { method: "PATCH",
-        headers: { "Content-Type": "application/json", "X-Community-Account": userId }, body: JSON.stringify(parsed.data),
+        headers: { "Content-Type": "application/json", "X-Community-Account": userId }, body: JSON.stringify(body),
         signal: AbortSignal.any([controller.signal, AbortSignal.timeout(20000)]) });
       if (!alive.current) return;
       const profile = ownProfileResponse.parse(response).profile;
       if (!profile || profile.userId !== userId) throw new Error("Profile response unavailable");
-      setSaved(profile); setForm(fromProfile(profile)); setSuccess("Profile saved."); dismissProfileSetup(userId, "completed");
+      setSaved(profile);
+      if ("deactivate" in body) setSuccess("Public profile deactivated.");
+      else if ("acknowledge" in body) setSuccess("Public profile published.");
+      else {
+        setForm(fromProfile(profile));
+        setSuccess("Profile saved.");
+      }
+      setConfirmDeactivate(false);
+      dismissProfileSetup(userId, "completed");
     } catch (e) { if (alive.current) setError(e instanceof ProfileRequestError ? e.message : "Your profile could not be saved. Reload to check your saved details before retrying."); }
     finally { if (alive.current) setSaving(false); }
   }
@@ -90,18 +103,30 @@ function ProfileEditor({ userId, fallbackName, verified, mediaEnabled, achieveme
           {!verified && <p className="rounded-lg border p-3 text-sm">Verify your email before saving a profile. Appearance settings are available now.</p>}
           <fieldset disabled={saving || !verified} className="min-w-0 space-y-5">
             <legend className="sr-only">Profile details</legend>
-            <div className="space-y-2"><label htmlFor="profile-display-name" className="text-sm font-medium">Display name</label><Input id="profile-display-name" autoComplete="off" maxLength={160} value={form.displayName} placeholder="How you would like to appear" onChange={e => setForm(f => ({ ...f, displayName: e.target.value }))} aria-describedby="display-name-help" /><p id="display-name-help" className="text-xs leading-5 text-muted-foreground">The name other people see. Up to 80 characters.</p></div>
-            <div className="space-y-2"><label htmlFor="profile-handle" className="flex items-center gap-2 text-sm font-medium">Permanent username {saved && <LockKeyhole aria-hidden="true" className="size-3.5" />}</label><Input id="profile-handle" required minLength={3} maxLength={24} pattern="[a-z0-9][a-z0-9_]{2,23}" autoCapitalize="none" autoCorrect="off" spellCheck={false} autoComplete="off" value={form.handle} readOnly={Boolean(saved)} placeholder="e.g. orbital_mind" onChange={e => setForm(f => ({ ...f, handle: e.target.value.toLowerCase() }))} aria-describedby="handle-help" className="font-mono text-sm read-only:bg-muted/40" /><p id="handle-help" className="text-xs leading-5 text-muted-foreground">{saved ? "Your username is permanent. You can still edit your display name." : "Use 3 to 24 lowercase letters, numbers or underscores. Choose carefully. You cannot change this after your first save."}</p></div>
+            <div className="space-y-2"><label htmlFor="profile-display-name" className="text-sm font-medium">Display name</label><Input id="profile-display-name" autoComplete="off" maxLength={160} value={form.displayName} placeholder="How you would like to appear" onChange={e => setForm(f => ({ ...f, displayName: e.target.value }))} aria-describedby="display-name-help" /><p id="display-name-help" className="text-xs leading-5 text-muted-foreground">The name other people see. Leave blank to use your username. Up to 80 characters.</p></div>
+            <div className="space-y-2"><label htmlFor="profile-handle" className="flex items-center gap-2 text-sm font-medium">Permanent username {saved && <LockKeyhole aria-hidden="true" className="size-3.5" />}</label><Input id="profile-handle" required minLength={3} maxLength={24} pattern="[a-z0-9][a-z0-9_]{2,23}" autoCapitalize="none" autoCorrect="off" spellCheck={false} autoComplete="off" value={form.handle} readOnly={Boolean(saved)} placeholder="e.g. orbital_mind" onChange={e => setForm(f => ({ ...f, handle: e.target.value.toLowerCase() }))} aria-describedby="handle-help" className="text-sm read-only:bg-muted/40" /><p id="handle-help" className="text-xs leading-5 text-muted-foreground">{saved ? "Your username is permanent. You can still edit your display name." : "Use 3 to 24 lowercase letters, numbers or underscores. Choose carefully. You cannot change this after your first save."}</p></div>
             <div className="space-y-2"><div className="flex items-center justify-between gap-3"><label htmlFor="profile-bio" className="text-sm font-medium">Biography</label><span className={`text-xs ${[...form.bio].length > 500 ? "text-destructive" : "text-muted-foreground"}`}>{[...form.bio].length}/500</span></div><Textarea id="profile-bio" value={form.bio} maxLength={1000} rows={4} className="resize-y" placeholder="A little about your interest in physics" onChange={e => setForm(f => ({ ...f, bio: e.target.value }))} aria-describedby="bio-help" /><p id="bio-help" className="text-xs text-muted-foreground">Optional. Up to 500 characters.</p></div>
             <div className="space-y-2"><label htmlFor="profile-education" className="text-sm font-medium">Education level</label><select id="profile-education" value={form.educationLevel} onChange={e => setForm(f => ({ ...f, educationLevel: e.target.value as Form["educationLevel"] }))} className="h-11 w-full rounded-md border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{profileEducationLevels.map(value => <option key={value} value={value}>{educationLabels[value]}</option>)}</select></div>
             <fieldset className="space-y-3"><legend className="text-sm font-medium">Favourite physics topics</legend><div className="grid gap-2 sm:grid-cols-2">{physicsTopics.map(topic => <label key={topic.id} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border px-3 py-2 text-sm"><input type="checkbox" className="size-4 shrink-0 accent-[hsl(var(--foreground))]" checked={form.favoriteTopicIds.includes(topic.id)} onChange={e => setForm(f => ({ ...f, favoriteTopicIds: e.target.checked ? [...f.favoriteTopicIds, topic.id] : f.favoriteTopicIds.filter(id => id !== topic.id) }))} />{topic.label}</label>)}</div></fieldset>
-            <div className="rounded-xl border bg-muted/20 p-4"><label className="flex min-h-11 cursor-pointer items-start gap-3"><input type="checkbox" checked={form.publicVisibility} onChange={e => setForm(f => ({ ...f, publicVisibility: e.target.checked }))} aria-describedby="visibility-help" className="mt-0.5 size-5 shrink-0 accent-[hsl(var(--foreground))]" /><span className="text-sm font-medium">Make my profile public</span></label><p id="visibility-help" className="ml-8 mt-2 text-xs leading-5 text-muted-foreground">Anyone with your link can see your saved profile and images. Your public display name can also appear beside problems you publish. Profiles start private. Unchecking this hides them after you save. Open problem pages can keep a previously public name for up to 15 seconds. Copies already seen or saved cannot be recalled.</p></div>
           </fieldset>
           {error && <p role="alert" className="rounded-lg border border-destructive/50 p-3 text-sm text-destructive">{error}</p>}
           {success && <p role="status" className="flex items-center gap-2 text-sm"><Check aria-hidden="true" className="size-4" />{success}</p>}
-          <div className="flex flex-wrap items-center gap-3 border-t pt-5"><Button type="submit" disabled={saving || !verified}>{saving ? "Saving…" : saved ? "Save changes" : "Create profile"}</Button>{dirty && <Button type="button" variant="ghost" disabled={saving} onClick={() => { setForm(fromProfile(saved, fallbackName)); setError(""); setSuccess(""); }}>Discard changes</Button>}{saved?.publicVisibility && <Link className="inline-flex items-center gap-2 rounded px-1 py-2 text-sm underline underline-offset-4" href={`/u/${saved.handle}`}><Eye aria-hidden="true" className="size-4" />View saved public profile</Link>}</div>
+          <div className="flex flex-wrap items-center gap-3 border-t pt-5"><Button type="submit" disabled={saving || !verified}>{saving ? "Saving…" : saved ? "Save changes" : "Create profile"}</Button>{dirty && <Button type="button" variant="ghost" disabled={saving} onClick={() => { setForm(fromProfile(saved)); setError(""); setSuccess(""); }}>Discard changes</Button>}{saved?.publicVisibility && <Link className="inline-flex items-center gap-2 rounded px-1 py-2 text-sm underline underline-offset-4" href={`/u/${saved.handle}`}><Eye aria-hidden="true" className="size-4" />View saved public profile</Link>}</div>
+          {saved?.publicationState === "private" && <div className="space-y-3 border-t pt-5">
+            <p className="text-sm">Your profile stays private until you publish. Anyone can then see your username, display name, biography, education level and favourite topics. Your public name can appear beside your published problems.</p>
+            <Button type="button" variant="outline" disabled={saving || !verified || dirty} onClick={() => mutate({ acknowledge: PROFILE_PUBLICATION_POLICY_VERSION })}>Acknowledge and publish</Button>
+            {dirty && <p className="text-sm text-muted-foreground">Save or discard your edits before publishing.</p>}
+          </div>}
+          {saved?.publicationState === "public" && <div className="space-y-3 border-t pt-5">
+            <p className="text-sm">Deactivate to hide your profile and public author name. Your username and saved details will stay in Settings. You cannot reactivate your public profile here.</p>
+            {confirmDeactivate ? <div className="flex flex-wrap gap-2">
+              <Button type="button" variant="destructive" disabled={saving || !verified} onClick={() => mutate({ deactivate: true })}>Confirm deactivation</Button>
+              <Button type="button" variant="outline" disabled={saving} onClick={() => setConfirmDeactivate(false)}>Cancel</Button>
+            </div> : <Button type="button" variant="outline" disabled={saving || !verified} onClick={() => setConfirmDeactivate(true)}>Deactivate public profile</Button>}
+          </div>}
+          {saved?.publicationState === "deactivated" && <p className="border-t pt-5 text-sm">Your public profile is deactivated. You can still edit your saved details.</p>}
         </form>
-        <section className="min-w-0 space-y-3 xl:sticky xl:top-6" aria-labelledby="preview-heading"><div className="flex items-center justify-between"><h2 id="preview-heading" className="text-sm font-medium">Live preview</h2><span className="rounded-full border px-2 py-1 text-xs text-muted-foreground">{form.publicVisibility ? "Public after saving" : "Private"}</span></div><ProfileCard profile={form} media={images} badgeIds={badgeIds} medals={medals} compact headingLevel={3} /><p className="px-1 text-xs leading-5 text-muted-foreground">Details are a preview until you save. Uploaded images save separately.</p></section>
+        <section className="min-w-0 space-y-3 xl:sticky xl:top-6" aria-labelledby="preview-heading"><div className="flex items-center justify-between"><h2 id="preview-heading" className="text-sm font-medium">Live preview</h2><span className="rounded-full border px-2 py-1 text-xs text-muted-foreground">{saved?.publicVisibility ? "Public" : "Private"}</span></div><ProfileCard profile={{ ...form, displayName: form.displayName.trim() || form.handle }} media={images} badgeIds={badgeIds} medals={medals} compact headingLevel={3} /><p className="px-1 text-xs leading-5 text-muted-foreground">Details are a preview until you save. Uploaded images save separately.</p></section>
       </div>
     </section>
     {achievementsEnabled && <AchievementSettings profileSaved={Boolean(saved)} verified={verified} onPreviewChange={setBadgeIds} onMedalsChange={setMedals} />}
@@ -127,7 +152,7 @@ export function AccountSettings({ deletionEnabled=false, emailReady = true, mode
             : isPending ? <section id="profile-settings" className="rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="status" className="mt-3 text-sm">Loading your account…</p></section>
             : error ? <section id="profile-settings" className="space-y-3 rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="alert" className="text-sm">Your account could not be loaded.</p><Button variant="outline" onClick={() => refetch()}>Retry account</Button></section>
             : !user ? <section id="profile-settings" className="space-y-3 rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p className="text-sm text-muted-foreground">Sign in to create or edit your profile.</p><Button asChild><Link href="/sign-in?returnTo=%2Fsettings">Sign in</Link></Button></section>
-            : <ProfileEditor key={user.id} userId={user.id} fallbackName={user.name ?? ""} verified={user.emailVerified === true} mediaEnabled={mediaEnabled} achievementsEnabled={achievementsEnabled} onboarding={onboarding} />}
+            : <ProfileEditor key={user.id} userId={user.id} verified={user.emailVerified === true} mediaEnabled={mediaEnabled} achievementsEnabled={achievementsEnabled} onboarding={onboarding} />}
           {user && <AccountSecurity key={user.id} email={user.email} emailReady={emailReady} />}
           {verificationEnabled && user && <VerificationSettings key={user.id} verified={user.emailVerified === true} />}
           {moderationEnabled && <ModerationHistory/>}

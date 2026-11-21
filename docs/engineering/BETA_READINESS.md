@@ -1,3 +1,7 @@
+## Corrected B1 publication candidate (21 November 2026)
+
+Review registration, verified publication, legacy acknowledgement and irreversible self-service deactivation together. Production remains profiles OFF. Local test evidence accompanies the candidate review.
+
 ## Corrected B1 signup groundwork (21 November 2026)
 
 Disposable PostgreSQL 18.6 and 18.7 restricted LOGIN tests passed for compatibility before and after migration 0022, username collisions and retries, credential-link rollback, private auth fields and the publication transition guard. Ordinary signup stays in use. Review this code and migration first. Public eligibility, the affected public consumers, the signup and Settings changes, and the Privacy Notice are the next PR.

@@ -243,7 +243,7 @@ export function StudentWorkspace({
     <ProblemRoom>
         <div className="flex flex-wrap items-end justify-between gap-4 border-b pb-6">
           <ProblemHeading title={availability === "ready" ? revision?.content.title ?? "Physics problem" : "Physics problem"} source="Community-authored problem" estimate={availability === "ready" ? revision?.content.estimatedDifficulty : null} tags={availability === "ready" ? [...(revision?.content.topicTags ?? []), ...(revision?.content.methodTags ?? [])] : []}>
-            {availability === "ready" && revision && (attributionEnabled ? <PublicAuthorName key={`${problemId}:${revision.id}`} problemId={problemId} revisionId={revision.id} /> : null)}
+            {availability === "ready" && revision && (attributionEnabled ? <PublicAuthorName key={`${problemId}:${revision.id}`} problemId={problemId} revisionId={revision.id} /> : <p className="min-h-6 text-sm text-muted-foreground">Published by Community author</p>)}
           </ProblemHeading>
           {availability !== "ready" && <Button
             type="button"
