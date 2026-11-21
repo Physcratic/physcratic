@@ -4,6 +4,7 @@ import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { answerItems, padTabs, paletteItems, plainInsertion, type PadTab, type PaletteItem } from "./answer-palette";
 import { keyboardInset, scrollToClearPad } from "./keyboard-dock";
 import { isTouchDevice } from "./mathfield-touch";
+import { InlineMath } from "./inline-math";
 
 /** "answer" hides every button the checker cannot read. "full" (Studio text and solution fields) shows them all. */
 export type PadMode = "answer" | "full";
@@ -117,7 +118,7 @@ export function MathPad({
             onClick={() => onInsert(entry)}
             className={entry.group === "problem" ? problemButton : plainButton}
           >
-            <span aria-hidden="true">{entry.label}</span>
+            <span aria-hidden="true">{entry.latex ? <InlineMath latex={entry.latex} fallback={entry.label} /> : entry.label}</span>
           </button>
         ))}
         {capitals.length > 0 && (

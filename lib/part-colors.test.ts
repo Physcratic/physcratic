@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { assignPartColors, colorsByPartId, contrastRatio, partColor, partPalette } from "./part-colors";
+import { assignPartColors, colorsByPartId, contrastRatio, partColor, partPalette, bareLabel } from "./part-colors";
 
 // Theme surfaces from app/globals.css: card and page background, light then dark, as hex.
 const surfaces = {
@@ -60,4 +60,15 @@ test("the same part gets the same colour every time", () => {
   const sections = [{ parts: [{ id: "x", label: "A.1" }, { id: "y", label: "A.2" }, { id: "z", label: "B.1" }] }];
   assert.deepEqual([...colorsByPartId(sections).values()], [...colorsByPartId(sections).values()]);
   assert.deepEqual([...colorsByPartId(sections).values()], [0, 0, 1]);
+});
+
+test("one pair of brackets around a whole label is dropped and nothing else changes", () => {
+  assert.equal(bareLabel("(a)"), "a");
+  assert.equal(bareLabel(" [b] "), "b");
+  assert.equal(bareLabel("( c )"), "c");
+  assert.equal(bareLabel("a"), "a");
+  assert.equal(bareLabel("A.1"), "A.1");
+  assert.equal(bareLabel("(i) and (ii)"), "(i) and (ii)");
+  assert.equal(bareLabel("()"), "()");
+  assert.equal(bareLabel(""), "");
 });

@@ -4,7 +4,7 @@ import katex from "katex";
 import { MathFormula } from "./math-formula";
 import { ProblemImage } from "./problem-image";
 import { cn } from "@/lib/utils";
-import { assignPartColors } from "@/lib/part-colors";
+import { assignPartColors, bareLabel } from "@/lib/part-colors";
 import { PartChip, partBorder, partStyle } from "./solve-ui";
 
 export function MathText({ text }: { text: string }) {
@@ -108,7 +108,7 @@ export function ArenaDocument({ content, staticFigures = false }: { content: str
             >
               {part && colour !== undefined ? (
                 <>
-                  <PartChip index={colour}>{part[1]}</PartChip>
+                  <PartChip index={colour}><span aria-hidden="true">{bareLabel(part[1])}</span><span className="sr-only">Part {bareLabel(part[1])}</span></PartChip>
                   {part[2] && <MathText text={part[2]} />}
                 </>
               ) : (

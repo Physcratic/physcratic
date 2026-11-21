@@ -76,9 +76,9 @@ try{
   await page.getByRole('heading',{name:'Not yet solved 1',exact:true}).waitFor();
   dropNext=true;await grade(page,'4.9');await waitText(page,'The save is unconfirmed.');assert.equal(await count(id),2);
   const original=bodies.at(-1);await page.locator('input[inputmode="decimal"]').fill('2');
-  await page.reload();await session(page,id);await page.getByRole('button',{name:'Retry pending save',exact:true}).waitFor();
-  assert.equal(await page.locator('input[inputmode="decimal"]').inputValue(),'2');const before=posts;await page.waitForTimeout(100);assert.equal(posts,before,'reload never automatically posts');
-  await page.getByRole('button',{name:'Retry pending save',exact:true}).click();await waitText(page,'The original pending check is saved. Your current answers have not been checked.');
+  await page.reload();await session(page,id);await page.getByText('Your answer is saved on this device and will sync when you are back online.',{exact:true}).waitFor();assert.equal(await page.getByRole('button',{name:'Retry pending save',exact:true}).count(),0,'the manual retry button is gone');
+  assert.equal(await page.locator('input[inputmode="decimal"]').inputValue(),'2');const before=posts;await page.waitForTimeout(100);assert.equal(posts,before,'reload does not post straight away, the first automatic retry waits');
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();await waitText(page,'The original pending check is saved. Your current answers have not been checked.');
   assert.equal(await page.getByText(/Correct within this part/).count(),0,'old receipt must not grade the edited visible input');
   assert.deepEqual(bodies.at(-1),original);assert.equal(await count(id),2);
   await page.locator('[data-testid="dashboard"]').filter({hasText:'1 solved, 2 saved'}).waitFor();await page.getByRole('heading',{name:'Solved correctly 1',exact:true}).waitFor();
@@ -91,7 +91,7 @@ try{
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   await context.close();
  }
- // Actual installed-schema OFF gate must not write, report saved or retry POSTs in the background.
+ // Actual installed-schema OFF gate must not write or report saved. Its pending save is retried only on a capped backoff.
  // Actual combined ProblemReader + B4 rail must clear draft fields without remounting or losing a pending save.
  const real=await browser.newContext({viewport:{width:1440,height:950}}),realPage=await real.newPage();await realPage.goto(origin+'?reader=1');await session(realPage,'RealReader');
  await realPage.locator('[data-answer-workspace]').waitFor();dropNext=true;await grade(realPage,'4.9');await waitText(realPage,'The save is unconfirmed.');
@@ -100,14 +100,20 @@ try{
  await realPage.getByRole('button',{name:'Start over',exact:true}).click();
  assert.equal(await realPage.locator('input[inputmode="decimal"]').inputValue(),'');
  assert.equal(await realPage.locator('input[inputmode="decimal"]').evaluate(el=>el===window.__combinedResetField),true,'resetToken must preserve the live field node');
- await realPage.getByRole('button',{name:'Retry pending save',exact:true}).click();await waitText(realPage,'The original pending check is saved. Your current answers have not been checked.');
+ await waitText(realPage,'The original pending check is saved. Your current answers have not been checked.');
  assert.deepEqual(bodies.at(-1),realOriginal);assert.equal(await count('RealReader'),1);await real.close();
- const off=await browser.newContext(),offPage=await off.newPage();enabled=false;await offPage.goto(origin);await session(offPage,'Disabled');
+ const off=await browser.newContext(),offPage=await off.newPage();enabled=false;await offPage.clock.install();await offPage.goto(origin);await session(offPage,'Disabled');
  await waitText(offPage,'No completion count is available.');await grade(offPage,'4.9');await waitText(offPage,'Saved practice checks are disabled.');
  assert.equal(await offPage.getByText('Saved to your account. Your dashboard will update.',{exact:true}).count(),0);assert.equal(await count('Disabled'),0);
  const disabledPosts=posts;await offPage.getByRole('button',{name:'Check without saving',exact:true}).click();await waitText(offPage,'Checked without saving.');
- await offPage.clock.install();const readsBefore=progressReads;await offPage.clock.fastForward(45000);await offPage.waitForTimeout(50);
- assert.equal(posts,disabledPosts,'no automatic save retry');assert.ok(progressReads-readsBefore<=2,'read retries remain bounded');assert.equal(await count('Disabled'),0);
+ const readsBefore=progressReads;await offPage.clock.fastForward(45000);await offPage.waitForTimeout(50);
+ assert.ok(progressReads-readsBefore<=2,'read retries remain bounded');
+ // The pending save is sent again on a capped backoff while saving is off. It never writes, and it stops at the cap.
+ const step=async()=>{await offPage.clock.fastForward(60000);await offPage.waitForTimeout(150);};
+ for(let n=0;n<12;n++)await step();
+ const retried=posts-disabledPosts;assert.ok(retried>=1&&retried<=6,'automatic save retries are capped');
+ for(let n=0;n<4;n++)await step();
+ assert.equal(posts-disabledPosts,retried,'and they stop once the cap is reached');assert.equal(await count('Disabled'),0);
  await off.close();enabled=true;
  // Initial auth resolution must preserve actively typed text and focus.
  const boot=await browser.newContext(),bootPage=await boot.newPage();await bootPage.goto(origin+'?pending=1');
@@ -126,7 +132,7 @@ try{
  const context=await browser.newContext(),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await page.goto(origin);unavailable=true;await session(page,'Failure');
  await grade(page,'4.9');await waitText(page,'The save is unconfirmed.');await waitText(page,'No completion count is available.');
  await page.getByRole('button',{name:'Check without saving',exact:true}).click();await waitText(page,'Checked without saving.');assert.equal(await count('Failure'),0);
- unavailable=false;await page.getByRole('button',{name:'Retry pending save',exact:true}).click();await waitText(page,'Saved to your account. Your dashboard will update.');assert.equal(await count('Failure'),1);
+ unavailable=false;await page.getByRole('button',{name:'Check answer',exact:true}).click();await waitText(page,'Saved to your account. Your dashboard will update.');assert.equal(await count('Failure'),1);
  await page.getByRole('button',{name:'Start over fixture',exact:true}).click();assert.equal(await page.locator('input[inputmode="decimal"]').inputValue(),'');
  await session(page,'Unverified',false);const beforeGuest=guestPosts;await grade(page,'4.9');await waitText(page,'Checked without saving.');assert.ok(guestPosts>beforeGuest);assert.equal(await count('Unverified'),0);
  await session(page,'Invalid');await grade(page,'banana');await waitText(page,'Saved to your account.');await page.getByRole('heading',{name:'Not graded 1',exact:true}).waitFor();
@@ -137,7 +143,7 @@ try{
  for(let n=0;!releaseHeld&&n<100;n++)await new Promise(r=>setTimeout(r,20));assert.equal(typeof releaseHeld,'function');
  await session(page,'SlowB');assert.equal(await page.locator('input[inputmode="decimal"]').inputValue(),'');releaseHeld();releaseHeld=undefined;
  await page.waitForTimeout(100);assert.equal(await page.getByText('Saved to your account. Your dashboard will update.',{exact:true}).count(),0);assert.equal(await count('SlowB'),0);
- await session(page,'Slow');await page.getByRole('button',{name:'Retry pending save',exact:true}).click();await waitText(page,'Saved to your account.');assert.equal(await count('Slow'),1);
+ await session(page,'Slow');await waitText(page,'Saved to your account.');assert.equal(await count('Slow'),1);
  await session(page,'Version');await page.locator('input[inputmode="decimal"]').fill('123');
  await page.route('**/api/practice-checks',route=>route.fulfill({status:409,json:{error:'The grading version changed. Reload the problem.',saveState:'rejected'}}));
  await page.getByRole('button',{name:'Check answer',exact:true}).click();await waitText(page,'The grading version changed.');
@@ -145,9 +151,9 @@ try{
  const changed={...catalog.find(e=>e.metadata.problemId==='incline').metadata,version:'b'.repeat(64)};
  await page.route('**/corpus/grading/incline.json',route=>route.fulfill({json:changed}));
  await page.getByRole('button',{name:'Refresh answer fields',exact:true}).click();await page.waitForFunction(()=>document.querySelector('input[inputmode="decimal"]')?.value==='');
- assert.equal(await page.getByRole('button',{name:'Retry pending save',exact:true}).count(),0,'old-version intent cannot attach to the new fields');
+ assert.equal(await page.getByText('saved on this device and will sync',{exact:false}).count(),0,'old-version intent cannot attach to the new fields');
  await page.unroute('**/api/practice-checks');await page.unroute('**/corpus/grading/incline.json');await page.reload();await session(page,'Version');
- await page.getByRole('button',{name:'Retry pending save',exact:true}).waitFor();assert.equal(await page.locator('input[inputmode="decimal"]').inputValue(),'123');assert.equal(await count('Version'),0);
+ await page.getByText('saved on this device and will sync',{exact:false}).waitFor();assert.equal(await page.locator('input[inputmode="decimal"]').inputValue(),'123');assert.equal(await count('Version'),0);
  await session(page,'Arena');await page.getByLabel('Problem',{exact:true}).selectOption('arena-mind-the-gap');
  await page.locator('input[inputmode="decimal"]').fill('0');await page.getByRole('button',{name:'Check answer',exact:true}).click();await waitText(page,'Saved to your account.');
  const arenaLink=page.getByRole('link',{name:/Mind the Gap.*Arena/});await arenaLink.waitFor();assert.equal(await arenaLink.getAttribute('href'),'/dashboard/problems/arena-mind-the-gap');
