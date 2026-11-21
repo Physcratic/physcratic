@@ -40,7 +40,7 @@ export function EmailSection({ email, hasPassword, emailReady }: { email: string
     finally { setBusy(false); }
   }
   return <section id="email-settings" aria-labelledby="email-heading" className={sectionClass}>
-    <header className="space-y-1"><h2 id="email-heading" className="text-lg font-semibold">Email</h2><p className="text-sm leading-6 text-muted-foreground">You sign in with <span className="break-all font-medium text-foreground">{email}</span>. Your current inbox approves a change first, then the new one confirms it.</p></header>
+    <header className="space-y-1"><h2 id="email-heading" className="text-lg font-semibold">Email</h2><p className="text-sm leading-6 text-muted-foreground">You are signed in with <span className="break-all font-medium text-foreground">{email}</span>.</p></header>
     {!emailReady ? <EmailNotReady /> : hasPassword === false && <p className="rounded-lg border p-3 text-sm">Set a password first. Then you can change your email.</p>}
     <form onSubmit={submit} className="space-y-5">
       <fieldset disabled={busy || hasPassword !== true || !emailReady} className="grid min-w-0 gap-4 sm:grid-cols-2">

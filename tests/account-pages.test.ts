@@ -60,6 +60,8 @@ test("with a sender, the screens work as normal and do not show the warning", ()
   assert.ok(!says(forgot));
   assert.match(forgot, /Send reset link/);
   const email = render(createElement(EmailSection, { email: "a@example.invalid", hasPassword: true, emailReady: true }));
+  const line = /<p class="[^"]*text-muted-foreground">([\s\S]*?)<\/p>/.exec(email);
+  assert.equal(line?.[1].replace(/<[^>]+>/g, ""), "You are signed in with a@example.invalid.", "the email line is exactly this, with no sentence about inboxes");
   assert.ok(!says(email));
   assert.doesNotMatch(email, /<button[^>]*disabled=""[^>]*>Send approval link/);
   const setPassword = render(createElement(PasswordSection, { email: "a@example.invalid", hasPassword: false, emailReady: true }));

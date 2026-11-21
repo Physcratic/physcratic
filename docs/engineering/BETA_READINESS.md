@@ -1,3 +1,7 @@
+## Copy polish, U3a (21 November 2026)
+
+Sign-up with public profiles asks for a Username and no private account name. The account name sent to sign-up is the username, trimmed (`signUpName` in `components/auth-form.tsx`). Nothing reads a separate private name: the profile display name has its own field and falls back to the handle. The Name field is unchanged when public profiles are off. The username hint reads "Choose a permanent username with 3 to 24 letters, numbers or underscores." and the password hint reads "Use at least 8 characters.", both in `text-xs`. The Terms row links the Terms of Service and the Privacy Notice, both opening in a new tab with "(opens in a new tab)" for screen readers only. The two "Type it like you say it" tour steps show `\theta` as one key chip and θ as a chip. The account Email paragraph reads "You are signed in with" followed by the address, with no second sentence. The password hint change applies to every sign-up, because it is one shared hint. Tests: `tests/auth-form.test.ts`, `tests/tour-layer.test.ts`, `tests/account-pages.test.ts`. Draft PR only. No schema, auth, grading, flag, Vercel, Neon or environment change.
+
 ## Corrected B1 publication candidate (21 November 2026)
 
 Review registration, verified publication, legacy acknowledgement and irreversible self-service deactivation together. Production remains profiles OFF. Local test evidence accompanies the candidate review.

@@ -16,6 +16,11 @@ import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { VerificationNotice } from "@/components/verification-notice";
 
+/** The account name sent at sign-up. With public profiles it is the username, trimmed. Otherwise it is the Name field. */
+export function signUpName(form: FormData, publicProfileSignup: boolean): string {
+  return String(form.get(publicProfileSignup ? "username" : "name") ?? "").trim();
+}
+
 export function AuthForm({ mode, returnTo, verified = false, verificationError = false, publicProfileSignup = false }: { mode: "sign-in" | "sign-up"; returnTo: string; verified?: boolean; verificationError?: boolean; publicProfileSignup?: boolean }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
@@ -48,7 +53,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
     try {
       const captchaToken = creating ? await getSignupCaptchaToken() : undefined;
       const result = creating
-        ? await authClient.signUp.email({ ...credentials, name: String(form.get("name")).trim(), callbackURL }, { body: { termsAccepted, termsVersion: TERMS_VERSION, ...(username?.success ? { username: username.data, profileDisclosureVersion: PROFILE_PUBLICATION_POLICY_VERSION } : {}) }, headers: { "x-captcha-response": captchaToken! } })
+        ? await authClient.signUp.email({ ...credentials, name: signUpName(form, publicProfileSignup), callbackURL }, { body: { termsAccepted, termsVersion: TERMS_VERSION, ...(username?.success ? { username: username.data, profileDisclosureVersion: PROFILE_PUBLICATION_POLICY_VERSION } : {}) }, headers: { "x-captcha-response": captchaToken! } })
         : await authClient.signIn.email({ ...credentials, callbackURL });
       if (result.error) {
         if (creating && result.error.code === "TERMS_ACCEPTANCE_REQUIRED") {
@@ -95,19 +100,19 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
               <fieldset disabled={busy}><FieldGroup>
                 {!creating && verified && !verificationError && <Alert role="status"><AlertTitle>Ready to sign in</AlertTitle><AlertDescription>If your email verification succeeded, sign in below to continue.</AlertDescription></Alert>}
                 {!creating && verificationError && <Alert variant="destructive" role="alert"><AlertTitle>Link unavailable</AlertTitle><AlertDescription>This verification link is invalid or has expired. Request a new email below.</AlertDescription></Alert>}
-                {creating && <Field><FieldLabel htmlFor="account-name">{publicProfileSignup ? "Private account name" : "Name"}</FieldLabel><Input id="account-name" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
+                {creating && !publicProfileSignup && <Field><FieldLabel htmlFor="account-name">Name</FieldLabel><Input id="account-name" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
                 {creating && publicProfileSignup && <Field>
-                  <FieldLabel htmlFor="account-username">Public username</FieldLabel>
+                  <FieldLabel htmlFor="account-username">Username</FieldLabel>
                   <Input id="account-username" name="username" autoComplete="username" autoCapitalize="none" spellCheck={false} required minLength={3} maxLength={24} aria-describedby="signup-profile-notice" />
-                  <FieldDescription id="signup-profile-notice">Choose a permanent username with 3 to 24 letters, numbers or underscores. When you verify your email, this username becomes your public profile name. You can deactivate your public profile in Settings. <Link href="/privacy">Read the Privacy Notice</Link>.</FieldDescription>
+                  <FieldDescription id="signup-profile-notice" className="text-xs">Choose a permanent username with 3 to 24 letters, numbers or underscores.</FieldDescription>
                 </Field>}
                 <Field><FieldLabel htmlFor="account-email">Email</FieldLabel><Input id="account-email" name="email" type="email" autoComplete="email" required maxLength={254} /></Field>
-                <Field><FieldLabel htmlFor="account-password">Password</FieldLabel><Input id="account-password" name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p className="text-sm leading-relaxed text-muted-foreground">Use at least 8 characters. Choose a password you do not use elsewhere.</p>}{!creating && <Link href="/forgot-password" className="inline-flex min-h-11 w-fit items-center text-sm text-foreground underline underline-offset-4">Forgot password?</Link>}</Field>
+                <Field><FieldLabel htmlFor="account-password">Password</FieldLabel><Input id="account-password" name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p className="text-xs leading-relaxed text-muted-foreground">Use at least 8 characters.</p>}{!creating && <Link href="/forgot-password" className="inline-flex min-h-11 w-fit items-center text-sm text-foreground underline underline-offset-4">Forgot password?</Link>}</Field>
                 {creating && <Field orientation="horizontal">
                   <Checkbox id="account-terms" name="termsAccepted" required checked={termsAccepted} onCheckedChange={(checked) => setTermsAccepted(checked === true)} aria-describedby="account-terms-description" />
                   <FieldContent>
                     <FieldLabel htmlFor="account-terms" className="min-h-11 items-center">I agree to the Terms of Service.</FieldLabel>
-                    <FieldDescription id="account-terms-description"><Link href="/terms" target="_blank" rel="noopener noreferrer">Read the Terms of Service (opens in a new tab)</Link>. We record the version and acceptance time with your account.</FieldDescription>
+                    <FieldDescription id="account-terms-description"><Link href="/terms" target="_blank" rel="noopener noreferrer">Read the Terms of Service<span className="sr-only"> (opens in a new tab)</span></Link> and <Link href="/privacy" target="_blank" rel="noopener noreferrer">the Privacy Notice<span className="sr-only"> (opens in a new tab)</span></Link>. We record the version and acceptance time with your account.</FieldDescription>
                   </FieldContent>
                 </Field>}
                 {error && <Alert variant="destructive" role="alert"><AlertTitle>Could not continue</AlertTitle><AlertDescription>{error}

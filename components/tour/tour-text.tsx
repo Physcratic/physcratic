@@ -6,7 +6,7 @@ export function TourText({ text }: { text: string }) {
     <>
       {text.split(/\[\[(.+?)\]\]/).map((part, index) =>
         index % 2 === 1 ? (
-          <kbd key={index} className="mx-0.5 inline-flex min-h-6 min-w-6 items-center justify-center rounded-md border border-primary/70 bg-primary/25 px-1.5 font-mono text-sm font-semibold text-foreground">
+          <kbd key={index} className="mx-0.5 inline-flex min-h-6 min-w-6 items-center justify-center whitespace-nowrap rounded-md border border-primary/70 bg-primary/25 px-1.5 font-mono text-sm font-semibold text-foreground">
             {part}
           </kbd>
         ) : (
