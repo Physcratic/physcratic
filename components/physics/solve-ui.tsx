@@ -41,12 +41,14 @@ export function PartChip({ index, children, className }: { index: number; childr
 const stepNames = ["Read", "Answer", "Check", "Solution"] as const;
 
 /** The four steps of every problem, in order. Optional links go to the section for each step. */
-export function SolveSteps({ hrefs, className, onNavigate }: { hrefs?: Partial<Record<1 | 2 | 3 | 4, string>>; className?: string; onNavigate?: (step: 1 | 2 | 3 | 4) => void }) {
+export function SolveSteps({ hrefs, className, onNavigate, show }: { hrefs?: Partial<Record<1 | 2 | 3 | 4, string>>; className?: string; onNavigate?: (step: 1 | 2 | 3 | 4) => void; show?: readonly (1 | 2 | 3 | 4)[] }) {
+  // `show` lists the steps a page really has. They are numbered in order, and hrefs and onNavigate still use the canonical step (1 Read, 2 Answer, 3 Check, 4 Solution).
+  const shown = show ? stepNames.map((name, index) => ({ name, step: (index + 1) as 1 | 2 | 3 | 4 })).filter(({ step }) => show.includes(step)) : stepNames.map((name, index) => ({ name, step: (index + 1) as 1 | 2 | 3 | 4 }));
   return (
-    <ol aria-label="Steps" className={cn("grid grid-cols-2 gap-2 sm:grid-cols-4", className)}>
-      {stepNames.map((name, index) => {
-        const number = (index + 1) as 1 | 2 | 3 | 4;
-        const href = hrefs?.[number];
+    <ol aria-label="Steps" className={cn("grid grid-cols-2 gap-2", shown.length > 2 ? "sm:grid-cols-4" : "sm:grid-cols-2", className)}>
+      {shown.map(({ name, step }, index) => {
+        const number = index + 1;
+        const href = hrefs?.[step];
         const body = (
           <>
             <span aria-hidden="true" className="flex size-7 shrink-0 items-center justify-center rounded-full border border-foreground text-sm font-semibold">{number}</span>
@@ -56,7 +58,7 @@ export function SolveSteps({ hrefs, className, onNavigate }: { hrefs?: Partial<R
         const box = "flex min-h-11 items-center gap-2 rounded-lg border bg-card px-3 py-2 text-card-foreground";
         return (
           <li key={name}>
-            {href ? <a href={href} onClick={() => onNavigate?.(number)} className={cn(box, "hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2")}>{body}</a> : <div className={box}>{body}</div>}
+            {href ? <a href={href} onClick={() => onNavigate?.(step)} className={cn(box, "hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2")}>{body}</a> : <div className={box}>{body}</div>}
           </li>
         );
       })}

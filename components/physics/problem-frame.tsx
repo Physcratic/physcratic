@@ -27,10 +27,11 @@ type DocumentTabsProps = {
 export function ProblemDocumentTabs({ id, value, onValueChange, statementLabel, solutionLabel, solutionTour, listLabel, statement, solution }: DocumentTabsProps) {
   const hasSolution = solutionLabel !== undefined;
   return <Tabs id={id} tabIndex={id ? -1 : undefined} value={hasSolution ? value : "statement"} onValueChange={onValueChange} className="flex min-w-0 scroll-mt-24 flex-col gap-4">
-    <TabsList aria-label={listLabel} className="h-auto w-fit max-w-full flex-wrap">
+    {/* A lone Statement tab is not a choice, so the row appears only when there is a solution to switch to. */}
+    {hasSolution && <TabsList aria-label={listLabel} className="h-auto w-fit max-w-full flex-wrap">
       <TabsTrigger className="min-h-11" value="statement">{statementLabel}</TabsTrigger>
-      {hasSolution && <TabsTrigger className="min-h-11" value="solution" data-tour={solutionTour}>{solutionLabel}</TabsTrigger>}
-    </TabsList>
+      <TabsTrigger className="min-h-11" value="solution" data-tour={solutionTour}>{solutionLabel}</TabsTrigger>
+    </TabsList>}
     <TabsContent value="statement" forceMount className="min-w-0 data-[state=inactive]:hidden"><div className="flex min-w-0 flex-col gap-6">{statement}</div></TabsContent>
     {hasSolution && <TabsContent value="solution" className="min-w-0 data-[state=inactive]:hidden"><div className="flex min-w-0 flex-col gap-6">{solution}</div></TabsContent>}
   </Tabs>;
