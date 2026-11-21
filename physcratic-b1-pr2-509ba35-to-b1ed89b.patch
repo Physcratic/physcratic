@@ -1,0 +1,1554 @@
+diff --git a/app/privacy/page.tsx b/app/privacy/page.tsx
+index 2cf5ef85cfad6517f3ac63a9d4da72c68e237486..875c7ca84525de8e93a19f10f39c4dcb9e31e2d2 100644
+--- a/app/privacy/page.tsx
++++ b/app/privacy/page.tsx
+@@ -41,14 +41,14 @@ export default function PrivacyPage() {
+         <section aria-labelledby="privacy-profiles" className="flex flex-col gap-3">
+           <h2 id="privacy-profiles" className="text-xl font-semibold text-foreground">Community profiles</h2>
+           <p>
+-            Creating a profile is optional. We save the profile details you enter, link them to your account, and record
+-            whether the profile is public and when it was created or updated. Settings may suggest your account name as
+-            the display name. You can change it before saving.
++            When community profiles are available, new users choose a public username during registration. Their
++            pseudonymous profile becomes public after email verification. Existing accounts stay private until the
++            owner acknowledges the publication notice and chooses to publish.
+           </p>
+           <p>
+-            Profiles start private. If you check the public visibility box and save, anyone with your profile link can see
+-            your handle, display name, biography, education level and favourite topics. Your account email, internal
+-            account ID and profile timestamps stay private.
++            A public text profile shows your username, display name, biography, education level and favourite topics.
++            The display name defaults to your username. Your private registration name, email, internal account ID
++            and session details stay private. Your public name can appear beside your published problems.
+           </p>
+           <p>
+             Physcratic keeps an account-linked edit counter to enforce a limit of 10 profile edit requests per minute.
+@@ -57,8 +57,9 @@ export default function PrivacyPage() {
+         <section aria-labelledby="privacy-withdrawal" className="flex flex-col gap-3">
+           <h2 id="privacy-withdrawal" className="text-xl font-semibold text-foreground">Hide your profile</h2>
+           <p>
+-            To hide a public profile, uncheck public visibility in Settings and save. The profile stops appearing on new
+-            public requests. Your saved profile remains in Settings, and the edit-limit record remains stored.
++            Choose Deactivate public profile in Settings to hide your profile and public author name from new requests.
++            Your username, saved details, publication record and edit-limit record remain stored. Settings does not
++            offer reactivation.
+             People who already saw or copied it may keep a copy.
+           </p>
+         </section>
+diff --git a/app/sign-up/page.tsx b/app/sign-up/page.tsx
+index 9a235d4a1d85b19e0600c66528920c751a4a3894..4e7456b2eb049eadc2428e98bbd550b2b8480a4f 100644
+--- a/app/sign-up/page.tsx
++++ b/app/sign-up/page.tsx
+@@ -3,11 +3,12 @@ import { headers } from "next/headers";
+ import { redirect } from "next/navigation";
+ import { auth } from "@/lib/auth";
+ import { safeReturnTo } from "@/components/account/return-path";
++import { communityProfilesEnabled } from "@/lib/community/profile-route";
+ import { AuthForm } from "@/components/auth-form";
+ 
+ export const metadata: Metadata = { title: "Create account", robots: { index: false, follow: false } };
+ export default async function SignUp({ searchParams }: { searchParams: Promise<{ returnTo?: string }> }) {
+   const returnTo = safeReturnTo((await searchParams).returnTo);
+   if ((await auth.api.getSession({ headers: await headers() }))?.user) redirect(returnTo);
+-  return <AuthForm mode="sign-up" returnTo={returnTo} />;
++  return <AuthForm mode="sign-up" returnTo={returnTo} publicProfileSignup={communityProfilesEnabled()} />;
+ }
+diff --git a/components/auth-form.tsx b/components/auth-form.tsx
+index 613a637ce0d4487ea4ca598984e6218cac504ea1..d2272a86e5186cd3a45e99b155356f5f045e6092 100644
+--- a/components/auth-form.tsx
++++ b/components/auth-form.tsx
+@@ -10,12 +10,13 @@ import { Button } from "@/components/ui/button";
+ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+ import { Field, FieldContent, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
+ import { Checkbox } from "@/components/ui/checkbox";
++import { PROFILE_PUBLICATION_POLICY_VERSION, profileHandleSchema } from "@/lib/community/profile-contracts";
+ import { TERMS_VERSION } from "@/lib/terms";
+ import { Input } from "@/components/ui/input";
+ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+ import { VerificationNotice } from "@/components/verification-notice";
+ 
+-export function AuthForm({ mode, returnTo, verified = false, verificationError = false }: { mode: "sign-in" | "sign-up"; returnTo: string; verified?: boolean; verificationError?: boolean }) {
++export function AuthForm({ mode, returnTo, verified = false, verificationError = false, publicProfileSignup = false }: { mode: "sign-in" | "sign-up"; returnTo: string; verified?: boolean; verificationError?: boolean; publicProfileSignup?: boolean }) {
+   const router = useRouter();
+   const [busy, setBusy] = useState(false);
+   const [error, setErrorText] = useState("");
+@@ -35,18 +36,33 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
+     setBusy(true);
+     setError("");
+     const form = new FormData(event.currentTarget);
++    const username = publicProfileSignup ? profileHandleSchema.safeParse(form.get("username")) : null;
++    if (username && !username.success) {
++      setError("Choose an available username with 3 to 24 letters, numbers or underscores. Start with a letter or number.");
++      document.getElementById("account-username")?.focus();
++      setBusy(false);
++      return;
++    }
+     const credentials = { email: String(form.get("email")).trim(), password: String(form.get("password")) };
+     const callbackURL = `/sign-in?verified=1&returnTo=${encodeURIComponent(returnTo)}`;
+     try {
+       const captchaToken = creating ? await getSignupCaptchaToken() : undefined;
+       const result = creating
+-        ? await authClient.signUp.email({ ...credentials, name: String(form.get("name")).trim(), callbackURL }, { body: { termsAccepted, termsVersion: TERMS_VERSION }, headers: { "x-captcha-response": captchaToken! } })
++        ? await authClient.signUp.email({ ...credentials, name: String(form.get("name")).trim(), callbackURL }, { body: { termsAccepted, termsVersion: TERMS_VERSION, ...(username?.success ? { username: username.data, profileDisclosureVersion: PROFILE_PUBLICATION_POLICY_VERSION } : {}) }, headers: { "x-captcha-response": captchaToken! } })
+         : await authClient.signIn.email({ ...credentials, callbackURL });
+       if (result.error) {
+         if (creating && result.error.code === "TERMS_ACCEPTANCE_REQUIRED") {
+           setError("The Terms of Service have changed since this page opened. Reload the page, read them and tick the box again.", "reload");
+           return;
+         }
++        if (creating && publicProfileSignup && result.error.code === "PROFILE_SIGNUP_REQUIRED") {
++          setError("Reload this page to review the current public profile notice and check your username.", "reload");
++          return;
++        }
++        if (creating && publicProfileSignup && result.error.code === "FAILED_TO_CREATE_USER") {
++          setError("We could not create your account. Try a different username, or sign in if you already have an account.", "sign-in");
++          return;
++        }
+         if (!creating && result.error.code === "EMAIL_NOT_VERIFIED") {
+           setVerificationEmail(credentials.email);
+           return;
+@@ -79,7 +95,12 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
+               <fieldset disabled={busy}><FieldGroup>
+                 {!creating && verified && !verificationError && <Alert role="status"><AlertTitle>Ready to sign in</AlertTitle><AlertDescription>If your email verification succeeded, sign in below to continue.</AlertDescription></Alert>}
+                 {!creating && verificationError && <Alert variant="destructive" role="alert"><AlertTitle>Link unavailable</AlertTitle><AlertDescription>This verification link is invalid or has expired. Request a new email below.</AlertDescription></Alert>}
+-                {creating && <Field><FieldLabel htmlFor="account-name">Name</FieldLabel><Input id="account-name" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
++                {creating && <Field><FieldLabel htmlFor="account-name">{publicProfileSignup ? "Private account name" : "Name"}</FieldLabel><Input id="account-name" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
++                {creating && publicProfileSignup && <Field>
++                  <FieldLabel htmlFor="account-username">Public username</FieldLabel>
++                  <Input id="account-username" name="username" autoComplete="username" autoCapitalize="none" spellCheck={false} required minLength={3} maxLength={24} aria-describedby="signup-profile-notice" />
++                  <FieldDescription id="signup-profile-notice">Choose a permanent username with 3 to 24 letters, numbers or underscores. When you verify your email, this username becomes your public profile name. You can deactivate your public profile in Settings. <Link href="/privacy">Read the Privacy Notice</Link>.</FieldDescription>
++                </Field>}
+                 <Field><FieldLabel htmlFor="account-email">Email</FieldLabel><Input id="account-email" name="email" type="email" autoComplete="email" required maxLength={254} /></Field>
+                 <Field><FieldLabel htmlFor="account-password">Password</FieldLabel><Input id="account-password" name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p className="text-sm leading-relaxed text-muted-foreground">Use at least 8 characters. Choose a password you do not use elsewhere.</p>}{!creating && <Link href="/forgot-password" className="inline-flex min-h-11 w-fit items-center text-sm text-foreground underline underline-offset-4">Forgot password?</Link>}</Field>
+                 {creating && <Field orientation="horizontal">
+diff --git a/components/authored/public-author-name.tsx b/components/authored/public-author-name.tsx
+index 063285190689c2ce03f879f34853e1a9717c133e..e19e2a36a79242c4481abb9184072969c0278de6 100644
+--- a/components/authored/public-author-name.tsx
++++ b/components/authored/public-author-name.tsx
+@@ -33,5 +33,5 @@ export function PublicAuthorName({ problemId, revisionId }: { problemId: string;
+     return () => { alive = false; stop(); clearInterval(interval); window.removeEventListener("focus", refresh); window.removeEventListener("blur", stop); document.removeEventListener("visibilitychange", visible); };
+   }, [problemId, revisionId]);
+   const name = author?.problemId === problemId && author.revisionId === revisionId && author.expiresAt > Date.now() ? author.name : null;
+-  return name ? <p className="min-h-6 break-words text-sm text-muted-foreground [overflow-wrap:anywhere]">Published by {name}</p> : null;
++  return name ? <p className="min-h-6 break-words text-sm text-muted-foreground [overflow-wrap:anywhere]">Published by {name}</p> : <p className="min-h-6 text-sm text-muted-foreground">Published by Community author</p>;
+ }
+diff --git a/components/authored/student-workspace.tsx b/components/authored/student-workspace.tsx
+index a7f55f223a61c1c1e165f6b248c6d6915a00811e..3858dd3cbad52a51c6a1d9ff05ce9e2b6c3232e0 100644
+--- a/components/authored/student-workspace.tsx
++++ b/components/authored/student-workspace.tsx
+@@ -243,7 +243,7 @@ export function StudentWorkspace({
+     <ProblemRoom>
+         <div className="flex flex-wrap items-end justify-between gap-4 border-b pb-6">
+           <ProblemHeading title={availability === "ready" ? revision?.content.title ?? "Physics problem" : "Physics problem"} source="Community-authored problem" estimate={availability === "ready" ? revision?.content.estimatedDifficulty : null} tags={availability === "ready" ? [...(revision?.content.topicTags ?? []), ...(revision?.content.methodTags ?? [])] : []}>
+-            {availability === "ready" && revision && (attributionEnabled ? <PublicAuthorName key={`${problemId}:${revision.id}`} problemId={problemId} revisionId={revision.id} /> : null)}
++            {availability === "ready" && revision && (attributionEnabled ? <PublicAuthorName key={`${problemId}:${revision.id}`} problemId={problemId} revisionId={revision.id} /> : <p className="min-h-6 text-sm text-muted-foreground">Published by Community author</p>)}
+           </ProblemHeading>
+           {availability !== "ready" && <Button
+             type="button"
+diff --git a/components/community/account-settings.tsx b/components/community/account-settings.tsx
+index dd4e13ce4258b9bf7e13199fceac5a340d6d92c4..6472e446804cead613b4c590bda0735f5a3537a6 100644
+--- a/components/community/account-settings.tsx
++++ b/components/community/account-settings.tsx
+@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState, type FormEvent } from "react";
+ import { ArrowLeft, KeyRound, LockKeyhole, Palette, UserRound, Image as ImageIcon, Eye, Check, CircleHelp } from "lucide-react";
+ import { authClient } from "@/lib/auth-client";
+ import { physicsTopics } from "@/lib/physics-taxonomy";
+-import { profilePatchSchema, profileEducationLevels } from "@/lib/community/profile-contracts";
++import { PROFILE_PUBLICATION_POLICY_VERSION, profilePatchSchema, profileEducationLevels, type ProfileMutation } from "@/lib/community/profile-contracts";
+ import { educationLabels, ownProfileResponse, profileRequest, ProfileRequestError, dismissProfileSetup, type OwnProfile, type PublicProfile } from "@/lib/community/profile-client";
+ import { emptyProfileMedia } from "@/lib/community/profile-media-contracts";
+ import { Button } from "@/components/ui/button";
+@@ -23,26 +23,26 @@ import {ModerationHistory} from "./moderation-history";
+ import { AccountDeletionSection } from "@/components/account/account-deletion";
+ import { AccountSecurity } from "@/components/account/account-security";
+ 
+-type Form = PublicProfile & { publicVisibility: boolean };
+-const initialForm: Form = { handle: "", displayName: "", bio: "", educationLevel: "prefer-not-to-say", favoriteTopicIds: [], publicVisibility: false };
+-// Accounts without a community profile start from their sign-up name. It only becomes the display name once saved here.
+-function fromProfile(profile: OwnProfile | null, fallbackName = ""): Form {
+-  if (!profile) return { ...initialForm, displayName: [...fallbackName.trim()].slice(0, 80).join("") };
+-  const { handle, displayName, bio, educationLevel, favoriteTopicIds, publicVisibility } = profile;
+-  return { handle, displayName, bio, educationLevel, favoriteTopicIds, publicVisibility };
++type Form = PublicProfile;
++const initialForm: Form = { handle: "", displayName: "", bio: "", educationLevel: "prefer-not-to-say", favoriteTopicIds: [] };
++function fromProfile(profile: OwnProfile | null): Form {
++  if (!profile) return initialForm;
++  const { handle, displayName, bio, educationLevel, favoriteTopicIds } = profile;
++  return { handle, displayName, bio, educationLevel, favoriteTopicIds };
+ }
+ 
+-function ProfileEditor({ userId, fallbackName, verified, mediaEnabled, achievementsEnabled, onboarding }: {
+-  userId: string; fallbackName: string; verified: boolean; mediaEnabled: boolean; achievementsEnabled: boolean; onboarding: boolean;
++function ProfileEditor({ userId, verified, mediaEnabled, achievementsEnabled, onboarding }: {
++  userId: string; verified: boolean; mediaEnabled: boolean; achievementsEnabled: boolean; onboarding: boolean;
+ }) {
+   const [form, setForm] = useState(initialForm), [saved, setSaved] = useState<OwnProfile | null>(null);
+   const [loading, setLoading] = useState(true), [loadFailed, setLoadFailed] = useState(false), [reload, setReload] = useState(0);
+   const [saving, setSaving] = useState(false), [error, setError] = useState(""), [success, setSuccess] = useState("");
++  const [confirmDeactivate, setConfirmDeactivate] = useState(false);
+   const [images, setImages] = useState(emptyProfileMedia);
+   const [medals, setMedals] = useState<PublicMedal[]>([]);
+   const [badgeIds, setBadgeIds] = useState<BadgeId[]>([]);
+   const alive = useRef(true), saveController = useRef<AbortController | null>(null);
+-  const dirty = JSON.stringify(form) !== JSON.stringify(fromProfile(saved, fallbackName));
++  const dirty = JSON.stringify(form) !== JSON.stringify(fromProfile(saved));
+   useEffect(() => { alive.current = true; return () => { alive.current = false; saveController.current?.abort(); }; }, []);
+   useEffect(() => {
+     const controller = new AbortController();
+@@ -51,11 +51,11 @@ function ProfileEditor({ userId, fallbackName, verified, mediaEnabled, achieveme
+       if (controller.signal.aborted) return;
+       const profile = ownProfileResponse.parse(data).profile;
+       if (profile && profile.userId !== userId) throw new Error("Profile identity mismatch");
+-      setSaved(profile); setForm(fromProfile(profile, fallbackName));
++      setSaved(profile); setForm(fromProfile(profile));
+     }).catch(() => { if (!controller.signal.aborted) { setLoadFailed(true); setError("Your profile could not be loaded. Appearance settings are still available."); } })
+       .finally(() => { if (!controller.signal.aborted) setLoading(false); });
+     return () => controller.abort();
+-  }, [reload, userId, fallbackName]);
++  }, [reload, userId]);
+   useEffect(() => {
+     if (!dirty || loading) return;
+     const guard = (event: BeforeUnloadEvent) => { event.preventDefault(); event.returnValue = ""; };
+@@ -63,19 +63,32 @@ function ProfileEditor({ userId, fallbackName, verified, mediaEnabled, achieveme
+     return () => window.removeEventListener("beforeunload", guard);
+   }, [dirty, loading]);
+   async function save(event: FormEvent) {
+-    event.preventDefault(); setError(""); setSuccess("");
++    event.preventDefault();
++    setError(""); setSuccess("");
+     const parsed = profilePatchSchema.safeParse(form);
+     if (!parsed.success) { setError("Check your username, name and biography limits. Choose only the listed topics."); return; }
+-    setSaving(true);
++    await mutate(parsed.data);
++  }
++  async function mutate(body: ProfileMutation) {
++    if (saving || !verified) return;
++    setError(""); setSuccess(""); setSaving(true);
+     const controller = new AbortController(); saveController.current = controller;
+     try {
+       const response = await profileRequest("/api/community/profile", { method: "PATCH",
+-        headers: { "Content-Type": "application/json", "X-Community-Account": userId }, body: JSON.stringify(parsed.data),
++        headers: { "Content-Type": "application/json", "X-Community-Account": userId }, body: JSON.stringify(body),
+         signal: AbortSignal.any([controller.signal, AbortSignal.timeout(20000)]) });
+       if (!alive.current) return;
+       const profile = ownProfileResponse.parse(response).profile;
+       if (!profile || profile.userId !== userId) throw new Error("Profile response unavailable");
+-      setSaved(profile); setForm(fromProfile(profile)); setSuccess("Profile saved."); dismissProfileSetup(userId, "completed");
++      setSaved(profile);
++      if ("deactivate" in body) setSuccess("Public profile deactivated.");
++      else if ("acknowledge" in body) setSuccess("Public profile published.");
++      else {
++        setForm(fromProfile(profile));
++        setSuccess("Profile saved.");
++      }
++      setConfirmDeactivate(false);
++      dismissProfileSetup(userId, "completed");
+     } catch (e) { if (alive.current) setError(e instanceof ProfileRequestError ? e.message : "Your profile could not be saved. Reload to check your saved details before retrying."); }
+     finally { if (alive.current) setSaving(false); }
+   }
+@@ -90,18 +103,30 @@ function ProfileEditor({ userId, fallbackName, verified, mediaEnabled, achieveme
+           {!verified && <p className="rounded-lg border p-3 text-sm">Verify your email before saving a profile. Appearance settings are available now.</p>}
+           <fieldset disabled={saving || !verified} className="min-w-0 space-y-5">
+             <legend className="sr-only">Profile details</legend>
+-            <div className="space-y-2"><label htmlFor="profile-display-name" className="text-sm font-medium">Display name</label><Input id="profile-display-name" autoComplete="off" maxLength={160} value={form.displayName} placeholder="How you would like to appear" onChange={e => setForm(f => ({ ...f, displayName: e.target.value }))} aria-describedby="display-name-help" /><p id="display-name-help" className="text-xs leading-5 text-muted-foreground">The name other people see. Up to 80 characters.</p></div>
+-            <div className="space-y-2"><label htmlFor="profile-handle" className="flex items-center gap-2 text-sm font-medium">Permanent username {saved && <LockKeyhole aria-hidden="true" className="size-3.5" />}</label><Input id="profile-handle" required minLength={3} maxLength={24} pattern="[a-z0-9][a-z0-9_]{2,23}" autoCapitalize="none" autoCorrect="off" spellCheck={false} autoComplete="off" value={form.handle} readOnly={Boolean(saved)} placeholder="e.g. orbital_mind" onChange={e => setForm(f => ({ ...f, handle: e.target.value.toLowerCase() }))} aria-describedby="handle-help" className="font-mono text-sm read-only:bg-muted/40" /><p id="handle-help" className="text-xs leading-5 text-muted-foreground">{saved ? "Your username is permanent. You can still edit your display name." : "Use 3 to 24 lowercase letters, numbers or underscores. Choose carefully. You cannot change this after your first save."}</p></div>
++            <div className="space-y-2"><label htmlFor="profile-display-name" className="text-sm font-medium">Display name</label><Input id="profile-display-name" autoComplete="off" maxLength={160} value={form.displayName} placeholder="How you would like to appear" onChange={e => setForm(f => ({ ...f, displayName: e.target.value }))} aria-describedby="display-name-help" /><p id="display-name-help" className="text-xs leading-5 text-muted-foreground">The name other people see. Leave blank to use your username. Up to 80 characters.</p></div>
++            <div className="space-y-2"><label htmlFor="profile-handle" className="flex items-center gap-2 text-sm font-medium">Permanent username {saved && <LockKeyhole aria-hidden="true" className="size-3.5" />}</label><Input id="profile-handle" required minLength={3} maxLength={24} pattern="[a-z0-9][a-z0-9_]{2,23}" autoCapitalize="none" autoCorrect="off" spellCheck={false} autoComplete="off" value={form.handle} readOnly={Boolean(saved)} placeholder="e.g. orbital_mind" onChange={e => setForm(f => ({ ...f, handle: e.target.value.toLowerCase() }))} aria-describedby="handle-help" className="text-sm read-only:bg-muted/40" /><p id="handle-help" className="text-xs leading-5 text-muted-foreground">{saved ? "Your username is permanent. You can still edit your display name." : "Use 3 to 24 lowercase letters, numbers or underscores. Choose carefully. You cannot change this after your first save."}</p></div>
+             <div className="space-y-2"><div className="flex items-center justify-between gap-3"><label htmlFor="profile-bio" className="text-sm font-medium">Biography</label><span className={`text-xs ${[...form.bio].length > 500 ? "text-destructive" : "text-muted-foreground"}`}>{[...form.bio].length}/500</span></div><Textarea id="profile-bio" value={form.bio} maxLength={1000} rows={4} className="resize-y" placeholder="A little about your interest in physics" onChange={e => setForm(f => ({ ...f, bio: e.target.value }))} aria-describedby="bio-help" /><p id="bio-help" className="text-xs text-muted-foreground">Optional. Up to 500 characters.</p></div>
+             <div className="space-y-2"><label htmlFor="profile-education" className="text-sm font-medium">Education level</label><select id="profile-education" value={form.educationLevel} onChange={e => setForm(f => ({ ...f, educationLevel: e.target.value as Form["educationLevel"] }))} className="h-11 w-full rounded-md border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{profileEducationLevels.map(value => <option key={value} value={value}>{educationLabels[value]}</option>)}</select></div>
+             <fieldset className="space-y-3"><legend className="text-sm font-medium">Favourite physics topics</legend><div className="grid gap-2 sm:grid-cols-2">{physicsTopics.map(topic => <label key={topic.id} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border px-3 py-2 text-sm"><input type="checkbox" className="size-4 shrink-0 accent-[hsl(var(--foreground))]" checked={form.favoriteTopicIds.includes(topic.id)} onChange={e => setForm(f => ({ ...f, favoriteTopicIds: e.target.checked ? [...f.favoriteTopicIds, topic.id] : f.favoriteTopicIds.filter(id => id !== topic.id) }))} />{topic.label}</label>)}</div></fieldset>
+-            <div className="rounded-xl border bg-muted/20 p-4"><label className="flex min-h-11 cursor-pointer items-start gap-3"><input type="checkbox" checked={form.publicVisibility} onChange={e => setForm(f => ({ ...f, publicVisibility: e.target.checked }))} aria-describedby="visibility-help" className="mt-0.5 size-5 shrink-0 accent-[hsl(var(--foreground))]" /><span className="text-sm font-medium">Make my profile public</span></label><p id="visibility-help" className="ml-8 mt-2 text-xs leading-5 text-muted-foreground">Anyone with your link can see your saved profile and images. Your public display name can also appear beside problems you publish. Profiles start private. Unchecking this hides them after you save. Open problem pages can keep a previously public name for up to 15 seconds. Copies already seen or saved cannot be recalled.</p></div>
+           </fieldset>
+           {error && <p role="alert" className="rounded-lg border border-destructive/50 p-3 text-sm text-destructive">{error}</p>}
+           {success && <p role="status" className="flex items-center gap-2 text-sm"><Check aria-hidden="true" className="size-4" />{success}</p>}
+-          <div className="flex flex-wrap items-center gap-3 border-t pt-5"><Button type="submit" disabled={saving || !verified}>{saving ? "Saving…" : saved ? "Save changes" : "Create profile"}</Button>{dirty && <Button type="button" variant="ghost" disabled={saving} onClick={() => { setForm(fromProfile(saved, fallbackName)); setError(""); setSuccess(""); }}>Discard changes</Button>}{saved?.publicVisibility && <Link className="inline-flex items-center gap-2 rounded px-1 py-2 text-sm underline underline-offset-4" href={`/u/${saved.handle}`}><Eye aria-hidden="true" className="size-4" />View saved public profile</Link>}</div>
++          <div className="flex flex-wrap items-center gap-3 border-t pt-5"><Button type="submit" disabled={saving || !verified}>{saving ? "Saving…" : saved ? "Save changes" : "Create profile"}</Button>{dirty && <Button type="button" variant="ghost" disabled={saving} onClick={() => { setForm(fromProfile(saved)); setError(""); setSuccess(""); }}>Discard changes</Button>}{saved?.publicVisibility && <Link className="inline-flex items-center gap-2 rounded px-1 py-2 text-sm underline underline-offset-4" href={`/u/${saved.handle}`}><Eye aria-hidden="true" className="size-4" />View saved public profile</Link>}</div>
++          {saved?.publicationState === "private" && <div className="space-y-3 border-t pt-5">
++            <p className="text-sm">Your profile stays private until you publish. Anyone can then see your username, display name, biography, education level and favourite topics. Your public name can appear beside your published problems.</p>
++            <Button type="button" variant="outline" disabled={saving || !verified || dirty} onClick={() => mutate({ acknowledge: PROFILE_PUBLICATION_POLICY_VERSION })}>Acknowledge and publish</Button>
++            {dirty && <p className="text-sm text-muted-foreground">Save or discard your edits before publishing.</p>}
++          </div>}
++          {saved?.publicationState === "public" && <div className="space-y-3 border-t pt-5">
++            <p className="text-sm">Deactivate to hide your profile and public author name. Your username and saved details will stay in Settings. You cannot reactivate your public profile here.</p>
++            {confirmDeactivate ? <div className="flex flex-wrap gap-2">
++              <Button type="button" variant="destructive" disabled={saving || !verified} onClick={() => mutate({ deactivate: true })}>Confirm deactivation</Button>
++              <Button type="button" variant="outline" disabled={saving} onClick={() => setConfirmDeactivate(false)}>Cancel</Button>
++            </div> : <Button type="button" variant="outline" disabled={saving || !verified} onClick={() => setConfirmDeactivate(true)}>Deactivate public profile</Button>}
++          </div>}
++          {saved?.publicationState === "deactivated" && <p className="border-t pt-5 text-sm">Your public profile is deactivated. You can still edit your saved details.</p>}
+         </form>
+-        <section className="min-w-0 space-y-3 xl:sticky xl:top-6" aria-labelledby="preview-heading"><div className="flex items-center justify-between"><h2 id="preview-heading" className="text-sm font-medium">Live preview</h2><span className="rounded-full border px-2 py-1 text-xs text-muted-foreground">{form.publicVisibility ? "Public after saving" : "Private"}</span></div><ProfileCard profile={form} media={images} badgeIds={badgeIds} medals={medals} compact headingLevel={3} /><p className="px-1 text-xs leading-5 text-muted-foreground">Details are a preview until you save. Uploaded images save separately.</p></section>
++        <section className="min-w-0 space-y-3 xl:sticky xl:top-6" aria-labelledby="preview-heading"><div className="flex items-center justify-between"><h2 id="preview-heading" className="text-sm font-medium">Live preview</h2><span className="rounded-full border px-2 py-1 text-xs text-muted-foreground">{saved?.publicVisibility ? "Public" : "Private"}</span></div><ProfileCard profile={{ ...form, displayName: form.displayName.trim() || form.handle }} media={images} badgeIds={badgeIds} medals={medals} compact headingLevel={3} /><p className="px-1 text-xs leading-5 text-muted-foreground">Details are a preview until you save. Uploaded images save separately.</p></section>
+       </div>
+     </section>
+     {achievementsEnabled && <AchievementSettings profileSaved={Boolean(saved)} verified={verified} onPreviewChange={setBadgeIds} onMedalsChange={setMedals} />}
+@@ -127,7 +152,7 @@ export function AccountSettings({ deletionEnabled=false, emailReady = true, mode
+             : isPending ? <section id="profile-settings" className="rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="status" className="mt-3 text-sm">Loading your account…</p></section>
+             : error ? <section id="profile-settings" className="space-y-3 rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="alert" className="text-sm">Your account could not be loaded.</p><Button variant="outline" onClick={() => refetch()}>Retry account</Button></section>
+             : !user ? <section id="profile-settings" className="space-y-3 rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p className="text-sm text-muted-foreground">Sign in to create or edit your profile.</p><Button asChild><Link href="/sign-in?returnTo=%2Fsettings">Sign in</Link></Button></section>
+-            : <ProfileEditor key={user.id} userId={user.id} fallbackName={user.name ?? ""} verified={user.emailVerified === true} mediaEnabled={mediaEnabled} achievementsEnabled={achievementsEnabled} onboarding={onboarding} />}
++            : <ProfileEditor key={user.id} userId={user.id} verified={user.emailVerified === true} mediaEnabled={mediaEnabled} achievementsEnabled={achievementsEnabled} onboarding={onboarding} />}
+           {user && <AccountSecurity key={user.id} email={user.email} emailReady={emailReady} />}
+           {verificationEnabled && user && <VerificationSettings key={user.id} verified={user.emailVerified === true} />}
+           {moderationEnabled && <ModerationHistory/>}
+diff --git a/docs/engineering/AGENT_HANDOFF.md b/docs/engineering/AGENT_HANDOFF.md
+index d0a089647b6b1c13541f8cc54644ada1220ad78e..ba6aaba5b97ffcd687fb10774479bf9753ec71a7 100644
+--- a/docs/engineering/AGENT_HANDOFF.md
++++ b/docs/engineering/AGENT_HANDOFF.md
+@@ -1,5 +1,9 @@
+ # Agent handoff
+ 
++## Corrected B1 profile publication (21 November 2026)
++
++PR 2 uses PR 1’s atomic signup claim and one verified publication rule for text profiles, author attribution, achievements and media. The legacy visibility field grants no public access. Settings separates profile editing, legacy acknowledgement and permanent deactivation. See the [corrected release gate](PHASE_C_B1_RELEASE_CHECKLIST.md#corrected-b1-release-gate).
++
+ ## Corrected B1 username claims (21 November 2026)
+ 
+ PR 1 adds the default-OFF signup claim and additive migration 0022. See the [migration notes](../../migrations/README.md#b1-atomic-signup-claims-0022) and restricted LOGIN tests in `lib/profile-signup.pg.test.ts`. The application still uses ordinary signup. Keep profiles OFF and review PR 1 before starting PR 2, which owns publication eligibility, public consumers, registration and Settings UI, and the notice. Migration installation and activation require separate owner approval.
+diff --git a/docs/engineering/BETA_READINESS.md b/docs/engineering/BETA_READINESS.md
+index 4afc4c93a24951b4e680d3b259a9fe244c38c98e..54fab4001a5d41bece9242cd113a149af9bb46e8 100644
+--- a/docs/engineering/BETA_READINESS.md
++++ b/docs/engineering/BETA_READINESS.md
+@@ -1,3 +1,7 @@
++## Corrected B1 publication candidate (21 November 2026)
++
++Review registration, verified publication, legacy acknowledgement and irreversible self-service deactivation together. Production remains profiles OFF. Local test evidence accompanies the candidate review.
++
+ ## Corrected B1 signup groundwork (21 November 2026)
+ 
+ Disposable PostgreSQL 18.6 and 18.7 restricted LOGIN tests passed for compatibility before and after migration 0022, username collisions and retries, credential-link rollback, private auth fields and the publication transition guard. Ordinary signup stays in use. Review this code and migration first. Public eligibility, the affected public consumers, the signup and Settings changes, and the Privacy Notice are the next PR.
+diff --git a/docs/engineering/EXECUTION_ROADMAP.md b/docs/engineering/EXECUTION_ROADMAP.md
+index e662974f3fe0d12201cfd9904ed6e2f9606a61ce..ce9dc92fbe9ca017031f62407870b9ece413b8db 100644
+--- a/docs/engineering/EXECUTION_ROADMAP.md
++++ b/docs/engineering/EXECUTION_ROADMAP.md
+@@ -2,7 +2,7 @@
+ 
+ ## Corrected B1 public profiles (21 November 2026)
+ 
+-Profiles remain OFF following the accepted rollback. Review the [atomic signup groundwork](AGENT_HANDOFF.md#corrected-b1-username-claims-21-november-2026) first. A separate PR will wire one publication policy across public consumers and add registration disclosure, legacy acknowledgement and deactivation.
++PR 2 implements publication, disclosure, legacy acknowledgement and deactivation on top of the merged username claim. [Owner release gates](PHASE_C_B1_RELEASE_CHECKLIST.md#corrected-b1-release-gate) remain pending. Keep profiles OFF.
+ 
+ ## Community statement card and steps strip, C4d (21 November 2026)
+ 
+diff --git a/docs/engineering/PHASE_C_B1_RELEASE_CHECKLIST.md b/docs/engineering/PHASE_C_B1_RELEASE_CHECKLIST.md
+index 0e929e4c968d83247152bf8cdec0290f75d20fba..58b9f11b3f132009a1deaad1aeb3681eb4bc0c19 100644
+--- a/docs/engineering/PHASE_C_B1_RELEASE_CHECKLIST.md
++++ b/docs/engineering/PHASE_C_B1_RELEASE_CHECKLIST.md
+@@ -2,6 +2,17 @@
+ 
+ 19 November 2026. Engineering preparation only. **No Production SQL or activation is authorized by this document.** This supersedes the pre-cleanup procedure previously at this path. The owner accepted the November 19 serving LOGIN sample and removed the temporary variable. Reconcile deployment and binding continuity before using this checklist. See the [accepted evidence and archived procedure](RUNTIME_LOGIN_ATTESTATION.md).
+ 
++## Corrected B1 release gate
++
++The previous activation was rolled back and accepted. Keep `COMMUNITY_PROFILES_ENABLED=false`. Sections below retain the earlier permission review. The accepted B1 grants do not need replay.
++
++1. Independently review the PR 2 candidate and its exact-head tests. Confirm the registration disclosure, Privacy Notice and synthetic account acceptance plan.
++2. Qualify 0022 against the current restricted role and recovery plan. Obtain separate installation approval for the exact source, target and checksum. Keep profiles OFF through installation and code release.
++3. Obtain separate activation approval after confirming Production serves the corrected code with profiles OFF. Change only the Production flag during the owner-controlled activation.
++4. Verify a new synthetic username is private until email verification. Verify an existing account is private until it acknowledges publication, even with old visibility set. Confirm the five public fields, neutral author attribution, no stale-account edits and continued statistics.
++5. Deactivate a synthetic public profile. Check the next profile, attribution, achievement and applicable media reads deny access. Verify saved details remain editable and acknowledgement cannot reactivate the profile.
++6. On a critical failure, route back to the verified profiles-OFF deployment and restore the saved Production flag to false. Retain the schema, profile rows and claimed usernames. An older profiles-ON deployment still uses the legacy rule and is unsuitable as a rollback target.
++
+ ## 1. Confirm the accepted release gate and obtain the first exact approval
+ 
+ - The reviewed source for these commands is **5e929d7ff8c4cc93b0755fcf3c968396caed54b8**. The earlier owner-confirmed PR204 cleanup deployment was **dpl_A4rYge5pwgYzVMhD6JYgabQ8NexB** from **4f840e67f359e558d49f44a4b81966012638fc9a**. Before execution, verify the current Ready deployment ID, source SHA and actual physcratic.com assignment in financial-dashboard under neuterions-projects. Preserve the private reference to the accepted sample and confirm its deployment and binding context for the candidate. PR204 removed the instrumentation, and the owner confirmed removal of the temporary variable.
+diff --git a/lib/auth.ts b/lib/auth.ts
+index 22a6924f396da9b48f369c6e1fa43f50ab1b3a1b..22cc874cc22cad01bcf42a6a02894bd9a26bc7b9 100644
+--- a/lib/auth.ts
++++ b/lib/auth.ts
+@@ -1,6 +1,7 @@
+ import { betterAuth } from "better-auth";
+ import { after } from "next/server";
+ import { pool } from "@/lib/db";
++import { communityProfilesEnabled } from "@/lib/community/profile-route";
+ import { createAuthOptions } from "@/lib/auth-config";
+ 
+-export const auth = betterAuth(createAuthOptions({ pool, defer: (task) => after(task) }));
++export const auth = betterAuth(createAuthOptions({ pool, profileSignupEnabled: communityProfilesEnabled(), defer: (task) => after(task) }));
+diff --git a/lib/authored-attribution-api.ts b/lib/authored-attribution-api.ts
+index 1cd690864fc0f2fe022903bfb1695a41db1ed167..512a5a60a337568d87b43ddaf2f1a21f7d09c17b 100644
+--- a/lib/authored-attribution-api.ts
++++ b/lib/authored-attribution-api.ts
+@@ -1,3 +1,4 @@
++import { publicProfileDisplayName, publicProfileEligible } from "./community/profile-publication";
+ import "server-only";
+ import type { Pool } from "pg";
+ import { authoredAttributionSelectionSchema, authoredAttributionSchema, attributionReply, type AuthoredAttributionSelection } from "./authored-attribution-contracts";
+@@ -9,9 +10,10 @@ export function createAuthoredAttributionApi(pool: Pool, publicNamesEnabled: ()
+       const { problemId, revisionId } = parsed.data;
+       // One current-publication snapshot. Only the opted-in public name is selected.
+       // Never join Better Auth identity or serialize the internal owner/profile row.
+-      const query = { text: `SELECT CASE WHEN p.owner_id='__physcratic_deleted_principal_v1__' THEN 'Deleted user' ELSE ${publicNamesEnabled() ? 'cp.display_name' : 'NULL'} END AS "displayName" FROM authored_problem p
++      const namesEnabled = publicNamesEnabled();
++      const query = { text: `SELECT CASE WHEN p.owner_id='__physcratic_deleted_principal_v1__' THEN 'Deleted user' ELSE ${namesEnabled ? publicProfileDisplayName("cp") : 'NULL'} END AS "displayName" FROM authored_problem p
+         JOIN authored_revision r ON r.problem_id=p.id AND r.id=p.published_revision_id
+-        ${publicNamesEnabled() ? 'LEFT JOIN community_profile cp ON cp.user_id=p.owner_id AND cp.public_visibility=true' : ''}
++        ${namesEnabled ? `LEFT JOIN community_profile cp ON cp.user_id=p.owner_id AND ${publicProfileEligible("cp")}` : ''}
+         WHERE p.id=$1 AND p.state='published' AND r.id=$2 LIMIT 1`, values: [problemId, revisionId], query_timeout: 5000 };
+       const { rows } = await pool.query<{ displayName: string | null }>(query);
+       if (!rows[0]) return attributionReply({ error: "Current publication not found." }, 404);
+diff --git a/lib/authored-attribution.test.ts b/lib/authored-attribution.test.ts
+index aa910d82f596852a1135eedd45398a3b4f751ec4..d1e09ee1f074f397093a2a2b4aff516021a986a3 100644
+--- a/lib/authored-attribution.test.ts
++++ b/lib/authored-attribution.test.ts
+@@ -1,3 +1,4 @@
++import { installProfilePublicationFixture } from "../tests/profile-publication-fixtures";
+ import assert from "node:assert/strict";
+ import test from "node:test";
+ import { readFile } from "node:fs/promises";
+@@ -36,21 +37,27 @@ test("current public attribution on disposable PostgreSQL", { skip: !process.env
+   const pool = new Pool({ connectionString: url.href, options: `-c search_path=${schema},public`, statement_timeout: 5000 });
+   const api = createAuthoredAttributionApi(pool), route = createAuthoredAttributionRoute(() => true, async () => ({ authoredAttributionApi: api }));
+   try {
+-    await pool.query(`CREATE TABLE "user"(id text PRIMARY KEY,name text,email text); CREATE TABLE authored_problem(id uuid PRIMARY KEY,owner_id text,state text,published_revision_id uuid); CREATE TABLE authored_revision(id uuid PRIMARY KEY,problem_id uuid,content jsonb); CREATE TABLE community_profile(user_id text PRIMARY KEY,display_name text,public_visibility boolean,bio text)`);
+-    await pool.query(`INSERT INTO "user" VALUES('PRIVATE_OWNER_ID','PRIVATE_AUTH_NAME','PRIVATE_EMAIL'); INSERT INTO community_profile VALUES('PRIVATE_OWNER_ID','Public Author',true,'PRIVATE_BIO')`);
++    await pool.query(`CREATE TABLE "user"(id text PRIMARY KEY,name text,email text); CREATE TABLE authored_problem(id uuid PRIMARY KEY,owner_id text,state text,published_revision_id uuid); CREATE TABLE authored_revision(id uuid PRIMARY KEY,problem_id uuid,content jsonb)`);
++    await pool.query(`INSERT INTO "user" VALUES('PRIVATE_OWNER_ID','PRIVATE_AUTH_NAME','PRIVATE_EMAIL')`);
++    await pool.query(await readFile("migrations/0007_community_profile.up.sql", "utf8"));
++    await installProfilePublicationFixture(pool);
++    await pool.query(`INSERT INTO community_profile(user_id,handle,display_name,bio,public_visibility,publication_basis,publication_policy_version,publication_recorded_at)
++      VALUES('PRIVATE_OWNER_ID','public_author','Public Author','PRIVATE_BIO',true,'legacy_acknowledgement','b1-v1',now())`);
+     await pool.query('INSERT INTO authored_problem VALUES($1,$2,$3,$4)', [selection.problemId, 'PRIVATE_OWNER_ID', 'published', selection.revisionId]);
+     await pool.query('INSERT INTO authored_revision VALUES($1,$2,$3)', [selection.revisionId, selection.problemId, { title: 'Published Title', estimatedDifficulty: '1200', privateSentinel: 'PRIVATE_CONTENT' }]);
+     await t.test("public names come only from an allowlisted opted-in profile", async () => {
+       const value = await body(await route(request(), selection.problemId)); assert.deepEqual(value, { ...selection, author: { displayName: "Public Author" } }); assert.doesNotMatch(JSON.stringify(value), /PRIVATE_|email|ownerId|handle|bio|content/);
+     });
+     await t.test("private and withdrawn profiles immediately return neutral on the next read", async () => {
+-      await pool.query('UPDATE community_profile SET public_visibility=false'); assert.equal((await body(await route(request(), selection.problemId))).author, null);
+-      await pool.query("UPDATE community_profile SET public_visibility=true,display_name='New Public Name'"); assert.equal((await body(await route(request(), selection.problemId))).author.displayName, 'New Public Name');
+-      await pool.query('UPDATE community_profile SET public_visibility=false'); assert.equal((await body(await route(request(), selection.problemId))).author, null);
++      await pool.query('UPDATE "user" SET "emailVerified"=false'); assert.equal((await body(await route(request(), selection.problemId))).author, null);
++      await pool.query(`UPDATE "user" SET "emailVerified"=true; UPDATE community_profile SET display_name='New Public Name'`); assert.equal((await body(await route(request(), selection.problemId))).author.displayName, 'New Public Name');
++      await pool.query('UPDATE "user" SET "emailVerified"=false'); assert.equal((await body(await route(request(), selection.problemId))).author, null);
+     });
+     await t.test("missing and blank profiles never fall back to private account identity", async () => {
+       await pool.query('DELETE FROM community_profile'); assert.equal((await body(await route(request(), selection.problemId))).author, null);
+-      await pool.query("INSERT INTO community_profile VALUES('PRIVATE_OWNER_ID','   ',true,'PRIVATE_BIO')"); assert.equal((await body(await route(request(), selection.problemId))).author, null);
++      await pool.query(`UPDATE "user" SET "emailVerified"=true; INSERT INTO community_profile(user_id,handle,display_name,bio,publication_basis,publication_policy_version,publication_recorded_at)
++        VALUES('PRIVATE_OWNER_ID','public_author','   ','PRIVATE_BIO','legacy_acknowledgement','b1-v1',now())`);
++      assert.deepEqual((await body(await route(request(), selection.problemId))).author, { displayName: "public_author" });
+     });
+     await t.test("unpublication, different revisions and cross-problem revision IDs cannot disclose names", async () => {
+       await body(await api({ ...selection, revisionId: randomUUID() }), 404);
+@@ -82,6 +89,7 @@ test("attribution follows actual publication and consent handlers on installed s
+     await pool.query('INSERT INTO "user" VALUES($1),($2)', [owner, other]);
+     for (const migration of ["0001_problem_authoring", "0002_authored_write_limit", "0003_author_media", "0007_community_profile"])
+       await pool.query(await readFile(`migrations/${migration}.up.sql`, "utf8"));
++    await installProfilePublicationFixture(pool);
+     const partId = randomUUID();
+     const draft = { content: { title: "Public Physics Title", topicTags: [], methodTags: [], estimatedDifficulty: "1200", context: [{ id: randomUUID(), kind: "text", spans: [{ kind: "text", text: "A synthetic statement." }] }], sections: [{ id: randomUUID(), title: "Motion", blocks: [], parts: [{ id: partId, label: "A", answerMode: "manual", blocks: [] }] }], attachments: [], provenance: { kind: "original", source: "", rightsDeclaration: "Synthetic owned content." } }, privateParts: [{ partId, key: { kind: "manual" }, hints: [], solution: [] }] };
+     const created = await read(await authoring("create", req("POST", draft)), 201);
+@@ -91,15 +99,15 @@ test("attribution follows actual publication and consent handlers on installed s
+     const selected = { problemId: created.problemId, revisionId };
+     await read(await profiles("own", req("PATCH", { handle: "synthetic_author", displayName: "Consenting Author" })), 201);
+     assert.equal((await body(await attribution(selected))).author, null, "new profiles stay private");
+-    await read(await profiles("own", req("PATCH", { publicVisibility: true })));
++    await read(await profiles("own", req("PATCH", { acknowledge: "b1-v1" })));
+     assert.deepEqual((await body(await attribution(selected))).author, { displayName: "Consenting Author" });
+     viewer = other;
+-    await read(await profiles("own", req("PATCH", { handle: "other_author", displayName: "Other Account", publicVisibility: true })), 201);
++    await read(await profiles("own", req("PATCH", { handle: "other_author", displayName: "Other Account" })), 201);
+     assert.deepEqual((await body(await attribution(selected))).author, { displayName: "Consenting Author" });
+     viewer = owner;
+-    await read(await profiles("own", req("PATCH", { publicVisibility: false })));
++    await read(await profiles("own", req("PATCH", { deactivate: true })));
+     assert.equal((await body(await attribution(selected))).author, null, "next snapshot observes withdrawal");
+-    await read(await profiles("own", req("PATCH", { publicVisibility: true })));
++    await read(await profiles("own", req("PATCH", { acknowledge: "b1-v1" })), 409);
+     await read(await authoring("unpublish", req("POST", { version: publication.version }), created.problemId));
+     await body(await attribution(selected), 404);
+   } finally { await pool.end(); await admin.query(`DROP SCHEMA ${schema} CASCADE`); await admin.end(); }
+diff --git a/lib/community-achievements.test.ts b/lib/community-achievements.test.ts
+index 853c0b0faa6e601cfcededb14c3190fd5f98c7c9..f9a346d571b5ebe5a32cb3b32ece1b302b5408e9 100644
+--- a/lib/community-achievements.test.ts
++++ b/lib/community-achievements.test.ts
+@@ -35,12 +35,12 @@ test("live achievements, SQL constraints, privacy and concurrent owner updates o
+   let runtime: Pool | undefined;
+   try {
+     await installAchievementFixtures(pool); // 0008 deliberately absent: no media dependency.
+-    await pool.query(`INSERT INTO "user" VALUES('roundtrip'); INSERT INTO community_profile(user_id,handle) VALUES('roundtrip','roundtrip')`);
++    await pool.query(`INSERT INTO "user"(id) VALUES('roundtrip'); INSERT INTO community_profile(user_id,handle) VALUES('roundtrip','roundtrip')`);
+     const up = await readFile("migrations/0009_community_achievements.up.sql", "utf8"), down = await readFile("migrations/0009_community_achievements.down.sql", "utf8");
+     await pool.query(`BEGIN; ${down} COMMIT;`); await pool.query(`BEGIN; ${up} COMMIT;`);
+     assert.equal((await pool.query("SELECT public_visibility FROM community_profile WHERE user_id='roundtrip'")).rows[0].public_visibility, false);
+     // Verify exact least-privilege grants; no private answer keys, reveal or session access.
+-    await pool.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role};
++    await pool.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role}; GRANT SELECT(id,"emailVerified","profileSignupHandle","profileSignupPolicyVersion") ON "user" TO ${role};
+       GRANT SELECT ON community_profile,authored_problem,authored_revision,authored_revision_part,authored_attempt TO ${role};
+       GRANT SELECT,INSERT,UPDATE ON community_badge_selection,community_achievement_write_limit TO ${role};
+       GRANT EXECUTE ON FUNCTION community_achievement_progress(text),community_achievement_problem_solved(text,uuid) TO ${role}`);
+@@ -142,9 +142,9 @@ test("live achievements, SQL constraints, privacy and concurrent owner updates o
+       async function patchResponse(ids: string[]) { return patch(author, ids); }
+       const own = await parsed(await api(req(author))); assert.ok(selections.some(ids => JSON.stringify(ids) === JSON.stringify(own.selectedIds)));
+       const publicBody = await parsed(await publicRead(author)); assert.deepEqual(Object.keys(publicBody), ["selectedIds"]);
+-      await pool.query("UPDATE community_profile SET public_visibility=false WHERE user_id=$1", [author]);
++      await pool.query(`UPDATE "user" SET "emailVerified"=false WHERE id=$1`, [author]);
+       assert.equal((await publicRead(author)).status, 404); assert.equal((await api(req(undefined, undefined, "GET", "/api?handle=missing"))).status, 404);
+-      await pool.query("UPDATE community_profile SET public_visibility=true WHERE user_id=$1", [author]);
++      await pool.query(`UPDATE "user" SET "emailVerified"=true WHERE id=$1`, [author]);
+       await pool.query("TRUNCATE community_achievement_write_limit");
+       const second = createCommunityAchievementsApi({ ...f.deps, pool: runtime! });
+       const statuses = await Promise.all(Array.from({ length: 12 }, (_, i) => (i % 2 ? api : second)(req(author, { selectedIds: [] }, "PATCH")).then(r => r.status)));
+diff --git a/lib/community-comments.test.ts b/lib/community-comments.test.ts
+index 5cc6f5be680854147d48c37057ea739a20ca0043..8cd9fd5c8acb996b09078a56bd369a8ddde35769 100644
+--- a/lib/community-comments.test.ts
++++ b/lib/community-comments.test.ts
+@@ -1,3 +1,4 @@
++import { installProfilePublicationFixture } from "../tests/profile-publication-fixtures";
+ import assert from 'node:assert/strict';
+ import test from 'node:test';
+ import {randomUUID} from 'node:crypto';
+@@ -71,8 +72,8 @@ test('0013 threaded comments, pagination, ownership, races and runtime grants',{
+  const topPage=await parsed(await list(key,undefined,'top'));const topNext=await parsed(await list(key,undefined,'top',topPage.nextCursor));assert.equal(new Set([...topPage.comments,...topNext.comments].map(c=>c.id)).size,26);
+  await pool.query("INSERT INTO community_comment(id,problem_key,user_id,parent_id,request_id,body) SELECT gen_random_uuid(),$1,$2,$3,gen_random_uuid(),'Page reply '||n FROM generate_series(1,23)n",[key,owner,root]);const children=await parsed(await list(key,root));assert.equal(children.comments.length,20);assert.ok(children.nextCursor);assert.equal((await parsed(await list(key,root,'newest',children.nextCursor))).comments.length,4);
+  // Optional public profile attribution is fresh and never copies account identity.
+- await pool.query('BEGIN;'+await readFile('migrations/0007_community_profile.up.sql','utf8')+'COMMIT;');await pool.query('INSERT INTO community_profile(user_id,handle,display_name,public_visibility) VALUES($1,\'public_author\',\'Public Display\',true)',[owner]);await pool.query(`GRANT SELECT ON community_profile TO ${role}`);
+- const profiles=createCommentsApi({...f.deps,pool:runtime,ip:()=> 'unknown',profiles:()=>true});const readProfiles=()=>profiles(req(undefined,undefined,'GET','/api?'+new URLSearchParams({key})));assert.equal((await parsed(await readProfiles())).comments[0].author.handle,'public_author');await pool.query('UPDATE community_profile SET public_visibility=false WHERE user_id=$1',[owner]);assert.equal((await parsed(await readProfiles())).comments[0].author,null);
++ await pool.query('BEGIN;'+await readFile('migrations/0007_community_profile.up.sql','utf8')+'COMMIT;');await installProfilePublicationFixture(pool);await pool.query('INSERT INTO community_profile(user_id,handle,display_name,publication_basis,publication_policy_version,publication_recorded_at) VALUES($1,\'public_author\',\'Public Display\',\'legacy_acknowledgement\',\'b1-v1\',now())',[owner]);await pool.query(`GRANT SELECT ON community_profile TO ${role}; GRANT SELECT(id,"emailVerified","profileSignupHandle","profileSignupPolicyVersion") ON "user" TO ${role}`);
++ const profiles=createCommentsApi({...f.deps,pool:runtime,ip:()=> 'unknown',profiles:()=>true});const readProfiles=()=>profiles(req(undefined,undefined,'GET','/api?'+new URLSearchParams({key})));assert.equal((await parsed(await readProfiles())).comments[0].author.handle,'public_author');await pool.query('UPDATE community_profile SET deactivated_at=now() WHERE user_id=$1',[owner]);assert.equal((await parsed(await readProfiles())).comments[0].author,null);
+  // Staff role does not authorize editing another member's text in this batch.
+  await pool.query('BEGIN;'+await readFile('migrations/0010_community_medals.up.sql','utf8')+'COMMIT;');await pool.query("INSERT INTO community_staff(user_id,role,reason) VALUES($1,'admin','fixture')",[other]);await reset();assert.equal((await write(other,{action:'edit',key,id:boosted,version:1,body:'Staff forgery'})).status,403);
+  const a=(await parsed(await post(owner,'Authored discussion',null,authored),201)).id;
+diff --git a/lib/community-medal-showcase.test.ts b/lib/community-medal-showcase.test.ts
+index e90b4984d941bf0ba941542e7cfb72e47ac3dec4..b05757912a1b3897f3b08159d1ff5a71ce82fbf1 100644
+--- a/lib/community-medal-showcase.test.ts
++++ b/lib/community-medal-showcase.test.ts
+@@ -27,13 +27,13 @@ test('0011 preserves ordered selections, guards medal ownership and filters revo
+   const id=randomUUID();await pool.query(`INSERT INTO community_medal_claim(id,user_id,competition,award,year,country,competition_name,certificate_name,pathname,bytes,sha256) VALUES($1,$2,'National','silver',2025,'ID',$3,'SECRET_CERTIFICATE',$4,10,$5)`,[id,who,id,`community-medal-proof/${id}.pdf`,'a'.repeat(64)]);await pool.query("UPDATE community_medal_claim SET state='pending',version=2 WHERE id=$1",[id]);if(state==='approved')await pool.query("UPDATE community_medal_claim SET state='approved',version=3,reviewer_id=$2,reason='reviewed' WHERE id=$1",[id,reviewer]);return id;
+  }
+  const medal=await claim(owner),foreign=await claim(other),pending=await claim(owner,'pending');
+- await pool.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role};GRANT SELECT ON community_profile,authored_problem,authored_revision,authored_revision_part,authored_attempt,community_approved_medal TO ${role};GRANT SELECT,UPDATE ON community_medal_claim TO ${role};GRANT SELECT,INSERT,UPDATE ON community_badge_selection,community_achievement_write_limit TO ${role};GRANT EXECUTE ON FUNCTION community_achievement_progress(text),community_achievement_problem_solved(text,uuid),community_showcase_ids_valid(text[]) TO ${role}`);
++ await pool.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role}; GRANT SELECT(id,"emailVerified","profileSignupHandle","profileSignupPolicyVersion") ON "user" TO ${role};GRANT SELECT ON community_profile,authored_problem,authored_revision,authored_revision_part,authored_attempt,community_approved_medal TO ${role};GRANT SELECT,UPDATE ON community_medal_claim TO ${role};GRANT SELECT,INSERT,UPDATE ON community_badge_selection,community_achievement_write_limit TO ${role};GRANT EXECUTE ON FUNCTION community_achievement_progress(text),community_achievement_problem_solved(text,uuid),community_showcase_ids_valid(text[]) TO ${role}`);
+  runtime=new Pool({connectionString:url,options:`-c search_path=${schema},public -c role=${role}`});const api=createCommunityAchievementsApi({...f.deps,pool:runtime,medalsEnabled:()=>true});const patch=(ids:string[])=>api(req(owner,{selectedIds:ids},'PATCH'));const handle=(await pool.query('SELECT handle FROM community_profile WHERE user_id=$1',[owner])).rows[0].handle;const publicRead=()=>api(req(undefined,undefined,'GET','/api?handle='+handle));
+  const ids=['medal:'+medal,'first-spark'];await parsed(await patch(ids));assert.deepEqual((await parsed(await api(req(owner)))).selectedIds,ids);
+  const visible=await parsed(await publicRead());assert.deepEqual(visible.selectedIds,ids);assert.equal(visible.medals[0].award,'silver');for(const secret of ['SECRET_CERTIFICATE','pathname','sha256','userId','reviewer','reason'])assert.ok(!JSON.stringify(visible).includes(secret));
+  assert.equal((await patch(['medal:'+foreign])).status,409);assert.equal((await patch(['medal:'+pending])).status,409);assert.equal((await patch([...ids,'problem-weaver'])).status,400);assert.equal((await patch([ids[0],ids[0]])).status,400);
+  await assert.rejects(runtime.query('UPDATE community_badge_selection SET badge_ids=$2 WHERE user_id=$1',[owner,['medal:'+foreign]]));
+- await pool.query('UPDATE community_profile SET public_visibility=false WHERE user_id=$1',[owner]);assert.equal((await publicRead()).status,404);await pool.query('UPDATE community_profile SET public_visibility=true WHERE user_id=$1',[owner]);
++ await pool.query('UPDATE "user" SET "emailVerified"=false WHERE id=$1',[owner]);assert.equal((await publicRead()).status,404);await pool.query('UPDATE "user" SET "emailVerified"=true WHERE id=$1',[owner]);
+  const medals=createMedalApi({...f.deps,storage:{put:async()=>{},get:async()=>null,del:async()=>{}}});assert.equal((await medals('review',req(owner,{version:3,decision:'revoked',reason:'spoofed'}),medal)).status,403);assert.equal((await medals('review',req(reviewer,{version:3,decision:'revoked',reason:'withdrawn'}),medal)).status,200);
+  const revoked=await parsed(await publicRead());assert.deepEqual(revoked.selectedIds,['first-spark']);assert.deepEqual(revoked.medals,[]);assert.equal((await parsed(await api(req(owner)))).hiddenSelectionCount,1);
+  // Installed extension with flag off keeps old reads functional, hides medal IDs and never exposes claim fields.
+diff --git a/lib/community-moderation.test.ts b/lib/community-moderation.test.ts
+index 2af7eb89cef487c62cdd3176bc150f06d3d79e94..5be25eb413854212bbc48385c745911befdea4a5 100644
+--- a/lib/community-moderation.test.ts
++++ b/lib/community-moderation.test.ts
+@@ -1,3 +1,4 @@
++import { installProfilePublicationFixture } from "../tests/profile-publication-fixtures";
+ import assert from 'node:assert/strict';
+ import test from 'node:test';
+ import {readFile} from 'node:fs/promises';
+@@ -26,9 +27,9 @@ test('0014 moderation/report/appeal permissions, state, audits and races',{skip:
+  try{
+  await pool.query('CREATE TABLE "user"(id text PRIMARY KEY)');for(const name of [...achievementMigrations,'0010_community_medals','0013_community_comments'])await pool.query('BEGIN;'+await readFile(`migrations/${name}.up.sql`,'utf8')+'COMMIT;');
+  const up=await readFile('migrations/0014_community_moderation.up.sql','utf8'),down=await readFile('migrations/0014_community_moderation.down.sql','utf8');for(const sql of [up,down])await pool.query('BEGIN;'+sql+'COMMIT;');const legacy=randomUUID();await pool.query("INSERT INTO \"user\"(id) VALUES('legacy_user')");await pool.query("INSERT INTO community_comment(id,problem_key,user_id,request_id,body) VALUES($1,'arena:arena-mind-the-gap','legacy_user',$2,'Legacy discussion stays private until review')",[legacy,randomUUID()]);await pool.query('BEGIN;'+up+'COMMIT;');assert.equal((await pool.query('SELECT state FROM community_comment_review WHERE comment_id=$1',[legacy])).rows[0].state,'held');
+- const f=achievementFixtures(pool),owner=await f.user(),other=await f.user(),mod=await f.user(),reviewer=await f.user(),second=await f.user();await f.user('unverified');
++ await installProfilePublicationFixture(pool);const f=achievementFixtures(pool),owner=await f.user(),other=await f.user(),mod=await f.user(),reviewer=await f.user(),second=await f.user();await f.user('unverified');
+  for(const [id,r]of[[mod,'moderator'],[reviewer,'admin'],[second,'admin']])await pool.query('INSERT INTO community_staff(user_id,role,reason) VALUES($1,$2,\'fixture\')',[id,r]);
+- await pool.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role};GRANT SELECT,INSERT ON community_comment,community_report,community_moderation_appeal TO ${role};GRANT UPDATE(body,version,deleted_at) ON community_comment TO ${role};GRANT SELECT,INSERT,DELETE ON community_comment_like,community_comment_spam TO ${role};GRANT UPDATE(last_post) ON community_comment_spam TO ${role};GRANT SELECT,INSERT,UPDATE ON community_comment_limit,community_moderation_limit,community_content_limit TO ${role};GRANT SELECT ON community_comment_review,community_comment_evidence,community_thread_lock,community_moderation_audit,community_profile,authored_problem,authored_revision TO ${role};GRANT UPDATE(id) ON authored_problem TO ${role};GRANT EXECUTE ON FUNCTION community_staff_role_locked(text),community_thread_root(uuid),community_apply_content_policy(uuid,text,text,text[],text),community_moderation_decide(text,text,uuid,integer,integer,text,text,text) TO ${role}`);
++ await pool.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role}; GRANT SELECT(id,"emailVerified","profileSignupHandle","profileSignupPolicyVersion") ON "user" TO ${role};GRANT SELECT,INSERT ON community_comment,community_report,community_moderation_appeal TO ${role};GRANT UPDATE(body,version,deleted_at) ON community_comment TO ${role};GRANT SELECT,INSERT,DELETE ON community_comment_like,community_comment_spam TO ${role};GRANT UPDATE(last_post) ON community_comment_spam TO ${role};GRANT SELECT,INSERT,UPDATE ON community_comment_limit,community_moderation_limit,community_content_limit TO ${role};GRANT SELECT ON community_comment_review,community_comment_evidence,community_thread_lock,community_moderation_audit,community_profile,authored_problem,authored_revision TO ${role};GRANT UPDATE(id) ON authored_problem TO ${role};GRANT EXECUTE ON FUNCTION community_staff_role_locked(text),community_thread_root(uuid),community_apply_content_policy(uuid,text,text,text[],text),community_moderation_decide(text,text,uuid,integer,integer,text,text,text) TO ${role}`);
+  runtime=new Pool({connectionString:url,options:`-c search_path=${schema},public -c role=${role}`});const deps={...f.deps,pool:runtime,ip:()=> 'unknown',profiles:()=>true},comments=createCommentsApi({...deps,moderation:()=>true}),api=createModerationApi(deps);
+  const key='arena:arena-mind-the-gap',reset=()=>pool.query('DELETE FROM community_comment_limit;DELETE FROM community_moderation_limit;DELETE FROM community_content_limit');
+  const post=(who:string,text:string,parent:string|null=null,requestId:string=randomUUID())=>comments(req(who,{action:'create',key,parent,body:text,requestId}));
+@@ -55,7 +56,7 @@ test('0014 moderation/report/appeal permissions, state, audits and races',{skip:
+  assert.equal((await write(other,{...reportBody,role:'admin'},'reports')).status,400);
+  const closedReports=createModerationApi({...deps,commentsPublic:()=>false});assert.equal((await closedReports('reports',req(other,{...reportBody,requestId:randomUUID()}))).status,404);
+  await reset();const profileHandle=(await pool.query('SELECT handle FROM community_profile WHERE user_id=$1',[owner])).rows[0].handle;
+- await parsed(await write(other,{...reportBody,requestId:randomUUID(),subject:{kind:'profile',handle:profileHandle}},'reports'),201);await pool.query('UPDATE community_profile SET public_visibility=false WHERE user_id=$1',[owner]);assert.equal((await write(other,{...reportBody,requestId:randomUUID(),subject:{kind:'profile',handle:profileHandle}},'reports')).status,404);
++ await parsed(await write(other,{...reportBody,requestId:randomUUID(),subject:{kind:'profile',handle:profileHandle}},'reports'),201);await pool.query('UPDATE "user" SET "emailVerified"=false WHERE id=$1',[owner]);assert.equal((await write(other,{...reportBody,requestId:randomUUID(),subject:{kind:'profile',handle:profileHandle}},'reports')).status,404);
+  const p=await f.problem(owner);await parsed(await write(other,{...reportBody,requestId:randomUUID(),subject:{kind:'problem',key:'authored:'+p.id}},'reports'),201);await pool.query("UPDATE authored_problem SET state='draft' WHERE id=$1",[p.id]);assert.equal((await write(other,{...reportBody,requestId:randomUUID(),subject:{kind:'problem',key:'authored:'+p.id}},'reports')).status,404);
+  await reset();
+  assert.equal((await write(other,{action:'report',id:report,version:1,state:'triaged',reason:'forged role'})).status,403);
+diff --git a/lib/community-profile-media.test.ts b/lib/community-profile-media.test.ts
+index c6d1a20f932c2ba4ef0fb41b52a37589ec352b20..821f5167a068a512ab7c48bf16f646b45cef9bab 100644
+--- a/lib/community-profile-media.test.ts
++++ b/lib/community-profile-media.test.ts
+@@ -1,3 +1,4 @@
++import { installProfilePublicationFixture } from "../tests/profile-publication-fixtures";
+ import assert from "node:assert/strict";
+ import { randomUUID } from "node:crypto";
+ import { readFile } from "node:fs/promises";
+@@ -94,8 +95,9 @@ test("profile media lifecycle and privacy on disposable PostgreSQL", { skip: !ur
+   const up7 = await readFile("migrations/0007_community_profile.up.sql", "utf8");
+   const up = await readFile("migrations/0008_community_profile_media.up.sql", "utf8"), down = await readFile("migrations/0008_community_profile_media.down.sql", "utf8");
+   await setup.query(`BEGIN; ${up7} ${up} COMMIT;`);
+-  await setup.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role}; GRANT SELECT,INSERT,UPDATE ON community_profile,community_profile_media_limit TO ${role}; GRANT SELECT,INSERT,UPDATE,DELETE ON community_profile_media TO ${role}`);
+-  await setup.query("INSERT INTO community_profile(user_id,handle,display_name) VALUES('owner','owner_handle','Chosen'),('other','other_handle','Other chosen')");
++  await installProfilePublicationFixture(setup);
++  await setup.query(`GRANT SELECT(id,"emailVerified","profileSignupHandle","profileSignupPolicyVersion") ON "user" TO ${role}; GRANT USAGE ON SCHEMA ${schema} TO ${role}; GRANT SELECT,INSERT,UPDATE ON community_profile,community_profile_media_limit TO ${role}; GRANT SELECT,INSERT,UPDATE,DELETE ON community_profile_media TO ${role}`);
++  await setup.query("INSERT INTO community_profile(user_id,handle,display_name,publication_basis,publication_policy_version,publication_recorded_at) VALUES('owner','owner_handle','Chosen','legacy_acknowledgement','b1-v1',now()),('other','other_handle','Other chosen','legacy_acknowledgement','b1-v1',now())");
+   const objects = new Map<string, Uint8Array>();
+   let failPut = false, latePut = false, failDel = false, puts = 0;
+   let beforePut: (() => Promise<void>) | undefined;
+@@ -118,7 +120,7 @@ test("profile media lifecycle and privacy on disposable PostgreSQL", { skip: !ur
+   const image = (id: string, user = "guest") => apis[0]("image", request(undefined, user), id);
+   const reset = () => setup.query("TRUNCATE community_profile_media_limit");
+   t.beforeEach(async () => { await setup.query("TRUNCATE community_profile_media,community_profile_media_limit"); objects.clear(); failPut = latePut = failDel = false; puts = 0; beforePut = undefined;
+-    await setup.query("UPDATE community_profile SET public_visibility=false"); });
++    await setup.query('UPDATE "user" SET "emailVerified"=false'); });
+ 
+   await t.test("avatar crop metadata persists only normalized image bytes", async () => {
+     const response = await apis[0]("upload", request(png, "owner", { "X-Profile-Picture-Crop": JSON.stringify({ zoom: 2, horizontal: 100, vertical: 0 }) }), "avatar");
+@@ -145,9 +147,9 @@ test("profile media lifecycle and privacy on disposable PostgreSQL", { skip: !ur
+     const metadata = await sharp(Buffer.from(await ownerImage.arrayBuffer())).metadata();
+     assert.equal(metadata.width, 1600); assert.equal(metadata.height, 400); assert.equal(metadata.exif, undefined);
+     assert.equal((await image(bannerId)).status, 404); assert.equal((await image(bannerId, "other")).status, 404);
+-    await setup.query("UPDATE community_profile SET public_visibility=true WHERE user_id='owner'");
++    await setup.query(`UPDATE "user" SET "emailVerified"=true WHERE id='owner'`);
+     assert.equal((await image(bannerId)).status, 200);
+-    await setup.query("UPDATE community_profile SET public_visibility=false WHERE user_id='owner'");
++    await setup.query(`UPDATE "user" SET "emailVerified"=false WHERE id='owner'`);
+     assert.equal((await image(bannerId)).status, 404);
+     const removed = await apis[0]("remove", request(), "banner");
+     assert.equal(removed.status, 200); assert.equal((await removed.json()).media.banner, null);
+@@ -165,10 +167,10 @@ test("profile media lifecycle and privacy on disposable PostgreSQL", { skip: !ur
+     assert.match(ownerImage.headers.get("cache-control")!, /private.*no-store/);
+     assert.equal((await sharp(Buffer.from(await ownerImage.arrayBuffer())).metadata()).width, 512);
+     assert.equal((await apis[0]("metadata", request(undefined, "guest", {}, "?handle=owner_handle"))).status, 404);
+-    await setup.query("UPDATE community_profile SET public_visibility=true WHERE user_id='owner'");
++    await setup.query(`UPDATE "user" SET "emailVerified"=true WHERE id='owner'`);
+     assert.equal((await image(id)).status, 200);
+     assert.equal((await apis[0]("metadata", request(undefined, "guest", {}, "?handle=owner_handle"))).status, 200);
+-    await setup.query("UPDATE community_profile SET public_visibility=false WHERE user_id='owner'");
++    await setup.query(`UPDATE "user" SET "emailVerified"=false WHERE id='owner'`);
+     assert.equal((await image(id)).status, 404); assert.equal((await image(id, "owner")).status, 200);
+     const removed = await apis[0]("remove", request(), "avatar"); assert.equal(removed.status, 200);
+     assert.equal((await removed.json()).media.avatar, null); assert.equal((await image(id, "owner")).status, 404); assert.equal(objects.size, 0);
+diff --git a/lib/community-profile.test.ts b/lib/community-profile.test.ts
+index e370812bd4baa1badc3396915d95b007ad45cb2b..39c92e8fc9dcb2db7363a5778a5c8160120f27aa 100644
+--- a/lib/community-profile.test.ts
++++ b/lib/community-profile.test.ts
+@@ -1,3 +1,4 @@
++import { installProfilePublicationFixture } from "../tests/profile-publication-fixtures";
+ import assert from "node:assert/strict";
+ import { randomUUID } from "node:crypto";
+ import { readFile } from "node:fs/promises";
+@@ -19,7 +20,7 @@ test("profile validation normalizes handles, bounds Unicode text, and allows onl
+     { handle: "ada/slash" }, { handle: "ada\u0000" }, { handle: "ada\ud800" },
+     { bio: "x".repeat(501) }, { bio: "🙂".repeat(501) }, { bio: "\u0000" },
+     { displayName: "x".repeat(81) }, { displayName: "line\nbreak" },
+-    { educationLevel: "admin" }, { publicVisibility: "true" }, { publicVisibility: null },
++    { educationLevel: "admin" }, { publicVisibility: true }, { publicVisibility: "true" }, { publicVisibility: null },
+     { favoriteTopicIds: ["Mechanics"] }, { favoriteTopicIds: ["energy-conservation"] },
+     { favoriteTopicIds: ["mechanics", "mechanics"] }, { favoriteTopicIds: [null] },
+     ...reservedProfileHandles.map(handle => ({ handle: handle.toUpperCase() })),
+@@ -85,7 +86,9 @@ test("community profile API, constraints and migration on disposable PostgreSQL"
+     INSERT INTO "user" VALUES ('owner','PRIVATE_REAL_NAME','PRIVATE_EMAIL'),('other','OTHER_PRIVATE_NAME','OTHER_PRIVATE_EMAIL');
+     INSERT INTO "user" SELECT 'race'||i,'Private','private'||i FROM generate_series(0,20) i;`);
+   await setup.query(`BEGIN; ${up} COMMIT;`);
+-  await setup.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role};
++  await installProfilePublicationFixture(setup);
++  await setup.query(`GRANT SELECT(id,"emailVerified","profileSignupHandle","profileSignupPolicyVersion") ON "user" TO ${role};
++    GRANT USAGE ON SCHEMA ${schema} TO ${role};
+     GRANT SELECT,INSERT,UPDATE ON community_profile,community_profile_write_limit TO ${role}`);
+   const sessions = new Map([
+     ["owner", { id: "owner", emailVerified: true }], ["other", { id: "other", emailVerified: true }],
+@@ -128,23 +131,37 @@ test("community profile API, constraints and migration on disposable PostgreSQL"
+   });
+   await t.test("owner editing, explicit publishing, privacy opt-out and timestamps", async () => {
+     const created = (await (await own({ handle: "ada", displayName: "Chosen name" })).json()).profile;
+-    const response = await own({ displayName: "Edited", bio: "Physics\n🙂", educationLevel: "university", favoriteTopicIds: ["mechanics", "optics"], publicVisibility: true });
++    const response = await own({ displayName: "Edited", bio: "Physics\n🙂", educationLevel: "university", favoriteTopicIds: ["mechanics", "optics"] });
+     assert.equal(response.status, 200);
+     const edited = (await response.json()).profile;
+     assert.equal(edited.createdAt, created.createdAt);
+     assert.ok(new Date(edited.updatedAt) >= new Date(created.updatedAt));
++    await setup.query("UPDATE community_profile SET public_visibility=true WHERE user_id='owner'");
++    assert.equal((await lookup("ada")).status, 404, "legacy visibility cannot publish");
++    assert.equal((await own({ acknowledge: "b1-v0" })).status, 400);
++    assert.equal((await own({ acknowledge: "b1-v1" })).status, 200);
+     const visible = await instances[0]("public", request(undefined, "guest"), "ADA");
+     assert.deepEqual(await visible.json(), { profile: { handle: "ada", displayName: "Edited", bio: "Physics\n🙂", educationLevel: "university", favoriteTopicIds: ["mechanics", "optics"] } });
+     assert.match(visible.headers.get("cache-control")!, /private.*no-store/);
+     assert.equal(visible.headers.get("vary"), "Cookie");
+     assert.equal(visible.headers.get("x-content-type-options"), "nosniff");
+-    await own({ publicVisibility: false });
++    const [deactivation, acknowledgement, edit] = await Promise.all([
++      own({ deactivate: true }), own({ acknowledge: "b1-v1" }, "owner", 1), own({ bio: "Private edit" }),
++    ]);
++    assert.equal(deactivation.status, 200);
++    assert.ok([200, 409].includes(acknowledgement.status));
++    assert.equal(edit.status, 200);
++    assert.equal((await own({ deactivate: true })).status, 200);
++    const deactivated = (await (await own()).json()).profile;
++    assert.equal(deactivated.publicationState, "deactivated");
++    assert.equal(deactivated.bio, "Private edit");
+     const hidden = await lookup("ada"), missing = await lookup("missing");
+     assert.equal(hidden.status, 404);
+     assert.deepEqual(await hidden.json(), await missing.json());
+     assert.equal((await own({ handle: "ADA" })).status, 200);
+     assert.equal((await own({ handle: "renamed" })).status, 409);
+     assert.equal((await lookup("renamed")).status, 404);
++    await resetLimit();
+     assert.equal((await own({ favoriteTopicIds: physicsTopics.map(topic => topic.id) })).status, 200, "SQL accepts the full canonical topic registry");
+     assert.equal((await setup.query('SELECT name,email FROM "user" WHERE id=\'owner\'')).rows[0].name, "PRIVATE_REAL_NAME");
+   });
+@@ -193,9 +210,9 @@ test("community profile API, constraints and migration on disposable PostgreSQL"
+     assert.equal((await setup.query("SELECT requests FROM community_profile_write_limit WHERE user_id='owner'")).rows[0].requests, 1);
+   });
+   await t.test("invalid requests are bounded, counted and return nonleaking errors", async () => {
+-    for (const body of [{ handle: "ADMIN" }, { handle: "ab" }, { bio: "x".repeat(501) }, { favoriteTopicIds: ["fake"] }, { publicVisibility: "true" }])
++    for (const body of [{ handle: "ADMIN" }, { handle: "ab" }, { bio: "x".repeat(501) }, { favoriteTopicIds: ["fake"] }, { publicVisibility: true }, { publicVisibility: "true" }])
+       assert.equal((await own(body)).status, 400);
+-    assert.equal((await setup.query("SELECT requests FROM community_profile_write_limit WHERE user_id='owner'")).rows[0].requests, 5);
++    assert.equal((await setup.query("SELECT requests FROM community_profile_write_limit WHERE user_id='owner'")).rows[0].requests, 6);
+     assert.equal((await instances[0]("own", request({ handle: "valid" }, "owner", { "content-type": "text/plain" }))).status, 415);
+     const broken = request({}, "owner");
+     assert.equal((await instances[0]("own", new Request(broken.url, { method: "PATCH", headers: broken.headers, body: "{" }))).status, 400);
+diff --git a/lib/community/achievements-api.ts b/lib/community/achievements-api.ts
+index 5bc9aa49331bfa3b2bb4b55618bcaeb29d1f3026..be7e7559ef27540c9ad3d56d2666ec1c61db36a3 100644
+--- a/lib/community/achievements-api.ts
++++ b/lib/community/achievements-api.ts
+@@ -1,3 +1,4 @@
++import { publicProfileEligible } from "./profile-publication";
+ import "server-only";
+ import type { Pool, PoolClient } from "pg";
+ import { z } from "zod";
+@@ -62,19 +63,19 @@ export function createCommunityAchievementsApi(deps: Dependencies) {
+         // Never return identity or progress publicly. Resolve visibility and current eligibility in one snapshot.
+         const lookup = await client.query<{ badgeIds: BadgeId[] }>(`SELECT coalesce(s.badge_ids,'{}'::text[]) AS "badgeIds"
+           FROM community_profile p LEFT JOIN community_badge_selection s ON s.user_id=p.user_id
+-          WHERE lower(p.handle)=$1 AND p.public_visibility=true`, [parsedHandle!.data]);
++          WHERE lower(p.handle)=$1 AND ${publicProfileEligible("p")}`, [parsedHandle!.data]);
+         if (!lookup.rows[0]) throw new AchievementError(404, "Profile not found.");
+         let selectedIds: BadgeId[] = [];
+         if (lookup.rows[0].badgeIds.length) {
+           const result = await client.query<Snapshot>(`SELECT ${projection} FROM community_profile p
+             JOIN community_badge_selection s ON s.user_id=p.user_id
+             CROSS JOIN LATERAL community_achievement_progress(p.user_id) g
+-            WHERE lower(p.handle)=$1 AND p.public_visibility=true`, [parsedHandle!.data]);
++            WHERE lower(p.handle)=$1 AND ${publicProfileEligible("p")}`, [parsedHandle!.data]);
+           if (!result.rows[0]) throw new AchievementError(404, "Profile not found.");
+           selectedIds = active(result.rows[0]);
+         }
+         let medals:PublicMedal[]=[];
+-        if(medalsOn){medals=(await client.query<PublicMedal>(`SELECT m.id,m.competition,m.award,m.year,m.country,m."competitionName" FROM community_approved_medal m JOIN community_profile p ON p.user_id=m.user_id JOIN community_badge_selection s ON s.user_id=p.user_id WHERE lower(p.handle)=$1 AND p.public_visibility=true AND m.id=ANY(s.badge_ids)`,[parsedHandle!.data])).rows;selectedIds=lookup.rows[0].badgeIds.filter(id=>selectedIds.includes(id)||medals.some(m=>m.id===id));}
++        if(medalsOn){medals=(await client.query<PublicMedal>(`SELECT m.id,m.competition,m.award,m.year,m.country,m."competitionName" FROM community_approved_medal m JOIN community_profile p ON p.user_id=m.user_id JOIN community_badge_selection s ON s.user_id=p.user_id WHERE lower(p.handle)=$1 AND ${publicProfileEligible("p")} AND m.id=ANY(s.badge_ids)`,[parsedHandle!.data])).rows;selectedIds=lookup.rows[0].badgeIds.filter(id=>selectedIds.includes(id)||medals.some(m=>m.id===id));}
+         await client.query("COMMIT"); transaction = false;
+         return profileReply({ selectedIds,...(medalsOn?{medals}: {}) });
+       }
+diff --git a/lib/community/actions-api.ts b/lib/community/actions-api.ts
+index 5c8c7cea1e0fd557bd0be018454332655eddadeb..f935a73ddd241c4306e179485e1bd1fef3e6a747 100644
+--- a/lib/community/actions-api.ts
++++ b/lib/community/actions-api.ts
+@@ -1,3 +1,4 @@
++import { publicProfileEligible } from "./profile-publication";
+ import 'server-only';
+ import type { Pool, PoolClient } from 'pg';
+ import { z } from 'zod';
+@@ -72,7 +73,7 @@ export function createActionsApi(deps: Deps) {
+           } else {
+             if (input.by === 'handle') {
+               if (!deps.profiles?.()) throw new Fault(404, 'Public profile not found.');
+-              const row = (await c.query('SELECT user_id,handle FROM community_profile WHERE lower(handle)=$1 AND public_visibility=true', [id])).rows[0];
++              const row = (await c.query(`SELECT user_id,handle FROM community_profile cp WHERE lower(handle)=$1 AND ${publicProfileEligible("cp")}`, [id])).rows[0];
+               if (!row) throw new Fault(404, 'Public profile not found.');
+               id = row.user_id; label = '@' + row.handle;
+             }
+diff --git a/lib/community/comments-api.ts b/lib/community/comments-api.ts
+index 4d61c6d7c82f8eb56b3105c5783e10d4312bbf40..3774a3263ea8ee699b3719a51ebb6c162ef55d46 100644
+--- a/lib/community/comments-api.ts
++++ b/lib/community/comments-api.ts
+@@ -1,3 +1,4 @@
++import { publicProfileDisplayName, publicProfileEligible } from "./profile-publication";
+ import 'server-only';
+ import {createHash,randomUUID} from 'node:crypto';
+ import type {Pool,PoolClient} from 'pg';
+@@ -39,10 +40,10 @@ export function createCommentsApi(deps:Deps){
+     const query={text:`SELECT c.id,c.parent_id AS "parentId",CASE WHEN c.deleted_at IS NOT NULL THEN '' WHEN (${visible}) OR c.user_id=$2 THEN c.body ELSE '[Comment unavailable pending review]' END AS body,c.version,c.score::text,c.depth,c.created_at AS "createdAt",c.edited_at AS "editedAt",c.deleted_at IS NOT NULL AS deleted,
+      c.deleted_at IS NULL AND c.user_id=$2 AS owned,c.deleted_at IS NULL AND (${visible}) AND EXISTS(SELECT 1 FROM community_comment_like l WHERE l.comment_id=c.id AND l.user_id=$2) AS liked,
+      EXISTS(SELECT 1 FROM community_comment ch WHERE ch.problem_key=c.problem_key AND ch.parent_id=c.id) AS "hasReplies",
+-     ${profiles?`CASE WHEN c.deleted_at IS NULL AND (${visible}) AND cp.user_id IS NOT NULL THEN jsonb_build_object('handle',cp.handle,'displayName',cp.display_name) END`:"NULL::jsonb"} AS author,
+-     ${profiles?`CASE WHEN pc.deleted_at IS NULL AND ${moderated?"coalesce(pm.state,'held')='visible'":'true'} AND pp.user_id IS NOT NULL THEN jsonb_build_object('handle',pp.handle,'displayName',pp.display_name) END`:"NULL::jsonb"} AS "replyAuthor"
++     ${profiles?`CASE WHEN c.deleted_at IS NULL AND (${visible}) AND cp.user_id IS NOT NULL THEN jsonb_build_object('handle',cp.handle,'displayName',${publicProfileDisplayName("cp")}) END`:"NULL::jsonb"} AS author,
++     ${profiles?`CASE WHEN pc.deleted_at IS NULL AND ${moderated?"coalesce(pm.state,'held')='visible'":'true'} AND pp.user_id IS NOT NULL THEN jsonb_build_object('handle',pp.handle,'displayName',${publicProfileDisplayName("pp")}) END`:"NULL::jsonb"} AS "replyAuthor"
+      ${moderated?",coalesce(cm.state,'held') AS \"moderationState\",CASE WHEN c.user_id=$2 THEN cm.reason END AS \"moderationReason\"":''}
+-     FROM community_comment c ${moderated?'LEFT JOIN community_comment_review cm ON cm.comment_id=c.id':''} ${profiles?'LEFT JOIN community_profile cp ON cp.user_id=c.user_id AND cp.public_visibility=true LEFT JOIN community_comment pc ON pc.id=c.parent_id LEFT JOIN community_profile pp ON pp.user_id=pc.user_id AND pp.public_visibility=true':''} ${moderated&&profiles?'LEFT JOIN community_comment_review pm ON pm.comment_id=pc.id':''}
++     FROM community_comment c ${moderated?'LEFT JOIN community_comment_review cm ON cm.comment_id=c.id':''} ${profiles?`LEFT JOIN community_profile cp ON cp.user_id=c.user_id AND ${publicProfileEligible("cp")} LEFT JOIN community_comment pc ON pc.id=c.parent_id LEFT JOIN community_profile pp ON pp.user_id=pc.user_id AND ${publicProfileEligible("pp")}`:''} ${moderated&&profiles?'LEFT JOIN community_comment_review pm ON pm.comment_id=pc.id':''}
+      WHERE ${where.join(' AND ')} ORDER BY ${input.sort==='top'?'c.score DESC,':''}c.created_at DESC,c.id DESC LIMIT 21`,values,query_timeout:5000};
+     const {rows}=await c.query(query);const page=rows.slice(0,20),last=page.at(-1);
+     const nextCursor=rows.length>20?JSON.stringify({key:input.key,parent,sort:input.sort,score:last.score,created:new Date(last.createdAt).toISOString(),id:last.id}):null;
+diff --git a/lib/community/moderation-api.ts b/lib/community/moderation-api.ts
+index f5879c6a3a1ca21bfbba00416032b2439b5e9233..9ccb094df8cf6e50c80f5ec40b1e83f999c0b951 100644
+--- a/lib/community/moderation-api.ts
++++ b/lib/community/moderation-api.ts
+@@ -1,3 +1,4 @@
++import { publicProfileEligible } from "./profile-publication";
+ import 'server-only';
+ import {createHash,randomUUID} from 'node:crypto';
+ import type {Pool,PoolClient} from 'pg';
+@@ -48,7 +49,7 @@ export function createModerationApi(deps:Deps){
+   if(area==='reports'){const input=reportInput.parse(json),requestHash=createHash('sha256').update(JSON.stringify({subject:input.subject,reason:input.reason,details:input.details})).digest('hex');await charge('reports:'+user.id,121,1);
+    return await tx(async c=>{await c.query('SELECT pg_advisory_xact_lock(hashtextextended($1,14))',['community-report:'+user.id]);const old=(await c.query('SELECT id,request_hash,state FROM community_report WHERE reporter_id=$1 AND request_id=$2',[user.id,input.requestId])).rows[0];if(old){if(old.request_hash!==requestHash)throw new Fault(409,'Request reference already used.');return profileReply({id:old.id,state:old.state});}
+     let subjectKey:string;const subject=input.subject;
+-    if(subject.kind==='profile'){if(!deps.profiles?.())throw new Fault(404,'Subject not found.');const p=(await c.query('SELECT user_id FROM community_profile WHERE lower(handle)=$1 AND public_visibility=true',[subject.handle])).rows[0];if(!p)throw new Fault(404,'Subject not found.');subjectKey='profile:'+p.user_id;}
++    if(subject.kind==='profile'){if(!deps.profiles?.())throw new Fault(404,'Subject not found.');const p=(await c.query(`SELECT user_id FROM community_profile cp WHERE lower(handle)=$1 AND ${publicProfileEligible("cp")}`,[subject.handle])).rows[0];if(!p)throw new Fault(404,'Subject not found.');subjectKey='profile:'+p.user_id;}
+     else{if(subject.kind==='comment'&&deps.commentsPublic?.()===false)throw new Fault(404,'Subject not found.');await publication(c,subject.key);if(subject.kind==='comment'){const p=(await c.query(`SELECT c.id FROM community_comment c JOIN community_comment_review r ON r.comment_id=c.id WHERE c.id=$1 AND c.problem_key=$2 AND c.deleted_at IS NULL AND r.state='visible' FOR SHARE OF c`,[subject.id,subject.key])).rows[0];if(!p)throw new Fault(404,'Subject not found.');subjectKey='comment:'+subject.id;}else subjectKey='problem:'+subject.key;}
+     const id=randomUUID();await c.query('INSERT INTO community_report(id,reporter_id,request_id,subject,subject_key,reason,details,request_hash) VALUES($1,$2,$3,$4,$5,$6,$7,$8)',[id,user.id,input.requestId,JSON.stringify(subject),subjectKey,input.reason,input.details,requestHash]);return profileReply({id,state:'open'},201);
+    });
+diff --git a/lib/community/profile-api.ts b/lib/community/profile-api.ts
+index 7f3835d9d0a9f8b17e02084d1a871a691825ca66..f87577f89ba745da3de79a428aa9551418804e9e 100644
+--- a/lib/community/profile-api.ts
++++ b/lib/community/profile-api.ts
+@@ -2,7 +2,9 @@ import "server-only";
+ import type { Pool, PoolClient } from "pg";
+ import { z } from "zod";
+ import { readRequestBytes, RequestBodyTimeoutError } from "../submission-request";
+-import { profileHandleSchema, profilePatchSchema, profilePolicy, type CommunityProfile } from "./profile-contracts";
++import { profileHandleSchema, profileMutationSchema, profilePolicy, type CommunityProfile } from "./profile-contracts";
++
++import { publicProfileDisplayName, publicProfileEligible } from "./profile-publication";
+ 
+ export const profileHeaders = {
+   "Cache-Control": "private, no-store, max-age=0",
+@@ -20,9 +22,13 @@ type Dependencies = {
+ class ProfileError extends Error {
+   constructor(public status: number, message: string, public code?: string) { super(message); }
+ }
+-const columns = `user_id AS "userId",handle,display_name AS "displayName",bio,
+-  education_level AS "educationLevel",favorite_topic_ids AS "favoriteTopicIds",
+-  public_visibility AS "publicVisibility",created_at AS "createdAt",updated_at AS "updatedAt"`;
++const savedColumns = `user_id AS "userId",handle,display_name AS "displayName",bio,
++  education_level AS "educationLevel",favorite_topic_ids AS "favoriteTopicIds"`;
++const ownerColumns = `${savedColumns},created_at AS "createdAt",updated_at AS "updatedAt",
++  coalesce(${publicProfileEligible("cp")},false) AS "publicVisibility",
++  CASE WHEN deactivated_at IS NOT NULL THEN 'deactivated'
++    WHEN ${publicProfileEligible("cp")} THEN 'public'
++    WHEN publication_basis IS NOT NULL THEN 'pending' ELSE 'private' END AS "publicationState"`;
+ 
+ export function createCommunityProfileApi(deps: Dependencies) {
+   return async (action: ProfileAction, request: Request, handle?: string): Promise<Response> => {
+@@ -38,10 +44,10 @@ export function createCommunityProfileApi(deps: Dependencies) {
+         const parsed = profileHandleSchema.safeParse(handle);
+         if (!parsed.success || new URL(request.url).search)
+           throw new ProfileError(404, "Profile not found.");
+-        // Select only fields intentionally published by the profile owner. No identity joins.
+-        const { rows } = await deps.pool.query(`SELECT handle,display_name AS "displayName",bio,
++        // Project only the five public fields. Verification is a predicate, never projected.
++        const { rows } = await deps.pool.query(`SELECT handle,${publicProfileDisplayName("cp")} AS "displayName",bio,
+           education_level AS "educationLevel",favorite_topic_ids AS "favoriteTopicIds"
+-          FROM community_profile WHERE lower(handle)=$1 AND public_visibility=true`, [parsed.data]);
++          FROM community_profile cp WHERE lower(handle)=$1 AND ${publicProfileEligible("cp")}`, [parsed.data]);
+         if (!rows[0]) throw new ProfileError(404, "Profile not found.");
+         return reply({ profile: rows[0] });
+       }
+@@ -51,7 +57,7 @@ export function createCommunityProfileApi(deps: Dependencies) {
+         throw new ProfileError(409, "Your account changed. Reload the page before continuing.", "ACCOUNT_CHANGED");
+       if (new URL(request.url).search) throw new ProfileError(400, "Invalid profile request.");
+       if (request.method === "GET") {
+-        const { rows } = await deps.pool.query<CommunityProfile>(`SELECT ${columns} FROM community_profile WHERE user_id=$1`, [user.id]);
++        const { rows } = await deps.pool.query<CommunityProfile>(`SELECT ${ownerColumns} FROM community_profile cp WHERE user_id=$1`, [user.id]);
+         return reply({ profile: rows[0] ?? null });
+       }
+       if (request.method !== "PATCH") throw new ProfileError(405, "Method not allowed.");
+@@ -72,23 +78,43 @@ export function createCommunityProfileApi(deps: Dependencies) {
+       if (request.headers.get("content-type")?.split(";")[0].trim().toLowerCase() !== "application/json")
+         throw new ProfileError(415, "Send JSON.");
+       const bytes = await readRequestBytes(request, profilePolicy.maxBodyBytes, 5000);
+-      const patch = profilePatchSchema.parse(JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)));
++      const patch = profileMutationSchema.parse(JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)));
+       client = await deps.pool.connect();
+       await client.query("BEGIN"); transaction = true;
+       await client.query("SET LOCAL statement_timeout='10s'");
+       await client.query("SET LOCAL lock_timeout='5s'");
+       await client.query("SELECT pg_advisory_xact_lock(hashtextextended($1,7))", [`community-profile:${user.id}`]);
+-      const current = (await client.query<CommunityProfile>(`SELECT ${columns} FROM community_profile WHERE user_id=$1 FOR UPDATE`, [user.id])).rows.at(0);
+-      if (!current && !patch.handle) throw new ProfileError(400, "Choose a handle to create your profile.");
+-      if (current && patch.handle && patch.handle !== current.handle)
+-        throw new ProfileError(409, "Public handles cannot be renamed yet.");
+-      const next = { displayName: "", bio: "", educationLevel: "prefer-not-to-say", favoriteTopicIds: [], publicVisibility: false, ...current, ...patch };
+-      const values = [user.id, patch.handle ?? current?.handle, next.displayName, next.bio, next.educationLevel, next.favoriteTopicIds, next.publicVisibility];
+-      const result = current
+-        ? await client.query<CommunityProfile>(`UPDATE community_profile SET display_name=$3,bio=$4,education_level=$5,
+-          favorite_topic_ids=$6,public_visibility=$7 WHERE user_id=$1 AND handle=$2 RETURNING ${columns}`, values)
+-        : await client.query<CommunityProfile>(`INSERT INTO community_profile(user_id,handle,display_name,bio,education_level,favorite_topic_ids,public_visibility)
+-          VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING ${columns}`, values);
++      const current = (await client.query<CommunityProfile>(`SELECT ${ownerColumns}
++        FROM community_profile cp WHERE user_id=$1 FOR UPDATE`, [user.id])).rows.at(0);
++      if ("acknowledge" in patch) {
++        if (!current) throw new ProfileError(400, "Save your username before publishing.");
++        if (current.publicationState === "deactivated")
++          throw new ProfileError(409, "This profile has been deactivated.", "PROFILE_DEACTIVATED");
++        if (current.publicationState === "private") {
++          await client.query(`UPDATE community_profile
++            SET publication_basis='legacy_acknowledgement',publication_policy_version=$2,publication_recorded_at=clock_timestamp()
++            WHERE user_id=$1 AND publication_basis IS NULL AND deactivated_at IS NULL`, [user.id, patch.acknowledge]);
++        }
++      } else if ("deactivate" in patch) {
++        if (!current || current.publicationState === "private")
++          throw new ProfileError(400, "You have no public profile to deactivate.");
++        await client.query(`UPDATE community_profile SET deactivated_at=clock_timestamp()
++          WHERE user_id=$1 AND publication_basis IS NOT NULL AND deactivated_at IS NULL`, [user.id]);
++      } else {
++        if (!current && !patch.handle) throw new ProfileError(400, "Choose a username to create your profile.");
++        if (current && patch.handle && patch.handle !== current.handle)
++          throw new ProfileError(409, "Public usernames cannot be renamed.");
++        const next = { displayName: "", bio: "", educationLevel: "prefer-not-to-say", favoriteTopicIds: [], ...current, ...patch };
++        const values = [user.id, patch.handle ?? current?.handle, next.displayName, next.bio, next.educationLevel, next.favoriteTopicIds];
++        if (current) {
++          await client.query(`UPDATE community_profile SET display_name=$3,bio=$4,education_level=$5,
++            favorite_topic_ids=$6 WHERE user_id=$1 AND handle=$2`, values);
++        } else {
++          await client.query(`INSERT INTO community_profile(user_id,handle,display_name,bio,education_level,favorite_topic_ids)
++            VALUES($1,$2,$3,$4,$5,$6)`, values);
++        }
++      }
++      const result = await client.query<CommunityProfile>(`SELECT ${ownerColumns} FROM community_profile cp WHERE user_id=$1`, [user.id]);
+       await client.query("COMMIT"); transaction = false;
+       return reply({ profile: result.rows[0] }, current ? 200 : 201);
+     } catch (error) {
+diff --git a/lib/community/profile-client.ts b/lib/community/profile-client.ts
+index ab33919175a376c91e9eecb3b035de429cd54bfd..b62d3fccf54951d86ef6a3781e0398ac74774d8f 100644
+--- a/lib/community/profile-client.ts
++++ b/lib/community/profile-client.ts
+@@ -10,7 +10,7 @@ export const publicProfileSchema = z.strictObject({
+ });
+ export type PublicProfile = z.infer<typeof publicProfileSchema>;
+ export const ownProfileSchema = publicProfileSchema.extend({ userId: z.string(),
+-  publicVisibility: z.boolean(), createdAt: z.iso.datetime(), updatedAt: z.iso.datetime() });
++  publicVisibility: z.boolean(), publicationState: z.enum(["private", "pending", "public", "deactivated"]), createdAt: z.iso.datetime(), updatedAt: z.iso.datetime() });
+ export type OwnProfile = z.infer<typeof ownProfileSchema>;
+ export const ownProfileResponse = z.strictObject({ profile: ownProfileSchema.nullable() });
+ export const mediaResponse = z.strictObject({ media: profileMediaSetSchema, cleanupPending: z.boolean().optional() });
+@@ -20,6 +20,7 @@ export const educationLabels = {
+ export class ProfileRequestError extends Error {
+   constructor(public status: number, code?: string) {
+     super(code === "ACCOUNT_CHANGED" ? "Your account changed. Reload the page before continuing." : status === 401 ? "Sign in to continue." : status === 403 ? "Verify your email and try again from this site."
++      : code === "PROFILE_DEACTIVATED" ? "This public profile has been deactivated."
+       : status === 409 ? "That username is unavailable or cannot be changed."
+       : status === 429 ? "Too many changes. Wait a little before trying again."
+       : status === 413 ? "The selected image is too large."
+@@ -32,7 +33,7 @@ export async function profileRequest(path: string, init: RequestInit = {}) {
+     signal: init.signal ?? AbortSignal.timeout(20000) });
+   if (!response.ok) {
+     const body = response.status === 409 ? await response.json().catch(() => null) : null;
+-    throw new ProfileRequestError(response.status, body?.code === "ACCOUNT_CHANGED" ? "ACCOUNT_CHANGED" : undefined);
++    throw new ProfileRequestError(response.status, body?.code);
+   }
+   return response.json();
+ }
+diff --git a/lib/community/profile-contracts.ts b/lib/community/profile-contracts.ts
+index 1fdc4d211111478a3e5260041fea0235d1258037..fbf5433a7c1736d0fd7a1cde46e8cd14966ded48 100644
+--- a/lib/community/profile-contracts.ts
++++ b/lib/community/profile-contracts.ts
+@@ -1,6 +1,8 @@
+ import { z } from "zod";
+ import { physicsTopics } from "../physics-taxonomy";
+ 
++export const PROFILE_PUBLICATION_POLICY_VERSION = "b1-v1";
++
+ export const reservedProfileHandles = [
+   "admin", "administrator", "moderator", "mod", "physcratic", "support",
+   "root", "system", "api", "auth", "me", "profile", "profiles", "settings",
+@@ -24,9 +26,16 @@ export const profilePatchSchema = z.strictObject({
+   educationLevel: z.enum(profileEducationLevels).optional(),
+   favoriteTopicIds: z.array(z.enum(topicIds)).max(topicIds.length)
+     .refine(ids => new Set(ids).size === ids.length).optional(),
+-  publicVisibility: z.boolean().optional(),
+ }).refine(value => Object.keys(value).length > 0);
+ 
++export const profileMutationSchema = z.union([
++  profilePatchSchema,
++  z.strictObject({ acknowledge: z.literal(PROFILE_PUBLICATION_POLICY_VERSION) }),
++  z.strictObject({ deactivate: z.literal(true) }),
++]);
++
++export type ProfileMutation = z.infer<typeof profileMutationSchema>;
++
+ export interface CommunityProfile {
+   userId: string;
+   handle: string;
+@@ -35,6 +44,7 @@ export interface CommunityProfile {
+   educationLevel: ProfileEducationLevel;
+   favoriteTopicIds: ProfileTopicId[];
+   publicVisibility: boolean;
++  publicationState: "private" | "pending" | "public" | "deactivated";
+   createdAt: Date;
+   updatedAt: Date;
+ }
+diff --git a/lib/community/profile-media-api.ts b/lib/community/profile-media-api.ts
+index 80887b9cccd9ca3c14569c11d128067d551f908b..5211f54e8367ebfcc9f0627eb44c74d1a1be5f77 100644
+--- a/lib/community/profile-media-api.ts
++++ b/lib/community/profile-media-api.ts
+@@ -1,3 +1,4 @@
++import { publicProfileEligible } from "./profile-publication";
+ import "server-only";
+ import { randomUUID } from "node:crypto";
+ import type { Pool, PoolClient } from "pg";
+@@ -80,9 +81,16 @@ export function createProfileMediaApi(deps: Dependencies) {
+           if ([...params.keys()].length !== 1 || params.getAll("handle").length !== 1) throw new MediaError(404, "Profile not found.");
+           const handle = profileHandleSchema.safeParse(params.get("handle"));
+           if (!handle.success) throw new MediaError(404, "Profile not found.");
+-          const profile = await deps.pool.query("SELECT user_id FROM community_profile WHERE lower(handle)=$1 AND public_visibility=true", [handle.data]);
+-          if (!profile.rows[0]) throw new MediaError(404, "Profile not found.");
+-          return profileReply({ media: await media(profile.rows[0].user_id) });
++          const { rows } = await deps.pool.query<{ id: string | null; kind: ProfileMediaKind | null }>(
++            `SELECT m.id,m.kind FROM community_profile p LEFT JOIN community_profile_media m
++              ON m.user_id=p.user_id AND m.state='active'
++              WHERE lower(p.handle)=$1 AND ${publicProfileEligible("p")}`, [handle.data]);
++          if (!rows.length) throw new MediaError(404, "Profile not found.");
++          const images: ProfileMediaSet = { avatar: null, banner: null };
++          for (const { id, kind } of rows) {
++            if (id && kind) images[kind] = { id, url: `/api/community/profile-media/image/${id}` };
++          }
++          return profileReply({ media: images });
+         }
+         if (params.size) throw new MediaError(400, "Invalid image request.");
+       }
+@@ -92,7 +100,7 @@ export function createProfileMediaApi(deps: Dependencies) {
+         if (!id.success) throw new MediaError(404, "Image not found.");
+         const { rows } = await deps.pool.query(`SELECT m.pathname FROM community_profile_media m
+           JOIN community_profile p ON p.user_id=m.user_id WHERE m.id=$1 AND m.state='active'
+-          AND (p.public_visibility=true OR m.user_id=$2)`, [id.data, user?.id ?? null]);
++          AND (${publicProfileEligible("p")} OR m.user_id=$2)`, [id.data, user?.id ?? null]);
+         if (!rows[0]) throw new MediaError(404, "Image not found.");
+         const body = await deps.storage.get(rows[0].pathname);
+         if (!body) throw new MediaError(404, "Image not found.");
+diff --git a/lib/community/profile-publication.ts b/lib/community/profile-publication.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..680235ccd5543f181d5217bde11ebeb0a0cc87f5
+--- /dev/null
++++ b/lib/community/profile-publication.ts
+@@ -0,0 +1,21 @@
++import "server-only";
++import { PROFILE_PUBLICATION_POLICY_VERSION } from "./profile-contracts";
++
++// Alias names come only from static SQL in the server callers.
++export function publicProfileEligible(profile: "cp" | "p" | "pp") {
++  return `(${profile}.deactivated_at IS NULL
++    AND ${profile}.publication_recorded_at IS NOT NULL
++    AND ${profile}.publication_policy_version='${PROFILE_PUBLICATION_POLICY_VERSION}'
++    AND EXISTS (
++      SELECT 1 FROM "user" profile_account
++      WHERE profile_account.id=${profile}.user_id AND profile_account."emailVerified" IS TRUE
++        AND (${profile}.publication_basis='legacy_acknowledgement'
++          OR (${profile}.publication_basis='signup'
++            AND profile_account."profileSignupHandle"=${profile}.handle
++            AND profile_account."profileSignupPolicyVersion"=${profile}.publication_policy_version))
++    ))`;
++}
++
++export function publicProfileDisplayName(profile: "cp" | "pp") {
++  return `CASE WHEN ${profile}.display_name ~ '[^[:space:]]' THEN ${profile}.display_name ELSE ${profile}.handle END`;
++}
+diff --git a/lib/copy-rules.test.ts b/lib/copy-rules.test.ts
+index 3655d88036d6ddbe1ba432ec17ecae7ceafe432e..99e498dc6b5b3b67d3cfdd547205dd041809eeb4 100644
+--- a/lib/copy-rules.test.ts
++++ b/lib/copy-rules.test.ts
+@@ -186,12 +186,10 @@ describe("no banned words or joined clauses in the app", () => {
+ // Design rules: no separator glyph between words, one typeface for interface text, no wide-tracked uppercase labels.
+ // D2 removed every older offender except the one file below. A file may not go above its count, and may not stay above
+ // the real count either (fix one, lower the number).
+-// components/community/account-settings.tsx is pinned in scripts/activation/PACKAGE_SHA256SUMS, so an agent cannot edit it.
+-// It keeps one font-mono username input and one wide-tracked uppercase label until the owner re-pins the activation
+-// package with the fixed file. Remove both entries then.
++// The Settings page still has one wide-tracked uppercase label.
+ const DESIGN_BASELINE: Record<DesignFinding["rule"], Record<string, number>> = {
+   "separator glyph": {},
+-  "font-mono outside code and kbd": { "components/community/account-settings.tsx": 1 },
++  "font-mono outside code and kbd": {},
+   "uppercase with tracking": { "components/community/account-settings.tsx": 1 },
+ };
+ 
+diff --git a/lib/profile-signup.pg.test.ts b/lib/profile-signup.pg.test.ts
+index 230d7abb2b434d1433c6c2972281c641cd7cb889..589689e78afba483bbf7499b0412a18b2d46eece 100644
+--- a/lib/profile-signup.pg.test.ts
++++ b/lib/profile-signup.pg.test.ts
+@@ -6,6 +6,7 @@ import { betterAuth } from "better-auth";
+ import { Pool } from "pg";
+ import { createAuthOptions } from "./auth-config";
+ import { authEmailOutbox } from "./auth-email-transport";
++import { createCommunityProfileApi } from "./community/profile-api";
+ import { TERMS_VERSION } from "./terms";
+ 
+ const connection = process.env.AUTHORING_TEST_DATABASE_URL;
+@@ -66,6 +67,9 @@ test("atomic profile signup under the restricted PostgreSQL LOGIN", { skip: !con
+     has_table_privilege('public.community_profile', 'DELETE') AS profile_delete`)).rows[0],
+     { user_delete: false, profile_delete: false });
+ 
++  const profiles = createCommunityProfileApi({ pool, user: async () => null, origin: () => false });
++  const publicProfile = (handle: string) => profiles("public", new Request(origin + "/api/community/profile/" + handle), handle);
++
+   const pendingEmail: Promise<void>[] = [];
+   const build = (profileSignupEnabled = false) => betterAuth(createAuthOptions({
+     pool, profileSignupEnabled, defer: (task) => { pendingEmail.push(task()); },
+@@ -148,6 +152,7 @@ test("atomic profile signup under the restricted PostgreSQL LOGIN", { skip: !con
+     assert.ok(registered.credential);
+     assert.equal(registered.handle, "foucault_1");
+     assert.equal(registered.verified, false);
++    assert.equal((await publicProfile(registered.handle)).status, 404);
+     assert.equal(registered.display_name, "");
+     assert.equal(registered.public_visibility, false);
+     assert.deepEqual(await publication(registered.handle), {
+@@ -186,17 +191,28 @@ test("atomic profile signup under the restricted PostgreSQL LOGIN", { skip: !con
+     assert.deepEqual(await find("retry-link"), before);
+     assert.equal(await publication("different_handle"), undefined);
+   });
+-  await t.test("verification and session responses keep the private signup metadata out", async () => {
++  const verificationLink = async (label: string) => {
+     await Promise.all(pendingEmail);
+-    const mail = authEmailOutbox().find((message) => message.to === emailOf("registered"));
++    const mail = authEmailOutbox().find((message) => message.to === emailOf(label));
+     const url = mail?.text.match(/http:\/\/localhost:3000\/api\/auth\/verify-email\?\S+/)?.[0];
+     assert.ok(url);
++    return url;
++  };
++  await t.test("verification and session responses keep the private signup metadata out", async () => {
++    const url = await verificationLink("registered");
+     for (let attempt = 0; attempt < 2; attempt++) {
+       const verified = await corrected.handler(new Request(url, { redirect: "manual" }));
+       assert.equal(verified.status, 302);
+       await privateFieldsAbsent(verified);
+     }
+     assert.equal((await find("registered")).verified, true);
++    assert.deepEqual((await (await publicProfile("foucault_1")).json()).profile, {
++      handle: "foucault_1", displayName: "foucault_1", bio: "",
++      educationLevel: "prefer-not-to-say", favoriteTopicIds: [],
++    });
++    await schema.query(`UPDATE "user" SET "profileSignupPolicyVersion"='b1-v0' WHERE email=$1`, [emailOf("registered")]);
++    assert.equal((await publicProfile("foucault_1")).status, 404);
++    await schema.query(`UPDATE "user" SET "profileSignupPolicyVersion"='b1-v1' WHERE email=$1`, [emailOf("registered")]);
+     const signedIn = await corrected.handler(new Request(origin + "/api/auth/sign-in/email", {
+       method: "POST", headers: { origin, "content-type": "application/json" },
+       body: JSON.stringify({ email: emailOf("registered"), password }),
+@@ -226,6 +242,11 @@ test("atomic profile signup under the restricted PostgreSQL LOGIN", { skip: !con
+       WHERE handle='foucault_1'`), { code: "23514" });
+     await pool.query("UPDATE community_profile SET bio='A private edit' WHERE handle='foucault_1'");
+     assert.ok((await publication("foucault_1")).deactivated_at);
++    await schema.query(`UPDATE "user" SET "emailVerified"=false WHERE email=$1`, [emailOf("registered")]);
++    const verifiedAgain = await corrected.handler(new Request(await verificationLink("registered"), { redirect: "manual" }));
++    assert.equal(verifiedAgain.status, 302);
++    assert.equal((await find("registered")).verified, true);
++    assert.equal((await publicProfile("foucault_1")).status, 404);
+   });
+   await t.test("an existing profile can record only its first legacy acknowledgement", async () => {
+     await assert.rejects(pool.query(`UPDATE community_profile SET publication_basis='signup',
+diff --git a/lib/signup-policy.ts b/lib/signup-policy.ts
+index 9a7c2bb4880170e6524183e294b403634e314260..6b6338342bcbd35bac23e4207f6a2f257b7ecde7 100644
+--- a/lib/signup-policy.ts
++++ b/lib/signup-policy.ts
+@@ -1,11 +1,9 @@
+ import { APIError, createAuthMiddleware } from "better-auth/api";
+ import type { BetterAuthOptions } from "better-auth";
+ import { z } from "zod";
+-import { profileHandleSchema } from "./community/profile-contracts";
++import { PROFILE_PUBLICATION_POLICY_VERSION, profileHandleSchema } from "./community/profile-contracts";
+ import { getTermsAcceptance } from "./terms";
+ 
+-export const PROFILE_PUBLICATION_POLICY_VERSION = "b1-v1";
+-
+ const profileSignupInput = z.object({
+   username: profileHandleSchema,
+   profileDisclosureVersion: z.literal(PROFILE_PUBLICATION_POLICY_VERSION),
+diff --git a/lib/unified-arena-api.ts b/lib/unified-arena-api.ts
+index fd0f83a25843fe6567755d5ae2b7175016b1a64e..3718d53e56c369281fdcf1a2bdf812d5eb86118f 100644
+--- a/lib/unified-arena-api.ts
++++ b/lib/unified-arena-api.ts
+@@ -1,3 +1,4 @@
++import { publicProfileDisplayName, publicProfileEligible } from "./community/profile-publication";
+ import 'server-only';
+ import type { Pool } from 'pg';
+ import { authoredRating, createAuthoredLibraryApi } from './authored-library-api';
+@@ -53,8 +54,8 @@ export function createUnifiedArenaApi(pool:Pool, flags:()=>{authors:boolean;badg
+        // At most 24 publications, one batched snapshot. Never expose Better Auth identity.
+        // MATERIALIZED deduplicates authors before bounded achievement progress work.
+        const authorQuery={text:`WITH visible AS MATERIALIZED (
+-         SELECT p.id,cp.user_id,cp.handle,cp.display_name FROM authored_problem p
+-         JOIN community_profile cp ON cp.user_id=p.owner_id AND cp.public_visibility=true
++         SELECT p.id,cp.user_id,cp.handle,${publicProfileDisplayName("cp")} AS display_name FROM authored_problem p
++         JOIN community_profile cp ON cp.user_id=p.owner_id AND ${publicProfileEligible("cp")}
+          WHERE p.id=ANY($1::uuid[]) AND p.state='published'
+        ), authors AS MATERIALIZED (SELECT DISTINCT user_id,handle,display_name FROM visible),
+        badges AS MATERIALIZED (SELECT a.user_id,${enabled.badges?"coalesce(s.badge_ids,'{}'::text[]) AS ids,g.author_count,g.solve_count":"'{}'::text[] AS ids,0 AS author_count,NULL::integer AS solve_count"}
+diff --git a/lib/unified-arena.test.ts b/lib/unified-arena.test.ts
+index 60727dab2d24b21f82735888ca0c9d262411c7eb..e079a4bc3d94cd887aaedd28b69018557961e0d4 100644
+--- a/lib/unified-arena.test.ts
++++ b/lib/unified-arena.test.ts
+@@ -119,13 +119,13 @@ test('mixed collection paginates complete filtered discovery and respects live a
+  assert.equal((await list({difficulty:'1200-1599'})).problems.filter(p=>p.kind==='authored').length,24);assert.equal((await list({difficulty:'advanced'})).problems.filter(p=>p.kind==='authored').length,0);
+  // Publication/privacy changes between metadata discovery and author enrichment are rechecked.
+  let intercepted=false;
+- const racingPool={query:async(config:Parameters<Pool['query']>[0])=>{const result=await pool.query(config);if(!intercepted){intercepted=true;await pool.query('UPDATE community_profile SET public_visibility=false WHERE user_id=$1',[owner]);}return result;}} as unknown as Pool;
++ const racingPool={query:async(config:Parameters<Pool['query']>[0])=>{const result=await pool.query(config);if(!intercepted){intercepted=true;await pool.query('UPDATE "user" SET "emailVerified"=false WHERE id=$1',[owner]);}return result;}} as unknown as Pool;
+  const racing=createUnifiedArenaApi(racingPool,()=>({authors:true,badges:true,medals:false}));
+  const raced=await (await racing(new Request('https://test/?q=fixture'))).json();assert.ok(raced.problems.every((p:{author:unknown})=>p.author===null));
+- await pool.query('UPDATE community_profile SET public_visibility=true WHERE user_id=$1',[owner]);
++ await pool.query('UPDATE "user" SET "emailVerified"=true WHERE id=$1',[owner]);
+  const author=search.problems[0].author!;assert.equal(author.selectedIds.length,2);assert.ok(!JSON.stringify(search).includes(owner));
+- await pool.query('UPDATE community_profile SET public_visibility=false WHERE user_id=$1',[owner]);assert.ok((await list({q:'fixture'})).problems.every(p=>p.author===null));
+- await pool.query('UPDATE community_profile SET public_visibility=true WHERE user_id=$1',[owner]);
++ await pool.query('UPDATE "user" SET "emailVerified"=false WHERE id=$1',[owner]);assert.ok((await list({q:'fixture'})).problems.every(p=>p.author===null));
++ await pool.query('UPDATE "user" SET "emailVerified"=true WHERE id=$1',[owner]);
+  for(const p of items.slice(1))await pool.query("UPDATE authored_problem SET state='draft' WHERE id=$1",[p.id]);
+  const remaining=await list({q:'fixture'});assert.equal(remaining.problems.length,1);assert.deepEqual(remaining.problems[0].author!.selectedIds,['first-spark']);
+  // Missing optional medal migration degrades author metadata, never discovery or private details.
+diff --git a/scripts/activation/PACKAGE_SHA256SUMS b/scripts/activation/PACKAGE_SHA256SUMS
+index 43cbbbf30d14091461f78fa51fe79c23a55b82b0..1d1fedbd71d4ba18cf5a20832d0b2297044dc488 100644
+--- a/scripts/activation/PACKAGE_SHA256SUMS
++++ b/scripts/activation/PACKAGE_SHA256SUMS
+@@ -1,23 +1,23 @@
+ d973fa1492d2ee0384aa73daa97db049c792116024b4599a51e3bc18ed0b280a  components/community/problem-stats.tsx
+ e500b6874038affff13d5f6e49a1371b25f14cc8f6d2286a7d47ca7547a3682f  lib/community/problem-stats-api.ts
+ c4d20c3eaf492ecb25e58446bcb8b6c267846aea396556ece86cd09c34938220  lib/community-problem-stats.test.ts
+-323e42ceb2f3c0420d579ab40d24eca441a271df5aae85aa171d9e21cb9b596d  components/community/account-settings.tsx
++15a26861f3722bab02f26714d297f189fb770560516158fd96053302424aa87f  components/community/account-settings.tsx
+ 437766f98a3b09126b9822f47d76b61e8067a0db643edffbe591ed1660a222f0  components/community/profile-setup-prompt.tsx
+-a6c51aaf33c93a894e9dfe905d6a35c5e70c3e3dc3f2549c2219d6db80b250ee  lib/community/profile-api.ts
+-fc933fb0d98417297a462f35c688c0784d8ccff04710c9af6bede3bfac6e07e4  lib/community/profile-client.ts
+-ab4238606eed76da2b6e2500e64ff116e2583f03b4106c90fab6b60a648aedd7  lib/community-profile.test.ts
+-b7e1f923ebee372d6111368939a64ce567d5c71a35c8010b55c0b098a326e452  lib/authored-attribution.test.ts
++1a99c999c3c87197eb663375513b83554b1b8a5af612c62ac1ee5b47edd7fb05  lib/community/profile-api.ts
++456a52cec17c80f436a95758140cb662b4bf067b5583c66331e53a3da27449d3  lib/community/profile-client.ts
++308cc38bd433fdad5726c58ad983a5d36c0aba40ac5bf9397acbc5a060a3a053  lib/community-profile.test.ts
++7eab2fb96c9d6bd1f0157140316bf0a7ecc5f963d0c533b4fcc7fb9b87402411  lib/authored-attribution.test.ts
+ 575d05002eb1a6c7eeef47a48cdb5090e2a72adcdce6f49c5dbd2517518a5e39  scripts/activation/README.md
+ c5916632a41911a5a0d5789b9c85d29249240f22b4c3da287292444479c3bc21  scripts/activation/runtime-readonly.sql
+ 35f54eae8ae01c23ed62f9238f8bb2ec92ad6cf9c97239513e9d3baf8b925c9f  scripts/activation/favourites-grants.review.sql
+ ec8b59b652501014ec3f390b8fab7865ab51ecfa17581b68ff5b96c14215a1bd  scripts/activation/profiles-grants.review.sql
+-807f7c45342b508162aa44666bcb54758b1b05664f7f36a31fe98aa3100f0d19  scripts/activation/runtime.pg.test.ts
++6d1645bcef0e082b83a304c099a080a640c2c1e5098dfa7e858964a5d8d0b05d  scripts/activation/runtime.pg.test.ts
+ aa19c1098038372089fe7a6e09d6bb64e8331ee0eeb3c2673ed4570916f1cb7d  docs/engineering/POST_B6_ACTIVATION.md
+ 415d84d20f843609a19557ca6aa805559b401589a6bf82a475d1425918698772  docs/engineering/B6_RUNTIME_PERMISSIONS.md
+ 08c3a37d026bb0c767a1eb30cd330214a395d5892494dc7a2fbe602ac4f02ce6  docs/engineering/POST_B6_PROFILES_PRACTICE.md
+ bbd71b4648ab7eb81fe70fe9117ea335022a4c00acf6016acb65f1b800caad94  docs/engineering/POST_B6_RELEASE_REVIEW.md
+ 8d82dbaa3d2d8f01d5820904c3b294d131857d5d9b479300c35b563532a2a288  .github/workflows/ci.yml
+ a3f884947f09171f4b8d5948f1508777af6c7b64d7cacee4dc56fcd8b1fd08d2  .github/workflows/community-stats-browser.yml
+-6135d73565ac74607a4fc48759d730aac3fa4b720eaca821b8df77500d8b6d38  tests/community-profile.browser.mjs
++b73ef66d12271f4df6bdae56dfadec522af14482b90b0c822dd625f142aae5fe  tests/community-profile.browser.mjs
+ dcec5ac29b8a363fc2fd42742ffb7fce89e0a45522e4ffb25a505b5cfc7e28d2  scripts/activation/revoke-authored-problem-id.review.sql
+ 0d37e8eac968f00c0c41fef38b68386ee185aa09ef25a01459f38e311caee526  docs/engineering/PHASE_C_B1_OWNER_HANDOFF.md
+diff --git a/scripts/activation/runtime.pg.test.ts b/scripts/activation/runtime.pg.test.ts
+index 31f98671a5d6ef7a556484575876ccd73a25f179..0f764a50afe1d66c7d81620f9fba41b07beccbb2 100644
+--- a/scripts/activation/runtime.pg.test.ts
++++ b/scripts/activation/runtime.pg.test.ts
+@@ -113,6 +113,7 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
+    await check(await contests.POST(request('/api/contests/registration',a,{contestId:'synthetic-contest',registered:true})));
+   });
+   await t.test('text-profile consent and actual authorship routes with the LOGIN role',async()=>{
++   await setup!.query(await readFile("migrations/0022_b1_profile_signup.up.sql","utf8"));
+    await setup!.query((await readFile('scripts/activation/profiles-grants.review.sql','utf8')).replaceAll(':"runtime_role"',runtime));
+    process.env.COMMUNITY_PROFILES_ENABLED='true';
+    const profiles=await import('../../app/api/community/profile/route');
+@@ -126,7 +127,7 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
+    const publicProfile=await import('../../app/api/community/profile/[handle]/route');
+    const params={params:Promise.resolve({handle:'runtime_author'})};
+    await check(await publicProfile.GET(request(profile+'/runtime_author'),params),404);
+-   await check(await profiles.PATCH(request(profile,a,{publicVisibility:true},'synthetic-user-0','PATCH')));
++   await check(await profiles.PATCH(request(profile,a,{acknowledge:'b1-v1'},'synthetic-user-0','PATCH')));
+    const publicBody=await check(await publicProfile.GET(request(profile+'/runtime_author'),params));
+    assert.deepEqual(Object.keys(publicBody.profile).sort(),['bio','displayName','educationLevel','favoriteTopicIds','handle'].sort());
+    process.env.COMMUNITY_AUTHORSHIP_ENABLED='true';
+@@ -137,7 +138,7 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
+    const collection=await import('../../app/api/arena/collection/route');
+    const authors=async()=>check(await collection.GET(request('/api/arena/collection?q=Synthetic%20activation')));
+    assert.equal((await authors()).problems.find((p:{id:string})=>p.id===published.id).author.displayName,'Synthetic Public Name');
+-   await check(await profiles.PATCH(request(profile,a,{publicVisibility:false},'synthetic-user-0','PATCH')));
++   await check(await profiles.PATCH(request(profile,a,{deactivate:true},'synthetic-user-0','PATCH')));
+    await check(await publicProfile.GET(request(profile+'/runtime_author'),params),404);
+    assert.equal((await check(await attr())).author,null);
+    assert.equal((await authors()).problems.find((p:{id:string})=>p.id===published.id).author,null);
+diff --git a/scripts/runtime-role/PACKAGE_SHA256SUMS b/scripts/runtime-role/PACKAGE_SHA256SUMS
+index f432cc3367a8804d094135e1823cd3927eabb699..b4d8d7ac5ebcfbf3c6f3c35a9e372a67e7faf83c 100644
+--- a/scripts/runtime-role/PACKAGE_SHA256SUMS
++++ b/scripts/runtime-role/PACKAGE_SHA256SUMS
+@@ -6,7 +6,7 @@ bcb7eea9cda806604f25cf9b7b94e67c650fb087e28cbc89dd992ec5c1e87f5a  scripts/runtim
+ 710fee4ed2edbcc9e32eced2e301ecafdfa0d4a414f7dd474673be19148f546b  scripts/runtime-role/README.md
+ 4a3d82d3d093b1d70854440f72cb1222f4b86b478bf35f088340b134fea1e7e8  docs/engineering/PRODUCTION_RUNTIME_ROLE.md
+ 8d82dbaa3d2d8f01d5820904c3b294d131857d5d9b479300c35b563532a2a288  .github/workflows/ci.yml
+-fa6fb4ebce76b3ca674640fa61b807f1ba1e1b7ea4a1d9d4d6e8a6bbcf48de6b  scripts/activation/PACKAGE_SHA256SUMS
++5632277f11f12faae35577beda0dec6c92fc180997a7a6e27b32785784abc80c  scripts/activation/PACKAGE_SHA256SUMS
+ 37403bb94caac8d7c92776b9e6d17938eca520f06e2ad3e90133cdca2981f076  lib/db/index.ts
+ 8c02dcd6cffca7d59c979e6fd420a635fb747fd99c8ea6184821228e601f9c78  docs/engineering/RUNTIME_LOGIN_ATTESTATION.md
+ 6e7f95cca4b82628bc65e6450203445deca7cf8ca52fb6d229e64f8dbfca88e0  app/api/arena/collection/route.ts
+diff --git a/tests/auth-form.test.ts b/tests/auth-form.test.ts
+index 4dedbe7f8f6122d182bc1b6dfad2446c0d45130c..b32304b197f91bb80e9d8793b47c417905acf503 100644
+--- a/tests/auth-form.test.ts
++++ b/tests/auth-form.test.ts
+@@ -19,3 +19,15 @@ for (const mode of ["sign-up", "sign-in"] as const) {
+     assert.match(html, /type="password"[^>]*name="password"|name="password"[^>]*type="password"/);
+   });
+ }
++
++test("corrected signup explains public registration and keeps the account name private", () => {
++  const render = (enabled: boolean) => renderToStaticMarkup(createElement(AppRouterContext.Provider, { value: router },
++    createElement(AuthForm, { mode: "sign-up", returnTo: "/dashboard", publicProfileSignup: enabled })));
++  assert.doesNotMatch(render(false), /account-username|signup-profile-notice/);
++  const html = render(true);
++  assert.match(html, /Private account name/);
++  assert.match(html, /Public username/);
++  assert.match(html, /When you verify your email/);
++  assert.match(html, /name="username"/);
++  assert.match(html, /I agree to the Terms of Service/);
++});
+diff --git a/tests/authored-metadata.browser.mjs b/tests/authored-metadata.browser.mjs
+index dc78307a0c9073092bc326b41ed6a269826f30d1..16adecc504628793bad8506a469eebbf0a7d6e98 100644
+--- a/tests/authored-metadata.browser.mjs
++++ b/tests/authored-metadata.browser.mjs
+@@ -1,3 +1,4 @@
++import { installProfilePublicationFixture } from "./profile-publication-fixtures.ts";
+ // Actual StudentWorkspace and current-consent API projection on disposable PostgreSQL.
+ // Published statement/session fixtures are synthetic. No live providers or private user data.
+ import assert from 'node:assert/strict';
+@@ -11,7 +12,7 @@ import {execFileSync} from 'node:child_process';
+ import {Pool} from 'pg';
+ import {createAuthoredAttributionApi} from '../lib/authored-attribution-api.ts';
+ import {createAuthoredAttributionRoute} from '../lib/authored-attribution-route.ts';
+-async function noPublisher(page){await page.getByText(/^Published by /).waitFor({state:'hidden'});}
++async function noPublisher(page){await page.getByText(/^Published by (?!Community author$)/).waitFor({state:'hidden'});}
+ const require=createRequire(import.meta.url),external=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS||'/tmp/physcratic-editor-test','package.json'));
+ const {chromium}=external('playwright'),{default:AxeBuilder}=external('@axe-core/playwright'),{build}=createRequire(require.resolve('tsx'))('esbuild');
+ const target=new URL(process.env.AUTHORING_TEST_DATABASE_URL||'http://invalid');assert.equal(target.hostname,'127.0.0.1');assert.equal(target.pathname,'/physcratic_authoring_test');
+@@ -23,12 +24,14 @@ let revision={id:randomUUID(),problemId,number:1,schemaVersion:1,publishedAt:new
+ let browser,server,origin,enabled=true,unavailable=false,holdNext=false,releaseHeld,published=true,checks=0;
+ const errors=[];
+ const route=createAuthoredAttributionRoute(()=>enabled,async()=>({authoredAttributionApi:createAuthoredAttributionApi(pool)}));
+-async function visibility(value,name='Public Author'){await pool.query('UPDATE community_profile SET public_visibility=$1,display_name=$2',[value,name]);}
++async function visibility(value,name='Public Author'){await pool.query('UPDATE "user" SET "emailVerified"=$1',[value]);await pool.query('UPDATE community_profile SET display_name=$1',[name]);}
+ async function focus(page){await page.bringToFront();await page.evaluate(()=>window.dispatchEvent(new Event('focus')));}
+ async function text(page,value){await page.getByText(value,{exact:true}).waitFor();}
+ try{
+- await pool.query('CREATE TABLE authored_problem(id uuid PRIMARY KEY,owner_id text,state text,published_revision_id uuid); CREATE TABLE authored_revision(id uuid PRIMARY KEY,problem_id uuid); CREATE TABLE community_profile(user_id text PRIMARY KEY,display_name text,public_visibility boolean,bio text)');
+- await pool.query('INSERT INTO authored_problem VALUES($1,$2,$3,$4)',[problemId,'PRIVATE_OWNER_ID','published',revision.id]);await pool.query('INSERT INTO authored_revision VALUES($1,$2)',[revision.id,problemId]);await pool.query("INSERT INTO community_profile VALUES('PRIVATE_OWNER_ID','Public Author',true,'PRIVATE_BIO')");
++ await pool.query('CREATE TABLE authored_problem(id uuid PRIMARY KEY,owner_id text,state text,published_revision_id uuid); CREATE TABLE authored_revision(id uuid PRIMARY KEY,problem_id uuid); CREATE TABLE "user"(id text PRIMARY KEY)');
++ await pool.query(await readFile('migrations/0007_community_profile.up.sql','utf8'));await installProfilePublicationFixture(pool);
++ await pool.query(`INSERT INTO "user"(id) VALUES('PRIVATE_OWNER_ID')`);
++ await pool.query('INSERT INTO authored_problem VALUES($1,$2,$3,$4)',[problemId,'PRIVATE_OWNER_ID','published',revision.id]);await pool.query('INSERT INTO authored_revision VALUES($1,$2)',[revision.id,problemId]);await pool.query("INSERT INTO community_profile(user_id,handle,display_name,bio,publication_basis,publication_policy_version,publication_recorded_at) VALUES('PRIVATE_OWNER_ID','public_author','Public Author','PRIVATE_BIO','legacy_acknowledgement','b1-v1',now())");
+  const built=await build({entryPoints:['tests/authored-student-harness.tsx'],outdir:temp,entryNames:'bundle',chunkNames:'lazy-[name]-[hash]',bundle:true,splitting:true,metafile:true,format:'esm',platform:'browser',jsx:'automatic',alias:{'@':process.cwd()},define:{'process.env.NODE_ENV':'"development"','process.env':'{}'},logLevel:'silent'});
+  const assets=new Set(Object.keys(built.metafile.outputs).map(p=>'/'+basename(p)));execFileSync('node_modules/.bin/tailwindcss',['-i','app/globals.css','-o',join(temp,'style.css')],{stdio:'pipe'});
+  server=createServer(async(req,res)=>{try{
+diff --git a/tests/community-achievement-fixtures.ts b/tests/community-achievement-fixtures.ts
+index ce406cc0193e9407a89ef7d0c267d51d854b5bec..68ab1922856d220dcca77f42af9baeaca8cda3a4 100644
+--- a/tests/community-achievement-fixtures.ts
++++ b/tests/community-achievement-fixtures.ts
+@@ -1,3 +1,4 @@
++import { installProfilePublicationFixture } from "./profile-publication-fixtures";
+ import assert from "node:assert/strict";
+ import { randomUUID } from "node:crypto";
+ import { readFile } from "node:fs/promises";
+@@ -12,6 +13,7 @@ export async function installAchievementFixtures(pool: Pool, { userTableExists =
+   if (!userTableExists) await pool.query('CREATE TABLE "user"(id text PRIMARY KEY)');
+   for (const name of [...achievementMigrations, "0009_community_achievements"])
+     await pool.query(`BEGIN; ${await readFile(`migrations/${name}.up.sql`, "utf8")} COMMIT;`);
++  await installProfilePublicationFixture(pool);
+ }
+ export const achievementRequest = (who?: string, body?: unknown, method = body === undefined ? "GET" : "POST", path = "/api") => new Request(`https://physcratic.test${path}`, {
+   method, headers: { origin: "https://physcratic.test", "content-type": "application/json", ...(who ? { "x-test-user": who } : {}) },
+@@ -28,8 +30,8 @@ export function achievementFixtures(pool: Pool) {
+   const solutions = createAuthoredSolutionApi({ ...deps, storage: { get: async () => null } });
+   const text = (value: string) => ({ id: randomUUID(), kind: "text" as const, spans: [{ kind: "text" as const, text: value }] });
+   async function user(id: string = randomUUID(), profile = true) {
+-    await pool.query('INSERT INTO "user" VALUES($1)', [id]);
+-    if (profile) await pool.query("INSERT INTO community_profile(user_id,handle,public_visibility) VALUES($1,$2,true)", [id, `u_${id.replaceAll("-", "").slice(0, 18)}`]);
++    await pool.query('INSERT INTO "user"(id) VALUES($1)', [id]);
++    if (profile) await pool.query("INSERT INTO community_profile(user_id,handle,publication_basis,publication_policy_version,publication_recorded_at) VALUES($1,$2,'legacy_acknowledgement','b1-v1',clock_timestamp())", [id, `u_${id.replaceAll("-", "").slice(0, 18)}`]);
+     return id;
+   }
+   async function problem(owner: string, modes: ("numeric" | "expression" | "manual")[] = ["numeric"], publish = true, estimatedDifficulty = "1200") {
+diff --git a/tests/community-achievements.browser.mjs b/tests/community-achievements.browser.mjs
+index be0e3abffed605190e0d502896fff00638c597eb..4fd2743f3d104e8fe6ca2fc2ebd6bce518985804 100644
+--- a/tests/community-achievements.browser.mjs
++++ b/tests/community-achievements.browser.mjs
+@@ -73,7 +73,7 @@ try {
+   check(await page.getByLabel("Achievement showcase").locator("summary").allTextContents(),["Problem Weaver","First Spark"],"public showcase");
+   check((await new AxeBuilder({page}).analyze()).violations,[],"public axe");await page.screenshot({path:join(temp,"profile-mobile.png"),fullPage:true});
+   await pool.query("UPDATE authored_problem SET state='archived',published_revision_id=NULL WHERE owner_id='owner'");await page.reload();await page.getByRole("article",{name:"Public profile"}).waitFor();check(await page.getByLabel("Achievement showcase").count(),0,"live eligibility revocation");
+-  await pool.query("UPDATE community_profile SET public_visibility=false WHERE user_id='owner'");await page.reload();await page.getByRole("heading",{name:"Profile not found"}).waitFor();
++  await pool.query(`UPDATE "user" SET "emailVerified"=false WHERE id='owner'`);await page.reload();await page.getByRole("heading",{name:"Profile not found"}).waitFor();
+   await context.addCookies([{name:"test_user",value:"owner",url:origin}]);fail=true;await page.goto(`${origin}/settings`);await page.getByText("Achievements could not be loaded.",{exact:false}).waitFor();check(await page.getByText("PRIVATE_ERROR").count(),0,"generic error");
+   fail=false;await page.getByRole("button",{name:"Reload achievements"}).click();await page.getByText("Locked, 0/1",{exact:true}).waitFor();
+   flags.achievements=false;requests.length=0;await page.reload();await page.getByRole("heading",{name:"Appearance",exact:true}).waitFor();check(await page.getByRole("heading",{name:"Achievements",exact:true}).count(),0,"off UI");check(requests.includes("/api/community/achievements"),false,"off no query");
+diff --git a/tests/community-profile-harness.tsx b/tests/community-profile-harness.tsx
+index 5e2b08a5e29beaae4a8af36a1971837e792e190f..1a90388361bb480969ef23827308527d8560cabf 100644
+--- a/tests/community-profile-harness.tsx
++++ b/tests/community-profile-harness.tsx
+@@ -1,3 +1,5 @@
++import { AppRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
++import { AuthForm } from "../components/auth-form";
+ import React, { useEffect, useState } from "react";
+ import { createRoot } from "react-dom/client";
+ import { ThemeProvider } from "../components/theme-provider";
+@@ -34,8 +36,9 @@ function PublicHarness({ handle }: { handle: string }) {
+   if (failed) return <ProfileNotFound />;
+   return <main className="mx-auto max-w-3xl p-5">{profile ? <ProfileCard profile={profile} media={images} badgeIds={badgeIds} medals={medals} /> : <p role="status">Loading profile…</p>}</main>;
+ }
++const router = { back() {}, forward() {}, refresh() {}, hmrRefresh() {}, push() {}, replace() {}, prefetch() {} };
+ const handle = location.pathname.match(/^\/u\/([^/]+)$/)?.[1];
+ createRoot(document.getElementById("root")!).render(<React.StrictMode><ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+-  {location.pathname==="/admin/verification"?<main className="mx-auto max-w-6xl p-5 [--border:240_5%_46%]"><h1 className="mb-6 text-3xl">Medal verification</h1><VerificationDashboard/></main>:handle ? <PublicHarness handle={handle} /> : location.pathname === "/settings" ? <AccountSettings profilesEnabled={flags.profiles} mediaEnabled={flags.media} achievementsEnabled={flags.achievements} verificationEnabled={flags.verification} onboarding={location.search.includes("onboarding=1")} />
++  {location.pathname === "/sign-up" ? <AppRouterContext.Provider value={router}><AuthForm mode="sign-up" returnTo="/dashboard" publicProfileSignup={flags.profiles} /></AppRouterContext.Provider> : location.pathname==="/admin/verification"?<main className="mx-auto max-w-6xl p-5 [--border:240_5%_46%]"><h1 className="mb-6 text-3xl">Medal verification</h1><VerificationDashboard/></main>:handle ? <PublicHarness handle={handle} /> : location.pathname === "/settings" ? <AccountSettings profilesEnabled={flags.profiles} mediaEnabled={flags.media} achievementsEnabled={flags.achievements} verificationEnabled={flags.verification} onboarding={location.search.includes("onboarding=1")} />
+     : <main className="mx-auto max-w-5xl p-5"><h1 className="mb-6 text-2xl">Physcratic Arena</h1>{flags.profiles && <ProfileSetupPrompt />}</main>}
+ </ThemeProvider></React.StrictMode>);
+diff --git a/tests/community-profile.browser.mjs b/tests/community-profile.browser.mjs
+index d7d1b41104ec7ac538f9e4190311e4614d97686f..977df3cf11ef5600a46595e4be302658c24867cc 100644
+--- a/tests/community-profile.browser.mjs
++++ b/tests/community-profile.browser.mjs
+@@ -1,3 +1,4 @@
++import { installProfilePublicationFixture } from "./profile-publication-fixtures.ts";
+ // Real UI + production API factories, disposable PostgreSQL and an in-memory private Blob boundary.
+ import assert from "node:assert/strict";
+ import { randomUUID } from "node:crypto";
+@@ -50,9 +51,10 @@ try {
+   await pool.query(`CREATE TABLE "user"(id text PRIMARY KEY); INSERT INTO "user" VALUES('owner'),('other')`);
+   for (const name of ["0007_community_profile", "0008_community_profile_media"])
+     await pool.query(`BEGIN; ${await readFile(`migrations/${name}.up.sql`, "utf8")} COMMIT;`);
++  await installProfilePublicationFixture(pool);
+   await build({ entryPoints: ["tests/community-profile-harness.tsx"], outfile: join(temp,"bundle.js"), bundle: true,
+     platform: "browser", jsx: "automatic", alias: { "@": process.cwd() },
+-    define: { "process.env.NODE_ENV": '"development"', "process.env": "{}" }, logLevel: "silent" });
++    define: { "process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY": '"synthetic-site-key"', "process.env.NODE_ENV": '"development"', "process.env": "{}" }, logLevel: "silent" });
+   execFileSync("node_modules/.bin/tailwindcss", ["-i","app/globals.css","-o",join(temp,"style.css")], { stdio: "pipe" });
+   const bundle = await readFile(join(temp,"bundle.js"),"utf8");
+   for (const privateName of ["community_profile_media_limit", "createProfileMediaApi", "PRIVATE_STORAGE_SENTINEL", "COMMUNITY_PROFILE_BLOB_STORE_ID"])
+@@ -114,7 +116,7 @@ try {
+     await page.goto(`${origin}/settings?onboarding=1`);
+     await page.getByLabel("Permanent username").waitFor();
+     check(requests.filter(r=>r.path==="/api/community/profile"&&r.method==="GET").every(r=>r.accountId==="owner"),true,"own editor GETs carry the account header");
+-    check(await page.getByLabel("Make my profile public").isChecked(),false,"new profile stays private");
++    check(await page.getByLabel("Make my profile public").count(),0,"new profile stays private");
+     await page.getByLabel("Permanent username").fill("guard_owner");
+     await page.getByLabel("Display name",{exact:true}).fill("Owner draft");
+     // Change only the cookie, leaving the visible session/form as owner.
+@@ -142,11 +144,10 @@ try {
+     const guest = await browser.newContext();
+     try {
+       check((await guest.request.get(`${origin}/api/community/profile/guard_owner`)).status(),404);
+-      await page.getByLabel("Make my profile public").check();
+       const published = ownResponse("PATCH");
+-      await page.getByRole("button",{name:"Save changes",exact:true}).click();
++      await page.getByRole("button",{name:"Acknowledge and publish",exact:true}).click();
+       check((await published).status(),200,"explicit visibility change is committed");
+-      await waitText("Profile saved.");
++      await waitText("Public profile published.");
+       const publicProfile = await guest.request.get(`${origin}/api/community/profile/guard_owner`);
+       check(publicProfile.status(),200,"public projection needs no private account header");
+       check(Object.keys((await publicProfile.json()).profile).sort(),["bio","displayName","educationLevel","favoriteTopicIds","handle"].sort());
+@@ -154,13 +155,52 @@ try {
+     check(errors,[],"no unhandled browser errors");
+     console.log(`Community profile account-header browser: ${assertions} assertions passed.`);
+   } else {
++  // Browser transport is synthetic. The actual Better Auth transaction and email verification
++  // are tested in lib/profile-signup.pg.test.ts against the restricted PostgreSQL LOGIN.
++  const registration = await browser.newContext();
++  await registration.addInitScript(() => {
++    window.grecaptcha = { ready: callback => callback(), execute: async () => "synthetic-browser-token" };
++  });
++  const signupPage = await registration.newPage();
++  try {
++    for (const width of [1440,375]) {
++      let attempts = 0;
++      await signupPage.route("**/api/auth/sign-up/email", async route => {
++        attempts++;
++        const sent = route.request();
++        check(sent.headers()["x-captcha-response"], "synthetic-browser-token");
++        const body = sent.postDataJSON();
++        check(body.username, attempts === 1 ? "taken_username" : "new_username");
++        check(body.profileDisclosureVersion, "b1-v1");
++        check(body.termsAccepted, true);
++        await route.fulfill(attempts === 1
++          ? { status:422,json:{code:"FAILED_TO_CREATE_USER",message:"Unable to create user"} }
++          : { status:200,json:{token:null,user:{}} });
++      });
++      await signupPage.setViewportSize({width,height:900});
++      await signupPage.goto(`${origin}/sign-up`);
++      await signupPage.getByLabel("Private account name").fill("Private Test Name");
++      await signupPage.getByLabel("Public username").fill("taken_username");
++      await signupPage.getByLabel("Email",{exact:true}).fill("new@example.invalid");
++      await signupPage.getByLabel("Password",{exact:true}).fill("synthetic-password-123");
++      await signupPage.getByRole("checkbox",{name:"I agree to the Terms of Service."}).check();
++      await signupPage.getByRole("button",{name:"Create account",exact:true}).click();
++      await signupPage.getByRole("alert").filter({hasText:"Try a different username"}).waitFor();
++      check(await signupPage.getByLabel("Private account name").inputValue(),"Private Test Name");
++      await signupPage.getByLabel("Public username").fill("new_username");
++      await signupPage.getByRole("button",{name:"Create account",exact:true}).click();
++      await signupPage.getByText("Check your email",{exact:true}).waitFor();
++      check(await signupPage.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
++      await signupPage.unroute("**/api/auth/sign-up/email");
++    }
++  } finally { await registration.close(); }
+   await page.goto(`${origin}/dashboard`);await page.getByRole("heading",{name:"Set up your community profile"}).waitFor();
+   await page.getByRole("button",{name:"Skip for now",exact:true}).click();await page.reload();
+   check(await page.getByRole("heading",{name:"Set up your community profile"}).count(),0,"dismissal survives reload");
+   check((await pool.query("SELECT count(*)::int n FROM community_profile")).rows[0].n,0,"skip creates no profile");
+   await page.goto(`${origin}/settings?onboarding=1`);await page.getByLabel("Permanent username").waitFor();
+-  check(await page.getByLabel("Make my profile public").isChecked(),false);
+-  check(await page.getByLabel("Display name",{exact:true}).inputValue(),"PRIVATE_ACCOUNT_NAME","new profiles prefill the account name without publishing it");
++  check(await page.getByLabel("Make my profile public").count(),0);
++  check(await page.getByLabel("Display name",{exact:true}).inputValue(),"","profile names never default to private account identity");
+   check((await pool.query("SELECT count(*)::int n FROM community_profile")).rows[0].n,0,"prefilling the owner preview creates no stored or public profile");
+   await page.getByLabel("Display name",{exact:true}).fill("Nadir Physics");await page.getByLabel("Permanent username").fill("Nadir_Physics");
+   await page.getByLabel("Biography",{exact:true}).fill("Exploring mechanics and light.");
+@@ -168,8 +208,9 @@ try {
+   await page.getByRole("region",{name:"Profile"}).getByRole("button",{name:"Create profile"}).click();await waitText("Profile saved.");
+   check(await page.getByLabel("Permanent username").inputValue(),"nadir_physics");check(await page.getByLabel("Permanent username").isEditable(),false);
+   await page.reload();await page.getByLabel("Permanent username").waitFor();check(await page.getByLabel("Display name",{exact:true}).inputValue(),"Nadir Physics");
+-  await page.getByLabel("Display name",{exact:true}).fill("Nadir Updated");await page.getByLabel("Make my profile public").check();
++  await page.getByLabel("Display name",{exact:true}).fill("Nadir Updated");
+   await page.getByRole("button",{name:"Save changes",exact:true}).click();await waitText("Profile saved.");
++  await page.getByRole("button",{name:"Acknowledge and publish"}).click();await waitText("Public profile published.");
+   const avatar = page.locator("#avatar-file");await avatar.waitFor();
+   await avatar.setInputFiles({name:"photo.png",mimeType:"image/png",buffer:png});await page.getByRole("button",{name:"Save picture",exact:true}).click();await waitText("Profile image saved.");
+   const firstId = (await context.request.get(`${origin}/api/community/profile-media`).then(r=>r.json())).media.avatar.id;
+@@ -182,8 +223,11 @@ try {
+   await avatar.setInputFiles({name:"replace.jpg",mimeType:"image/jpeg",buffer:replacement});await page.getByRole("button",{name:"Save picture",exact:true}).click();await waitText("Profile image saved.");
+   check((await guest.request.get(`${origin}/api/community/profile-media/image/${firstId}`)).status(),404,"old media IDs are revoked");
+   const activeId = (await context.request.get(`${origin}/api/community/profile-media`).then(r=>r.json())).media.avatar.id;
+-  await page.getByLabel("Make my profile public").uncheck();await page.getByRole("button",{name:"Save changes",exact:true}).click();await waitText("Profile saved.");
++  await page.setViewportSize({width:375,height:900});
++  await page.getByRole("button",{name:"Deactivate public profile"}).click();await page.getByRole("button",{name:"Confirm deactivation"}).click();await waitText("Public profile deactivated.");
++  await page.setViewportSize({width:1440,height:1000});
+   await guestPage.reload();await guestPage.getByRole("heading",{name:"Profile not found",exact:true}).waitFor();
++  check((await guest.request.get(`${origin}/api/community/profile-media?handle=nadir_physics`)).status(),404,"deactivation revokes public media metadata");
+   check((await guest.request.get(`${origin}/api/community/profile-media/image/${activeId}`)).status(),404,"private transition revokes guest image reads");
+   check((await context.request.get(`${origin}/api/community/profile-media/image/${activeId}`)).status(),200,"owner preview remains authorized");
+   await page.getByRole("button",{name:"Remove picture",exact:true}).click();await waitText("Profile image removed.");
+diff --git a/tests/community-verification.browser.mjs b/tests/community-verification.browser.mjs
+index 765a55159dd799db79e50371c11550f7a7b7130e..ce8691e49edc10e9da441b10a9566971e53d986d 100644
+--- a/tests/community-verification.browser.mjs
++++ b/tests/community-verification.browser.mjs
+@@ -81,7 +81,7 @@ try {
+   await as(null);await page.goto(`${origin}/u/${handle}`);await page.getByLabel('Achievement showcase').waitFor();check(await page.getByLabel('Achievement showcase').locator('summary').allTextContents(),['IPhO, Honourable Mention, 2025','First Spark'],'accurate ordered medal');check((await page.textContent('body')).includes('PRIVATE_CERTIFICATE'),false,'certificate name private');const summary=page.getByLabel('IPhO, Honourable Mention, 2025: medal details');await summary.focus();await page.keyboard.press('Enter');check(await summary.locator('..').getAttribute('open'),'','keyboard medal details');check((await new AxeBuilder({page}).analyze()).violations,[],'public mobile axe');await page.screenshot({path:join(temp,'public-mobile.png'),fullPage:true});
+   await pool.query('TRUNCATE community_medal_limit');await as('admin');await page.goto(`${origin}/admin/verification`);await page.getByLabel('Open claim by ID').fill(claim.id);await page.getByRole('button',{name:'Open claim',exact:true}).click();await page.getByRole('button',{name:'Revoke approval'}).waitFor();await page.getByLabel('Reason (required)').fill('Evidence withdrawn.');await page.getByRole('button',{name:'Revoke approval'}).click();await page.getByText('revoked, version 5').waitFor();
+   await as(null);await page.goto(`${origin}/u/${handle}`);await page.getByLabel('Achievement showcase').waitFor();check(await page.getByLabel('Achievement showcase').locator('summary').allTextContents(),['First Spark'],'live revocation');
+-  await pool.query("UPDATE community_profile SET public_visibility=false WHERE user_id='owner'");await page.reload();await page.getByRole('heading',{name:'Profile not found'}).waitFor();
++  await pool.query(`UPDATE "user" SET "emailVerified"=false WHERE id='owner'`);await page.reload();await page.getByRole('heading',{name:'Profile not found'}).waitFor();
+   await as('owner');await page.goto(`${origin}/admin/verification`);await page.getByRole('alert').waitFor();check(await page.getByText('Queue fixture',{exact:true}).count(),0,'non-admin denied');
+   check(errors,[],'no browser errors');console.log(JSON.stringify({assertions,artifacts:temp}));
+ }finally{await browser?.close();if(server)await new Promise(resolve=>server.close(resolve));await pool.end();await admin.query(`DROP SCHEMA ${schema} CASCADE`);await admin.end();}
+diff --git a/tests/profile-publication-fixtures.ts b/tests/profile-publication-fixtures.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..0436e474f83168f15119a5823981bb0cfb58a980
+--- /dev/null
++++ b/tests/profile-publication-fixtures.ts
+@@ -0,0 +1,13 @@
++import { readFile } from "node:fs/promises";
++import type { Pool } from "pg";
++
++// Disposable schema fixtures for the publication consumers.
++export async function installProfilePublicationFixture(pool: Pool) {
++  const { rows } = await pool.query<{ schema: string }>("SELECT current_schema() AS schema");
++  const schema = '"' + rows[0].schema.replaceAll('"', '""') + '"';
++  const migration = await readFile("migrations/0022_b1_profile_signup.up.sql", "utf8");
++  await pool.query(`BEGIN;
++    ALTER TABLE ${schema}."user" ADD COLUMN IF NOT EXISTS "emailVerified" boolean NOT NULL DEFAULT true;
++    ${migration.replaceAll("public.", schema + ".")}
++    COMMIT;`);
++}
+diff --git a/tests/unified-arena.browser.mjs b/tests/unified-arena.browser.mjs
+index 538f3794d039ac0f27f42bd7f5b35d8631cae335..fc9573c6111446706b8e37389fce6475262cada1 100644
+--- a/tests/unified-arena.browser.mjs
++++ b/tests/unified-arena.browser.mjs
+@@ -27,12 +27,12 @@ try{
+  await page.getByLabel('Search',{exact:true}).fill('fixture');await page.waitForFunction(()=>document.querySelectorAll('[data-problem-card]').length===24&& !document.querySelector('[data-problem-card^="arena:"]'));
+  await page.getByRole('button',{name:'Next page',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('[data-problem-card]').length===2);assert.equal(await page.locator('h2').evaluate(el=>document.activeElement===el),true);
+  await page.getByRole('button',{name:'Previous page',exact:true}).click();await page.waitForFunction(()=>document.querySelectorAll('[data-problem-card]').length===24);
+- assert.ok(await page.getByRole('link',{name:'@'+(await pool.query('SELECT handle FROM community_profile WHERE user_id=$1',[owner])).rows[0].handle,exact:true}).count());
++ assert.ok(await page.getByRole('link',{name:(await pool.query('SELECT handle FROM community_profile WHERE user_id=$1',[owner])).rows[0].handle,exact:true}).count());
+  // The fixtures carry the author's rating 1200. A rating filter uses it, so none of them is unrated.
+  await page.getByLabel('Difficulty',{exact:true}).selectOption('unrated');await page.getByText('No matching problems found.',{exact:true}).waitFor();
+  await page.getByLabel('Difficulty',{exact:true}).selectOption('all');await page.locator('[data-problem-card^="authored:"]').first().waitFor();
+  for(const width of [1440,375]){await page.setViewportSize({width,height:1000});await page.waitForTimeout(350);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);const axe=await new AxeBuilder({page}).analyze();assert.deepEqual(axe.violations,[]);await page.screenshot({path:join(temp,`arena-${width}.png`),fullPage:true});}
+- await pool.query('UPDATE community_profile SET public_visibility=false WHERE user_id=$1',[owner]);await page.getByRole('button',{name:'Refresh collection'}).click();await page.getByText('By Community author',{exact:true}).first().waitFor();assert.equal(await page.getByRole('link',{name:/^@u_/}).count(),0);
++ await pool.query('UPDATE "user" SET "emailVerified"=false WHERE id=$1',[owner]);await page.getByRole('button',{name:'Refresh collection'}).click();await page.getByText('By Community author',{exact:true}).first().waitFor();assert.equal(await page.getByRole('link',{name:/^@u_/}).count(),0);
+  await page.getByLabel('Search',{exact:true}).fill('mind');await page.getByLabel('Difficulty',{exact:true}).selectOption('all');await page.locator('[data-problem-card="arena:arena-mind-the-gap"]').waitFor();assert.ok((await page.getByRole('link',{name:'Mind the Gap',exact:false}).first().getAttribute('href')).startsWith('/dashboard/problems/'));
+  assert.deepEqual(errors,[]);console.log(JSON.stringify({result:'passed',views:2,artifacts:temp}));
+ }finally{await browser?.close();if(server)await new Promise(r=>server.close(r));await pool.end();await admin.query(`DROP SCHEMA IF EXISTS ${schema} CASCADE`);await admin.end();}
