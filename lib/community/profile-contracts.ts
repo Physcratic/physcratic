@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { physicsTopics } from "../physics-taxonomy";
 
+export const PROFILE_PUBLICATION_POLICY_VERSION = "b1-v1";
+
 export const reservedProfileHandles = [
   "admin", "administrator", "moderator", "mod", "physcratic", "support",
   "root", "system", "api", "auth", "me", "profile", "profiles", "settings",
@@ -24,8 +26,15 @@ export const profilePatchSchema = z.strictObject({
   educationLevel: z.enum(profileEducationLevels).optional(),
   favoriteTopicIds: z.array(z.enum(topicIds)).max(topicIds.length)
     .refine(ids => new Set(ids).size === ids.length).optional(),
-  publicVisibility: z.boolean().optional(),
 }).refine(value => Object.keys(value).length > 0);
+
+export const profileMutationSchema = z.union([
+  profilePatchSchema,
+  z.strictObject({ acknowledge: z.literal(PROFILE_PUBLICATION_POLICY_VERSION) }),
+  z.strictObject({ deactivate: z.literal(true) }),
+]);
+
+export type ProfileMutation = z.infer<typeof profileMutationSchema>;
 
 export interface CommunityProfile {
   userId: string;
@@ -35,6 +44,7 @@ export interface CommunityProfile {
   educationLevel: ProfileEducationLevel;
   favoriteTopicIds: ProfileTopicId[];
   publicVisibility: boolean;
+  publicationState: "private" | "pending" | "public" | "deactivated";
   createdAt: Date;
   updatedAt: Date;
 }

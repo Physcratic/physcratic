@@ -10,7 +10,7 @@ export const publicProfileSchema = z.strictObject({
 });
 export type PublicProfile = z.infer<typeof publicProfileSchema>;
 export const ownProfileSchema = publicProfileSchema.extend({ userId: z.string(),
-  publicVisibility: z.boolean(), createdAt: z.iso.datetime(), updatedAt: z.iso.datetime() });
+  publicVisibility: z.boolean(), publicationState: z.enum(["private", "pending", "public", "deactivated"]), createdAt: z.iso.datetime(), updatedAt: z.iso.datetime() });
 export type OwnProfile = z.infer<typeof ownProfileSchema>;
 export const ownProfileResponse = z.strictObject({ profile: ownProfileSchema.nullable() });
 export const mediaResponse = z.strictObject({ media: profileMediaSetSchema, cleanupPending: z.boolean().optional() });
@@ -20,6 +20,7 @@ export const educationLabels = {
 export class ProfileRequestError extends Error {
   constructor(public status: number, code?: string) {
     super(code === "ACCOUNT_CHANGED" ? "Your account changed. Reload the page before continuing." : status === 401 ? "Sign in to continue." : status === 403 ? "Verify your email and try again from this site."
+      : code === "PROFILE_DEACTIVATED" ? "This public profile has been deactivated."
       : status === 409 ? "That username is unavailable or cannot be changed."
       : status === 429 ? "Too many changes. Wait a little before trying again."
       : status === 413 ? "The selected image is too large."
@@ -32,7 +33,7 @@ export async function profileRequest(path: string, init: RequestInit = {}) {
     signal: init.signal ?? AbortSignal.timeout(20000) });
   if (!response.ok) {
     const body = response.status === 409 ? await response.json().catch(() => null) : null;
-    throw new ProfileRequestError(response.status, body?.code === "ACCOUNT_CHANGED" ? "ACCOUNT_CHANGED" : undefined);
+    throw new ProfileRequestError(response.status, body?.code);
   }
   return response.json();
 }

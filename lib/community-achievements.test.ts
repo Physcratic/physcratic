@@ -35,12 +35,12 @@ test("live achievements, SQL constraints, privacy and concurrent owner updates o
   let runtime: Pool | undefined;
   try {
     await installAchievementFixtures(pool); // 0008 deliberately absent: no media dependency.
-    await pool.query(`INSERT INTO "user" VALUES('roundtrip'); INSERT INTO community_profile(user_id,handle) VALUES('roundtrip','roundtrip')`);
+    await pool.query(`INSERT INTO "user"(id) VALUES('roundtrip'); INSERT INTO community_profile(user_id,handle) VALUES('roundtrip','roundtrip')`);
     const up = await readFile("migrations/0009_community_achievements.up.sql", "utf8"), down = await readFile("migrations/0009_community_achievements.down.sql", "utf8");
     await pool.query(`BEGIN; ${down} COMMIT;`); await pool.query(`BEGIN; ${up} COMMIT;`);
     assert.equal((await pool.query("SELECT public_visibility FROM community_profile WHERE user_id='roundtrip'")).rows[0].public_visibility, false);
     // Verify exact least-privilege grants; no private answer keys, reveal or session access.
-    await pool.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role};
+    await pool.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role}; GRANT SELECT(id,"emailVerified","profileSignupHandle","profileSignupPolicyVersion") ON "user" TO ${role};
       GRANT SELECT ON community_profile,authored_problem,authored_revision,authored_revision_part,authored_attempt TO ${role};
       GRANT SELECT,INSERT,UPDATE ON community_badge_selection,community_achievement_write_limit TO ${role};
       GRANT EXECUTE ON FUNCTION community_achievement_progress(text),community_achievement_problem_solved(text,uuid) TO ${role}`);
@@ -142,9 +142,9 @@ test("live achievements, SQL constraints, privacy and concurrent owner updates o
       async function patchResponse(ids: string[]) { return patch(author, ids); }
       const own = await parsed(await api(req(author))); assert.ok(selections.some(ids => JSON.stringify(ids) === JSON.stringify(own.selectedIds)));
       const publicBody = await parsed(await publicRead(author)); assert.deepEqual(Object.keys(publicBody), ["selectedIds"]);
-      await pool.query("UPDATE community_profile SET public_visibility=false WHERE user_id=$1", [author]);
+      await pool.query(`UPDATE "user" SET "emailVerified"=false WHERE id=$1`, [author]);
       assert.equal((await publicRead(author)).status, 404); assert.equal((await api(req(undefined, undefined, "GET", "/api?handle=missing"))).status, 404);
-      await pool.query("UPDATE community_profile SET public_visibility=true WHERE user_id=$1", [author]);
+      await pool.query(`UPDATE "user" SET "emailVerified"=true WHERE id=$1`, [author]);
       await pool.query("TRUNCATE community_achievement_write_limit");
       const second = createCommunityAchievementsApi({ ...f.deps, pool: runtime! });
       const statuses = await Promise.all(Array.from({ length: 12 }, (_, i) => (i % 2 ? api : second)(req(author, { selectedIds: [] }, "PATCH")).then(r => r.status)));

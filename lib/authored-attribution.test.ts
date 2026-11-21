@@ -1,3 +1,4 @@
+import { installProfilePublicationFixture } from "../tests/profile-publication-fixtures";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { readFile } from "node:fs/promises";
@@ -36,21 +37,27 @@ test("current public attribution on disposable PostgreSQL", { skip: !process.env
   const pool = new Pool({ connectionString: url.href, options: `-c search_path=${schema},public`, statement_timeout: 5000 });
   const api = createAuthoredAttributionApi(pool), route = createAuthoredAttributionRoute(() => true, async () => ({ authoredAttributionApi: api }));
   try {
-    await pool.query(`CREATE TABLE "user"(id text PRIMARY KEY,name text,email text); CREATE TABLE authored_problem(id uuid PRIMARY KEY,owner_id text,state text,published_revision_id uuid); CREATE TABLE authored_revision(id uuid PRIMARY KEY,problem_id uuid,content jsonb); CREATE TABLE community_profile(user_id text PRIMARY KEY,display_name text,public_visibility boolean,bio text)`);
-    await pool.query(`INSERT INTO "user" VALUES('PRIVATE_OWNER_ID','PRIVATE_AUTH_NAME','PRIVATE_EMAIL'); INSERT INTO community_profile VALUES('PRIVATE_OWNER_ID','Public Author',true,'PRIVATE_BIO')`);
+    await pool.query(`CREATE TABLE "user"(id text PRIMARY KEY,name text,email text); CREATE TABLE authored_problem(id uuid PRIMARY KEY,owner_id text,state text,published_revision_id uuid); CREATE TABLE authored_revision(id uuid PRIMARY KEY,problem_id uuid,content jsonb)`);
+    await pool.query(`INSERT INTO "user" VALUES('PRIVATE_OWNER_ID','PRIVATE_AUTH_NAME','PRIVATE_EMAIL')`);
+    await pool.query(await readFile("migrations/0007_community_profile.up.sql", "utf8"));
+    await installProfilePublicationFixture(pool);
+    await pool.query(`INSERT INTO community_profile(user_id,handle,display_name,bio,public_visibility,publication_basis,publication_policy_version,publication_recorded_at)
+      VALUES('PRIVATE_OWNER_ID','public_author','Public Author','PRIVATE_BIO',true,'legacy_acknowledgement','b1-v1',now())`);
     await pool.query('INSERT INTO authored_problem VALUES($1,$2,$3,$4)', [selection.problemId, 'PRIVATE_OWNER_ID', 'published', selection.revisionId]);
     await pool.query('INSERT INTO authored_revision VALUES($1,$2,$3)', [selection.revisionId, selection.problemId, { title: 'Published Title', estimatedDifficulty: '1200', privateSentinel: 'PRIVATE_CONTENT' }]);
     await t.test("public names come only from an allowlisted opted-in profile", async () => {
       const value = await body(await route(request(), selection.problemId)); assert.deepEqual(value, { ...selection, author: { displayName: "Public Author" } }); assert.doesNotMatch(JSON.stringify(value), /PRIVATE_|email|ownerId|handle|bio|content/);
     });
     await t.test("private and withdrawn profiles immediately return neutral on the next read", async () => {
-      await pool.query('UPDATE community_profile SET public_visibility=false'); assert.equal((await body(await route(request(), selection.problemId))).author, null);
-      await pool.query("UPDATE community_profile SET public_visibility=true,display_name='New Public Name'"); assert.equal((await body(await route(request(), selection.problemId))).author.displayName, 'New Public Name');
-      await pool.query('UPDATE community_profile SET public_visibility=false'); assert.equal((await body(await route(request(), selection.problemId))).author, null);
+      await pool.query('UPDATE "user" SET "emailVerified"=false'); assert.equal((await body(await route(request(), selection.problemId))).author, null);
+      await pool.query(`UPDATE "user" SET "emailVerified"=true; UPDATE community_profile SET display_name='New Public Name'`); assert.equal((await body(await route(request(), selection.problemId))).author.displayName, 'New Public Name');
+      await pool.query('UPDATE "user" SET "emailVerified"=false'); assert.equal((await body(await route(request(), selection.problemId))).author, null);
     });
     await t.test("missing and blank profiles never fall back to private account identity", async () => {
       await pool.query('DELETE FROM community_profile'); assert.equal((await body(await route(request(), selection.problemId))).author, null);
-      await pool.query("INSERT INTO community_profile VALUES('PRIVATE_OWNER_ID','   ',true,'PRIVATE_BIO')"); assert.equal((await body(await route(request(), selection.problemId))).author, null);
+      await pool.query(`UPDATE "user" SET "emailVerified"=true; INSERT INTO community_profile(user_id,handle,display_name,bio,publication_basis,publication_policy_version,publication_recorded_at)
+        VALUES('PRIVATE_OWNER_ID','public_author','   ','PRIVATE_BIO','legacy_acknowledgement','b1-v1',now())`);
+      assert.deepEqual((await body(await route(request(), selection.problemId))).author, { displayName: "public_author" });
     });
     await t.test("unpublication, different revisions and cross-problem revision IDs cannot disclose names", async () => {
       await body(await api({ ...selection, revisionId: randomUUID() }), 404);
@@ -82,6 +89,7 @@ test("attribution follows actual publication and consent handlers on installed s
     await pool.query('INSERT INTO "user" VALUES($1),($2)', [owner, other]);
     for (const migration of ["0001_problem_authoring", "0002_authored_write_limit", "0003_author_media", "0007_community_profile"])
       await pool.query(await readFile(`migrations/${migration}.up.sql`, "utf8"));
+    await installProfilePublicationFixture(pool);
     const partId = randomUUID();
     const draft = { content: { title: "Public Physics Title", topicTags: [], methodTags: [], estimatedDifficulty: "1200", context: [{ id: randomUUID(), kind: "text", spans: [{ kind: "text", text: "A synthetic statement." }] }], sections: [{ id: randomUUID(), title: "Motion", blocks: [], parts: [{ id: partId, label: "A", answerMode: "manual", blocks: [] }] }], attachments: [], provenance: { kind: "original", source: "", rightsDeclaration: "Synthetic owned content." } }, privateParts: [{ partId, key: { kind: "manual" }, hints: [], solution: [] }] };
     const created = await read(await authoring("create", req("POST", draft)), 201);
@@ -91,15 +99,15 @@ test("attribution follows actual publication and consent handlers on installed s
     const selected = { problemId: created.problemId, revisionId };
     await read(await profiles("own", req("PATCH", { handle: "synthetic_author", displayName: "Consenting Author" })), 201);
     assert.equal((await body(await attribution(selected))).author, null, "new profiles stay private");
-    await read(await profiles("own", req("PATCH", { publicVisibility: true })));
+    await read(await profiles("own", req("PATCH", { acknowledge: "b1-v1" })));
     assert.deepEqual((await body(await attribution(selected))).author, { displayName: "Consenting Author" });
     viewer = other;
-    await read(await profiles("own", req("PATCH", { handle: "other_author", displayName: "Other Account", publicVisibility: true })), 201);
+    await read(await profiles("own", req("PATCH", { handle: "other_author", displayName: "Other Account" })), 201);
     assert.deepEqual((await body(await attribution(selected))).author, { displayName: "Consenting Author" });
     viewer = owner;
-    await read(await profiles("own", req("PATCH", { publicVisibility: false })));
+    await read(await profiles("own", req("PATCH", { deactivate: true })));
     assert.equal((await body(await attribution(selected))).author, null, "next snapshot observes withdrawal");
-    await read(await profiles("own", req("PATCH", { publicVisibility: true })));
+    await read(await profiles("own", req("PATCH", { acknowledge: "b1-v1" })), 409);
     await read(await authoring("unpublish", req("POST", { version: publication.version }), created.problemId));
     await body(await attribution(selected), 404);
   } finally { await pool.end(); await admin.query(`DROP SCHEMA ${schema} CASCADE`); await admin.end(); }

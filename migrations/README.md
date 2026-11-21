@@ -119,3 +119,9 @@ If the former contest 0012 or branch-local contest 0014 was already applied, pre
 ## Arena favourite key pattern (0021)
 
 `0021_arena_favourite_key_pattern` is additive after 0012. It replaces the fixed list of 18 Arena keys in `community_favourite_key_check` with the pattern `^arena:arena-[a-z0-9]+(-[a-z0-9]+)*$`, because 15 Arena problems added after 0012 were rejected by the old list. The API still accepts only keys in `lib/arena/index.json`, so the pattern is a shape check and the catalogue stays the gate. `authored:<uuid>` keys keep their exact pattern and the published-problem guard. No data is written and every key the old list allowed still matches. Down refuses while a favourite uses an Arena key outside the old 18, then restores the 0012 constraint exactly. It needs a short ACCESS EXCLUSIVE lock on a small table, so apply it with a lock timeout through the reviewed owner ledger procedure. A future Arena addition no longer needs a migration. No production SQL or deployment is performed by this change.
+
+## B1 atomic signup claims (0022)
+
+`0022_b1_profile_signup` requires Better Auth and 0007. It adds nullable signup fields and profile publication evidence without a backfill. An invoker-rights trigger claims a username inside the Better Auth user and credential transaction. Ordinary user inserts omit both fields and skip the trigger. Signup claims use the existing case-insensitive profile index and existing B1 table grants. Both new trigger functions deny PUBLIC execution.
+
+Installing this migration requires separate owner approval of the exact source, ledger, target, recovery evidence and bounded lock and statement timeouts. Keep profiles OFF. The down file is for an unused disposable schema and must run in a single transaction. It refuses to discard any signup claim, acknowledgement or deactivation. Roll back application exposure with the profiles-OFF deployment while retaining the schema and records.

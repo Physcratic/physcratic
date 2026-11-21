@@ -1,3 +1,4 @@
+import { installProfilePublicationFixture } from "./profile-publication-fixtures.ts";
 // Real UI + production API factories, disposable PostgreSQL and an in-memory private Blob boundary.
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
@@ -50,9 +51,10 @@ try {
   await pool.query(`CREATE TABLE "user"(id text PRIMARY KEY); INSERT INTO "user" VALUES('owner'),('other')`);
   for (const name of ["0007_community_profile", "0008_community_profile_media"])
     await pool.query(`BEGIN; ${await readFile(`migrations/${name}.up.sql`, "utf8")} COMMIT;`);
+  await installProfilePublicationFixture(pool);
   await build({ entryPoints: ["tests/community-profile-harness.tsx"], outfile: join(temp,"bundle.js"), bundle: true,
     platform: "browser", jsx: "automatic", alias: { "@": process.cwd() },
-    define: { "process.env.NODE_ENV": '"development"', "process.env": "{}" }, logLevel: "silent" });
+    define: { "process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY": '"synthetic-site-key"', "process.env.NODE_ENV": '"development"', "process.env": "{}" }, logLevel: "silent" });
   execFileSync("node_modules/.bin/tailwindcss", ["-i","app/globals.css","-o",join(temp,"style.css")], { stdio: "pipe" });
   const bundle = await readFile(join(temp,"bundle.js"),"utf8");
   for (const privateName of ["community_profile_media_limit", "createProfileMediaApi", "PRIVATE_STORAGE_SENTINEL", "COMMUNITY_PROFILE_BLOB_STORE_ID"])
@@ -114,7 +116,7 @@ try {
     await page.goto(`${origin}/settings?onboarding=1`);
     await page.getByLabel("Permanent username").waitFor();
     check(requests.filter(r=>r.path==="/api/community/profile"&&r.method==="GET").every(r=>r.accountId==="owner"),true,"own editor GETs carry the account header");
-    check(await page.getByLabel("Make my profile public").isChecked(),false,"new profile stays private");
+    check(await page.getByLabel("Make my profile public").count(),0,"new profile stays private");
     await page.getByLabel("Permanent username").fill("guard_owner");
     await page.getByLabel("Display name",{exact:true}).fill("Owner draft");
     // Change only the cookie, leaving the visible session/form as owner.
@@ -142,11 +144,10 @@ try {
     const guest = await browser.newContext();
     try {
       check((await guest.request.get(`${origin}/api/community/profile/guard_owner`)).status(),404);
-      await page.getByLabel("Make my profile public").check();
       const published = ownResponse("PATCH");
-      await page.getByRole("button",{name:"Save changes",exact:true}).click();
+      await page.getByRole("button",{name:"Acknowledge and publish",exact:true}).click();
       check((await published).status(),200,"explicit visibility change is committed");
-      await waitText("Profile saved.");
+      await waitText("Public profile published.");
       const publicProfile = await guest.request.get(`${origin}/api/community/profile/guard_owner`);
       check(publicProfile.status(),200,"public projection needs no private account header");
       check(Object.keys((await publicProfile.json()).profile).sort(),["bio","displayName","educationLevel","favoriteTopicIds","handle"].sort());
@@ -154,13 +155,52 @@ try {
     check(errors,[],"no unhandled browser errors");
     console.log(`Community profile account-header browser: ${assertions} assertions passed.`);
   } else {
+  // Browser transport is synthetic. The actual Better Auth transaction and email verification
+  // are tested in lib/profile-signup.pg.test.ts against the restricted PostgreSQL LOGIN.
+  const registration = await browser.newContext();
+  await registration.addInitScript(() => {
+    window.grecaptcha = { ready: callback => callback(), execute: async () => "synthetic-browser-token" };
+  });
+  const signupPage = await registration.newPage();
+  try {
+    for (const width of [1440,375]) {
+      let attempts = 0;
+      await signupPage.route("**/api/auth/sign-up/email", async route => {
+        attempts++;
+        const sent = route.request();
+        check(sent.headers()["x-captcha-response"], "synthetic-browser-token");
+        const body = sent.postDataJSON();
+        check(body.username, attempts === 1 ? "taken_username" : "new_username");
+        check(body.profileDisclosureVersion, "b1-v1");
+        check(body.termsAccepted, true);
+        await route.fulfill(attempts === 1
+          ? { status:422,json:{code:"FAILED_TO_CREATE_USER",message:"Unable to create user"} }
+          : { status:200,json:{token:null,user:{}} });
+      });
+      await signupPage.setViewportSize({width,height:900});
+      await signupPage.goto(`${origin}/sign-up`);
+      await signupPage.getByLabel("Private account name").fill("Private Test Name");
+      await signupPage.getByLabel("Public username").fill("taken_username");
+      await signupPage.getByLabel("Email",{exact:true}).fill("new@example.invalid");
+      await signupPage.getByLabel("Password",{exact:true}).fill("synthetic-password-123");
+      await signupPage.getByRole("checkbox",{name:"I agree to the Terms of Service."}).check();
+      await signupPage.getByRole("button",{name:"Create account",exact:true}).click();
+      await signupPage.getByRole("alert").filter({hasText:"Try a different username"}).waitFor();
+      check(await signupPage.getByLabel("Private account name").inputValue(),"Private Test Name");
+      await signupPage.getByLabel("Public username").fill("new_username");
+      await signupPage.getByRole("button",{name:"Create account",exact:true}).click();
+      await signupPage.getByText("Check your email",{exact:true}).waitFor();
+      check(await signupPage.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+      await signupPage.unroute("**/api/auth/sign-up/email");
+    }
+  } finally { await registration.close(); }
   await page.goto(`${origin}/dashboard`);await page.getByRole("heading",{name:"Set up your community profile"}).waitFor();
   await page.getByRole("button",{name:"Skip for now",exact:true}).click();await page.reload();
   check(await page.getByRole("heading",{name:"Set up your community profile"}).count(),0,"dismissal survives reload");
   check((await pool.query("SELECT count(*)::int n FROM community_profile")).rows[0].n,0,"skip creates no profile");
   await page.goto(`${origin}/settings?onboarding=1`);await page.getByLabel("Permanent username").waitFor();
-  check(await page.getByLabel("Make my profile public").isChecked(),false);
-  check(await page.getByLabel("Display name",{exact:true}).inputValue(),"PRIVATE_ACCOUNT_NAME","new profiles prefill the account name without publishing it");
+  check(await page.getByLabel("Make my profile public").count(),0);
+  check(await page.getByLabel("Display name",{exact:true}).inputValue(),"","profile names never default to private account identity");
   check((await pool.query("SELECT count(*)::int n FROM community_profile")).rows[0].n,0,"prefilling the owner preview creates no stored or public profile");
   await page.getByLabel("Display name",{exact:true}).fill("Nadir Physics");await page.getByLabel("Permanent username").fill("Nadir_Physics");
   await page.getByLabel("Biography",{exact:true}).fill("Exploring mechanics and light.");
@@ -168,8 +208,9 @@ try {
   await page.getByRole("region",{name:"Profile"}).getByRole("button",{name:"Create profile"}).click();await waitText("Profile saved.");
   check(await page.getByLabel("Permanent username").inputValue(),"nadir_physics");check(await page.getByLabel("Permanent username").isEditable(),false);
   await page.reload();await page.getByLabel("Permanent username").waitFor();check(await page.getByLabel("Display name",{exact:true}).inputValue(),"Nadir Physics");
-  await page.getByLabel("Display name",{exact:true}).fill("Nadir Updated");await page.getByLabel("Make my profile public").check();
+  await page.getByLabel("Display name",{exact:true}).fill("Nadir Updated");
   await page.getByRole("button",{name:"Save changes",exact:true}).click();await waitText("Profile saved.");
+  await page.getByRole("button",{name:"Acknowledge and publish"}).click();await waitText("Public profile published.");
   const avatar = page.locator("#avatar-file");await avatar.waitFor();
   await avatar.setInputFiles({name:"photo.png",mimeType:"image/png",buffer:png});await page.getByRole("button",{name:"Save picture",exact:true}).click();await waitText("Profile image saved.");
   const firstId = (await context.request.get(`${origin}/api/community/profile-media`).then(r=>r.json())).media.avatar.id;
@@ -182,8 +223,11 @@ try {
   await avatar.setInputFiles({name:"replace.jpg",mimeType:"image/jpeg",buffer:replacement});await page.getByRole("button",{name:"Save picture",exact:true}).click();await waitText("Profile image saved.");
   check((await guest.request.get(`${origin}/api/community/profile-media/image/${firstId}`)).status(),404,"old media IDs are revoked");
   const activeId = (await context.request.get(`${origin}/api/community/profile-media`).then(r=>r.json())).media.avatar.id;
-  await page.getByLabel("Make my profile public").uncheck();await page.getByRole("button",{name:"Save changes",exact:true}).click();await waitText("Profile saved.");
+  await page.setViewportSize({width:375,height:900});
+  await page.getByRole("button",{name:"Deactivate public profile"}).click();await page.getByRole("button",{name:"Confirm deactivation"}).click();await waitText("Public profile deactivated.");
+  await page.setViewportSize({width:1440,height:1000});
   await guestPage.reload();await guestPage.getByRole("heading",{name:"Profile not found",exact:true}).waitFor();
+  check((await guest.request.get(`${origin}/api/community/profile-media?handle=nadir_physics`)).status(),404,"deactivation revokes public media metadata");
   check((await guest.request.get(`${origin}/api/community/profile-media/image/${activeId}`)).status(),404,"private transition revokes guest image reads");
   check((await context.request.get(`${origin}/api/community/profile-media/image/${activeId}`)).status(),200,"owner preview remains authorized");
   await page.getByRole("button",{name:"Remove picture",exact:true}).click();await waitText("Profile image removed.");

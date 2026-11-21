@@ -4,6 +4,10 @@
 
 The "Starter terms, pending legal review" banner on `/terms` no longer says the operator must still publish a separate privacy notice, because `/privacy` is live (#226). It still says the terms are provisional and need legal review and the operator's legal identity and contact details. Only the banner text in `app/terms/page.tsx` changed. The Terms version, effective date and acceptance behaviour are untouched. Production needs a manual deploy to show it, so batch it with the next release.
 
+## Corrected B1 public profiles (21 November 2026)
+
+PR 2 implements publication, disclosure, legacy acknowledgement and deactivation on top of the merged username claim. [Owner release gates](PHASE_C_B1_RELEASE_CHECKLIST.md#corrected-b1-release-gate) remain pending. Keep profiles OFF.
+
 ## Community statement card and steps strip, C4d (21 November 2026)
 
 The community problem page now renders its statement in `DocumentCard` ("Problem statement" plus one line of context) and shows `SolveSteps` above the frame. The strip lists only steps with a real target, numbered in order: Read (the document), Answer (the answer column), Check (the answer form, signed in with a part to answer) and Solution (only for a public-solutions-v1 revision, with the tab). `SolveSteps` takes an optional `show` list and renders all four as before when it is not given, and `ProblemDocumentTabs` hides the tab row when there is no solution tab, so a legacy-private-v1 revision has no one-tab row while the statement stays mounted. The signed out and unverified sign-in card sits in the answer column as a flat Card, and its link is 44px high. Layout only. API routes, gates, flags, migrations, hints, keys and grading are unchanged, and the Physcratic page renders the same HTML (compared for five Arena problems). Tests: `tests/problem-frame.test.ts` (four states, mutation checked), authored-student and authored-public-solutions browser suites, lib/authored-public-solutions.test.ts.
