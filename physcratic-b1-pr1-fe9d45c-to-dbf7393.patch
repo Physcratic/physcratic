@@ -1,0 +1,584 @@
+diff --git a/docs/engineering/AGENT_HANDOFF.md b/docs/engineering/AGENT_HANDOFF.md
+index 93258afb2a57f1052e625ad9301a94e7464ca49c..d0a089647b6b1c13541f8cc54644ada1220ad78e 100644
+--- a/docs/engineering/AGENT_HANDOFF.md
++++ b/docs/engineering/AGENT_HANDOFF.md
+@@ -1,5 +1,9 @@
+ # Agent handoff
+ 
++## Corrected B1 username claims (21 November 2026)
++
++PR 1 adds the default-OFF signup claim and additive migration 0022. See the [migration notes](../../migrations/README.md#b1-atomic-signup-claims-0022) and restricted LOGIN tests in `lib/profile-signup.pg.test.ts`. The application still uses ordinary signup. Keep profiles OFF and review PR 1 before starting PR 2, which owns publication eligibility, public consumers, registration and Settings UI, and the notice. Migration installation and activation require separate owner approval.
++
+ ## Community statement card and steps strip, C4d (21 November 2026)
+ 
+ The community problem page now renders its statement in `DocumentCard` ("Problem statement" plus one line of context) and shows `SolveSteps` above the frame. The strip lists only steps with a real target, numbered in order: Read (the document), Answer (the answer column), Check (the answer form, signed in with a part to answer) and Solution (only for a public-solutions-v1 revision, with the tab). `SolveSteps` takes an optional `show` list and renders all four as before when it is not given, and `ProblemDocumentTabs` hides the tab row when there is no solution tab, so a legacy-private-v1 revision has no one-tab row while the statement stays mounted. The signed out and unverified sign-in card sits in the answer column as a flat Card, and its link is 44px high. Layout only. API routes, gates, flags, migrations, hints, keys and grading are unchanged, and the Physcratic page renders the same HTML (compared for five Arena problems). Tests: `tests/problem-frame.test.ts` (four states, mutation checked), authored-student and authored-public-solutions browser suites, lib/authored-public-solutions.test.ts.
+diff --git a/docs/engineering/BETA_READINESS.md b/docs/engineering/BETA_READINESS.md
+index 3ee764c6b7ea7bfbbba2e1534349c47a535d5ab2..4afc4c93a24951b4e680d3b259a9fe244c38c98e 100644
+--- a/docs/engineering/BETA_READINESS.md
++++ b/docs/engineering/BETA_READINESS.md
+@@ -1,3 +1,7 @@
++## Corrected B1 signup groundwork (21 November 2026)
++
++Disposable PostgreSQL 18.6 and 18.7 restricted LOGIN tests passed for compatibility before and after migration 0022, username collisions and retries, credential-link rollback, private auth fields and the publication transition guard. Ordinary signup stays in use. Review this code and migration first. Public eligibility, the affected public consumers, the signup and Settings changes, and the Privacy Notice are the next PR.
++
+ ## Community statement card and steps strip, C4d (21 November 2026)
+ 
+ The community problem page now renders its statement in `DocumentCard` ("Problem statement" plus one line of context) and shows `SolveSteps` above the frame. The strip lists only steps with a real target, numbered in order: Read (the document), Answer (the answer column), Check (the answer form, signed in with a part to answer) and Solution (only for a public-solutions-v1 revision, with the tab). `SolveSteps` takes an optional `show` list and renders all four as before when it is not given, and `ProblemDocumentTabs` hides the tab row when there is no solution tab, so a legacy-private-v1 revision has no one-tab row while the statement stays mounted. The signed out and unverified sign-in card sits in the answer column as a flat Card, and its link is 44px high. Layout only. API routes, gates, flags, migrations, hints, keys and grading are unchanged, and the Physcratic page renders the same HTML (compared for five Arena problems). Tests: `tests/problem-frame.test.ts` (four states, mutation checked), authored-student and authored-public-solutions browser suites, lib/authored-public-solutions.test.ts.
+diff --git a/docs/engineering/EXECUTION_ROADMAP.md b/docs/engineering/EXECUTION_ROADMAP.md
+index 81ce3d094409fc45853a39d18ee1cc64cbbb46f4..e662974f3fe0d12201cfd9904ed6e2f9606a61ce 100644
+--- a/docs/engineering/EXECUTION_ROADMAP.md
++++ b/docs/engineering/EXECUTION_ROADMAP.md
+@@ -1,5 +1,9 @@
+ # Execution roadmap
+ 
++## Corrected B1 public profiles (21 November 2026)
++
++Profiles remain OFF following the accepted rollback. Review the [atomic signup groundwork](AGENT_HANDOFF.md#corrected-b1-username-claims-21-november-2026) first. A separate PR will wire one publication policy across public consumers and add registration disclosure, legacy acknowledgement and deactivation.
++
+ ## Community statement card and steps strip, C4d (21 November 2026)
+ 
+ The community problem page now renders its statement in `DocumentCard` ("Problem statement" plus one line of context) and shows `SolveSteps` above the frame. The strip lists only steps with a real target, numbered in order: Read (the document), Answer (the answer column), Check (the answer form, signed in with a part to answer) and Solution (only for a public-solutions-v1 revision, with the tab). `SolveSteps` takes an optional `show` list and renders all four as before when it is not given, and `ProblemDocumentTabs` hides the tab row when there is no solution tab, so a legacy-private-v1 revision has no one-tab row while the statement stays mounted. The signed out and unverified sign-in card sits in the answer column as a flat Card, and its link is 44px high. Layout only. API routes, gates, flags, migrations, hints, keys and grading are unchanged, and the Physcratic page renders the same HTML (compared for five Arena problems). Tests: `tests/problem-frame.test.ts` (four states, mutation checked), authored-student and authored-public-solutions browser suites, lib/authored-public-solutions.test.ts.
+diff --git a/lib/auth-config.ts b/lib/auth-config.ts
+index 151cd835063e24021cf208894ab65c9e12164337..550b31df247cade37b40a441548eb06c653a0bde 100644
+--- a/lib/auth-config.ts
++++ b/lib/auth-config.ts
+@@ -1,16 +1,22 @@
+ import "server-only";
+ import type { BetterAuthOptions } from "better-auth";
+ import type { Pool } from "pg";
+-import { signupPolicy } from "@/lib/signup-policy";
++import { createSignupPolicy } from "@/lib/signup-policy";
+ import { signupCaptcha } from "@/lib/signup-captcha";
+ import { authoringStagingAuth } from "@/lib/authoring-staging";
+ import { accountEmailOptions, accountSecurity, type Defer } from "@/lib/auth-account";
+ import { assertAccountCanSignIn } from "@/lib/community/account-restriction";
+ 
+ // One place for the auth settings, so the database tests run the same flows and limits as the app.
+-export function createAuthOptions({ pool, defer, overrides = {} }: { pool: Pool; defer: Defer; overrides?: Partial<BetterAuthOptions> }) {
++export function createAuthOptions({ pool, defer, profileSignupEnabled = false, overrides = {} }: {
++  pool: Pool;
++  defer: Defer;
++  profileSignupEnabled?: boolean;
++  overrides?: Partial<BetterAuthOptions>;
++}) {
+   const stagingAuth = authoringStagingAuth();
+   const emails = accountEmailOptions({ pool, defer });
++  const signupPolicy = createSignupPolicy(profileSignupEnabled);
+   return {
+     database: pool,
+     plugins: [signupCaptcha(), accountSecurity({ pool })],
+diff --git a/lib/db/schema.ts b/lib/db/schema.ts
+index 7578ccf88eaaba9c2c22f6bff16470c3998121ed..26f7af3e1742b1604f5fbdcd6f299e599a45ddb7 100644
+--- a/lib/db/schema.ts
++++ b/lib/db/schema.ts
+@@ -19,9 +19,14 @@ export const user = pgTable("user", {
+   id: text("id").primaryKey(), name: text("name").notNull(), email: text("email").notNull().unique(),
+   emailVerified: boolean("emailVerified").notNull().default(false), image: text("image"),
+   termsAcceptedVersion: text("termsAcceptedVersion"), termsAcceptedAt: timestamp("termsAcceptedAt", { withTimezone: true }),
++  profileSignupHandle: text("profileSignupHandle"), profileSignupPolicyVersion: text("profileSignupPolicyVersion"),
+   createdAt: timestamp("createdAt").notNull().defaultNow(), updatedAt: timestamp("updatedAt").notNull().defaultNow(),
+-});
+-// Additive 0007 only. SQL owns the immutable identity/server timestamp trigger.
++}, (t) => [
++  check("user_profile_signup_pair", sql`(${t.profileSignupHandle} IS NULL AND ${t.profileSignupPolicyVersion} IS NULL)
++    OR (${t.profileSignupHandle} IS NOT NULL AND ${t.profileSignupPolicyVersion} IS NOT NULL
++      AND char_length(${t.profileSignupPolicyVersion}) BETWEEN 1 AND 80)`),
++]);
++// SQL owns the immutable identity, timestamps and publication transition triggers.
+ export const communityProfiles = pgTable("community_profile", {
+   userId: text("user_id").primaryKey().references(() => user.id, { onDelete: "cascade" }),
+   handle: text("handle").notNull(),
+@@ -30,6 +35,10 @@ export const communityProfiles = pgTable("community_profile", {
+   educationLevel: text("education_level").$type<ProfileEducationLevel>().notNull().default("prefer-not-to-say"),
+   favoriteTopicIds: text("favorite_topic_ids").array().$type<ProfileTopicId[]>().notNull().default(sql`'{}'::text[]`),
+   publicVisibility: boolean("public_visibility").notNull().default(false),
++  publicationBasis: text("publication_basis").$type<"signup" | "legacy_acknowledgement">(),
++  publicationPolicyVersion: text("publication_policy_version"),
++  publicationRecordedAt: timestamp("publication_recorded_at", { withTimezone: true }),
++  deactivatedAt: timestamp("deactivated_at", { withTimezone: true }),
+   createdAt: timestamp("created_at", { withTimezone: true }).notNull().default(sql`clock_timestamp()`),
+   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().default(sql`clock_timestamp()`),
+ }, (t) => [
+@@ -40,6 +49,11 @@ export const communityProfiles = pgTable("community_profile", {
+   check("community_profile_bio_check", sql`char_length(${t.bio})<=500`),
+   check("community_profile_education_level_check", sql`${t.educationLevel} IN ('high-school','university','other','prefer-not-to-say')`),
+   check("community_profile_favorite_topic_ids_check", sql`cardinality(${t.favoriteTopicIds})<=6 AND (cardinality(${t.favoriteTopicIds})=0 OR array_ndims(${t.favoriteTopicIds})=1) AND array_position(${t.favoriteTopicIds},NULL) IS NULL AND ${t.favoriteTopicIds} <@ ARRAY['mechanics','electromagnetism','waves','thermodynamics','optics','modern-physics']::text[]`),
++  check("community_profile_publication_record", sql`(${t.publicationBasis} IS NULL AND ${t.publicationPolicyVersion} IS NULL
++    AND ${t.publicationRecordedAt} IS NULL AND ${t.deactivatedAt} IS NULL)
++    OR (${t.publicationBasis} IS NOT NULL AND ${t.publicationBasis} IN ('signup', 'legacy_acknowledgement')
++      AND ${t.publicationPolicyVersion} IS NOT NULL AND char_length(${t.publicationPolicyVersion}) BETWEEN 1 AND 80
++      AND ${t.publicationRecordedAt} IS NOT NULL)`),
+ ]);
+ export const communityProfileWriteLimits = pgTable("community_profile_write_limit", {
+   userId: text("user_id").primaryKey().references(() => user.id, { onDelete: "cascade" }),
+diff --git a/lib/profile-signup.pg.test.ts b/lib/profile-signup.pg.test.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..230d7abb2b434d1433c6c2972281c641cd7cb889
+--- /dev/null
++++ b/lib/profile-signup.pg.test.ts
+@@ -0,0 +1,247 @@
++import assert from "node:assert/strict";
++import { randomUUID } from "node:crypto";
++import { readFile } from "node:fs/promises";
++import test from "node:test";
++import { betterAuth } from "better-auth";
++import { Pool } from "pg";
++import { createAuthOptions } from "./auth-config";
++import { authEmailOutbox } from "./auth-email-transport";
++import { TERMS_VERSION } from "./terms";
++
++const connection = process.env.AUTHORING_TEST_DATABASE_URL;
++const origin = "http://localhost:3000";
++const password = "synthetic-signup-password-123";
++const usernameDisclosure = "b1-v1";
++const newSignup = (username: string) => ({ username, profileDisclosureVersion: usernameDisclosure });
++
++test("atomic profile signup under the restricted PostgreSQL LOGIN", { skip: !connection }, async (t) => {
++  assert.ok(connection);
++  const local = new URL(connection);
++  assert.equal(local.protocol, "postgresql:");
++  assert.equal(local.hostname, "127.0.0.1");
++  assert.equal(local.pathname, "/physcratic_authoring_test");
++  assert.equal(local.search + local.hash, "");
++  assert.notEqual(process.env.VERCEL_ENV, "production");
++  assert.notEqual(process.env.NODE_ENV, "production");
++  const originalTransport = process.env.AUTH_EMAIL_TRANSPORT;
++  process.env.AUTH_EMAIL_TRANSPORT = "memory";
++  t.after(() => {
++    if (originalTransport === undefined) delete process.env.AUTH_EMAIL_TRANSPORT;
++    else process.env.AUTH_EMAIL_TRANSPORT = originalTransport;
++  });
++
++  const name = "profile_signup_" + randomUUID().replaceAll("-", "");
++  const owner = name + "_owner";
++  const runtime = name + "_app";
++  const admin = new Pool({ connectionString: local.href, max: 1 });
++  let setup: Pool | undefined;
++  let app: Pool | undefined;
++  t.after(async () => {
++    try {
++      await app?.end();
++      await setup?.end();
++      await admin.query(`DROP DATABASE IF EXISTS ${name}`);
++      await admin.query(`DROP ROLE IF EXISTS ${runtime}, ${owner}`);
++    } finally { await admin.end(); }
++  });
++  assert.ok(["180006", "180007"].includes((await admin.query("SHOW server_version_num")).rows[0].server_version_num));
++  await admin.query(`CREATE ROLE ${owner} NOLOGIN;
++    CREATE ROLE ${runtime} LOGIN PASSWORD 'synthetic-profile-only' NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOBYPASSRLS`);
++  await admin.query(`CREATE DATABASE ${name} OWNER ${owner}`);
++  local.pathname = "/" + name;
++  const schema = setup = new Pool({ connectionString: local.href, options: `-c role=${owner}`, max: 1 });
++  const { fixtureDDL } = await import("../scripts/authoring-release-production/package/test-fixture.mjs");
++  for (const ddl of fixtureDDL()) await schema.query(ddl);
++  await schema.query(await readFile("migrations/20261031_auth_rate_limit.sql", "utf8"));
++  await schema.query(await readFile("migrations/0007_community_profile.up.sql", "utf8"));
++  const runtimeGrants = await readFile("scripts/runtime-role/provision.review.sql", "utf8");
++  await schema.query(runtimeGrants.slice(runtimeGrants.indexOf("-- Existing Better Auth adapter"),
++    runtimeGrants.indexOf("-- Current authoring")).replaceAll(':"runtime_role"', runtime));
++  local.username = runtime;
++  local.password = "synthetic-profile-only";
++  const pool = app = new Pool({ connectionString: local.href, max: 4 });
++  assert.deepEqual((await pool.query("SELECT current_user, session_user")).rows[0],
++    { current_user: runtime, session_user: runtime });
++  assert.deepEqual((await pool.query(`SELECT has_table_privilege('public."user"', 'DELETE') AS user_delete,
++    has_table_privilege('public.community_profile', 'DELETE') AS profile_delete`)).rows[0],
++    { user_delete: false, profile_delete: false });
++
++  const pendingEmail: Promise<void>[] = [];
++  const build = (profileSignupEnabled = false) => betterAuth(createAuthOptions({
++    pool, profileSignupEnabled, defer: (task) => { pendingEmail.push(task()); },
++    overrides: { baseURL: origin, secret: "synthetic-profile-signup-secret-at-least-32-characters", logger: { disabled: true } },
++  }));
++  const legacy = build();
++  const corrected = build(true);
++  const emailOf = (label: string) => `${label}@example.invalid`;
++  const signup = (auth: typeof legacy, label: string, fields: Record<string, unknown> = {}) => {
++    const body = { email: emailOf(label), password, name: "Private signup name", termsAccepted: true, termsVersion: TERMS_VERSION, ...fields };
++    return auth.api.signUpEmail({ body, asResponse: true });
++  };
++  const find = async (label: string) => (await schema.query(`SELECT u.id, u."emailVerified" AS verified, a.id AS credential,
++    cp.handle, cp.display_name, cp.public_visibility
++    FROM "user" u LEFT JOIN community_profile cp ON cp.user_id=u.id
++    LEFT JOIN account a ON a."userId"=u.id AND a."providerId"='credential' WHERE u.email=$1`, [emailOf(label)])).rows[0];
++  const privateFieldsAbsent = async (response: Response) => {
++    const body = await response.text();
++    assert.doesNotMatch(body, /profileSignup(?:Handle|PolicyVersion)|profileDisclosureVersion|b1-v1/);
++    return body;
++  };
++
++  await t.test("ordinary signup works before the migration", async () => {
++    assert.equal((await signup(legacy, "before-migration", newSignup("ignored_handle"))).status, 200);
++    assert.equal((await find("before-migration")).handle, null);
++    await schema.query("INSERT INTO community_profile(user_id,handle,display_name,public_visibility) VALUES ($1,'legacy_handle','Saved display',true)",
++      [(await find("before-migration")).id]);
++  });
++  await t.test("corrected signup requires current disclosure and a valid username", async () => {
++    for (const [label, fields] of Object.entries({
++      "missing-metadata": {}, "username-only": { username: "unsigned" },
++      "stale-disclosure": { username: "stale_user", profileDisclosureVersion: "b1-v0" },
++      "reserved-name": newSignup(" Admin "),
++    })) {
++      await assert.rejects(signup(corrected, label, fields), { statusCode: 400 }, label);
++      assert.equal(await find(label), undefined);
++    }
++  });
++
++  const up = await readFile("migrations/0022_b1_profile_signup.up.sql", "utf8");
++  const down = await readFile("migrations/0022_b1_profile_signup.down.sql", "utf8");
++  await schema.query(`BEGIN; ${up} COMMIT;`);
++  await schema.query(`BEGIN; ${down} COMMIT;`);
++  await schema.query(`BEGIN; ${up} COMMIT;`);
++  const publication = async (handle: string) => (await schema.query(`SELECT publication_basis, publication_policy_version,
++    publication_recorded_at IS NOT NULL AS recorded, deactivated_at FROM community_profile WHERE handle=$1`, [handle])).rows[0];
++
++  await t.test("migration preserves existing profiles and OFF signups bypass the claim", async () => {
++    assert.equal((await find("before-migration")).display_name, "Saved display");
++    assert.equal((await find("before-migration")).public_visibility, true);
++    assert.deepEqual(await publication("legacy_handle"), {
++      publication_basis: null, publication_policy_version: null, recorded: false, deactivated_at: null,
++    });
++    assert.equal((await pool.query("SELECT has_table_privilege('community_profile', 'INSERT') AS allowed")).rows[0].allowed, false);
++    assert.equal((await signup(legacy, "after-migration")).status, 200);
++    const ordinary = await find("after-migration");
++    assert.ok(ordinary.credential);
++    assert.equal(ordinary.handle, null);
++    assert.equal((await signup(corrected, "without-grant", newSignup("without_grant"))).status, 422);
++    assert.equal(await find("without-grant"), undefined);
++  });
++  await schema.query((await readFile("scripts/activation/profiles-grants.review.sql", "utf8"))
++    .replaceAll(':"runtime_role"', runtime));
++  await t.test("server-only disclosure fields cannot be supplied by the signup client", async () => {
++    for (const [label, fields] of Object.entries({
++      "forged-handle": { profileSignupHandle: "forged" }, "forged-version": { profileSignupPolicyVersion: "b1-v9" },
++    })) {
++      const response = await signup(corrected, label, { ...newSignup("legitimate"), ...fields });
++      assert.equal(response.status, 400);
++      assert.equal(await find(label), undefined);
++    }
++    await assert.rejects(pool.query(`INSERT INTO "user"(id, name, email, "createdAt", "updatedAt", "profileSignupHandle")
++      VALUES ('incomplete-claim','Private','incomplete@example.invalid',now(),now(),'incomplete')`), { code: "23514" });
++  });
++  await t.test("signup reserves a normalized username and keeps the unverified profile private", async () => {
++    const response = await signup(corrected, "registered", newSignup("  Foucault_1 "));
++    assert.equal(response.status, 200);
++    assert.doesNotMatch(await privateFieldsAbsent(response), /foucault_1/i);
++    const registered = await find("registered");
++    assert.ok(registered.credential);
++    assert.equal(registered.handle, "foucault_1");
++    assert.equal(registered.verified, false);
++    assert.equal(registered.display_name, "");
++    assert.equal(registered.public_visibility, false);
++    assert.deepEqual(await publication(registered.handle), {
++      publication_basis: "signup", publication_policy_version: "b1-v1", recorded: true, deactivated_at: null,
++    });
++    assert.equal((await pool.query(`SELECT has_function_privilege(
++      'public.community_profile_claim_signup()', 'EXECUTE') AS allowed`)).rows[0].allowed, false);
++  });
++  await t.test("case-insensitive collisions preserve legacy claims and concurrent signups have one winner", async () => {
++    assert.equal((await signup(corrected, "legacy-collision", newSignup("LEGACY_HANDLE"))).status, 422);
++    assert.equal(await find("legacy-collision"), undefined);
++    const responses = await Promise.all([
++      signup(corrected, "race-a", newSignup("Race_User")),
++      signup(corrected, "race-b", newSignup("race_user")),
++    ]);
++    assert.deepEqual(responses.map((response) => response.status).sort(), [200, 422]);
++    const accounts = (await Promise.all([find("race-a"), find("race-b")])).filter(Boolean);
++    assert.equal(accounts.length, 1);
++    assert.equal(accounts[0].handle, "race_user");
++    assert.ok(accounts[0].credential);
++  });
++  await t.test("credential-link rollback releases the username to a retry", async () => {
++    await schema.query(`CREATE FUNCTION reject_credential() RETURNS trigger LANGUAGE plpgsql AS $$
++      BEGIN RAISE EXCEPTION 'synthetic credential failure'; END $$;
++      CREATE TRIGGER reject_credential BEFORE INSERT ON account FOR EACH ROW EXECUTE FUNCTION reject_credential()`);
++    try {
++      await assert.rejects(signup(corrected, "retry-link", newSignup("retry_handle")), /synthetic credential failure/);
++      assert.equal(await find("retry-link"), undefined);
++      assert.equal(await publication("retry_handle"), undefined);
++    } finally { await schema.query("DROP TRIGGER reject_credential ON account; DROP FUNCTION reject_credential()"); }
++    assert.equal((await signup(corrected, "retry-link", newSignup("retry_handle"))).status, 200);
++    const before = await find("retry-link");
++    const duplicate = await signup(corrected, "retry-link", newSignup("different_handle"));
++    assert.equal(duplicate.status, 200);
++    assert.doesNotMatch(await privateFieldsAbsent(duplicate), /retry_handle|different_handle/);
++    assert.deepEqual(await find("retry-link"), before);
++    assert.equal(await publication("different_handle"), undefined);
++  });
++  await t.test("verification and session responses keep the private signup metadata out", async () => {
++    await Promise.all(pendingEmail);
++    const mail = authEmailOutbox().find((message) => message.to === emailOf("registered"));
++    const url = mail?.text.match(/http:\/\/localhost:3000\/api\/auth\/verify-email\?\S+/)?.[0];
++    assert.ok(url);
++    for (let attempt = 0; attempt < 2; attempt++) {
++      const verified = await corrected.handler(new Request(url, { redirect: "manual" }));
++      assert.equal(verified.status, 302);
++      await privateFieldsAbsent(verified);
++    }
++    assert.equal((await find("registered")).verified, true);
++    const signedIn = await corrected.handler(new Request(origin + "/api/auth/sign-in/email", {
++      method: "POST", headers: { origin, "content-type": "application/json" },
++      body: JSON.stringify({ email: emailOf("registered"), password }),
++    }));
++    assert.equal(signedIn.status, 200);
++    const cookie = signedIn.headers.getSetCookie().map((value) => value.split(";")[0]).join("; ");
++    assert.ok(cookie);
++    assert.doesNotMatch(await privateFieldsAbsent(signedIn), /foucault_1/);
++    for (const auth of [corrected, legacy]) {
++      const session = await auth.handler(new Request(origin + "/api/auth/get-session", { headers: { origin, cookie } }));
++      assert.equal(session.status, 200);
++      const body = await privateFieldsAbsent(session);
++      assert.doesNotMatch(body, /foucault_1/);
++      assert.equal(JSON.parse(body).user.email, emailOf("registered"));
++    }
++    const update = await corrected.handler(new Request(origin + "/api/auth/update-user", {
++      method: "POST", headers: { origin, cookie, "content-type": "application/json" },
++      body: JSON.stringify({ profileSignupPolicyVersion: "b1-v9" }),
++    }));
++    assert.equal(update.status, 400);
++    assert.equal((await publication("foucault_1")).publication_policy_version, "b1-v1");
++  });
++  await t.test("once deactivated, publication evidence and deactivation cannot be overwritten", async () => {
++    await pool.query("UPDATE community_profile SET deactivated_at=now() WHERE handle='foucault_1'");
++    await assert.rejects(pool.query("UPDATE community_profile SET deactivated_at=NULL WHERE handle='foucault_1'"), { code: "23514" });
++    await assert.rejects(pool.query(`UPDATE community_profile SET publication_basis='legacy_acknowledgement'
++      WHERE handle='foucault_1'`), { code: "23514" });
++    await pool.query("UPDATE community_profile SET bio='A private edit' WHERE handle='foucault_1'");
++    assert.ok((await publication("foucault_1")).deactivated_at);
++  });
++  await t.test("an existing profile can record only its first legacy acknowledgement", async () => {
++    await assert.rejects(pool.query(`UPDATE community_profile SET publication_basis='signup',
++      publication_policy_version='b1-v1', publication_recorded_at=now() WHERE handle='legacy_handle'`), { code: "23514" });
++    await pool.query(`UPDATE community_profile SET publication_basis='legacy_acknowledgement',
++      publication_policy_version='b1-v1', publication_recorded_at=now() WHERE handle='legacy_handle'`);
++    await assert.rejects(pool.query(`UPDATE community_profile SET publication_policy_version='b1-v2'
++      WHERE handle='legacy_handle'`), { code: "23514" });
++    assert.deepEqual(await publication("legacy_handle"), {
++      publication_basis: "legacy_acknowledgement", publication_policy_version: "b1-v1", recorded: true, deactivated_at: null,
++    });
++  });
++  await t.test("schema rollback refuses to discard recorded claims", async () => {
++    try {
++      await assert.rejects(schema.query(`BEGIN; ${down} COMMIT;`), /Preserve B1 publication records/);
++    } finally { await schema.query("ROLLBACK"); }
++    assert.equal((await find("registered")).handle, "foucault_1");
++  });
++});
+diff --git a/lib/signup-policy.ts b/lib/signup-policy.ts
+index 81be1e680e948f9ccd64477ba825c9b73e2a8146..9a7c2bb4880170e6524183e294b403634e314260 100644
+--- a/lib/signup-policy.ts
++++ b/lib/signup-policy.ts
+@@ -1,35 +1,70 @@
+ import { APIError, createAuthMiddleware } from "better-auth/api";
+-import { getTermsAcceptance } from "./terms";
+ import type { BetterAuthOptions } from "better-auth";
++import { z } from "zod";
++import { profileHandleSchema } from "./community/profile-contracts";
++import { getTermsAcceptance } from "./terms";
+ 
+-export const signupPolicy = {
+-  user: {
+-    additionalFields: {
+-      termsAcceptedVersion: { type: "string", required: false, input: false },
+-      termsAcceptedAt: { type: "date", required: false, input: false },
+-    },
+-  },
+-  hooks: {
+-    before: createAuthMiddleware(async (ctx) => {
+-      if (ctx.path !== "/sign-up/email") return;
+-      try {
+-        getTermsAcceptance(ctx.body);
+-      } catch {
+-        throw new APIError("BAD_REQUEST", { code: "TERMS_ACCEPTANCE_REQUIRED", message: "Accept the current Terms of Service before creating an account." });
+-      }
+-    }),
+-  },
+-  databaseHooks: {
++export const PROFILE_PUBLICATION_POLICY_VERSION = "b1-v1";
++
++const profileSignupInput = z.object({
++  username: profileHandleSchema,
++  profileDisclosureVersion: z.literal(PROFILE_PUBLICATION_POLICY_VERSION),
++});
++
++function profileSignupClaim(body: unknown) {
++  const parsed = profileSignupInput.safeParse(body);
++  if (!parsed.success) {
++    throw new APIError("BAD_REQUEST", {
++      code: "PROFILE_SIGNUP_REQUIRED",
++      message: "Choose a valid username and review the current public profile notice.",
++    });
++  }
++  return {
++    profileSignupHandle: parsed.data.username,
++    profileSignupPolicyVersion: PROFILE_PUBLICATION_POLICY_VERSION,
++  };
++}
++
++function requireTerms(body: unknown) {
++  try {
++    return getTermsAcceptance(body);
++  } catch {
++    throw new APIError("BAD_REQUEST", { code: "TERMS_ACCEPTANCE_REQUIRED", message: "Accept the current Terms of Service before creating an account." });
++  }
++}
++
++export function createSignupPolicy(profileSignupEnabled = false) {
++  return {
+     user: {
+-      create: {
+-        before: async (user, ctx) => {
+-          try {
+-            return { data: { ...user, ...getTermsAcceptance(ctx?.body) } };
+-          } catch {
+-            throw new APIError("BAD_REQUEST", { code: "TERMS_ACCEPTANCE_REQUIRED", message: "Accept the current Terms of Service before creating an account." });
+-          }
++      additionalFields: {
++        termsAcceptedVersion: { type: "string", required: false, input: false },
++        termsAcceptedAt: { type: "date", required: false, input: false },
++        ...(profileSignupEnabled ? {
++          profileSignupHandle: { type: "string", required: false, input: false, returned: false },
++          profileSignupPolicyVersion: { type: "string", required: false, input: false, returned: false },
++        } : {}),
++      },
++    },
++    hooks: {
++      before: createAuthMiddleware(async (ctx) => {
++        if (ctx.path !== "/sign-up/email") return;
++        requireTerms(ctx.body);
++        if (profileSignupEnabled) profileSignupClaim(ctx.body);
++      }),
++    },
++    databaseHooks: {
++      user: {
++        create: {
++          before: async (user, ctx) => {
++            const terms = requireTerms(ctx?.body);
++            const claim = profileSignupEnabled && ctx?.path === "/sign-up/email"
++              ? profileSignupClaim(ctx.body) : undefined;
++            return { data: { ...user, ...terms, ...claim } };
++          },
+         },
+       },
+     },
+-  },
+-} satisfies BetterAuthOptions;
++  } satisfies BetterAuthOptions;
++}
++
++export const signupPolicy = createSignupPolicy();
+diff --git a/migrations/0022_b1_profile_signup.down.sql b/migrations/0022_b1_profile_signup.down.sql
+new file mode 100644
+index 0000000000000000000000000000000000000000..fc14a59c08e78af7b21c16b0bcab7b1ecb08d6e6
+--- /dev/null
++++ b/migrations/0022_b1_profile_signup.down.sql
+@@ -0,0 +1,26 @@
++-- Disposable rollback only. Preserve claims and publication evidence after use.
++LOCK TABLE public."user", public.community_profile IN ACCESS EXCLUSIVE MODE;
++DO $$
++BEGIN
++  IF EXISTS (SELECT 1 FROM public."user" WHERE "profileSignupHandle" IS NOT NULL)
++    OR EXISTS (SELECT 1 FROM public.community_profile WHERE publication_basis IS NOT NULL)
++  THEN
++    RAISE EXCEPTION 'Preserve B1 publication records and disable exposure instead';
++  END IF;
++END
++$$;
++
++DROP TRIGGER community_profile_guard_publication ON public.community_profile;
++DROP FUNCTION public.community_profile_guard_publication();
++DROP TRIGGER community_profile_claim_signup ON public."user";
++DROP FUNCTION public.community_profile_claim_signup();
++ALTER TABLE public.community_profile
++  DROP CONSTRAINT community_profile_publication_record,
++  DROP COLUMN publication_basis,
++  DROP COLUMN publication_policy_version,
++  DROP COLUMN publication_recorded_at,
++  DROP COLUMN deactivated_at;
++ALTER TABLE public."user"
++  DROP CONSTRAINT user_profile_signup_pair,
++  DROP COLUMN "profileSignupHandle",
++  DROP COLUMN "profileSignupPolicyVersion";
+diff --git a/migrations/0022_b1_profile_signup.up.sql b/migrations/0022_b1_profile_signup.up.sql
+new file mode 100644
+index 0000000000000000000000000000000000000000..d6d912cd39763f39e39c689a9ed59ad83345fd9b
+--- /dev/null
++++ b/migrations/0022_b1_profile_signup.up.sql
+@@ -0,0 +1,63 @@
++-- Additive groundwork. Ordinary Better Auth inserts omit both signup fields.
++ALTER TABLE public."user"
++  ADD COLUMN "profileSignupHandle" text,
++  ADD COLUMN "profileSignupPolicyVersion" text,
++  ADD CONSTRAINT user_profile_signup_pair CHECK (
++    ("profileSignupHandle" IS NULL AND "profileSignupPolicyVersion" IS NULL)
++    OR ("profileSignupHandle" IS NOT NULL AND "profileSignupPolicyVersion" IS NOT NULL
++      AND char_length("profileSignupPolicyVersion") BETWEEN 1 AND 80)
++  );
++
++ALTER TABLE public.community_profile
++  ADD COLUMN publication_basis text,
++  ADD COLUMN publication_policy_version text,
++  ADD COLUMN publication_recorded_at timestamptz,
++  ADD COLUMN deactivated_at timestamptz,
++  ADD CONSTRAINT community_profile_publication_record CHECK (
++    (publication_basis IS NULL AND publication_policy_version IS NULL
++      AND publication_recorded_at IS NULL AND deactivated_at IS NULL)
++    OR (publication_basis IS NOT NULL AND publication_basis IN ('signup', 'legacy_acknowledgement')
++      AND publication_policy_version IS NOT NULL AND char_length(publication_policy_version) BETWEEN 1 AND 80
++      AND publication_recorded_at IS NOT NULL)
++  );
++
++-- Runs with the inserting role's existing B1 INSERT rights, inside Better Auth's
++-- PostgreSQL signup transaction. The existing handle index arbitrates all claims.
++CREATE FUNCTION public.community_profile_claim_signup()
++RETURNS trigger LANGUAGE plpgsql SECURITY INVOKER SET search_path = pg_catalog, pg_temp AS $$
++BEGIN
++  INSERT INTO public.community_profile
++    (user_id, handle, publication_basis, publication_policy_version, publication_recorded_at)
++    VALUES (NEW.id, NEW."profileSignupHandle", 'signup', NEW."profileSignupPolicyVersion", clock_timestamp());
++  RETURN NEW;
++END
++$$;
++REVOKE ALL ON FUNCTION public.community_profile_claim_signup() FROM PUBLIC;
++CREATE TRIGGER community_profile_claim_signup AFTER INSERT ON public."user"
++  FOR EACH ROW WHEN (NEW."profileSignupHandle" IS NOT NULL)
++  EXECUTE FUNCTION public.community_profile_claim_signup();
++
++-- Acknowledgement can add a first record. A record or deactivation already
++-- written cannot be replaced by edits, retries or a concurrent acknowledgement.
++CREATE FUNCTION public.community_profile_guard_publication()
++RETURNS trigger LANGUAGE plpgsql SECURITY INVOKER SET search_path = pg_catalog, pg_temp AS $$
++BEGIN
++  IF OLD.publication_basis IS NOT NULL AND
++    (NEW.publication_basis, NEW.publication_policy_version, NEW.publication_recorded_at)
++      IS DISTINCT FROM (OLD.publication_basis, OLD.publication_policy_version, OLD.publication_recorded_at)
++  THEN
++    RAISE EXCEPTION 'Profile publication evidence is immutable' USING ERRCODE = '23514';
++  END IF;
++  IF OLD.publication_basis IS NULL AND NEW.publication_basis = 'signup' THEN
++    RAISE EXCEPTION 'Signup evidence must be set at creation' USING ERRCODE = '23514';
++  END IF;
++  IF OLD.deactivated_at IS NOT NULL AND NEW.deactivated_at IS DISTINCT FROM OLD.deactivated_at THEN
++    RAISE EXCEPTION 'Profile deactivation is permanent in this release' USING ERRCODE = '23514';
++  END IF;
++  RETURN NEW;
++END
++$$;
++REVOKE ALL ON FUNCTION public.community_profile_guard_publication() FROM PUBLIC;
++CREATE TRIGGER community_profile_guard_publication BEFORE UPDATE OF
++  publication_basis, publication_policy_version, publication_recorded_at, deactivated_at
++  ON public.community_profile FOR EACH ROW EXECUTE FUNCTION public.community_profile_guard_publication();
+diff --git a/migrations/README.md b/migrations/README.md
+index a79963d4328ace0714d24fbc00228c39d051e45b..aa7aaaee8f0689786bde9404bbb94bb426aacf4e 100644
+--- a/migrations/README.md
++++ b/migrations/README.md
+@@ -119,3 +119,9 @@ If the former contest 0012 or branch-local contest 0014 was already applied, pre
+ ## Arena favourite key pattern (0021)
+ 
+ `0021_arena_favourite_key_pattern` is additive after 0012. It replaces the fixed list of 18 Arena keys in `community_favourite_key_check` with the pattern `^arena:arena-[a-z0-9]+(-[a-z0-9]+)*$`, because 15 Arena problems added after 0012 were rejected by the old list. The API still accepts only keys in `lib/arena/index.json`, so the pattern is a shape check and the catalogue stays the gate. `authored:<uuid>` keys keep their exact pattern and the published-problem guard. No data is written and every key the old list allowed still matches. Down refuses while a favourite uses an Arena key outside the old 18, then restores the 0012 constraint exactly. It needs a short ACCESS EXCLUSIVE lock on a small table, so apply it with a lock timeout through the reviewed owner ledger procedure. A future Arena addition no longer needs a migration. No production SQL or deployment is performed by this change.
++
++## B1 atomic signup claims (0022)
++
++`0022_b1_profile_signup` requires Better Auth and 0007. It adds nullable signup fields and profile publication evidence without a backfill. An invoker-rights trigger claims a username inside the Better Auth user and credential transaction. Ordinary user inserts omit both fields and skip the trigger. Signup claims use the existing case-insensitive profile index and existing B1 table grants. Both new trigger functions deny PUBLIC execution.
++
++Installing this migration requires separate owner approval of the exact source, ledger, target, recovery evidence and bounded lock and statement timeouts. Keep profiles OFF. The down file is for an unused disposable schema and must run in a single transaction. It refuses to discard any signup claim, acknowledgement or deactivation. Roll back application exposure with the profiles-OFF deployment while retaining the schema and records.
