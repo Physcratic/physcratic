@@ -36,7 +36,6 @@ test("public consent, migration, restricted LOGIN, privacy and integrity on disp
   let runtime: Pool | undefined;
   try {
     await installAchievementFixtures(pool);
-    await pool.query('ALTER TABLE "user" ADD COLUMN "emailVerified" boolean NOT NULL DEFAULT true');
     await pool.query(await readFile('migrations/0012_community_problem_stats.up.sql','utf8'));
     const f = achievementFixtures(pool), author = await f.user(), student = await f.user(), other = await f.user(), unverified = await f.user('unverified');
     const fresh = await f.problem(author,['numeric'],false);
