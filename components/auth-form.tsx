@@ -101,7 +101,10 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
             <Button form="account-form" type="submit" disabled={busy}>{busy && <Loader2 data-icon="inline-start" className="animate-spin" />}{creating ? "Create account" : "Sign in"}</Button>
             <p className="text-center text-sm leading-relaxed text-muted-foreground">{creating ? "Already have an account? " : "New to Physcratic? "}<Link className="text-foreground underline underline-offset-4" href={`/${creating ? "sign-in" : "sign-up"}?returnTo=${encodeURIComponent(returnTo)}`}>{creating ? "Sign in" : "Create an account"}</Link></p>
             {!creating && <Button type="button" variant="ghost" disabled={busy} onClick={() => setVerificationEmail("")}>Need a verification email?</Button>}
-            <Link href="/terms" className="inline-flex min-h-11 items-center justify-center text-center text-sm text-muted-foreground underline underline-offset-4">Terms of Service</Link>
+            <div className="flex flex-wrap justify-center gap-x-4">
+              <Link href="/terms" className="inline-flex min-h-11 items-center text-sm text-muted-foreground underline underline-offset-4">Terms of Service</Link>
+              <Link href="/privacy" className="inline-flex min-h-11 items-center text-sm text-muted-foreground underline underline-offset-4">Privacy Notice</Link>
+            </div>
           </CardFooter>
         </Card>}
       </div>

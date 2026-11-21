@@ -26,6 +26,17 @@ export default function TermsPage() {
         <AlertTitle role="heading" aria-level={2}>Starter terms, pending legal review</AlertTitle>
         <AlertDescription>This is a provisional agreement, not legal advice. Before a public launch, the operator must have it reviewed, add its legal identity and contact details, and publish a separate privacy notice.</AlertDescription>
       </Alert>
+      <section aria-labelledby="terms-profile-privacy" className="flex flex-col gap-2">
+        <h2 id="terms-profile-privacy" className="text-xl font-semibold">Community profiles and privacy</h2>
+        <p className="text-base leading-relaxed text-muted-foreground">
+          Physcratic is operated by its founder as an individual. The Privacy Notice explains what becomes visible
+          if you publish a profile and how to contact the operator through the feedback form for privacy, support,
+          abuse or takedown requests.
+        </p>
+        <Link href="/privacy" className="inline-flex min-h-11 w-fit items-center text-sm underline underline-offset-4">
+          Read the Privacy Notice
+        </Link>
+      </section>
       <nav aria-label="Terms sections" className="flex flex-col gap-2 rounded-lg border border-border bg-card p-5 text-card-foreground">
         <h2 className="font-semibold">On this page</h2>
         {TERMS_SECTIONS.map((section) => <Link key={section.id} href={`#${section.id}`} className="inline-flex min-h-11 w-fit items-center text-sm leading-relaxed text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">{section.title}</Link>)}
