@@ -89,7 +89,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
   }
   return (
     <main className="flex min-h-dvh flex-col items-center justify-center px-5 py-10 font-sans">
-      <div className="flex w-full max-w-md flex-col gap-6">
+      <div className="flex w-full max-w-[30rem] flex-col gap-6">
         <Button variant="ghost" className="w-fit" asChild><Link href="/dashboard"><ArrowLeft data-icon="inline-start" /> Back to Physcratic</Link></Button>
         {verificationEmail !== null ? <VerificationNotice email={verificationEmail} returnTo={returnTo} onBack={() => setVerificationEmail(null)} /> : <Card>
           <CardHeader><CardTitle><h1>{creating ? "Create an account" : "Sign in"}</h1></CardTitle><CardDescription>{creating ? "Save your olympiad solutions privately." : "Sign in to see your saved attempts."}</CardDescription></CardHeader>
@@ -97,22 +97,23 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
             <form id="account-form" method="post" onSubmit={submit} onKeyDown={(event) => {
               if (event.key === "Enter" && (event.nativeEvent.isComposing || event.keyCode === 229)) event.preventDefault();
             }}>
-              <fieldset disabled={busy}><FieldGroup>
+              <fieldset disabled={busy}><FieldGroup className="gap-6">
                 {!creating && verified && !verificationError && <Alert role="status"><AlertTitle>Ready to sign in</AlertTitle><AlertDescription>If your email verification succeeded, sign in below to continue.</AlertDescription></Alert>}
                 {!creating && verificationError && <Alert variant="destructive" role="alert"><AlertTitle>Link unavailable</AlertTitle><AlertDescription>This verification link is invalid or has expired. Request a new email below.</AlertDescription></Alert>}
-                {creating && !publicProfileSignup && <Field><FieldLabel htmlFor="account-name">Name</FieldLabel><Input id="account-name" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
-                {creating && publicProfileSignup && <Field>
+                {creating && !publicProfileSignup && <Field className="gap-2"><FieldLabel htmlFor="account-name">Name</FieldLabel><Input id="account-name" className="md:text-base" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
+                {creating && publicProfileSignup && <Field className="gap-2">
                   <FieldLabel htmlFor="account-username">Username</FieldLabel>
-                  <Input id="account-username" name="username" autoComplete="username" autoCapitalize="none" spellCheck={false} required minLength={3} maxLength={24} aria-describedby="signup-profile-notice" />
-                  <FieldDescription id="signup-profile-notice" className="text-xs">Choose a permanent username with 3 to 24 letters, numbers or underscores.</FieldDescription>
+                  <Input id="account-username" className="md:text-base" name="username" autoComplete="username" autoCapitalize="none" spellCheck={false} required minLength={3} maxLength={24} aria-describedby="signup-profile-notice" />
+                  <FieldDescription id="signup-profile-notice" className="text-xs last:-mt-1">Choose a permanent username with 3 to 24 letters, numbers or underscores.</FieldDescription>
                 </Field>}
-                <Field><FieldLabel htmlFor="account-email">Email</FieldLabel><Input id="account-email" name="email" type="email" autoComplete="email" required maxLength={254} /></Field>
-                <Field><FieldLabel htmlFor="account-password">Password</FieldLabel><Input id="account-password" name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p className="text-xs leading-relaxed text-muted-foreground">Use at least 8 characters.</p>}{!creating && <Link href="/forgot-password" className="inline-flex min-h-11 w-fit items-center text-sm text-foreground underline underline-offset-4">Forgot password?</Link>}</Field>
-                {creating && <Field orientation="horizontal">
-                  <Checkbox id="account-terms" name="termsAccepted" required checked={termsAccepted} onCheckedChange={(checked) => setTermsAccepted(checked === true)} aria-describedby="account-terms-description" />
-                  <FieldContent>
-                    <FieldLabel htmlFor="account-terms" className="min-h-11 items-center">I agree to the Terms of Service.</FieldLabel>
-                    <FieldDescription id="account-terms-description"><Link href="/terms" target="_blank" rel="noopener noreferrer">Read the Terms of Service<span className="sr-only"> (opens in a new tab)</span></Link> and <Link href="/privacy" target="_blank" rel="noopener noreferrer">the Privacy Notice<span className="sr-only"> (opens in a new tab)</span></Link>. We record the version and acceptance time with your account.</FieldDescription>
+                <Field className="gap-2"><FieldLabel htmlFor="account-email">Email</FieldLabel><Input id="account-email" className="md:text-base" name="email" type="email" autoComplete="email" required maxLength={254} /></Field>
+                <Field className="gap-2"><FieldLabel htmlFor="account-password">Password</FieldLabel><Input id="account-password" className="md:text-base" name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p className="-mt-1 text-xs leading-relaxed text-muted-foreground">Use at least 8 characters.</p>}{!creating && <Link href="/forgot-password" className="inline-flex min-h-11 w-fit items-center text-sm text-foreground underline underline-offset-4">Forgot password?</Link>}</Field>
+                {/* The label keeps its text height and gets 12px above and below, so its box is the 44px target. The row moves up 12px so the visible text is 24px from the field above, and the description moves up 8px to sit 4px under the text. */}
+                {creating && <Field orientation="horizontal" className="-mt-3 gap-x-3">
+                  <Checkbox id="account-terms" className="relative top-3.5" name="termsAccepted" required checked={termsAccepted} onCheckedChange={(checked) => setTermsAccepted(checked === true)} aria-describedby="account-terms-description" />
+                  <FieldContent className="gap-0">
+                    <FieldLabel htmlFor="account-terms" className="py-3 leading-5">I agree to the Terms of Service.</FieldLabel>
+                    <FieldDescription id="account-terms-description" className="last:-mt-2"><Link href="/terms" target="_blank" rel="noopener noreferrer">Read the Terms of Service<span className="sr-only"> (opens in a new tab)</span></Link> and <Link href="/privacy" target="_blank" rel="noopener noreferrer">the Privacy Notice<span className="sr-only"> (opens in a new tab)</span></Link>. We record the version and acceptance time with your account.</FieldDescription>
                   </FieldContent>
                 </Field>}
                 {error && <Alert variant="destructive" role="alert"><AlertTitle>Could not continue</AlertTitle><AlertDescription>{error}
