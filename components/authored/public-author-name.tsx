@@ -1,13 +1,15 @@
 "use client";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import type { z } from "zod";
 import { authoredAttributionSchema } from "@/lib/authored-attribution-contracts";
 const freshnessMs = 15_000;
 /** Mutable public consent is never embedded in the immutable revision or a shared cache. */
 export function PublicAuthorName({ problemId, revisionId }: { problemId: string; revisionId: string }) {
-  const [author, setAuthor] = useState<{problemId: string; revisionId: string; name: string; expiresAt: number} | null>(null);
+  const [attribution, setAttribution] = useState<(z.infer<typeof authoredAttributionSchema> & { expiresAt: number }) | null>(null);
   useEffect(() => {
     let alive = true, serial = 0, controller: AbortController | undefined, expiry: ReturnType<typeof setTimeout> | undefined;
-    const clear = () => { if (alive) setAuthor(null); if (expiry) clearTimeout(expiry); };
+    const clear = () => { if (alive) setAttribution(null); if (expiry) clearTimeout(expiry); };
     const stop = () => { serial++; controller?.abort(); clear(); };
     const refresh = async () => {
       stop();
@@ -21,7 +23,7 @@ export function PublicAuthorName({ problemId, revisionId }: { problemId: string;
         if (!alive || current !== serial || body.problemId !== problemId || body.revisionId !== revisionId || document.visibilityState !== "visible" || !document.hasFocus()) return;
         const remaining = freshnessMs - (Date.now() - started);
         if (remaining <= 0) return;
-        setAuthor(body.author?.displayName.trim() ? { problemId, revisionId, name: body.author.displayName.trim(), expiresAt: started + freshnessMs } : null);
+        setAttribution(body.author ? { ...body, expiresAt: started + freshnessMs } : null);
         expiry = setTimeout(clear, remaining);
       } catch { if (alive && current === serial) clear(); }
     };
@@ -32,6 +34,14 @@ export function PublicAuthorName({ problemId, revisionId }: { problemId: string;
     const interval = setInterval(refresh, freshnessMs);
     return () => { alive = false; stop(); clearInterval(interval); window.removeEventListener("focus", refresh); window.removeEventListener("blur", stop); document.removeEventListener("visibilitychange", visible); };
   }, [problemId, revisionId]);
-  const name = author?.problemId === problemId && author.revisionId === revisionId && author.expiresAt > Date.now() ? author.name : null;
-  return name ? <p className="min-h-6 break-words text-sm text-muted-foreground [overflow-wrap:anywhere]">Published by {name}</p> : <p className="min-h-6 text-sm text-muted-foreground">Published by Community author</p>;
+  const author = attribution?.problemId === problemId && attribution.revisionId === revisionId && attribution.expiresAt > Date.now() ? attribution.author : null;
+  return (
+    <p className="min-h-11 content-center text-sm text-muted-foreground [overflow-wrap:anywhere]">
+      {author && "handle" in author ? <>
+        By{" "}<Link href={`/u/${author.handle}`} prefetch={false} className="inline-block min-h-11 max-w-full rounded py-3 text-foreground underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+          @{author.handle}
+        </Link>
+      </> : author ? "Published by Deleted user" : "By Community author"}
+    </p>
+  );
 }
