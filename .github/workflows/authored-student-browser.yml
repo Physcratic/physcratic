@@ -7,6 +7,8 @@ on:
       - 'components/physics/pdf-page-viewer.tsx'
       - 'lib/author-media*.ts'
       - 'tests/pdf-studio.browser.mjs'
+      - 'tests/studio-landing.browser.mjs'
+      - 'components/authoring/workspace.tsx'
       - 'tests/problem-authoring.browser.mjs'
       - 'tests/problem-authoring-harness.tsx'
       - 'tests/author-media-fixtures.ts'

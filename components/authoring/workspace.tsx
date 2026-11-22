@@ -40,8 +40,8 @@ export function AuthoringWorkspace({ userId, publicSolutionsEnabled=false }: { u
   const [items, setItems] = useState<DraftItem[]>([]),
     [cursor, setCursor] = useState<string | null>(null);
   const [selected, setSelected] = useState<EditorDraft | null>(null);
-  /** "new": the Simple page on a blank problem that is saved at the first edit. "list": My drafts. */
-  const [view, setView] = useState<"new" | "list">("new");
+  /** "list": My drafts, where Problem Studio opens. "new": the editor on a blank problem that is saved at the first edit. */
+  const [view, setView] = useState<"new" | "list">("list");
   const [fresh, setFresh] = useState<EditorDraft>(() => blankDraft());
   const [busy, setBusy] = useState(true),
     [error, setError] = useState("");
@@ -66,7 +66,8 @@ export function AuthoringWorkspace({ userId, publicSolutionsEnabled=false }: { u
       setBusy(false);
     }
   }
-  async function open(id: string) {
+  /** Opens a draft. Returns "" when it opened, or the message when it could not. */
+  async function open(id: string): Promise<string> {
     setBusy(true);
     setError("");
     try {
@@ -75,16 +76,27 @@ export function AuthoringWorkspace({ userId, publicSolutionsEnabled=false }: { u
       );
       setSelected(draft);
       history.replaceState(null, "", `?draft=${draft.problemId}`);
+      return "";
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Could not open draft.");
+      const message = e instanceof Error ? e.message : "Could not open draft.";
+      setError(message);
+      return message;
     } finally {
       setBusy(false);
     }
   }
   useEffect(() => {
     const id = new URL(location.href).searchParams.get("draft");
-    if (id) void open(id);
-    else void list();
+    if (!id) {
+      void list();
+      return;
+    }
+    // The list is where Studio opens, so a draft that cannot be opened leaves the drafts underneath the message.
+    void open(id).then(async (message) => {
+      if (!message) return;
+      await list();
+      setError(message);
+    });
   }, []);
   const last = items[0];
   if (selected)
@@ -114,6 +126,8 @@ export function AuthoringWorkspace({ userId, publicSolutionsEnabled=false }: { u
         continueDraft={last ? { title: last.title, open: () => void open(last.problemId) } : null}
         onBack={() => {
           setView("list");
+          // The new problem may have been saved, which put its id in the address. The list has no draft in it.
+          history.replaceState(null, "", location.pathname);
           void list();
         }}
       />
@@ -342,10 +356,10 @@ export function AuthoringWorkspace({ userId, publicSolutionsEnabled=false }: { u
             : !busy && (
                 <div className="px-6 py-16 text-center">
                   <h2 className="text-xl font-medium">
-                    No problems yet
+                    No drafts yet
                   </h2>
                   <p className="mt-3 text-sm text-muted-foreground">
-                    Start a problem above. It stays private until you publish.
+                    Press New problem above to write your first one.
                   </p>
                   <HowItWorksLink className="mt-2" />
                 </div>
