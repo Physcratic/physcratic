@@ -20,8 +20,9 @@ export function createAuthoredAttributionApi(pool: Pool, publicNamesEnabled: () 
         WHERE p.id=$1 AND p.state='published' AND r.id=$2 LIMIT 1`, values: [problemId, revisionId], query_timeout: 5000 };
       const { rows: [row] } = await pool.query<{ deleted: boolean; handle: string | null; displayName: string | null }>(query);
       if (!row) return attributionReply({ error: "Current publication not found." }, 404);
+      // The account deletion exception can keep the route open when public profiles are disabled.
       const author = row.deleted ? { displayName: "Deleted user" }
-        : row.handle ? { handle: row.handle, displayName: row.displayName?.trim() || row.handle } : null;
+        : row.handle && publicNamesEnabled() ? { handle: row.handle, displayName: row.displayName?.trim() || row.handle } : null;
       return attributionReply(authoredAttributionSchema.parse({ problemId, revisionId, author }));
     } catch { return attributionReply({ error: "Public attribution is unavailable." }, 503); }
   };

@@ -3,7 +3,7 @@ import {accountDeletionEnabled} from "./account-deletion/route";
 import { z } from "zod";
 import { communityProfilesEnabled } from "./community/profile-route";
 import { authoredAttributionSelectionSchema, attributionReply } from "./authored-attribution-contracts";
-export const authoredAttributionEnabled = (env: Record<string, string | undefined> = process.env) => accountDeletionEnabled(env) || (env.COMMUNITY_AUTHORSHIP_ENABLED === "true" && communityProfilesEnabled(env));
+export const authoredAttributionEnabled = (env: Record<string, string | undefined> = process.env) => accountDeletionEnabled(env) || communityProfilesEnabled(env);
 export function createAuthoredAttributionRoute(enabled = authoredAttributionEnabled, load = () => import("./authored-attribution-server")) {
   return async (request: Request, rawId: string) => {
     const url = new URL(request.url);

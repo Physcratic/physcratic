@@ -11,7 +11,8 @@ import {tmpdir} from 'node:os';
 import {execFileSync} from 'node:child_process';
 import {Pool} from 'pg';
 import {createAuthoredAttributionApi} from '../lib/authored-attribution-api.ts';
-import {createAuthoredAttributionRoute} from '../lib/authored-attribution-route.ts';
+import {authoredAttributionEnabled,createAuthoredAttributionRoute} from '../lib/authored-attribution-route.ts';
+import {communityProfilesEnabled} from '../lib/community/profile-route.ts';
 const handle = 'public_author_1234567890';
 const byline = page => page.locator('p').filter({hasText: `By @${handle}`});
 const authorLink = page => page.getByRole('link', {name: `@${handle}`, exact: true});
@@ -30,9 +31,11 @@ const pool=new Pool({connectionString:target.href,options:`-c search_path=${sche
 const temp=await mkdtemp(join(tmpdir(),'physcratic-b3-')),problemId=randomUUID(),partId=randomUUID();
 const title='Oscillations Near an Extended Equilibrium '+ 'LongTitle'.repeat(12);
 let revision={id:randomUUID(),problemId,number:1,schemaVersion:1,publishedAt:new Date().toISOString(),content:{title,topicTags:['Mechanics'],methodTags:['Energy methods'],estimatedDifficulty:'1200',context:[],sections:[{id:randomUUID(),title:'Motion',blocks:[],parts:[{id:partId,label:'A',answerMode:'numeric',blocks:[]}]}],attachments:[],provenance:{kind:'original',source:'',rightsDeclaration:'Synthetic test content'}}};
-let browser,server,origin,enabled=true,unavailable=false,holdNext=false,releaseHeld,published=true,overrideAttribution,checks=0;
+let browser,server,origin,unavailable=false,holdNext=false,releaseHeld,published=true,overrideAttribution,checks=0;
 const errors=[];
-const route=createAuthoredAttributionRoute(()=>enabled,async()=>({authoredAttributionApi:createAuthoredAttributionApi(pool)}));
+const flags={COMMUNITY_PROFILES_ENABLED:'true',COMMUNITY_AUTHORSHIP_ENABLED:'false'};
+const detailEnabled=()=>authoredAttributionEnabled(flags);
+const route=createAuthoredAttributionRoute(detailEnabled,async()=>({authoredAttributionApi:createAuthoredAttributionApi(pool,()=>communityProfilesEnabled(flags))}));
 async function visibility(value,name='Public Author'){await pool.query('UPDATE "user" SET "emailVerified"=$1',[value]);await pool.query('UPDATE community_profile SET display_name=$1',[name]);}
 async function focus(page){await page.bringToFront();await page.evaluate(()=>window.dispatchEvent(new Event('focus')));}
 async function text(page,value){await page.getByText(value,{exact:true}).waitFor();}
@@ -59,13 +62,13 @@ try{
    else if(!published){res.statusCode=404;res.end(JSON.stringify({error:'not published'}));}
    else res.end(JSON.stringify(revision));return;
   }
-  res.setHeader('content-type','text/html');res.end(`<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Metadata test</title><link rel="stylesheet" href="/style.css"></head><body><div id="root"></div><script>window.__student=${JSON.stringify({problemId,viewer:{state:'guest'},...(!url.searchParams.has('off')?{attributionEnabled:true}:{})})}</script><script type="module" src="/bundle.js"></script></body></html>`);
+  res.setHeader('content-type','text/html');res.end(`<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Metadata test</title><link rel="stylesheet" href="/style.css"></head><body><div id="root"></div><script>window.__student=${JSON.stringify({problemId,viewer:{state:'guest'},attributionEnabled:detailEnabled()})}</script><script type="module" src="/bundle.js"></script></body></html>`);
  }catch(error){res.writeHead(500);res.end(String(error));}});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));origin=`http://127.0.0.1:${server.address().port}`;
  browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});
  for(const mobile of [false,true])for(const theme of ['light','dark']){
   const context=await browser.newContext({viewport:{width:mobile?375:1440,height:950},isMobile:mobile,hasTouch:mobile});await context.addInitScript(theme=>document.addEventListener('DOMContentLoaded',()=>document.documentElement.classList.toggle('dark',theme==='dark')),theme);
-  const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await visibility(true);enabled=true;await page.goto(origin);await focus(page);
+  const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await visibility(true);await page.goto(origin);await focus(page);
   await page.getByRole('heading',{level:1,name:title,exact:true}).waitFor();await text(page,'1,200 Intermediate');await text(page,'Community-authored problem');await profileLink(page);checks++;
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   assert.doesNotMatch(await page.locator('body').innerText(), /PRIVATE_|Public Author/);
@@ -79,7 +82,8 @@ try{
   await visibility(true);await focus(page);await profileLink(page);unavailable=true;await focus(page);await neutral(page);unavailable=false;checks++;
   await visibility(true,'Earlier Public Name');holdNext=true;await focus(page);for(let n=0;!releaseHeld&&n<100;n++)await new Promise(r=>setTimeout(r,10));assert.equal(typeof releaseHeld,'function');
   await visibility(false);await focus(page);await neutral(page);releaseHeld();releaseHeld=undefined;await page.waitForTimeout(100);assert.equal(await authorLink(page).count(),0);checks++;
-  enabled=false;await visibility(true);await focus(page);await neutral(page);enabled=true;await focus(page);await profileLink(page);
+  flags.COMMUNITY_PROFILES_ENABLED='false';await visibility(true);await focus(page);await neutral(page);
+  flags.COMMUNITY_PROFILES_ENABLED='true';await focus(page);await profileLink(page);
   await page.screenshot({path:join(temp,`metadata-${mobile?'375':'1440'}-${theme}.png`),fullPage:true});
   const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(axe.violations.filter(v=>['serious','critical'].includes(v.impact)),[]);checks++;
   if (mobile) {
@@ -93,7 +97,17 @@ try{
   await page.getByRole('heading',{name:`@${handle}`,exact:true}).waitFor();checks++;
   await context.close();
  }
- const offContext=await browser.newContext(),offPage=await offContext.newPage(),offRequests=[];offPage.on('request',request=>{if(request.url().includes('/attribution?'))offRequests.push(request.url());});await offPage.goto(origin+'?off=1');await text(offPage,'Published by Community author');await noPublisher(offPage);await offPage.waitForTimeout(100);assert.equal(offRequests.length,0,'default-off reader must not poll attribution');await offContext.close();checks++;
+ flags.COMMUNITY_PROFILES_ENABLED='false';
+ for(const authorship of ['true','false']){
+   flags.COMMUNITY_AUTHORSHIP_ENABLED=authorship;
+   const offContext=await browser.newContext(),offPage=await offContext.newPage(),offRequests=[];
+   offPage.on('request',request=>{if(request.url().includes('/attribution?'))offRequests.push(request.url());});
+   await offPage.goto(origin);await text(offPage,'Published by Community author');await noPublisher(offPage);
+   await focus(offPage);await offPage.waitForTimeout(100);
+   assert.equal(offRequests.length,0,`Profiles OFF must not poll attribution with authorship ${authorship}`);
+   await offContext.close();checks++;
+ }
+ flags.COMMUNITY_PROFILES_ENABLED='true';
  const context=await browser.newContext(),page=await context.newPage();await visibility(true);await page.goto(origin);await focus(page);await profileLink(page);
  for (const invalid of [
    { problemId, revisionId: revision.id, author: { displayName: 'No handle' } },
@@ -112,14 +126,16 @@ try{
    await profileLink(page);
    checks++;
  }
+ flags.COMMUNITY_PROFILES_ENABLED='false';flags.ACCOUNT_DELETION_ENABLED='true';
  await pool.query("UPDATE authored_problem SET owner_id='__physcratic_deleted_principal_v1__'");
- await focus(page);await text(page,'Published by Deleted user');await noPublisher(page);checks++;
+ await page.reload();await focus(page);await text(page,'Published by Deleted user');await noPublisher(page);checks++;
  await pool.query("UPDATE authored_problem SET owner_id='PRIVATE_OWNER_ID'");
+ delete flags.ACCOUNT_DELETION_ENABLED;flags.COMMUNITY_PROFILES_ENABLED='true';
  await focus(page);await profileLink(page);
  await page.clock.install();unavailable=true;await page.clock.fastForward(16000);await neutral(page);unavailable=false;checks++;
  revision={...revision,id:randomUUID(),number:2,content:{...revision.content,title:'Published Replacement Title',estimatedDifficulty:'Intermediate'}};await pool.query('INSERT INTO authored_revision VALUES($1,$2)',[revision.id,problemId]);await pool.query('UPDATE authored_problem SET published_revision_id=$1',[revision.id]);await visibility(false);
  await focus(page);await page.getByRole('button',{name:'Reload current problem',exact:true}).waitFor();await noPublisher(page);
  await page.getByRole('button',{name:'Reload current problem',exact:true}).click();await page.getByRole('heading',{level:1,name:'Published Replacement Title',exact:true}).waitFor();await text(page,'Intermediate');await noPublisher(page);assert.equal(await page.getByText(/~1,200/).count(),0);checks++;
  published=false;await pool.query("UPDATE authored_problem SET state='archived'");await focus(page);await page.getByText('This problem is unpublished, deleted or unavailable.',{exact:false}).waitFor();await noPublisher(page);checks++;
- await context.close();assert.deepEqual(errors,[]);console.log(`PASS authored metadata browser ${checks} checks: public username link, private/deleted/default-off fallbacks, delayed/failed/malformed/late reads, freshness expiry, current publication/revision, keyboard and touch navigation, 375/1440 light/dark axe and overflow. Synthetic statement/viewer and disposable PG projection.`);
+ await context.close();assert.deepEqual(errors,[]);console.log(`PASS authored metadata browser ${checks} checks: profiles-only username link, disabled-profiles and deletion-only fallbacks, delayed/failed/malformed/late reads, freshness expiry, current publication/revision, keyboard and touch navigation, 375/1440 light/dark axe and overflow. Synthetic statement/viewer and disposable PG projection.`);
 }finally{releaseHeld?.();if(browser)await browser.close();if(server){server.closeAllConnections();await new Promise(r=>server.close(r));}await pool.end();await admin.query(`DROP SCHEMA ${schema} CASCADE`);await admin.end();await rm(temp,{recursive:true,force:true});}
