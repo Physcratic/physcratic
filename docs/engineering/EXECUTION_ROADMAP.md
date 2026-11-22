@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## Terms banner no longer asks for a privacy notice (21 November 2026)
+
+The "Starter terms, pending legal review" banner on `/terms` no longer says the operator must still publish a separate privacy notice, because `/privacy` is live (#226). It still says the terms are provisional and need legal review and the operator's legal identity and contact details. Only the banner text in `app/terms/page.tsx` changed. The Terms version, effective date and acceptance behaviour are untouched. Production needs a manual deploy to show it, so batch it with the next release.
+
 ## Corrected B1 public profiles (21 November 2026)
 
 PR 2 implements publication, disclosure, legacy acknowledgement and deactivation on top of the merged username claim. [Owner release gates](PHASE_C_B1_RELEASE_CHECKLIST.md#corrected-b1-release-gate) remain pending. Keep profiles OFF.

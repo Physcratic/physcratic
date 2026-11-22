@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Terms banner no longer asks for a privacy notice (21 November 2026)
+
+The "Starter terms, pending legal review" banner on `/terms` no longer says the operator must still publish a separate privacy notice, because `/privacy` is live (#226). It still says the terms are provisional and need legal review and the operator's legal identity and contact details. Only the banner text in `app/terms/page.tsx` changed. The Terms version, effective date and acceptance behaviour are untouched. Production needs a manual deploy to show it, so batch it with the next release.
+
 ## Corrected B1 profile publication (21 November 2026)
 
 PR 2 uses PR 1’s atomic signup claim and one verified publication rule for text profiles, author attribution, achievements and media. The legacy visibility field grants no public access. Settings separates profile editing, legacy acknowledgement and permanent deactivation. See the [corrected release gate](PHASE_C_B1_RELEASE_CHECKLIST.md#corrected-b1-release-gate).

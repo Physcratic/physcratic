@@ -1,3 +1,7 @@
+## Terms banner no longer asks for a privacy notice (21 November 2026)
+
+The "Starter terms, pending legal review" banner on `/terms` no longer says the operator must still publish a separate privacy notice, because `/privacy` is live (#226). It still says the terms are provisional and need legal review and the operator's legal identity and contact details. Only the banner text in `app/terms/page.tsx` changed. The Terms version, effective date and acceptance behaviour are untouched. Production needs a manual deploy to show it, so batch it with the next release.
+
 ## Corrected B1 publication candidate (21 November 2026)
 
 Review registration, verified publication, legacy acknowledgement and irreversible self-service deactivation together. Production remains profiles OFF. Local test evidence accompanies the candidate review.
