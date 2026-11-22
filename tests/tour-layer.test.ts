@@ -7,7 +7,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { AppRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import TopNav from "../components/kokonutui/top-nav";
 import { CARD_LAYER, HEADER_LAYER, MENU_BUTTON_LAYER, MENU_LAYER, RING_HEADER_LAYER, RING_PAGE_LAYER, ringLayer } from "../components/tour/tour-layer";
-import { plainTourText } from "../components/tour/tour-text";
+import { plainTourText, TourText } from "../components/tour/tour-text";
 import { tours } from "../components/tour/tours";
 
 (globalThis as { React?: unknown }).React = React;
@@ -60,13 +60,20 @@ test("the mobile menu button sits above the header and below the menu it opens, 
   assert.match(sidebar, new RegExp(`fixed right-3 top-3.5 z-\\[${MENU_BUTTON_LAYER}\\] `));
 });
 
-test("both tours have a typing step with a key chip for the backslash", () => {
+test("both tours have a typing step with the whole command and the theta sign as key chips", () => {
   for (const id of ["welcome", "studio"] as const) {
     const step = tours[id].steps.find((s) => s.id === "typing");
     assert.ok(step, id);
-    assert.ok(step!.text.includes("[[\\]]theta") && step!.text.includes("sin"), id);
+    assert.ok(step!.text.includes("[[\\theta]]") && step!.text.includes("[[θ]]") && step!.text.includes("sin"), id);
     assert.ok(plainTourText(step!.text).includes("\\theta"), id);
+    const chips = [...renderToStaticMarkup(createElement(TourText, { text: step!.text })).matchAll(/<kbd[^>]*>([^<]*)<\/kbd>/g)].map((m) => m[1]);
+    assert.deepEqual(chips, ["\\theta", "θ"], `${id}: one chip for \\theta and one for θ, not a lone backslash`);
   }
+});
+
+test("a key chip never breaks inside itself, so a long command wraps as one piece", () => {
+  const html = renderToStaticMarkup(createElement(TourText, { text: "Type [[\\theta]] now." }));
+  assert.match(html, /<kbd[^>]*class="[^"]*\binline-flex\b[^"]*\bwhitespace-nowrap\b/);
 });
 
 test("default and public sticky headers retain the same unconditional stacking layer", () => {
