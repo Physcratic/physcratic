@@ -75,3 +75,19 @@ test("the Terms and Privacy links open in a new tab, say so for screen readers o
     assert.match(visible(html), /Read the Terms of Service and the Privacy Notice\./);
   }
 });
+
+test("the Terms checkbox, its label and its description stay associated, and the text label has no min-h-11", () => {
+  for (const publicProfileSignup of [true, false]) {
+    const html = render(publicProfileSignup);
+    const checkbox = /<button[^>]*role="checkbox"[^>]*>/.exec(html)?.[0];
+    assert.ok(checkbox, "the checkbox");
+    assert.match(checkbox!, /id="account-terms"/);
+    assert.match(checkbox!, /aria-describedby="account-terms-description"/);
+    const label = /<label([^>]*)for="account-terms"([^>]*)>I agree to the Terms of Service\.<\/label>/.exec(html);
+    assert.ok(label, "a label whose for points at the checkbox");
+    const classes = /class="([^"]*)"/.exec(label![1] + label![2])?.[1] ?? "";
+    assert.doesNotMatch(classes, /\bmin-h-11\b/, "the label text is not centred in a 44px box");
+    assert.match(classes, /\bpy-3\b/, "the label box gets its 44px from padding");
+    assert.match(html, /<p[^>]*id="account-terms-description"[^>]*>/);
+  }
+});
