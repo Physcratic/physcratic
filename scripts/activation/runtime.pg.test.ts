@@ -112,10 +112,16 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
    const contests=await import('../../app/api/contests/registration/route');
    await check(await contests.POST(request('/api/contests/registration',a,{contestId:'synthetic-contest',registered:true})));
   });
-  await t.test('text-profile consent and actual authorship routes with the LOGIN role',async()=>{
+  await t.test('text-profile consent and separate detail and Arena attribution gates with the LOGIN role',async profileTest=>{
+   profileTest.after(()=>{
+    delete process.env.COMMUNITY_PROFILES_ENABLED;
+    delete process.env.COMMUNITY_AUTHORSHIP_ENABLED;
+    delete process.env.ACCOUNT_DELETION_ENABLED;
+   });
    await setup!.query(await readFile("migrations/0022_b1_profile_signup.up.sql","utf8"));
    await setup!.query((await readFile('scripts/activation/profiles-grants.review.sql','utf8')).replaceAll(':"runtime_role"',runtime));
    process.env.COMMUNITY_PROFILES_ENABLED='true';
+   process.env.COMMUNITY_AUTHORSHIP_ENABLED='false';
    const profiles=await import('../../app/api/community/profile/route');
    const profile='/api/community/profile';
    assert.equal((await check(await profiles.GET(request(profile,a,undefined,'synthetic-user-0')))).profile,null);
@@ -127,25 +133,77 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
    const publicProfile=await import('../../app/api/community/profile/[handle]/route');
    const params={params:Promise.resolve({handle:'runtime_author'})};
    await check(await publicProfile.GET(request(profile+'/runtime_author'),params),404);
+   const {rows:[published]}=await setup!.query<{id:string;published_revision_id:string}>("SELECT id,published_revision_id FROM authored_problem WHERE state='published' AND owner_id=$1 LIMIT 1",['synthetic-user-0']);
+   assert.ok(published);
+   const selection={problemId:published.id,revisionId:published.published_revision_id};
+   const neutral={...selection,author:null};
+   const expectedAuthor={displayName:'Synthetic Public Name',handle:'runtime_author'};
+   const attribution=await import('../../app/api/authored-problems/[id]/attribution/route');
+   const attr=async(status=200)=>{
+    const response=await attribution.GET(request(`/api/authored-problems/${selection.problemId}/attribution?revisionId=${selection.revisionId}`),{params:Promise.resolve({id:selection.problemId})});
+    assert.match(response.headers.get('cache-control')??'',/\bno-store\b/);
+    return check(response,status);
+   };
+   const collection=await import('../../app/api/arena/collection/route');
+   const {unifiedArenaPageSchema}=await import('../../lib/unified-arena');
+   const collectionAuthor=async()=>{
+    const page=unifiedArenaPageSchema.parse(await check(await collection.GET(request('/api/arena/collection?q=Synthetic%20activation'))));
+    assert.equal(page.attributionUnavailable,false);
+    const entry=page.problems.find(problem=>problem.id===selection.problemId);
+    assert.ok(entry,'The published problem remains in the Arena collection');
+    return entry.author;
+   };
+   assert.deepEqual(await attr(),neutral,'A private profile supplies no attribution');
    await check(await profiles.PATCH(request(profile,a,{acknowledge:'b1-v1'},'synthetic-user-0','PATCH')));
    const publicBody=await check(await publicProfile.GET(request(profile+'/runtime_author'),params));
    assert.deepEqual(Object.keys(publicBody.profile).sort(),['bio','displayName','educationLevel','favoriteTopicIds','handle'].sort());
+
+   await profileTest.test('profiles ON and authorship OFF expose the handle on detail only',async()=>{
+    assert.deepEqual(await attr(),{...selection,author:expectedAuthor});
+    assert.equal(await collectionAuthor(),null);
+   });
    process.env.COMMUNITY_AUTHORSHIP_ENABLED='true';
-   const published=(await setup!.query("SELECT id,published_revision_id FROM authored_problem WHERE state='published' AND owner_id=$1 LIMIT 1",['synthetic-user-0'])).rows[0];
-   const attribution=await import('../../app/api/authored-problems/[id]/attribution/route');
-   const attr=()=>attribution.GET(request('/api/authored-problems/'+published.id+'/attribution?revisionId='+published.published_revision_id),{params:Promise.resolve({id:published.id})});
-   assert.deepEqual((await check(await attr())).author,{displayName:'Synthetic Public Name'});
-   const collection=await import('../../app/api/arena/collection/route');
-   const authors=async()=>check(await collection.GET(request('/api/arena/collection?q=Synthetic%20activation')));
-   assert.equal((await authors()).problems.find((p:{id:string})=>p.id===published.id).author.displayName,'Synthetic Public Name');
+   assert.deepEqual(await attr(),{...selection,author:expectedAuthor});
+   assert.deepEqual(await collectionAuthor(),{...expectedAuthor,selectedIds:[],medals:[]});
+
+   await setup!.query('UPDATE "user" SET "emailVerified"=false WHERE id=$1',['synthetic-user-0']);
+   assert.deepEqual(await attr(),neutral,'Verification withdrawal removes the public handle');
+   assert.equal(await collectionAuthor(),null);
+   await setup!.query('UPDATE "user" SET "emailVerified"=true WHERE id=$1',['synthetic-user-0']);
+   assert.deepEqual(await attr(),{...selection,author:expectedAuthor});
+
+   await setup!.query(`REVOKE SELECT ON community_profile FROM ${runtime}`);
+   try {
+    process.env.COMMUNITY_AUTHORSHIP_ENABLED='false';
+    await check(await profiles.GET(request(profile,a,undefined,'synthetic-user-0')),503);
+    assert.deepEqual(await attr(503),{error:'Public attribution is unavailable.'});
+    assert.equal(await collectionAuthor(),null);
+    process.env.COMMUNITY_PROFILES_ENABLED='false';
+    for(const authorship of ['true','false']){
+     process.env.COMMUNITY_AUTHORSHIP_ENABLED=authorship;
+     assert.deepEqual(await attr(),neutral,`Profiles OFF with authorship ${authorship}`);
+     assert.equal(await collectionAuthor(),null);
+    }
+    process.env.ACCOUNT_DELETION_ENABLED='true';
+    assert.deepEqual(await attr(),neutral,'The deletion exception does not enable live profiles');
+    await setup!.query('UPDATE authored_problem SET owner_id=$1 WHERE id=$2',['__physcratic_deleted_principal_v1__',selection.problemId]);
+    try {
+     assert.deepEqual(await attr(),{...selection,author:{displayName:'Deleted user'}});
+     assert.equal(await collectionAuthor(),null);
+    } finally {
+     await setup!.query('UPDATE authored_problem SET owner_id=$1 WHERE id=$2',['synthetic-user-0',selection.problemId]);
+    }
+   } finally {
+    await setup!.query(`GRANT SELECT ON community_profile TO ${runtime}`);
+    delete process.env.ACCOUNT_DELETION_ENABLED;
+   }
+   process.env.COMMUNITY_PROFILES_ENABLED='true';
+   assert.deepEqual(await attr(),{...selection,author:expectedAuthor});
    await check(await profiles.PATCH(request(profile,a,{deactivate:true},'synthetic-user-0','PATCH')));
    await check(await publicProfile.GET(request(profile+'/runtime_author'),params),404);
-   assert.equal((await check(await attr())).author,null);
-   assert.equal((await authors()).problems.find((p:{id:string})=>p.id===published.id).author,null);
-   await setup!.query(`REVOKE SELECT ON community_profile FROM ${runtime}`);
-   await check(await profiles.GET(request(profile,a,undefined,'synthetic-user-0')),503);
-   await setup!.query(`GRANT SELECT ON community_profile TO ${runtime}`);
-   delete process.env.COMMUNITY_PROFILES_ENABLED;delete process.env.COMMUNITY_AUTHORSHIP_ENABLED;
+   assert.deepEqual(await attr(),neutral,'The next read observes profile deactivation');
+   process.env.COMMUNITY_AUTHORSHIP_ENABLED='true';
+   assert.equal(await collectionAuthor(),null);
   });
   await t.test('fail closed on missing rights and forbidden privilege checks',async()=>{
    for(const sql of ['UPDATE community_problem_total SET favourites=99','CREATE TABLE public.activation_forbidden(x int)','DELETE FROM authored_attempt',"SELECT account_deletion_execute('x','x','x','x')"])

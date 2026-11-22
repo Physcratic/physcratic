@@ -12,24 +12,33 @@ import { authoredAttributionSchema } from "./authored-attribution-contracts";
 const selection = { problemId: randomUUID(), revisionId: randomUUID() };
 const request = (query = `revisionId=${selection.revisionId}`) => new Request(`https://physcratic.test/api/authored-problems/${selection.problemId}/attribution?${query}`);
 async function body(response: Response, status = 200) { assert.equal(response.status, status); assert.equal(response.headers.get("cache-control"), "private, no-store, max-age=0"); return response.json(); }
-test("attribution requires both existing gates and disabled requests never load bindings", async () => {
-  for (const env of [{}, { COMMUNITY_AUTHORSHIP_ENABLED: "true" }, { COMMUNITY_PROFILES_ENABLED: "true" }]) assert.equal(authoredAttributionEnabled(env), false);
+test("detail attribution follows the profiles gate or the account deletion exception", async () => {
+  for (const env of [{}, { COMMUNITY_AUTHORSHIP_ENABLED: "true" }, { COMMUNITY_PROFILES_ENABLED: "false", COMMUNITY_AUTHORSHIP_ENABLED: "false" }]) assert.equal(authoredAttributionEnabled(env), false);
+  assert.equal(authoredAttributionEnabled({ COMMUNITY_PROFILES_ENABLED: "true" }), true);
   assert.equal(authoredAttributionEnabled({ COMMUNITY_AUTHORSHIP_ENABLED: "true", COMMUNITY_PROFILES_ENABLED: "true" }), true);
+  assert.equal(authoredAttributionEnabled({ ACCOUNT_DELETION_ENABLED: "true" }), true);
   let imports = 0;
-  const route = createAuthoredAttributionRoute(() => false, async () => { imports++; throw Error("bindings must remain unloaded"); });
+  const route = createAuthoredAttributionRoute(() => authoredAttributionEnabled({ COMMUNITY_AUTHORSHIP_ENABLED: "true" }), async () => { imports++; throw Error("bindings must remain unloaded"); });
   assert.deepEqual(await body(await route(request(), selection.problemId)), { ...selection, author: null }); assert.equal(imports, 0);
   for (const query of ["", `revisionId=${selection.revisionId}&revisionId=${selection.revisionId}`, `revisionId=${selection.revisionId}&ownerId=private`, "revisionId=bad"]) await body(await route(request(query), selection.problemId), 400);
   await body(await route(request(), "not-a-uuid"), 400); assert.equal(imports, 0);
 });
 test("gate withdrawal during a pending projection discards the previously public response", async () => {
   let enabled = true;
-  const route = createAuthoredAttributionRoute(() => enabled, async () => ({ authoredAttributionApi: async () => { enabled = false; return Response.json({ ...selection, author: { displayName: "Previously public" } }); } }));
+  const route = createAuthoredAttributionRoute(() => enabled, async () => ({ authoredAttributionApi: async () => { enabled = false; return Response.json({ ...selection, author: { displayName: "Previously public", handle: "public_author" } }); } }));
   assert.deepEqual(await body(await route(request(), selection.problemId)), { ...selection, author: null });
 });
-test("attribution contract rejects private fields and invalid public names", () => {
-  const base = { ...selection, author: { displayName: "Public name" } };
+test("attribution contract requires a valid handle for a public profile and rejects private fields", () => {
+  const base = { ...selection, author: { displayName: "Public name", handle: "public_author" } };
   assert.equal(authoredAttributionSchema.safeParse(base).success, true);
-  for (const value of [{ ...base, ownerId: "private" }, { ...base, author: { ...base.author, email: "PRIVATE_EMAIL" } }, { ...base, author: { displayName: "x".repeat(81) } }, { ...base, author: { displayName: "\ud800" } }]) assert.equal(authoredAttributionSchema.safeParse(value).success, false);
+  assert.equal(authoredAttributionSchema.safeParse({ ...selection, author: { displayName: "Deleted user" } }).success, true);
+  for (const value of [
+    { ...base, ownerId: "private" },
+    { ...base, author: { ...base.author, email: "PRIVATE_EMAIL" } },
+    { ...base, author: { displayName: "Public name" } },
+    ...["admin", "../private", "x".repeat(25), null].map(handle => ({ ...base, author: { ...base.author, handle } })),
+    ...["x".repeat(81), "\ud800"].map(displayName => ({ ...base, author: { ...base.author, displayName } })),
+  ]) assert.equal(authoredAttributionSchema.safeParse(value).success, false);
 });
 test("current public attribution on disposable PostgreSQL", { skip: !process.env.AUTHORING_TEST_DATABASE_URL && "Use scripts/test-problem-authoring.sh" }, async t => {
   const url = new URL(process.env.AUTHORING_TEST_DATABASE_URL!); assert.equal(url.hostname, "127.0.0.1"); assert.equal(url.pathname, "/physcratic_authoring_test");
@@ -45,21 +54,39 @@ test("current public attribution on disposable PostgreSQL", { skip: !process.env
       VALUES('PRIVATE_OWNER_ID','public_author','Public Author','PRIVATE_BIO',true,'legacy_acknowledgement','b1-v1',now())`);
     await pool.query('INSERT INTO authored_problem VALUES($1,$2,$3,$4)', [selection.problemId, 'PRIVATE_OWNER_ID', 'published', selection.revisionId]);
     await pool.query('INSERT INTO authored_revision VALUES($1,$2,$3)', [selection.revisionId, selection.problemId, { title: 'Published Title', estimatedDifficulty: '1200', privateSentinel: 'PRIVATE_CONTENT' }]);
-    await t.test("public names come only from an allowlisted opted-in profile", async () => {
-      const value = await body(await route(request(), selection.problemId)); assert.deepEqual(value, { ...selection, author: { displayName: "Public Author" } }); assert.doesNotMatch(JSON.stringify(value), /PRIVATE_|email|ownerId|handle|bio|content/);
+    await t.test("only the opted-in profile supplies the public display name and handle", async () => {
+      const value = await body(await route(request(), selection.problemId));
+      assert.deepEqual(value, { ...selection, author: { displayName: "Public Author", handle: "public_author" } });
+      assert.doesNotMatch(JSON.stringify(value), /PRIVATE_|email|ownerId|bio|content/);
+    });
+    await t.test("withdrawing the profiles gate discards a pending handle even with account deletion enabled", async () => {
+      const env = { COMMUNITY_PROFILES_ENABLED: "true", ACCOUNT_DELETION_ENABLED: "true" };
+      const gatedApi = createAuthoredAttributionApi(pool, () => env.COMMUNITY_PROFILES_ENABLED === "true");
+      const gatedRoute = createAuthoredAttributionRoute(() => authoredAttributionEnabled(env), async () => ({
+        authoredAttributionApi: selected => {
+          const response = gatedApi(selected);
+          env.COMMUNITY_PROFILES_ENABLED = "false";
+          return response;
+        },
+      }));
+      assert.deepEqual(await body(await gatedRoute(request(), selection.problemId)), { ...selection, author: null });
     });
     await t.test("private and withdrawn profiles immediately return neutral on the next read", async () => {
       await pool.query('UPDATE "user" SET "emailVerified"=false'); assert.equal((await body(await route(request(), selection.problemId))).author, null);
-      await pool.query(`UPDATE "user" SET "emailVerified"=true; UPDATE community_profile SET display_name='New Public Name'`); assert.equal((await body(await route(request(), selection.problemId))).author.displayName, 'New Public Name');
+      await pool.query(`UPDATE "user" SET "emailVerified"=true; UPDATE community_profile SET display_name='New Public Name'`);
+      assert.deepEqual((await body(await route(request(), selection.problemId))).author, { displayName: "New Public Name", handle: "public_author" });
       await pool.query('UPDATE "user" SET "emailVerified"=false'); assert.equal((await body(await route(request(), selection.problemId))).author, null);
     });
     await t.test("missing and blank profiles never fall back to private account identity", async () => {
       await pool.query('DELETE FROM community_profile'); assert.equal((await body(await route(request(), selection.problemId))).author, null);
       await pool.query(`UPDATE "user" SET "emailVerified"=true; INSERT INTO community_profile(user_id,handle,display_name,bio,publication_basis,publication_policy_version,publication_recorded_at)
         VALUES('PRIVATE_OWNER_ID','public_author','   ','PRIVATE_BIO','legacy_acknowledgement','b1-v1',now())`);
-      assert.deepEqual((await body(await route(request(), selection.problemId))).author, { displayName: "public_author" });
+      assert.deepEqual((await body(await route(request(), selection.problemId))).author, { displayName: "public_author", handle: "public_author" });
+      await pool.query('UPDATE community_profile SET display_name=$1', ['\uFEFF']);
+      assert.deepEqual((await body(await route(request(), selection.problemId))).author, { displayName: "public_author", handle: "public_author" });
     });
-    await t.test("unpublication, different revisions and cross-problem revision IDs cannot disclose names", async () => {
+    await t.test("unpublication and mismatched problem or revision IDs cannot disclose a handle", async () => {
+      await body(await api({ ...selection, problemId: randomUUID() }), 404);
       await body(await api({ ...selection, revisionId: randomUUID() }), 404);
       await pool.query("UPDATE authored_problem SET state='archived'"); await body(await route(request(), selection.problemId), 404);
       await pool.query("UPDATE authored_problem SET state='published'; UPDATE authored_revision SET problem_id='00000000-0000-4000-8000-000000000001'"); await body(await route(request(), selection.problemId), 404);
@@ -67,6 +94,12 @@ test("current public attribution on disposable PostgreSQL", { skip: !process.env
     });
     await t.test("missing profile schema fails neutral without exposing internal errors", async () => {
       await pool.query('DROP TABLE community_profile'); const value = await body(await route(request(), selection.problemId), 503); assert.deepEqual(value, { error: "Public attribution is unavailable." });
+    });
+    await t.test("account deletion alone retains the deleted label without querying profiles", async () => {
+      const deletionOnlyApi = createAuthoredAttributionApi(pool, () => false);
+      assert.deepEqual(await body(await deletionOnlyApi(selection)), { ...selection, author: null });
+      await pool.query("UPDATE authored_problem SET owner_id='__physcratic_deleted_principal_v1__'");
+      assert.deepEqual(await body(await deletionOnlyApi(selection)), { ...selection, author: { displayName: "Deleted user" } });
     });
   } finally { await pool.end(); await admin.query(`DROP SCHEMA ${schema} CASCADE`); await admin.end(); }
 });
@@ -100,10 +133,10 @@ test("attribution follows actual publication and consent handlers on installed s
     await read(await profiles("own", req("PATCH", { handle: "synthetic_author", displayName: "Consenting Author" })), 201);
     assert.equal((await body(await attribution(selected))).author, null, "new profiles stay private");
     await read(await profiles("own", req("PATCH", { acknowledge: "b1-v1" })));
-    assert.deepEqual((await body(await attribution(selected))).author, { displayName: "Consenting Author" });
+    assert.deepEqual((await body(await attribution(selected))).author, { displayName: "Consenting Author", handle: "synthetic_author" });
     viewer = other;
     await read(await profiles("own", req("PATCH", { handle: "other_author", displayName: "Other Account" })), 201);
-    assert.deepEqual((await body(await attribution(selected))).author, { displayName: "Consenting Author" });
+    assert.deepEqual((await body(await attribution(selected))).author, { displayName: "Consenting Author", handle: "synthetic_author" });
     viewer = owner;
     await read(await profiles("own", req("PATCH", { deactivate: true })));
     assert.equal((await body(await attribution(selected))).author, null, "next snapshot observes withdrawal");
