@@ -1,3 +1,4 @@
+import { publicProfileDisplayName, publicProfileEligible } from "./profile-publication";
 import 'server-only';
 import {createHash,randomUUID} from 'node:crypto';
 import type {Pool,PoolClient} from 'pg';
@@ -39,10 +40,10 @@ export function createCommentsApi(deps:Deps){
     const query={text:`SELECT c.id,c.parent_id AS "parentId",CASE WHEN c.deleted_at IS NOT NULL THEN '' WHEN (${visible}) OR c.user_id=$2 THEN c.body ELSE '[Comment unavailable pending review]' END AS body,c.version,c.score::text,c.depth,c.created_at AS "createdAt",c.edited_at AS "editedAt",c.deleted_at IS NOT NULL AS deleted,
      c.deleted_at IS NULL AND c.user_id=$2 AS owned,c.deleted_at IS NULL AND (${visible}) AND EXISTS(SELECT 1 FROM community_comment_like l WHERE l.comment_id=c.id AND l.user_id=$2) AS liked,
      EXISTS(SELECT 1 FROM community_comment ch WHERE ch.problem_key=c.problem_key AND ch.parent_id=c.id) AS "hasReplies",
-     ${profiles?`CASE WHEN c.deleted_at IS NULL AND (${visible}) AND cp.user_id IS NOT NULL THEN jsonb_build_object('handle',cp.handle,'displayName',cp.display_name) END`:"NULL::jsonb"} AS author,
-     ${profiles?`CASE WHEN pc.deleted_at IS NULL AND ${moderated?"coalesce(pm.state,'held')='visible'":'true'} AND pp.user_id IS NOT NULL THEN jsonb_build_object('handle',pp.handle,'displayName',pp.display_name) END`:"NULL::jsonb"} AS "replyAuthor"
+     ${profiles?`CASE WHEN c.deleted_at IS NULL AND (${visible}) AND cp.user_id IS NOT NULL THEN jsonb_build_object('handle',cp.handle,'displayName',${publicProfileDisplayName("cp")}) END`:"NULL::jsonb"} AS author,
+     ${profiles?`CASE WHEN pc.deleted_at IS NULL AND ${moderated?"coalesce(pm.state,'held')='visible'":'true'} AND pp.user_id IS NOT NULL THEN jsonb_build_object('handle',pp.handle,'displayName',${publicProfileDisplayName("pp")}) END`:"NULL::jsonb"} AS "replyAuthor"
      ${moderated?",coalesce(cm.state,'held') AS \"moderationState\",CASE WHEN c.user_id=$2 THEN cm.reason END AS \"moderationReason\"":''}
-     FROM community_comment c ${moderated?'LEFT JOIN community_comment_review cm ON cm.comment_id=c.id':''} ${profiles?'LEFT JOIN community_profile cp ON cp.user_id=c.user_id AND cp.public_visibility=true LEFT JOIN community_comment pc ON pc.id=c.parent_id LEFT JOIN community_profile pp ON pp.user_id=pc.user_id AND pp.public_visibility=true':''} ${moderated&&profiles?'LEFT JOIN community_comment_review pm ON pm.comment_id=pc.id':''}
+     FROM community_comment c ${moderated?'LEFT JOIN community_comment_review cm ON cm.comment_id=c.id':''} ${profiles?`LEFT JOIN community_profile cp ON cp.user_id=c.user_id AND ${publicProfileEligible("cp")} LEFT JOIN community_comment pc ON pc.id=c.parent_id LEFT JOIN community_profile pp ON pp.user_id=pc.user_id AND ${publicProfileEligible("pp")}`:''} ${moderated&&profiles?'LEFT JOIN community_comment_review pm ON pm.comment_id=pc.id':''}
      WHERE ${where.join(' AND ')} ORDER BY ${input.sort==='top'?'c.score DESC,':''}c.created_at DESC,c.id DESC LIMIT 21`,values,query_timeout:5000};
     const {rows}=await c.query(query);const page=rows.slice(0,20),last=page.at(-1);
     const nextCursor=rows.length>20?JSON.stringify({key:input.key,parent,sort:input.sort,score:last.score,created:new Date(last.createdAt).toISOString(),id:last.id}):null;

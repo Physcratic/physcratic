@@ -1,3 +1,4 @@
+import { publicProfileEligible } from "./profile-publication";
 import 'server-only';
 import {createHash,randomUUID} from 'node:crypto';
 import type {Pool,PoolClient} from 'pg';
@@ -48,7 +49,7 @@ export function createModerationApi(deps:Deps){
   if(area==='reports'){const input=reportInput.parse(json),requestHash=createHash('sha256').update(JSON.stringify({subject:input.subject,reason:input.reason,details:input.details})).digest('hex');await charge('reports:'+user.id,121,1);
    return await tx(async c=>{await c.query('SELECT pg_advisory_xact_lock(hashtextextended($1,14))',['community-report:'+user.id]);const old=(await c.query('SELECT id,request_hash,state FROM community_report WHERE reporter_id=$1 AND request_id=$2',[user.id,input.requestId])).rows[0];if(old){if(old.request_hash!==requestHash)throw new Fault(409,'Request reference already used.');return profileReply({id:old.id,state:old.state});}
     let subjectKey:string;const subject=input.subject;
-    if(subject.kind==='profile'){if(!deps.profiles?.())throw new Fault(404,'Subject not found.');const p=(await c.query('SELECT user_id FROM community_profile WHERE lower(handle)=$1 AND public_visibility=true',[subject.handle])).rows[0];if(!p)throw new Fault(404,'Subject not found.');subjectKey='profile:'+p.user_id;}
+    if(subject.kind==='profile'){if(!deps.profiles?.())throw new Fault(404,'Subject not found.');const p=(await c.query(`SELECT user_id FROM community_profile cp WHERE lower(handle)=$1 AND ${publicProfileEligible("cp")}`,[subject.handle])).rows[0];if(!p)throw new Fault(404,'Subject not found.');subjectKey='profile:'+p.user_id;}
     else{if(subject.kind==='comment'&&deps.commentsPublic?.()===false)throw new Fault(404,'Subject not found.');await publication(c,subject.key);if(subject.kind==='comment'){const p=(await c.query(`SELECT c.id FROM community_comment c JOIN community_comment_review r ON r.comment_id=c.id WHERE c.id=$1 AND c.problem_key=$2 AND c.deleted_at IS NULL AND r.state='visible' FOR SHARE OF c`,[subject.id,subject.key])).rows[0];if(!p)throw new Fault(404,'Subject not found.');subjectKey='comment:'+subject.id;}else subjectKey='problem:'+subject.key;}
     const id=randomUUID();await c.query('INSERT INTO community_report(id,reporter_id,request_id,subject,subject_key,reason,details,request_hash) VALUES($1,$2,$3,$4,$5,$6,$7,$8)',[id,user.id,input.requestId,JSON.stringify(subject),subjectKey,input.reason,input.details,requestHash]);return profileReply({id,state:'open'},201);
    });

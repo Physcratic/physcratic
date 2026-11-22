@@ -330,6 +330,11 @@ try {
     headless: true,
     args: ["--no-sandbox"],
   });
+  // Problem Studio opens on My drafts. This runs in both modes, so the PDF-only CI run covers it too.
+  {
+    const {runStudioLandingBrowser} = await import("./studio-landing.browser.mjs");
+    await runStudioLandingBrowser({browser, origin, pool});
+  }
   if (process.env.PDF_STUDIO_ONLY === "1") {
     const {runPdfStudioBrowser} = await import("./pdf-studio.browser.mjs");
     await runPdfStudioBrowser({browser,origin,pool,storage:mediaStorage,setFail:count=>{failNext=count;}});
@@ -350,12 +355,15 @@ try {
   {
     const first = await context.newPage();
     await first.goto(origin);
+    // Studio opens on My drafts. New problem opens the editor.
+    await first.getByRole("button", { name: "New problem", exact: true }).click();
     await first.getByRole("button", { name: "Classic editor", exact: true }).click();
     await first.getByLabel("Problem title", { exact: true }).waitFor();
     assert.equal(await first.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "classic");
     await first.close();
   }
   await page.goto(origin);
+  await page.getByRole("button", { name: "New problem", exact: true }).click();
   await page.getByLabel("Problem title", { exact: true }).waitFor();
   if (process.env.GUIDE_SHOT_DIR) {
     // Screenshots for the Learn guide "How to write a problem in Problem Studio". Real editor and API on the
@@ -1060,7 +1068,7 @@ try {
     method: "POST", headers: { origin, "Content-Type": "application/json" }, body: JSON.stringify({ version: archivedVersion }),
   }), id)).status, 200);
   await page.reload();
-  await page.getByRole("button", { name: "Back to drafts", exact: true }).click();
+  // The address has no draft, so Studio opens on My drafts and the row is already there.
   await remove.waitFor();
   await page.route(removalUrl, async route => {
     const committed = await route.fetch();

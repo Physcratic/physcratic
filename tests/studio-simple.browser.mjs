@@ -271,6 +271,8 @@ try {
   for (let attempt = 0; attempt < Number(process.env.SPACING_LOOPS || 3); attempt++) {
     const { context: sctx, page: sp } = await newPage(1440);
     await sp.goto(origin);
+    // Studio opens on My drafts. New problem opens the blank editor.
+    await sp.getByRole("button", { name: "New problem", exact: true }).click();
     await sp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
     const sq = sp.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true }).getByRole("textbox", { name: "What's the question?" });
     await sq.click();
@@ -311,6 +313,8 @@ try {
   // ------------------------------------------------------------------ 1. Publish a one-part problem at 1440
   const { context: wide, page } = await newPage(1440);
   await page.goto(origin);
+  // Studio opens on My drafts. New problem opens the blank editor.
+  await page.getByRole("button", { name: "New problem", exact: true }).click();
   await page.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
   const counts = { screens: 1, clicks: 0, focusClicks: 0, selects: 0, typedFields: 0, keys: 0 };
   const click = async (l) => { await l.click(); counts.clicks++; };
@@ -488,6 +492,8 @@ try {
     const { context: old, page: oldPage } = await newPage(1440);
     await old.addInitScript(() => localStorage.setItem("physcratic.studio.mode", "advanced"));
     await oldPage.goto(origin);
+    // Studio opens on My drafts. New problem opens the blank editor.
+    await oldPage.getByRole("button", { name: "New problem", exact: true }).click();
     await oldPage.getByLabel("Title", { exact: true }).waitFor();
     assert.equal(await oldPage.getByRole("button", { name: "Classic editor", exact: true }).count(), 1, "an old saved advanced still opens the new editor");
     assert.equal(await oldPage.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "advanced", "and it is not rewritten");
@@ -505,6 +511,8 @@ try {
   const fresh = await newPage(1440);
   const f = fresh.page;
   await f.goto(origin);
+  // Studio opens on My drafts. New problem opens the blank editor.
+  await f.getByRole("button", { name: "New problem", exact: true }).click();
   await f.getByRole("button", { name: /Continue your last draft/ }).waitFor();
   assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1 + spacingDrafts, "no draft is created before the first edit");
   await f.getByRole("button", { name: "Publish", exact: true }).click();
@@ -547,6 +555,8 @@ try {
       for (const [typed, expected] of typingCases) {
         const { context: tctx, page: tp } = await newPage(1440, 1000, profile);
         await tp.goto(origin);
+        // Studio opens on My drafts. New problem opens the blank editor.
+        await tp.getByRole("button", { name: "New problem", exact: true }).click();
         await tp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
         const tq = tp.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true }).getByRole("textbox", { name: "What's the question?" });
         await (profile ? tq.tap() : tq.click());
@@ -581,6 +591,8 @@ try {
     for (const [typed, expected] of [["sin", "\\sin"], ["theta", "\\theta"], ["sin(kz)", "\\sin(kz)"], ["sinh", "\\sinh"]]) {
       const { context: tctx, page: tp } = await newPage(1440, 1000, profile);
       await tp.goto(origin);
+      // Studio opens on My drafts. New problem opens the blank editor.
+      await tp.getByRole("button", { name: "New problem", exact: true }).click();
       await tp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
       const tq = tp.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true }).getByRole("textbox", { name: "What's the question?" });
       await (profile ? tq.tap() : tq.click());
@@ -604,6 +616,8 @@ try {
   const small = await newPage(375, 800);
   const m = small.page;
   await m.goto(origin);
+  // Studio opens on My drafts. New problem opens the blank editor.
+  await m.getByRole("button", { name: "New problem", exact: true }).click();
   await m.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
   await noSideways(m, "375 empty");
   // No placeholder runs out of its box at 375 (and 320): the written ones stay inside their box, the typed ones are not cut off.
@@ -669,6 +683,8 @@ try {
   {
     const { context: tctx, page: tp } = await newPage(1440);
     await tp.goto(origin);
+    // Studio opens on My drafts. New problem opens the blank editor.
+    await tp.getByRole("button", { name: "New problem", exact: true }).click();
     await tp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
     const mainQ = tp.getByRole("textbox", { name: "Main question (optional)" });
     await mainQ.click();
@@ -752,6 +768,8 @@ try {
   {
     const { context: ectx, page: ep } = await newPage(1440);
     await ep.goto(origin);
+    // Studio opens on My drafts. New problem opens the blank editor.
+    await ep.getByRole("button", { name: "New problem", exact: true }).click();
     await ep.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
     const partRegion = (name) => ep.getByRole("region", { name, exact: true });
     const a = ep.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true });
@@ -836,6 +854,8 @@ try {
   {
     const { context: rctx, page: rp } = await newPage(1440);
     await rp.goto(origin);
+    // Studio opens on My drafts. New problem opens the blank editor.
+    await rp.getByRole("button", { name: "New problem", exact: true }).click();
     await rp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
     const a = rp.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true });
     const aq = a.getByRole("textbox", { name: "What's the question?" });
@@ -875,6 +895,8 @@ try {
     const g = await newPage(1280, 1000);
     const gp = g.page;
     await gp.goto(origin);
+    // Studio opens on My drafts. New problem opens the blank editor.
+    await gp.getByRole("button", { name: "New problem", exact: true }).click();
     await gp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
     const gpart = gp.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true });
     const gq = gpart.getByRole("textbox", { name: "What's the question?" });

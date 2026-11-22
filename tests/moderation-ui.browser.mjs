@@ -12,11 +12,13 @@ import arena from '../lib/arena/index.json' with {type:'json'};
 import {createCommentsApi} from '../lib/community/comments-api.ts';
 import {createModerationApi} from '../lib/community/moderation-api.ts';
 import {achievementFixtures,achievementMigrations} from './community-achievement-fixtures.ts';
+import {installProfilePublicationFixture} from './profile-publication-fixtures.ts';
 const require=createRequire(import.meta.url),tools=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS,'package.json')),{chromium}=tools('playwright'),{default:AxeBuilder}=tools('@axe-core/playwright'),{build}=createRequire(require.resolve('tsx'))('esbuild');
 const target=new URL(process.env.AUTHORING_TEST_DATABASE_URL);assert.equal(target.hostname,'127.0.0.1');assert.equal(target.pathname,'/physcratic_authoring_test');
 const schema='moderation_ui_'+randomUUID().replaceAll('-',''),admin=new Pool({connectionString:target.href}),pool=new Pool({connectionString:target.href,options:`-c search_path=${schema},public`}),key='arena:arena-mind-the-gap';const temp=await mkdtemp(join(tmpdir(),'physcratic-moderation-browser-'));let browser,server,origin;const errors=[];
 try{
  await admin.query(`CREATE SCHEMA ${schema}`);await pool.query('CREATE TABLE "user"(id text PRIMARY KEY)');for(const name of [...achievementMigrations,'0010_community_medals','0013_community_comments','0014_community_moderation','0015_community_security_s1'])await pool.query('BEGIN;'+await readFile('migrations/'+name+'.up.sql','utf8')+'COMMIT;');
+ await installProfilePublicationFixture(pool);
  const f=achievementFixtures(pool);for(const user of ['owner','other','mod','admin'])await f.user(user);await pool.query("INSERT INTO community_staff(user_id,role,reason) VALUES('mod','moderator','fixture'),('admin','admin','fixture')");
  const authored=await f.problem('owner');
  const deps={pool,user:async r=>{const id=r.headers.get('x-test-user');return id?{id,emailVerified:true}:null;},profiles:()=>true,commentsPublic:()=>true,origin:r=>r.headers.get('origin')===origin,ip:()=> 'unknown'},comments=createCommentsApi({...deps,moderation:()=>true}),moderation=createModerationApi(deps),attempts=createAuthoredAttemptApi(deps);

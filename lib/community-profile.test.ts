@@ -1,3 +1,4 @@
+import { installProfilePublicationFixture } from "../tests/profile-publication-fixtures";
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
 import { readFile } from "node:fs/promises";
@@ -19,7 +20,7 @@ test("profile validation normalizes handles, bounds Unicode text, and allows onl
     { handle: "ada/slash" }, { handle: "ada\u0000" }, { handle: "ada\ud800" },
     { bio: "x".repeat(501) }, { bio: "🙂".repeat(501) }, { bio: "\u0000" },
     { displayName: "x".repeat(81) }, { displayName: "line\nbreak" },
-    { educationLevel: "admin" }, { publicVisibility: "true" }, { publicVisibility: null },
+    { educationLevel: "admin" }, { publicVisibility: true }, { publicVisibility: "true" }, { publicVisibility: null },
     { favoriteTopicIds: ["Mechanics"] }, { favoriteTopicIds: ["energy-conservation"] },
     { favoriteTopicIds: ["mechanics", "mechanics"] }, { favoriteTopicIds: [null] },
     ...reservedProfileHandles.map(handle => ({ handle: handle.toUpperCase() })),
@@ -85,7 +86,9 @@ test("community profile API, constraints and migration on disposable PostgreSQL"
     INSERT INTO "user" VALUES ('owner','PRIVATE_REAL_NAME','PRIVATE_EMAIL'),('other','OTHER_PRIVATE_NAME','OTHER_PRIVATE_EMAIL');
     INSERT INTO "user" SELECT 'race'||i,'Private','private'||i FROM generate_series(0,20) i;`);
   await setup.query(`BEGIN; ${up} COMMIT;`);
-  await setup.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role};
+  await installProfilePublicationFixture(setup);
+  await setup.query(`GRANT SELECT(id,"emailVerified","profileSignupHandle","profileSignupPolicyVersion") ON "user" TO ${role};
+    GRANT USAGE ON SCHEMA ${schema} TO ${role};
     GRANT SELECT,INSERT,UPDATE ON community_profile,community_profile_write_limit TO ${role}`);
   const sessions = new Map([
     ["owner", { id: "owner", emailVerified: true }], ["other", { id: "other", emailVerified: true }],
@@ -128,23 +131,37 @@ test("community profile API, constraints and migration on disposable PostgreSQL"
   });
   await t.test("owner editing, explicit publishing, privacy opt-out and timestamps", async () => {
     const created = (await (await own({ handle: "ada", displayName: "Chosen name" })).json()).profile;
-    const response = await own({ displayName: "Edited", bio: "Physics\n🙂", educationLevel: "university", favoriteTopicIds: ["mechanics", "optics"], publicVisibility: true });
+    const response = await own({ displayName: "Edited", bio: "Physics\n🙂", educationLevel: "university", favoriteTopicIds: ["mechanics", "optics"] });
     assert.equal(response.status, 200);
     const edited = (await response.json()).profile;
     assert.equal(edited.createdAt, created.createdAt);
     assert.ok(new Date(edited.updatedAt) >= new Date(created.updatedAt));
+    await setup.query("UPDATE community_profile SET public_visibility=true WHERE user_id='owner'");
+    assert.equal((await lookup("ada")).status, 404, "legacy visibility cannot publish");
+    assert.equal((await own({ acknowledge: "b1-v0" })).status, 400);
+    assert.equal((await own({ acknowledge: "b1-v1" })).status, 200);
     const visible = await instances[0]("public", request(undefined, "guest"), "ADA");
     assert.deepEqual(await visible.json(), { profile: { handle: "ada", displayName: "Edited", bio: "Physics\n🙂", educationLevel: "university", favoriteTopicIds: ["mechanics", "optics"] } });
     assert.match(visible.headers.get("cache-control")!, /private.*no-store/);
     assert.equal(visible.headers.get("vary"), "Cookie");
     assert.equal(visible.headers.get("x-content-type-options"), "nosniff");
-    await own({ publicVisibility: false });
+    const [deactivation, acknowledgement, edit] = await Promise.all([
+      own({ deactivate: true }), own({ acknowledge: "b1-v1" }, "owner", 1), own({ bio: "Private edit" }),
+    ]);
+    assert.equal(deactivation.status, 200);
+    assert.ok([200, 409].includes(acknowledgement.status));
+    assert.equal(edit.status, 200);
+    assert.equal((await own({ deactivate: true })).status, 200);
+    const deactivated = (await (await own()).json()).profile;
+    assert.equal(deactivated.publicationState, "deactivated");
+    assert.equal(deactivated.bio, "Private edit");
     const hidden = await lookup("ada"), missing = await lookup("missing");
     assert.equal(hidden.status, 404);
     assert.deepEqual(await hidden.json(), await missing.json());
     assert.equal((await own({ handle: "ADA" })).status, 200);
     assert.equal((await own({ handle: "renamed" })).status, 409);
     assert.equal((await lookup("renamed")).status, 404);
+    await resetLimit();
     assert.equal((await own({ favoriteTopicIds: physicsTopics.map(topic => topic.id) })).status, 200, "SQL accepts the full canonical topic registry");
     assert.equal((await setup.query('SELECT name,email FROM "user" WHERE id=\'owner\'')).rows[0].name, "PRIVATE_REAL_NAME");
   });
@@ -193,9 +210,9 @@ test("community profile API, constraints and migration on disposable PostgreSQL"
     assert.equal((await setup.query("SELECT requests FROM community_profile_write_limit WHERE user_id='owner'")).rows[0].requests, 1);
   });
   await t.test("invalid requests are bounded, counted and return nonleaking errors", async () => {
-    for (const body of [{ handle: "ADMIN" }, { handle: "ab" }, { bio: "x".repeat(501) }, { favoriteTopicIds: ["fake"] }, { publicVisibility: "true" }])
+    for (const body of [{ handle: "ADMIN" }, { handle: "ab" }, { bio: "x".repeat(501) }, { favoriteTopicIds: ["fake"] }, { publicVisibility: true }, { publicVisibility: "true" }])
       assert.equal((await own(body)).status, 400);
-    assert.equal((await setup.query("SELECT requests FROM community_profile_write_limit WHERE user_id='owner'")).rows[0].requests, 5);
+    assert.equal((await setup.query("SELECT requests FROM community_profile_write_limit WHERE user_id='owner'")).rows[0].requests, 6);
     assert.equal((await instances[0]("own", request({ handle: "valid" }, "owner", { "content-type": "text/plain" }))).status, 415);
     const broken = request({}, "owner");
     assert.equal((await instances[0]("own", new Request(broken.url, { method: "PATCH", headers: broken.headers, body: "{" }))).status, 400);
