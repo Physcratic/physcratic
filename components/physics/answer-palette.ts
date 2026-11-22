@@ -27,6 +27,8 @@ export type PaletteItem = {
   readable?: boolean;
   /** Greek capitals sit behind "Show more". */
   more?: boolean;
+  /** The label as LaTeX, for buttons that show a symbol with a subscript. The label is the fallback. */
+  latex?: string;
 };
 
 const isGreek = (base: string) => displayName(base) !== base;
@@ -47,7 +49,7 @@ export function symbolItems(symbols: readonly string[]): PaletteItem[] {
     if (!name || seen.has(name)) continue;
     seen.add(name);
     const label = displayName(name);
-    items.push({ id: `symbol-${name}`, label, name: `${label} symbol`, insert: symbolToLatex(name), group: "problem", readable: true });
+    items.push({ id: `symbol-${name}`, label, name: `${label} symbol`, insert: symbolToLatex(name), group: "problem", readable: true, latex: symbolToLatex(name) });
   }
   return items;
 }
@@ -133,17 +135,26 @@ export function cleanLatex(latex: string): string {
 
 export type SymbolCondition = { symbol: string; assumptions: readonly string[]; min?: number; max?: number };
 
+/** A condition as plain text and as LaTeX. The text is the fallback when the LaTeX does not render. */
+export type ConditionPhrase = { text: string; latex: string };
+
 /** Short phrases such as "k > 0" or "50 ≤ u ≤ 150", one per symbol that has a declared condition. */
-export function formatConditions(conditions: readonly SymbolCondition[]): string[] {
-  return conditions.flatMap((condition) => {
+export function conditionPhrases(conditions: readonly SymbolCondition[]): ConditionPhrase[] {
+  return conditions.flatMap((condition): ConditionPhrase[] => {
     const name = displayName(normaliseName(condition.symbol));
+    const tex = symbolToLatex(condition.symbol);
     const { min, max } = condition;
-    if (min !== undefined && max !== undefined) return [`${min} ≤ ${name} ≤ ${max}`];
-    if (min !== undefined) return [`${name} ≥ ${min}`];
-    if (max !== undefined) return [`${name} ≤ ${max}`];
-    if (condition.assumptions.includes("positive")) return [`${name} > 0`];
-    if (condition.assumptions.includes("nonnegative")) return [`${name} ≥ 0`];
-    if (condition.assumptions.includes("nonzero")) return [`${name} ≠ 0`];
+    if (min !== undefined && max !== undefined) return [{ text: `${min} ≤ ${name} ≤ ${max}`, latex: `${min} \\le ${tex} \\le ${max}` }];
+    if (min !== undefined) return [{ text: `${name} ≥ ${min}`, latex: `${tex} \\ge ${min}` }];
+    if (max !== undefined) return [{ text: `${name} ≤ ${max}`, latex: `${tex} \\le ${max}` }];
+    if (condition.assumptions.includes("positive")) return [{ text: `${name} > 0`, latex: `${tex} > 0` }];
+    if (condition.assumptions.includes("nonnegative")) return [{ text: `${name} ≥ 0`, latex: `${tex} \\ge 0` }];
+    if (condition.assumptions.includes("nonzero")) return [{ text: `${name} ≠ 0`, latex: `${tex} \\ne 0` }];
     return [];
   });
+}
+
+/** The same phrases as plain text. */
+export function formatConditions(conditions: readonly SymbolCondition[]): string[] {
+  return conditionPhrases(conditions).map((phrase) => phrase.text);
 }

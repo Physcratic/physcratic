@@ -20,6 +20,16 @@ export function describePartResult(status: FeedbackStatus) {
   return partLabels[status];
 }
 
+/**
+ * The grader's message without its own first word when that word is the label already shown beside it, so a wrong
+ * answer reads "Not correct. Your answer gives a different value..." once and not "Not correct. Not correct. ...".
+ */
+export function resultMessage(status: FeedbackStatus, message: string): string {
+  const { label } = partLabels[status];
+  for (const join of [". ", ": "]) if (message.startsWith(`${label}${join}`)) return message.slice(label.length + join.length);
+  return message;
+}
+
 export type CheckSummary = {
   tone: FeedbackTone;
   headline: string;

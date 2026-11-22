@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { describePartResult, summariseCheck, summariseSavedCheck } from "./solve-feedback";
+import { describePartResult, resultMessage, summariseCheck, summariseSavedCheck } from "./solve-feedback";
+import { checkArchivePart } from "./archive-grading";
+import { expression } from "./archive-grading/definitions";
 
 const r = (status: Parameters<typeof describePartResult>[0]) => ({ partId: "a", status, message: "" });
 
@@ -42,4 +44,24 @@ test("saved receipts describe durability without changing correctness or guest f
     const { detail: savedDetail, ...savedDecision } = saved;
     void guestDetail; void savedDetail; assert.deepEqual(savedDecision, guestDecision);
   }
+});
+
+test("the grader's own first word is dropped when the label already says it", () => {
+  assert.equal(resultMessage("incorrect", "Not correct. Your answer gives a different value."), "Your answer gives a different value.");
+  assert.equal(resultMessage("correct", "Correct. Your answer matches the reference answer."), "Your answer matches the reference answer.");
+  assert.equal(resultMessage("correct", "Correct: the interface is flat."), "the interface is flat.");
+  // Other messages, and a first word that only starts the same way, are left as they are.
+  assert.equal(resultMessage("incorrect", "Not quite. Check your calculation."), "Not quite. Check your calculation.");
+  assert.equal(resultMessage("correct", "Correct within this part’s numerical tolerance."), "Correct within this part’s numerical tolerance.");
+  assert.equal(resultMessage("invalid", "Not correct. This is a different status."), "Not correct. This is a different status.");
+});
+
+test("what the real grader says for a different value, shown after its label, reads once", () => {
+  const result = checkArchivePart(expression("f", "f", "x+1", "x", "All real x"), "x+2");
+  assert.equal(result.status, "incorrect");
+  const label = describePartResult(result.status).label;
+  const line = `${label}. ${resultMessage(result.status, result.message)}`;
+  assert.equal(line.split(label).length - 1, 1, line);
+  // The grading decision and its message are unchanged by this copy fix.
+  assert.match(result.message, /^Not correct\. Your answer gives a different value from the reference answer for some test values\./);
 });
