@@ -18,6 +18,8 @@ on:
       - 'tests/authored-expression.browser.mjs'
       - 'tests/authored-student-harness.tsx'
       - 'tests/simple-options*'
+      - 'components/auth-form.tsx'
+      - 'tests/auth-spacing*'
       - 'tests/authored-public-solutions*'
       - 'migrations/0020_authored_public_solutions*'
       - 'lib/authored-*.ts'
@@ -77,6 +79,10 @@ jobs:
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/authored-browser-tools
         run: node --import tsx tests/simple-options.browser.mjs
+      - name: Sign-up and sign-in spacing, Terms row and hint
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/authored-browser-tools
+        run: node --import tsx tests/auth-spacing.browser.mjs
       - name: Public worked solutions and explicit revision consent
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/authored-browser-tools
