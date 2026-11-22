@@ -1,3 +1,4 @@
+import { publicProfileDisplayName, publicProfileEligible } from "./community/profile-publication";
 import 'server-only';
 import type { Pool } from 'pg';
 import { authoredRating, createAuthoredLibraryApi } from './authored-library-api';
@@ -53,8 +54,8 @@ export function createUnifiedArenaApi(pool:Pool, flags:()=>{authors:boolean;badg
        // At most 24 publications, one batched snapshot. Never expose Better Auth identity.
        // MATERIALIZED deduplicates authors before bounded achievement progress work.
        const authorQuery={text:`WITH visible AS MATERIALIZED (
-         SELECT p.id,cp.user_id,cp.handle,cp.display_name FROM authored_problem p
-         JOIN community_profile cp ON cp.user_id=p.owner_id AND cp.public_visibility=true
+         SELECT p.id,cp.user_id,cp.handle,${publicProfileDisplayName("cp")} AS display_name FROM authored_problem p
+         JOIN community_profile cp ON cp.user_id=p.owner_id AND ${publicProfileEligible("cp")}
          WHERE p.id=ANY($1::uuid[]) AND p.state='published'
        ), authors AS MATERIALIZED (SELECT DISTINCT user_id,handle,display_name FROM visible),
        badges AS MATERIALIZED (SELECT a.user_id,${enabled.badges?"coalesce(s.badge_ids,'{}'::text[]) AS ids,g.author_count,g.solve_count":"'{}'::text[] AS ids,0 AS author_count,NULL::integer AS solve_count"}

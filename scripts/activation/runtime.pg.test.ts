@@ -113,6 +113,7 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
    await check(await contests.POST(request('/api/contests/registration',a,{contestId:'synthetic-contest',registered:true})));
   });
   await t.test('text-profile consent and actual authorship routes with the LOGIN role',async()=>{
+   await setup!.query(await readFile("migrations/0022_b1_profile_signup.up.sql","utf8"));
    await setup!.query((await readFile('scripts/activation/profiles-grants.review.sql','utf8')).replaceAll(':"runtime_role"',runtime));
    process.env.COMMUNITY_PROFILES_ENABLED='true';
    const profiles=await import('../../app/api/community/profile/route');
@@ -126,7 +127,7 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
    const publicProfile=await import('../../app/api/community/profile/[handle]/route');
    const params={params:Promise.resolve({handle:'runtime_author'})};
    await check(await publicProfile.GET(request(profile+'/runtime_author'),params),404);
-   await check(await profiles.PATCH(request(profile,a,{publicVisibility:true},'synthetic-user-0','PATCH')));
+   await check(await profiles.PATCH(request(profile,a,{acknowledge:'b1-v1'},'synthetic-user-0','PATCH')));
    const publicBody=await check(await publicProfile.GET(request(profile+'/runtime_author'),params));
    assert.deepEqual(Object.keys(publicBody.profile).sort(),['bio','displayName','educationLevel','favoriteTopicIds','handle'].sort());
    process.env.COMMUNITY_AUTHORSHIP_ENABLED='true';
@@ -137,7 +138,7 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
    const collection=await import('../../app/api/arena/collection/route');
    const authors=async()=>check(await collection.GET(request('/api/arena/collection?q=Synthetic%20activation')));
    assert.equal((await authors()).problems.find((p:{id:string})=>p.id===published.id).author.displayName,'Synthetic Public Name');
-   await check(await profiles.PATCH(request(profile,a,{publicVisibility:false},'synthetic-user-0','PATCH')));
+   await check(await profiles.PATCH(request(profile,a,{deactivate:true},'synthetic-user-0','PATCH')));
    await check(await publicProfile.GET(request(profile+'/runtime_author'),params),404);
    assert.equal((await check(await attr())).author,null);
    assert.equal((await authors()).problems.find((p:{id:string})=>p.id===published.id).author,null);

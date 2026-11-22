@@ -1,3 +1,4 @@
+import { publicProfileEligible } from "./profile-publication";
 import "server-only";
 import type { Pool, PoolClient } from "pg";
 import { z } from "zod";
@@ -62,19 +63,19 @@ export function createCommunityAchievementsApi(deps: Dependencies) {
         // Never return identity or progress publicly. Resolve visibility and current eligibility in one snapshot.
         const lookup = await client.query<{ badgeIds: BadgeId[] }>(`SELECT coalesce(s.badge_ids,'{}'::text[]) AS "badgeIds"
           FROM community_profile p LEFT JOIN community_badge_selection s ON s.user_id=p.user_id
-          WHERE lower(p.handle)=$1 AND p.public_visibility=true`, [parsedHandle!.data]);
+          WHERE lower(p.handle)=$1 AND ${publicProfileEligible("p")}`, [parsedHandle!.data]);
         if (!lookup.rows[0]) throw new AchievementError(404, "Profile not found.");
         let selectedIds: BadgeId[] = [];
         if (lookup.rows[0].badgeIds.length) {
           const result = await client.query<Snapshot>(`SELECT ${projection} FROM community_profile p
             JOIN community_badge_selection s ON s.user_id=p.user_id
             CROSS JOIN LATERAL community_achievement_progress(p.user_id) g
-            WHERE lower(p.handle)=$1 AND p.public_visibility=true`, [parsedHandle!.data]);
+            WHERE lower(p.handle)=$1 AND ${publicProfileEligible("p")}`, [parsedHandle!.data]);
           if (!result.rows[0]) throw new AchievementError(404, "Profile not found.");
           selectedIds = active(result.rows[0]);
         }
         let medals:PublicMedal[]=[];
-        if(medalsOn){medals=(await client.query<PublicMedal>(`SELECT m.id,m.competition,m.award,m.year,m.country,m."competitionName" FROM community_approved_medal m JOIN community_profile p ON p.user_id=m.user_id JOIN community_badge_selection s ON s.user_id=p.user_id WHERE lower(p.handle)=$1 AND p.public_visibility=true AND m.id=ANY(s.badge_ids)`,[parsedHandle!.data])).rows;selectedIds=lookup.rows[0].badgeIds.filter(id=>selectedIds.includes(id)||medals.some(m=>m.id===id));}
+        if(medalsOn){medals=(await client.query<PublicMedal>(`SELECT m.id,m.competition,m.award,m.year,m.country,m."competitionName" FROM community_approved_medal m JOIN community_profile p ON p.user_id=m.user_id JOIN community_badge_selection s ON s.user_id=p.user_id WHERE lower(p.handle)=$1 AND ${publicProfileEligible("p")} AND m.id=ANY(s.badge_ids)`,[parsedHandle!.data])).rows;selectedIds=lookup.rows[0].badgeIds.filter(id=>selectedIds.includes(id)||medals.some(m=>m.id===id));}
         await client.query("COMMIT"); transaction = false;
         return profileReply({ selectedIds,...(medalsOn?{medals}: {}) });
       }

@@ -73,7 +73,7 @@ try {
   check(await page.getByLabel("Achievement showcase").locator("summary").allTextContents(),["Problem Weaver","First Spark"],"public showcase");
   check((await new AxeBuilder({page}).analyze()).violations,[],"public axe");await page.screenshot({path:join(temp,"profile-mobile.png"),fullPage:true});
   await pool.query("UPDATE authored_problem SET state='archived',published_revision_id=NULL WHERE owner_id='owner'");await page.reload();await page.getByRole("article",{name:"Public profile"}).waitFor();check(await page.getByLabel("Achievement showcase").count(),0,"live eligibility revocation");
-  await pool.query("UPDATE community_profile SET public_visibility=false WHERE user_id='owner'");await page.reload();await page.getByRole("heading",{name:"Profile not found"}).waitFor();
+  await pool.query(`UPDATE "user" SET "emailVerified"=false WHERE id='owner'`);await page.reload();await page.getByRole("heading",{name:"Profile not found"}).waitFor();
   await context.addCookies([{name:"test_user",value:"owner",url:origin}]);fail=true;await page.goto(`${origin}/settings`);await page.getByText("Achievements could not be loaded.",{exact:false}).waitFor();check(await page.getByText("PRIVATE_ERROR").count(),0,"generic error");
   fail=false;await page.getByRole("button",{name:"Reload achievements"}).click();await page.getByText("Locked, 0/1",{exact:true}).waitFor();
   flags.achievements=false;requests.length=0;await page.reload();await page.getByRole("heading",{name:"Appearance",exact:true}).waitFor();check(await page.getByRole("heading",{name:"Achievements",exact:true}).count(),0,"off UI");check(requests.includes("/api/community/achievements"),false,"off no query");

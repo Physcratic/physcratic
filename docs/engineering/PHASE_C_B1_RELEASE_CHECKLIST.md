@@ -2,6 +2,17 @@
 
 19 November 2026. Engineering preparation only. **No Production SQL or activation is authorized by this document.** This supersedes the pre-cleanup procedure previously at this path. The owner accepted the November 19 serving LOGIN sample and removed the temporary variable. Reconcile deployment and binding continuity before using this checklist. See the [accepted evidence and archived procedure](RUNTIME_LOGIN_ATTESTATION.md).
 
+## Corrected B1 release gate
+
+The previous activation was rolled back and accepted. Keep `COMMUNITY_PROFILES_ENABLED=false`. Sections below retain the earlier permission review. The accepted B1 grants do not need replay.
+
+1. Independently review the PR 2 candidate and its exact-head tests. Confirm the registration disclosure, Privacy Notice and synthetic account acceptance plan.
+2. Qualify 0022 against the current restricted role and recovery plan. Obtain separate installation approval for the exact source, target and checksum. Keep profiles OFF through installation and code release.
+3. Obtain separate activation approval after confirming Production serves the corrected code with profiles OFF. Change only the Production flag during the owner-controlled activation.
+4. Verify a new synthetic username is private until email verification. Verify an existing account is private until it acknowledges publication, even with old visibility set. Confirm the five public fields, neutral author attribution, no stale-account edits and continued statistics.
+5. Deactivate a synthetic public profile. Check the next profile, attribution, achievement and applicable media reads deny access. Verify saved details remain editable and acknowledgement cannot reactivate the profile.
+6. On a critical failure, route back to the verified profiles-OFF deployment and restore the saved Production flag to false. Retain the schema, profile rows and claimed usernames. An older profiles-ON deployment still uses the legacy rule and is unsuitable as a rollback target.
+
 ## 1. Confirm the accepted release gate and obtain the first exact approval
 
 - The reviewed source for these commands is **5e929d7ff8c4cc93b0755fcf3c968396caed54b8**. The earlier owner-confirmed PR204 cleanup deployment was **dpl_A4rYge5pwgYzVMhD6JYgabQ8NexB** from **4f840e67f359e558d49f44a4b81966012638fc9a**. Before execution, verify the current Ready deployment ID, source SHA and actual physcratic.com assignment in financial-dashboard under neuterions-projects. Preserve the private reference to the accepted sample and confirm its deployment and binding context for the candidate. PR204 removed the instrumentation, and the owner confirmed removal of the temporary variable.
