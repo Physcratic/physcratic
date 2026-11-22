@@ -166,6 +166,7 @@ for (const theme of ["light", "dark"]) {
     if (cookie) {
       const { context, page } = await open(theme, width, true);
       await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" });
+      await enterStudio(page, "studio");
       await page.getByRole("textbox", { name: "What's the question?" }).first().waitFor();
       await card(page).waitFor({ timeout: 8000 });
       const titles = await walk(page, `${tag} studio`);
@@ -194,6 +195,7 @@ for (const width of [375, 1440]) {
       if (signedIn) { const [name, ...rest] = cookie.split("="); await context.addCookies([{ name, value: rest.join("="), url: origin }]); }
       const page = await context.newPage();
       await page.goto(origin + path, { waitUntil: "networkidle" });
+      await enterStudio(page, id);
       ok((await page.evaluate(() => navigator.webdriver)) === true, `${tag} ${id}: this browser reports navigator.webdriver`);
       await page.waitForTimeout(1500);
       ok((await card(page).count()) === 0, `${tag} ${id}: stays off under automation`);
@@ -205,6 +207,7 @@ for (const width of [375, 1440]) {
       const { context, page } = await open("light", width, signedIn);
       ok((await page.evaluate(() => navigator.webdriver)) === false, `${tag} ${id}: navigator.webdriver is turned off`);
       await page.goto(origin + path, { waitUntil: "load" });
+      await enterStudio(page, id);
       const began = Date.now();
       await card(page).waitFor({ timeout: 4000 });
       ok(Date.now() - began < 3000, `${tag} ${id}: opens on its own on a fresh visit (${Date.now() - began}ms after load, no click)`);
@@ -213,6 +216,7 @@ for (const width of [375, 1440]) {
       await page.getByRole("button", { name: "Skip tour" }).click();
       ok((await card(page).count()) === 0, `${tag} ${id}: Skip closes it at step one`);
       await page.reload({ waitUntil: "networkidle" });
+      await enterStudio(page, id);
       await page.waitForTimeout(1500);
       ok((await card(page).count()) === 0, `${tag} ${id}: plays once per browser`);
       // Help replays it.
@@ -226,6 +230,7 @@ for (const width of [375, 1440]) {
         await page.getByRole("button", { name: "Replay tours" }).click();
         ok((await page.evaluate((key) => localStorage.getItem(key), `physcratic.tour.${id}.v1`)) === null, `${tag} ${id}: Settings clears the seen mark`);
         await page.goto(origin + path, { waitUntil: "load" });
+        await enterStudio(page, id);
         await card(page).waitFor({ timeout: 4000 });
         ok(true, `${tag} ${id}: after Settings, the next visit starts it again`);
       }
@@ -234,6 +239,10 @@ for (const width of [375, 1440]) {
   }
 }
 
+/** Problem Studio opens on My drafts, and its tour lives in the editor. New problem opens the editor. Other pages are left as they are. */
+async function enterStudio(page, id) {
+  if (id === "studio") await page.getByRole("button", { name: "New problem", exact: true }).click();
+}
 function log(...a) { console.log(...a); }
 await browser.close();
 console.log(`${checks} checks, ${failures.length} failures`);

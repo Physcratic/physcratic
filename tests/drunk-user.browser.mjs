@@ -125,6 +125,8 @@ await task("publish", "From the dashboard, write a problem and publish it", asyn
   await tap(menu, "menu");
   await tap(page.getByRole("link", { name: /^Problem Studio/ }), "Problem Studio");
   await page.waitForURL(/\/dashboard\/author/);
+  // Problem Studio opens on My drafts. New problem opens the editor.
+  await tap(page.getByRole("button", { name: "New problem", exact: true }), "New problem");
   await tap(page.getByRole("textbox", { name: "What's the question?" }), "question");
   await page.keyboard.type("A 2 kg cart accelerates at 5 m/s2 on a frictionless track. Find the net force.", { delay: 2 });
   await tap(page.getByRole("textbox", { name: "Worked solution (required)" }), "worked solution");
@@ -142,6 +144,7 @@ await task("publish", "From the dashboard, write a problem and publish it", asyn
 
 await task("studioBack", "Studio: type, tap Back at once, reopen, the text is still there", async ({ page, tap }) => {
   await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" });
+  await tap(page.getByRole("button", { name: "New problem", exact: true }), "New problem");
   const question = page.getByRole("textbox", { name: "What's the question?" }).first();
   await question.tap();
   await page.keyboard.type("Back test: a 3 kg block slides down a 30 degree ramp. Find its acceleration.", { delay: 2 });
