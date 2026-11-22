@@ -72,6 +72,16 @@ test("a different value shows Not correct once, and a match shows Correct once",
   assert.match(html(createElement(ResultLine, { status: "incorrect", message: "Not quite. Check your calculation." })), /Not quite\. Check your calculation\./);
 });
 
+test("an unanswered part shows its status once, in words, and keeps the guidance", () => {
+  const out = html(createElement(ResultLine, { status: "unanswered", message: "Unanswered. You can check this part later.", id: "r" }));
+  assert.equal(count(out, "Not answered"), 1, out);
+  assert.equal(count(out, "nswered"), 1, "no second Unanswered or Not answered");
+  assert.match(out, /<strong class="font-semibold">Not answered\.<\/strong> You can check this part later\./);
+  // Words carry the status and an icon sits beside them, so colour is never the only signal.
+  assert.match(out, /<svg[^>]*aria-hidden="true"/);
+  assert.match(out, /^<p id="r"/);
+});
+
 test("Arena part headings show a, b without brackets and keep Part a as the accessible name", () => {
   const out = html(createElement(ArenaDocument, { content: "Setup.\n\n## (a) Find the speed.\n\nText.\n\n## (b)\n\nMore text.", staticFigures: true }));
   assert.doesNotMatch(out, />\(a\)</);
