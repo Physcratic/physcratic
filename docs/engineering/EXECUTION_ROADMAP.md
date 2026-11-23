@@ -1,5 +1,11 @@
 # Execution roadmap
 
+## Sleds problem character renamed, U5b (23 November 2026)
+
+In `arena-two-sleds-one-rope` the character Ayu is now Jeff, with He and his in place of She and her. This is the statement (3 places), the solution (1) and one part b hint (1). The text is edited in `lib/arena/source-07.ts` and the three generated files come from `pnpm run build:arena`: the problem JSON, `lib/arena/index.json` (the hint) and the grading JSON. Nothing else changed.
+
+This problem's version changed from `dd2c20fc32e8` to `ec6287202d3e` (first 12 characters), because the version is a hash of the whole problem seed, text included. For signed-in users, saved checks for this one problem stop counting toward its progress, since progress matches on problem id and version with no old-version merge. Their attempts stay stored. A check pending from before the change is refused once with the existing "problem or answer key has changed" message, and the answer fields refresh. Solved markers kept in the browser are keyed by problem id and are not affected. The owner approved this change. No migration, schema, auth, grading, flag, Vercel, Neon or environment change.
+
 ## Checkbox corners, U4b (22 November 2026)
 
 The shared checkbox in `components/ui/checkbox.tsx` has a fixed 4px corner (`rounded-[4px]`). It used `rounded-sm`, which is `calc(var(--radius) - 4px)`, so 8px in this theme, and half of the 16px box is 8px, which drew a circle that looked like a radio button. Nothing else in the file changed, so the focus ring, the checked tick, the disabled look and every tap target and label are as before. The checkbox is used in four places: the sign-up Terms row, the solution submission confirm box, and the contest draft form (launch on publish and the problem picker). `tests/checkbox-radius.test.ts` resolves the class against the real stylesheet and asserts 4px, less than half of the box. `tests/checkbox-radius.browser.mjs` measures the computed radius in Chromium in light and dark and is not wired into CI. The component never styled the indeterminate or invalid states, and no caller uses them. Draft PR only. No schema, auth, grading, flag, Vercel, Neon or environment change.
