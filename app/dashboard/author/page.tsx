@@ -1,3 +1,4 @@
+import { authorCreditEnabled } from "@/lib/author-credit-route";
 import { publicSolutionsEnabled } from "@/lib/authored-solution-policy";
 import { SkipLink } from "@/components/skip-link";
 import type { Metadata } from "next";
@@ -36,7 +37,11 @@ export default async function AuthorPage() {
   return (
     <>
       <SkipLink targetId="author-main">Skip to editor content</SkipLink>
-      <AuthoringWorkspace publicSolutionsEnabled={publicSolutionsEnabled()} userId={session.user.id} />
+      <AuthoringWorkspace
+        publicSolutionsEnabled={publicSolutionsEnabled()}
+        authorCreditEnabled={authorCreditEnabled()}
+        userId={session.user.id}
+      />
     </>
   );
 }
