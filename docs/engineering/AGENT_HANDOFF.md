@@ -1,5 +1,13 @@
 # Agent handoff
 
+## Colour tokens and the Progress page, U6a (23 November 2026)
+
+New colour tokens in `app/globals.css`, light and dark, mapped in `tailwind.config.js`. Success green (#1F7A4D), progress peach (#F2A47A), danger red (#B3261E) and idle grey (#5E584F) each have a strong, tint, ink and foreground value. Four part colours (teal #0F766E, violet #6D4BD0, amber #8A4B00, blue #1D5FB8) follow the same model. `partToken(index)` in `lib/part-colors.ts` picks a part colour by position, a to d and then repeating. It holds no grading logic.
+
+Only the peach text colour was darkened to reach 4.5:1 on its tint, to hsl(21 70% 39.5%). The strong peach stays as drawn and carries dark text. Dark theme values are lighter versions of the same hues. `lib/colour-tokens.test.ts` reads the CSS and checks every text and background pair at 4.5:1 or more.
+
+The Progress page now opens with the solved count, then three cards with a tinted header, an icon, the title in text and a coloured count badge. Green is solved, peach is in progress and grey is not graded. Status is always an icon and words. `components/physics/progress-summary.tsx` holds the pieces. Data, queries and links are unchanged. The solve page, Studio, sign-up and grading are untouched (U6b and U7). The guest contrast sweep was not run here and is an owner check.
+
 ## Sleds problem character renamed, U5b (23 November 2026)
 
 In `arena-two-sleds-one-rope` the character Ayu is now Jeff, with He and his in place of She and her. This is the statement (3 places), the solution (1) and one part b hint (1). The text is edited in `lib/arena/source-07.ts` and the three generated files come from `pnpm run build:arena`: the problem JSON, `lib/arena/index.json` (the hint) and the grading JSON. Nothing else changed.
