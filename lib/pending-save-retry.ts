@@ -6,6 +6,7 @@
  * - one attempt in flight at a time, so two triggers close together cause one save,
  * - a backoff timer with a cap, then it stops until the person or the browser gives a new signal,
  * - a save the server rejected for good is not tried on a timer at all,
+ * - a 429 with a Retry-After in seconds makes the next timer wait the longer of the policy delay and Retry-After, capped at 120 seconds,
  * - a new signal is the next Check press, the browser coming back online or the tab becoming visible again,
  * - nothing here reads or changes the typed answers, and a failed attempt never discards the pending check.
  */
@@ -22,9 +23,18 @@ export type RetryPolicy = {
   maxTimerAttempts: number;
   /** Triggers closer together than this after an attempt started are ignored. */
   minGapMs: number;
+  /** The longest wait a server's Retry-After can ask for. */
+  maxRetryAfterMs: number;
 };
 
-export const retryPolicy: RetryPolicy = { delays: [2_000, 5_000, 15_000, 30_000, 60_000], maxTimerAttempts: 5, minGapMs: 1_000 };
+export const retryPolicy: RetryPolicy = { delays: [2_000, 5_000, 15_000, 30_000, 60_000], maxTimerAttempts: 5, minGapMs: 1_000, maxRetryAfterMs: 120_000 };
+
+/** A Retry-After header in whole or decimal seconds, as milliseconds. Missing, zero, negative, dates and other text give undefined. */
+export function parseRetryAfter(header: string | null | undefined): number | undefined {
+  if (typeof header !== "string" || !/^\s*\d+(\.\d+)?\s*$/.test(header)) return undefined;
+  const ms = Number(header) * 1000;
+  return Number.isFinite(ms) && ms > 0 ? ms : undefined;
+}
 
 export type RetryHost = {
   /** True while a saved check is waiting for the server and this person can send it. */
@@ -35,6 +45,8 @@ export type RetryHost = {
   clearTimer(handle: unknown): void;
   now(): number;
   onStatus(status: RetryStatus): void;
+  /** The wait in milliseconds that the server asked for with its last 429, once. Asking again gives undefined until the next 429. */
+  takeRetryAfter?(): number | undefined;
 };
 
 type Listener = { addEventListener(type: string, run: () => void): void; removeEventListener(type: string, run: () => void): void };
@@ -104,7 +116,9 @@ export class PendingSaveRetrier {
   private schedule(): void {
     this.clear();
     const { delays } = this.policy;
-    const wait = delays[Math.min(this.failures, delays.length - 1)] ?? 60_000;
+    const policyWait = delays[Math.min(this.failures, delays.length - 1)] ?? 60_000;
+    const asked = this.host.takeRetryAfter?.();
+    const wait = asked !== undefined && Number.isFinite(asked) && asked > 0 ? Math.max(policyWait, Math.min(asked, this.policy.maxRetryAfterMs)) : policyWait;
     this.timer = this.host.setTimer(() => { this.timer = null; void this.trigger("timer"); }, wait);
     this.set("waiting");
   }
