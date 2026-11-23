@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { getArchiveDefinition } from "./archive-grading/catalog";
 import { checkArchivePart } from "./archive-grading";
 import type { ArchiveKeyPart } from "./archive-grading/definitions";
@@ -454,4 +456,20 @@ test("check B: a second route to each answer is marked correct and the usual mis
   }
   assert.equal(parts, seeds.reduce((sum, seed) => sum + getArchiveDefinition(seed.id)!.parts.length, 0));
   assert.equal(Object.keys(secondRoute).length, seeds.length);
+});
+
+test("the sleds problem names Jeff, with his pronouns, and no generated file names the old character", () => {
+  const seed = source07.find((item) => item.id === "arena-two-sleds-one-rope");
+  assert.ok(seed);
+  assert.match(seed.statement, /\bJeff sits on sled A\b/);
+  assert.match(seed.statement, /\bHe pulls the rope\b/);
+  assert.doesNotMatch(`${seed.statement}\n${seed.solution}`, /\b(She|she|her)\b/);
+  assert.match(JSON.stringify(seed), /Jeff’s hands/);
+  assert.doesNotMatch(JSON.stringify(seed), /\bAyu\b/);
+  // The files the site reads are generated from the seed, so they have to agree with it.
+  for (const file of ["public/corpus/arena/arena-two-sleds-one-rope.json", "public/corpus/grading/arena-two-sleds-one-rope.json", "lib/arena/index.json"])
+    assert.doesNotMatch(readFileSync(join(process.cwd(), file), "utf8"), /\bAyu\b/, file);
+  const generated = JSON.parse(readFileSync(join(process.cwd(), "public/corpus/arena/arena-two-sleds-one-rope.json"), "utf8")) as { statement: string; solution: string };
+  assert.match(generated.statement, /\bJeff sits on sled A\b/);
+  assert.match(generated.solution, /\bJeff pulls in a length\b/);
 });

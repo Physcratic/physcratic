@@ -432,7 +432,7 @@
         "b": [
           "The rope pulls each sled with the same force $$F$$. Each sled has a constant acceleration toward the other, $$F/m_A$$ and $$F/m_B$$.",
           "The gap between the sleds closes with an acceleration equal to the sum of the two. It starts at $$L$$ with no closing speed.",
-          "Use $$u^2=2aL$$ with $$a=F/m_A+F/m_B$$. You can check with energy: Ayu’s hands do work $$FL$$ in total."
+          "Use $$u^2=2aL$$ with $$a=F/m_A+F/m_B$$. You can check with energy: Jeff’s hands do work $$FL$$ in total."
         ]
       },
       "path": "/corpus/arena/arena-two-sleds-one-rope.json"

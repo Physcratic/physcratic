@@ -75,7 +75,7 @@ A lighter cat would need to stand past the end to tip the plank, so it reaches t
   {
     id: "arena-two-sleds-one-rope", title: "Two Sleds, One Rope", topic: "Mechanics", tags: ["Momentum conservation", "Energy conservation", "Newton’s laws"], importedOn, original: true,
     summary: "Two sleds on frictionless ice are pulled together by a rope. Find where they meet and how fast they close.",
-    statement: String.raw`Two sleds rest on frictionless ice, a distance $$L$$ apart. Ayu sits on sled A. Sled A with Ayu has mass $$m_A$$. Sled B carries cargo and has total mass $$m_B$$. A light rope is tied to sled B, and Ayu holds its other end. She pulls the rope in hand over hand, keeping its tension at a constant value $$F$$, until the sleds meet. Treat the sleds as points.
+    statement: String.raw`Two sleds rest on frictionless ice, a distance $$L$$ apart. Jeff sits on sled A. Sled A with Jeff has mass $$m_A$$. Sled B carries cargo and has total mass $$m_B$$. A light rope is tied to sled B, and Jeff holds its other end. He pulls the rope in hand over hand, keeping its tension at a constant value $$F$$, until the sleds meet. Treat the sleds as points.
 
 ## (a)
 
@@ -106,7 +106,7 @@ The gap starts at $$L$$ with closing speed zero. From $$u^2=2aL$$,
 
 $$\boxed{u=\sqrt{\frac{2FL(m_A+m_B)}{m_Am_B}}.}$$
 
-Energy check. Ayu pulls in a length $$L$$ of rope against tension $$F$$, so her hands do work $$FL$$. Momentum conservation gives $$m_Av_A=m_Bv_B$$, and $$u=v_A+v_B$$, so
+Energy check. Jeff pulls in a length $$L$$ of rope against tension $$F$$, so his hands do work $$FL$$. Momentum conservation gives $$m_Av_A=m_Bv_B$$, and $$u=v_A+v_B$$, so
 
 $$v_A=\frac{m_Bu}{m_A+m_B},\qquad v_B=\frac{m_Au}{m_A+m_B}.$$
 
@@ -124,7 +124,7 @@ which gives the same $$u$$.`,
       b: [
         String.raw`The rope pulls each sled with the same force $$F$$. Each sled has a constant acceleration toward the other, $$F/m_A$$ and $$F/m_B$$.`,
         String.raw`The gap between the sleds closes with an acceleration equal to the sum of the two. It starts at $$L$$ with no closing speed.`,
-        String.raw`Use $$u^2=2aL$$ with $$a=F/m_A+F/m_B$$. You can check with energy: Ayu’s hands do work $$FL$$ in total.`,
+        String.raw`Use $$u^2=2aL$$ with $$a=F/m_A+F/m_B$$. You can check with energy: Jeff’s hands do work $$FL$$ in total.`,
       ],
     },
   },
