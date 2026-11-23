@@ -2,7 +2,7 @@
 
 A 429 on a pending save now honours Retry-After. When the header is a positive number of seconds, the next retry timer waits the longer of the policy delay and Retry-After, capped at 120 seconds. A missing, zero, negative or non-numeric header changes nothing. `parseRetryAfter` and the optional `takeRetryAfter` host hook are in `lib/pending-save-retry.ts`. The panel reads the header from the save response before the body. The idempotency key, one attempt in flight, the 5 timer attempts and the no timer retry of a rejected save are unchanged.
 
-Clear answers in the answer panel now also forgets which parts were correct, so a part is correct again only after a new check and the Solved note goes. `tests/practice-progress.browser.mjs` has the check, and it failed before the fix. Nothing else changed. The guest contrast sweep was not run here.
+Clear answers in the answer panel now also forgets which parts were correct, so a part is correct again only after a new check and the Solved note goes. `tests/practice-progress.browser.mjs` has the check, and it failed before the fix. The native archive browser test now waits for running animations before axe, because the Solved note fade from U6b made it read a half blended colour once in CI. Nothing else changed. The guest contrast sweep was not run here.
 
 ## Colour on the solve page, U6b (23 November 2026)
 

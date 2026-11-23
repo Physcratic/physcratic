@@ -86,6 +86,7 @@ try {
     const feedback=await page.locator('[id$="-result"]').allTextContents();
     assert.ok(feedback.length>=definition.parts.filter(p=>p.kind!=='self-review').length);checks++;
     assert.ok(feedback.every(t=>t.startsWith('Correct.')),feedback.join('\n'));checks++;
+    await page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{}))));// the Solved note fades in, and axe must not read it half blended
     const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
     assert.deepEqual(axe.violations.filter(v=>['serious','critical'].includes(v.impact)),[]);checks++;
     await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:'work/native-'+definition.problemId+'-'+width+'-'+theme+'.png'});
