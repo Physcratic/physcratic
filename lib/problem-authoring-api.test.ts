@@ -69,6 +69,45 @@ test("authored HTTP handlers against disposable PostgreSQL", { skip: !testUrl &&
       assert.equal(saved.version, 2); assert.equal(saved.privateParts[0].partId, saved.content.sections[0].parts[0].id);
       assert.equal((await api("update", request("PUT", { ...input(), version: 1 }, owner), d.problemId)).status, 409);
     });
+    await t.test("My drafts is ordered by last edited, newest first, ties by id, and a save moves a draft to the top", async () => {
+      const owner = await user();
+      const list = async (session: string, after?: string) => {
+        const base = request("GET", undefined, session);
+        return api("list", after === undefined ? base : new Request(`${base.url}?after=${encodeURIComponent(after)}`, base));
+      };
+      const ids = async (session: string) => (await (await list(session)).json()).drafts.map((d: { problemId: string }) => d.problemId);
+      // No drafts: an empty list and no next page.
+      assert.deepEqual(await (await list(owner)).json(), { drafts: [], nextCursor: null });
+      // Three drafts. The first was edited longest ago, the other two at the very same moment.
+      const first = await create(owner), second = await create(owner), third = await create(owner);
+      await pool.query("UPDATE authored_draft SET updated_at=$2 WHERE problem_id=$1", [first.problemId, "2026-01-01T10:00:00.000001Z"]);
+      await pool.query("UPDATE authored_draft SET updated_at=$2 WHERE problem_id=ANY($1::uuid[])", [[second.problemId, third.problemId], "2026-01-01T11:00:00Z"]);
+      const tied = [second.problemId, third.problemId].sort().reverse();
+      assert.deepEqual(await ids(owner), [...tied, first.problemId], "newest first, the higher id first among equal times");
+      // Saving the oldest draft puts it on top at the next load.
+      const saved = await api("update", request("PUT", { ...input(), version: 1 }, owner), first.problemId);
+      assert.equal(saved.status, 200);
+      assert.deepEqual(await ids(owner), [first.problemId, ...tied], "the draft just saved moves to the top");
+      assert.deepEqual(await ids(owner), await ids(owner), "the same order on every load");
+      // Pages continue exactly where the last one stopped, including across drafts saved at the same moment.
+      const paged = await user();
+      await pool.query(`INSERT INTO authored_problem(id,slug,owner_id) SELECT gen_random_uuid(), 'paged-'||$1||'-'||g, $1 FROM generate_series(1,52) g`, [paged]);
+      await pool.query(`INSERT INTO authored_draft(problem_id,content,updated_at)
+        SELECT id, '{"title":"Paged"}'::jsonb, timestamptz '2026-02-01T00:00:00Z' + ((row_number() OVER (ORDER BY id) / 5) * interval '1 microsecond') FROM authored_problem WHERE owner_id=$1`, [paged]);
+      const pageOne = await (await list(paged)).json();
+      assert.equal(pageOne.drafts.length, 50);
+      assert.ok(pageOne.nextCursor, "a next page");
+      const pageTwo = await (await list(paged, pageOne.nextCursor)).json();
+      assert.equal(pageTwo.drafts.length, 2);
+      assert.equal(pageTwo.nextCursor, null);
+      const all = [...pageOne.drafts, ...pageTwo.drafts].map((d: { problemId: string }) => d.problemId);
+      assert.equal(new Set(all).size, 52, "no draft repeated or skipped across the pages");
+      const expected = (await pool.query("SELECT p.id FROM authored_problem p JOIN authored_draft d ON d.problem_id=p.id WHERE p.owner_id=$1 ORDER BY d.updated_at DESC, p.id DESC", [paged])).rows.map(r => r.id);
+      assert.deepEqual(all, expected);
+      assert.equal(JSON.stringify(pageOne).includes("cursorTime"), false, "the cursor time is not part of a draft");
+      // A cursor this list did not produce, including an old id-only cursor, is refused with a clear message.
+      for (const bad of ["not-a-cursor", randomUUID(), "2026-02-01T00:00:00Z~" + randomUUID()]) assert.equal((await list(paged, bad)).status, 400, bad);
+    });
     await t.test("incomplete drafts save, invalid publication rolls back and returns no keys/errors from payload", async () => {
       const owner = await user();
       for (const change of [

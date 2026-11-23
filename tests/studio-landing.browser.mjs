@@ -82,6 +82,8 @@ export async function runStudioLandingBrowser({ browser, origin, pool }) {
     await page.getByRole("heading", { level: 2, name: "Landing One", exact: true }).waitFor();
     await page.getByRole("heading", { level: 2, name: "Landing Two", exact: true }).waitFor();
     await newProblem(page).waitFor();
+    // Last edited first: the draft saved second is on top.
+    assert.deepEqual(await page.locator("article h2").allInnerTexts(), ["Landing Two", "Landing One"], "newest first");
     assert.equal(new URL(page.url()).searchParams.has("draft"), false, "opening Studio does not pick a draft");
     await noEditor(page, "with drafts");
     assert.equal(await page.getByText("No drafts yet", { exact: true }).count(), 0, "no empty state when there are drafts");
@@ -89,8 +91,8 @@ export async function runStudioLandingBrowser({ browser, origin, pool }) {
     await newProblem(page).click();
     await page.getByRole("button", { name: "Classic editor", exact: true }).waitFor();
     assert.equal(await page.locator("#simple-title").inputValue(), "", "New problem is blank, not the last draft");
-    // The list is ordered by draft id, so which of the two it offers is not fixed. It offers one of them.
-    await page.getByRole("button", { name: /^Continue your last draft: Landing (One|Two)$/ }).waitFor();
+    // The last edited draft is the one it offers.
+    await page.getByRole("button", { name: /^Continue your last draft: Landing Two$/ }).waitFor();
     // Back returns to the list, reloaded.
     await page.getByRole("button", { name: "Back to drafts", exact: true }).click();
     await page.getByRole("heading", { level: 2, name: "Landing One", exact: true }).waitFor();
@@ -101,6 +103,14 @@ export async function runStudioLandingBrowser({ browser, origin, pool }) {
     assert.equal(await page.locator("#simple-title").inputValue(), "Landing One");
     assert.equal(await page.getByText("2 drafts loaded", { exact: false }).count(), 0, "the list is not shown");
     assert.equal(new URL(page.url()).searchParams.get("draft"), first);
+    // A save moves the draft to the top of the list on its next load.
+    const question = page.getByRole("textbox", { name: "What's the question?" }).first();
+    await question.click();
+    await question.pressSequentially("Edited last.");
+    await page.getByText("All changes saved").first().waitFor();
+    await page.getByRole("button", { name: "Back to drafts", exact: true }).click();
+    await page.getByRole("heading", { level: 2, name: "Landing One", exact: true }).waitFor();
+    assert.deepEqual(await page.locator("article h2").allInnerTexts(), ["Landing One", "Landing Two"], "the draft just saved is on top");
     // A draft that cannot be opened leaves the message above the drafts, not an empty page.
     await page.goto(`${origin}/?draft=00000000-0000-4000-8000-000000000000`);
     await page.getByRole("alert").first().waitFor();

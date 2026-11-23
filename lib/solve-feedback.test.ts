@@ -54,6 +54,10 @@ test("the grader's own first word is dropped when the label already says it", ()
   assert.equal(resultMessage("incorrect", "Not quite. Check your calculation."), "Not quite. Check your calculation.");
   assert.equal(resultMessage("correct", "Correct within this part’s numerical tolerance."), "Correct within this part’s numerical tolerance.");
   assert.equal(resultMessage("invalid", "Not correct. This is a different status."), "Not correct. This is a different status.");
+  assert.equal(resultMessage("unanswered", "Unanswered. You can check this part later."), "You can check this part later.");
+  assert.equal(resultMessage("unanswered", "Not answered. You can check this part later."), "You can check this part later.");
+  // The synonym only counts for the status it belongs to.
+  assert.equal(resultMessage("incorrect", "Unanswered. Something else."), "Unanswered. Something else.");
 });
 
 test("what the real grader says for a different value, shown after its label, reads once", () => {

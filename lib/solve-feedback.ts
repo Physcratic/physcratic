@@ -20,13 +20,17 @@ export function describePartResult(status: FeedbackStatus) {
   return partLabels[status];
 }
 
+/** Other first words of a grader message that say what the label beside it already says. */
+const repeatedWords: Partial<Record<FeedbackStatus, string[]>> = { unanswered: ["Unanswered"] };
+
 /**
  * The grader's message without its own first word when that word is the label already shown beside it, so a wrong
- * answer reads "Not correct. Your answer gives a different value..." once and not "Not correct. Not correct. ...".
+ * answer reads "Not correct. Your answer gives a different value..." once and not "Not correct. Not correct. ...",
+ * and an empty part reads "Not answered. You can check this part later." and not "Not answered. Unanswered. ...".
  */
 export function resultMessage(status: FeedbackStatus, message: string): string {
-  const { label } = partLabels[status];
-  for (const join of [". ", ": "]) if (message.startsWith(`${label}${join}`)) return message.slice(label.length + join.length);
+  for (const word of [partLabels[status].label, ...(repeatedWords[status] ?? [])])
+    for (const join of [". ", ": "]) if (message.startsWith(`${word}${join}`)) return message.slice(word.length + join.length);
   return message;
 }
 

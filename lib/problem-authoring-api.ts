@@ -8,6 +8,7 @@ import type { Pool, PoolClient } from "pg";
 import { z } from "zod";
 import { authoredDraftSchema, authoredDocumentSchema, privatePartSchema, publishableDraftSchema, publicAuthoredContent, publicAuthoredRevision, type AuthoredDocument, type PrivatePart } from "./problem-authoring";
 import { readSubmissionJson, RequestBodyTimeoutError } from "./submission-request";
+import { encodeDraftCursor, parseDraftCursor } from "./problem-authoring-list";
 
 type Action = "create" | "list" | "read" | "update" | "delete" | "preview" | "publish" | "unpublish" | "public";
 type Dependencies = { pool: Pool; user: (request: Request) => Promise<{ id: string; emailVerified?: boolean } | null | undefined>; origin: (request: Request) => boolean };
@@ -69,10 +70,17 @@ export function createProblemAuthoringApi(deps: Dependencies) {
       }
       if (action === "list") {
         const cursorValue = new URL(request.url).searchParams.get("after");
-        const cursor = cursorValue ? uuid.parse(cursorValue) : null;
-        const { rows } = await deps.pool.query(`SELECT p.id AS "problemId",p.slug,p.state,d.version,d.content->>'title' AS title,d.updated_at AS "updatedAt"
-          FROM authored_problem p JOIN authored_draft d ON d.problem_id=p.id WHERE p.owner_id=$1 AND ($2::uuid IS NULL OR p.id>$2::uuid) ORDER BY p.id LIMIT 51`, [owner, cursor]);
-        return reply({ drafts: rows.slice(0, 50), nextCursor: rows.length > 50 ? rows[49].problemId : null });
+        const cursor = cursorValue ? parseDraftCursor(cursorValue) : null;
+        if (cursorValue && !cursor) throw new HttpError(400, "Reload the list and try again.");
+        // Last edited first, the id breaks a tie. The cursor repeats both, so a page never repeats or skips a draft.
+        const { rows } = await deps.pool.query(`SELECT p.id AS "problemId",p.slug,p.state,d.version,d.content->>'title' AS title,d.updated_at AS "updatedAt",
+            to_char(d.updated_at AT TIME ZONE 'UTC','YYYY-MM-DD"T"HH24:MI:SS.US"Z"') AS "cursorTime"
+          FROM authored_problem p JOIN authored_draft d ON d.problem_id=p.id
+          WHERE p.owner_id=$1 AND ($2::timestamptz IS NULL OR (d.updated_at,p.id) < ($2::timestamptz,$3::uuid))
+          ORDER BY d.updated_at DESC,p.id DESC LIMIT 51`, [owner, cursor?.updatedAt ?? null, cursor?.problemId ?? null]);
+        const page = rows.slice(0, 50);
+        const last = page[page.length - 1];
+        return reply({ drafts: page.map(({ cursorTime: _cursorTime, ...draft }) => draft), nextCursor: rows.length > 50 ? encodeDraftCursor({ updatedAt: last.cursorTime, problemId: last.problemId }) : null });
       }
       client = await deps.pool.connect();
       await client.query("BEGIN"); inTransaction = true;
