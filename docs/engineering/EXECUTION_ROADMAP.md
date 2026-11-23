@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## Checkbox corners, U4b (22 November 2026)
+
+The shared checkbox in `components/ui/checkbox.tsx` has a fixed 4px corner (`rounded-[4px]`). It used `rounded-sm`, which is `calc(var(--radius) - 4px)`, so 8px in this theme, and half of the 16px box is 8px, which drew a circle that looked like a radio button. Nothing else in the file changed, so the focus ring, the checked tick, the disabled look and every tap target and label are as before. The checkbox is used in four places: the sign-up Terms row, the solution submission confirm box, and the contest draft form (launch on publish and the problem picker). `tests/checkbox-radius.test.ts` resolves the class against the real stylesheet and asserts 4px, less than half of the box. `tests/checkbox-radius.browser.mjs` measures the computed radius in Chromium in light and dark and is not wired into CI. The component never styled the indeterminate or invalid states, and no caller uses them. Draft PR only. No schema, auth, grading, flag, Vercel, Neon or environment change.
+
 ## One message for an unanswered part, U9 (22 November 2026)
 
 A part left empty showed "Not answered." in bold and then the grader's "Unanswered. You can check this part later." right after it. `resultMessage` in `lib/solve-feedback.ts` now also drops the grader's "Unanswered." word when it follows the "Not answered" label, so the line reads "Not answered. You can check this part later." The label is kept because it is the plain status wording used by the rest of the page, including the "1 part not answered" line in the feedback box. The sentence after it stays because it says the part can wait. The grader messages, results and decisions are unchanged, and the status stays in words next to its icon. Tests: `lib/solve-feedback.test.ts` and `tests/solve-polish.test.ts`. Draft PR only. No schema, auth, grading, flag, Vercel, Neon or environment change.
