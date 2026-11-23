@@ -36,14 +36,15 @@ export function checkedInLastWeek(entries: readonly { lastCheckedAt: string }[],
   return entries.filter((entry) => { const at = Date.parse(entry.lastCheckedAt); return Number.isFinite(at) && at <= now && now - at <= week; }).length;
 }
 
-/** The one big number, the solved count, with its word. The recent line shows only when there is something to say. */
+/** The one big number, the solved count, with its word. Green only once something is solved, grey at zero. The recent line shows only when there is something to say. */
 export function SolvedSummary({ solved, recent }: { solved: number; recent: number }) {
+  const { Icon, box, ink } = solved > 0 ? { Icon: CircleCheck, box: "border-success bg-success-tint", ink: "text-success-ink" } : { Icon: CircleDashed, box: "border-idle bg-idle-tint", ink: "text-idle-ink" };
   return (
-    <div className="flex items-center gap-4 rounded-lg border border-success bg-success-tint p-4 sm:p-6">
-      <CircleCheck aria-hidden="true" className="size-8 shrink-0 text-success-ink" />
+    <div className={`flex items-center gap-4 rounded-lg border p-4 sm:p-6 ${box}`}>
+      <Icon aria-hidden="true" className={`size-8 shrink-0 ${ink}`} />
       <div className="flex min-w-0 flex-col gap-1">
         <p className="text-foreground">
-          <span className="text-5xl font-semibold leading-none text-success-ink">{solved}</span>{" "}
+          <span className={`text-5xl font-semibold leading-none ${ink}`}>{solved}</span>{" "}
           <span className="text-lg font-medium">solved</span>
         </p>
         {recent > 0 && <p className="text-sm text-foreground">{recent} checked in the last 7 days</p>}

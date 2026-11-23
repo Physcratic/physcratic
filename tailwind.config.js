@@ -14,6 +14,7 @@ module.exports = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+    "./lib/part-colors.ts",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {

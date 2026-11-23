@@ -14,9 +14,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { assignPartColors, bareLabel } from "@/lib/part-colors";
+import { assignPartColors, bareLabel, partToken } from "@/lib/part-colors";
 import { summariseCheck, summariseSavedCheck } from "@/lib/solve-feedback";
 import { FeedbackBox, PartChip, ResultLine, StepHeading, partBorder, partStyle } from "./solve-ui";
+import { PartProgressBar, SolvedBanner, useJustSolved } from "./part-progress";
 import { MathAnswerField } from "./math-answer-field";
 import { conditionPhrases, type PaletteItem } from "./answer-palette";
 import { ConditionsLine } from "./inline-math";
@@ -67,6 +68,8 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
   const currentAnswers = useRef(answers);
   /** Answers a check marked correct. They stay on screen, but are not kept for a reload. */
   const correctAnswers = useRef<Record<string, string>>({});
+  /** The grader's message for each part in `correctAnswers`, so a correct part keeps saying why while other parts are edited. */
+  const correctMessages = useRef<Record<string, string>>({});
   const worthKeeping = (all: Record<string, string>) => Object.fromEntries(Object.entries(all).filter(([id, latex]) => correctAnswers.current[id] !== latex));
   const typedWhileResolving = useRef(false);
   const [conflict, setConflict] = useState(false);
@@ -90,7 +93,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
   useEffect(() => () => { pending.current?.abort(); syncing.current?.abort(); }, []);
   useEffect(() => {
     if (journal.account === account) return;
-    pending.current?.abort(); pending.current = null; syncing.current?.abort(); syncing.current = null; setBusy(false); setResult(null); setError(""); setSaveMessage(""); correctAnswers.current = {};
+    pending.current?.abort(); pending.current = null; syncing.current?.abort(); syncing.current = null; setBusy(false); setResult(null); setError(""); setSaveMessage(""); correctAnswers.current = {}; correctMessages.current = {};
     const next = new PracticeCheckJournal(account, problemId, data.version, practiceSessionStorage());
     setJournal(next);
     if (journal.account === "guest" && typedWhileResolving.current && Object.keys(currentAnswers.current).length) {
@@ -103,7 +106,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
     if (previousReset.current === resetToken) return;
     previousReset.current = resetToken;
     pending.current?.abort(); pending.current = null; syncing.current?.abort(); syncing.current = null; setBusy(false);
-    currentAnswers.current = {}; correctAnswers.current = {}; if (!conflict) journal.edit({}); setAnswers({}); setResult(null); setError(""); setSaveMessage(""); redraw(n => n + 1);
+    currentAnswers.current = {}; correctAnswers.current = {}; correctMessages.current = {}; if (!conflict) journal.edit({}); setAnswers({}); setResult(null); setError(""); setSaveMessage(""); redraw(n => n + 1);
   }, [resetToken, journal, conflict]);
 
   /** One POST and its checks. `request` is the journal's snapshot when the check is saved, and null for a check without saving. Null back means it was cancelled. */
@@ -140,7 +143,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
     }
     setResultSaved(Boolean(receipt));
     setResult(checked);
-    for (const item of checked.results) if (item.status === "correct" && currentAnswers.current[item.partId]) correctAnswers.current[item.partId] = currentAnswers.current[item.partId];
+    for (const item of checked.results) if (item.status === "correct" && currentAnswers.current[item.partId]) { correctAnswers.current[item.partId] = currentAnswers.current[item.partId]; correctMessages.current[item.partId] = item.message; }
     if (!conflict && journal.account === account) journal.edit(worthKeeping(currentAnswers.current));
     if (checked.results.every(part => part.status === "correct")) onCorrect?.();
     if (account === "guest" && checked.results.some(part => part.status === "correct") && checked.results.every(part => part.status === "correct" || part.status === "self-review")) markSolved(problemId);
@@ -217,6 +220,14 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
 
   const summary = result ? (resultSaved ? summariseSavedCheck(result.results) : summariseCheck(result.results)) : null;
   const colors = data?.problemId === problemId ? assignPartColors(data.parts.map((part) => part.sourcePart)) : [];
+  // A part is correct while its answer is the one a check marked correct. The bar, the cards and the Solved note all read this.
+  const gradable = data.parts.filter((part) => part.kind !== "self-review");
+  const isCorrect = (partId: string) => correctAnswers.current[partId] !== undefined && correctAnswers.current[partId] === answers[partId];
+  const barParts = data.parts.flatMap((part, position) => (part.kind === "self-review" ? [] : [{ id: part.id, colorIndex: colors[position], correct: isCorrect(part.id) }]));
+  const solved = gradable.length > 0 && gradable.every((part) => isCorrect(part.id));
+  const justSolved = useJustSolved(solved);
+  /** The first part still empty, in its own colour. Only when there is more than one part to choose from. */
+  const nextPartId = gradable.length > 1 ? gradable.find((part) => !answers[part.id]?.trim())?.id : undefined;
   const tryAgain = () => {
     // Moves focus only. It keeps the typed answers and the result, and nothing is counted or reset.
     const target = data?.parts.find((part) => part.kind !== "self-review" && result?.results.find((item) => item.partId === part.id)?.status !== "correct");
@@ -229,6 +240,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
     <header className="flex flex-col gap-2">
       <StepHeading step={2} id="step-answer-title">Answer</StepHeading>
       <p className="text-sm leading-relaxed text-muted-foreground">{saveAccount ? "When saving is available, checked answers are saved privately to your account. A confirmation appears after saving. Checks do not change your rating." : "Checks are not saved and do not change your rating."}</p>
+      <PartProgressBar parts={barParts} />
     </header>
     {data?.problemId === problemId && <form onSubmit={(event) => {
       // A pending save is sent again first. Typed answers are checked on the next press once it is saved.
@@ -240,9 +252,9 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
       <FieldGroup>
         {data.parts.map((part, position) => {
           const id = `${fieldPrefix}-${part.id}`;
-          const feedback = result?.results.find((item) => item.partId === part.id);
+          const feedback = result?.results.find((item) => item.partId === part.id) ?? (isCorrect(part.id) ? { partId: part.id, status: "correct" as const, message: correctMessages.current[part.id] ?? "" } : undefined);
           const invalid = feedback?.status === "invalid" || feedback?.status === "incorrect";
-          const card = `min-w-0 rounded-lg border bg-card p-4 text-card-foreground ${partBorder}`;
+          const card = `min-w-0 rounded-lg border p-4 text-card-foreground ${isCorrect(part.id) ? "bg-success-tint" : part.id === nextPartId ? partToken(colors[position]).tint : "bg-card"} ${partBorder}`;
           if (part.kind === "self-review") return <div key={part.id} style={partStyle(colors[position])} className={card}><Alert><AlertTitle className="flex flex-wrap items-center gap-2"><PartChip index={colors[position]}>{bareLabel(part.sourcePart)}</PartChip>{part.label}</AlertTitle><AlertDescription>Check this one yourself. {part.help} Compare your reasoning with the worked solution. It is not graded.</AlertDescription></Alert>{saveProgress === false && <Field className="mt-4"><FieldLabel htmlFor={id}>Your reasoning for {bareLabel(part.sourcePart)}</FieldLabel><textarea id={id} className="min-h-28 w-full rounded-md border border-input bg-background p-3 text-base" value={answers[part.id] ?? ""} maxLength={archiveAnswerLimit} onChange={event => set(part.id, event.target.value)} disabled={busy} /></Field>}</div>;
           const conditions = conditionPhrases(part.symbolConditions);
           return <div key={part.id} data-tour={position === 0 ? "answer-box" : undefined} style={partStyle(colors[position])} className={card}><Field data-invalid={invalid} data-disabled={busy}>
@@ -277,6 +289,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
           {saveAccount && (journal.book.pending || journal.warning || error || conflict) && <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={() => { void checkAnswers(undefined, true); }}>Check without saving</Button>}
           <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={() => { currentAnswers.current = {}; setAnswers({}); if (!conflict) journal.edit({}); redraw(n => n + 1); setResult(null); setError(""); }}><RotateCcw data-icon="inline-start" />Clear answers</Button>
         </div>
+        {justSolved && <SolvedBanner />}
         <div aria-live="polite" aria-atomic="true" className="min-w-0">
           {summary && <FeedbackBox tone={summary.tone} title={summary.headline}>
             <p>{summary.detail}</p>

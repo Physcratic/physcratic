@@ -1,7 +1,7 @@
 import * as React from "react";
 import { CircleAlert, CircleCheck, CircleX, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { partColor } from "@/lib/part-colors";
+import { partToken } from "@/lib/part-colors";
 import { describePartResult, resultMessage, type FeedbackStatus, type FeedbackTone } from "@/lib/solve-feedback";
 
 /**
@@ -13,25 +13,21 @@ export const solveTokens = "";
 /** Line length for problem text: about 70 characters. */
 export const proseWidth = "max-w-[70ch]";
 
-/** Inline style that carries one part's colours for both themes. Pair with `partBorder` and `PartChip`. */
+/** Inline style that carries one part's colour tokens, which follow the theme. Pair with `partBorder` and `PartChip`. */
 export function partStyle(index: number): React.CSSProperties {
-  const color = partColor(index);
-  return {
-    "--pb": color.light.border, "--pb-d": color.dark.border,
-    "--pc-bg": color.light.chipBackground, "--pc-bg-d": color.dark.chipBackground,
-    "--pc-fg": color.light.chipText, "--pc-fg-d": color.dark.chipText,
-  } as React.CSSProperties;
+  const { name } = partToken(index);
+  return { "--pb": `hsl(var(--part-${name}))`, "--pc-bg": `hsl(var(--part-${name}-tint))`, "--pc-fg": `hsl(var(--part-${name}-ink))` } as React.CSSProperties;
 }
 
 /** The 4px coloured left border of a part card. Use together with `style={partStyle(index)}`. */
-export const partBorder = "border-l-4 border-l-[color:var(--pb)] dark:border-l-[color:var(--pb-d)]";
+export const partBorder = "border-l-4 border-l-[color:var(--pb)]";
 
 /** A tinted chip with the part's original label text. The text stays, so colour is never the only cue. */
 export function PartChip({ index, children, className }: { index: number; children: React.ReactNode; className?: string }) {
   return (
     <span
       style={partStyle(index)}
-      className={cn("inline-flex min-h-7 items-center rounded-md bg-[color:var(--pc-bg)] px-2.5 py-0.5 text-sm font-semibold text-[color:var(--pc-fg)] dark:bg-[color:var(--pc-bg-d)] dark:text-[color:var(--pc-fg-d)]", className)}
+      className={cn("inline-flex min-h-7 items-center rounded-md bg-[color:var(--pc-bg)] px-2.5 py-0.5 text-sm font-semibold text-[color:var(--pc-fg)]", className)}
     >
       {children}
     </span>
@@ -82,8 +78,8 @@ export function StepHeading({ step, as: Tag = "h2", id, children, className }: {
 }
 
 const toneStyles: Record<FeedbackTone, { box: string; Icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }> }> = {
-  success: { box: "border-emerald-700 bg-emerald-50 text-emerald-950 dark:border-emerald-400 dark:bg-emerald-950 dark:text-emerald-50", Icon: CircleCheck },
-  error: { box: "border-red-700 bg-red-50 text-red-950 dark:border-red-400 dark:bg-red-950 dark:text-red-50", Icon: CircleX },
+  success: { box: "border-success bg-success-tint text-foreground", Icon: CircleCheck },
+  error: { box: "border-danger bg-danger-tint text-foreground", Icon: CircleX },
   warning: { box: "border-amber-700 bg-amber-50 text-amber-950 dark:border-amber-400 dark:bg-amber-950 dark:text-amber-50", Icon: CircleAlert },
   neutral: { box: "border-border bg-muted text-foreground", Icon: Info },
 };
@@ -93,7 +89,7 @@ export function FeedbackBox({ tone, title, children, className, id, titleAs: Tit
   const { box, Icon } = toneStyles[tone];
   return (
     <div id={id} className={cn("flex items-start gap-3 rounded-lg border-2 p-4", box, className)}>
-      <Icon className="mt-0.5 size-5 shrink-0" aria-hidden={true} />
+      <Icon className={cn("mt-0.5 size-5 shrink-0", toneText[tone])} aria-hidden={true} />
       <div className="min-w-0 space-y-1 text-sm leading-relaxed">
         <Title className="text-base font-semibold">{title}</Title>
         {children}
@@ -104,8 +100,8 @@ export function FeedbackBox({ tone, title, children, className, id, titleAs: Tit
 
 
 const toneText: Record<FeedbackTone, string> = {
-  success: "text-emerald-800 dark:text-emerald-300",
-  error: "text-red-800 dark:text-red-300",
+  success: "text-success-ink",
+  error: "text-danger-ink",
   warning: "text-amber-800 dark:text-amber-300",
   neutral: "text-muted-foreground",
 };
