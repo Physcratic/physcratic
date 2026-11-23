@@ -1,3 +1,11 @@
+/** One colour family from its four tokens in app/globals.css: the strong fill, the soft tint, the ink for text and the foreground on the fill. */
+const family = (name) => ({
+  DEFAULT: `hsl(var(--${name}))`,
+  tint: `hsl(var(--${name}-tint))`,
+  ink: `hsl(var(--${name}-ink))`,
+  foreground: `hsl(var(--${name}-foreground))`,
+});
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -16,6 +24,14 @@ module.exports = {
       },
       colors: {
         rating: "hsl(var(--rating))",
+        success: family("success"),
+        progress: family("progress"),
+        danger: family("danger"),
+        idle: family("idle"),
+        "part-teal": family("part-teal"),
+        "part-violet": family("part-violet"),
+        "part-amber": family("part-amber"),
+        "part-blue": family("part-blue"),
         hero: {
           DEFAULT: "hsl(var(--hero))",
           foreground: "hsl(var(--hero-foreground))",

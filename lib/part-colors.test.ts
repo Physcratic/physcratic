@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { assignPartColors, colorsByPartId, contrastRatio, partColor, partPalette, bareLabel } from "./part-colors";
+import { assignPartColors, colorsByPartId, contrastRatio, partColor, partPalette, bareLabel, partToken, partTokenNames } from "./part-colors";
 
 // Theme surfaces from app/globals.css: card and page background, light then dark, as hex.
 const surfaces = {
@@ -71,4 +71,15 @@ test("one pair of brackets around a whole label is dropped and nothing else chan
   assert.equal(bareLabel("(i) and (ii)"), "(i) and (ii)");
   assert.equal(bareLabel("()"), "()");
   assert.equal(bareLabel(""), "");
+});
+
+test("part tokens follow the parts: a teal, b violet, c amber, d blue, then they repeat", () => {
+  assert.deepEqual(partTokenNames, ["teal", "violet", "amber", "blue"]);
+  assert.deepEqual([0, 1, 2, 3, 4, 5, 8].map((index) => partToken(index).name), ["teal", "violet", "amber", "blue", "teal", "violet", "teal"]);
+  assert.equal(partToken(-1).name, "blue", "a negative index still lands on a colour");
+  const first = partToken(0);
+  assert.equal(first.tint, "bg-part-teal-tint");
+  assert.equal(first.ink, "text-part-teal-ink");
+  assert.equal(first.fill, "bg-part-teal text-part-teal-foreground");
+  assert.equal(first.stripe, "border-part-teal");
 });

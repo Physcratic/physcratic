@@ -49,6 +49,24 @@ export function bareLabel(label: string): string {
   return match ? match[1] : label.trim();
 }
 
+/**
+ * The part colours as design tokens (app/globals.css), in order: part a teal, b violet, c amber, d blue, then they repeat.
+ * The class names are written out in full so Tailwind can see them. `partColor` above still drives the solve page.
+ */
+export const partTokenNames = ["teal", "violet", "amber", "blue"] as const;
+export type PartTokenName = (typeof partTokenNames)[number];
+export const partTokenClasses: Record<PartTokenName, { tint: string; ink: string; fill: string; stripe: string }> = {
+  teal: { tint: "bg-part-teal-tint", ink: "text-part-teal-ink", fill: "bg-part-teal text-part-teal-foreground", stripe: "border-part-teal" },
+  violet: { tint: "bg-part-violet-tint", ink: "text-part-violet-ink", fill: "bg-part-violet text-part-violet-foreground", stripe: "border-part-violet" },
+  amber: { tint: "bg-part-amber-tint", ink: "text-part-amber-ink", fill: "bg-part-amber text-part-amber-foreground", stripe: "border-part-amber" },
+  blue: { tint: "bg-part-blue-tint", ink: "text-part-blue-ink", fill: "bg-part-blue text-part-blue-foreground", stripe: "border-part-blue" },
+};
+/** The colour token for a part by position, so the first part is teal. */
+export function partToken(index: number): { name: PartTokenName } & (typeof partTokenClasses)[PartTokenName] {
+  const name = partTokenNames[((index % partTokenNames.length) + partTokenNames.length) % partTokenNames.length];
+  return { name, ...partTokenClasses[name] };
+}
+
 export function partColor(index: number): PartColor {
   return partPalette[((index % partPalette.length) + partPalette.length) % partPalette.length];
 }
