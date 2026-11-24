@@ -18,11 +18,12 @@ test("every status badge says its status in words, with an icon and the count in
     assert.match(out, new RegExp(`<h2[^>]*>.*${words[status]} .*>3</span></h2>`), status);
     assert.equal(text(/<h2[^>]*>[\s\S]*?<\/h2>/.exec(out)![0]), `${words[status]} 3`, "the heading reads the status then the count");
     assert.match(out, /<svg[^>]*aria-hidden="true"/, `${status} has an icon`);
-    assert.match(out, new RegExp(progressStatus[status].header), `${status} header is tinted`);
+    assert.doesNotMatch(out, /tint/, `${status} header stays on the plain card, so three tinted bands do not stack`);
+    assert.match(out, new RegExp(`<svg[^>]*class="[^"]*${progressStatus[status].ink}`), `${status} icon is in its ink colour`);
     assert.match(out, new RegExp(`class="[^"]*${progressStatus[status].badge.split(" ")[0]}[^"]*"[^>]*>3</span>`), `${status} badge is coloured with the number in text`);
   }
   // Three statuses, three different colours and three different icons.
-  assert.equal(new Set(statuses.map((s) => progressStatus[s].header)).size, 3);
+  assert.equal(new Set(statuses.map((s) => progressStatus[s].badge)).size, 3);
   assert.equal(new Set(statuses.map((s) => progressStatus[s].Icon)).size, 3);
 });
 
@@ -33,7 +34,7 @@ test("red is kept for something wrong, so no progress list uses it", () => {
 test("the solved summary shows the big number with its word, and the recent line only when there is one", () => {
   const some = html(createElement(SolvedSummary, { solved: 5, recent: 2 }));
   assert.equal(text(some), "5 solved 2 checked in the last 7 days");
-  assert.match(some, /text-5xl/);
+  assert.match(some, /text-4xl/);
   assert.match(some, /<svg[^>]*aria-hidden="true"/);
   assert.equal(text(html(createElement(SolvedSummary, { solved: 0, recent: 0 }))), "0 solved");
 });

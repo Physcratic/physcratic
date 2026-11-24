@@ -5,19 +5,20 @@ export type ProgressStatus = "solved" | "in-progress" | "not-graded";
 
 /**
  * What each progress list looks like. The status is always in words (the title), and the icon and the colour only add to it.
- * Green is solved, peach is in progress and grey is not graded. Red is left for something wrong.
+ * Green is solved, peach is in progress and grey is not graded. Red is left for something wrong. The header stays on the plain
+ * card, so the three lists do not stack three tinted bands.
  */
-export const progressStatus: Record<ProgressStatus, { title: string; description: string; Icon: typeof CircleCheck; header: string; ink: string; badge: string }> = {
-  solved: { title: "Solved correctly", description: "All required checkable parts have been correct on this version.", Icon: CircleCheck, header: "bg-success-tint", ink: "text-success-ink", badge: "bg-success text-success-foreground" },
-  "in-progress": { title: "Not yet solved", description: "Some required parts still need a correct check.", Icon: CircleDot, header: "bg-progress-tint", ink: "text-progress-ink", badge: "bg-progress text-progress-foreground" },
-  "not-graded": { title: "Not graded", description: "Saved checks are invalid, inconclusive or for self-review.", Icon: CircleDashed, header: "bg-idle-tint", ink: "text-idle-ink", badge: "bg-idle text-idle-foreground" },
+export const progressStatus: Record<ProgressStatus, { title: string; description: string; Icon: typeof CircleCheck; ink: string; badge: string }> = {
+  solved: { title: "Solved correctly", description: "All required checkable parts have been correct on this version.", Icon: CircleCheck, ink: "text-success-ink", badge: "bg-success text-success-foreground" },
+  "in-progress": { title: "Not yet solved", description: "Some required parts still need a correct check.", Icon: CircleDot, ink: "text-progress-ink", badge: "bg-progress text-progress-foreground" },
+  "not-graded": { title: "Not graded", description: "Saved checks are invalid, inconclusive or for self-review.", Icon: CircleDashed, ink: "text-idle-ink", badge: "bg-idle text-idle-foreground" },
 };
 
-/** A tinted card header: an icon, the title in words and the count in a coloured badge. The heading reads "Solved correctly 3". */
+/** A card header with a small icon in its ink colour, the title in words and the count in a coloured badge. The heading reads "Solved correctly 3". */
 export function ProgressCardHeader({ status, count }: { status: ProgressStatus; count: number }) {
-  const { title, description, Icon, header, ink, badge } = progressStatus[status];
+  const { title, description, Icon, ink, badge } = progressStatus[status];
   return (
-    <CardHeader className={`rounded-t-[calc(var(--radius)-1px)] ${header}`}>
+    <CardHeader>
       <CardTitle>
         <h2 className="text-base font-semibold">
           <Icon aria-hidden="true" className={`mr-2 inline size-5 align-text-bottom ${ink}`} />
@@ -25,7 +26,7 @@ export function ProgressCardHeader({ status, count }: { status: ProgressStatus; 
           <span className={`inline-flex min-h-6 min-w-6 items-center justify-center rounded-full px-2 text-sm font-semibold ${badge}`}>{count}</span>
         </h2>
       </CardTitle>
-      <CardDescription className="text-foreground">{description}</CardDescription>
+      <CardDescription>{description}</CardDescription>
     </CardHeader>
   );
 }
@@ -36,15 +37,15 @@ export function checkedInLastWeek(entries: readonly { lastCheckedAt: string }[],
   return entries.filter((entry) => { const at = Date.parse(entry.lastCheckedAt); return Number.isFinite(at) && at <= now && now - at <= week; }).length;
 }
 
-/** The one big number, the solved count, with its word. Green only once something is solved, grey at zero. The recent line shows only when there is something to say. */
+/** The one big number, the solved count, with its word. The soft green tint shows only once something is solved. The recent line shows only when there is something to say. */
 export function SolvedSummary({ solved, recent }: { solved: number; recent: number }) {
-  const { Icon, box, ink } = solved > 0 ? { Icon: CircleCheck, box: "border-success bg-success-tint", ink: "text-success-ink" } : { Icon: CircleDashed, box: "border-idle bg-idle-tint", ink: "text-idle-ink" };
+  const { Icon, box, ink } = solved > 0 ? { Icon: CircleCheck, box: "border-success bg-success-tint", ink: "text-success-ink" } : { Icon: CircleDashed, box: "border-border bg-card", ink: "text-idle-ink" };
   return (
-    <div className={`flex items-center gap-4 rounded-lg border p-4 sm:p-6 ${box}`}>
+    <div className={`flex items-center gap-4 rounded-lg border px-4 py-2 sm:w-fit sm:pr-8 ${box}`}>
       <Icon aria-hidden="true" className={`size-8 shrink-0 ${ink}`} />
       <div className="flex min-w-0 flex-col gap-1">
         <p className="text-foreground">
-          <span className={`text-5xl font-semibold leading-none ${ink}`}>{solved}</span>{" "}
+          <span className={`text-4xl font-semibold leading-none ${solved > 0 ? ink : "text-foreground"}`}>{solved}</span>{" "}
           <span className="text-lg font-medium">solved</span>
         </p>
         {recent > 0 && <p className="text-sm text-foreground">{recent} checked in the last 7 days</p>}

@@ -1,3 +1,9 @@
+## Quiet colour on the problem pages, U6c (24 November 2026)
+
+The solve page, the Arena page and the Progress page now keep colour for state only: green for success, red for wrong and peach for the main action. Parts are told apart by their bold letter and their order. `PartChip` is a neutral badge (idle tint, 1px border token, foreground text). Answer cards are the plain card with a thin border. The next empty part gets a 2px ring token outline, nothing else. A correct part shows its "Correct" line with a small success tint behind its icon and word only. The invalid field now uses the same danger ink as "Not correct." The parts bar is outlined neutral segments that fill with the success colour. The Solved note is the one green area. The check summary box is plain with an icon in the state's ink. Arena statement parts lose their coloured stripes. Progress card headers stay on the plain card with an icon in its ink and the coloured count badge, and the summary is tinted only when solved is above 0.
+
+Measured on 10 states at 390 and 1280, light and dark, with the real components, the coloured area of the first screen fell from up to 51 percent to under 10 percent, and no state shows more than 2 non-neutral hue families. No text pair is under 4.5:1. `partToken`, `partTokenClasses`, `partTokenNames` and the part colour tokens in `app/globals.css` are kept but unused by app code. `partStyle` is a no-op and `partBorder` is empty, kept so the authored and Studio callers compile unchanged. The guest contrast sweep was not run here and is an owner check.
+
 ## Independent pseudonymous author credit, Batch 1 (23 November 2026)
 
 Problem Studio records a separately acknowledged author-credit preference behind a default-OFF gate. 0023 adds nullable evidence with no backfill. The [engineering handoff](AUTHOR_CREDIT.md) covers the owner API, validation, and release requirements. Public projection and cache freshness belong to Batch 2.
