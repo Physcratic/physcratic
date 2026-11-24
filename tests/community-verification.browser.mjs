@@ -117,6 +117,8 @@ try {
   for (const width of [1440,375]) {
     await page.setViewportSize({width,height:1000});
     check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'external settings fit');
+    check((await page.getByRole('link',{name:'View saved public profile'}).boundingBox()).height>=44,true,'profile link touch target');
+    check((await showcase.getByLabel('APhO, Gold, 2025: medal details').first().boundingBox()).height>=44,true,'settings medal touch target');
     check((await new AxeBuilder({page}).analyze()).violations,[],'external settings axe');
     await page.screenshot({path:join(temp,'external-settings-'+width+'.png'),fullPage:true});
   }
@@ -127,6 +129,7 @@ try {
   for (const width of [1440,375]) {
     await page.setViewportSize({width,height:1000});
     check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'external public profile fits');
+    check((await page.getByLabel('APhO, Gold, 2025: medal details').boundingBox()).height>=44,true,'public medal touch target');
     check((await new AxeBuilder({page}).analyze()).violations,[],'external public profile axe');
     await page.screenshot({path:join(temp,'external-public-'+width+'.png'),fullPage:true});
   }
