@@ -1,5 +1,7 @@
 # Community implementation status
 
+**Current medal workflow.** Use [external medal operations](EXTERNAL_MEDALS.md) for the Tally workflow. The 2B1/2B2 internal verification instructions below record the earlier implementation and are superseded as a launch plan. Retain existing claims and audit evidence.
+
 ## Security remediation S1 (production remains NO-GO)
 
 **Deployment: PENDING USER ACTION. NOT DEPLOYED BY CODEX. No production/shared staging SQL, grants, roles, flags, provider/Vercel actions, deployment or README trigger. The production discussion lock remains unchanged.**

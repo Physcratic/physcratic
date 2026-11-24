@@ -11,7 +11,7 @@ import ProfileNotFound from "../app/u/[handle]/not-found";
 import { publicProfileSchema, profileRequest, mediaResponse, type PublicProfile } from "../lib/community/profile-client";
 import { emptyProfileMedia } from "../lib/community/profile-media-contracts";
 import { publicShowcaseSchema, type BadgeId, type PublicMedal } from "../lib/community/achievements";
-declare global { interface Window { __COMMUNITY_TEST_FLAGS__: { profiles: boolean; media: boolean; achievements?: boolean; verification?:boolean } } }
+declare global { interface Window { __COMMUNITY_TEST_FLAGS__: { profiles: boolean; media: boolean; achievements?: boolean; verification?:boolean; earnedAchievements?: boolean; tallyUrl?: string } } }
 const flags = window.__COMMUNITY_TEST_FLAGS__;
 function PublicHarness({ handle }: { handle: string }) {
   const [profile, setProfile] = useState<PublicProfile>(), [images, setImages] = useState(emptyProfileMedia), [failed, setFailed] = useState(false);
@@ -39,6 +39,6 @@ function PublicHarness({ handle }: { handle: string }) {
 const router = { back() {}, forward() {}, refresh() {}, hmrRefresh() {}, push() {}, replace() {}, prefetch() {} };
 const handle = location.pathname.match(/^\/u\/([^/]+)$/)?.[1];
 createRoot(document.getElementById("root")!).render(<React.StrictMode><ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-  {location.pathname === "/sign-up" ? <AppRouterContext.Provider value={router}><AuthForm mode="sign-up" returnTo="/dashboard" publicProfileSignup={flags.profiles} /></AppRouterContext.Provider> : location.pathname==="/admin/verification"?<main className="mx-auto max-w-6xl p-5 [--border:240_5%_46%]"><h1 className="mb-6 text-3xl">Medal verification</h1><VerificationDashboard/></main>:handle ? <PublicHarness handle={handle} /> : location.pathname === "/settings" ? <AccountSettings profilesEnabled={flags.profiles} mediaEnabled={flags.media} achievementsEnabled={flags.achievements} verificationEnabled={flags.verification} onboarding={location.search.includes("onboarding=1")} />
+  {location.pathname === "/sign-up" ? <AppRouterContext.Provider value={router}><AuthForm mode="sign-up" returnTo="/dashboard" publicProfileSignup={flags.profiles} /></AppRouterContext.Provider> : location.pathname==="/admin/verification"?<main className="mx-auto max-w-6xl p-5 [--border:240_5%_46%]"><h1 className="mb-6 text-3xl">Medal verification</h1><VerificationDashboard/></main>:handle ? <PublicHarness handle={handle} /> : location.pathname === "/settings" ? <AccountSettings profilesEnabled={flags.profiles} mediaEnabled={flags.media} achievementsEnabled={flags.achievements} verificationEnabled={flags.verification} earnedAchievementsEnabled={flags.earnedAchievements} medalVerificationUrl={flags.tallyUrl} onboarding={location.search.includes("onboarding=1")} />
     : <main className="mx-auto max-w-5xl p-5"><h1 className="mb-6 text-2xl">Physcratic Arena</h1>{flags.profiles && <ProfileSetupPrompt />}</main>}
 </ThemeProvider></React.StrictMode>);
