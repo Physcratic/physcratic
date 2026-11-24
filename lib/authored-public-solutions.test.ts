@@ -27,7 +27,7 @@ test("public solution flag and pre-schema lazy route are fail closed", async () 
 });
 
 const url = process.env.AUTHORING_TEST_DATABASE_URL;
-test("public consent, migration, restricted LOGIN, privacy and integrity on disposable PostgreSQL", { skip: !url }, async t => {
+test("automatic public solutions, migration, restricted LOGIN, privacy and integrity on disposable PostgreSQL", { skip: !url }, async t => {
   const target = new URL(url!); assert.equal(target.hostname,"127.0.0.1"); assert.equal(target.pathname,"/physcratic_authoring_test");
   const schema = `public_solution_${randomUUID().replaceAll('-','')}`, role = schema+'_app';
   const admin = new Pool({connectionString:url}); await admin.query(`CREATE SCHEMA ${schema}; CREATE ROLE ${role} LOGIN PASSWORD 'synthetic-public-solutions-only' NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOBYPASSRLS`);
@@ -50,7 +50,7 @@ test("public consent, migration, restricted LOGIN, privacy and integrity on disp
     assert.equal((await parsed(await f.author('public',req(),legacy.id))).id,legacy.revision.id);
     assert.equal((await readProblemStats(pool,[`authored:${legacy.id}`],null)).problems[0].solves,1);
     process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED='true';
-    const failedBeforeSchema=await f.author('publish',req(author,{version:legacy.version,publicSolutionConsent:true}),legacy.id);
+    const failedBeforeSchema=await f.author('publish',req(author,{version:legacy.version}),legacy.id);
     assert.equal(failedBeforeSchema.status,503);
     assert.equal((await parsed(await f.author('public',req(),legacy.id))).id,legacy.revision.id);
     delete process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED;
@@ -69,12 +69,11 @@ test("public consent, migration, restricted LOGIN, privacy and integrity on disp
     runtime = new Pool({connectionString:login.href,options:`-c search_path=${schema},public`,max:5});
     assert.deepEqual((await runtime.query('SELECT current_user,session_user')).rows[0],{current_user:role,session_user:role});
     const runtimeAuthor = createProblemAuthoringApi({...f.deps,pool:runtime}), runtimeAttempts = createAuthoredAttemptApi({...f.deps,pool:runtime}), runtimePublic = createPublicAuthoredSolutionApi({pool:runtime,storage:store.storage});
-    await t.test('version-bound explicit consent, current-only public projection, all visitor states',async()=>{
+    await t.test('publishing a saved version makes its solution public for all visitors',async()=>{
       process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED='true';
-      assert.equal((await runtimeAuthor('publish',req(author,{version:legacy.version}),legacy.id)).status,400);
-      assert.equal((await runtimeAuthor('publish',req(other,{version:legacy.version,publicSolutionConsent:true}),legacy.id)).status,404);
-      assert.equal((await runtimeAuthor('publish',req(author,{version:legacy.version-1,publicSolutionConsent:true}),legacy.id)).status,409);
-      const published=await parsed(await runtimeAuthor('publish',req(author,{version:legacy.version,publicSolutionConsent:true}),legacy.id));legacy.version=published.version;const oldRevision=legacy.revision;legacy.revision=published.revision;
+      assert.equal((await runtimeAuthor('publish',req(other,{version:legacy.version}),legacy.id)).status,404);
+      assert.equal((await runtimeAuthor('publish',req(author,{version:legacy.version-1}),legacy.id)).status,409);
+      const published=await parsed(await runtimeAuthor('publish',req(author,{version:legacy.version}),legacy.id));legacy.version=published.version;const oldRevision=legacy.revision;legacy.revision=published.revision;
       assert.equal(legacy.revision.solutionPolicy,publicSolutionPolicy);
       assert.equal((await api(req(undefined,undefined,'GET',publicSolutionPath(legacy.id,oldRevision.id)),legacy.id)).status,409);
       for(const visitor of [undefined,student,unverified,other]){
@@ -83,6 +82,7 @@ test("public consent, migration, restricted LOGIN, privacy and integrity on disp
         const text=JSON.stringify(data);for(const forbidden of ['absTol','relTol','expected','variables','hints','key','pathname',author])assert.ok(!text.includes(forbidden),forbidden);
       }
       assert.equal(Number((await pool.query('SELECT count(*) n FROM authored_solution_reveal')).rows[0].n),0);
+      assert.deepEqual((await readAuthoredProgress(runtime!,other)).attemptedIds,[]);
     });
     await t.test('correctness preserved; receipts/replay/history use original revision evidence even when OFF',async()=>{
       const idempotencyKey=randomUUID(),body={revisionId:legacy.revision.id,partId:legacy.parts[0].id,answer:{kind:'numeric',value:2,units:'1'},idempotencyKey};

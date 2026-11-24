@@ -20,14 +20,24 @@ export async function readAuthoredProgress(pool: Pick<Pool, "query">, userId: st
     WHERE p.state='published' AND r.schema_version=1
     GROUP BY p.id,r.id HAVING max(m.latest) IS NOT NULL
     ORDER BY max(m.latest) DESC,p.id LIMIT 1001
-  ) SELECT c.*, (SELECT coalesce(sum(checks),0)::text FROM mine) AS saved_checks
+  ) SELECT c.*, (SELECT coalesce(sum(checks),0)::text FROM mine) AS saved_checks,
+    CASE WHEN row_number() OVER ()=1 THEN ARRAY(
+      SELECT p.id FROM authored_problem p
+      WHERE p.state='published' AND p.id IN (SELECT problem_id FROM mine)
+      ORDER BY p.id LIMIT 1001
+    ) END AS attempted_ids
     FROM (SELECT 1) seed LEFT JOIN current c ON true`, values: [userId], query_timeout: 5000 };
-  const { rows } = await pool.query<{ id: string | null; revision_id: string; title: string; required: number; correct: number; incorrect: number; latest: Date; saved_checks: string }>(query);
+  const { rows } = await pool.query<{ id: string | null; revision_id: string; title: string; required: number; correct: number; incorrect: number; latest: Date; saved_checks: string; attempted_ids: string[] | null }>(query);
   if (rows.filter(r => r.id).length > 1000) throw Error("Community progress exceeds its bound");
   const progress = rows.filter(r => r.id).map(r => problemProgressEntrySchema.parse({
     kind: "authored", problemId: r.id, version: r.revision_id, title: r.title, href: `/dashboard/authored/${r.id}`,
     status: r.required > 0 && r.correct === r.required ? "solved" : r.correct + r.incorrect > 0 ? "in-progress" : "not-graded",
     correctParts: r.correct, requiredParts: r.required, incorrectParts: r.incorrect, lastCheckedAt: r.latest.toISOString(),
   }));
-  return { progress, savedChecks: Number(rows[0]?.saved_checks ?? 0) };
+  const attemptedIds = rows.find(row => row.attempted_ids !== null)?.attempted_ids ?? [];
+  return {
+    progress,
+    savedChecks: Number(rows[0]?.saved_checks ?? 0),
+    ...(attemptedIds.length <= 1000 ? { attemptedIds } : {}),
+  };
 }

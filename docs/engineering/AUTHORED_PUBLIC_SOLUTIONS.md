@@ -1,5 +1,25 @@
 # Authored public worked solutions
 
+## Product correction (24 November 2026)
+
+With `AUTHORED_PUBLIC_SOLUTIONS_ENABLED` on and migration 0020 installed,
+publishing a new revision makes its worked solution and included files public.
+Studio uses one publication confirmation and sends the saved draft version.
+Older Studio clients may still send the former consent field. Migration 0020's
+`solution_consented_at` column records the publication time for new public
+revisions. Already-published legacy revisions keep their original access policy.
+Only the current public revision is served. Automated grading keys remain private.
+
+Arena uses the signed-in student's saved submissions for its Attempted label,
+including submissions on earlier revisions. Personal completion still uses the
+current revision. Opening the problem or its public worked solution records no
+attempt. Public-solution revisions remain excluded from verified-solve statistics
+and solve achievements. Republishing under the public policy can remove earlier
+verified credit and hide a displayed solve badge if eligibility falls below its
+threshold. Saved attempts and badge selections remain in storage.
+
+## Original release
+
 17 November 2026. Implementation from main `806b85d`. Source release does not
 install0020 or authorize exposure. `AUTHORED_PUBLIC_SOLUTIONS_ENABLED` defaults OFF.
 [Owner migration package](../../scripts/public-solutions-release/README.md).

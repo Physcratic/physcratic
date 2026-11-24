@@ -51,6 +51,7 @@ export type ProblemCardProps = {
   statementLanguage?: "en" | "ru";
   description?: string;
   details?: readonly string[];
+  attempted?: boolean;
   tags: readonly string[];
   elo?: number;
   /** The first statement figure of an Arena problem. With none, the card renders exactly as before. */
@@ -91,6 +92,7 @@ export function ProblemCard({
   statementLanguage = "en",
   description,
   details,
+  attempted,
   tags,
   elo,
   image,
@@ -239,6 +241,11 @@ export function ProblemCard({
             </span>
           )}
           <span className="font-medium">{source}</span>
+          {attempted !== undefined && (
+            <span className={attempted ? "font-semibold text-foreground" : undefined}>
+              {attempted ? "Attempted" : "Not attempted"}
+            </span>
+          )}
           {year !== undefined && <span>{year}</span>}
           {task && <span>{task}</span>}
         </p>

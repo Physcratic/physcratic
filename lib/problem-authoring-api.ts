@@ -17,7 +17,8 @@ const version = z.number().int().positive().max(2_147_483_646);
 const saveSchema = z.strictObject({ content: authoredDocumentSchema, privateParts: z.array(privatePartSchema).max(1500) });
 const updateSchema = saveSchema.extend({ version });
 const versionSchema = z.strictObject({ version });
-const publicPublishSchema = versionSchema.extend({ publicSolutionConsent: z.literal(true) });
+// Older Studio clients may still send this field. Publication itself sets the policy.
+const publicPublishSchema = versionSchema.extend({ publicSolutionConsent: z.literal(true).optional() });
 const writes = new Set<Action>(["create", "update", "delete", "publish", "unpublish"]);
 class HttpError extends Error { constructor(public status: number, message: string) { super(message); } }
 const reply = (body: unknown, status = 200) => new Response(status === 204 ? null : JSON.stringify(body), { status, headers: { "Content-Type": "application/json", "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
@@ -105,7 +106,8 @@ export function createProblemAuthoringApi(deps: Dependencies) {
       } else {
         const { problem, draft } = await lockedDraft(client, id!, owner!);
         if (writes.has(action)) {
-          const input = action === "update" ? updateSchema.parse(body) : action === "publish" && publicSolutionsEnabled() ? publicPublishSchema.parse(body) : versionSchema.parse(body);
+          const publishSolution = action === "publish" && publicSolutionsEnabled();
+          const input = action === "update" ? updateSchema.parse(body) : publishSolution ? publicPublishSchema.parse(body) : versionSchema.parse(body);
           if (input.version !== draft.version) throw new HttpError(409, "Draft changed. Reload before saving or publishing.");
           if (action === "update") {
             const save = updateSchema.parse(input);
@@ -133,8 +135,9 @@ export function createProblemAuthoringApi(deps: Dependencies) {
               await client.query("INSERT INTO authored_revision_private_part(revision_id,part_id,answer_mode,data) VALUES($1,$2,$3,$4)", [revisionId, part.id, part.answerMode, JSON.stringify(key)]);
             }
             for (const ref of mediaRefs) await client.query("INSERT INTO author_revision_media(revision_id,problem_id,media_id,purpose) VALUES($1,$2,$3,$4)", [revisionId, id, ref.id, ref.purpose]);
-            const revision = await client.query(`INSERT INTO authored_revision(id,problem_id,number,content${publicSolutionsEnabled() ? ",solution_policy,solution_consented_at" : ""})
-              VALUES($1,$2,$3,$4${publicSolutionsEnabled() ? ",'public-solutions-v1',now()" : ""})
+            // Migration 0020 requires the publication timestamp in solution_consented_at for public revisions.
+            const revision = await client.query(`INSERT INTO authored_revision(id,problem_id,number,content${publishSolution ? ",solution_policy,solution_consented_at" : ""})
+              VALUES($1,$2,$3,$4${publishSolution ? ",'public-solutions-v1',now()" : ""})
               RETURNING id,problem_id AS "problemId",number,schema_version AS "schemaVersion",content,published_at AS "publishedAt",
               to_jsonb(authored_revision)->>'solution_policy' AS solution_policy,to_jsonb(authored_revision)->>'solution_consented_at' AS solution_consented_at,to_jsonb(authored_revision) ? 'solution_policy' AS solution_policy_present`, [revisionId, id, rows[0].number, JSON.stringify(published.content)]);
             await client.query("UPDATE authored_problem SET state='published',published_revision_id=$2,updated_at=now() WHERE id=$1", [id, revisionId]);

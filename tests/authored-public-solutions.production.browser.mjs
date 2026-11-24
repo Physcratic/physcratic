@@ -19,7 +19,7 @@ export async function runPublicSolutionProduction({pool,origin,userId,cookie}) {
  response=await media('upload',new Request(origin+'/api',{method:'POST',headers:{origin},body:form}),draft.problemId);assert.equal(response.status,201);const file=await response.json();content.attachments.push({id:file.id,purpose:'solution-pdf'});
  response=await author('update',new Request(origin+'/api',{method:'PUT',headers:{origin,'content-type':'application/json'},body:JSON.stringify({version:1,content,privateParts})}),draft.problemId);assert.equal(response.status,200);let version=(await response.json()).version;
  const previous=process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED;process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED='true';
- try{response=await author('publish',request({version,publicSolutionConsent:true}),draft.problemId);}finally{if(previous===undefined)delete process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED;else process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED=previous;}
+ try{response=await author('publish',request({version}),draft.problemId);}finally{if(previous===undefined)delete process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED;else process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED=previous;}
  assert.equal(response.status,200,await response.clone().text());const published=await response.json();version=published.version;
  const url=`${origin}/dashboard/authored/${draft.problemId}`,htmlResponse=await fetch(url),html=await htmlResponse.text();
  assert.equal(htmlResponse.status,200);assert.match(htmlResponse.headers.get('cache-control'),/no-store/);assert.match(html,/<meta name="robots" content="noindex, nofollow"/);

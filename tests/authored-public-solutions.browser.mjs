@@ -10,6 +10,8 @@ import {randomUUID} from 'node:crypto';
 import {installAchievementFixtures,achievementFixtures,achievementRequest as req,achievementParsed as parsed} from './community-achievement-fixtures.ts';
 import {createPublicAuthoredSolutionApi} from '../lib/authored-public-solution-api.ts';
 import {createAuthorMediaApi} from '../lib/author-media-api.ts';
+import {createAuthoredAttemptApi} from '../lib/authored-attempt-api.ts';
+import {createProblemProgressApi} from '../lib/problem-progress-api.ts';
 import {memoryAuthorStorage,statementPdfFixture,png} from './author-media-fixtures.ts';
 const require=createRequire(import.meta.url),tools=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS||'/workspace/work/p2-browser','package.json'));
 const {chromium}=tools('playwright'),{default:AxeBuilder}=tools('@axe-core/playwright'),{build}=createRequire(require.resolve('tsx'))('esbuild');
@@ -21,7 +23,7 @@ const screenshotRoot=process.env.PUBLIC_SOLUTION_SCREENSHOTS||join(process.cwd()
 await mkdir(screenshotRoot,{recursive:true});const temp=await mkdtemp(join(screenshotRoot,'public-solutions-browser-'));
 let server,browser,origin,problem,version=1,fail=false,failStatement=false;const errors=[],requests=[];
 try{
- await installAchievementFixtures(pool);const f=achievementFixtures(pool);await f.user('author');await f.user('student');await f.user('unverified');
+ await installAchievementFixtures(pool);const f=achievementFixtures(pool);await f.user('author');await f.user('student');await f.user('unverified');await f.user('other');
  delete process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED;
  problem=await f.problem('author');
  const legacyId=problem.revision.id;
@@ -33,8 +35,10 @@ try{
  const updated=await parsed(await f.author('update',req('author',{version:problem.version,content:problem.content,privateParts:problem.privateParts}),problem.id));version=updated.version;
  await pool.query(`BEGIN; ${await readFile('migrations/0020_authored_public_solutions.up.sql','utf8')} COMMIT`);
  process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED='true';
- const published=await parsed(await f.author('publish',req('author',{version,publicSolutionConsent:true}),problem.id));problem.revision=published.revision;version=published.version;
+ const published=await parsed(await f.author('publish',req('author',{version}),problem.id));problem.revision=published.revision;version=published.version;
  const publicApi=createPublicAuthoredSolutionApi({pool,storage:store.storage});
+ const attempts=createAuthoredAttemptApi(f.deps);
+ const progressApi=createProblemProgressApi(async()=>Response.json({}, {status:503}),request=>attempts('progress',request));
  const output=await build({entryPoints:['tests/authored-public-solutions-harness.tsx'],outdir:temp,entryNames:'bundle',chunkNames:'lazy-[name]-[hash]',bundle:true,splitting:true,format:'esm',metafile:true,platform:'browser',jsx:'automatic',alias:{'@':process.cwd()},define:{'process.env.NODE_ENV':'"development"','process.env':'{}'},logLevel:'silent'});
  execFileSync('node_modules/.bin/tailwindcss',['-i','app/globals.css','-o',join(temp,'style.css')],{stdio:'pipe'});
  const assets=new Set(Object.keys(output.metafile.outputs).map(p=>'/'+basename(p)));
@@ -45,20 +49,24 @@ try{
   const request=new Request('https://physcratic.test'+url.pathname+url.search,{method:incoming.method,headers,body:['GET','HEAD'].includes(incoming.method)?undefined:Buffer.concat(chunks)});
   let response;
   const path=url.pathname.split('/');
+  if(url.pathname==='/api/arena/collection'){
+    response=Response.json({problems:[{key:'authored:'+problem.id,kind:'authored',id:problem.id,title:problem.content.title,tags:[],summary:'Community fixture',estimatedDifficulty:'1200',author:null}],nextCursor:null,authoredUnavailable:false,attributionUnavailable:false});
+  }
+  if(url.pathname==='/api/problem-progress')response=await progressApi(request);
   if(url.pathname.startsWith('/api/authored-problems/')){
     requests.push({path:url.pathname,method:incoming.method,body:Buffer.concat(chunks).toString(),who});
     if(path[4]==='public-solution')response=fail?Response.json({error:'synthetic unavailable'},{status:503}):await publicApi(request,path[3],path[6]);
     else if(path[3]==='drafts')response=await f.author(path[5]==='publish'?'publish':path[5]==='unpublish'?'unpublish':incoming.method==='PUT'?'update':'read',request,path[4]);
-    else if(path[4]==='submission-info')response=await (await import('../lib/authored-attempt-api.ts')).createAuthoredAttemptApi(f.deps)('info',request,path[3]);
-    else if(path[4]==='attempts')response=await (await import('../lib/authored-attempt-api.ts')).createAuthoredAttemptApi(f.deps)('submit',request,path[3]);
+    else if(path[4]==='submission-info')response=await attempts('info',request,path[3]);
+    else if(path[4]==='attempts')response=await attempts('submit',request,path[3]);
     else response=failStatement?Response.json({error:'synthetic unavailable'},{status:503}):await f.author('public',request,path[3]);
-    res.writeHead(response.status,Object.fromEntries(response.headers));res.end(Buffer.from(await response.arrayBuffer()));return;
   }
+  if(response){res.writeHead(response.status,Object.fromEntries(response.headers));res.end(Buffer.from(await response.arrayBuffer()));return;}
   if(url.pathname==='/pdfjs-dist/build/pdf.worker.min.mjs'){res.setHeader('content-type','text/javascript');res.end(await readFile(require.resolve('pdfjs-dist/build/pdf.worker.min.mjs')));return;}
   if(assets.has(url.pathname)||url.pathname==='/style.css'){res.setHeader('content-type',extname(url.pathname)==='.css'?'text/css':'text/javascript');res.end(await readFile(join(temp,basename(url.pathname))));return;}
   if(url.pathname==='/katex.css'){res.setHeader('content-type','text/css');res.end(await readFile(require.resolve('katex/dist/katex.min.css')));return;}
   if(url.pathname.startsWith('/fonts/')){res.end(await readFile(join(require.resolve('katex/dist/katex.min.css'),'../fonts',basename(url.pathname))));return;}
-  if(url.pathname==='/api/auth/get-session'){res.setHeader('content-type','application/json');res.end('null');return;}
+  if(url.pathname==='/api/auth/get-session'){res.setHeader('content-type','application/json');res.end(JSON.stringify(who?{user:{id:who,emailVerified:who!=='unverified'},session:{userId:who}}:null));return;}
   const draft=url.pathname==='/author'?await parsed(await f.author('read',req('author'),problem.id)):undefined;
   const fixture={problemId:url.searchParams.get('problem')||problem.id,viewer:who?{state:who==='unverified'?'unverified':'verified',id:who}:{state:'guest'},draft};
   res.setHeader('content-type','text/html');res.end(`<!doctype html><html lang="en" class="${url.searchParams.get('theme')==='dark'?'dark':''}"><head><title>Public solution qualification</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/bundle.css"><link rel="stylesheet" href="/katex.css"></head><body><div id="root"></div><script>window.__publicFixture=${JSON.stringify(fixture).replaceAll('<','\\u003c')}</script><script type="module" src="/bundle.js"></script></body></html>`);
@@ -81,11 +89,27 @@ try{
   await page.screenshot({path:join(temp,`${width}-${theme}.png`),fullPage:true});
   await context.close();
  }
+ const cardStatus=(page,text)=>page.getByRole('article',{name:problem.content.title}).getByText(text,{exact:true});
+ const checkArena=async(page,text)=>{
+  await page.goto(origin+'/arena');await cardStatus(page,text).waitFor();
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+ };
  for(const who of ['student','unverified']){
   const context=await browser.newContext();const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await context.addCookies([{name:'test_user',value:who,url:origin}]);await page.goto(origin);await page.getByRole('tab',{name:'Worked solution',exact:true}).click();await page.getByText('The public derivation follows conservation of momentum.').waitFor();
   if(who==='student'){
+    await page.setViewportSize({width:375,height:950});
+    await checkArena(page,'Not attempted');
+    await page.getByRole('link',{name:/Open problem/}).click();
     await page.getByRole('tab',{name:'Problem statement',exact:true}).click();
-    await page.getByRole('textbox',{name:'Numerical answer',exact:true}).fill('2');await page.getByRole('textbox',{name:'Units',exact:true}).fill('1');await page.getByRole('button',{name:'Submit answer',exact:true}).click();await page.getByText('Assistance cannot be verified for this public-solution revision',{exact:false}).waitFor();
+    await page.getByRole('textbox',{name:'Numerical answer',exact:true}).fill('1');await page.getByRole('textbox',{name:'Units',exact:true}).fill('1');await page.getByRole('button',{name:'Submit answer',exact:true}).click();
+    await page.getByRole('heading',{name:'Incorrect, saved attempt 1',exact:true}).waitFor();
+    assert.equal(await page.getByText(/assistance cannot be verified|unassisted/i).count(),0);
+    await checkArena(page,'Attempted');
+    await page.reload();await cardStatus(page,'Attempted').waitFor();
+    await context.addCookies([{name:'test_user',value:'other',url:origin}]);
+    await page.setViewportSize({width:1440,height:950});
+    await checkArena(page,'Not attempted');
+    assert.equal(await cardStatus(page,'Attempted').count(),0);
   }
   await context.close();
  }
@@ -98,18 +122,22 @@ try{
   const recovery=await browser.newContext(),p=await recovery.newPage();fail=true;await p.goto(origin);await p.getByRole('tab',{name:'Worked solution',exact:true}).click();await p.getByRole('button',{name:'Retry worked solution',exact:true}).waitFor();fail=false;await p.getByRole('button',{name:'Retry worked solution',exact:true}).click();await p.getByText('The public derivation follows conservation of momentum.').waitFor();await recovery.close();
   const empty=await f.problem('author',['numeric'],false);empty.privateParts[0].solution=[];
   const saved=await parsed(await f.author('update',req('author',{version:empty.version,content:empty.content,privateParts:empty.privateParts}),empty.id));
-  await parsed(await f.author('publish',req('author',{version:saved.version,publicSolutionConsent:true}),empty.id));
+  await parsed(await f.author('publish',req('author',{version:saved.version}),empty.id));
   const blankContext=await browser.newContext(),blank=await blankContext.newPage();await blank.goto(origin+'/?problem='+empty.id);await blank.getByRole('tab',{name:'Worked solution',exact:true}).click();await blank.getByText('No worked solution has been supplied for this revision.',{exact:true}).waitFor();await blankContext.close();
  }
  const context=await browser.newContext(),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await context.addCookies([{name:'test_user',value:'author',url:origin}]);await page.goto(origin+'/author');await page.getByRole('button',{name:'Publish new version',exact:true}).waitFor();
  page.once('dialog',d=>d.dismiss());await page.getByRole('button',{name:'Publish new version',exact:true}).click();
  await page.waitForTimeout(200);const before=requests.filter(r=>r.path.endsWith('/publish')).length;
- page.once('dialog',d=>{assert.match(d.message(),/solution PDFs public/);return d.accept();});await page.getByRole('button',{name:'Publish new version',exact:true}).click();await page.getByRole('status',{name:'Problem status',exact:true}).filter({hasText:'Published successfully'}).waitFor();
- assert.equal(requests.filter(r=>r.path.endsWith('/publish')).length,before+1);assert.equal(JSON.parse(requests.filter(r=>r.path.endsWith('/publish')).at(-1).body).publicSolutionConsent,true);
+ page.once('dialog',d=>{assert.match(d.message(),/worked solution, including attached files, will be public/);return d.accept();});await page.getByRole('button',{name:'Publish new version',exact:true}).click();await page.getByRole('status',{name:'Problem status',exact:true}).filter({hasText:'Published successfully'}).waitFor();
+ assert.equal(requests.filter(r=>r.path.endsWith('/publish')).length,before+1);assert.deepEqual(JSON.parse(requests.filter(r=>r.path.endsWith('/publish')).at(-1).body),{version});
+ const current=(await parsed(await f.author('public',req(),problem.id))).id;
+ assert.notEqual(current,problem.revision.id);
+ await page.goto(origin);await page.getByRole('tab',{name:'Worked solution',exact:true}).click();
+ await page.getByText('The public derivation follows conservation of momentum.').waitFor();
  await context.close();
  assert.equal(Number((await pool.query('SELECT count(*) n FROM authored_solution_reveal')).rows[0].n),0);
  assert.equal(requests.some(r=>r.path.includes('/solutions/')&&r.path.endsWith('/view')),false);
  assert.equal((await publicApi(req(undefined,undefined,'GET',`/api?revision=${legacyId}`),problem.id)).status,409);
  assert.deepEqual(errors,[]);
- console.log('PASS public-solutions browser: guest/verified/unverified, real inline PDF pages/download, images/math, closed initial tab, keyboard, 375/1440 light/dark axe, correct attempt classification, explicit/cancelled author consent, no reveal writes.');console.log('Screenshots:',temp);
+ console.log('PASS public-solutions browser: guest/verified/unverified, inline PDF pages/download, images/math, keyboard, 375/1440 light/dark axe, publish without separate consent, private Arena attempt status after reload, no reveal writes.');console.log('Screenshots:',temp);
 }finally{await browser?.close();if(server)await new Promise(r=>server.close(r));await pool.end();await admin.query(`DROP SCHEMA ${schema} CASCADE`);await admin.end();}
