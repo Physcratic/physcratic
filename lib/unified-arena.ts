@@ -21,7 +21,7 @@ export const arenaFiltersSchema = z.strictObject({
   difficulty: z.enum(['all','unrated',...bandFilterIds]).default('all'),
   source: z.enum(['all','arena','authored']).default('all'), after: problemKeySchema.optional(),
 });
-export const personalizedArenaCursorSchema = z.string().max(512).regex(/^pc1\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]{43}$/);
+export const personalizedArenaCursorSchema = z.string().max(512).regex(/^pc2\.[A-Za-z0-9_-]+$/);
 const arenaCursorSchema = z.union([problemKeySchema, personalizedArenaCursorSchema]);
 export const personalArenaFiltersSchema = arenaFiltersSchema.extend({after:arenaCursorSchema.optional()});
 export type ArenaFilters = z.infer<typeof arenaFiltersSchema>;

@@ -46,6 +46,8 @@ export async function verifyArenaPersonalization({ origin, pool, open, users, sw
     const tail = await cards(page).evaluateAll(nodes=>nodes.map(n=>n.getAttribute("data-problem-card")));
     assert.equal(new Set([...earlier,...tail]).size,earlier.length+tail.length);
     await completed(page,`authored:${authoredId}`).waitFor();
+    // The real authored attempt predates republication. Its indicator is still independent of the mark.
+    await card(page,`authored:${authoredId}`).getByText("Attempted",{exact:true}).waitFor();
 
     // Mark an unfinished second-page problem from its real reader, then return to a restarted collection.
     const candidate = cards(page).filter({hasNotText:"Completed"}).first();
@@ -89,16 +91,18 @@ export async function verifyArenaPersonalization({ origin, pool, open, users, sw
       assert.notEqual(await cards(page).first().getAttribute("data-problem-card"),first);
     } finally { await other.context.close(); }
 
-    // Delay A's personalized response until B's list is visible on the same mounted screen.
+    // Delay an older A page through A → B → A while another A session changes its mark.
     await search(page).fill("Mind the Gap");
     await completed(page,target).waitFor();
     let release;
     const held = new Promise(resolve=>{release=resolve;});
     let loaded;
+    let holdFirst = true;
     const received = new Promise(resolve=>{loaded=resolve;});
     const receivedA = r=>getCollection(r)&&r.request().headers()["x-community-account"]==="student-a";
     await page.route("**/api/arena/collection?*",async route=>{
-      if(route.request().headers()["x-community-account"]!=="student-a") return route.continue();
+      if(!holdFirst || route.request().headers()["x-community-account"]!=="student-a") return route.continue();
+      holdFirst = false;
       const response = await route.fetch();
       loaded(response.status());
       await held;
@@ -106,6 +110,10 @@ export async function verifyArenaPersonalization({ origin, pool, open, users, sw
     });
     const aRequest = page.waitForRequest(r=>new URL(r.url()).pathname===collection&&r.headers()["x-community-account"]==="student-a");
     const late = page.waitForResponse(receivedA);
+    const freshA = await open(anotherA);
+    const changeTarget = (state) => freshA.context.request.put(origin+"/api/personal-completions",{
+      headers:{origin,"X-Community-Account":"student-a"},data:{key:target,completed:state},
+    });
     try {
       await area(page).getByRole("button",{name:"Refresh collection"}).click();
       await aRequest;
@@ -115,13 +123,20 @@ export async function verifyArenaPersonalization({ origin, pool, open, users, sw
       assert.equal((await bResponse).status(),200);
       await card(page,target).waitFor();
       assert.equal(await completed(page,target).count(),0);
+      const mismatch = await context.request.get(origin+collection,{headers:{"X-Community-Account":"student-a"}});
+      assert.equal(mismatch.status(),409);
+      assert.equal((await changeTarget(false)).status(),200);
+      const freshResult = page.waitForResponse(receivedA);
+      await switchSession(page,a,"student-a");
+      assert.ok((await (await freshResult).json()).problems.every(problem=>!problem.completed));
     } finally { release(); }
     assert.equal((await late).status(),200);
     await page.unrouteAll({behavior:"wait"});
+    await card(page,target).waitFor();
     assert.equal(await completed(page,target).count(),0);
-    const mismatch = await context.request.get(origin+collection,{headers:{"X-Community-Account":"student-a"}});
-    assert.equal(mismatch.status(),409);
-    console.log("PASS Arena reader round trip, exact search, automatic stale restart and delayed account switch");
+    try { assert.equal((await changeTarget(true)).status(),200); }
+    finally { await freshA.context.close(); }
+    console.log("PASS Arena reader round trip, attempted and completed, exact search, stale restart and delayed A to B to A");
   } finally { await context.close(); }
 
   for (const [cookie, status] of [[undefined,undefined],[unverified,"active"]]) {

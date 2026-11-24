@@ -21,3 +21,16 @@ test("the completed card adds a status without adding another control", () => {
  assert.equal((html.match(/<a[\s>]/g) ?? []).length, 1);
  assert.doesNotMatch(renderToStaticMarkup(React.createElement(UnifiedProblemCard, { problem: { ...entry, completed: undefined } })), /Completed/);
 });
+
+test("attempted and personal completion render independently", () => {
+ const entry = collectionEntrySchema.parse({
+  key:"arena:arena-mind-the-gap",kind:"arena",id:"arena-mind-the-gap",title:"Mind the Gap",tags:[],
+  summary:"Original",elo:1350,estimatedDifficulty:null,author:null,
+ });
+ for (const attempted of [undefined,false,true]) for (const completed of [undefined,true] as const) {
+  const html = renderToStaticMarkup(React.createElement(UnifiedProblemCard,{problem:{...entry,completed},attempted}));
+  assert.equal(html.includes(">Attempted<"),attempted===true);
+  assert.equal(html.includes(">Not attempted<"),attempted===false);
+  assert.equal(html.includes("data-personal-completion"),completed===true);
+ }
+});

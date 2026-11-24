@@ -14,7 +14,7 @@ export const completionStatusSchema = z.discriminatedUnion("completed", [
   z.strictObject({ key: completionKeySchema, completed: z.literal(false), completedAt: z.null() }),
 ]);
 export const completionPageSize = 24;
-export const completionCursorSchema = z.string().max(256).regex(/^[A-Za-z0-9_-]+$/);
+export const completionCursorSchema = z.string().max(256).regex(/^ph1\.[A-Za-z0-9_-]+$/);
 export const completionPositionSchema = z.tuple([z.iso.datetime({ precision: 3 }), completionKeySchema]);
 export const completionHistorySchema = z.strictObject({
   count: z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER),

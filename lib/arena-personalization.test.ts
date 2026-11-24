@@ -6,6 +6,7 @@ import { Pool } from "pg";
 import arena from "./arena/index.json";
 import { getEstimatedProblemElo } from "./problem-archive";
 import { bandRange } from "./rating-bands";
+import { createPersonalCompletionsApi } from "./personal-completions-api";
 import { createUnifiedArenaApi } from "./unified-arena-api";
 import { unifiedArenaPageSchema, type CollectionEntry } from "./unified-arena";
 import { achievementFixtures, installAchievementFixtures } from "../tests/community-achievement-fixtures";
@@ -118,7 +119,7 @@ test("personalized PostgreSQL pages filter, rank and cursor both sources in one 
     assert.ok(unavailable.problems.every((row: CollectionEntry) => row.completed === undefined));
     for (const page of [unavailable, guest, off]) assert.equal(JSON.stringify(page).includes(accountA), false);
 
-    const migration = (await readFile("migrations/0024_personal_completions.up.sql", "utf8")).replaceAll("public.",schema+".");
+    const migration = (await readFile("migrations/0025_personal_completions.up.sql", "utf8")).replaceAll("public.",schema+".");
     await pool.query(migration);
     const ratings = new Map([...arena.problems.map(p => [`arena:${p.id}`, getEstimatedProblemElo(p.id)] as const), ...authored]);
     const mark = async (keys: string[], account = accountA) => pool.query(`INSERT INTO personal_problem_completion(user_id,problem_key)
@@ -169,7 +170,7 @@ test("personalized PostgreSQL pages filter, rank and cursor both sources in one 
     const first = await page({source:"authored"});
     const cursor = first.nextCursor!;
     assert.ok(cursor && !cursor.includes(accountA));
-    assert.ok(!Buffer.from(cursor.split(".")[1],"base64url").toString().includes(accountA));
+    assert.throws(() => JSON.parse(Buffer.from(cursor.split(".")[1],"base64url").toString("utf8")));
     assert.equal((await api(request({source:"authored",after:cursor}, accountB))).status, 400);
     assert.equal((await api(request({source:"arena",after:cursor}))).status, 400);
     assert.equal((await api(request({source:"authored",after:cursor+"x"}))).status, 400);
@@ -201,6 +202,33 @@ test("personalized PostgreSQL pages filter, rank and cursor both sources in one 
     assert.deepEqual((await list()).map(p=>p.key),expected(new Set()));
     assert.ok((await list()).every(p=>!p.completed));
 
+    // Independent oracle groups on mark, then rating, then source. Change membership with a seeded generator,
+    // including mixed groups and ties at the boundary between pages.
+    let seedState = 0x44879;
+    const nextRandom = () => {
+      seedState = (Math.imul(seedState, 1664525) + 1013904223) >>> 0;
+      return seedState / 0x100000000;
+    };
+    for (const probability of [0.02, 0.25, 0.5, 0.75, 0.98]) {
+      const complete = new Set([...ratings.keys()].filter(() => nextRandom()<probability));
+      await pool.query("DELETE FROM personal_problem_completion WHERE user_id=$1",[accountA]);
+      await mark([...complete]);
+      const ordered = [];
+      const ratingGroups = [...new Set(ratings.values())].sort((a,b)=>(a ?? Infinity)-(b ?? Infinity));
+      for (const done of [false,true]) {
+        for (const rating of ratingGroups) {
+          for (const source of ["arena:","authored:"]) {
+            ordered.push(...[...ratings.keys()].filter(key=>key.startsWith(source) &&
+              ratings.get(key)===rating && complete.has(key)===done).sort());
+          }
+        }
+      }
+      const actual = await list();
+      assert.deepEqual(actual.map(entry=>entry.key),ordered);
+      assert.deepEqual(new Set(actual.filter(entry=>entry.completed).map(entry=>entry.key)),complete);
+    }
+    await pool.query("DELETE FROM personal_problem_completion WHERE user_id=$1",[accountA]);
+
     // Representative published catalogue and marks from other accounts for EXPLAIN.
     const workload = Array.from({length: 2500}, (_, index) => ({
       id:randomUUID(),revision:randomUUID(),part:randomUUID(),title:`Synthetic Mechanics ${index}`,rating:500 + index % 2500,
@@ -224,6 +252,58 @@ test("personalized PostgreSQL pages filter, rank and cursor both sources in one 
     assert.match(JSON.stringify(explain[1]), /"Actual Rows":25/);
     t.diagnostic(`Representative workload: ${workload.length + authored.size} publications, 120 owner marks, ${sql.length} statements including transaction boundaries`);
     if(process.env.ARENA_PLAN_OUTPUT) await writeFile(process.env.ARENA_PLAN_OUTPUT,JSON.stringify(explain,null,2)+"\n");
+    if (process.env.ARENA_REVIEW_BENCHMARK_OUTPUT) {
+      const historyApi = createPersonalCompletionsApi({pool: {
+        query: (statement: {text: string; values?:unknown[]}) => { sql.push(statement); return pool.query(statement); },
+      } as unknown as Pool, cursorSecret: secret, origin:()=>true, user:opts.user});
+      const analyze = async () => pool.query("ANALYZE authored_problem; ANALYZE authored_revision; ANALYZE personal_problem_completion");
+      const pgVersion = (await pool.query("SHOW server_version")).rows[0].server_version;
+      const output = [];
+      const inspect = async (name: string, call: () => Promise<Response>) => {
+        for (let warmup=0; warmup<3; warmup++) await (await call()).arrayBuffer();
+        const times: number[] = [];
+        const sizes: number[] = [];
+        const calls: number[] = [];
+        for (let attempt=0; attempt<30; attempt++) {
+          sql.length=0;
+          const start=performance.now();
+          const response=await call();
+          assert.equal(response.status,200,response.ok?undefined:await response.clone().text());
+          const body=await response.arrayBuffer();
+          times.push(performance.now()-start);
+          sizes.push(body.byteLength);
+          calls.push(sql.length);
+        }
+        const statements = [...sql];
+        const plans = await Promise.all(statements.filter(q=>/^\s*(SELECT|WITH)/.test(q.text))
+          .map(async q=>(await pool.query("EXPLAIN (ANALYZE,BUFFERS,FORMAT JSON) "+q.text,q.values)).rows[0]["QUERY PLAN"][0]));
+        times.sort((a,b)=>a-b);
+        return {name,samples:times.length,minMs:times[0],p50Ms:times[14],p95Ms:times[28],maxMs:times.at(-1),
+          bodyBytes:{min:Math.min(...sizes),max:Math.max(...sizes)},databaseCalls:[...new Set(calls)],plans};
+      };
+      for (const size of ["representative","larger"] as const) {
+        if (size==="larger") {
+          const extra = Array.from({length:12500},(_,index)=>({id:randomUUID(),revision:randomUUID(),part:randomUUID(),
+            title:`Review Scale ${index}`,rating:index%31===0?null:500+index%2500}));
+          await seed(extra,true);
+          await mark(extra.slice(0,6500).map(p=>`authored:${p.id}`),accountB);
+          await mark(extra.slice(0,5000).map(p=>`authored:${p.id}`));
+          await analyze();
+        }
+        const anchor = (await page({source:"authored"})).nextCursor!;
+        const dataset = (await pool.query(`SELECT
+          (SELECT count(*)::int FROM authored_problem WHERE state='published') AS publications,
+          (SELECT count(*)::int FROM personal_problem_completion WHERE user_id=$1) AS "ownerMarks",
+          (SELECT count(*)::int FROM personal_problem_completion) AS "totalMarks"`,[accountA])).rows[0];
+        const scenarios = [];
+        scenarios.push(await inspect("mixed first page",()=>api(request())));
+        scenarios.push(await inspect("authored continuation",()=>api(request({source:"authored",after:anchor}))));
+        scenarios.push(await inspect("selective title search",()=>api(request({source:"authored",q:'"Synthetic Mechanics 1280"'}))));
+        scenarios.push(await inspect("owner history first page",()=>historyApi(request())));
+        output.push({size,...dataset,scenarios,pgVersion});
+      }
+      await writeFile(process.env.ARENA_REVIEW_BENCHMARK_OUTPUT,JSON.stringify(output,null,2)+"\n");
+    }
   } finally {
     await pool.end();
     await admin.query(`DROP SCHEMA ${schema} CASCADE`);

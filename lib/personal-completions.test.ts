@@ -6,12 +6,26 @@ import { Pool } from "pg";
 import arena from "./arena/index.json";
 import { createPersonalCompletionsApi } from "./personal-completions-api";
 import { createPersonalCompletionsRoute, personalCompletionsEnabled } from "./personal-completions-route";
+import { openCompletionCursor, sealCompletionCursor } from "./opaque-completion-cursor";
 
 const origin = "https://physcratic.test";
 const path = "/api/personal-completions";
 const arenaKey = "arena:arena-mind-the-gap";
 const retiredKey = "arena:arena-retired-fixture";
 const database = process.env.AUTHORING_TEST_DATABASE_URL;
+
+test("private cursor lengths are fixed and bindings authenticate randomized tokens", () => {
+  const secret = "synthetic-one", actor = ["student"];
+  for (const version of ["ph1","pc2"] as const) {
+    const short = sealCompletionCursor(secret,version,actor,["a"]);
+    const long = sealCompletionCursor(secret,version,actor,["z".repeat(128),"2026-01-01T00:00:00.123Z"]);
+    assert.equal(short.length,long.length);
+    assert.notEqual(short,sealCompletionCursor(secret,version,actor,["a"]));
+    assert.deepEqual(openCompletionCursor(secret,version,actor,short),["a"]);
+    assert.equal(openCompletionCursor(secret,version,["other"],short),null);
+    assert.equal(openCompletionCursor("synthetic-two",version,actor,short),null);
+  }
+});
 
 test("personal completions are OFF by default and use no bindings on the old schema", async () => {
   for (const value of [undefined, "false", "TRUE", "1"]) {
@@ -49,9 +63,10 @@ test("private completion API on disposable PostgreSQL", { skip: !database }, asy
   const admin = new Pool({ connectionString: target.href });
   await admin.query(`CREATE SCHEMA ${schema}`);
   const pool = new Pool({ connectionString: target.href, options: `-c search_path=${schema},public` });
-  const up = async () => (await readFile("migrations/0024_personal_completions.up.sql", "utf8")).replaceAll("public.", `${schema}.`);
-  const down = async () => (await readFile("migrations/0024_personal_completions.down.sql", "utf8")).replaceAll("public.", `${schema}.`);
+  const up = async () => (await readFile("migrations/0025_personal_completions.up.sql", "utf8")).replaceAll("public.", `${schema}.`);
+  const down = async () => (await readFile("migrations/0025_personal_completions.down.sql", "utf8")).replaceAll("public.", `${schema}.`);
   const api = createPersonalCompletionsApi({
+    cursorSecret: "synthetic-history-review-secret",
     pool,
     user: async request => {
       const id = request.headers.get("x-test-session");
@@ -173,6 +188,11 @@ test("private completion API on disposable PostgreSQL", { skip: !database }, asy
       assert.equal(first.count, 26);
       assert.equal(first.items.length, 24);
       assert.equal(typeof first.nextCursor, "string");
+      assert.match(first.nextCursor, /^ph1\./);
+      assert.throws(() => JSON.parse(Buffer.from(first.nextCursor.split(".")[1], "base64url").toString("utf8")));
+      await json(await request(`?after=${encodeURIComponent(first.nextCursor)}`, undefined, "b"), 400);
+      const corrupt = first.nextCursor.slice(0, 12) + (first.nextCursor[12] === "A" ? "B" : "A") + first.nextCursor.slice(13);
+      await json(await request(`?after=${encodeURIComponent(corrupt)}`, undefined, "history"), 400);
       const last = await json(await request(`?after=${encodeURIComponent(first.nextCursor)}`, undefined, "history"));
       assert.equal(last.count, 26);
       assert.equal(last.nextCursor, null);

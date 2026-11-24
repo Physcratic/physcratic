@@ -4,7 +4,7 @@ import { approvedMedalSource } from "./community/external-medals";
 import arena from "./arena/index.json";
 import { authoredRating, readAuthoredLibrary } from "./authored-library-api";
 import { authoredLibraryFiltersSchema } from "./authored-library-contracts";
-import { decodeArenaCompletionCursor, encodeArenaCompletionCursor, protectCompletionFingerprint } from "./arena-completion-cursor";
+import { decodeArenaCompletionCursor, encodeArenaCompletionCursor } from "./arena-completion-cursor";
 import { arenaFiltersSchema, compareArenaOrder, personalArenaFiltersSchema, staticArenaEntries, unifiedArenaPageSchema,
   type ArenaFilters, type CollectionCursor, type CollectionEntry } from "./unified-arena";
 import { getEstimatedProblemElo } from "./problem-archive";
@@ -88,7 +88,7 @@ async function personalizedPage(pool: Pool, scope: Parameters<typeof encodeArena
     };
     const { rows: [owner] } = await client.query<{ fingerprint: string; statics: string[] }>(membership);
     if (!owner) return { error: "ACCOUNT_CHANGED" } as const;
-    const fingerprint = protectCompletionFingerprint(scope,owner.fingerprint);
+    const { fingerprint } = owner;
     const f = scope.filters;
     if ((f.after && !cursor) || (cursor && cursor.fingerprint !== fingerprint))
       return { error: "COMPLETION_ORDER_CHANGED" } as const;
@@ -158,7 +158,7 @@ export function createUnifiedArenaApi(pool: Pool, flags: () => Flags = () => ({ 
       const f = parsed.data;
       const includeAuthored = f.source !== "arena" && (f.difficulty === "all" || f.difficulty === "unrated" || bandRange(f.difficulty) !== null);
       const account = enabled ? request.headers.get("x-community-account") : null;
-      const privateCursor = f.after?.startsWith("pc1.") === true;
+      const privateCursor = f.after?.startsWith("pc2.") === true;
       let personalization: "active" | "unavailable" | undefined;
       let page: Awaited<ReturnType<typeof ordinaryPage>> | undefined;
       if (account !== null && gate) {

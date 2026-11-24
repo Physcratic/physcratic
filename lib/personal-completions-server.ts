@@ -3,4 +3,6 @@ import { pool } from "./db";
 import { isSubmissionOrigin, submissionUser } from "./submission-server";
 import { createPersonalCompletionsApi } from "./personal-completions-api";
 
-export const personalCompletionsApi = createPersonalCompletionsApi({ pool, user: submissionUser, origin: isSubmissionOrigin });
+export const personalCompletionsApi = createPersonalCompletionsApi({
+  pool, user: submissionUser, origin: isSubmissionOrigin, cursorSecret: process.env.BETTER_AUTH_SECRET,
+});

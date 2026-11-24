@@ -1,3 +1,7 @@
+## Private personal completions, Phase 4 (24 November 2026)
+
+The independent review reproduced the candidate from its cumulative patch, then reconciled the merged Attempted indicators and external medal verification. Personal completions reserves 0025 because external medals uses 0024. Both completion migration SQL files have the same contents as the candidate. Local qualification covered opaque account-scoped cursors, delayed responses across account switches, ordered pagination, real restricted logins, and the unchanged 0018 erasure transaction. Exact-head GitHub checks and an independent owner review remain prerequisites for merging with the feature off. Production activation requires operator evidence for the ledger, privileges, erasure and restore. [Owner release runbook](../../scripts/personal-completions/RELEASE.md).
+
 ## Private personal completions, Phase 3 (24 November 2026)
 
 Disposable PostgreSQL verified four ordered pages, account and filter binding, cursor recovery, and a concurrent mark inside the ranked read. With 2,549 published community problems and 120 owner marks, PostgreSQL used the account index for both completion reads and bounded authored projection to 25 candidates. Chromium verified changed completion order, account switches, reader navigation and both themes. A scratch compatibility check used PR #245's attempted display and preserved both status indicators. [Scope and release prerequisites](../../scripts/personal-completions/README.md).

@@ -103,7 +103,7 @@ try {
   for (const migration of ["0012_community_problem_stats", "0020_authored_public_solutions", "0021_arena_favourite_key_pattern"]) {
     await pool.query(await readFile(`migrations/${migration}.up.sql`, "utf8"));
   }
-  if (enabled) await pool.query(await readFile("migrations/0024_personal_completions.up.sql", "utf8"));
+  if (enabled) await pool.query(await readFile("migrations/0025_personal_completions.up.sql", "utf8"));
   await addUser("student-a", "Alex Student");
   await addUser("student-b", "Robin Student");
   await addUser("unverified", "Unverified Student", false);
@@ -247,24 +247,34 @@ try {
     assert.deepEqual(await (await statusRequest()).json(), recorded);
     console.log("PASS keyboard community marking, unmarking, withdrawal and republication");
 
-    // Hold account A's history response through an in-place switch to B.
+    // Hold A's history through A → B → A while a second A session unmarks the item.
     let releaseHistory;
     const responseHeld = new Promise(resolve => { releaseHistory = resolve; });
     let firstHistory;
+    let holdFirstHistory = true;
     const fetched = new Promise(resolve => { firstHistory = resolve; });
     const lateHistory = page.waitForResponse(r => new URL(r.url()).pathname === path &&
       !new URL(r.url()).search && r.request().headers()["x-community-account"] === "student-a");
     await page.route(pattern, async route => {
-      if (route.request().headers()["x-community-account"] !== "student-a" || new URL(route.request().url()).search) return route.continue();
+      if (!holdFirstHistory || route.request().headers()["x-community-account"] !== "student-a" || new URL(route.request().url()).search) return route.continue();
+      holdFirstHistory = false;
       const response = await route.fetch();
       firstHistory(response.status());
       await responseHeld;
       await route.fulfill({ response });
     });
     await page.goto(origin + "/settings");
+    const secondSession = await open(anotherA);
+    const setOtherSession = (completed) => secondSession.context.request.put(origin + path, {
+      headers: {origin, "X-Community-Account": "student-a"}, data: {key:authoredKey, completed},
+    });
     try {
       assert.equal(await checkpoint(fetched, "the held history"), 200);
       await switchSession(page, b, "student-b");
+      await count(page, 0).waitFor();
+      assert.equal((await setOtherSession(false)).status(), 200);
+      await switchSession(page, a, "student-a");
+      await page.getByText("student-a@example.test", {exact:true}).waitFor();
       await count(page, 0).waitFor();
     } finally {
       releaseHistory();
@@ -273,6 +283,10 @@ try {
     await page.unrouteAll({ behavior: "wait" });
     await count(page, 0).waitFor();
     assert.equal(await history(page).getByRole("link").count(), 0);
+    try { assert.equal((await setOtherSession(true)).status(), 200); }
+    finally { await secondSession.context.close(); }
+    await switchSession(page, b, "student-b");
+    await count(page, 0).waitFor();
     const stale = await context.request.get(origin + path, { headers: { "X-Community-Account": "student-a" } });
     assert.equal(stale.status(), 409);
     await page.goto(origin + authoredPath);
@@ -308,7 +322,45 @@ try {
     await page.unrouteAll({ behavior: "wait" });
     await control(page, false).waitFor();
     assert.equal(await control(page, true).count(), 0);
-    console.log("PASS held read and write responses across real account switches, stale account header rejected");
+
+    // A reader's earlier A response must also be ignored after A is selected again.
+    let finishStatus;
+    const statusHeld = new Promise(resolve => { finishStatus = resolve; });
+    let signalStatus;
+    const statusFetched = new Promise(resolve => { signalStatus = resolve; });
+    let holdFirstStatus = true;
+    await page.route(pattern, async route => {
+      if (!holdFirstStatus || route.request().method() !== "GET" ||
+        route.request().headers()["x-community-account"] !== "student-a") return route.continue();
+      holdFirstStatus = false;
+      const response = await route.fetch();
+      signalStatus(await response.json());
+      await statusHeld;
+      await route.fulfill({response});
+    });
+    await page.reload();
+    const statusWriter = await open(anotherA);
+    try {
+      assert.equal((await checkpoint(statusFetched, "the held reader status")).completed, false);
+      await switchSession(page,b,"student-b");
+      await control(page,true).waitFor();
+      const marked = await statusWriter.context.request.put(origin+path,{
+        headers:{origin,"X-Community-Account":"student-a"},data:{key:arenaKey,completed:true},
+      });
+      assert.equal(marked.status(),200);
+      const freshStatus = page.waitForResponse(response => new URL(response.url()).pathname===path &&
+        response.request().method()==="GET" && response.request().headers()["x-community-account"]==="student-a");
+      await switchSession(page,a,"student-a");
+      assert.equal((await (await freshStatus).json()).completed,true);
+      await control(page,true).waitFor();
+    } finally {
+      finishStatus();
+      await statusWriter.context.close();
+    }
+    await page.unrouteAll({behavior:"wait"});
+    assert.equal(await control(page,false).count(),0);
+    await toggle(page,true);
+    console.log("PASS delayed Profile and reader responses through A to B to A, and a late write across accounts");
 
     // The private API is GET-readable for an unverified owner. No unverified reader has a write control.
     for (const [cookie, expected] of [[undefined, 401], [unverified, 403]]) {
@@ -380,6 +432,8 @@ try {
     assert.equal(await firstLink.getAttribute("href"), firstHref);
     console.log("PASS 12 responsive/theme screenshots, axe checks, and private history pagination");
     await verifyArenaPersonalization({ origin, pool, open, toggle, switchSession, users: { a, b, anotherA, unverified }, screenshots, AxeBuilder, authoredId: problem.id });
+    assert.doesNotMatch(serverLog, /student-[ab]|completedAt|\b(?:ph1|pc2)\.[A-Za-z0-9_-]+/);
+    console.log("PASS application output excludes account identifiers, private cursor values and completion fields");
   }
 } catch (error) {
   console.error(serverLog);

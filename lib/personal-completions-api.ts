@@ -8,11 +8,13 @@ import {
 } from "./personal-completions-contracts";
 import { problemHref, problemKey, type ProblemKey } from "./unified-arena";
 import { readRequestBytes, RequestBodyTimeoutError } from "./submission-request";
+import { openCompletionCursor, sealCompletionCursor } from "./opaque-completion-cursor";
 
 type Dependencies = {
   pool: Pool;
   user: (request: Request) => Promise<{ id: string; emailVerified?: boolean } | null | undefined>;
   origin: (request: Request) => boolean;
+  cursorSecret?: string;
 };
 
 class CompletionError extends Error {
@@ -44,9 +46,9 @@ async function readStatus(pool: Pool, userId: string, key: ProblemKey) {
   return completionStatus(key, row.completed_at);
 }
 
-async function readHistory(pool: Pool, userId: string, after?: string) {
+async function readHistory(pool: Pool, userId: string, cursorSecret?: string, after?: string) {
   const [at, key] = after === undefined ? [null, null] : completionPositionSchema.parse(
-    JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(Buffer.from(after, "base64url"))),
+    openCompletionCursor(requireCursorSecret(cursorSecret), "ph1", [userId], after),
   );
   const query = {
     text: `WITH visible AS NOT MATERIALIZED (
@@ -74,10 +76,15 @@ async function readHistory(pool: Pool, userId: string, after?: string) {
   });
   const last = items.at(-1);
   const nextCursor = rows.length > completionPageSize && last
-    ? Buffer.from(JSON.stringify([last.completedAt, last.key])).toString("base64url") : null;
+    ? sealCompletionCursor(requireCursorSecret(cursorSecret), "ph1", [userId], [last.completedAt, last.key]) : null;
   const history = completionHistorySchema.safeParse({ count: Number(rows[0].count), items, nextCursor });
   if (!history.success) throw Error("Invalid completion history projection");
   return history.data;
+}
+
+function requireCursorSecret(value?: string) {
+  if (!value) throw Error("Personal completion cursor configuration is missing");
+  return value;
 }
 
 async function writeCompletion(pool: Pool, userId: string, key: ProblemKey, completed: boolean) {
@@ -144,7 +151,7 @@ export function createPersonalCompletionsApi(deps: Dependencies) {
       if (request.method === "GET") {
         const params = Object.fromEntries(url.searchParams);
         if (url.searchParams.has("key")) return completionReply(await readStatus(deps.pool, user.id, statusQuery.parse(params).key));
-        return completionReply(await readHistory(deps.pool, user.id, historyQuery.parse(params).after));
+        return completionReply(await readHistory(deps.pool, user.id, deps.cursorSecret, historyQuery.parse(params).after));
       }
 
       if (!user.emailVerified || !deps.origin(request)) throw new CompletionError(403, "Request not permitted.");

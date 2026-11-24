@@ -1,6 +1,8 @@
-# Personal completions, Phase 1
+# Personal completions
 
-The private API stores self-reported completion for Arena originals and published community problems. `0024` creates an empty three-column completion table and a separate per-account write limiter. Both cascade when the existing account-erasure transaction deletes the account. Community marks use the stable problem key and survive republication. History hides unavailable problems. An owner can still remove an unavailable mark by key.
+[Owner release, activation and rollback procedure](RELEASE.md). Production remains NO-GO until separate operational approval.
+
+The private API stores self-reported completion for Arena originals and published community problems. `0025` creates an empty three-column completion table and a separate per-account write limiter. Both cascade when the existing account-erasure transaction deletes the account. Community marks use the stable problem key and survive republication. History hides unavailable problems. An owner can still remove an unavailable mark by key.
 
 ## API contract
 
@@ -33,9 +35,9 @@ AUTHORING_BROWSER_TOOLS=/path/to/external-browser-tools \
 
 The account-bound collection uses the same filters and ratings as ordinary browsing. It orders by the completion mark, then rating with unrated entries last, source, and canonical ID. The private collection reads the account's completion set and ranked authored candidates in one read-only repeatable-read transaction. Only matching static keys and a digest of the owner's set leave the membership query. PostgreSQL selects at most 25 authored candidates after filtering and membership ordering, before expanding card metadata. The server merges those with up to 25 static candidates and returns up to 24 cards.
 
-The personalized cursor authenticates the version, key, ranking tuple and keyed completion-set fingerprint against the current account and parsed filters using the existing `BETTER_AUTH_SECRET`. It carries no account ID. A changed completion set or missing or rerated anchor restarts pagination. The ranked catalogue is live between requests, so changes to other publications can still shift a later page. The browser discards late account responses and resets pagination on filter changes and confirmed reader writes.
+Both cursor formats use padded authenticated encryption with separate keys derived from the existing `BETTER_AUTH_SECRET`. Neither contains an account ID. The history cursor binds to the account. The Arena cursor binds to the account and parsed filters and protects the ranking tuple and completion-set fingerprint. A changed completion set or missing or rerated anchor restarts Arena pagination. The ranked catalogue is live between requests, so changes to other publications can still shift a later page. The browser discards late account responses and resets Arena pagination on filter changes and confirmed reader writes. Private reader and Profile requests are scoped to the mounted view as well as the account.
 
-Guests and feature-off deployments use the ordinary collection contract. Signed-in readers can browse ordinary results with an explicit personalization status when the completion store is unavailable. Attempted, favourite, and verified solve data remain independent. Phase 3 uses the existing runtime privileges and migration 0024. Match the UI flags at build and serving time for the statically generated public library.
+Guests and feature-off deployments use the ordinary collection contract. Signed-in readers can browse ordinary results with an explicit personalization status when the completion store is unavailable. Attempted, favourite, and verified solve data remain independent. Phase 3 uses the existing runtime privileges and migration 0025. Match the UI flags at build and serving time for the statically generated public library.
 
 The browser command above covers the Arena integration and the default-off old-schema collection. To reproduce the disposable query plans, set `ARENA_PLAN_OUTPUT` to a local path and run:
 

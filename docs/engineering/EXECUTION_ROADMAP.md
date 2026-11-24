@@ -1,3 +1,7 @@
+## Private personal completions, Phase 4 (24 November 2026)
+
+Integration review sealed the private cursors, isolated delayed reads across account switches, and prepared the exact grant and erasure checks. Migration 0025 preserves the original completion SQL after external medals took 0024. [Owner release gates and rollback](../../scripts/personal-completions/RELEASE.md).
+
 ## Private personal completions, Phase 3 (24 November 2026)
 
 Signed-in Arena students see unfinished results first across pages, with the existing rating and tie order within each group. Completed cards carry one status indicator. Guests retain ordinary browsing. [Contracts and release prerequisites](../../scripts/personal-completions/README.md).

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { Check } from "lucide-react";
 import useSWR, { useSWRConfig } from "swr";
 import useSWRMutation from "swr/mutation";
@@ -22,7 +22,8 @@ export function SignedInReaderCompletion({ problemKey }: { problemKey: ProblemKe
 }
 
 export function ReaderCompletion({ account, problemKey }: { account: string; problemKey: ProblemKey }) {
-  const key = completionStatusKey(account, problemKey);
+  const view = useId();
+  const key = completionStatusKey(account, problemKey, view);
   const { data, error } = useSWR(key, readCompletionStatus, { shouldRetryOnError: false, revalidateOnMount: true });
   const { trigger, isMutating } = useSWRMutation(key, saveCompletion);
   const { mutate } = useSWRConfig();
@@ -31,7 +32,7 @@ export function ReaderCompletion({ account, problemKey }: { account: string; pro
   if (unavailable || error || !data) return null;
 
   async function update(completed: boolean) {
-    const requestKey = JSON.stringify(key);
+    const requestKey = JSON.stringify([account, problemKey]);
     if (pendingWrites.has(requestKey)) return;
     pendingWrites.add(requestKey);
     setWriteFailed(false);
@@ -39,9 +40,10 @@ export function ReaderCompletion({ account, problemKey }: { account: string; pro
       // Let SWR discard reads started before this write. Populate only from a confirmed response.
       await trigger(completed, { populateCache: true, revalidate: false });
       window.dispatchEvent(new CustomEvent(completionChangedEvent, { detail: account }));
-      // Invalidate cached history for this account, including pages without a mounted reader.
+      // Older writes can finish after navigation. Revalidate other views instead of giving them an older receipt.
       void mutate(candidate => Array.isArray(candidate) && candidate[0] === completionsPath &&
-        candidate[1] === account && candidate[2] === "history", undefined);
+        candidate[1] === account && (candidate[2] === "history" ||
+          (candidate[2] === "status" && candidate[3] === problemKey && candidate[4] !== view)), undefined);
     } catch (error) {
       if (error instanceof CompletionRequestError && [401, 403, 404, 409].includes(error.status)) {
         setUnavailable(true);

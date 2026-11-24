@@ -213,18 +213,38 @@ test('complete account erasure on actual auth and installed graph, disposable PG
   });
   await t.test('account erasure cascades personal completions and rejects a concurrent mark from a stale session', async () => {
    const { createPersonalCompletionsApi } = await import('./personal-completions-api');
-   const migration = (await readFile('migrations/0024_personal_completions.up.sql', 'utf8')).replaceAll('public.', name + '.');
+   const routineInventory = `SELECT p.oid,p.proowner,p.proacl,p.prosecdef,p.proconfig,pg_get_functiondef(p.oid) AS definition
+    FROM pg_proc p WHERE p.pronamespace=$1::regnamespace ORDER BY p.oid`;
+   const beforeRoutines = (await setup.query(routineInventory, [name])).rows;
+   const migration = (await readFile('migrations/0025_personal_completions.up.sql', 'utf8')).replaceAll('public.', name + '.');
    await setup.query(`BEGIN; ${migration} COMMIT;`);
+   assert.deepEqual((await setup.query(routineInventory, [name])).rows, beforeRoutines);
+   const executeRoutine = beforeRoutines.find(row => row.definition.includes('FUNCTION '+name+'.account_deletion_execute('));
+   assert.ok(executeRoutine?.prosecdef && executeRoutine.proconfig.some((setting: string) => setting.includes('pg_catalog')));
+   assert.equal(executeRoutine.proowner,(await setup.query('SELECT oid FROM pg_roles WHERE rolname=$1',[owner])).rows[0].oid);
    for (const pool of [normal, erase, staff]) {
     await assert.rejects(pool.query('SELECT * FROM personal_problem_completion'), { code: '42501' });
     await assert.rejects(pool.query('SELECT * FROM personal_completion_write_limit'), { code: '42501' });
    }
-   // Disposable fixture grants are scoped to the actual runtime LOGIN and do not use the operator proposal.
-   await setup.query(`GRANT SELECT,DELETE ON personal_problem_completion TO ${ordinary};
-    GRANT INSERT(user_id,problem_key) ON personal_problem_completion TO ${ordinary};
-    GRANT SELECT,INSERT ON personal_completion_write_limit TO ${ordinary};
-    GRANT UPDATE(window_start,requests) ON personal_completion_write_limit TO ${ordinary};
-    GRANT SELECT ON authored_problem,authored_revision TO ${ordinary};
+   // Apply the exact reviewed delta in the disposable schema and connect as the real runtime LOGIN.
+   const grants = (await readFile('scripts/personal-completions/runtime-grants.review.sql','utf8'))
+    .replaceAll('public.', name+'.').replaceAll(':"runtime_role"',ordinary);
+   const audit = (await readFile('scripts/personal-completions/runtime-delta.readonly.sql','utf8'))
+    .replaceAll("'public'::regnamespace","'"+name+"'::regnamespace")
+    .replaceAll(":'runtime_role'","'"+ordinary+"'").replaceAll(":'completion_owner'","'"+owner+"'");
+   assert.ok((await setup.query(audit)).rows.length>0);
+   await setup.query(`BEGIN; ${grants} COMMIT;`);
+   assert.deepEqual((await setup.query(audit)).rows,[]);
+   await setup.query(`GRANT SELECT ON personal_problem_completion TO ${executor};
+    GRANT SELECT(requests) ON personal_completion_write_limit TO ${staffRole}`);
+   assert.deepEqual((await setup.query(audit)).rows.map(row=>[row.kind,row.object]),[
+    ['unexpected_grantee','personal_completion_write_limit.requests'],
+    ['unexpected_grantee','personal_problem_completion'],
+   ]);
+   await setup.query(`REVOKE SELECT ON personal_problem_completion FROM ${executor};
+    REVOKE SELECT(requests) ON personal_completion_write_limit FROM ${staffRole}`);
+   assert.deepEqual((await setup.query(audit)).rows,[]);
+   await setup.query(`GRANT SELECT ON authored_problem,authored_revision TO ${ordinary};
     GRANT UPDATE(state) ON authored_problem TO ${ordinary}`);
    await assert.rejects(normal.query('UPDATE personal_problem_completion SET completed_at=now()'), { code: '42501' });
    await assert.rejects(normal.query("INSERT INTO personal_problem_completion(user_id,problem_key,completed_at) VALUES('invalid','arena:arena-mind-the-gap',now())"), { code: '42501' });

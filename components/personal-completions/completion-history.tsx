@@ -1,14 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useId, useState } from "react";
 import useSWR from "swr";
 import { Button } from "@/components/ui/button";
 import { completionHistoryKey, readCompletionHistory } from "@/lib/personal-completions-client";
 
 export function CompletionHistory({ account, active }: { account: string; active: boolean }) {
   const [cursors, setCursors] = useState<string[]>([]);
-  const { data, error } = useSWR(active ? completionHistoryKey(account, cursors.at(-1)) : null, readCompletionHistory, {
+  // A reselected account must not attach to its old in-flight history request.
+  const view = useId();
+  const { data, error } = useSWR(active ? completionHistoryKey(account, cursors.at(-1), view) : null, readCompletionHistory, {
     shouldRetryOnError: false,
     revalidateOnMount: true,
   });
