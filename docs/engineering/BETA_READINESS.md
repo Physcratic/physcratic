@@ -1,3 +1,7 @@
+## Medal display and Arena attribution (24 November 2026)
+
+The shared badge puts the award first. Arena aligns the showcase beside the author link and wraps long names and badges on narrow cards. Local Chromium covered 320px, 375px and 1440px in both themes, including keyboard disclosure and private-profile fallback. The patch is held locally for the next UI batch.
+
 ## Every block editable in Simple, U7a (24 November 2026)
 
 Simple's More options now edit every block type Classic can, so Classic can be removed later without losing the ability to edit anything. Read from the code, what Simple could not edit was: more text and equation blocks and further pictures in a part's question, more text, equation and picture blocks in a part's worked solution, the caption of the first picture of the main question and of a part, and the title and shared text of a lone section with nothing in it yet. Each is now under More options in a group closed until opened: "More question blocks" and "More worked solution blocks" per part (named for the part when there are several, so no two labels match), a Caption field under a picture, and a button that opens the lone section's title and shared text. Each block can be edited, added, removed and moved up and down with buttons, using the same `BlocksEditor` and `moveItem` as Classic. Removing a block asks nothing. A part's More options summary says how many more blocks it holds, for example "More options for part a (3 more blocks)".

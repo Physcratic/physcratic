@@ -27,10 +27,12 @@ export function UnifiedProblemCard({problem,attempted}:{problem:CollectionEntry;
  const favourite=useProblemFavourite(problem.key),solves=favourite?.stat?.solves;
  return <ProblemCard id={problem.key} title={problem.title} source={problem.kind==='arena'?'Physcratic':'Community'}
   description={problem.summary} attempted={attempted} tags={problem.tags} elo={cardRating(problem)} href={problemHref(problem)} image={problem.kind==='arena'?arenaCardImage(problem.id):problem.image} {...likeProps(favourite)}
-  attribution={problem.kind==='arena'?<>{solves!==undefined&&solves!==null&&<p className="text-sm">{`${solves.toLocaleString('en-US')} verified ${solves===1?'solve':'solves'}`}</p>}<p className="text-sm">Published by Physcratic</p></>:<>
-   <p className="text-sm">By {problem.author?<Link className="underline" href={`/u/${problem.author.handle}`}>{problem.author.displayName||'@'+problem.author.handle}</Link>:'Community author'}</p>
+  attribution={problem.kind==='arena'?<>{solves!==undefined&&solves!==null&&<p className="text-sm">{`${solves.toLocaleString('en-US')} verified ${solves===1?'solve':'solves'}`}</p>}<p className="text-sm">Published by Physcratic</p></>:<div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
+   <p className="min-w-0 text-sm [overflow-wrap:anywhere]">
+    {problem.author?<>By&nbsp;<Link className="underline" href={`/u/${problem.author.handle}`}>{problem.author.displayName||'@'+problem.author.handle}</Link></>:'By Community author'}
+   </p>
    {problem.author&&<AchievementShowcase ids={problem.author.selectedIds} medals={problem.author.medals}/>}
-  </>}/>;
+  </div>}/>;
 }
 export function UnifiedArenaCollection({query,topic,difficulty,source='all',onReset}:{query:string;topic:string;difficulty:string;source?:'all'|'authored';onReset:()=>void}) {
  const {progress}=useProblemHistory();

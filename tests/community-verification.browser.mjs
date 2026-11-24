@@ -79,7 +79,7 @@ try {
   for(const width of [1440,375]){await page.setViewportSize({width,height:1000});check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'dashboard wraps');check((await new AxeBuilder({page}).analyze()).violations,[],'dashboard axe');}await page.screenshot({path:join(temp,'admin-mobile.png'),fullPage:true});
   await as('owner');await page.goto(`${origin}/settings`);const showcase=page.locator('#achievement-settings');await showcase.getByLabel('Show IPhO honourable-mention 2025').waitFor();await showcase.getByLabel('Show First Spark',{exact:true}).check();await showcase.getByLabel('Show IPhO honourable-mention 2025').check();check(await showcase.getByLabel('Show Problem Weaver',{exact:true}).isDisabled(),true,'shared two slots');await showcase.getByRole('button',{name:'Swap badge order'}).click();await showcase.getByRole('button',{name:'Save showcase',exact:true}).click();await page.getByText('Achievement showcase saved.').waitFor();await page.reload();await showcase.getByLabel('Show IPhO honourable-mention 2025').waitFor();check(await showcase.getByLabel('Show IPhO honourable-mention 2025').isChecked(),true,'saved medal');
   await page.getByLabel('Dark',{exact:true}).check();await page.waitForTimeout(250);check((await new AxeBuilder({page}).analyze()).violations,[],'settings dark mobile axe');await verification.screenshot({path:join(temp,'settings-mobile.png')});
-  await as(null);await page.goto(`${origin}/u/${handle}`);await page.getByLabel('Achievement showcase').waitFor();check(await page.getByLabel('Achievement showcase').locator('summary').allTextContents(),['IPhO, Honourable Mention, 2025','First Spark'],'accurate ordered medal');check((await page.textContent('body')).includes('PRIVATE_CERTIFICATE'),false,'certificate name private');const summary=page.getByLabel('IPhO, Honourable Mention, 2025: medal details');await summary.focus();await page.keyboard.press('Enter');check(await summary.locator('..').getAttribute('open'),'','keyboard medal details');check((await new AxeBuilder({page}).analyze()).violations,[],'public mobile axe');await page.screenshot({path:join(temp,'public-mobile.png'),fullPage:true});
+  await as(null);await page.goto(`${origin}/u/${handle}`);await page.getByLabel('Achievement showcase').waitFor();check(await page.getByLabel('Achievement showcase').locator('summary').allTextContents(),['Honourable Mention IPhO 2025','First Spark'],'accurate ordered medal');check((await page.textContent('body')).includes('PRIVATE_CERTIFICATE'),false,'certificate name private');const summary=page.getByLabel('Honourable Mention IPhO 2025: medal details');await summary.focus();await page.keyboard.press('Enter');check(await summary.locator('..').getAttribute('open'),'','keyboard medal details');check((await new AxeBuilder({page}).analyze()).violations,[],'public mobile axe');await page.screenshot({path:join(temp,'public-mobile.png'),fullPage:true});
   await pool.query('TRUNCATE community_medal_limit');await as('admin');await page.goto(`${origin}/admin/verification`);await page.getByLabel('Open claim by ID').fill(claim.id);await page.getByRole('button',{name:'Open claim',exact:true}).click();await page.getByRole('button',{name:'Revoke approval'}).waitFor();await page.getByLabel('Reason (required)').fill('Evidence withdrawn.');await page.getByRole('button',{name:'Revoke approval'}).click();await page.getByText('revoked, version 5').waitFor();
   await as(null);await page.goto(`${origin}/u/${handle}`);await page.getByLabel('Achievement showcase').waitFor();check(await page.getByLabel('Achievement showcase').locator('summary').allTextContents(),['First Spark'],'live revocation');
   await pool.query(`UPDATE "user" SET "emailVerified"=false WHERE id='owner'`);await page.reload();await page.getByRole('heading',{name:'Profile not found'}).waitFor();
@@ -118,18 +118,18 @@ try {
     await page.setViewportSize({width,height:1000});
     check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'external settings fit');
     check((await page.getByRole('link',{name:'View saved public profile'}).boundingBox()).height>=44,true,'profile link touch target');
-    check((await showcase.getByLabel('APhO, Gold, 2025: medal details').first().boundingBox()).height>=44,true,'settings medal touch target');
+    check((await showcase.getByLabel('Gold APhO 2025: medal details').first().boundingBox()).height>=44,true,'settings medal touch target');
     check((await new AxeBuilder({page}).analyze()).violations,[],'external settings axe');
     await page.screenshot({path:join(temp,'external-settings-'+width+'.png'),fullPage:true});
   }
   await as(null);await page.goto(`${origin}/u/${handle}`);
-  await page.getByLabel('APhO, Gold, 2025: medal details').waitFor();
-  check(await page.getByLabel('Achievement showcase').locator('summary').allTextContents(),['APhO, Gold, 2025'],'selected external medal rendered publicly');
+  await page.getByLabel('Gold APhO 2025: medal details').waitFor();
+  check(await page.getByLabel('Achievement showcase').locator('summary').allTextContents(),['Gold APhO 2025'],'selected external medal rendered publicly');
   check((await page.textContent('body')).includes('PRIVATE_TALLY_REF'),false,'public view omits private reference');
   for (const width of [1440,375]) {
     await page.setViewportSize({width,height:1000});
     check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'external public profile fits');
-    check((await page.getByLabel('APhO, Gold, 2025: medal details').boundingBox()).height>=44,true,'public medal touch target');
+    check((await page.getByLabel('Gold APhO 2025: medal details').boundingBox()).height>=44,true,'public medal touch target');
     check((await new AxeBuilder({page}).analyze()).violations,[],'external public profile axe');
     await page.screenshot({path:join(temp,'external-public-'+width+'.png'),fullPage:true});
   }
