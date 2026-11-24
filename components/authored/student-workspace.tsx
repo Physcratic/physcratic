@@ -27,8 +27,8 @@ import {
   CheckCircle2,
   ShieldCheck,
 } from "lucide-react";
-import { bareLabel, colorsByPartId } from "@/lib/part-colors";
-import { FeedbackBox, PartChip, SolveSteps, StepNumber, partBorder, partStyle } from "@/components/physics/solve-ui";
+import { bareLabel } from "@/lib/part-colors";
+import { FeedbackBox, PartChip, SolveSteps, StepNumber } from "@/components/physics/solve-ui";
 import { MathAnswerField } from "@/components/physics/math-answer-field";
 import type { FeedbackTone } from "@/lib/solve-feedback";
 import { Button } from "@/components/ui/button";
@@ -323,7 +323,6 @@ function PublicStatement({
   if (!revision) return null;
   const doc = revision.content;
   const multipart = doc.sections.reduce((n, section) => n + section.parts.length, 0) > 1;
-  const partColours = colorsByPartId(doc.sections);
   return (
     <article
       aria-label="Published problem statement"
@@ -352,12 +351,11 @@ function PublicStatement({
               <section
                 id={`part-${part.id}`}
                 key={part.id}
-                style={partStyle(partColours.get(part.id) ?? 0)}
-                className={`min-w-0 scroll-mt-6 space-y-4 rounded-r-lg py-1 pl-4 sm:pl-5 ${partBorder}`}
+                className={`min-w-0 scroll-mt-6 space-y-4 rounded-r-lg py-1 pl-4 sm:pl-5`}
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <PartHeading className={multipart ? "text-base font-semibold" : "sr-only"}>
-                    {multipart ? <PartChip index={partColours.get(part.id) ?? 0}>Part {bareLabel(part.label) || pi + 1}</PartChip> : "Question"}
+                    {multipart ? <PartChip>Part {bareLabel(part.label) || pi + 1}</PartChip> : "Question"}
                   </PartHeading>
                   {onAnswer && (
                     <button
@@ -430,8 +428,6 @@ function PrivateWorkspace({
         s.parts.map((p) => ({ ...p, sectionTitle: s.title })),
       ) ?? [],
     part = parts.find((p) => p.id === selected) ?? parts[0];
-  const partColours = colorsByPartId(revision?.content.sections ?? []);
-  const partColour = part ? (partColours.get(part.id) ?? 0) : 0;
   const cancelInfo = useCallback(() => {
     infoSerial.current++;
     infoAbort.current?.abort();
@@ -666,7 +662,7 @@ function PrivateWorkspace({
             onAnswer={jump}
           />,
           <AnswerWorkspace id="answer-workspace" className="scroll-mt-4">
-            <section style={partStyle(partColour)} className={`space-y-5 rounded-xl border bg-card p-5 ${partBorder}`}>
+            <section className="space-y-5 rounded-xl border bg-card p-5">
               <div className="flex items-center gap-2">
                 <ShieldCheck
                   aria-hidden="true"
@@ -680,7 +676,7 @@ function PrivateWorkspace({
                   Submit an answer
                 </h2>
               </div>
-              {part && (parts.length > 1 || part.sectionTitle) && <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">{parts.length > 1 && <PartChip index={partColour}>Part {bareLabel(part.label) || parts.indexOf(part) + 1}</PartChip>}{part.sectionTitle}</p>}
+              {part && (parts.length > 1 || part.sectionTitle) && <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">{parts.length > 1 && <PartChip>Part {bareLabel(part.label) || parts.indexOf(part) + 1}</PartChip>}{part.sectionTitle}</p>}
               {availability === "ready" && revision && part && buffer ? (
                 <>
                   {parts.length > 1 && <Field label="Choose part">
@@ -845,7 +841,7 @@ function PrivateWorkspace({
                 </p>
               )}
             </section>
-            {availability === "ready" && revision && !revision.solutionPolicy && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={bareLabel(part.label) || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
+            {availability === "ready" && revision && !revision.solutionPolicy && part && <WorkedSolution key={`${revision.id}:${part.id}`} partLabel={bareLabel(part.label) || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
           </AnswerWorkspace>,
           Boolean(availability === "ready" && revision && part && buffer),
         )}
