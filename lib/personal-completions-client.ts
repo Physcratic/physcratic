@@ -2,6 +2,7 @@ import { completionHistorySchema, completionStatusSchema } from "./personal-comp
 import type { ProblemKey } from "./unified-arena";
 
 export const completionsPath = "/api/personal-completions";
+export const completionChangedEvent = "physcratic:completion-changed";
 export const completionStatusKey = (account: string, key: ProblemKey) => [completionsPath, account, "status", key] as const;
 export const completionHistoryKey = (account: string, cursor?: string) => [completionsPath, account, "history", cursor] as const;
 

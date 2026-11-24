@@ -10,3 +10,14 @@ test('shared cards preserve readers, publisher, public author badges and source 
  const html=renderToStaticMarkup(React.createElement(UnifiedProblemCard,{problem:entry}));assert.ok(html.includes('/dashboard/authored/'+entry.id));assert.ok(html.includes('/u/public_author'));assert.ok(html.includes('First Spark'));assert.ok(html.includes('Problem Weaver'));assert.ok(!html.includes('Original source'));assert.ok(!html.includes('With permission'));assert.ok(!html.includes('Attribution and rights'));assert.ok(!html.includes('<script>unsafe'));
  const privateHtml=renderToStaticMarkup(React.createElement(UnifiedProblemCard,{problem:{...entry,author:null}}));assert.ok(privateHtml.includes('Community author'));assert.ok(!privateHtml.includes('/u/public_author'));
 });
+
+test("the completed card adds a status without adding another control", () => {
+ const entry = collectionEntrySchema.parse({
+  key:"arena:arena-mind-the-gap",kind:"arena",id:"arena-mind-the-gap",title:"Mind the Gap",tags:[],
+  summary:"Original",elo:1350,estimatedDifficulty:null,author:null,completed:true,
+ });
+ const html = renderToStaticMarkup(React.createElement(UnifiedProblemCard, { problem: entry }));
+ assert.match(html, /aria-hidden="true"[^>]*>[\s\S]*Completed/);
+ assert.equal((html.match(/<a[\s>]/g) ?? []).length, 1);
+ assert.doesNotMatch(renderToStaticMarkup(React.createElement(UnifiedProblemCard, { problem: { ...entry, completed: undefined } })), /Completed/);
+});

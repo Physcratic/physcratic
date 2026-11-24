@@ -1,6 +1,10 @@
+## Private personal completions, Phase 3 (24 November 2026)
+
+Signed-in Arena students see unfinished results first across pages, with the existing rating and tie order within each group. Completed cards carry one status indicator. Guests retain ordinary browsing. [Contracts and release prerequisites](../../scripts/personal-completions/README.md).
+
 ## Private personal completions, Phase 2 (24 November 2026)
 
-Verified students can mark or unmark a problem from either reader. Settings shows the account owner's count and history independently of public profile publication. Phase 3 owns Arena indicators and ordering across filtered pages. [Completion contracts and release prerequisites](../../scripts/personal-completions/README.md).
+Verified students can mark or unmark a problem from either reader. Settings shows the account owner's count and history independently of public profile publication. [Completion contracts and release prerequisites](../../scripts/personal-completions/README.md).
 
 ## Private personal completions, Phase 1 (24 November 2026)
 

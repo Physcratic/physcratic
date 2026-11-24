@@ -43,6 +43,7 @@ export function ProblemLibrary({
   onReadingChange,
   readerTitleAs,
   navigateToReader = false,
+  completionsEnabled = false,
 }: {
   topic?: string;
   query?: string;
@@ -51,6 +52,7 @@ export function ProblemLibrary({
   readerTitleAs?: "h1" | "h2";
   /** Keep public archive entries as ordinary reader navigation. Dashboard inline reading is unchanged. */
   navigateToReader?: boolean;
+  completionsEnabled?: boolean;
   /** Tells the page when a guided problem is open, so its title can be the page heading. */
   onReadingChange?: (reading: boolean) => void;
 }) {
@@ -195,13 +197,14 @@ export function ProblemLibrary({
         </Card>
         </>}
         <TabsContent value="authored" className="min-w-0">
-          <UnifiedArenaCollection query={search} topic={selectedTopic} difficulty={difficultyForCollection} source="authored" onReset={reset} />
+          <UnifiedArenaCollection query={search} topic={selectedTopic} difficulty={difficultyForCollection} source="authored" onReset={reset} completionsEnabled={completionsEnabled} />
         </TabsContent>
         <TabsContent value="arena" className="min-w-0">
           <UnifiedArenaCollection
             query={search}
             topic={selectedTopic}
             difficulty={difficultyForCollection}
+            completionsEnabled={completionsEnabled}
             onReset={reset}
           />
         </TabsContent>

@@ -6,7 +6,7 @@ import useSWR, { useSWRConfig } from "swr";
 import useSWRMutation from "swr/mutation";
 import { authClient } from "@/lib/auth-client";
 import {
-  CompletionRequestError, completionStatusKey, completionsPath, readCompletionStatus, saveCompletion,
+  CompletionRequestError, completionChangedEvent, completionStatusKey, completionsPath, readCompletionStatus, saveCompletion,
 } from "@/lib/personal-completions-client";
 import type { ProblemKey } from "@/lib/unified-arena";
 import { Button } from "@/components/ui/button";
@@ -38,6 +38,7 @@ export function ReaderCompletion({ account, problemKey }: { account: string; pro
     try {
       // Let SWR discard reads started before this write. Populate only from a confirmed response.
       await trigger(completed, { populateCache: true, revalidate: false });
+      window.dispatchEvent(new CustomEvent(completionChangedEvent, { detail: account }));
       // Invalidate cached history for this account, including pages without a mounted reader.
       void mutate(candidate => Array.isArray(candidate) && candidate[0] === completionsPath &&
         candidate[1] === account && candidate[2] === "history", undefined);

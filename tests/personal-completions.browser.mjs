@@ -10,6 +10,7 @@ import { join } from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 import { Pool } from "pg";
 import arena from "../lib/arena/index.json" with { type: "json" };
+import { verifyArenaPersonalization } from "./arena-personalization.browser.mjs";
 import { achievementFixtures, achievementParsed, achievementRequest, installAchievementFixtures } from "./community-achievement-fixtures.ts";
 
 const database = new URL(process.env.AUTHORING_TEST_DATABASE_URL);
@@ -141,7 +142,13 @@ try {
     const disabled = await context.request.get(origin + path, { headers: { "X-Community-Account": "student-a" } });
     assert.equal(disabled.status(), 503);
     assert.equal((await pool.query("SELECT to_regclass('personal_problem_completion') AS table")).rows[0].table, null);
-    console.log("PASS feature off on old schema, signed-in Arena, community reader and Settings");
+    const publicPage = page.waitForResponse(r => new URL(r.url()).pathname === "/api/arena/collection");
+    await page.goto(origin + "/dashboard?view=problems");
+    const legacy = await publicPage;
+    assert.equal(legacy.request().headers()["x-community-account"], undefined);
+    assert.equal((await legacy.json()).personalization, undefined);
+    assert.equal(await page.getByText("Completed", {exact:true}).count(),0);
+    console.log("PASS feature off on old schema, signed-in readers, Settings and legacy Arena collection");
   } else {
     if (screenshots) await mkdir(screenshots, { recursive: true });
     await page.goto(origin + arenaPath);
@@ -372,6 +379,7 @@ try {
     await firstLink.waitFor();
     assert.equal(await firstLink.getAttribute("href"), firstHref);
     console.log("PASS 12 responsive/theme screenshots, axe checks, and private history pagination");
+    await verifyArenaPersonalization({ origin, pool, open, toggle, switchSession, users: { a, b, anotherA, unverified }, screenshots, AxeBuilder, authoredId: problem.id });
   }
 } catch (error) {
   console.error(serverLog);

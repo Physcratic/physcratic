@@ -20,11 +20,25 @@ Independent review and exact-head CI are required before integration. Production
 
 ## Phase 2 reader and settings
 
-Verified students can mark or unmark a problem from either reader. Settings shows the current account's count and linked history even without a public profile. Successful writes update the reader and invalidate cached history for that account. Grading and worked solutions are independent of personal completion. Arena card indicators and ordering belong to Phase 3.
+Verified students can mark or unmark a problem from either reader. Settings shows the current account's count and linked history even without a public profile. Successful writes update the reader and invalidate cached history for that account. Grading and worked solutions are independent of personal completion.
 
 The Arena reader is statically generated and evaluates the UI flag at build time. The API checks it at runtime. Qualify the reader with matching build and serving settings. The browser test runs on a local production build and uses a fresh disposable database. Run once with the flag set to `true` locally and once with it unset at both build and serving time. The off check uses the old schema.
 
 ```bash
 AUTHORING_BROWSER_TOOLS=/path/to/external-browser-tools \
   bash scripts/test-problem-authoring.sh node --require ./tests/server-only-register.cjs --import tsx tests/personal-completions.browser.mjs
+```
+
+## Phase 3 Arena collection
+
+The account-bound collection uses the same filters and ratings as ordinary browsing. It orders by the completion mark, then rating with unrated entries last, source, and canonical ID. The private collection reads the account's completion set and ranked authored candidates in one read-only repeatable-read transaction. Only matching static keys and a digest of the owner's set leave the membership query. PostgreSQL selects at most 25 authored candidates after filtering and membership ordering, before expanding card metadata. The server merges those with up to 25 static candidates and returns up to 24 cards.
+
+The personalized cursor authenticates the version, key, ranking tuple and keyed completion-set fingerprint against the current account and parsed filters using the existing `BETTER_AUTH_SECRET`. It carries no account ID. A changed completion set or missing or rerated anchor restarts pagination. The ranked catalogue is live between requests, so changes to other publications can still shift a later page. The browser discards late account responses and resets pagination on filter changes and confirmed reader writes.
+
+Guests and feature-off deployments use the ordinary collection contract. Signed-in readers can browse ordinary results with an explicit personalization status when the completion store is unavailable. Attempted, favourite, and verified solve data remain independent. Phase 3 uses the existing runtime privileges and migration 0024. Match the UI flags at build and serving time for the statically generated public library.
+
+The browser command above covers the Arena integration and the default-off old-schema collection. To reproduce the disposable query plans, set `ARENA_PLAN_OUTPUT` to a local path and run:
+
+```bash
+bash scripts/test-problem-authoring.sh pnpm exec tsx --conditions=react-server --test lib/arena-personalization.test.ts
 ```

@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Private personal completions, Phase 3 (24 November 2026)
+
+Local branch `claude/personal-completions` follows Phase 2 `08e8ba4`. The Arena collection orders filtered candidates before pagination using an owner-scoped snapshot and signed cursor. PR #245's attempted indicator uses separate progress data. [Cursor recovery, tests and release prerequisites](../../scripts/personal-completions/README.md).
+
 ## Private personal completions, Phase 2 (24 November 2026)
 
 Local branch `claude/personal-completions`, based on `bd194ca` and Phase 1 `4dad963`. Both readers use the same confirmed completion control. Settings history and all completion client cache keys are account-scoped. Phase 3 requires separate authorization. Keep the flag off pending [release qualification](../../scripts/personal-completions/README.md).

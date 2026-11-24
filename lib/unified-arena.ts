@@ -21,6 +21,10 @@ export const arenaFiltersSchema = z.strictObject({
   difficulty: z.enum(['all','unrated',...bandFilterIds]).default('all'),
   source: z.enum(['all','arena','authored']).default('all'), after: problemKeySchema.optional(),
 });
+export const personalizedArenaCursorSchema = z.string().max(512).regex(/^pc1\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]{43}$/);
+const arenaCursorSchema = z.union([problemKeySchema, personalizedArenaCursorSchema]);
+export const personalArenaFiltersSchema = arenaFiltersSchema.extend({after:arenaCursorSchema.optional()});
+export type ArenaFilters = z.infer<typeof arenaFiltersSchema>;
 export const publicAuthorSchema = z.strictObject({handle:z.string(),displayName:z.string(),...publicShowcaseSchema.shape});
 export const collectionEntrySchema = z.strictObject({
   key: problemKeySchema, kind:z.enum(['arena','authored']), id:z.string(), title:z.string(), tags:z.array(z.string()),
@@ -29,12 +33,19 @@ export const collectionEntrySchema = z.strictObject({
   author:publicAuthorSchema.nullable(),
   // Community problems only: the card image of the published revision. Arena cards take theirs from lib/arena/card-image.ts.
   image:authoredCardImageSchema.optional(),
+  completed:z.literal(true).optional(),
 });
-export const unifiedArenaPageSchema = z.strictObject({problems:z.array(collectionEntrySchema).max(24),nextCursor:problemKeySchema.nullable(),authoredUnavailable:z.boolean(),attributionUnavailable:z.boolean(),statsEnabled:z.boolean().optional()});
+export const unifiedArenaPageSchema = z.strictObject({
+  problems:z.array(collectionEntrySchema).max(24),nextCursor:arenaCursorSchema.nullable(),
+  authoredUnavailable:z.boolean(),attributionUnavailable:z.boolean(),statsEnabled:z.boolean().optional(),
+  personalization:z.enum(["active","unavailable"]).optional(),
+}).refine(page => page.personalization === "active"
+  ? page.nextCursor === null || personalizedArenaCursorSchema.safeParse(page.nextCursor).success
+  : (page.nextCursor === null || problemKeySchema.safeParse(page.nextCursor).success) && page.problems.every(p=>!p.completed));
 export type CollectionEntry = z.infer<typeof collectionEntrySchema>;
 export type UnifiedArenaPage = z.infer<typeof unifiedArenaPageSchema>;
 /** Where a page starts: after this problem. `rating` is null for a problem without a rating. */
-export type CollectionCursor = { kind:'arena'|'authored'; id:string; rating:number|null };
+export type CollectionCursor = { kind:'arena'|'authored'; id:string; rating:number|null; completed?:boolean };
 type Ranked = { kind:'arena'|'authored'; id:string; rating:number|null };
 /** The library order: rating from low to high, problems without a rating last, then Physcratic before community, then id. */
 export function compareByRating(a:Ranked,b:Ranked):number {
@@ -43,12 +54,15 @@ export function compareByRating(a:Ranked,b:Ranked):number {
   if(a.kind!==b.kind)return a.kind==='arena'?-1:1;
   return a.id<b.id?-1:a.id>b.id?1:0;
 }
+export function compareArenaOrder(a:CollectionCursor,b:CollectionCursor):number {
+  return Number(a.completed ?? false) - Number(b.completed ?? false) || compareByRating(a,b);
+}
 /** The Physcratic problems that match, in library order, after the cursor when there is one. */
-export function staticArenaEntries(filters:z.infer<typeof arenaFiltersSchema>,cursor?:CollectionCursor):CollectionEntry[] {
+export function staticArenaEntries(filters:ArenaFilters,cursor?:CollectionCursor,completed?:ReadonlySet<string>):CollectionEntry[] {
   if(filters.source==='authored'||filters.difficulty==='unrated')return [];
   return filterArena(arena.problems as ArenaCatalogEntry[],{query:filters.q,topic:filters.tag||'all',difficulty:filters.difficulty})
-    .map(p=>({p,rank:{kind:'arena' as const,id:p.id,rating:getEstimatedProblemElo(p.id)}}))
-    .filter(({rank})=>!cursor||compareByRating(rank,cursor)>0)
-    .sort((a,b)=>compareByRating(a.rank,b.rank)).map(({p})=>p)
-    .map(p=>({key:problemKey({kind:'arena',id:p.id}),kind:'arena',id:p.id,title:p.title,tags:getProblemTags(p),summary:p.summary,elo:getEstimatedProblemElo(p.id),estimatedDifficulty:null,author:null}));
+    .map(p=>({p,rank:{kind:'arena' as const,id:p.id,rating:getEstimatedProblemElo(p.id),completed:completed?.has(`arena:${p.id}`)}}))
+    .filter(({rank})=>!cursor||compareArenaOrder(rank,cursor)>0)
+    .sort((a,b)=>compareArenaOrder(a.rank,b.rank)).slice(0,25)
+    .map(({p,rank})=>({key:problemKey({kind:'arena',id:p.id}),kind:'arena',id:p.id,title:p.title,tags:getProblemTags(p),summary:p.summary,elo:rank.rating,estimatedDifficulty:null,author:null,...(rank.completed?{completed:true as const}:{})}));
 }

@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import type { View } from "@/lib/physics";
 import Content from "./content";
 import Layout from "./layout";
+import { personalCompletionsEnabled } from "@/lib/personal-completions-route";
 
 export default function Dashboard({
   view,
@@ -24,6 +25,7 @@ export default function Dashboard({
         topic={topic}
         query={query}
         discovery={discovery}
+        completionsEnabled={personalCompletionsEnabled()}
       />
       {children}
     </Layout>
