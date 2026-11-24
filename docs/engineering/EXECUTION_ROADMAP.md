@@ -1,6 +1,10 @@
+## Private personal completions, Phase 2 (24 November 2026)
+
+Verified students can mark or unmark a problem from either reader. Settings shows the account owner's count and history independently of public profile publication. Phase 3 owns Arena indicators and ordering across filtered pages. [Completion contracts and release prerequisites](../../scripts/personal-completions/README.md).
+
 ## Private personal completions, Phase 1 (24 November 2026)
 
-The default-off owner API records self-reported completion for Arena originals and published community problems. Local implementation only. [API contract, role delta and release prerequisites](../../scripts/personal-completions/README.md). Phase 2 covers reader controls, Arena presentation and ordering, and the owner profile.
+The default-off owner API records self-reported completion for Arena originals and published community problems. Local implementation only. [API contract, role delta and release prerequisites](../../scripts/personal-completions/README.md).
 
 ## External medal verification (24 November 2026)
 

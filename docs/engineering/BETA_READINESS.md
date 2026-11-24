@@ -1,3 +1,7 @@
+## Private personal completions, Phase 2 (24 November 2026)
+
+The local browser run used the built application, synthetic Better Auth sessions, and disposable PostgreSQL. It covered both readers, private history and pagination, failed writes, delayed responses during account switches, publication withdrawal and republication, keyboard use, and 375px and 1440px layouts in light and dark. The default-off build passed the signed-in reader and Settings checks against the old schema. TypeScript, zero-warning lint, and the application and focused PostgreSQL suites passed. The focused profile account-header browser passed. The full profile browser still expects a removed signup field and stops at the same selector on `bd194ca`. [Release prerequisites](../../scripts/personal-completions/README.md).
+
 ## Private personal completions, Phase 1 (24 November 2026)
 
 Local verification covers owner isolation, desired-state retries, visible pagination, publication withdrawal, restricted privileges, and account erasure. Production activation requires approved migration, grant, and erasure evidence. [Scope and release requirements](../../scripts/personal-completions/README.md).

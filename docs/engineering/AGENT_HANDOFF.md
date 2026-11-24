@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Private personal completions, Phase 2 (24 November 2026)
+
+Local branch `claude/personal-completions`, based on `bd194ca` and Phase 1 `4dad963`. Both readers use the same confirmed completion control. Settings history and all completion client cache keys are account-scoped. Phase 3 requires separate authorization. Keep the flag off pending [release qualification](../../scripts/personal-completions/README.md).
+
 ## Private personal completions, Phase 1 (24 November 2026)
 
 Base `bd194ca`. Migration 0024 adds the private marks and their isolated write limiter. The gated API handles per-problem status, owner history, and desired-state writes. The disposable 0018 rehearsal covers erasure, a concurrent mark, and another account's records. Keep the feature off pending release qualification. Phase 2 needs separate authorization. [Contracts and owner gates](../../scripts/personal-completions/README.md).
