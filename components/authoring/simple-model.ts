@@ -114,11 +114,13 @@ export function extraBlocks(blocks: readonly EditorBlock[], picture = true): Edi
   const mine = ownSlots(blocks, picture);
   return blocks.filter((_, i) => !mine.has(i));
 }
-/** Puts an edited list of extra blocks back. Simple's own blocks keep their place, and nothing outside the list is dropped or reordered. */
-export function withExtraBlocks(blocks: readonly EditorBlock[], shown: readonly EditorBlock[], picture = true): EditorBlock[] {
+/** The ids of the blocks Simple's own text field and picture box edit, or undefined where there is none yet. */
+function ownIds(blocks: readonly EditorBlock[], picture: boolean) {
+  return { text: blocks[firstTextIndex(blocks)]?.id, image: picture ? blocks[firstImageIndex(blocks)]?.id : undefined };
+}
+/** Simple's own blocks keep their place, and the extras fill the other places in the order they are shown. */
+function fillInPlace(blocks: readonly EditorBlock[], shown: readonly EditorBlock[], picture: boolean, lead: EditorBlock[]): EditorBlock[] {
   const mine = ownSlots(blocks, picture);
-  // With no text yet, a text block added here would turn into the field's own text and leave the list. An empty one takes that place first.
-  const lead: EditorBlock[] = firstTextIndex(blocks) < 0 && shown.some((b) => b.kind === "text") ? [{ id: crypto.randomUUID(), kind: "text", spans: [{ kind: "text", text: "" }] }] : [];
   const out: EditorBlock[] = [];
   let next = 0;
   blocks.forEach((block, i) => {
@@ -126,6 +128,80 @@ export function withExtraBlocks(blocks: readonly EditorBlock[], shown: readonly 
     else if (next < shown.length) out.push(shown[next++]);
   });
   return [...lead, ...out, ...shown.slice(next)];
+}
+/** Each own block goes after the last extra that came before it and is still shown, so removing an extra never moves a later one in front. */
+function fillAnchored(blocks: readonly EditorBlock[], shown: readonly EditorBlock[], picture: boolean, lead: EditorBlock[]): EditorBlock[] {
+  const mine = ownSlots(blocks, picture);
+  const before: string[] = [];
+  const owns: { block: EditorBlock; before: string[] }[] = [];
+  blocks.forEach((block, i) => {
+    if (mine.has(i)) owns.push({ block, before: [...before] });
+    else before.push(block.id);
+  });
+  const at = new Map(shown.map((b, i) => [b.id, i]));
+  let previous = 0;
+  const slots = owns.map((own) => (previous = Math.max(previous, Math.max(-1, ...own.before.map((id) => at.get(id) ?? -1)) + 1)));
+  const out: EditorBlock[] = [...lead];
+  for (let s = 0; s <= shown.length; s++) {
+    owns.forEach((own, k) => { if (slots[k] === s) out.push(own.block); });
+    if (s < shown.length) out.push(shown[s]);
+  }
+  return out;
+}
+/**
+ * Puts an edited list of extra blocks back, or returns null when the result would change which block Simple's own text field or picture box edits.
+ * Only a block that is already there counts: a first text or picture added where there was none becomes the field's own. So an extra text block never
+ * ends up above the question's text and an extra picture never above its picture, and nothing is dropped or duplicated.
+ */
+export function mergeExtraBlocks(blocks: readonly EditorBlock[], shown: readonly EditorBlock[], picture = true): EditorBlock[] | null {
+  // With no text yet, a text block added here would turn into the field's own text and leave the list. An empty one takes that place first.
+  const lead: EditorBlock[] = firstTextIndex(blocks) < 0 && shown.some((b) => b.kind === "text") ? [{ id: crypto.randomUUID(), kind: "text", spans: [{ kind: "text", text: "" }] }] : [];
+  const was = ownIds(blocks, picture);
+  const mine = ownSlots(blocks, picture);
+  const wanted = new Set([...blocks.filter((_, i) => mine.has(i)), ...shown, ...lead].map((b) => b.id));
+  for (const candidate of [fillInPlace(blocks, shown, picture, lead), fillAnchored(blocks, shown, picture, lead)]) {
+    const now = ownIds(candidate, picture);
+    const kept = (was.text === undefined || was.text === now.text) && (was.image === undefined || was.image === now.image);
+    const whole = candidate.length === wanted.size && candidate.every((b) => wanted.has(b.id));
+    if (kept && whole) return candidate;
+  }
+  return null;
+}
+/** Puts an edited list of extra blocks back. A result that would change Simple's own blocks is refused and the blocks come back unchanged. */
+export function withExtraBlocks(blocks: readonly EditorBlock[], shown: readonly EditorBlock[], picture = true): EditorBlock[] {
+  return mergeExtraBlocks(blocks, shown, picture) ?? [...blocks];
+}
+const sameBlock = (a: EditorBlock | undefined, b: EditorBlock) => !!a && JSON.stringify(a) === JSON.stringify(b);
+/**
+ * Applies one edit made in a group to the latest blocks. `prev` is the list the group showed when the edit began and `next` is what it became.
+ * A block the edit did not change keeps its latest version, and a block added in the meantime is kept, so two quick edits never undo each other
+ * and Simple's own fields are always the latest. `hidePictures` is for a group that does not list pictures, which stay where they are. Returns
+ * null when Simple's own blocks would change.
+ */
+export function tryExtraEdit(latest: readonly EditorBlock[], prev: readonly EditorBlock[], next: readonly EditorBlock[], picture = true, hidePictures = false): EditorBlock[] | null {
+  const listed = (b: EditorBlock) => !(hidePictures && b.kind === "image");
+  const latestExtras = extraBlocks(latest, picture);
+  const latestById = new Map(latestExtras.map((b) => [b.id, b]));
+  const prevById = new Map(prev.map((b) => [b.id, b]));
+  const nextIds = new Set(next.map((b) => b.id));
+  // A block the edit did not change takes its latest version, and is gone if it was removed meanwhile. A changed or added block is the edit's.
+  const merged = next.flatMap((b) => (sameBlock(prevById.get(b.id), b) ? (latestById.has(b.id) ? [latestById.get(b.id)!] : []) : [b]));
+  const concurrent = latestExtras.filter((b) => listed(b) && !prevById.has(b.id) && !nextIds.has(b.id));
+  const visible = [...merged, ...concurrent];
+  let full: EditorBlock[];
+  if (hidePictures) {
+    full = [];
+    let at = 0;
+    for (const b of latestExtras) {
+      if (!listed(b)) full.push(b);
+      else if (at < visible.length) full.push(visible[at++]);
+    }
+    full.push(...visible.slice(at));
+  } else full = visible;
+  return mergeExtraBlocks(latest, full, picture);
+}
+export function applyExtraEdit(latest: readonly EditorBlock[], prev: readonly EditorBlock[], next: readonly EditorBlock[], picture = true, hidePictures = false): EditorBlock[] {
+  return tryExtraEdit(latest, prev, next, picture, hidePictures) ?? [...latest];
 }
 /** The shared setup is the extra blocks of the main question. */
 export const sharedSetupBlocks = (blocks: readonly EditorBlock[]): EditorBlock[] => extraBlocks(blocks, true);

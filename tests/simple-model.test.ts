@@ -1081,10 +1081,12 @@ test("the shared setup the main question does not own: opening, editing and clos
   assert.equal(edited[3], picture);
   assert.deepEqual(edited.map((b) => b.id), blocks.map((b) => b.id));
   // Move, delete and add. The main question's blocks keep their order and are never dropped.
+  // A move that would put the later text above the main question is refused, so the main question stays the main question.
   const moved = withSharedSetupBlocks(blocks, [later, equation]);
-  assert.deepEqual(moved.map((b) => b.id), [later.id, main.id, equation.id, picture.id]);
+  assert.deepEqual(moved.map((b) => b.id), blocks.map((b) => b.id));
+  // Removing the equation above the main question does not pull the later text in front of it.
   const deleted = withSharedSetupBlocks(blocks, [later]);
-  assert.deepEqual(deleted.map((b) => b.id), [later.id, main.id, picture.id]);
+  assert.deepEqual(deleted.map((b) => b.id), [main.id, later.id, picture.id]);
   const added = withSharedSetupBlocks(blocks, [equation, later, textBlock("New")]);
   assert.deepEqual(added.slice(0, 4).map((b) => b.id), blocks.map((b) => b.id));
   assert.equal(added.length, 5);

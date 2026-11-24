@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
 import { createRequire } from "node:module";
 import test from "node:test";
+import * as React from "react";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { authoredDraftSchema, publishableDraftSchema } from "../lib/problem-authoring";
 import { draftPayload, editorDraftSchema, newProblem, type EditorBlock, type EditorDraft } from "../lib/problem-authoring-editor";
 import {
@@ -10,7 +13,9 @@ import {
   blocksSpans,
   captionOf,
   ensureSimpleShape,
+  applyExtraEdit,
   extraBlocks,
+  mergeExtraBlocks,
   privateFor,
   readAnswer,
   setDifficulty,
@@ -21,11 +26,16 @@ import {
   setSolutionBlocks,
   sharedSetupBlocks,
   simpleIssues,
+  tryExtraEdit,
   withBlocksSpans,
   withExtraBlocks,
   withFirstCaption,
   withSharedSetupBlocks,
 } from "../components/authoring/simple-model";
+import { CaptionField, ExtraBlocksGroup, moreBlocksText } from "../components/authoring/simple-blocks";
+import { AuthorMediaProvider } from "../components/authoring/media-controls";
+
+(globalThis as { React?: unknown }).React = React;
 
 createRequire(import.meta.url)("./server-only-register.cjs");
 
@@ -39,11 +49,11 @@ const imagesIn = (blocks: readonly EditorBlock[]) => blocks.filter((b): b is Ext
 function everyBlock(): EditorDraft {
   const d: EditorDraft = { problemId: uuid(), version: 1, state: "draft", slug: "", ...structuredClone(newProblem()) };
   d.content.title = "Every block";
-  d.content.context = [text("Main question"), math("E=mc^2"), image("A ramp", "Figure 1"), text("More setup"), image("A second picture")];
+  d.content.context = [text("Main question"), math("E=mc^2"), image("A ramp", "Figure 1"), text("More setup"), image("A second picture"), { id: uuid(), kind: "text", spans: [] }];
   d.content.sections = [
     { id: uuid(), title: "Setup", blocks: [text("Section text"), math("F=ma"), image("A pulley", "Pulley")], parts: [
       { id: uuid(), label: "a", answerMode: "manual", blocks: [text("Question a"), image("Diagram a", "Diagram"), math("x=1"), text("Extra a"), image("Extra picture a")] },
-      { id: uuid(), label: "b", answerMode: "manual", blocks: [math("y=2"), text("Only text b"), math("z=3")] },
+      { id: uuid(), label: "b", answerMode: "manual", blocks: [math("y=2"), text("Only text b"), math("z=3"), { id: uuid(), kind: "text", spans: [] }] },
     ] },
     { id: uuid(), title: "Second", blocks: [image("Second section picture"), text("Second text")], parts: [{ id: uuid(), label: "c", answerMode: "manual", blocks: [text("Question c")] }] },
   ];
@@ -58,21 +68,20 @@ function saveAndReopen(d: EditorDraft): EditorDraft {
   const saved = authoredDraftSchema.parse({ problemId: d.problemId, version: d.version, ...draftPayload(d) });
   return editorDraftSchema.parse(JSON.parse(JSON.stringify({ ...saved, state: "draft", slug: "problem-x" })));
 }
-/** Opening in Simple, and every read and write back that Simple's own fields do when nothing is typed in them. */
+/**
+ * Opening in Simple and saving without typing in a block: the effect that gives a problem its first part, then every group handler run
+ * with the list it already shows, the way a no-op edit would. Simple's own fields write only when they are typed in, so they are not run.
+ */
 function openInSimple(d: EditorDraft) {
   ensureSimpleShape(d);
   d.content.context = withSharedSetupBlocks(d.content.context, sharedSetupBlocks(d.content.context));
-  d.content.context = withBlocksSpans(d.content.context, blocksSpans(d.content.context));
-  d.content.context = withFirstCaption(d.content.context, captionOf(d.content.context));
   for (const section of d.content.sections) section.blocks = withExtraBlocks(section.blocks, extraBlocks(section.blocks));
   for (const { part } of allParts(d)) {
-    part.blocks = withExtraBlocks(part.blocks, extraBlocks(part.blocks));
-    part.blocks = withBlocksSpans(part.blocks, blocksSpans(part.blocks));
-    part.blocks = withFirstCaption(part.blocks, captionOf(part.blocks));
-    setQuestionBlocks(d, part.id, part.blocks);
-    const entry = privateFor(d, part.id);
-    setSolutionBlocks(d, part.id, withExtraBlocks(entry.solution, extraBlocks(entry.solution, false), false));
-    setSolution(d, part.id, blocksSpans(entry.solution));
+    const shown = extraBlocks(part.blocks, true);
+    setQuestionBlocks(d, part.id, applyExtraEdit(part.blocks, shown, shown, true));
+    const solution = privateFor(d, part.id).solution;
+    const solutionShown = extraBlocks(solution, false);
+    setSolutionBlocks(d, part.id, applyExtraEdit(solution, solutionShown, solutionShown, false));
   }
 }
 
@@ -212,4 +221,190 @@ test("copy that sent authors to the Classic editor for blocks now points at More
   const full = everyBlock();
   assert.doesNotMatch(advancedNote(full), /more blocks/);
   assert.equal(advancedNote(ready()), "");
+});
+
+// ---------------------------------------------------------------------------------------------------------------
+// U7a fix: Simple's own blocks never change, a picture has one editor, two quick edits do not undo each other
+// ---------------------------------------------------------------------------------------------------------------
+
+const own = (blocks: readonly EditorBlock[], picture: boolean) => ({ text: blocks.find((b) => b.kind === "text")?.id, image: picture ? blocks.find((b) => b.kind === "image")?.id : undefined });
+const idsOf = (blocks: readonly EditorBlock[]) => blocks.map((b) => b.id);
+const moveAt = <T,>(list: T[], i: number, delta: -1 | 1) => { const out = [...list]; [out[i], out[i + delta]] = [out[i + delta], out[i]]; return out; };
+
+test("moving an extra text block above the question's text is refused, and the question stays the question", () => {
+  const blocks = [math("a"), text("QUESTION"), text("extra")];
+  const shown = extraBlocks(blocks);
+  assert.deepEqual(shown.map((b) => b.kind), ["math", "text"]);
+  const moved = moveAt(shown, 1, -1);
+  assert.equal(mergeExtraBlocks(blocks, moved), null, "the model refuses it");
+  assert.deepEqual(withExtraBlocks(blocks, moved), blocks, "and returns the blocks unchanged");
+  assert.deepEqual(applyExtraEdit(blocks, shown, moved), blocks);
+  assert.equal(tryExtraEdit(blocks, shown, moved), null, "the move control reads this, so it is disabled");
+  assert.equal(blocksSpans(applyExtraEdit(blocks, shown, moved))[0].kind, "text");
+  assert.equal((blocksSpans(applyExtraEdit(blocks, shown, moved))[0] as { text: string }).text, "QUESTION");
+});
+
+test("moving an extra picture above the question's picture is refused", () => {
+  const blocks = [math("m"), image("first"), image("second")];
+  const shown = extraBlocks(blocks);
+  assert.deepEqual(shown.map((b) => b.kind), ["math", "image"]);
+  const moved = moveAt(shown, 1, -1);
+  assert.equal(mergeExtraBlocks(blocks, moved), null);
+  assert.deepEqual(applyExtraEdit(blocks, shown, moved), blocks);
+});
+
+test("the worked solution owns its first text only, so a picture can move first and a text cannot pass it", () => {
+  const blocks = [math("m"), text("SOLUTION"), image("pic"), text("extra")];
+  const shown = extraBlocks(blocks, false);
+  assert.deepEqual(shown.map((b) => b.kind), ["math", "image", "text"]);
+  assert.equal(mergeExtraBlocks(blocks, moveAt(shown, 2, -1), false) === null, false, "the text moves above the picture and stays below the solution's text");
+  assert.equal(mergeExtraBlocks(blocks, [shown[2], shown[0], shown[1]], false), null, "the text cannot go above the solution's own text");
+  const picAbove = withExtraBlocks(blocks, moveAt(shown, 1, -1), false);
+  assert.equal(own(picAbove, false).text, own(blocks, false).text);
+  assert.ok(picAbove.some((b) => b.kind === "image"), "the picture is kept");
+});
+
+test("removing and adding extras never changes the id of Simple's own text or picture, for questions and solutions", () => {
+  for (const picture of [true, false]) {
+    for (const base of [
+      [math("a"), text("Q"), image("P"), text("x"), math("y"), image("z")],
+      [image("P"), math("a"), text("Q"), text("x")],
+      [text("Q"), math("a")],
+      [math("a"), math("b"), text("Q"), image("P"), text("x")],
+    ]) {
+      const was = own(base, picture);
+      const shown = extraBlocks(base, picture);
+      // Remove each extra in turn.
+      shown.forEach((_, i) => {
+        const next = shown.filter((__, j) => j !== i);
+        const out = withExtraBlocks(base, next, picture);
+        assert.deepEqual(own(out, picture), was, `removing extra ${i} (${picture ? "question" : "solution"})`);
+        assert.equal(out.length, base.length - 1, "removal removes exactly that block");
+        assert.ok(!out.some((b) => b.id === shown[i].id));
+      });
+      // Add a block of each kind.
+      for (const kind of ["text", "math", "image"] as const) {
+        const added = kind === "text" ? text("n") : kind === "math" ? math("n") : image("n");
+        const out = withExtraBlocks(base, [...shown, added], picture);
+        // A first picture added where there is none becomes the picture box's, and nothing else about the own blocks changes.
+        assert.deepEqual(own(out, picture), kind === "image" && picture && was.image === undefined ? { ...was, image: added.id } : was, `adding ${kind}`);
+        assert.equal(out.length, base.length + 1);
+      }
+      // Every single move is either refused or keeps the own ids.
+      shown.forEach((_, i) => {
+        for (const delta of [-1, 1] as const) {
+          if (i + delta < 0 || i + delta >= shown.length) continue;
+          const out = mergeExtraBlocks(base, moveAt(shown, i, delta), picture);
+          if (out) { assert.deepEqual(own(out, picture), was, "a move that is allowed keeps the own ids"); assert.deepEqual(idsOf(out).slice().sort(), idsOf(base).slice().sort()); }
+        }
+      });
+    }
+  }
+});
+
+test("removing the extra that sits above the question does not push a later extra text in front of it", () => {
+  const blocks = [math("a"), text("QUESTION"), text("extra")];
+  const out = withExtraBlocks(blocks, [blocks[2]]);
+  assert.equal(out.length, 2);
+  assert.equal(own(out, true).text, blocks[1].id);
+  assert.deepEqual(idsOf(out), [blocks[1].id, blocks[2].id]);
+});
+
+test("a first text added where there is none is the field's own and the extra still shows, a first picture added where there is none becomes the picture", () => {
+  const added = text("extra");
+  const out = withExtraBlocks([], [added]);
+  assert.equal(out.length, 2);
+  assert.deepEqual(extraBlocks(out), [added]);
+  const img = image("first");
+  const withPicture = withExtraBlocks([text("Q")], [img]);
+  assert.equal(own(withPicture, true).image, img.id);
+  assert.equal(own(withPicture, true).text, withPicture[0].id);
+});
+
+test("in the files view the group lists no picture and every picture stays where it is", () => {
+  const blocks = [text("Q"), image("first"), math("m1"), image("second"), text("t1"), image("third"), math("m2")];
+  const shown = extraBlocks(blocks).filter((b) => b.kind !== "image");
+  assert.deepEqual(shown.map((b) => b.kind), ["math", "text", "math"]);
+  const pictures = (list: readonly EditorBlock[]) => list.map((b, i) => (b.kind === "image" ? [i, b.id] : null)).filter(Boolean);
+  // Edit the text, move a block, remove one, add one: no picture changes id, content or place.
+  const edits: EditorBlock[][] = [
+    shown.map((b) => (b.kind === "text" ? { ...b, spans: [{ kind: "text" as const, text: "edited" }] } : b)),
+    moveAt(shown, 1, 1),
+    shown.slice(1),
+    [...shown, text("added"), math("also")],
+  ];
+  for (const [n, next] of edits.entries()) {
+    const out = applyExtraEdit(blocks, shown, next, true, true);
+    assert.deepEqual(imagesIn(out).map((b) => b.id), imagesIn(blocks).map((b) => b.id), `edit ${n}: the pictures are the same blocks in the same order`);
+    assert.deepEqual(imagesIn(out), imagesIn(blocks), `edit ${n}: and unchanged`);
+    if (n === 0 || n === 1) assert.deepEqual(pictures(out), pictures(blocks), `edit ${n}: and in the same places`);
+    assert.equal(own(out, true).text, own(blocks, true).text);
+    assert.equal(own(out, true).image, own(blocks, true).image);
+  }
+  assert.deepEqual(withExtraBlocks(blocks, extraBlocks(blocks)), blocks);
+});
+
+test("two quick edits in one batch do not undo each other, and Simple's own text typed meanwhile is kept", () => {
+  const first = text("one"), second = math("two");
+  const original = [text("Q"), first, second];
+  const shown = extraBlocks(original);
+  // Both edits were made from the list drawn before either landed.
+  const editOne = (latest: EditorBlock[]) => applyExtraEdit(latest, shown, shown.map((b) => (b.id === first.id ? { ...b, spans: [{ kind: "text" as const, text: "one edited" }] } : b)));
+  const editTwo = (latest: EditorBlock[]) => applyExtraEdit(latest, shown, shown.map((b) => (b.kind === "math" ? { ...b, latex: "two edited" } : b)));
+  let latest = editOne(original);
+  // The question text is typed between the two.
+  latest = withBlocksSpans(latest, [{ kind: "text", text: "Q typed" }]);
+  latest = editTwo(latest);
+  assert.equal((latest[1] as { spans: { text: string }[] }).spans[0].text, "one edited", "the first edit survives the second");
+  assert.equal((latest[2] as { latex: string }).latex, "two edited");
+  assert.equal((blocksSpans(latest)[0] as { text: string }).text, "Q typed", "the question text typed meanwhile is kept");
+  // An add made from a stale list keeps what was added meanwhile, and a block removed meanwhile stays removed.
+  const added = text("added meanwhile");
+  const after = applyExtraEdit([...latest, added], shown, shown.map((b) => (b.id === first.id ? { ...b, spans: [{ kind: "text" as const, text: "again" }] } : b)));
+  assert.ok(after.some((b) => b.id === added.id), "a block added meanwhile is kept");
+  const removedMeanwhile = latest.filter((b) => b.id !== second.id);
+  const kept = applyExtraEdit(removedMeanwhile, shown, shown.map((b) => (b.id === first.id ? { ...b, spans: [{ kind: "text" as const, text: "x" }] } : b)));
+  assert.ok(!kept.some((b) => b.id === second.id), "a block removed meanwhile is not brought back");
+});
+
+const noop = () => {};
+const markup = (node: React.ReactElement) => renderToStaticMarkup(node);
+
+test("while a problem is not saved yet, the group cannot upload a picture", () => {
+  const blocks = [text("Q")];
+  const group = (uploadsDisabled: boolean) => markup(createElement(AuthorMediaProvider, { problemId: uuid(), disabled: false, pending: noop } as unknown as React.ComponentProps<typeof AuthorMediaProvider>, createElement(ExtraBlocksGroup, { summary: "More question blocks", label: "Question", blocks, update: noop, scope: "statement", picture: true, uploadsDisabled })));
+  const files = (html: string) => [...html.matchAll(/<input[^>]*type="file"[^>]*>/g)].map((m) => m[0]);
+  assert.ok(files(group(false)).length >= 1, "there is an upload when the problem is saved");
+  for (const input of files(group(false))) assert.doesNotMatch(input, /disabled/);
+  assert.ok(files(group(true)).length >= 1);
+  for (const input of files(group(true))) assert.match(input, /disabled/, "disabled while provisional");
+});
+
+test("in the files view the group offers no upload at all, since the picture editor owns the pictures", () => {
+  const html = markup(createElement(AuthorMediaProvider, { problemId: uuid(), disabled: false, pending: noop } as unknown as React.ComponentProps<typeof AuthorMediaProvider>, createElement(ExtraBlocksGroup, { summary: "More question blocks", label: "Question", blocks: [text("Q"), image("p"), math("m")], update: noop, scope: "statement", picture: true, hidePictures: true })));
+  assert.doesNotMatch(html, /type="file"/);
+  assert.doesNotMatch(html, /image 1/);
+  assert.match(html, /Equation 1/);
+});
+
+test("the caption has one accessible name that says which picture, and the summary reads Caption", () => {
+  const html = (name?: string) => markup(createElement(CaptionField, { id: "c", caption: "", onChange: noop, name }));
+  assert.match(html(), /<summary[^>]*>Caption<\/summary>/);
+  assert.match(html(), /aria-label="Caption"/);
+  assert.match(html("Caption for part b"), /aria-label="Caption for part b"/);
+  assert.doesNotMatch(html("Caption for part b"), /<label/);
+  assert.doesNotMatch(html(), /Caption \(optional\)/);
+});
+
+test("the More options summary shows how many more blocks there are, and nothing when there are none", () => {
+  assert.equal(moreBlocksText(0), "");
+  assert.equal(moreBlocksText(1), " (1 more block)");
+  assert.equal(moreBlocksText(3), " (3 more blocks)");
+  const d = everyBlock();
+  const part = allParts(d)[0].part;
+  const count = extraBlocks(part.blocks, true).length + extraBlocks(privateFor(d, part.id).solution, false).length;
+  assert.equal(count, 3 + 3);
+  const plain = ready();
+  const p = allParts(plain)[0].part;
+  assert.equal(extraBlocks(p.blocks, true).length + extraBlocks(privateFor(plain, p.id).solution, false).length, 0);
 });

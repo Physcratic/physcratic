@@ -4,7 +4,8 @@ import { createRoot } from "react-dom/client";
 import { AuthorMediaProvider } from "../components/authoring/media-controls";
 import { SimpleEditor } from "../components/authoring/simple-editor";
 import { addPart, allParts, applyAnswer, ensureSimpleShape, otherIssueMessages, readAnswer, setDifficulty, setQuestion, setSolution } from "../components/authoring/simple-model";
-import { publishableDraftSchema } from "../lib/problem-authoring";
+import { authoredDraftSchema, publishableDraftSchema } from "../lib/problem-authoring";
+import { normalizeStatementImages } from "../lib/author-media";
 import { draftPayload, newProblem, type EditorDraft } from "../lib/problem-authoring-editor";
 
 const params = new URLSearchParams(location.search);
@@ -54,7 +55,8 @@ function start(): EditorDraft {
     d.content.context = [text("Main question"), { id: crypto.randomUUID(), kind: "math" as const, latex: "E=mc^2" }, text("Shared two")];
   }
   // &blocks=1: every block type at the problem level, in a part's question and in a part's worked solution, for the extras groups.
-  if (params.get("blocks") === "1") {
+  // &blocks=2: the same, with hints, a section with a title and blocks, and text blocks with no spans, for the open and save check.
+  if (params.get("blocks") === "1" || params.get("blocks") === "2") {
     const tx = (t: string) => ({ id: crypto.randomUUID(), kind: "text" as const, spans: [{ kind: "text" as const, text: t }] });
     const mx = (latex: string) => ({ id: crypto.randomUUID(), kind: "math" as const, latex });
     const im = (alt: string, caption: string) => ({ id: crypto.randomUUID(), kind: "image" as const, mediaId: crypto.randomUUID(), alt, caption });
@@ -65,15 +67,36 @@ function start(): EditorDraft {
     a.blocks = [tx("Question a"), im("Diagram a", "Diagram"), mx("x=1"), tx("Extra a"), im("Extra picture a", "")];
     b.blocks = [tx("Question b")];
     d.privateParts = d.privateParts.map((p) => (p.partId === a.id ? { ...p, solution: [tx("Solution a"), mx("s=1"), im("Solution picture", "Solution"), tx("Solution end")] } : p));
-    const images = [...d.content.context, ...a.blocks, ...b.blocks].flatMap((x) => (x.kind === "image" ? [{ id: x.mediaId, purpose: "statement-image" as const }] : []));
-    d.content.attachments = images;
+    if (params.get("blocks") === "2") {
+      d.content.sections[0].title = "Setup";
+      d.content.sections[0].blocks = [tx("Section text"), mx("F=ma"), im("Section picture", "Section")];
+      d.content.context.push({ id: crypto.randomUUID(), kind: "text" as const, spans: [] });
+      b.blocks.push({ id: crypto.randomUUID(), kind: "text" as const, spans: [] });
+      d.privateParts = d.privateParts.map((p) => (p.partId === a.id ? { ...p, hints: [tx("Hint a"), mx("h=1"), im("Hint picture", "")] } : p));
+    }
+    // &order=1: an equation above the question text and a text block after it, for the moves Simple refuses.
+    if (params.get("order") === "1") a.blocks = [mx("x=1"), tx("QUESTION"), tx("extra text")];
+    // &single=1: one part, for the count in its More options.
+    if (params.get("single") === "1") {
+      d.content.sections[0].parts = d.content.sections[0].parts.filter((p) => p.id === a.id);
+      d.privateParts = d.privateParts.filter((p) => p.partId === a.id);
+    }
+    normalizeStatementImages(d.content);
   }
   return d;
 }
 function Harness() {
   const [draft, setDraft] = useState(start);
-  const edit = useCallback((fn: (d: EditorDraft) => void) => setDraft((d) => { const next = structuredClone(d); fn(next); return next; }), []);
-  useEffect(() => { (window as unknown as { __draft: EditorDraft }).__draft = draft; }, [draft]);
+  // The real editor lists each statement image as an attachment after every edit, so this does too.
+  const edit = useCallback((fn: (d: EditorDraft) => void) => setDraft((d) => { const next = structuredClone(d); fn(next); normalizeStatementImages(next.content); return next; }), []);
+  useEffect(() => {
+    const w = window as unknown as { __draft: EditorDraft; __original?: unknown; __saved: () => unknown; __noopEdit: () => void };
+    w.__draft = draft;
+    w.__original ??= structuredClone({ content: draft.content, privateParts: draft.privateParts });
+    // What a save sends and the server schema accepts, as the editor would read it back.
+    w.__saved = () => { const saved = authoredDraftSchema.parse({ problemId: draft.problemId, version: draft.version, ...draftPayload(draft) }); return JSON.parse(JSON.stringify({ content: saved.content, privateParts: saved.privateParts })); };
+    w.__noopEdit = () => edit(() => {});
+  }, [draft, edit]);
   // The same list the real editor passes: the server's publish rules that Simple does not word itself.
   const publishable = publishableDraftSchema.safeParse({ problemId: draft.problemId, version: draft.version, ...draftPayload(draft) });
   const otherIssues = publishable.success ? [] : otherIssueMessages(publishable.error.issues);
@@ -81,7 +104,7 @@ function Harness() {
     <AuthorMediaProvider problemId={draft.problemId} disabled={false} pending={() => {}}>
       <main className="mx-auto max-w-3xl p-4">
         <h1 className="sr-only">Simple editor test</h1>
-        <SimpleEditor draft={draft} userId="browser-author" edit={edit} locked={false} provisional={false} otherIssues={otherIssues} onPublish={() => {}} publishing={false} onUnpublish={() => ((window as unknown as { __unpublished: number }).__unpublished = ((window as unknown as { __unpublished?: number }).__unpublished ?? 0) + 1)} />
+        <SimpleEditor draft={draft} userId="browser-author" edit={edit} locked={false} provisional={params.get("provisional") === "1"} otherIssues={otherIssues} onPublish={() => {}} publishing={false} onUnpublish={() => ((window as unknown as { __unpublished: number }).__unpublished = ((window as unknown as { __unpublished?: number }).__unpublished ?? 0) + 1)} />
       </main>
     </AuthorMediaProvider>
   );

@@ -160,12 +160,15 @@ export function OrderControls({
   label,
   move,
   remove,
+  canMove,
 }: {
   index: number;
   count: number;
   label: string;
   move: (delta: -1 | 1) => void;
   remove: () => void | boolean;
+  /** A step this says no to is disabled, like a step past the ends. */
+  canMove?: (delta: -1 | 1) => boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   function apply(delta?: -1 | 1) {
@@ -192,7 +195,7 @@ export function OrderControls({
         type="button"
         size="icon"
         variant="ghost"
-        disabled={index === 0}
+        disabled={index === 0 || canMove?.(-1) === false}
         aria-label={`Move ${label} up`}
         onClick={() => apply(-1)}
       >
@@ -202,7 +205,7 @@ export function OrderControls({
         type="button"
         size="icon"
         variant="ghost"
-        disabled={index === count - 1}
+        disabled={index === count - 1 || canMove?.(1) === false}
         aria-label={`Move ${label} down`}
         onClick={() => apply(1)}
       >
@@ -228,12 +231,21 @@ export function BlocksEditor({
   label,
   scope = "statement",
   imagesOnly = false,
+  noImages = false,
+  uploadDisabled = false,
+  canMove,
 }: {
   blocks: EditorBlock[];
   onChange: (blocks: EditorBlock[]) => void;
   label: string;
   scope?: "statement" | "solution";
   imagesOnly?: boolean;
+  /** No picture can be added here, because another editor owns the pictures. */
+  noImages?: boolean;
+  /** Pictures cannot be uploaded yet, as for a problem that is not saved. */
+  uploadDisabled?: boolean;
+  /** A move this says no to is disabled. */
+  canMove?: (index: number, delta: -1 | 1) => boolean;
 }) {
   const [notice, setNotice] = useState("");
   return (
@@ -269,6 +281,7 @@ export function BlocksEditor({
             <OrderControls
               index={index}
               count={blocks.length}
+              canMove={canMove ? (delta) => canMove(index, delta) : undefined}
               label={`${label} block ${index + 1}`}
               move={(delta) => {
                 onChange(moveItem(blocks, index, delta));
@@ -502,6 +515,7 @@ export function BlocksEditor({
               </Field>
               <UploadControl
                 purpose={`${scope}-image`}
+                disabled={uploadDisabled}
                 label={`Replace ${label.toLowerCase()} image ${index + 1}`}
                 onUploaded={(file) =>
                   onChange(
@@ -515,9 +529,10 @@ export function BlocksEditor({
           )}
         </div>
       ))}
-      {blocks.length < 100 && (
+      {blocks.length < 100 && !noImages && (
         <UploadControl
           purpose={`${scope}-image`}
+          disabled={uploadDisabled}
           label={`Upload image to ${label.toLowerCase()}`}
           onUploaded={(file) =>
             onChange([

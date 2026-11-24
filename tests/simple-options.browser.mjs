@@ -331,7 +331,7 @@ try {
     const group = (name) => page.locator("details", { has: page.locator("summary", { hasText: name }) }).last();
     const closed = async (name) => (await group(name).evaluate((el) => el.open)) === false;
     // The part's More options hold the groups. They are closed until opened, and each one is named for its part.
-    await page.locator('summary[aria-label="More options for part a"]').click();
+    await page.locator('summary[aria-label^="More options for part a"]').click();
     assert.equal(await closed("More question blocks for part a"), true, "the question group starts closed");
     assert.equal(await closed("More worked solution blocks for part a"), true, "the solution group starts closed");
     const labels = await page.locator("summary").evaluateAll((all) => all.map((el) => el.textContent.trim()).filter((t) => t.startsWith("More options")));
@@ -387,12 +387,12 @@ try {
     // The caption of the main picture and of the part's first picture, closed when empty and open when there is one.
     const main = page.locator('section[data-tour="studio-main"]');
     assert.equal(await main.locator("details", { has: page.locator("summary", { hasText: "Caption" }) }).evaluate((el) => el.open), true, "a caption that exists is shown");
-    await main.getByLabel("Caption (optional)", { exact: true }).fill("Figure 2");
+    await main.getByLabel("Caption for the main question", { exact: true }).fill("Figure 2");
     await page.waitForFunction(() => window.__draft.content.context[1].caption === "Figure 2");
     const ctx = await page.evaluate(() => window.__draft.content.context);
     assert.deepEqual(kinds(ctx), ["text", "image", "math"], "the main picture's other fields are kept");
     // 44px targets and 16px text in the groups, no sideways scroll.
-    const found = await page.locator('summary[aria-label="More options for part a"]').evaluate((summary) => {
+    const found = await page.locator('summary[aria-label^="More options for part a"]').evaluate((summary) => {
       const out = [];
       for (const el of summary.parentElement.querySelectorAll("*")) {
         if (!el.getClientRects().length) continue;
@@ -413,18 +413,101 @@ try {
     await context.close();
   }
 
-  // 12b. In the files view, which a problem with a picture opens in, the question's extra blocks are under its pictures.
+  // 12b. In the files view, which a problem with a picture opens in, the question's extra text and equations are under its pictures, and no picture has two editors.
   {
     const { context, page } = await open("draft", { width: 390, extra: "&blocks=1" });
     const untouched = await page.evaluate(() => structuredClone(window.__draft.content));
-    await page.getByText("More question blocks for part a (3)", { exact: true }).click();
+    await page.getByText("More question blocks for part a (2)", { exact: true }).click();
     await page.getByLabel("Part a question text 2", { exact: true }).fill("Edited in files view");
     await page.waitForFunction(() => window.__draft.content.sections[0].parts[0].blocks[3].spans[0].text === "Edited in files view");
     const after = await page.evaluate(() => window.__draft.content.sections[0].parts[0].blocks);
     for (const i of [0, 1, 2, 4]) assert.deepEqual(after[i], untouched.sections[0].parts[0].blocks[i], `block ${i} is identical`);
+    // One editor for each picture: the description of every picture is in exactly one box, and the group has no upload.
+    const alts = await page.evaluate(() => ["Diagram a", "Extra picture a"].map((alt) => [...document.querySelectorAll("input")].filter((el) => el.value === alt && el.getClientRects().length).length));
+    assert.deepEqual(alts, [1, 1], "each picture has one description box");
+    const group = page.locator("details", { has: page.locator("summary", { hasText: "More question blocks for part a" }) }).last();
+    assert.equal(await group.locator('input[type="file"]').count(), 0, "the group cannot add a picture");
+    assert.equal(await group.getByText(/Image \d/).count(), 0, "the group lists no picture");
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, "no sideways scroll");
     checks++;
     await context.close();
+  }
+
+  // 12c. A step that would put an extra text block above the question's text is disabled, and the question stays the question.
+  {
+    const { context, page } = await open("draft", { width: 390, extra: "&blocks=1&order=1", session: ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"] });
+    await page.locator('summary[aria-label^="More options for part a"]').click();
+    const group = page.locator("details", { has: page.locator("summary", { hasText: "More question blocks for part a" }) }).last();
+    await group.locator("summary").click();
+    assert.equal(await group.getByRole("button", { name: "Move Part a question block 2 up", exact: true }).isDisabled(), true, "the extra text cannot go above the question");
+    assert.equal(await group.getByRole("button", { name: "Move Part a question block 1 down", exact: true }).isDisabled(), true, "and the equation cannot go below it");
+    const read = () => page.evaluate(() => window.__draft.content.sections[0].parts[0].blocks.map((b) => b.spans?.[0]?.text ?? b.latex));
+    assert.deepEqual(await read(), ["x=1", "QUESTION", "extra text"]);
+    // Removing the equation above the question does not put the extra text in front of it.
+    await group.getByRole("button", { name: "Delete Part a question block 1", exact: true }).click();
+    assert.deepEqual(await read(), ["QUESTION", "extra text"], "the question is still first");
+    checks++;
+    await context.close();
+  }
+
+  // 12d. Opening a draft that has every block type, in either view, and saving it with and without an edit leaves the saved content equal to the original.
+  for (const [view, session] of [["text view", ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"]], ["files view", null]]) {
+    const { context, page } = await open("draft", { width: 390, extra: "&blocks=2", session });
+    await page.waitForTimeout(600);
+    const same = async (what) => {
+      const [saved, original] = await page.evaluate(() => [window.__saved(), window.__original]);
+      assert.deepEqual(saved, original, `${view}: ${what}`);
+    };
+    await same("opened and saved");
+    await page.evaluate(() => window.__noopEdit());
+    await same("after an edit that changes nothing");
+    if (session) await page.locator('summary[aria-label^="More options for part a"]').click();
+    await page.evaluate(() => document.querySelectorAll("details").forEach((d) => { d.open = true; }));
+    await page.waitForTimeout(300);
+    await same("with every group open");
+    await page.evaluate(() => document.querySelectorAll("details").forEach((d) => { d.open = false; }));
+    await page.evaluate(() => window.__noopEdit());
+    await same("with every group closed again");
+    checks++;
+    await context.close();
+  }
+
+  // 12e. The More options summary counts the extra blocks, for several parts and for one, and says nothing when there are none.
+  {
+    const { context, page } = await open("draft", { width: 390, extra: "&blocks=1", session: ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"] });
+    await page.locator('summary[aria-label="More options for part a (6 more blocks)"]').waitFor();
+    await page.locator('summary[aria-label="More options for part b"]').waitFor();
+    assert.equal(await page.locator('summary[aria-label="More options for part a (6 more blocks)"]').innerText(), "More options for part a (6 more blocks)", "the visible words are the name");
+    await context.close();
+    const one = await open("draft", { width: 390, extra: "&blocks=1&single=1", session: ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"] });
+    await one.page.locator('summary[aria-label="More options (6 more blocks)"]').waitFor();
+    await one.context.close();
+    const none = await open("draft", { width: 390 });
+    await none.page.locator('summary[aria-label="More options"]').waitFor();
+    await none.context.close();
+    checks++;
+  }
+
+  // 12f. While the problem is not saved yet, the groups cannot upload a picture, and the caption fields have one name each.
+  {
+    const { context, page } = await open("draft", { width: 390, extra: "&blocks=1&provisional=1", session: ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"] });
+    await page.locator('summary[aria-label^="More options for part a"]').click();
+    await page.evaluate(() => document.querySelectorAll("details").forEach((d) => { d.open = true; }));
+    const files = page.locator('details:has(> summary:text-matches("More (question|worked solution) blocks")) input[type="file"]');
+    const n = await files.count();
+    assert.ok(n >= 2, `the groups have upload controls (${n})`);
+    for (let i = 0; i < n; i++) assert.equal(await files.nth(i).isDisabled(), true, `upload ${i} is disabled while the problem is not saved`);
+    await context.close();
+    const saved = await open("draft", { width: 390, extra: "&blocks=1", session: ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"] });
+    await saved.page.locator('summary[aria-label^="More options for part a"]').click();
+    await saved.page.evaluate(() => document.querySelectorAll("details").forEach((d) => { d.open = true; }));
+    const enabled = saved.page.locator('details:has(> summary:text-matches("More (question|worked solution) blocks")) input[type="file"]');
+    assert.equal(await enabled.first().isDisabled(), false, "and enabled once it is");
+    const names = await saved.page.evaluate(() => [...document.querySelectorAll("input")].filter((el) => el.getClientRects().length).map((el) => el.getAttribute("aria-label") || (el.labels?.[0]?.textContent ?? "")).filter((t) => /^Caption/.test(t)));
+    assert.equal(new Set(names).size, names.length, `each caption input has its own name: ${names.join(" | ")}`);
+    assert.ok(names.includes("Caption for the main question") && names.includes("Caption for part a"));
+    await saved.context.close();
+    checks++;
   }
 
   // 13. The only section can be given a title and shared text without adding a second section first.

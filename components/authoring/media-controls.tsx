@@ -111,10 +111,12 @@ export function UploadControl({
   purpose,
   label,
   onUploaded,
+  disabled = false,
 }: {
   purpose: AuthorMediaPurpose;
   label: string;
   onUploaded: (file: AuthorMediaInfo) => void;
+  disabled?: boolean;
 }) {
   const id = useId();
   const { available, locked, busy, message, error, upload } = useAuthorMediaUpload(purpose);
@@ -134,7 +136,7 @@ export function UploadControl({
             ? "application/pdf"
             : "image/png,image/jpeg,image/webp"
         }
-        disabled={locked}
+        disabled={locked || disabled}
         onChange={async (e) => {
           const input = e.currentTarget,
             file = input.files?.[0];
