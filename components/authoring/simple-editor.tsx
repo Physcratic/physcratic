@@ -24,14 +24,12 @@ import {
   ADAPTED_RIGHTS_TEXT,
   RIGHTS_TEXT,
   UNITS,
-  addContextPicture,
   setQuestionBlocks,
   setSolutionBlocks,
   withFirstCaption,
   extraBlocks,
   issueTarget,
   addPart,
-  addPicture,
   allParts,
   answerText,
   applyAnswer,
@@ -54,6 +52,8 @@ import {
   removePart,
   replacePartImages,
   removePicture,
+  replaceContextPicture,
+  replacePicture,
   rightsState,
   setContextPictureAlt,
   setDifficulty,
@@ -329,10 +329,7 @@ function MainQuestion({ draft, edit, provisional, touch, issue }: { draft: Edito
   const id = useId();
   const picture = contextPictureOf(draft);
   const upload = useImageUpload(provisional, (mediaId) =>
-    edit((d) => {
-      removeContextPicture(d);
-      addContextPicture(d, mediaId);
-    }),
+    edit((d) => replaceContextPicture(d, mediaId)),
   );
   return (
     <section aria-labelledby={`${id}-label`} className="space-y-6" data-tour="studio-main">
@@ -631,10 +628,7 @@ function PartEditor({
     requestAnimationFrame(() => noteRef.current?.querySelector<HTMLElement>("button")?.focus());
   }
   const upload = useImageUpload(provisional, (mediaId) =>
-    edit((d) => {
-      removePicture(d, partId);
-      addPicture(d, partId, mediaId);
-    }),
+    edit((d) => replacePicture(d, partId, mediaId)),
   );
 
   // The blocks Simple's own fields do not show. They are named in the More options summary, so an author who saved some earlier can find them.

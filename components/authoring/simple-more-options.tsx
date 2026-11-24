@@ -51,7 +51,7 @@ function SectionsOptions({ draft, edit }: { draft: EditorDraft; edit: Edit }) {
         </nav>
       )}
       {editable && sections.map((section, si) => (
-        <div key={section.id} id={`simple-section-${section.id}`} tabIndex={-1} className="scroll-mt-24 space-y-4 rounded-lg border-2 p-4">
+        <div key={section.id} id={`simple-section-${section.id}`} data-order-item tabIndex={-1} className="scroll-mt-24 space-y-4 rounded-lg border-2 p-4">
           <div className="flex items-center justify-between gap-3">
             <h4 className="font-semibold">Section {si + 1}</h4>
             {sections.length >= 2 && (

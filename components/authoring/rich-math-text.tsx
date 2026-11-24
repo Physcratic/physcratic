@@ -46,8 +46,12 @@ function makeChip(latex: string, id: string): HTMLElement {
 }
 function fillChip(chip: HTMLElement, latex: string) {
   chip.dataset.latex = latex;
-  chip.setAttribute("aria-label", latex.trim() ? `Equation ${latex}. Press Enter to edit.` : "Empty equation. Press Enter to edit.");
   chip.innerHTML = `<span aria-hidden="true">${renderLatex(latex)}</span>`;
+  // The name holds the text the chip shows (WCAG 2.5.3). The LaTeX source stays available as the description.
+  const shown = (chip.textContent ?? "").replace(/[\u200b-\u200d\ufeff]/g, "").replace(/\s+/g, " ").trim();
+  chip.setAttribute("aria-label", latex.trim() && shown ? `Equation ${shown}. Press Enter to edit.` : "Empty equation. Press Enter to edit.");
+  if (latex.trim()) chip.setAttribute("aria-description", latex);
+  else chip.removeAttribute("aria-description");
 }
 
 /** Puts the spans into the box. The box always ends with one line break, which the browser needs to show the last line. */
