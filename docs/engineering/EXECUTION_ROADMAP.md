@@ -1,3 +1,7 @@
+## Private personal completions, Phase 1 (24 November 2026)
+
+The default-off owner API records self-reported completion for Arena originals and published community problems. Local implementation only. [API contract, role delta and release prerequisites](../../scripts/personal-completions/README.md). Phase 2 covers reader controls, Arena presentation and ordering, and the owner profile.
+
 ## External medal verification (24 November 2026)
 
 Use the [current product decisions](PRODUCT_DECISIONS.md) and [Tally workflow](EXTERNAL_MEDALS.md). Historical Community Batch 2B is superseded for launch. External medals reuse the badge picker and may launch independently of earned achievements after owner approval, 0024 and restricted runtime grant verification.

@@ -642,6 +642,24 @@ export const communityFavouriteLimits=pgTable('community_favourite_limit',{
  userId:text('user_id').primaryKey().references(()=>user.id,{onDelete:'cascade'}),windowStart:timestamp('window_start',{withTimezone:true}).notNull(),requests:integer('requests').notNull(),
 },t=>[check('community_favourite_limit_requests_check',sql`${t.requests} BETWEEN 1 AND 61`)]);
 
+export const personalProblemCompletions = pgTable("personal_problem_completion", {
+  userId: text("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+  problemKey: text("problem_key").notNull(),
+  completedAt: timestamp("completed_at", { withTimezone: true, precision: 3 }).notNull().default(sql`clock_timestamp()`),
+}, t => [
+  primaryKey({ columns: [t.userId, t.problemKey] }),
+  index("personal_problem_completion_history_idx").on(t.userId, t.completedAt.desc(), t.problemKey.desc()),
+  check("personal_problem_completion_key_check", sql`length(${t.problemKey}) <= 128 AND (
+    ${t.problemKey} ~ '^arena:arena-[a-z0-9]+(-[a-z0-9]+)*$'
+    OR ${t.problemKey} ~ '^authored:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')`),
+]);
+
+export const personalCompletionWriteLimits = pgTable("personal_completion_write_limit", {
+  userId: text("user_id").primaryKey().references(() => user.id, { onDelete: "cascade" }),
+  windowStart: timestamp("window_start", { withTimezone: true }).notNull(),
+  requests: integer("requests").notNull(),
+}, t => [check("personal_completion_write_limit_requests_check", sql`${t.requests} BETWEEN 1 AND 61`)]);
+
 // Additive 0013. SQL owns ancestry/immutability/version and reaction-score guards.
 export const communityComments=pgTable('community_comment',{
  id:uuid('id').primaryKey(),problemKey:text('problem_key').notNull(),userId:text('user_id').references(()=>user.id,{onDelete:'set null'}),

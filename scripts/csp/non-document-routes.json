@@ -55,6 +55,7 @@
   "/api/dashboard",
   "/api/health",
   "/api/individual-rating",
+  "/api/personal-completions",
   "/api/practice-checks",
   "/api/practice-progress",
   "/api/problem-progress",

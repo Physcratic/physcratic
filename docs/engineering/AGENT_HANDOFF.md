@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Private personal completions, Phase 1 (24 November 2026)
+
+Base `bd194ca`. Migration 0024 adds the private marks and their isolated write limiter. The gated API handles per-problem status, owner history, and desired-state writes. The disposable 0018 rehearsal covers erasure, a concurrent mark, and another account's records. Keep the feature off pending release qualification. Phase 2 needs separate authorization. [Contracts and owner gates](../../scripts/personal-completions/README.md).
+
 ## External medal verification (24 November 2026)
 
 Read [product decisions](PRODUCT_DECISIONS.md) before making changes. Migration 0024 adds private operator-owned awards and audit plus the existing public badge projection contract. The [operator runbook](EXTERNAL_MEDALS.md) contains command, grant and activation details. The owner still needs to supply the Tally URL and separately approve activation.
