@@ -3,18 +3,19 @@ import test from "node:test";
 import * as React from "react";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
+import { readFileSync } from "node:fs";
 import { PartProgressBar, SolvedBanner, SolvedWatcher, partsCorrectText, type BarPart } from "../components/physics/part-progress";
-import { FeedbackBox, PartChip, ResultLine, partBorder, partStyle } from "../components/physics/solve-ui";
+import { ArenaDocument } from "../components/physics/arena-document";
+import { FeedbackBox, PartChip, ResultLine, answerCardClass, invalidFieldText } from "../components/physics/solve-ui";
 import { SolvedSummary } from "../components/physics/progress-summary";
-import { assignPartColors, partTokenNames } from "../lib/part-colors";
 import type { FeedbackStatus } from "../lib/solve-feedback";
 
 (globalThis as { React?: unknown }).React = React;
 const html = (node: React.ReactElement) => renderToStaticMarkup(node);
 const text = (markup: string) => markup.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-const expectedName = (index: number) => ["teal", "violet", "amber", "blue"][index % 4];
-const parts = (flags: boolean[]): BarPart[] => flags.map((correct, index) => ({ id: `p${index}`, colorIndex: index, correct }));
-const segments = (markup: string) => [...markup.matchAll(/<span [^>]*data-part-token="[^"]*"[^>]*>/g)].map((match) => match[0]);
+const partColour = /part-(teal|violet|amber|blue)|--pb\b|--pc-(bg|fg)/;
+const parts = (flags: boolean[]): BarPart[] => flags.map((correct, index) => ({ id: `p${index}`, correct }));
+const segments = (markup: string) => [...markup.matchAll(/<span [^>]*data-filled="[^"]*"[^>]*>/g)].map((match) => match[0]);
 
 test("the bar has one segment per part, fills the correct ones, and says the same in words", () => {
   const out = html(createElement(PartProgressBar, { parts: parts([true, false, true]) }));
@@ -31,35 +32,72 @@ test("the bar has one segment per part, fills the correct ones, and says the sam
   assert.equal(html(createElement(PartProgressBar, { parts: parts([true]) })), "", "one part needs no bar");
 });
 
-test("a filled segment is the strong colour and an open one is the tint with an outline, in the part's own token", () => {
+test("bar segments are an outlined neutral track until the part is correct, then the success colour, never a part colour", () => {
   const found = segments(html(createElement(PartProgressBar, { parts: parts([true, false]) })));
-  assert.match(found[0], /class="[^"]*\bbg-part-teal\b[^"]*"/);
-  assert.match(found[1], /class="[^"]*\bbg-part-violet-tint\b[^"]*"/);
-  assert.match(found[1], /\bborder\b/);
+  assert.match(found[0], /class="[^"]*\bbg-success\b[^"]*"/);
+  assert.match(found[0], /\bborder-success\b/);
+  assert.match(found[1], /class="[^"]*\bbg-idle-tint\b[^"]*"/);
+  assert.match(found[1], /\bborder\b[^"]*\bborder-border\b|\bborder-border\b/);
+  for (const tag of found) assert.doesNotMatch(tag, partColour);
 });
 
-test("a part's chip, stripe and bar segment use the same colour token, and the colours repeat after four parts", () => {
-  assert.deepEqual([...partTokenNames], ["teal", "violet", "amber", "blue"]);
-  for (let index = 0; index < 10; index++) {
-    const name = expectedName(index);
-    const others = ["teal", "violet", "amber", "blue"].filter((other) => other !== name);
-    const style = partStyle(index) as Record<string, string>;
-    const chip = html(createElement(PartChip, { index } as React.ComponentProps<typeof PartChip>, "b"));
-    const segment = segments(html(createElement(PartProgressBar, { parts: [...parts([false, false]).slice(0, 1), { id: "x", colorIndex: index, correct: true }] })))[1];
-    assert.equal(style["--pb"], `hsl(var(--part-${name}))`, `stripe ${index}`);
-    assert.equal(style["--pc-bg"], `hsl(var(--part-${name}-tint))`, `chip tint ${index}`);
-    assert.equal(style["--pc-fg"], `hsl(var(--part-${name}-ink))`, `chip text ${index}`);
-    assert.match(chip, new RegExp(`--pc-bg:hsl\\(var\\(--part-${name}-tint\\)\\)`), `chip markup ${index}`);
-    assert.match(segment, new RegExp(`data-part-token="${name}"`), `bar ${index}`);
-    assert.match(segment, new RegExp(`\\bbg-part-${name}\\b`), `bar fill ${index}`);
-    for (const other of others) {
-      assert.doesNotMatch(chip, new RegExp(`part-${other}`), `chip ${index} is not ${other}`);
-      assert.doesNotMatch(segment, new RegExp(`part-${other}`), `bar ${index} is not ${other}`);
-      assert.ok(!String(style["--pb"]).includes(`part-${other}`), `stripe ${index} is not ${other}`);
-    }
+test("no part colour appears in the solve page or the Arena page, in the rendered markup or the source", () => {
+  const statement = ["Bob and Jeff stand on frictionless ice. Each pulls a sled and the two sleds are joined by one light rope. Jeff pulls with a constant force.", "## (a) Find the acceleration of Jeff's sled.", "Give the answer in metres per second squared.", "## (b) Find the tension.", "State it in newtons.", "## (c) Find the time.", "Use the rope.", "## (d) Find the distance.", "Measure from the start.", "## (e) Check the sign.", "Compare with part (a)."].join("\n\n");
+  const markup = [
+    html(createElement(ArenaDocument, { content: statement, staticFigures: true })),
+    html(createElement(PartProgressBar, { parts: parts([true, false, false, true, false]) })),
+    html(createElement(FeedbackBox, { tone: "success", title: "Correct" })),
+    html(createElement(SolvedBanner)),
+    ...(["correct", "incorrect", "invalid", "inconclusive", "self-review", "unanswered"] as const).map((status) => html(createElement(ResultLine, { status, message: "A message." }))),
+    ...[0, 1, 2, 3, 4, 5].map((index) => html(createElement(PartChip, { index } as React.ComponentProps<typeof PartChip>, "b"))),
+    answerCardClass(false), answerCardClass(true),
+  ].join("\n");
+  assert.equal((markup.match(/Part /g) ?? []).length >= 5, true, "the Arena document rendered its part chips");
+  assert.doesNotMatch(markup, partColour);
+  for (const file of ["components/physics/archive-answer-panel.tsx", "components/physics/arena-document.tsx", "components/physics/part-progress.tsx", "components/physics/solve-ui.tsx", "components/physics/progress-summary.tsx"]) {
+    const source = readFileSync(file, "utf8");
+    assert.doesNotMatch(source, partColour, `${file} has no part colour class or variable`);
+    assert.doesNotMatch(source, /partToken|partTokenClasses/, `${file} does not use the part tokens`);
   }
-  assert.match(partBorder, /border-l-4/);
-  assert.deepEqual(assignPartColors(["a", "b", "c", "d", "e"]).map(expectedName), ["teal", "violet", "amber", "blue", "teal"]);
+});
+
+test("a part chip is a neutral badge with a border, the same for every part", () => {
+  const chips = [0, 1, 2, 3, 4, 5, 9].map((index) => html(createElement(PartChip, { index } as React.ComponentProps<typeof PartChip>, "b")));
+  assert.equal(new Set(chips).size, 1, "the part index changes nothing");
+  assert.match(chips[0], /\bborder\b/);
+  assert.match(chips[0], /\bborder-border\b/);
+  assert.match(chips[0], /\bbg-idle-tint\b/);
+  assert.match(chips[0], /\btext-foreground\b/);
+  assert.match(chips[0], /\bfont-bold\b/);
+  assert.equal(text(chips[0]), "b");
+});
+
+test("an answer card is the plain card, a correct part is green only on its result line, and the next part is only outlined", () => {
+  for (const next of [false, true]) {
+    const card = answerCardClass(next);
+    assert.match(card, /\bbg-card\b/);
+    assert.match(card, /\bborder\b/);
+    assert.doesNotMatch(card, /tint|success|danger|border-l|border-2|stripe|shadow/, `next ${next}`);
+  }
+  assert.doesNotMatch(answerCardClass(false), /outline/);
+  assert.match(answerCardClass(true), /\boutline-2\b/);
+  assert.match(answerCardClass(true), /\boutline-ring\b/);
+  const correct = html(createElement(ResultLine, { status: "correct", message: "Your answer matches." }));
+  assert.match(correct, /\bbg-success-tint\b/);
+  assert.match(correct, /\btext-success-ink\b/);
+  assert.match(correct, /<svg[^>]*aria-hidden="true"/);
+  for (const status of ["incorrect", "invalid", "inconclusive", "self-review", "unanswered"] as const) assert.doesNotMatch(html(createElement(ResultLine, { status, message: "" })), /tint/, status);
+});
+
+test("the invalid field and the Not correct line use the same danger ink, and nothing else is orange-brown", () => {
+  assert.match(invalidFieldText, /text-danger-ink/);
+  assert.doesNotMatch(invalidFieldText, /destructive/);
+  const wrong = html(createElement(ResultLine, { status: "incorrect", message: "Your answer gives a different value." }));
+  assert.match(wrong, /\btext-danger-ink\b/);
+  assert.equal(/\btext-danger-ink\b/.exec(invalidFieldText)![0], /\btext-danger-ink\b/.exec(wrong)![0]);
+  const panel = readFileSync("components/physics/archive-answer-panel.tsx", "utf8");
+  assert.match(panel, /className=\{invalidFieldText\}/);
+  assert.doesNotMatch(panel, /invalid[^"`]*destructive/, "the invalid field adds no destructive colour of its own");
 });
 
 test("every result state says its status in words beside an icon, not by colour alone", () => {
@@ -103,15 +141,16 @@ test("the Solved note fades in only when motion is allowed, and has no confetti 
   assert.doesNotMatch(text(banner), /streak|keep going|don't|confetti/i);
 });
 
-test("the zero state of the solved summary is neutral grey with a neutral icon and no green", () => {
+test("the zero state of the solved summary is the plain card with a neutral icon and no green", () => {
   const zero = html(createElement(SolvedSummary, { solved: 0, recent: 0 }));
   assert.equal(text(zero), "0 solved");
-  assert.match(zero, /border-idle bg-idle-tint/);
+  assert.match(zero, /border-border bg-card/);
   assert.match(zero, /text-idle-ink/);
   assert.match(zero, /<svg[^>]*aria-hidden="true"/);
-  assert.doesNotMatch(zero, /success/);
+  assert.doesNotMatch(zero, /success|tint/);
   const some = html(createElement(SolvedSummary, { solved: 1, recent: 0 }));
   assert.match(some, /border-success bg-success-tint/);
   assert.doesNotMatch(some, /idle/);
+  assert.equal(text(some), "1 solved");
   assert.notEqual(/<svg[^>]*class="([^"]*)"/.exec(zero)![1].includes("lucide-circle-check"), /<svg[^>]*class="([^"]*)"/.exec(some)![1].includes("lucide-circle-check"), "the icon differs");
 });

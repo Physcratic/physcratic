@@ -1,7 +1,6 @@
 import * as React from "react";
 import { CircleAlert, CircleCheck, CircleX, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { partToken } from "@/lib/part-colors";
 import { describePartResult, resultMessage, type FeedbackStatus, type FeedbackTone } from "@/lib/solve-feedback";
 
 /**
@@ -13,26 +12,32 @@ export const solveTokens = "";
 /** Line length for problem text: about 70 characters. */
 export const proseWidth = "max-w-[70ch]";
 
-/** Inline style that carries one part's colour tokens, which follow the theme. Pair with `partBorder` and `PartChip`. */
-export function partStyle(index: number): React.CSSProperties {
-  const { name } = partToken(index);
-  return { "--pb": `hsl(var(--part-${name}))`, "--pc-bg": `hsl(var(--part-${name}-tint))`, "--pc-fg": `hsl(var(--part-${name}-ink))` } as React.CSSProperties;
+/**
+ * Parts are told apart by their letter and their order, not by hue. Colour on the problem pages is kept for state: green for
+ * success, red for wrong and peach for the main action. These three keep their names so every caller works unchanged.
+ */
+export function partStyle(index?: number): React.CSSProperties | undefined {
+  void index;
+  return undefined;
 }
+export const partBorder = "";
 
-/** The 4px coloured left border of a part card. Use together with `style={partStyle(index)}`. */
-export const partBorder = "border-l-4 border-l-[color:var(--pb)]";
-
-/** A tinted chip with the part's original label text. The text stays, so colour is never the only cue. */
-export function PartChip({ index, children, className }: { index: number; children: React.ReactNode; className?: string }) {
+/** A neutral badge with the part's label, in bold. The label text stays, so nothing depends on colour. Its 1px border keeps its shape at 3:1 against the card. */
+export function PartChip({ children, className }: { index?: number; children: React.ReactNode; className?: string }) {
   return (
-    <span
-      style={partStyle(index)}
-      className={cn("inline-flex min-h-7 items-center rounded-md bg-[color:var(--pc-bg)] px-2.5 py-0.5 text-sm font-semibold text-[color:var(--pc-fg)]", className)}
-    >
+    <span className={cn("inline-flex min-h-7 items-center rounded-md border border-border bg-idle-tint px-2.5 py-0.5 text-sm font-bold text-foreground", className)}>
       {children}
     </span>
   );
 }
+
+/** One answer card: the plain card with a thin border. The part that comes next is outlined with the ring token, nothing else changes. */
+export function answerCardClass(next: boolean): string {
+  return cn("min-w-0 rounded-lg border bg-card p-4 text-card-foreground", next && "outline outline-2 outline-ring");
+}
+
+/** The invalid field uses the same red ink as the "Not correct" line. */
+export const invalidFieldText = "data-[invalid=true]:text-danger-ink";
 
 const stepNames = ["Read", "Answer", "Check", "Solution"] as const;
 
@@ -78,17 +83,24 @@ export function StepHeading({ step, as: Tag = "h2", id, children, className }: {
 }
 
 const toneStyles: Record<FeedbackTone, { box: string; Icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }> }> = {
-  success: { box: "border-success bg-success-tint text-foreground", Icon: CircleCheck },
-  error: { box: "border-danger bg-danger-tint text-foreground", Icon: CircleX },
-  warning: { box: "border-amber-700 bg-amber-50 text-amber-950 dark:border-amber-400 dark:bg-amber-950 dark:text-amber-50", Icon: CircleAlert },
+  success: { box: "border-border bg-card text-foreground", Icon: CircleCheck },
+  error: { box: "border-border bg-card text-foreground", Icon: CircleX },
+  warning: { box: "border-border bg-card text-foreground", Icon: CircleAlert },
   neutral: { box: "border-border bg-muted text-foreground", Icon: Info },
 };
 
-/** Result of a check: colour, an icon and words together. Put it next to the answer. */
+const toneText: Record<FeedbackTone, string> = {
+  success: "text-success-ink",
+  error: "text-danger-ink",
+  warning: "text-foreground",
+  neutral: "text-muted-foreground",
+};
+
+/** Result of a check: a quiet box, an icon in the state's ink and words together. Put it next to the answer. */
 export function FeedbackBox({ tone, title, children, className, id, titleAs: Title = "p" }: { tone: FeedbackTone; title: string; children?: React.ReactNode; className?: string; id?: string; titleAs?: "p" | "h3" }) {
   const { box, Icon } = toneStyles[tone];
   return (
-    <div id={id} className={cn("flex items-start gap-3 rounded-lg border-2 p-4", box, className)}>
+    <div id={id} className={cn("flex items-start gap-3 rounded-lg border p-4", box, className)}>
       <Icon className={cn("mt-0.5 size-5 shrink-0", toneText[tone])} aria-hidden={true} />
       <div className="min-w-0 space-y-1 text-sm leading-relaxed">
         <Title className="text-base font-semibold">{title}</Title>
@@ -98,22 +110,28 @@ export function FeedbackBox({ tone, title, children, className, id, titleAs: Tit
   );
 }
 
-
-const toneText: Record<FeedbackTone, string> = {
-  success: "text-success-ink",
-  error: "text-danger-ink",
-  warning: "text-amber-800 dark:text-amber-300",
-  neutral: "text-muted-foreground",
-};
-
-/** Result for one answer, next to its input: icon, words and the grader's message. */
+/**
+ * Result for one answer, next to its input: icon, words and the grader's message. A correct part gets a small success tint behind
+ * its icon and word only, so the card stays plain. Wrong is the danger ink, and the other results stay neutral.
+ */
 export function ResultLine({ status, message, id }: { status: FeedbackStatus; message: string; id?: string }) {
   const { tone, label } = describePartResult(status);
   const { Icon } = toneStyles[tone];
+  const words = resultMessage(status, message);
+  if (tone === "success")
+    return (
+      <p id={id} className="text-sm leading-relaxed text-foreground">
+        <span className={cn("inline-flex items-center gap-2 bg-success-tint px-2 py-1", toneText.success)}>
+          <Icon className="size-4 shrink-0" aria-hidden={true} />
+          <strong className="font-semibold">{label}.</strong>
+        </span>{" "}
+        {words}
+      </p>
+    );
   return (
     <p id={id} className={cn("flex items-start gap-2 text-sm leading-relaxed", toneText[tone])}>
       <Icon className="mt-0.5 size-4 shrink-0" aria-hidden={true} />
-      <span className="min-w-0"><strong className="font-semibold">{label}.</strong> {resultMessage(status, message)}</span>
+      <span className="min-w-0"><strong className="font-semibold">{label}.</strong> {words}</span>
     </p>
   );
 }

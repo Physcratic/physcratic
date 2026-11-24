@@ -59,3 +59,21 @@ for (const [theme, scope] of Object.entries(themes)) {
     }
   })
 }
+
+// The neutral badge for a part and the segments of the parts bar. The chip text is the foreground on the idle tint. The chip border and the empty bar
+// segment border are the site border token, which must keep the shape at 3:1 against the card and the page. A filled segment is the success colour.
+for (const [theme, scope] of Object.entries(themes)) {
+  test(`${theme}: the part chip and the parts bar keep their shape and their text`, () => {
+    const card = toRgb(token(scope, "card")), page = toRgb(token(scope, "background")), border = toRgb(token(scope, "border"))
+    const idleTint = toRgb(token(scope, "idle-tint")), text = toRgb(token(scope, "foreground")), success = toRgb(token(scope, "success"))
+    const pairs: [string, number, number][] = [
+      ["chip text on its fill", contrast(text, idleTint), 4.5],
+      ["chip border on the card", contrast(border, card), 3],
+      ["chip border on the page", contrast(border, page), 3],
+      ["empty segment border on the card", contrast(border, card), 3],
+      ["filled segment on the card", contrast(success, card), 3],
+      ["filled segment on the page", contrast(success, page), 3],
+    ]
+    for (const [label, ratio, least] of pairs) assert.ok(ratio >= least, `${theme} ${label} is ${ratio.toFixed(2)}, needs ${least}`)
+  })
+}

@@ -1,10 +1,9 @@
 import { useRef } from "react";
 import { CircleCheck } from "lucide-react";
-import { partToken } from "@/lib/part-colors";
 import { cn } from "@/lib/utils";
 
-/** One part of the answer area. `colorIndex` is the same index the part's chip and stripe use. */
-export type BarPart = { id: string; colorIndex: number; correct: boolean };
+/** One graded part of the answer area. */
+export type BarPart = { id: string; correct: boolean };
 
 /** The words for the bar, true to the parts passed in. */
 export function partsCorrectText(done: number, total: number): string {
@@ -12,18 +11,15 @@ export function partsCorrectText(done: number, total: number): string {
 }
 
 /**
- * One segment per part, in the part's own colour. A segment is filled when that part is correct and is a tint with an outline
- * when it is not. The words are the accessible name, so the bar never relies on colour. One part needs no bar.
+ * One segment per part. A segment is an outlined neutral track until its part is correct, then it is filled with the success colour.
+ * The words are the accessible name, so the bar never relies on colour. One part needs no bar.
  */
 export function PartProgressBar({ parts, className }: { parts: readonly BarPart[]; className?: string }) {
   if (parts.length < 2) return null;
   const done = parts.filter((part) => part.correct).length;
   return (
     <div role="img" aria-label={partsCorrectText(done, parts.length)} className={cn("flex gap-1", className)}>
-      {parts.map((part) => {
-        const token = partToken(part.colorIndex);
-        return <span key={part.id} data-part-token={token.name} data-filled={part.correct} className={cn("h-2 min-w-0 flex-1 rounded-full border", token.stripe, part.correct ? token.fill : token.tint)} />;
-      })}
+      {parts.map((part) => <span key={part.id} data-filled={part.correct} className={cn("h-2 min-w-0 flex-1 rounded-full border", part.correct ? "border-success bg-success" : "border-border bg-idle-tint")} />)}
     </div>
   );
 }
@@ -51,7 +47,7 @@ export function useJustSolved(solved: boolean): boolean {
 /** A calm note that the problem is solved. A short fade in, and none under reduced motion. */
 export function SolvedBanner() {
   return (
-    <p role="status" className="flex items-center gap-2 rounded-lg border border-success bg-success-tint p-4 text-base font-semibold text-foreground motion-safe:animate-in motion-safe:fade-in motion-safe:duration-300">
+    <p role="status" className="mt-2 flex items-center gap-2 rounded-lg border border-success bg-success-tint p-4 text-base font-semibold text-foreground motion-safe:animate-in motion-safe:fade-in motion-safe:duration-300">
       <CircleCheck aria-hidden="true" className="size-5 shrink-0 text-success-ink" />
       Solved
     </p>

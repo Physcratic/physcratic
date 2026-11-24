@@ -4,8 +4,8 @@ import katex from "katex";
 import { MathFormula } from "./math-formula";
 import { ProblemImage } from "./problem-image";
 import { cn } from "@/lib/utils";
-import { assignPartColors, bareLabel } from "@/lib/part-colors";
-import { PartChip, partBorder, partStyle } from "./solve-ui";
+import { bareLabel } from "@/lib/part-colors";
+import { PartChip } from "./solve-ui";
 
 export function MathText({ text }: { text: string }) {
   return text.split(/(\$\$[\s\S]*?\$\$)/g).map((part, index) => {
@@ -75,11 +75,7 @@ const partHeading = /^(\([a-z]\))\s*([\s\S]*)$/;
 export function ArenaDocument({ content, staticFigures = false }: { content: string; staticFigures?: boolean }) {
   const id = useId();
   const sections = parseArenaDocument(content);
-  // Lettered part headings such as "(a)" get a colour by position and a chip that keeps the letter. The statement
-  // and the worked solution use the same rule, so a part has the same colour in both.
-  const partLabels = sections.flatMap((section) => (section.heading && partHeading.test(section.heading) ? [partHeading.exec(section.heading)![1]] : []));
-  const partColours = assignPartColors(partLabels);
-  let partIndex = -1;
+  // Lettered part headings such as "(a)" get a neutral chip that keeps the letter. The statement and the worked solution use the same rule.
   return (
     <article
       lang="en"
@@ -94,21 +90,19 @@ export function ArenaDocument({ content, staticFigures = false }: { content: str
           );
         }
         const part = partHeading.exec(section.heading);
-        const colour = part ? partColours[++partIndex] : undefined;
         return (
           <section
             key={index}
             aria-labelledby={`${id}-${index}`}
-            style={colour === undefined ? undefined : partStyle(colour)}
-            className={cn("flex min-w-0 flex-col gap-5 rounded-xl border border-border bg-muted/40 p-4 text-foreground sm:p-6", colour !== undefined && partBorder)}
+            className="flex min-w-0 flex-col gap-5 rounded-xl border border-border bg-muted/40 p-4 text-foreground sm:p-6"
           >
             <h3
               id={`${id}-${index}`}
               className="flex flex-wrap items-center gap-2 text-pretty text-lg font-medium"
             >
-              {part && colour !== undefined ? (
+              {part ? (
                 <>
-                  <PartChip index={colour}><span aria-hidden="true">{bareLabel(part[1])}</span><span className="sr-only">Part {bareLabel(part[1])}</span></PartChip>
+                  <PartChip><span aria-hidden="true">{bareLabel(part[1])}</span><span className="sr-only">Part {bareLabel(part[1])}</span></PartChip>
                   {part[2] && <MathText text={part[2]} />}
                 </>
               ) : (

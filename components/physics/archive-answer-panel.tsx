@@ -14,9 +14,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { assignPartColors, bareLabel, partToken } from "@/lib/part-colors";
+import { bareLabel } from "@/lib/part-colors";
 import { summariseCheck, summariseSavedCheck } from "@/lib/solve-feedback";
-import { FeedbackBox, PartChip, ResultLine, StepHeading, partBorder, partStyle } from "./solve-ui";
+import { FeedbackBox, PartChip, ResultLine, StepHeading, answerCardClass, invalidFieldText } from "./solve-ui";
 import { PartProgressBar, SolvedBanner, useJustSolved } from "./part-progress";
 import { MathAnswerField } from "./math-answer-field";
 import { conditionPhrases, type PaletteItem } from "./answer-palette";
@@ -225,14 +225,13 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
   useEffect(() => { retrierRef.current?.arm(); }, [pendingNow, saveAccount, conflict, journal]);
 
   const summary = result ? (resultSaved ? summariseSavedCheck(result.results) : summariseCheck(result.results)) : null;
-  const colors = data?.problemId === problemId ? assignPartColors(data.parts.map((part) => part.sourcePart)) : [];
   // A part is correct while its answer is the one a check marked correct. The bar, the cards and the Solved note all read this.
   const gradable = data.parts.filter((part) => part.kind !== "self-review");
   const isCorrect = (partId: string) => correctAnswers.current[partId] !== undefined && correctAnswers.current[partId] === answers[partId];
-  const barParts = data.parts.flatMap((part, position) => (part.kind === "self-review" ? [] : [{ id: part.id, colorIndex: colors[position], correct: isCorrect(part.id) }]));
+  const barParts = gradable.map((part) => ({ id: part.id, correct: isCorrect(part.id) }));
   const solved = gradable.length > 0 && gradable.every((part) => isCorrect(part.id));
   const justSolved = useJustSolved(solved);
-  /** The first part still empty, in its own colour. Only when there is more than one part to choose from. */
+  /** The first part still empty, outlined. Only when there is more than one part to choose from. */
   const nextPartId = gradable.length > 1 ? gradable.find((part) => !answers[part.id]?.trim())?.id : undefined;
   const tryAgain = () => {
     // Moves focus only. It keeps the typed answers and the result, and nothing is counted or reset.
@@ -260,11 +259,11 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
           const id = `${fieldPrefix}-${part.id}`;
           const feedback = result?.results.find((item) => item.partId === part.id) ?? (isCorrect(part.id) ? { partId: part.id, status: "correct" as const, message: correctMessages.current[part.id] ?? "" } : undefined);
           const invalid = feedback?.status === "invalid" || feedback?.status === "incorrect";
-          const card = `min-w-0 rounded-lg border p-4 text-card-foreground ${isCorrect(part.id) ? "bg-success-tint" : part.id === nextPartId ? partToken(colors[position]).tint : "bg-card"} ${partBorder}`;
-          if (part.kind === "self-review") return <div key={part.id} style={partStyle(colors[position])} className={card}><Alert><AlertTitle className="flex flex-wrap items-center gap-2"><PartChip index={colors[position]}>{bareLabel(part.sourcePart)}</PartChip>{part.label}</AlertTitle><AlertDescription>Check this one yourself. {part.help} Compare your reasoning with the worked solution. It is not graded.</AlertDescription></Alert>{saveProgress === false && <Field className="mt-4"><FieldLabel htmlFor={id}>Your reasoning for {bareLabel(part.sourcePart)}</FieldLabel><textarea id={id} className="min-h-28 w-full rounded-md border border-input bg-background p-3 text-base" value={answers[part.id] ?? ""} maxLength={archiveAnswerLimit} onChange={event => set(part.id, event.target.value)} disabled={busy} /></Field>}</div>;
+          const card = answerCardClass(part.id === nextPartId);
+          if (part.kind === "self-review") return <div key={part.id} className={card}><Alert><AlertTitle className="flex flex-wrap items-center gap-2"><PartChip>{bareLabel(part.sourcePart)}</PartChip>{part.label}</AlertTitle><AlertDescription>Check this one yourself. {part.help} Compare your reasoning with the worked solution. It is not graded.</AlertDescription></Alert>{saveProgress === false && <Field className="mt-4"><FieldLabel htmlFor={id}>Your reasoning for {bareLabel(part.sourcePart)}</FieldLabel><textarea id={id} className="min-h-28 w-full rounded-md border border-input bg-background p-3 text-base" value={answers[part.id] ?? ""} maxLength={archiveAnswerLimit} onChange={event => set(part.id, event.target.value)} disabled={busy} /></Field>}</div>;
           const conditions = conditionPhrases(part.symbolConditions);
-          return <div key={part.id} data-tour={position === 0 ? "answer-box" : undefined} style={partStyle(colors[position])} className={card}><Field data-invalid={invalid} data-disabled={busy}>
-            <FieldLabel id={`${id}-label`} htmlFor={id} className="flex-wrap items-center"><PartChip index={colors[position]}>{bareLabel(part.sourcePart)}</PartChip><span className="text-base font-medium">{part.label}{part.unit && <span className="font-normal text-muted-foreground"> ({part.unit})</span>}</span></FieldLabel>
+          return <div key={part.id} data-tour={position === 0 ? "answer-box" : undefined} className={card}><Field data-invalid={invalid} data-disabled={busy} className={invalidFieldText}>
+            <FieldLabel id={`${id}-label`} htmlFor={id} className="flex-wrap items-center"><PartChip>{bareLabel(part.sourcePart)}</PartChip><span className="text-base font-medium">{part.label}{part.unit && <span className="font-normal text-muted-foreground"> ({part.unit})</span>}</span></FieldLabel>
             <ConditionsLine phrases={conditions} />
             {part.kind === "numeric"
               ? <>
