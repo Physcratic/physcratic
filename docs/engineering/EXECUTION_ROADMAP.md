@@ -4,6 +4,14 @@ Simple's More options now edit every block type Classic can, so Classic can be r
 
 The groups show only the blocks Simple's own fields do not own, through `extraBlocks` and `withExtraBlocks` in `simple-model.ts`, so the first text block and first picture keep their place and opening a draft and saving it changes no block. `tests/simple-blocks.test.ts` round trips a draft with every block type at the problem, section, part, hint and solution level, and it failed when `ensureSimpleShape` dropped equations and when the save path dropped pictures. Picture rules are the server schema's (parity tests, no new rules). Copy that sent authors to Classic for blocks now points at More options. Classic, moving a part across sections and adding a part to an earlier section are unchanged and not built. No server, schema or flag change. The guest contrast sweep was not run here.
 
+## Public solution and personal Arena progress correction (24 November 2026)
+
+Publication sets public worked-solution access when the existing rollout gate is
+on. Studio must reload if its publication wording predates a rollout change.
+Arena shows personal attempt status from saved submissions. Verified-solve
+statistics and solve achievements still exclude public-solution revisions.
+[Behavior and compatibility](AUTHORED_PUBLIC_SOLUTIONS.md#product-correction-24-november-2026).
+
 ## Quiet colour on the problem pages, U6c (24 November 2026)
 
 The solve page, the Arena page and the Progress page now keep colour for state only: green for success, red for wrong and peach for the main action. Parts are told apart by their bold letter and their order. `PartChip` is a neutral badge (idle tint, 1px border token, foreground text). Answer cards are the plain card with a thin border. The next empty part gets a 2px ring token outline, nothing else. A correct part shows its "Correct" line with a small success tint behind its icon and word only. The invalid field now uses the same danger ink as "Not correct." The parts bar is outlined neutral segments that fill with the success colour. The Solved note is the one green area. The check summary box is plain with an icon in the state's ink. Arena statement parts lose their coloured stripes. Progress card headers stay on the plain card with an icon in its ink and the coloured count badge, and the summary is tinted only when solved is above 0.

@@ -18,6 +18,7 @@ import {
   type EditorDraft,
 } from "@/lib/problem-authoring-editor";
 import { normalizeStatementImages } from "@/lib/author-media";
+import { publicSolutionPolicy } from "@/lib/authored-solution-policy";
 import {
   AuthorMediaProvider,
   MediaAttachments,
@@ -151,12 +152,14 @@ export function ProblemEditor({
   );
   const { draft, phase, dirty, busy, message, recovery } = snapshot;
   async function publishRequest(d: EditorDraft) {
-    // One confirm for both layouts. With public solutions on, the consent dialog is the only one.
     const question = publicSolutionsEnabled
-      ? "Publish this revision and make all its worked solutions, solution images and attached solution PDFs public? Anyone can read them without signing in. Your grading keys stay private. Files already viewed or downloaded cannot be recalled."
+      ? "Publish this version? The problem and its worked solution, including attached files, will be public. Your grading keys stay private."
       : "Publish this version? Its statement becomes public. Your grading keys stay private.";
     if (!window.confirm(question)) return undefined;
-    return draftRequest(`${editorBase}/${d.problemId}/publish`, "POST", { version: d.version, ...(publicSolutionsEnabled ? { publicSolutionConsent: true } : {}) });
+    return draftRequest(`${editorBase}/${d.problemId}/publish`, "POST", {
+      version: d.version,
+      ...(publicSolutionsEnabled ? { solutionPolicy: publicSolutionPolicy } : {}),
+    });
   }
 
   const editorColours = colorsByPartId(draft?.content.sections ?? []);

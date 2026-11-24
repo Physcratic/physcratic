@@ -1,8 +1,8 @@
 import "server-only";
 import { z } from "zod";
 import { practiceProgressSchema } from "./practice-check-contracts";
-import { problemProgressEntrySchema, problemProgressSchema } from "./problem-progress-contracts";
-const authoredSchema = z.strictObject({ progress: z.array(problemProgressEntrySchema).max(1000), savedChecks: z.number().int().nonnegative() });
+import { attemptedAuthoredIdsSchema, problemProgressEntrySchema, problemProgressSchema } from "./problem-progress-contracts";
+const authoredSchema = z.strictObject({ progress: z.array(problemProgressEntrySchema).max(1000), savedChecks: z.number().int().nonnegative(), attemptedIds: attemptedAuthoredIdsSchema });
 type Read = (request: Request) => Promise<Response>;
 export function createProblemProgressApi(practice: Read, authored: Read) {
   return async (request: Request) => {
@@ -20,6 +20,7 @@ export function createProblemProgressApi(practice: Read, authored: Read) {
     return Response.json(problemProgressSchema.parse({ progress, savedChecks: values.reduce((n,v) => n + (v?.savedChecks ?? 0), 0),
       solvedProblems: progress.filter(p => p.status === "solved").length, inProgressProblems: progress.filter(p => p.status === "in-progress").length,
       notGradedProblems: progress.filter(p => p.status === "not-graded").length, sources: { practice: values[0] !== null, authored: values[1] !== null },
+      attemptedArenaIds: values[0]?.attemptedIds, attemptedAuthoredIds: values[1]?.attemptedIds,
     }), { headers });
   };
 }

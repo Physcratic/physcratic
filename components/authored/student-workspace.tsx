@@ -715,7 +715,8 @@ function PrivateWorkspace({
                       >
                         <p>{feedback[receipt.attempt.status].text}</p>
                         <p className="break-words text-xs">
-                          {receipt.attempt.solutionEvidence ? "Assistance cannot be verified for this public-solution revision" : receipt.attempt.assisted ? "Assisted (server record)" : "Unassisted (server record)"}. Submitted answer: {answerText(receipt.attempt.answer)}
+                          {!receipt.attempt.solutionEvidence && (receipt.attempt.assisted ? "Assisted (server record). " : "Unassisted (server record). ")}
+                          Submitted answer: {answerText(receipt.attempt.answer)}
                         </p>
                         {receipt.attempt.status !== "correct" && (
                           <div className="pt-2">

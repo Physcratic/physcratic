@@ -8,6 +8,7 @@ import {ProblemStatsBatch,useProblemFavourite,type ProblemFavourite} from '@/com
 import { ProblemCard, ProblemCardSkeletonList } from './problem-card';
 import { parseRating } from '@/lib/rating-bands';
 import { arenaCardImage } from '@/lib/arena/card-image';
+import { useProblemHistory } from '@/hooks/use-problem-history';
 
 // Card props for the favourite control. Empty without statistics, so the card renders as it did before.
 function likeProps(f:ProblemFavourite|null){
@@ -22,16 +23,17 @@ function likeProps(f:ProblemFavourite|null){
 // A community problem's rating is the author's difficulty, a whole number from 0 to 4000. The card gets it as the same `elo`
 // an arena card gets, so the band, its tint and its tier name come from ratingBand in lib/rating-bands.ts. A free-text label is not a rating.
 const cardRating=(p:CollectionEntry)=>p.kind==='arena'?p.elo:parseRating(p.estimatedDifficulty??'')??undefined;
-export function UnifiedProblemCard({problem}:{problem:CollectionEntry}) {
+export function UnifiedProblemCard({problem,attempted}:{problem:CollectionEntry;attempted?:boolean}) {
  const favourite=useProblemFavourite(problem.key),solves=favourite?.stat?.solves;
  return <ProblemCard id={problem.key} title={problem.title} source={problem.kind==='arena'?'Physcratic':'Community'}
-  description={problem.summary} tags={problem.tags} elo={cardRating(problem)} href={problemHref(problem)} image={problem.kind==='arena'?arenaCardImage(problem.id):problem.image} {...likeProps(favourite)}
+  description={problem.summary} attempted={attempted} tags={problem.tags} elo={cardRating(problem)} href={problemHref(problem)} image={problem.kind==='arena'?arenaCardImage(problem.id):problem.image} {...likeProps(favourite)}
   attribution={problem.kind==='arena'?<>{solves!==undefined&&solves!==null&&<p className="text-sm">{`${solves.toLocaleString('en-US')} verified ${solves===1?'solve':'solves'}`}</p>}<p className="text-sm">Published by Physcratic</p></>:<>
    <p className="text-sm">By {problem.author?<Link className="underline" href={`/u/${problem.author.handle}`}>{problem.author.displayName||'@'+problem.author.handle}</Link>:'Community author'}</p>
    {problem.author&&<AchievementShowcase ids={problem.author.selectedIds} medals={problem.author.medals}/>}
   </>}/>;
 }
 export function UnifiedArenaCollection({query,topic,difficulty,source='all',onReset}:{query:string;topic:string;difficulty:string;source?:'all'|'authored';onReset:()=>void}) {
+ const {progress}=useProblemHistory();
  const [cursors,setCursors]=useState<(string|undefined)[]>([undefined]);
  const [refresh,setRefresh]=useState(0),[result,setResult]=useState<{key:string;page?:UnifiedArenaPage;error?:boolean}>();
  const filters=JSON.stringify([query,topic,difficulty,source]);const [previous,setPrevious]=useState(filters);
@@ -44,6 +46,10 @@ export function UnifiedArenaCollection({query,topic,difficulty,source='all',onRe
    const page=unifiedArenaPageSchema.parse(await r.json());if(!c.signal.aborted){setResult({key,page});if(focus.current){heading.current?.focus();focus.current=false;}}
   }catch{if(!c.signal.aborted)setResult({key,error:true});}
  },250);return()=>{clearTimeout(timer);c.abort();};},[key,query,topic,difficulty,source,after]);
+ const cards=current?.page?.problems.map(problem=>{
+  const attemptedIds=problem.kind==='arena'?progress?.attemptedArenaIds:progress?.attemptedAuthoredIds;
+  return <UnifiedProblemCard key={problem.key} problem={problem} attempted={attemptedIds?.includes(problem.id)}/>;
+ });
  return <section id="arena-results" aria-labelledby="unified-arena-title" className="min-w-0 space-y-5">
   <div className="flex flex-wrap items-center justify-between gap-3"><h2 id="unified-arena-title" tabIndex={-1} ref={heading} className="text-lg font-medium">{source==='authored'?'Published authored problems':'Physcratic Arena'}</h2><Button variant="outline" onClick={()=>{setCursors([undefined]);setRefresh(n=>n+1);}}>Refresh collection</Button></div>
   <p className="text-sm text-muted-foreground">Physcratic originals and published community problems, sorted by rating from low to high. Problems without a rating come last. Search and tags apply before pagination. Refresh to include new publications.</p>
@@ -53,7 +59,7 @@ export function UnifiedArenaCollection({query,topic,difficulty,source='all',onRe
    {current.page.authoredUnavailable&&<div role="alert" className="flex flex-wrap items-center gap-3"><p>Community problems could not be loaded, so this list is incomplete.</p><Button variant="outline" className="min-h-11" onClick={()=>setRefresh(n=>n+1)}>Try again</Button></div>}
    {current.page.attributionUnavailable&&<p role="status">Public author details are temporarily unavailable.</p>}
    <p role="status" className="text-sm">{current.page.problems.length} {current.page.problems.length===1?'problem':'problems'} on this page</p>
-   {!current.page.problems.length?<div className="space-y-3 rounded-xl border p-5"><p>No matching problems found.</p><Button variant="outline" onClick={onReset}>Clear filters</Button></div>:<div className="grid min-w-0 gap-6 [overflow-wrap:anywhere]">{current.page.statsEnabled?<ProblemStatsBatch keys={current.page.problems.map(p=>p.key)}>{current.page.problems.map(p=><UnifiedProblemCard key={p.key} problem={p}/>)}</ProblemStatsBatch>:current.page.problems.map(p=><UnifiedProblemCard key={p.key} problem={p}/>)}</div>}
+   {!current.page.problems.length?<div className="space-y-3 rounded-xl border p-5"><p>No matching problems found.</p><Button variant="outline" onClick={onReset}>Clear filters</Button></div>:<div className="grid min-w-0 gap-6 [overflow-wrap:anywhere]">{current.page.statsEnabled?<ProblemStatsBatch keys={current.page.problems.map(p=>p.key)}>{cards}</ProblemStatsBatch>:cards}</div>}
   </>}
   <nav aria-label="Arena collection pages" className="flex flex-wrap gap-3"><Button variant="outline" disabled={cursors.length===1} onClick={()=>{focus.current=true;setCursors(p=>p.slice(0,-1));}}>Previous page</Button><Button variant="outline" disabled={!current?.page?.nextCursor} onClick={()=>{focus.current=true;setCursors(p=>[...p,current!.page!.nextCursor!]);}}>Next page</Button></nav>
  </section>;

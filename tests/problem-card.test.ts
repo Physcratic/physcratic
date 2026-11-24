@@ -672,6 +672,13 @@ const communityImage = { src: `/card-images/${communityId}/${communityRevision}`
 const community = (image?: typeof communityImage): CollectionEntry => ({ key: `authored:${communityId}`, kind: "authored", id: communityId, title: "A community problem", tags: ["Mechanics"], summary: "Published community problem", estimatedDifficulty: null, author: null, ...(image ? { image } : {}) });
 const unified = (entry: CollectionEntry) => renderToStaticMarkup(createElement(UnifiedProblemCard, { problem: entry }));
 
+test("Arena card shows personal attempt status only when known", () => {
+  const problem = community();
+  assert.doesNotMatch(unified(problem), /(?:Not attempted|Attempted)</);
+  assert.match(renderToStaticMarkup(createElement(UnifiedProblemCard, { problem, attempted: false })), />Not attempted</);
+  assert.match(renderToStaticMarkup(createElement(UnifiedProblemCard, { problem, attempted: true })), />Attempted</);
+});
+
 test("a community entry with an image shows it with the given address, alt text and size", () => {
   const html = unified(community(communityImage));
   assert.match(html, /<div data-card-image="true" class="[^"]*\bh-\[120px\][^"]*\bsm:h-40\b/);

@@ -20,7 +20,10 @@ test("current community progress uses whole-problem completion and sticky correc
     for (const [part,mode] of [[first,"numeric"],[second,"expression"],[manual,"manual"]]) await pool.query("INSERT INTO authored_revision_part VALUES($1,$2,$3)",[revision,part,mode]);
     const save = (user:string,rev:string,part:string,status:string) => pool.query("INSERT INTO authored_attempt(user_id,problem_id,revision_id,part_id,status) VALUES($1,$2,$3,$4,$5)",[user,problem,rev,part,status]);
     await save("A",old,first,"correct"); await save("B",revision,second,"correct");
-    assert.deepEqual((await readAuthoredProgress(pool,"A")).progress,[]);
+    const oldOnly = await readAuthoredProgress(pool,"A");
+    assert.deepEqual(oldOnly.progress,[]);
+    assert.deepEqual(oldOnly.attemptedIds,[problem]);
+    assert.deepEqual((await readAuthoredProgress(pool,"C")).attemptedIds,[]);
     await save("A",revision,manual,"ungraded");
     assert.equal((await readAuthoredProgress(pool,"A")).progress[0].status,"not-graded");
     await save("A",revision,first,"incorrect");
@@ -34,5 +37,6 @@ test("current community progress uses whole-problem completion and sticky correc
     assert.equal(JSON.stringify(state).includes("Withdrawn Title"),false);
     await pool.query("UPDATE authored_problem SET state='archived'");
     assert.deepEqual((await readAuthoredProgress(pool,"A")).progress,[]);
+    assert.deepEqual((await readAuthoredProgress(pool,"A")).attemptedIds,[]);
   } finally { await pool.end(); await admin.query(`DROP SCHEMA ${schema} CASCADE`); await admin.end(); }
 });

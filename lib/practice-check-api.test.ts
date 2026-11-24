@@ -101,7 +101,14 @@ test('server-owned practice/Arena ledger on disposable PostgreSQL',{skip:!url&&'
       assert.equal(own.solvedProblems,1);
       assert.equal(own.progress[0].correctParts,own.progress[0].requiredParts);
       assert.equal(own.progress[0].kind,'arena');
-      assert.deepEqual((await json(await current('progress',request(other)))).progress,[]);
+      assert.deepEqual(own.attemptedIds,[arena.metadata.problemId]);
+      const otherProgress=await json(await current('progress',request(other)));
+      assert.deepEqual(otherProgress.progress,[]);
+      assert.deepEqual(otherProgress.attemptedIds,[]);
+      const newer=createPracticeCheckApi({...deps,catalog:()=>[{...arena,metadata:{...arena.metadata,version:'f'.repeat(64)}}]});
+      const earlier=await json(await newer('progress',request(user)));
+      assert.deepEqual(earlier.progress,[]);
+      assert.deepEqual(earlier.attemptedIds,[arena.metadata.problemId]);
     });
     await t.test('withdrawn legacy checks leave current counts but retain exact immutable replay',async()=>{
       const user=await actor(),body=input();
