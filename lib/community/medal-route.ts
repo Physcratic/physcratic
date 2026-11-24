@@ -1,8 +1,7 @@
 import 'server-only';
 import { profileReply } from './profile-api';
-import { externalMedalVerificationEnabled } from './external-medals';
 export type MedalAction='submit'|'own'|'queue'|'review'|'proof'|'detail';
-export function medalsEnabled(env:Record<string,string|undefined>=process.env){return !externalMedalVerificationEnabled(env)&&env.COMMUNITY_MEDALS_ENABLED==='true'&&env.COMMUNITY_STAFF_ENABLED==='true';}
+export function medalsEnabled(env:Record<string,string|undefined>=process.env){return env.COMMUNITY_MEDALS_ENABLED==='true'&&env.COMMUNITY_STAFF_ENABLED==='true';}
 export function createMedalRoute(enabled=medalsEnabled,load=()=>import('./medal-server')){
  return async(action:MedalAction,request:Request,id?:string)=>{
   if(!enabled())return profileReply({error:'Medal verification is disabled.'},503);

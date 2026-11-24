@@ -1,8 +1,6 @@
 # Physcratic — notes for Claude Code
 
 ## Working rules
-
-Read `docs/engineering/PRODUCT_DECISIONS.md` before implementation and update it when the owner changes a product requirement. Current owner decisions supersede conflicting historical plans. Security invariants and Production approval boundaries still apply.
 - main requires a pull request. Push a branch, open a PR, and wait for GitHub CI to pass. Never push to main directly or work around the rule.
 - Never buy anything, change a plan or seat, or redeploy a blocked commit on Vercel or any other service. Stop and ask the owner.
 - Never run a build, dev server or tests in the main checkout. It has .env.local. Always use a clean worktree.

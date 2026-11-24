@@ -1,7 +1,3 @@
-## External medal verification (24 November 2026)
-
-Use the [current product decisions](PRODUCT_DECISIONS.md) and [Tally workflow](EXTERNAL_MEDALS.md). Historical Community Batch 2B is superseded for launch. External medals reuse the badge picker and may launch independently of earned achievements after owner approval, 0024 and restricted runtime grant verification.
-
 ## Every block editable in Simple, U7a (24 November 2026)
 
 Simple's More options now edit every block type Classic can, so Classic can be removed later without losing the ability to edit anything. Read from the code, what Simple could not edit was: more text and equation blocks and further pictures in a part's question, more text, equation and picture blocks in a part's worked solution, the caption of the first picture of the main question and of a part, and the title and shared text of a lone section with nothing in it yet. Each is now under More options in a group closed until opened: "More question blocks" and "More worked solution blocks" per part (named for the part when there are several, so no two labels match), a Caption field under a picture, and a button that opens the lone section's title and shared text. Each block can be edited, added, removed and moved up and down with buttons, using the same `BlocksEditor` and `moveItem` as Classic. Removing a block asks nothing. A part's More options summary says how many more blocks it holds, for example "More options for part a (3 more blocks)".

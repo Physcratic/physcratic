@@ -6,8 +6,6 @@ Read `CLAUDE.md`, `CONTRIBUTING.md`, `docs/engineering/EXECUTION_ROADMAP.md` and
 
 ## Product UX and copy (all user-facing work)
 
-Read `docs/engineering/PRODUCT_DECISIONS.md` before implementation and update it when the owner changes a product requirement. Current owner decisions supersede conflicting historical plans. Security invariants and Production approval boundaries still apply.
-
 - Optimize for a first-time visitor who has no tutorial. They must understand the page purpose, the next action, and the result of that action without explanation. Design the full journey from entry to completion, not isolated components.
 - Keep the interface simple and coherent. Give each screen a clear primary action, predictable navigation, readable hierarchy, meaningful status and error feedback, and progressively reveal advanced controls. More features or more visible controls do not automatically improve the product.
 - Before adding a tab, dashboard metric, card, banner, tooltip, animation or explanatory panel, identify the user need it solves. Remove redundant UI and avoid feature clutter. Never simplify by removing essential safety, accessibility, clear confirmation, or functionality.

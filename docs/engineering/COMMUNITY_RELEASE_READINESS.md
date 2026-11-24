@@ -1,7 +1,5 @@
 # Phase 6A: community release readiness
 
-**Current medal scope.** The [external Tally workflow](EXTERNAL_MEDALS.md) needs no Blob store or staff dashboard. Internal certificate readiness and storage checks below are historical evidence. The independent profile media and moderation requirements still apply.
-
 **Production launch: NO-GO.** Audited source baseline: `d1dc0cff8c752a8857b43fba5f88546664cc664c` (4 November 2026). This is a source/CI audit, not a Production inspection. No database, Blob, staff, secret, flag or deployment operation was performed. Completed Batches 0–5B are preserved.
 
 VERIFIED means the cited repository contract or CI result was inspected. UNKNOWN means no current target evidence was available. BLOCKED means a required approval, resource or qualification is absent, or the code deliberately denies activation. A VERIFIED code safeguard does not make its deployed configuration VERIFIED.

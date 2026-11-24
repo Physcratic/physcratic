@@ -11,7 +11,6 @@ import { createMedalApi } from "../lib/community/medal-api.ts";
 import { createCommunityProfileApi } from "../lib/community/profile-api.ts";
 import { createCommunityAchievementsApi } from "../lib/community/achievements-api.ts";
 import { createCommunityAchievementsRoute } from "../lib/community/achievements-route.ts";
-import { medalVerificationForm } from "../lib/community/external-medals.ts";
 import { achievementFixtures, installAchievementFixtures } from "./community-achievement-fixtures.ts";
 const require = createRequire(import.meta.url), tooling = createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, "package.json"));
 const { chromium } = tooling("playwright"), { default: AxeBuilder } = tooling("@axe-core/playwright");
@@ -21,9 +20,9 @@ assert.equal(target.hostname,"127.0.0.1"); assert.equal(target.pathname,"/physcr
 const schema = `medal_ui_${randomUUID().replaceAll("-", "")}`;
 const admin = new Pool({ connectionString:target.href }), pool = new Pool({ connectionString:target.href, options:`-c search_path=${schema},public`,max:5 });
 await mkdir("work",{recursive:true}); const temp=await mkdtemp(join(process.cwd(),"work/medal-browser-"));
-let server,browser,origin,fail=false,external=false;const flags={profiles:true,media:false,achievements:true,verification:true},requests=[];
+let server,browser,origin,fail=false;const flags={profiles:true,media:false,achievements:true,verification:true},requests=[];
 const deps={pool,user:async r=>r.headers.get("x-test-user")?{id:r.headers.get("x-test-user"),emailVerified:true}:null,origin:r=>r.headers.get("origin")===origin};
-const profiles=createCommunityProfileApi(deps),achievements=createCommunityAchievementsApi({...deps,medalsEnabled:()=>!external,externalMedalsEnabled:()=>external,earnedEnabled:()=>!external});
+const profiles=createCommunityProfileApi(deps),achievements=createCommunityAchievementsApi({...deps,medalsEnabled:()=>true});
 const objects=new Map();
 const medals=createMedalApi({...deps,storage:{put:async(p,b)=>{objects.set(p,b);},get:async p=>objects.has(p)?new ReadableStream({start(c){c.enqueue(objects.get(p));c.close();}}):null,del:async p=>{objects.delete(p);}}});
 const route=createCommunityAchievementsRoute(()=>flags.profiles&&flags.achievements,async()=>({communityAchievementsApi:achievements}));
@@ -75,7 +74,7 @@ try {
   await page.getByLabel('Open claim by ID').fill(claim.id);await page.getByRole('button',{name:'Open claim',exact:true}).click();await page.getByRole('button',{name:'Download private certificate'}).waitFor();const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Download private certificate'}).click();check((await downloadPromise).suggestedFilename(),'medal-proof.pdf','private attachment');
   const exportDownload=page.waitForEvent('download');await page.getByRole('button',{name:'Export this page as CSV'}).click();const csv=await readFile(await(await exportDownload).path(),'utf8');check(csv.includes('PRIVATE_CERTIFICATE'),false,'CSV omits certificate names');
   await page.getByLabel('Reason (required)').fill('Please clarify the certificate date.');await page.getByRole('button',{name:'Request more information'}).click();await page.getByText('more-info, version 3').waitFor();
-  await page.getByLabel('Reason (required)').fill('Verified the certificate.');await page.getByRole('button',{name:'Approve',exact:true}).click();await page.getByText('Decision recorded in the audit history.').waitFor();await page.getByText('approved, version 4').waitFor();check(await page.getByText('approved, version 4').count(),1,'audit');
+  await page.getByLabel('Reason (required)').fill('Verified the certificate.');await page.getByRole('button',{name:'Approve',exact:true}).click();await page.getByText('Decision recorded in the audit history.').waitFor();check(await page.getByText('approved, version 4').count(),1,'audit');
   for(const width of [1440,375]){await page.setViewportSize({width,height:1000});check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'dashboard wraps');check((await new AxeBuilder({page}).analyze()).violations,[],'dashboard axe');}await page.screenshot({path:join(temp,'admin-mobile.png'),fullPage:true});
   await as('owner');await page.goto(`${origin}/settings`);const showcase=page.locator('#achievement-settings');await showcase.getByLabel('Show IPhO honourable-mention 2025').waitFor();await showcase.getByLabel('Show First Spark',{exact:true}).check();await showcase.getByLabel('Show IPhO honourable-mention 2025').check();check(await showcase.getByLabel('Show Problem Weaver',{exact:true}).isDisabled(),true,'shared two slots');await showcase.getByRole('button',{name:'Swap badge order'}).click();await showcase.getByRole('button',{name:'Save showcase',exact:true}).click();await page.getByText('Achievement showcase saved.').waitFor();await page.reload();await showcase.getByLabel('Show IPhO honourable-mention 2025').waitFor();check(await showcase.getByLabel('Show IPhO honourable-mention 2025').isChecked(),true,'saved medal');
   await page.getByLabel('Dark',{exact:true}).check();await page.waitForTimeout(250);check((await new AxeBuilder({page}).analyze()).violations,[],'settings dark mobile axe');await verification.screenshot({path:join(temp,'settings-mobile.png')});
@@ -84,54 +83,5 @@ try {
   await as(null);await page.goto(`${origin}/u/${handle}`);await page.getByLabel('Achievement showcase').waitFor();check(await page.getByLabel('Achievement showcase').locator('summary').allTextContents(),['First Spark'],'live revocation');
   await pool.query(`UPDATE "user" SET "emailVerified"=false WHERE id='owner'`);await page.reload();await page.getByRole('heading',{name:'Profile not found'}).waitFor();
   await as('owner');await page.goto(`${origin}/admin/verification`);await page.getByRole('alert').waitFor();check(await page.getByText('Queue fixture',{exact:true}).count(),0,'non-admin denied');
-  for (const name of ['0015_community_security_s1','0024_external_medal_verification']) {
-    await pool.query('BEGIN;'+await readFile('migrations/'+name+'.up.sql','utf8')+'COMMIT;');
-  }
-  await pool.query(`UPDATE "user" SET "emailVerified"=true WHERE id='owner'`);
-  external=true;
-  flags.verification=false;
-  flags.earnedAchievements=false;
-  await page.goto(`${origin}/settings`);
-  await showcase.getByText('No verified medals yet.').waitFor();
-  check(await page.getByRole('link',{name:'Request medal verification'}).count(),0,'no Tally link without configuration');
-  flags.tallyUrl=medalVerificationForm({
-    COMMUNITY_EXTERNAL_MEDALS_ENABLED:'true',
-    COMMUNITY_MEDAL_TALLY_URL:'https://tally.so/r/Synthetic42',
-  });
-  await pool.query("SELECT community_external_medal_award('owner','APhO','gold',2025,'ID','','PRIVATE_TALLY_REF')");
-  const requestCount=requests.length;
-  await page.reload();
-  const medal=showcase.getByRole('checkbox',{name:'Show APhO gold 2025'});
-  await medal.waitFor();
-  check(await page.getByRole('heading',{name:'Verified medals'}).count(),1,'medals without earned achievements');
-  check(await page.getByRole('link',{name:'Request medal verification'}).getAttribute('href'),flags.tallyUrl,'configured Tally destination');
-  check(await verification.count(),0,'certificate submission disabled');
-  check(await showcase.getByRole('checkbox',{name:'Show First Spark'}).count(),0,'earned controls stay off');
-  check(requests.slice(requestCount).some(path=>path.startsWith('/api/community/medals')),false,'no internal medal APIs');
-  await medal.focus();await page.keyboard.press('Space');
-  await showcase.getByRole('button',{name:'Save showcase',exact:true}).click();
-  await page.getByText('Medal showcase saved.').waitFor();
-  await page.reload();
-  await medal.waitFor();
-  check(await medal.isChecked(),true,'external badge selection persists');
-  for (const width of [1440,375]) {
-    await page.setViewportSize({width,height:1000});
-    check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'external settings fit');
-    check((await page.getByRole('link',{name:'View saved public profile'}).boundingBox()).height>=44,true,'profile link touch target');
-    check((await showcase.getByLabel('APhO, Gold, 2025: medal details').first().boundingBox()).height>=44,true,'settings medal touch target');
-    check((await new AxeBuilder({page}).analyze()).violations,[],'external settings axe');
-    await page.screenshot({path:join(temp,'external-settings-'+width+'.png'),fullPage:true});
-  }
-  await as(null);await page.goto(`${origin}/u/${handle}`);
-  await page.getByLabel('APhO, Gold, 2025: medal details').waitFor();
-  check(await page.getByLabel('Achievement showcase').locator('summary').allTextContents(),['APhO, Gold, 2025'],'selected external medal rendered publicly');
-  check((await page.textContent('body')).includes('PRIVATE_TALLY_REF'),false,'public view omits private reference');
-  for (const width of [1440,375]) {
-    await page.setViewportSize({width,height:1000});
-    check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'external public profile fits');
-    check((await page.getByLabel('APhO, Gold, 2025: medal details').boundingBox()).height>=44,true,'public medal touch target');
-    check((await new AxeBuilder({page}).analyze()).violations,[],'external public profile axe');
-    await page.screenshot({path:join(temp,'external-public-'+width+'.png'),fullPage:true});
-  }
   check(errors,[],'no browser errors');console.log(JSON.stringify({assertions,artifacts:temp}));
 }finally{await browser?.close();if(server)await new Promise(resolve=>server.close(resolve));await pool.end();await admin.query(`DROP SCHEMA ${schema} CASCADE`);await admin.end();}

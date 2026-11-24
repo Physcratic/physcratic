@@ -7,7 +7,7 @@ import { profileMediaEnabled, profileMediaRoute } from "@/lib/community/profile-
 import { publicProfileSchema, mediaResponse } from "@/lib/community/profile-client";
 import { emptyProfileMedia } from "@/lib/community/profile-media-contracts";
 import { ProfileCard } from "@/components/community/profile-card";
-import { communityShowcaseEnabled, communityAchievementsRoute } from "@/lib/community/achievements-route";
+import { communityAchievementsEnabled, communityAchievementsRoute } from "@/lib/community/achievements-route";
 import { publicShowcaseSchema, type BadgeId, type PublicMedal } from "@/lib/community/achievements";
 
 import {communityModerationUiEnabled} from '@/lib/community/moderation-route';
@@ -27,7 +27,7 @@ export default async function PublicProfilePage({ params }: { params: Promise<{ 
   let media = emptyProfileMedia;
   let badgeIds: BadgeId[] = [];
   let medals:PublicMedal[]=[];
-  if (communityShowcaseEnabled()) {
+  if (communityAchievementsEnabled()) {
     const badges = await communityAchievementsRoute(new Request(`https://profile.internal/api/community/achievements?handle=${encodeURIComponent(profile.handle)}`));
     if (badges.ok) {const showcase=publicShowcaseSchema.parse(await badges.json());badgeIds=showcase.selectedIds;medals=showcase.medals??[];}
   }

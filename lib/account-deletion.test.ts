@@ -64,7 +64,6 @@ test('complete account erasure on actual auth and installed graph, disposable PG
     await setup.query(inspection);
   }
   await setup.query((await readFile('migrations/0023_author_credit.up.sql','utf8')).replaceAll('public.',name+'.'));
-  await setup.query('BEGIN;'+await readFile('migrations/0024_external_medal_verification.up.sql','utf8')+'COMMIT;');
   await setup.query(`GRANT SELECT,INSERT,UPDATE ON community_profile,community_profile_write_limit TO ${ordinary}`);
   auth=buildAuth(normal);
   const credit=createAuthorCreditApi({pool:normal,origin:req=>req.headers.get('origin')===origin,
@@ -133,23 +132,6 @@ test('complete account erasure on actual auth and installed graph, disposable PG
    const replay=await api(request('',{requestToken:recovery}));assert.equal(replay.status,200);assert.deepEqual(await replay.json(),receipt);
    const conflict=await api(request(b.cookie,{confirmation:'DELETE MY ACCOUNT',password:b.password,requestToken:recovery}));assert.equal(conflict.status,403);assert.deepEqual(await counts(b.id),beforeB);
   });
-  await t.test('external awards, evidence references and badge selections erase without an object cleanup job',async()=>{
-   const student=await user('external-medal-erasure');
-   await setup.query("INSERT INTO community_profile(user_id,handle) VALUES($1,'external_erasure')",[student.id]);
-   const award=(await setup.query("SELECT * FROM community_external_medal_award($1,'IPhO','gold',2025,'ID','','synthetic-erasure')",[student.id])).rows[0];
-   const medal='medal:'+award.medal_id;
-   await setup.query('INSERT INTO community_badge_selection(user_id,badge_ids) VALUES($1,$2)',[student.id,[medal]]);
-   const jobs=()=>setup.query('SELECT id FROM account_deletion_outbox ORDER BY id');
-   const before=await jobs();
-   assert.equal((await deleted(student)).status,200);
-   assert.deepEqual(await counts(student.id),{users:0,credentials:0,sessions:0});
-   assert.equal((await setup.query('SELECT id FROM community_external_medal WHERE id=$1',[award.medal_id])).rowCount,0);
-   assert.equal((await setup.query('SELECT medal_id FROM community_external_medal_audit WHERE medal_id=$1',[award.medal_id])).rowCount,0);
-   assert.equal((await setup.query('SELECT id FROM community_external_approved_medal WHERE id=$1',[medal])).rowCount,0);
-   assert.equal((await setup.query('SELECT user_id FROM community_badge_selection WHERE user_id=$1',[student.id])).rowCount,0);
-   assert.deepEqual((await jobs()).rows,before.rows);
-  });
-
   await t.test('private answers/drafts/practice erased while licensed publication and other students remain',async()=>{
    const a=await user('graph-a'),b=await user('graph-b');const owned=await publication(a),uncertain=await publication(a),foreign=await publication(b);
    const ownAuthorization=randomUUID(),foreignAuthorization=randomUUID();for(const [p,who,generation] of [[owned,a,ownAuthorization],[foreign,b,foreignAuthorization]] as const)await setup.query('INSERT INTO authored_solution_permission(problem_id,revision_id,part_id,approved_by,authorization_id,version,enabled) VALUES($1,$2,$3,$4,$5,1,true)',[p.problemId,p.revision.id,p.partId,who.id,generation]);

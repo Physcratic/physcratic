@@ -5,14 +5,11 @@ import { z } from "zod";
 import { readRequestBytes, RequestBodyTimeoutError } from "../submission-request";
 import { profileHandleSchema } from "./profile-contracts";
 import { profileReply } from "./profile-api";
-import { approvedMedalSource } from "./external-medals";
-import { achievementEligible, showcaseSchema, achievementIdSchema, medalBadgeIdSchema, type BadgeId, type PublicMedal, type AchievementProgress } from "./achievements";
+import { achievementEligible, showcaseSchema, achievementIdSchema, type BadgeId, type PublicMedal, type AchievementProgress } from "./achievements";
 
 type Dependencies = {
   pool: Pool;
   medalsEnabled?:()=>boolean;
-  externalMedalsEnabled?: () => boolean;
-  earnedEnabled?: () => boolean;
   user: (request: Request) => Promise<{ id: string; emailVerified?: boolean } | null | undefined>;
   origin: (request: Request) => boolean;
 };
@@ -27,9 +24,7 @@ export function createCommunityAchievementsApi(deps: Dependencies) {
     let client: PoolClient | undefined;
     let transaction = false;
     try {
-      const earnedOn = deps.earnedEnabled?.() ?? true;
-      const externalMedals = deps.externalMedalsEnabled?.() === true;
-      const medalSource = approvedMedalSource(deps.medalsEnabled?.() === true, externalMedals);
+      const medalsOn=deps.medalsEnabled?.()===true;
       const url = new URL(request.url), handle = url.searchParams.get("handle");
       if ([...url.searchParams.keys()].some(key => key !== "handle") || url.searchParams.getAll("handle").length > 1)
         throw new AchievementError(400, "Invalid achievements request.");
@@ -58,23 +53,20 @@ export function createCommunityAchievementsApi(deps: Dependencies) {
           throw new AchievementError(415, "Send JSON.");
         const bytes = await readRequestBytes(request, 2048, 5000);
         selection = showcaseSchema.parse(JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)));
-        if (!medalSource && selection.selectedIds.some(id => medalBadgeIdSchema.safeParse(id).success))
-          throw new AchievementError(400, "Medal showcase is disabled.");
-        if (!earnedOn && selection.selectedIds.some(id => achievementIdSchema.safeParse(id).success))
-          throw new AchievementError(400, "Earned achievements are disabled.");
+        if(!medalsOn&&selection.selectedIds.some(id=>!achievementIdSchema.safeParse(id).success))throw new AchievementError(400,"Medal showcase is disabled.");
       }
       client = await deps.pool.connect();
       await client.query("BEGIN"); transaction = true;
       await client.query("SET LOCAL statement_timeout='5s'");
       await client.query("SET LOCAL lock_timeout='2s'");
       if (handle !== null) {
-        // Never return identity or progress publicly. Each query requires an eligible profile.
+        // Never return identity or progress publicly. Resolve visibility and current eligibility in one snapshot.
         const lookup = await client.query<{ badgeIds: BadgeId[] }>(`SELECT coalesce(s.badge_ids,'{}'::text[]) AS "badgeIds"
           FROM community_profile p LEFT JOIN community_badge_selection s ON s.user_id=p.user_id
           WHERE lower(p.handle)=$1 AND ${publicProfileEligible("p")}`, [parsedHandle!.data]);
         if (!lookup.rows[0]) throw new AchievementError(404, "Profile not found.");
         let selectedIds: BadgeId[] = [];
-        if (earnedOn && lookup.rows[0].badgeIds.some(id => achievementIdSchema.safeParse(id).success)) {
+        if (lookup.rows[0].badgeIds.length) {
           const result = await client.query<Snapshot>(`SELECT ${projection} FROM community_profile p
             JOIN community_badge_selection s ON s.user_id=p.user_id
             CROSS JOIN LATERAL community_achievement_progress(p.user_id) g
@@ -83,43 +75,28 @@ export function createCommunityAchievementsApi(deps: Dependencies) {
           selectedIds = active(result.rows[0]);
         }
         let medals:PublicMedal[]=[];
-        if (medalSource) {
-          medals = (await client.query<PublicMedal>(`SELECT m.id,m.competition,m.award,m.year,m.country,m."competitionName"
-            FROM ${medalSource} m JOIN community_profile p ON p.user_id=m.user_id
-            JOIN community_badge_selection s ON s.user_id=p.user_id
-            WHERE lower(p.handle)=$1 AND ${publicProfileEligible("p")} AND m.id=ANY(s.badge_ids)`, [parsedHandle!.data])).rows;
-          selectedIds = lookup.rows[0].badgeIds.filter(id => selectedIds.includes(id) || medals.some(m => m.id === id));
-        }
+        if(medalsOn){medals=(await client.query<PublicMedal>(`SELECT m.id,m.competition,m.award,m.year,m.country,m."competitionName" FROM community_approved_medal m JOIN community_profile p ON p.user_id=m.user_id JOIN community_badge_selection s ON s.user_id=p.user_id WHERE lower(p.handle)=$1 AND ${publicProfileEligible("p")} AND m.id=ANY(s.badge_ids)`,[parsedHandle!.data])).rows;selectedIds=lookup.rows[0].badgeIds.filter(id=>selectedIds.includes(id)||medals.some(m=>m.id===id));}
         await client.query("COMMIT"); transaction = false;
-        return profileReply({ selectedIds,...(medalSource?{medals}: {}) });
+        return profileReply({ selectedIds,...(medalsOn?{medals}: {}) });
       }
       if (selection) {
         await client.query("SELECT pg_advisory_xact_lock(hashtextextended($1,9))", [`community-achievements:${user!.id}`]);
         const profile = await client.query("SELECT user_id FROM community_profile WHERE user_id=$1", [user!.id]);
         if (!profile.rows[0]) throw new AchievementError(409, "Save a profile before selecting badges.");
-        const medalIds = selection.selectedIds.filter(id => medalBadgeIdSchema.safeParse(id).success);
-        if (medalSource && medalIds.length) {
-          const eligible = await client.query(`SELECT DISTINCT id FROM ${medalSource} m WHERE user_id=$1 AND id=ANY($2::text[])`, [user!.id, medalIds]);
-          if (eligible.rowCount !== medalIds.length) throw new AchievementError(409, "Medal is not currently eligible.");
-        }
         // SQL guard independently verifies eligibility and array constraints, including direct runtime writes.
         await client.query(`INSERT INTO community_badge_selection(user_id,badge_ids) VALUES($1,$2)
           ON CONFLICT(user_id) DO UPDATE SET badge_ids=excluded.badge_ids`, [user!.id, selection.selectedIds]);
         await client.query("COMMIT"); transaction = false;
         return profileReply(selection);
       }
-      const progressSource = earnedOn ? "community_achievement_progress($1)" : "(SELECT 0 AS author_count,NULL::integer AS solve_count)";
       const result = await client.query<Snapshot>(`SELECT ${projection},EXISTS(SELECT 1 FROM community_profile WHERE user_id=$1) AS "profileExists"
-        FROM ${progressSource} g LEFT JOIN community_badge_selection s ON s.user_id=$1`, [user!.id]);
+        FROM community_achievement_progress($1) g LEFT JOIN community_badge_selection s ON s.user_id=$1`, [user!.id]);
       const snapshot = result.rows[0];
-      const medals: PublicMedal[] = medalSource ? (await client.query<PublicMedal>(`
-        SELECT id,competition,award,year,country,"competitionName" FROM ${medalSource} m WHERE user_id=$1
-        ORDER BY ${externalMedals ? "(id=ANY($2::text[])) DESC," : ""}year DESC,id LIMIT 20`,
-        externalMedals ? [user!.id, snapshot.badgeIds] : [user!.id])).rows : [];
-      const earned=earnedOn?active(snapshot):[],selectedIds=snapshot.badgeIds.filter(id=>earned.includes(id)||medals.some(m=>m.id===id));
+      const medals:PublicMedal[]=medalsOn?(await client.query<PublicMedal>(`SELECT id,competition,award,year,country,"competitionName" FROM community_approved_medal WHERE user_id=$1 ORDER BY year DESC,id LIMIT 20`,[user!.id])).rows:[];
+      const earned=active(snapshot),selectedIds=snapshot.badgeIds.filter(id=>earned.includes(id)||medals.some(m=>m.id===id));
       await client.query("COMMIT"); transaction = false;
       return profileReply({ progress: { author: snapshot.author, solver: snapshot.solver }, selectedIds,
-        hiddenSelectionCount: snapshot.badgeIds.length - selectedIds.length, profileExists: snapshot.profileExists,...(medalSource?{medals}: {}) });
+        hiddenSelectionCount: snapshot.badgeIds.length - selectedIds.length, profileExists: snapshot.profileExists,...(medalsOn?{medals}: {}) });
     } catch (error) {
       if (client && transaction) await client.query("ROLLBACK").catch(() => {});
       if (error instanceof AchievementError) return profileReply({ error: error.message }, error.status);
