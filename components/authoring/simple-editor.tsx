@@ -11,6 +11,7 @@ import { addTag, hasTag } from "@/lib/studio-tags";
 import type { EditorDraft } from "@/lib/problem-authoring-editor";
 import { Field, inputClass } from "./editor-fields";
 import { PartOptions } from "./advanced-part-options";
+import { CaptionField, ExtraBlocksGroup, moreBlocksText } from "./simple-blocks";
 import { DifficultyRatingField } from "./difficulty-rating-field";
 import { MediaImage, useAuthorMediaUpload } from "./media-controls";
 import { RichMathText } from "./rich-math-text";
@@ -24,6 +25,10 @@ import {
   RIGHTS_TEXT,
   UNITS,
   addContextPicture,
+  setQuestionBlocks,
+  setSolutionBlocks,
+  withFirstCaption,
+  extraBlocks,
   issueTarget,
   addPart,
   addPicture,
@@ -32,6 +37,7 @@ import {
   answerText,
   applyAnswer,
   blocksSpans,
+  captionOf,
   boxOwnsAnswer,
   isHandGraded,
   contextPictureOf,
@@ -312,7 +318,7 @@ export function SimpleEditor(props: SimpleProps) {
         {attempted && otherIssues.length > 0 && (
           <ul role="alert" className="space-y-1 text-base text-destructive">
             {otherIssues.slice(0, 4).map((m, i) => (
-              <li key={i}>{m} {fileFirst ? "Review the fields above." : "Fix it in the Classic editor."}</li>
+              <li key={i}>{m} {fileFirst ? "Review the fields above." : "Check More options."}</li>
             ))}
           </ul>
         )}
@@ -377,6 +383,9 @@ function MainQuestion({ draft, edit, provisional, touch, issue }: { draft: Edito
         ariaLabel="Image for the main question"
         upload={upload}
         onAlt={(alt) => edit((d) => setContextPictureAlt(d, alt))}
+        caption={captionOf(draft.content.context)}
+        captionName="Caption for the main question"
+        onCaption={(caption) => edit((d) => void (d.content.context = withFirstCaption(d.content.context, caption)))}
         onRemove={() => edit((d) => removeContextPicture(d))}
         touch={() => touch("picture:main")}
       />
@@ -411,11 +420,17 @@ function ImageField({
   tour,
   upload,
   onAlt,
+  caption,
+  onCaption,
+  captionName,
   onRemove,
   touch,
 }: {
+  captionName?: string;
   base: string;
   fieldKey: string;
+  caption?: string;
+  onCaption?: (caption: string) => void;
   picture: ReturnType<typeof pictureOf>;
   provisional: boolean;
   issue?: string;
@@ -469,6 +484,7 @@ function ImageField({
             />
             {issue && <ErrorLine id={`${base}-alt-error`}>{issue}</ErrorLine>}
           </div>
+          {onCaption && <CaptionField id={`${base}-caption`} name={captionName} caption={caption ?? ""} onChange={onCaption} />}
           <div className="flex flex-wrap gap-2">
             <Button type="button" variant="outline" className="min-h-11 border-2" disabled={media.locked} onClick={() => input.current?.click()}>
               Choose a different image
@@ -647,6 +663,21 @@ function PartEditor({
     }),
   );
 
+  // The blocks Simple's own fields do not show. They are named in the More options summary, so an author who saved some in Classic can find them.
+  const moreBlocks = extraBlocks(part.blocks, true).length + extraBlocks(entry.solution, false).length;
+  const optionsName = `${multipart ? `More options for part ${letter}` : "More options"}${moreBlocksText(moreBlocks)}`;
+  const statementExtras = (
+    <ExtraBlocksGroup
+      summary={multipart ? `More question blocks for part ${letter}` : "More question blocks"}
+      label={multipart ? `Part ${letter} question` : "Question"}
+      scope="statement"
+      picture
+      hidePictures={fileFirst}
+      uploadsDisabled={provisional}
+      blocks={part.blocks}
+      update={(change) => edit((d) => setQuestionBlocks(d, partId, change(allParts(d).find((r) => r.part.id === partId)?.part.blocks ?? [])))}
+    />
+  );
   return (
     <section
       aria-label={multipart ? `Part ${letter}` : "Question and answer"}
@@ -686,6 +717,7 @@ function PartEditor({
       {fileFirst ? <fieldset disabled={provisional} className="min-w-0">
         <legend className="sr-only">Statement images</legend>
         <BlocksEditor imagesOnly label={multipart ? `Part ${letter} statement` : "Question statement"} blocks={part.blocks.filter(b => b.kind === "image")} onChange={images => edit(d => replacePartImages(d, partId, images))} />
+        <div className={`mt-4 ${SIMPLE_TEXT_SCOPE}`}>{statementExtras}</div>
       </fieldset> : <ImageField
         base={`${base}-image`}
         fieldKey={`p:${partId}`}
@@ -696,6 +728,9 @@ function PartEditor({
         tour={first ? "studio-image" : undefined}
         upload={upload}
         onAlt={(alt) => edit((d) => setPictureAlt(d, partId, alt))}
+        caption={captionOf(part.blocks)}
+        captionName={multipart ? `Caption for part ${letter}` : "Caption"}
+        onCaption={(caption) => edit((d) => void setQuestionBlocks(d, partId, withFirstCaption(allParts(d).find((r) => r.part.id === partId)?.part.blocks ?? [], caption)))}
         onRemove={() => edit((d) => removePicture(d, partId))}
         touch={() => touch(`picture:${partId}`)}
       />}
@@ -808,8 +843,8 @@ function PartEditor({
         edit={(fn) => edit((d) => { fn(d); if (privateFor(d, partId).key?.kind !== key?.kind) queueMicrotask(onForgetTyped); })}
         open={optionsOpen}
         onOpenChange={setOptionsOpen}
-        heading={<summary aria-label={multipart ? `More options for part ${letter}` : "More options"} className="flex min-h-11 w-full cursor-pointer list-none items-center justify-between gap-2 text-base font-medium">
-          More options
+        heading={<summary aria-label={optionsName} className="flex min-h-11 w-full cursor-pointer list-none items-center justify-between gap-2 text-base font-medium">
+          {optionsName}
           <ChevronDown aria-hidden="true" className={`size-5 shrink-0 transition-transform ${optionsOpen ? "rotate-180" : ""}`} />
         </summary>}
         lead={<div className="mb-6 space-y-4">
@@ -820,6 +855,16 @@ function PartEditor({
             <Button type="button" variant="outline" className="min-h-11" disabled={position === 0} onClick={() => edit((d) => movePart(d, partId, -1))}><ArrowUp aria-hidden="true" className="mr-2 size-4" />Move part {letter} up</Button>
             <Button type="button" variant="outline" className="min-h-11" disabled={position === section.parts.length - 1} onClick={() => edit((d) => movePart(d, partId, 1))}><ArrowDown aria-hidden="true" className="mr-2 size-4" />Move part {letter} down</Button>
           </div>}
+          {statementExtras}
+          <ExtraBlocksGroup
+            summary={multipart ? `More worked solution blocks for part ${letter}` : "More worked solution blocks"}
+            label={multipart ? `Part ${letter} more solution` : "More solution"}
+            scope="solution"
+            picture={false}
+            uploadsDisabled={provisional}
+            blocks={entry.solution}
+            update={(change) => edit((d) => setSolutionBlocks(d, partId, change(privateFor(d, partId).solution)))}
+          />
         </div>}
         answer={{
           boxOwns: owns,
