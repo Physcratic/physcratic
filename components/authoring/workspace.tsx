@@ -12,6 +12,7 @@ import {
   newProblem,
   type EditorDraft,
 } from "@/lib/problem-authoring-editor";
+import { AuthorCredit } from "./author-credit";
 import { ProblemEditor } from "./problem-editor";
 import { ensureSimpleShape, readStudioMode } from "./simple-model";
 
@@ -36,7 +37,9 @@ type DraftItem = {
   version: number;
   updatedAt: string;
 };
-export function AuthoringWorkspace({ userId, publicSolutionsEnabled=false }: { userId: string; publicSolutionsEnabled?: boolean }) {
+export function AuthoringWorkspace({
+  userId, publicSolutionsEnabled = false, authorCreditEnabled = false,
+}: { userId: string; publicSolutionsEnabled?: boolean; authorCreditEnabled?: boolean }) {
   const [items, setItems] = useState<DraftItem[]>([]),
     [cursor, setCursor] = useState<string | null>(null);
   const [selected, setSelected] = useState<EditorDraft | null>(null);
@@ -174,6 +177,7 @@ export function AuthoringWorkspace({ userId, publicSolutionsEnabled=false }: { u
             New problem
           </Button>
         </div>
+        {authorCreditEnabled && <AuthorCredit key={userId} userId={userId} />}
         <RecoverySection active={false}>
         <div className="space-y-2">
           <Button

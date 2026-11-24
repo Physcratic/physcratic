@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Independent pseudonymous author credit, Batch 1 (23 November 2026)
+
+Problem Studio records a separately acknowledged author-credit preference behind a default-OFF gate. 0023 adds nullable evidence with no backfill. The [engineering handoff](AUTHOR_CREDIT.md) covers the owner API, validation, and release requirements. Public projection and cache freshness belong to Batch 2.
+
 ## Solve page leftovers, U10 (23 November 2026)
 
 A 429 on a pending save now honours Retry-After. When the header is a positive number of seconds, the next retry timer waits the longer of the policy delay and Retry-After, capped at 120 seconds. A missing, zero, negative or non-numeric header changes nothing. `parseRetryAfter` and the optional `takeRetryAfter` host hook are in `lib/pending-save-retry.ts`. The panel reads the header from the save response before the body. The idempotency key, one attempt in flight, the 5 timer attempts and the no timer retry of a rejected save are unchanged.

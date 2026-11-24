@@ -125,3 +125,7 @@ If the former contest 0012 or branch-local contest 0014 was already applied, pre
 `0022_b1_profile_signup` requires Better Auth and 0007. It adds nullable signup fields and profile publication evidence without a backfill. An invoker-rights trigger claims a username inside the Better Auth user and credential transaction. Ordinary user inserts omit both fields and skip the trigger. Signup claims use the existing case-insensitive profile index and existing B1 table grants. Both new trigger functions deny PUBLIC execution.
 
 Installing this migration requires separate owner approval of the exact source, ledger, target, recovery evidence and bounded lock and statement timeouts. Keep profiles OFF. The down file is for an unused disposable schema and must run in a single transaction. It refuses to discard any signup claim, acknowledgement or deactivation. Roll back application exposure with the profiles-OFF deployment while retaining the schema and records.
+
+## Independent pseudonymous author credit (0023)
+
+`0023_author_credit` extends the 0007 profile table with nullable acknowledgement, version and withdrawal fields. Existing profiles start with empty credit evidence. Existing B1 runtime grants on profiles and profile limits cover those tables. Keep the new flag OFF until schema, permissions and disclosure receive separate approval. Run the guarded DOWN inside one transaction only on unused evidence. After use, keep the evidence and disable the flag. See [author credit engineering handoff](../docs/engineering/AUTHOR_CREDIT.md).
