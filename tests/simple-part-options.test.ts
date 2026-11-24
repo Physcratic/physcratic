@@ -85,16 +85,6 @@ test("More options opens by itself for hints, and not for the defaults", () => {
   assert.equal(optionsOpen(render(d)), true);
 });
 
-test("the Advanced part options render as before when the Simple props are not passed", () => {
-  const d = draft();
-  const part = allParts(d)[0].part;
-  const html = renderToStaticMarkup(React.createElement(PartOptions, { part, si: 0, pi: 0, entry: privateFor(d, part.id), hasPrivate: true, colour: 0, edit: () => {} }));
-  assert.match(html, /Answer key, hints and solution for part/);
-  assert.doesNotMatch(html, /<details[^>]*\sopen/);
-  assert.match(html, /Manual \/ ungraded/);
-  assert.match(html, /Worked solution/);
-});
-
 // S3b fixes. The marked set lives in localStorage, so these tests give it one.
 function withMarked<T>(d: EditorDraft, ids: string[], run: () => T): T {
   const store: Record<string, string> = { [`physcratic.studio.explain.v1:u:${d.problemId}`]: JSON.stringify(ids) };

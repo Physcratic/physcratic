@@ -320,12 +320,11 @@ try {
   const click = async (l) => { await l.click(); counts.clicks++; };
   const focusClick = async (l) => { await l.click(); counts.focusClicks++; };
   const typed = async (l, text, opts) => { await l.pressSequentially(text, opts); counts.typedFields++; counts.keys += text.length; };
-  // One editor: no Simple and Advanced toggle, and the only way to the old layout is the Classic editor link.
+  // One editor: no Simple and Advanced toggle and no link to another layout.
   assert.equal(await page.getByRole("group", { name: "Editor mode" }).count(), 0, "no mode toggle");
   assert.equal(await page.getByRole("button", { name: "Simple", exact: true }).count() + (await page.getByRole("button", { name: "Advanced", exact: true }).count()), 0, "no Simple or Advanced button");
-  assert.equal(await page.getByRole("button", { name: "Classic editor", exact: true }).count(), 1, "one Classic editor link");
-  assert.ok((await page.getByRole("button", { name: "Classic editor", exact: true }).boundingBox()).height >= 44, "the link is a 44px target");
-  assert.equal(await page.evaluate(() => localStorage.getItem("physcratic.studio.mode")), null, "nothing is written until the link is clicked");
+  assert.equal(await page.getByRole("button", { name: "Classic editor", exact: true }).count() + (await page.getByRole("button", { name: "Back to the new editor", exact: true }).count()), 0, "no link to another editor");
+  assert.equal(await page.evaluate(() => localStorage.getItem("physcratic.studio.mode")), null, "nothing is stored for a mode");
   assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).count(), 1, "one Publish button");
   assert.equal(await page.locator("select:visible").count(), 0, "no select on the page");
   for (const text of ["Main question (optional)", "What's the question?", "Add an image (optional)", "Worked solution (required)", "Final Answer (Solution)", "Answer preview", "Only you see this", "Where's it from?", "Difficulty rating", "Pick a topic so people can find it (optional)"])
@@ -438,7 +437,7 @@ try {
   await page.getByLabel("Difficulty rating", { exact: true }).fill("2310");
   await click(page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/));
   await saved(page);
-  // The confirm is shared with the Classic editor. Cancelling it publishes nothing and leaves Publish ready.
+  // Cancelling the confirm publishes nothing and leaves Publish ready.
   {
     const asked = [];
     page.removeAllListeners("dialog");
@@ -475,28 +474,17 @@ try {
   assert.deepEqual(key.variables.map((v) => v.name), ["m", "a"]);
   assert.equal(key.angleUnit, "radians");
 
-  // Switching modes loses nothing and saves nothing.
-  const before = (await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [id])).rows[0].version;
-  await page.getByRole("button", { name: "Classic editor", exact: true }).click();
-  assert.equal(await page.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "classic");
-  assert.equal(await page.getByLabel("Problem title", { exact: true }).inputValue(), "A Ball is Thrown Up");
-  assert.ok(await page.getByRole("button", { name: /Insert equation in Part a statement text 1/ }).count(), "Advanced text fields have the Equation button");
-  await page.getByRole("button", { name: "Back to the new editor", exact: true }).click();
-  assert.equal(await page.getByLabel("Title", { exact: true }).inputValue(), "A Ball is Thrown Up");
-  assert.equal(await question.locator("[data-math-id]").count(), 1);
-  await page.waitForTimeout(2500);
-  assert.equal((await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [id])).rows[0].version, before, "switching modes saves nothing");
-  assert.equal(await page.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "simple");
-  // A saved "advanced" from before this release is ignored. Only the Classic link writes the new value.
-  {
+  // A value saved for a mode by an earlier release, "classic" or "advanced", is ignored: the editor opens as the one editor and the value is not read or rewritten.
+  for (const stale of ["classic", "advanced", "simple"]) {
     const { context: old, page: oldPage } = await newPage(1440);
-    await old.addInitScript(() => localStorage.setItem("physcratic.studio.mode", "advanced"));
+    await old.addInitScript((value) => localStorage.setItem("physcratic.studio.mode", value), stale);
     await oldPage.goto(origin);
     // Studio opens on My drafts. New problem opens the blank editor.
     await oldPage.getByRole("button", { name: "New problem", exact: true }).click();
     await oldPage.getByLabel("Title", { exact: true }).waitFor();
-    assert.equal(await oldPage.getByRole("button", { name: "Classic editor", exact: true }).count(), 1, "an old saved advanced still opens the new editor");
-    assert.equal(await oldPage.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "advanced", "and it is not rewritten");
+    assert.equal(await oldPage.getByRole("textbox", { name: "What's the question?" }).count(), 1, `a stale "${stale}" opens the one editor`);
+    assert.equal(await oldPage.getByRole("button", { name: "Classic editor", exact: true }).count(), 0, `a stale "${stale}" shows no Classic link`);
+    assert.equal(await oldPage.evaluate(() => localStorage.getItem("physcratic.studio.mode")), stale, `a stale "${stale}" is not rewritten`);
     await old.close();
   }
 
@@ -848,44 +836,6 @@ try {
     for (const text of bodies) assert.ok(!/privateParts|absTol|relTol|"key"|"hints"|hints|Energy is conserved|Divide the length by the average speed/.test(text), "no answer key, hint or private worked solution of either part in a public response");
     await sctx.close();
     log("One editor, end to end: two parts, a described image, number answers with units, preview, publish, reload, student, no key in the public response.");
-  }
-
-  // ------------------------------------------------------------------ 6. The Classic editor round trip keeps what is only on screen
-  {
-    const { context: rctx, page: rp } = await newPage(1440);
-    await rp.goto(origin);
-    // Studio opens on My drafts. New problem opens the blank editor.
-    await rp.getByRole("button", { name: "New problem", exact: true }).click();
-    await rp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
-    const a = rp.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true });
-    const aq = a.getByRole("textbox", { name: "What's the question?" });
-    await aq.click();
-    await aq.pressSequentially("How fast does it go?");
-    await rp.waitForURL((url) => url.searchParams.has("draft"));
-    await saved(rp);
-    const field = await mathField(a.locator("[data-simple-field^='a:']"));
-    await field.click();
-    await rp.waitForTimeout(300);
-    await rp.keyboard.type("9.8e");
-    // The math editor, or the plain text box a fresh mount shows until the math editor has loaded.
-    const shown = () => a.locator("[data-simple-field^='a:']").first().evaluate((el) => [...el.querySelectorAll("math-field, input")].find((x) => x.offsetParent)?.value);
-    assert.equal(await shown(), "9.8e", "the text is in the box");
-    // Open More options, then go to the Classic editor and back.
-    const more = rp.locator("details[data-simple-field='o:problem']");
-    await more.locator("summary").click();
-    assert.equal(await more.evaluate((el) => el.open), true, "More options is open");
-    await saved(rp);
-    const version = (await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [draftId(rp)])).rows[0].version;
-    await rp.getByRole("button", { name: "Classic editor", exact: true }).click();
-    await rp.getByLabel("Problem title", { exact: true }).waitFor();
-    await rp.getByRole("button", { name: "Back to the new editor", exact: true }).click();
-    await rp.getByLabel("Title", { exact: true }).waitFor();
-    assert.equal(await shown(), "9.8e", "the typed text is still there after the round trip");
-    assert.equal(await rp.locator("details[data-simple-field='o:problem']").evaluate((el) => el.open), true, "More options is still open");
-    await rp.waitForTimeout(2500);
-    assert.equal((await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [draftId(rp)])).rows[0].version, version, "the round trip saves nothing");
-    await rctx.close();
-    log("Classic editor round trip: typed text and More options kept.");
   }
 
   // Pictures for the Learn guide. Only when GUIDE_SHOT_DIR is set. Light mode, 1280px wide, real editor and API.

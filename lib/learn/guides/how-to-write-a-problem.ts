@@ -34,8 +34,7 @@ export const howToWriteAProblem: ArticleDraft = {
     { type: "siteLink", href: "/dashboard?view=problems&collection=authored", label: "Browse published community problems" },
     { type: "image", src: `${dir}/studio-library.webp`, alt: "The problem library showing the topic buttons and a single Community card titled Forces on a cart with an Open problem button.", width: 1280, height: 1000, caption: "A published problem in the library." },
 
-    { type: "heading", level: 2, text: "More options and the Classic editor" },
-    { type: "paragraph", text: "More options, below the parts, holds what most problems do not need: extra sections, PDFs, method tags such as Newton’s laws and your own rights wording. For a while longer, a Classic editor link near the top opens the older layout, which also has hints, tolerances and conditions on symbols. Back to the new editor returns you. Switching keeps your draft, and each text box in the Classic editor has an Equation button too." },
-    { type: "image", src: `${dir}/studio-advanced.webp`, alt: "The Problem Studio Classic editor with the status bar showing Draft version 2, All changes saved and Ready to publish, and the Statement card open beside the Steps list.", width: 1280, height: 1000, caption: "The Classic editor keeps every setting." },
+    { type: "heading", level: 2, text: "More options" },
+    { type: "paragraph", text: "More options, below the parts and inside each part, holds what most problems do not need: extra sections, PDFs, method tags such as Newton’s laws, your own rights wording, hints, tolerances, conditions on symbols and extra text, equations and pictures in the question or the worked solution. Everything you save there is published with the problem." },
   ],
 };

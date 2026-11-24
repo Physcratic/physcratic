@@ -278,7 +278,6 @@ try {
     await publish(page);
     await page.getByText(simple, { exact: false }).first().waitFor();
     assert.equal(await page.getByText(server, { exact: false }).count(), 0, `${name}: the server's wording is not shown beside Simple's`);
-    assert.equal(await page.getByText("Fix it in the Classic editor.", { exact: false }).count(), 0, `${name}: no second line pointing to the Classic editor`);
     checks++;
     await context.close();
   }
