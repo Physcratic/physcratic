@@ -22,6 +22,7 @@ import {
 } from "@/lib/seo/problem-pages";
 import { isRetiredPracticeProblem } from "@/lib/legacy-practice";
 import { baseOpenGraph } from "@/lib/site";
+import { personalCompletionsEnabled } from "@/lib/personal-completions-route";
 
 import {communityModerationUiEnabled} from '@/lib/community/moderation-route';
 import {communityProblemStatsEnabled} from '@/lib/community/problem-stats-route';
@@ -68,6 +69,7 @@ export default async function PracticeProblemPage({ params }: Props) {
       <ProblemRoom backHref={archiveBackHref(page)}>
         {crumbs}
         <ArenaProblemReader
+          completionsEnabled={personalCompletionsEnabled()}
           moderationEnabled={communityModerationUiEnabled()}
           commentsEnabled={communityCommentsEnabled()}
           statsEnabled={communityProblemStatsEnabled()}

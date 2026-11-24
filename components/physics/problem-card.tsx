@@ -3,7 +3,7 @@
 import * as React from "react";
 import type { OlympiadHost } from "@/lib/olympiad-hosts"
 import Link from "next/link";
-import { ArrowUpRight, Heart } from "lucide-react";
+import { ArrowUpRight, Check, Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -56,6 +56,7 @@ export type ProblemCardProps = {
   elo?: number;
   /** The first statement figure of an Arena problem. With none, the card renders exactly as before. */
   image?: ProblemCardImage;
+  completed?: boolean;
   attribution?: React.ReactNode;
   /**
    * The favourite control. With none of these the card has no control and renders exactly as before, so callers
@@ -96,6 +97,7 @@ export function ProblemCard({
   tags,
   elo,
   image,
+  completed,
   attribution,
   likeCount,
   liked,
@@ -248,6 +250,9 @@ export function ProblemCard({
           )}
           {year !== undefined && <span>{year}</span>}
           {task && <span>{task}</span>}
+          {completed && <span data-personal-completion className="inline-flex items-center gap-1.5 font-medium text-success-ink">
+            <Check aria-hidden="true" className="size-4" />Completed
+          </span>}
         </p>
         <Heading
           id={titleId}

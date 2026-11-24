@@ -1,5 +1,21 @@
 # Agent handoff
 
+## Private personal completions, Phase 4 (24 November 2026)
+
+Reviewed the full feature and reconciled the landed attempted-status and external-medal changes. Personal completion moved to migration 0025 with identical SQL. Both private cursors protect their positions, and a returning account gets a fresh component read scope. The runtime audit checks the intended owner and rejects unexpected grantees. Keep the feature off pending exact-head CI and the owner evidence in the [release runbook](../../scripts/personal-completions/RELEASE.md).
+
+## Private personal completions, Phase 3 (24 November 2026)
+
+Local branch `claude/personal-completions` follows Phase 2 `08e8ba4`. The Arena collection orders filtered candidates before pagination using an owner-scoped snapshot and signed cursor. PR #245's attempted indicator uses separate progress data. [Cursor recovery, tests and release prerequisites](../../scripts/personal-completions/README.md).
+
+## Private personal completions, Phase 2 (24 November 2026)
+
+Local branch `claude/personal-completions`, based on `bd194ca` and Phase 1 `4dad963`. Both readers use the same confirmed completion control. Settings history and all completion client cache keys are account-scoped. Phase 3 requires separate authorization. Keep the flag off pending [release qualification](../../scripts/personal-completions/README.md).
+
+## Private personal completions, Phase 1 (24 November 2026)
+
+Base `bd194ca`. Migration 0025 adds the private marks and their isolated write limiter. The gated API handles per-problem status, owner history, and desired-state writes. The disposable 0018 rehearsal covers erasure, a concurrent mark, and another account's records. Keep the feature off pending release qualification. Phase 2 needs separate authorization. [Contracts and owner gates](../../scripts/personal-completions/README.md).
+
 ## External medal verification (24 November 2026)
 
 Read [product decisions](PRODUCT_DECISIONS.md) before making changes. Migration 0024 adds private operator-owned awards and audit plus the existing public badge projection contract. The [operator runbook](EXTERNAL_MEDALS.md) contains command, grant and activation details. The owner still needs to supply the Tally URL and separately approve activation.
