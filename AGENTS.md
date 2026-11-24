@@ -2,7 +2,7 @@
 
 **Production database mutations, deployments, purchases, plan changes and seat changes require explicit owner approval. The owner handles deployments manually.**
 
-Read `CLAUDE.md`, `CONTRIBUTING.md`, `docs/engineering/EXECUTION_ROADMAP.md` and `docs/engineering/AGENT_HANDOFF.md` before a batch. Verify code against the relevant guidebook rather than historical status prose.
+Read `CLAUDE.md`, `CONTRIBUTING.md`, `docs/engineering/EXECUTION_ROADMAP.md` and `docs/engineering/AGENT_HANDOFF.md` before a batch. Verify implementation against current repository state. Treat historical release notes as dated evidence.
 
 ## Product UX and copy (all user-facing work)
 
@@ -28,5 +28,5 @@ Read `docs/engineering/PRODUCT_DECISIONS.md` before implementation and update it
 - Production CSP remains report-only and NO-GO for enforcement, never before 9 November 2026 or automatically afterward. Keep coaching_inquiry. No marketplace or new rating/business model without approved requirements.
 - Do not read generated public/corpus, public/ipho or translation trees wholesale. Read precise relevant source files and tests only.
 - Verify focused regressions first, then `.github/workflows/ci.yml`: frozen install, offline guards, Next typegen + tsc, zero-warning lint, server/component tests, production build, applicable disposable PostgreSQL and browser tests. Use synthetic identities/storage, never live credentials or user data.
-- Review substantial/security-sensitive changes independently when available. Update roadmap and compact handoff with evidence, exact commit/PR, operator prerequisites and next batch. Follow any release-specific hold on sensitive changes. Stop after at most two substantial batches per context.
+- Review changes directly using code inspection, focused local tests and standard GitHub Actions. Never invoke Daybreak, external review agents or paid review services. Update the roadmap and compact handoff with evidence, the exact commit or PR, operator prerequisites and the next batch. Follow any release-specific hold on sensitive changes. Stop after at most two substantial batches per context.
 - Vercel automatic deployments are disabled. Push reviewed changes through a pull request and merge after exact-head CI passes. The owner decides when to deploy from main.

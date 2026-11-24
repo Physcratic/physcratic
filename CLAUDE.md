@@ -4,6 +4,7 @@
 
 Read `docs/engineering/PRODUCT_DECISIONS.md` before implementation and update it when the owner changes a product requirement. Current owner decisions supersede conflicting historical plans. Security invariants and Production approval boundaries still apply.
 - Main requires a pull request. Push a branch and merge reviewed changes only after GitHub CI passes on the exact head. Never push directly to main.
+- Use direct code review, focused local tests and standard GitHub Actions. Never invoke Daybreak, external review agents or paid review services.
 - Production database mutations, deployments, purchases, plan changes and seat changes require explicit owner approval.
 - Never run a build, dev server or tests in the main checkout. It has .env.local. Always use a clean worktree.
 - Never touch the Vercel, Neon, auth, email or Blob settings, any real database, `lib/db/schema.ts`, `migrations/` or `.env` files without explicit approval for that task.

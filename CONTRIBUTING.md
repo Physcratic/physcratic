@@ -9,6 +9,7 @@ This guide is for people and for AI tools (Claude Code, Codex, v0). Claude Code 
 3. One feature per PR. Small PRs get reviewed faster.
 4. Don't edit another area's paths without asking its owner. If your task seems to need them, stop and ask.
 5. Push reviewed changes through a pull request and merge after exact-head CI passes. The owner handles Vercel deployments manually.
+6. Use direct code review, focused local tests and standard GitHub Actions for verification. Never invoke Daybreak, external review agents or paid review services.
 
 ## Ownership
 
