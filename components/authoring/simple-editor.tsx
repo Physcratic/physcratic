@@ -140,7 +140,7 @@ export function SimpleEditor(props: SimpleProps) {
   const optionsIssue = shown("options:problem")?.message;
   const [moreOpen, setMoreOpen] = useState(() => problemOptionsHaveContent(draft) || fileFirst);
 
-  // A draft made in Advanced can have no part yet. Simple starts it with part a.
+  // A draft can have no part yet. Simple starts it with part a.
   const noParts = parts.length === 0;
   useEffect(() => {
     if (noParts && !locked) edit((d) => ensureSimpleShape(d));
@@ -848,7 +848,7 @@ function PartEditor({
           hideManualButton: true,
           onChosen: (mode) => onHandGraded(mode === "manual"),
           setMode: setSimpleAnswerMode,
-          // Simple text is 16px. Advanced keeps its own sizes.
+          // Simple text is 16px.
           bodyClass: SIMPLE_TEXT_SCOPE,
         }}
       />{optionsIssue && <ErrorLine id={`${base}-o-error`}>{optionsIssue}</ErrorLine>}</div>}

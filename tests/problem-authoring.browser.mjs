@@ -304,6 +304,7 @@ try {
   // The main question holds text, then an equation block in the shared setup, and later its picture.
   // An equation typed inside the question text is a chip that axe reports for its accessible name (label-content-name-mismatch), so
   // the equation is a block here. Reported in the Phase 1 notes as something the Classic-only suite was hiding.
+  // So axe in this suite does not cover the equation chip.
   await page.getByText("Optional typed statement and setup image", { exact: true }).click();
   const main = page.getByRole("textbox", { name: "Main question (optional)" });
   await main.click();
@@ -713,7 +714,7 @@ try {
   assert.deepEqual(
     finalContent,
     previousContent,
-    "all blocks, inline equations, IDs and ordering round-trip across recovery/conflict",
+    "all blocks, the equation block, IDs and ordering round-trip across recovery/conflict",
   );
   assert.deepEqual(
     ownerResult.privateParts,

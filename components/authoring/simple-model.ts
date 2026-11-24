@@ -1,5 +1,5 @@
 /**
- * Simple mode for Problem Studio: pure helpers that read and write the same saved draft as Advanced.
+ * Simple mode for Problem Studio: pure helpers that read and write the saved draft.
  * Nothing here adds a field to the draft or changes how it is validated, published or graded.
  * Every function that changes a draft only touches what Simple shows, and keeps the rest as it was.
  */
@@ -26,7 +26,7 @@ type Part = EditorDraft["content"]["sections"][number]["parts"][number];
 export const RIGHTS_TEXT =
   "I wrote this problem and I'm happy to share it on Physcratic.";
 
-/** The default tolerance of the Arena and practice checker for a number. Only Advanced can change it. */
+/** The default tolerance of the Arena and practice checker for a number. It is changed in the part's More options. */
 export const DEFAULT_ABS_TOL = 1e-9;
 export const DEFAULT_REL_TOL = 0.01;
 
@@ -66,7 +66,7 @@ export function textToSpans(text: string): Span[] {
 }
 const firstTextIndex = (blocks: readonly EditorBlock[]) => blocks.findIndex((b) => b.kind === "text");
 const firstImageIndex = (blocks: readonly EditorBlock[]) => blocks.findIndex((b) => b.kind === "image");
-/** The spans of the first text block. Other blocks (equations, images) are Advanced's or Simple's picture and are kept. */
+/** The spans of the first text block. Other blocks (equations, images) are Simple's picture or are edited in More options, and are kept. */
 export function blocksSpans(blocks: readonly EditorBlock[]): Span[] {
   const i = firstTextIndex(blocks);
   const block = i >= 0 ? blocks[i] : undefined;
@@ -267,7 +267,7 @@ function newPart(d: EditorDraft, position: number): Part {
   upsertPrivate(d, { partId: id, key: { kind: "manual" }, hints: [], solution: [] });
   return part;
 }
-/** A problem has one section and one part from the start. Further sections are Advanced. */
+/** A problem has one section and one part from the start. Further sections are added in More options. */
 export function ensureSimpleShape(d: EditorDraft) {
   if (d.content.sections.length === 0)
     d.content.sections.push({ id: crypto.randomUUID(), title: "", blocks: [], parts: [] });
@@ -285,7 +285,7 @@ export function addSection(d: EditorDraft) {
   if (d.content.sections.length >= 30 || allParts(d).length >= 50) return;
   d.content.sections.push({ id: crypto.randomUUID(), title: "", blocks: [], parts: [newPart(d, allParts(d).length)] });
 }
-/** Removes a section with its parts and their private answer content, like Advanced. */
+/** Removes a section with its parts and their private answer content. */
 export function removeSection(d: EditorDraft, sectionId: string) {
   const gone = new Set(d.content.sections.find((s) => s.id === sectionId)?.parts.map((p) => p.id));
   d.content.sections = d.content.sections.filter((s) => s.id !== sectionId);
@@ -332,11 +332,11 @@ export function setQuestion(d: EditorDraft, partId: string, spans: readonly Span
   ref.part.blocks = withBlocksSpans(ref.part.blocks, spans);
   if (refs[0].part.id === partId && (!d.content.title.trim() || d.content.title === before)) d.content.title = deriveTitle(spans);
 }
-/** The intro many Advanced drafts keep in the shared context. Simple shows it only when it has text. */
+/** The intro many older drafts keep in the shared context. Simple shows it only when it has text. */
 export function setIntro(d: EditorDraft, spans: readonly Span[]) {
   d.content.context = withBlocksSpans(d.content.context, spans);
 }
-/** The first image of the main question (the shared setup). More images belong to Advanced. */
+/** The first image of the main question (the shared setup). More images are edited in the shared setup. */
 export const contextPictureOf = (d: EditorDraft): Picture | null => pictureOf(d.content.context);
 export function addContextPicture(d: EditorDraft, mediaId: string) {
   if (d.content.context.some((b) => b.kind === "image")) return;
@@ -369,7 +369,7 @@ export function setSolution(d: EditorDraft, partId: string, spans: readonly Span
 }
 
 export type Picture = { blockId: string; mediaId: string; alt: string };
-/** The first picture of a part's question. More pictures belong to Advanced. */
+/** The first picture of a part's question. More pictures are edited in the part's More options. */
 export function pictureOf(blocks: readonly EditorBlock[]): Picture | null {
   const block = blocks.find((b): b is Extract<EditorBlock, { kind: "image" }> => b.kind === "image");
   return block ? { blockId: block.id, mediaId: block.mediaId, alt: block.alt } : null;
@@ -452,7 +452,7 @@ export const symbolLabels = (names: readonly string[]) => names.map(displayName)
 
 /**
  * Sets the answer of one part from the text the author typed. The answer type, the symbols and the tolerance
- * are decided here. Settings that only Advanced shows (limits, angle unit, exclusions, tolerance) are kept
+ * are decided here. Settings that only More options shows (limits, angle unit, exclusions, tolerance) are kept
  * when the answer stays the same kind.
  */
 export function applyAnswer(d: EditorDraft, partId: string, read: AnswerRead, text: string) {
@@ -552,7 +552,7 @@ export function unitHint(key: Key): string {
 // ---------------------------------------------------------------------------------------------------------------
 
 export type RightsState = "ticked" | "unticked" | "advanced";
-/** "advanced": the rights were set in Advanced (permission, or the author's own words). Simple leaves them. */
+/** "advanced": the rights were set in More options (permission, or the author's own words). Simple leaves them. */
 /** The tick box text when the problem is adapted from somewhere else. The saved rights declaration is exactly this. */
 export const ADAPTED_RIGHTS_TEXT = "I have permission to share this adapted problem on Physcratic.";
 
@@ -560,7 +560,7 @@ export type SourceState =
   | { choice: "wrote"; ticked: boolean }
   | { choice: "adapted"; ticked: boolean; source: string }
   | { choice: "advanced" };
-/** Where the problem is from, read from the saved provenance. A rights declaration written in Advanced is kept and not shown as a tick. */
+/** Where the problem is from, read from the saved provenance. A rights declaration written in More options is kept and not shown as a tick. */
 export function sourceState(d: EditorDraft): SourceState {
   const { kind, source, rightsDeclaration } = d.content.provenance;
   const own = kind === "original" ? RIGHTS_TEXT : ADAPTED_RIGHTS_TEXT;
@@ -591,7 +591,7 @@ export function setRights(d: EditorDraft, ticked: boolean) {
 
 /** The difficulty rating, from the stored string. Null when there is none or it is an older free-text label. */
 export const difficultyRating = (d: EditorDraft): number | null => parseRating(d.content.estimatedDifficulty ?? "");
-/** An older label written in Advanced that is not a rating. It is kept until the author picks a band or types a rating. */
+/** An older label that is not a rating. It is kept until the author picks a band or types a rating. */
 export const difficultyLabel = (d: EditorDraft): string => (difficultyRating(d) === null ? (d.content.estimatedDifficulty ?? "").trim() : "");
 /** Saves a rating. Empty text, or anything that is not a whole rating from 0 to 4000, clears it, so Publish stays blocked until a valid one is typed. Returns whether a rating was saved. */
 export function setDifficulty(d: EditorDraft, text: string): boolean {
@@ -655,7 +655,7 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
     const undescribed = (blocks: readonly EditorBlock[]) => blocks.some((b) => b.kind === "image" && !b.alt.trim());
     if (undescribed(entry.hints)) issues.push({ field: `options:${part.id}`, message: "Describe each image in the hints." });
     if (undescribed(entry.solution)) issues.push({ field: `options:${part.id}`, message: "Describe each image in the worked solution, in More options." });
-    // Simple asks for a worked solution. Advanced and older problems can still publish without one.
+    // Simple asks for a worked solution. Older problems can still publish without one.
     if (!fileFirst && neverPublished && !blocksSpans(entry.solution).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
       issues.push({ field: `solution:${part.id}`, message: "Add the worked solution." });
     const typed = part.id in reads ? reads[part.id] : answerText(entry.key);
@@ -664,7 +664,7 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
     if (fileFirst) {
       if (!keyOk) issues.push({ field: `answer:${part.id}`, message: "Complete this part's private answer configuration." });
     } else if (!boxOwnsAnswer(entry)) {
-      // A key from Advanced that the box cannot read is checked the way the server checks it.
+      // A key that the box cannot read is checked the way the server checks it.
       if (!keyOk) issues.push({ field: `answer:${part.id}`, message: "Complete the answer settings in More options." });
     } else if (read.kind === "empty") {
       // A part the author chose to hand-grade has no final answer and publishes as it is.

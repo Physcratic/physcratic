@@ -103,7 +103,7 @@ export function boxToSpans(box: HTMLElement): Span[] {
 /**
  * A text box where equations work like in a word processor. Press $ or Alt+=, or use the Equation button, and an
  * equation drops in at the cursor. It shows as rendered maths inside the text, and clicking it edits it.
- * It reads and writes the existing text and maths spans, so Advanced shows the same content.
+ * It reads and writes the existing text and maths spans, so every view shows the same content.
  */
 export function RichMathText({
   id,

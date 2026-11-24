@@ -57,7 +57,7 @@ const fileInfo = z.object({
   bytes: z.number().positive().max(authorMediaMaxBytes),
 });
 /**
- * The one upload used by Advanced's upload button and by Simple mode's picture box. It checks the size, sends the file
+ * The one upload used by every upload button and by the picture box. It checks the size, sends the file
  * to the private media route of this draft and checks the answer. `upload` returns null when it failed, and `error`
  * says why.
  */
