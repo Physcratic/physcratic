@@ -31,8 +31,69 @@ try{
  // The fixtures carry the author's rating 1200. A rating filter uses it, so none of them is unrated.
  await page.getByLabel('Difficulty',{exact:true}).selectOption('unrated');await page.getByText('No matching problems found.',{exact:true}).waitFor();
  await page.getByLabel('Difficulty',{exact:true}).selectOption('all');await page.locator('[data-problem-card^="authored:"]').first().waitFor();
- for(const width of [1440,375]){await page.setViewportSize({width,height:1000});await page.waitForTimeout(350);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);const axe=await new AxeBuilder({page}).analyze();assert.deepEqual(axe.violations,[]);await page.screenshot({path:join(temp,`arena-${width}.png`),fullPage:true});}
- await pool.query('UPDATE "user" SET "emailVerified"=false WHERE id=$1',[owner]);await page.getByRole('button',{name:'Refresh collection'}).click();await page.getByText('By Community author',{exact:true}).first().waitFor();assert.equal(await page.getByRole('link',{name:/^@u_/}).count(),0);
+ // Exercise the real cards with synthetic public medal data and an 80-character unbroken name.
+ const layoutEndpoint='**/api/arena/collection?*';
+ const layoutPage=await (await api(new Request('http://localhost/api/arena/collection?source=authored'))).json();
+ const [shortCard,longCard]=layoutPage.problems;
+ const medal={id:'medal:00000000-0000-4000-8000-000000000001',competition:'IPhO',award:'gold',year:2026,country:'ID',competitionName:''};
+ const national={...medal,id:'medal:00000000-0000-4000-8000-000000000002',competition:'National',award:'bronze',competitionName:'Indonesian Physics Olympiad'};
+ const longName='Long'.repeat(20);
+ shortCard.author={...shortCard.author,displayName:'Lina',selectedIds:[medal.id],medals:[medal]};
+ longCard.author={...longCard.author,displayName:longName,selectedIds:[national.id,medal.id],medals:[national,medal]};
+ await page.route(layoutEndpoint,route=>route.fulfill({json:{...layoutPage,problems:[shortCard,longCard],nextCursor:null}}));
+ await page.reload();
+ const short=page.locator(`[data-problem-card="${shortCard.key}"]`);
+ const long=page.locator(`[data-problem-card="${longCard.key}"]`);
+ const name=short.getByRole('link',{name:'Lina',exact:true});
+ const longLink=long.getByRole('link',{name:longName,exact:true});
+ const summary=short.getByLabel('Gold IPhO 2026: medal details');
+ const nationalSummary=long.getByLabel('Bronze National ID 2026: medal details');
+ await summary.waitFor();
+ assert.equal(await name.getAttribute('href'),'/u/'+shortCard.author.handle);
+ assert.deepEqual(await long.locator('summary').allTextContents(),['Bronze National ID 2026','Gold IPhO 2026']);
+ for(const theme of ['light','dark']) {
+  await page.evaluate(theme=>{
+   document.documentElement.classList.toggle('dark',theme==='dark');
+   document.documentElement.style.colorScheme=theme;
+  },theme);
+  for(const width of [1440,375,320]) {
+   await page.setViewportSize({width,height:1000});
+   const [author,badge]=await Promise.all([name.boundingBox(),summary.boundingBox()]);
+   assert.ok(badge.x>=author.x+author.width-1,`${theme} ${width}: badge follows the author on the same row`);
+   assert.ok(Math.abs(author.y+author.height/2-badge.y-badge.height/2)<=2,`${theme} ${width}: vertically centered`);
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+   const card=await long.boundingBox();
+   for(const control of [longLink,nationalSummary]) {
+    const box=await control.boundingBox();
+    assert.ok(box.x>=card.x&&box.x+box.width<=card.x+card.width,`${theme} ${width}: name and badge fit inside the card`);
+   }
+   if(width===320) {
+    assert.ok(await longLink.evaluate(link=>link.getClientRects().length>1),`${theme}: long name wraps`);
+    assert.ok(await longLink.evaluate(link=>{
+     const by=document.createRange();
+     by.selectNodeContents(link.previousSibling);
+     return Math.abs(by.getBoundingClientRect().y-link.getClientRects()[0].y)<=1;
+    }),`${theme}: attribution prefix stays with the name`);
+    const [wrappedName,wrappedBadge]=await Promise.all([longLink.boundingBox(),nationalSummary.boundingBox()]);
+    assert.ok(wrappedBadge.y>=wrappedName.y+wrappedName.height,`${theme}: badge wraps below the long name`);
+   }
+   // Measure contrast after theme and hover colours settle.
+   await page.evaluate(async()=>{
+    await new Promise(requestAnimationFrame);
+    await Promise.all(document.getAnimations()
+     .filter(animation=>Number.isFinite(animation.effect?.getComputedTiming().endTime))
+     .map(animation=>animation.finished.catch(()=>{})));
+   });
+   assert.deepEqual((await new AxeBuilder({page}).analyze()).violations,[],`${theme} ${width}: axe`);
+   await page.screenshot({path:join(temp,`arena-${theme}-${width}.png`),fullPage:true});
+  }
+ }
+ await nationalSummary.focus();await nationalSummary.press('Enter');
+ await long.getByText('Verified Bronze, Indonesian Physics Olympiad, 2026, ID. Certificate reviewed privately.',{exact:true}).waitFor();
+ await nationalSummary.click();
+ assert.equal(await nationalSummary.locator('..').getAttribute('open'),null);
+ await page.unroute(layoutEndpoint);
+ await pool.query('UPDATE "user" SET "emailVerified"=false WHERE id=$1',[owner]);await page.getByRole('button',{name:'Refresh collection'}).click();await page.getByText('By Community author',{exact:true}).first().waitFor();assert.equal(await page.getByRole('link',{name:/^@u_/}).count(),0);assert.equal(await page.getByLabel('Achievement showcase').count(),0);
  await page.getByLabel('Search',{exact:true}).fill('mind');await page.getByLabel('Difficulty',{exact:true}).selectOption('all');await page.locator('[data-problem-card="arena:arena-mind-the-gap"]').waitFor();assert.ok((await page.getByRole('link',{name:'Mind the Gap',exact:false}).first().getAttribute('href')).startsWith('/dashboard/problems/'));
- assert.deepEqual(errors,[]);console.log(JSON.stringify({result:'passed',views:2,artifacts:temp}));
+ assert.deepEqual(errors,[]);console.log(JSON.stringify({result:'passed',views:6,artifacts:temp}));
 }finally{await browser?.close();if(server)await new Promise(r=>server.close(r));await pool.end();await admin.query(`DROP SCHEMA IF EXISTS ${schema} CASCADE`);await admin.end();}

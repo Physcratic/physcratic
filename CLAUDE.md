@@ -3,8 +3,9 @@
 ## Working rules
 
 Read `docs/engineering/PRODUCT_DECISIONS.md` before implementation and update it when the owner changes a product requirement. Current owner decisions supersede conflicting historical plans. Security invariants and Production approval boundaries still apply.
-- main requires a pull request. Push a branch, open a PR, and wait for GitHub CI to pass. Never push to main directly or work around the rule.
-- Never buy anything, change a plan or seat, or redeploy a blocked commit on Vercel or any other service. Stop and ask the owner.
+- Main requires a pull request. Push a branch and merge reviewed changes only after GitHub CI passes on the exact head. Never push directly to main.
+- Use direct code review, focused local tests and standard GitHub Actions. Never invoke Daybreak, external review agents or paid review services.
+- Production database mutations, deployments, purchases, plan changes and seat changes require explicit owner approval.
 - Never run a build, dev server or tests in the main checkout. It has .env.local. Always use a clean worktree.
 - Never touch the Vercel, Neon, auth, email or Blob settings, any real database, `lib/db/schema.ts`, `migrations/` or `.env` files without explicit approval for that task.
 - Copy rules: no em dashes, en dashes or semicolons. Casual is fine. No aphorisms or slogans. CONTRIBUTING.md has the full list.
@@ -15,7 +16,7 @@ Read `docs/engineering/PRODUCT_DECISIONS.md` before implementation and update it
 Next.js 15.5 App Router, TypeScript, Tailwind, shadcn/ui (components/ui), Better Auth, Drizzle + Postgres, deployed on Vercel. Package manager: pnpm. Node 22.
 
 Read CONTRIBUTING.md before starting.
-- Deploy economy: every push to a branch and every merge to main starts a paid Vercel build. Finish and check work locally, then push once. Do not push merge-of-main commits unless GitHub reports a conflict, resolve handoff doc conflicts in one push, do not open docs-only PRs, and never trigger a Vercel redeploy.
+- Vercel automatic deployments are disabled. The owner handles deployment manually after merge.
 
 ## Commands
 - Unit tests: `pnpm test` (node:test via tsx over lib/*.test.ts). One file: `pnpm exec tsx --conditions=react-server --test lib/<name>.test.ts`
