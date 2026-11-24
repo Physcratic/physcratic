@@ -22,19 +22,6 @@ export type Key = EditorDraft["privateParts"][number]["key"];
 export type PrivatePart = EditorDraft["privateParts"][number];
 type Part = EditorDraft["content"]["sections"][number]["parts"][number];
 
-export const STUDIO_MODE_KEY = "physcratic.studio.mode";
-export type StudioMode = "simple" | "advanced";
-/** The value written only when an author clicks "Classic editor". An older "advanced" value is not it, so it never counts. */
-export const CLASSIC_MODE_VALUE = "classic";
-/** The new editor for everyone. Only an author who clicked "Classic editor" (this release only) gets the old Advanced layout. */
-export function readStudioMode(): StudioMode {
-  try {
-    return window.localStorage.getItem(STUDIO_MODE_KEY) === CLASSIC_MODE_VALUE ? "advanced" : "simple";
-  } catch {
-    return "simple";
-  }
-}
-
 /** The tick box text. The saved rights declaration is exactly this. */
 export const RIGHTS_TEXT =
   "I wrote this problem and I'm happy to share it on Physcratic.";
@@ -407,20 +394,6 @@ export function removePicture(d: EditorDraft, partId: string) {
   if (i >= 0) part.blocks = part.blocks.filter((_, j) => j !== i);
 }
 
-/** What Simple cannot show, so the author knows Advanced holds more. Plain words, or an empty string. */
-export function advancedNote(d: EditorDraft): string {
-  const found: string[] = [];
-  const sections = d.content.sections.length;
-  if (sections > 1) found.push(`${sections} sections`);
-  if (allParts(d).some((r) => privateFor(d, r.part.id).hints.length)) found.push("hints");
-  const pdfs = d.content.attachments.filter((a) => a.purpose.endsWith("pdf")).length;
-  if (pdfs) found.push(pdfs === 1 ? "a PDF" : `${pdfs} PDFs`);
-  if (d.content.methodTags.length) found.push("method tags");
-  // A rating is shown in Simple. An older free-text label is not, so it is still named.
-  if (d.content.estimatedDifficulty && parseRating(d.content.estimatedDifficulty) === null) found.push("a difficulty label");
-  return found.length ? `The Classic editor also has ${found.join(", ")}. We keep it and publish it with the rest.` : "";
-}
-
 // ---------------------------------------------------------------------------------------------------------------
 // Answers
 // ---------------------------------------------------------------------------------------------------------------
@@ -644,8 +617,8 @@ export const PROBLEM_MESSAGES = {
   source: "Say where it's from, in More options.",
   methodRepeated: "Each method tag can only be used once, in More options.",
   methodOther: "Check the method tags in More options. A problem can have up to 30, and each one can be up to 80 characters.",
-  topicRepeated: "A topic is listed twice. Switch the repeated topic off and on again, or remove it in the Classic editor.",
-  topicOther: "Check the topics. A problem can have up to 30, and each one can be up to 80 characters. You can fix them in the Classic editor.",
+  topicRepeated: "A topic is listed twice. Switch the repeated topic off and on again.",
+  topicOther: "Check the topics. A problem can have up to 30, and each one can be up to 80 characters.",
 } as const;
 /** The server's publish rules that Simple words and shows next to its own fields. Anything else is listed by the Publish button. */
 const SIMPLE_OWNED_RULES = /^(Title and rights provenance required|Add a statement and at least one part\. Use text, statement images or a statement PDF\.|Every published part requires a key or explicit manual mode|Add a difficulty rating from 0 to 4,000\.|Every image requires descriptive alternative text before publication)$/;

@@ -14,7 +14,7 @@ import {
 } from "@/lib/problem-authoring-editor";
 import { AuthorCredit } from "./author-credit";
 import { ProblemEditor } from "./problem-editor";
-import { ensureSimpleShape, readStudioMode } from "./simple-model";
+import { ensureSimpleShape } from "./simple-model";
 
 /** A new problem that lives only in this tab until the first edit saves it. */
 function blankDraft(): EditorDraft {
@@ -25,8 +25,8 @@ function blankDraft(): EditorDraft {
     slug: "",
     ...structuredClone(newProblem()),
   };
-  // Simple starts with its one part. Advanced starts empty, as it always did.
-  if (readStudioMode() === "simple") ensureSimpleShape(draft);
+  // The editor starts with its one part.
+  ensureSimpleShape(draft);
   return draft;
 }
 

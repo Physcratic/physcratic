@@ -13,7 +13,7 @@ import Image from "next/image";
 import { AuthoredPdf, StatementPdfs } from "@/components/authored/statement-pdfs";
 import useSWR from "swr";
 import { Button } from "@/components/ui/button";
-import { ErrorText, StepCard } from "./studio-ui";
+import { ErrorText } from "./studio-ui";
 import {
   authorMediaMaxBytes,
   authorMediaPath,
@@ -208,11 +208,9 @@ export function StatementPdfLinks({ ids }: { ids: string[] }) {
 export function MediaAttachments({
   draft,
   edit,
-  compact = false,
 }: {
   draft: EditorDraft;
   edit: (fn: (d: EditorDraft) => void) => void;
-  compact?: boolean;
 }) {
   const ctx = useContext(context);
   const { data: files = [], error: loadError, mutate } = useSWR<AuthorMediaInfo[]>(
@@ -288,5 +286,5 @@ export function MediaAttachments({
       {loadError && <div role="alert"><ErrorText>Could not load attachment names. Your attachments are retained. Reload to retry.</ErrorText></div>}
 
     </>;
-  return compact ? <section aria-label="Problem PDFs" className="space-y-4">{body}</section> : <StepCard id="author-assets" step={4} title="Images and optional PDFs">{body}</StepCard>;
+  return <section aria-label="Problem PDFs" className="space-y-4">{body}</section>;
 }

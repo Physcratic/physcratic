@@ -3,7 +3,7 @@
 import assert from "node:assert/strict";
 
 const newProblem = (page) => page.getByRole("button", { name: "New problem", exact: true });
-const editorMarks = (page) => [page.getByRole("button", { name: "Classic editor", exact: true }), page.getByRole("textbox", { name: "What's the question?" }).first()];
+const editorMarks = (page) => [page.getByRole("button", { name: "Save now", exact: true }), page.getByRole("textbox", { name: "What's the question?" }).first()];
 
 async function author(browser, origin, pool, id, width = 1440) {
   await pool.query('INSERT INTO "user"(id) VALUES($1) ON CONFLICT DO NOTHING', [id]);
@@ -58,7 +58,7 @@ export async function runStudioLandingBrowser({ browser, origin, pool }) {
     await page.unroute((url) => url.pathname === "/api/authored-problems/drafts");
     // 2. New problem opens a blank editor with nothing to continue, and back returns to the list.
     await newProblem(page).click();
-    await page.getByRole("button", { name: "Classic editor", exact: true }).waitFor();
+    await page.getByRole("button", { name: "Save now", exact: true }).waitFor();
     assert.equal(await page.locator("#simple-title").inputValue(), "", "the editor is blank");
     assert.equal(await page.getByRole("button", { name: /^Continue your last draft/ }).count(), 0);
     await page.getByRole("button", { name: "Back to drafts", exact: true }).click();
@@ -89,7 +89,7 @@ export async function runStudioLandingBrowser({ browser, origin, pool }) {
     assert.equal(await page.getByText("No drafts yet", { exact: true }).count(), 0, "no empty state when there are drafts");
     // New problem: blank, and the last draft is offered.
     await newProblem(page).click();
-    await page.getByRole("button", { name: "Classic editor", exact: true }).waitFor();
+    await page.getByRole("button", { name: "Save now", exact: true }).waitFor();
     assert.equal(await page.locator("#simple-title").inputValue(), "", "New problem is blank, not the last draft");
     // The last edited draft is the one it offers.
     await page.getByRole("button", { name: /^Continue your last draft: Landing Two$/ }).waitFor();

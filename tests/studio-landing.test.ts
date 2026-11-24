@@ -16,7 +16,7 @@ test("Problem Studio opens on My drafts: the first paint is the list, not an edi
   assert.match(html, /New problem/);
   assert.match(html, /Loading your drafts/);
   // None of the editor is on the page before a draft is opened or New problem is pressed.
-  for (const editorOnly of ["Classic editor", "What&#x27;s the question?", "Back to drafts", "Student preview", "id=\"simple-title\""]) assert.equal(html.includes(editorOnly), false, editorOnly);
+  for (const editorOnly of ["Save now", "What&#x27;s the question?", "Back to drafts", "Student preview", "id=\"simple-title\""]) assert.equal(html.includes(editorOnly), false, editorOnly);
 });
 
 test("New problem is a button of the shared 44px size, and the list is the page's one main area", () => {
