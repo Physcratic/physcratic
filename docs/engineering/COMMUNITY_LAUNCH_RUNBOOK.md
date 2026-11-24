@@ -10,7 +10,7 @@ Batch 5B and security remediation S1 are **code readiness only**. Deployment is 
 
 See [Phase 6A evidence and operator checklist](COMMUNITY_RELEASE_READINESS.md) for VERIFIED/BLOCKED/UNKNOWN status and the approval boundary.
 
-## Current launch decision: NO-GO
+## Current discussion launch decision: NO-GO
 
 The original `communityCommentsEnabled` production lock remains unchanged. Production discussions cannot be activated by setting flags, including when every community flag is true. A separate explicit user-approved launch decision and reviewed code change are required to replace that lock. There is no activation endpoint, implicit date or automatic rollout. Keep discussion flags OFF. The UI gate below does not release the production lock.
 
@@ -41,8 +41,9 @@ Verify no inherited/default grants confer ownership, schema CREATE, operator rol
 
 ## Storage and external prerequisites
 
+The owner reviews medal evidence in Tally. Use [external medal operations](EXTERNAL_MEDALS.md) for 0024 prerequisites, grants and rollout. The integrated certificate flags below are retained for historical context and stay OFF.
+
 - Profiles with media require the existing private `COMMUNITY_PROFILE_BLOB_STORE_ID`, `community-profile-media/<uuid>.webp` namespace, approved OIDC trust and private proxy authorization. Use the existing upload limits, cleanup/retry state and raster validation; never change bucket visibility.
-- Medals require the separate private `COMMUNITY_MEDAL_BLOB_STORE_ID`, `community-medal-proof/<uuid>.pdf` namespace and approved OIDC trust. Validate size/bytes, quotas, failed-upload cleanup, current admin checks and own-claim download/review denial. Moderator status alone never permits certificate access. Do not copy proofs into reports, exports, evidence or logs.
 - Reporting/moderation stores plain text in PostgreSQL; it introduces no media bucket, third-party content service or URL fetch. Existing Better Auth verified sessions, origin checks and trusted-edge IP/HMAC secret assumptions remain prerequisites. Unknown IPs share a conservative bucket; do not weaken trusted-header checks to avoid limits.
 - Synthetic local storage/browser fixtures do not establish real-provider readiness. The user must separately verify their paid-seat deployment and approved private-store bindings without exposing credentials or user data.
 
@@ -57,9 +58,10 @@ All gates default OFF. No flag was changed externally by this batch.
 | COMMUNITY_PROFILE_MEDIA_ENABLED | Profiles plus 0008/private image storage |
 | COMMUNITY_ACHIEVEMENTS_ENABLED | Profiles plus 0009; optional medals below |
 | COMMUNITY_STAFF_ENABLED | 0010 audited staff authorization; required by moderation and medals |
-| COMMUNITY_MEDALS_ENABLED | Staff plus 0010/private PDF storage |
-| COMMUNITY_VERIFICATION_UI_ENABLED | Medals + staff; private verification UI |
-| COMMUNITY_MEDAL_SHOWCASE_ENABLED | Profiles/achievements/medals/staff + 0011 |
+| COMMUNITY_MEDALS_ENABLED | Historical internal PDF claims. Keep OFF |
+| COMMUNITY_VERIFICATION_UI_ENABLED | Historical internal verification and review UI. Keep OFF |
+| COMMUNITY_MEDAL_SHOWCASE_ENABLED | Historical internal medal showcase. Keep OFF |
+| COMMUNITY_EXTERNAL_MEDALS_ENABLED | Profiles and 0024. Optional valid `COMMUNITY_MEDAL_TALLY_URL` exposes the request link |
 | COMMUNITY_PROBLEM_STATS_ENABLED | 0012; static verified solves remain unavailable |
 | COMMUNITY_MODERATION_ENABLED | Staff + 0014, private reports/appeals/staff APIs |
 | COMMUNITY_MODERATION_UI_ENABLED | Moderation + staff, dashboard/report/appeal/history UI |
