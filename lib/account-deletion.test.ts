@@ -6,6 +6,8 @@ import {Pool} from 'pg';
 import {createAccountDeletionRoute,accountDeletionEnabled} from './account-deletion/route';
 import {createAccountDeletionApi} from './account-deletion/api';
 import {createDeletionOperatorApi} from './account-deletion/operator';
+import {createAuthorCreditApi} from './author-credit-api';
+import {AUTHOR_CREDIT_POLICY_VERSION,authorCreditStatusSchema} from './author-credit-contracts';
 const url=process.env.AUTHORING_TEST_DATABASE_URL;
 const token=()=>randomUUID().replaceAll('-','')+randomUUID().replaceAll('-','');
 const nonce=(value:string)=>createHash('sha256').update(value).digest('hex');
@@ -61,7 +63,15 @@ test('complete account erasure on actual auth and installed graph, disposable PG
     const inspection=(await readFile('scripts/public-solutions-release/'+file,'utf8')).replaceAll('public.',name+'.').replaceAll(":'runtime_role'","'"+ordinary+"'");
     await setup.query(inspection);
   }
+  await setup.query((await readFile('migrations/0023_author_credit.up.sql','utf8')).replaceAll('public.',name+'.'));
+  await setup.query(`GRANT SELECT,INSERT,UPDATE ON community_profile,community_profile_write_limit TO ${ordinary}`);
   auth=buildAuth(normal);
+  const credit=createAuthorCreditApi({pool:normal,origin:req=>req.headers.get('origin')===origin,
+    user:async req=>(await auth.api.getSession({headers:req.headers}))?.user});
+  const creditRequest=(cookie:string,screenAccount:string,body:unknown)=>new Request(origin+'/api/authored-problems/author-credit',{
+    method:'PATCH',headers:{origin,cookie,'content-type':'application/json','x-community-account':screenAccount},
+    body:JSON.stringify(body),
+  });
   await setup.query(`INSERT INTO account_deletion_policy VALUES(true,true,'Synthetic test purpose','Synthetic operator legal approval','Synthetic responsible operator','Synthetic restricted staff access','Synthetic review criteria','Synthetic disposal criteria',interval '1 hour',interval '1 day',interval '1 hour',interval '1 day','TEST-ONLY-NOT-A-PRODUCTION-APPROVAL',clock_timestamp())`);
   const calls=async(path:string,body:unknown,cookie?:string)=>auth.handler(new Request(origin+'/api/auth'+path,{method:'POST',headers:{origin,'content-type':'application/json',...(cookie?{cookie}:{})},body:JSON.stringify(body)}));
   const cookieAccounts=new Map<string,string>();
@@ -104,6 +114,15 @@ test('complete account erasure on actual auth and installed graph, disposable PG
    assert.deepEqual(await counts(a.id),{users:1,credentials:1,sessions:0});
    assert.equal((await setup.query('SELECT count(*)::int AS n FROM account_deletion_request WHERE user_id=$1',[a.id])).rows[0].n,0);
   });
+  await t.test('expired and account-switched signed sessions cannot claim credit or charge quota',async()=>{
+   const a=await user('credit-session-a'),b=await user('credit-session-b');
+   const claim={action:'claim',handle:'session_author'};
+   assert.equal((await credit(creditRequest(b.cookie,a.id,claim))).status,409);
+   await setup.query(`UPDATE session SET "expiresAt"=now()-interval '1 second' WHERE "userId"=$1`,[a.id]);
+   assert.equal((await credit(creditRequest(a.cookie,a.id,claim))).status,401);
+   for(const table of ['community_profile','community_profile_write_limit'])
+    assert.equal((await setup.query(`SELECT count(*)::int AS n FROM ${table} WHERE user_id=ANY($1)`,[[a.id,b.id]])).rows[0].n,0);
+  });
   await t.test('fresh signed session, confirmation and current password erase auth atomically and replay without auth',async()=>{
    const a=await user('basic-a'),b=await user('basic-b');const recovery=token();const beforeB=await counts(b.id);
    assert.equal((await api(request(b.cookie,{confirmation:'DELETE MY ACCOUNT',password:b.password,requestToken:token()},a.id))).status,409);assert.deepEqual(await counts(b.id),beforeB);assert.equal((await setup.query('SELECT count(*)::int AS n FROM account_deletion_rate WHERE user_id=$1',[b.id])).rows[0].n,0);
@@ -123,11 +142,28 @@ test('complete account erasure on actual auth and installed graph, disposable PG
    const mediaId=randomUUID(),path='author-media/'+a.id+'/'+mediaId+'.png';await setup.query("INSERT INTO author_media(id,problem_id,purpose,pathname,filename,media_type,bytes,sha256,state) VALUES($1,$2,'statement-image',$3,'private.png','image/png',1,$4,'ready')",[mediaId,privateId,path,'a'.repeat(64)]);
    const beforeOther=(await setup.query('SELECT to_jsonb(t) AS row FROM authored_attempt t WHERE user_id=$1 ORDER BY id',[b.id])).rows;
    const publicOwned=await publication(a,true);
+   const writeCredit=async(body:unknown)=>{
+    const res=await credit(creditRequest(a.cookie,a.id,body));
+    assert.equal(res.status,200,await res.clone().text());
+    return authorCreditStatusSchema.parse(await res.json());
+   };
+   const handle='erased_author';
+   const claimed=await writeCredit({action:'claim',handle});
+   assert.equal(claimed.credit,'inactive');
+   const agree=(revision:string|null)=>writeCredit({action:'acknowledge',handle,policyVersion:AUTHOR_CREDIT_POLICY_VERSION,revision});
+   const active=await agree(claimed.revision);
+   const inactive=await writeCredit({action:'withdraw',revision:active.revision});
+   assert.equal(inactive.credit,'inactive');
+   assert.deepEqual((await setup.query('SELECT state,published_revision_id FROM authored_problem WHERE id=$1',[owned.problemId])).rows[0],
+    {state:'published',published_revision_id:owned.revision.id});
+   assert.equal((await agree(inactive.revision)).credit,'active');
    const response=await deleted(a);assert.equal(response.status,200,await response.clone().text());const receipt=await response.json();assert.equal(receipt.state,'database-erased-cleanup-pending');assert.equal(receipt.pendingObjects,1);
    assert.equal((await setup.query('SELECT count(*)::int AS n FROM authored_attempt WHERE user_id=$1',[a.id])).rows[0].n,0);assert.equal((await setup.query('SELECT count(*)::int AS n FROM practice_check_attempt WHERE user_id=$1',[a.id])).rows[0].n,0);
    assert.equal((await setup.query('SELECT count(*)::int AS n FROM authored_draft WHERE problem_id=ANY($1)',[[owned.problemId,uncertain.problemId,privateId]])).rows[0].n,0);
    assert.equal((await setup.query('SELECT count(*)::int AS n FROM authored_problem WHERE id=$1',[privateId])).rows[0].n,0);assert.deepEqual((await setup.query('SELECT to_jsonb(t) AS row FROM authored_attempt t WHERE user_id=$1 ORDER BY id',[b.id])).rows,beforeOther);
    const publicRead=createProblemAuthoringApi({pool:setup,user:async()=>null,origin:()=>true});assert.equal((await publicRead('public',new Request(origin),owned.problemId)).status,200);assert.equal((await publicRead('public',new Request(origin),uncertain.problemId)).status,404);
+   assert.equal((await setup.query('SELECT count(*)::int AS n FROM community_profile WHERE user_id=$1',[a.id])).rows[0].n,0);
+   assert.equal((await credit(creditRequest(a.cookie,a.id,{action:'claim',handle}))).status,401);
    const attribution=await createAuthoredAttributionApi(setup,()=>false)({problemId:owned.problemId,revisionId:owned.revision.id});assert.equal(attribution.status,200);assert.equal((await attribution.json()).author.displayName,'Deleted user');
    assert.equal((await setup.query('SELECT count(*)::int AS n FROM authored_revision_private_part WHERE revision_id=$1',[owned.revision.id])).rows[0].n,1);
    assert.equal((await setup.query('SELECT count(*)::int AS n FROM authored_solution_reveal WHERE user_id=$1',[a.id])).rows[0].n,0);assert.equal((await setup.query('SELECT count(*)::int AS n FROM authored_solution_reveal WHERE user_id=$1',[b.id])).rows[0].n,1);assert.equal((await setup.query('SELECT approved_by FROM authored_solution_permission WHERE authorization_id=$1',[ownAuthorization])).rows[0].approved_by,'__physcratic_deleted_principal_v1__');

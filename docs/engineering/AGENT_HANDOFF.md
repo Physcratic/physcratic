@@ -6,6 +6,10 @@ The solve page, the Arena page and the Progress page now keep colour for state o
 
 Measured on 10 states at 390 and 1280, light and dark, with the real components, the coloured area of the first screen fell from up to 51 percent to under 10 percent, and no state shows more than 2 non-neutral hue families. No text pair is under 4.5:1. `partToken`, `partTokenClasses`, `partTokenNames` and the part colour tokens in `app/globals.css` are kept but unused by app code. `partStyle` is a no-op and `partBorder` is empty, kept so the authored and Studio callers compile unchanged. The guest contrast sweep was not run here and is an owner check.
 
+## Independent pseudonymous author credit, Batch 1 (23 November 2026)
+
+Problem Studio records a separately acknowledged author-credit preference behind a default-OFF gate. 0023 adds nullable evidence with no backfill. The [engineering handoff](AUTHOR_CREDIT.md) covers the owner API, validation, and release requirements. Public projection and cache freshness belong to Batch 2.
+
 ## Solve page leftovers, U10 (23 November 2026)
 
 A 429 on a pending save now honours Retry-After. When the header is a positive number of seconds, the next retry timer waits the longer of the policy delay and Retry-After, capped at 120 seconds. A missing, zero, negative or non-numeric header changes nothing. `parseRetryAfter` and the optional `takeRetryAfter` host hook are in `lib/pending-save-retry.ts`. The panel reads the header from the save response before the body. The idempotency key, one attempt in flight, the 5 timer attempts and the no timer retry of a rejected save are unchanged.
