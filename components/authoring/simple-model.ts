@@ -106,18 +106,18 @@ const hiddenBlocks = (blocks: readonly EditorBlock[]) => {
 };
 
 /**
- * The shared setup blocks Simple's main question does not show. The main question owns the first text block and the first picture,
- * and whatever sits between and around them stays where it is. This is the same split as `hiddenBlocks` counts.
+ * The blocks Simple's own fields do not show. A question owns its first text block and its first picture, and a worked solution owns its
+ * first text block only (`picture` is false). Whatever sits between and around them stays where it is. This is the same split as `hiddenBlocks` counts.
  */
-const mainQuestionSlots = (blocks: readonly EditorBlock[]) => new Set([firstTextIndex(blocks), firstImageIndex(blocks)].filter((i) => i >= 0));
-export function sharedSetupBlocks(blocks: readonly EditorBlock[]): EditorBlock[] {
-  const mine = mainQuestionSlots(blocks);
+const ownSlots = (blocks: readonly EditorBlock[], picture: boolean) => new Set([firstTextIndex(blocks), picture ? firstImageIndex(blocks) : -1].filter((i) => i >= 0));
+export function extraBlocks(blocks: readonly EditorBlock[], picture = true): EditorBlock[] {
+  const mine = ownSlots(blocks, picture);
   return blocks.filter((_, i) => !mine.has(i));
 }
-/** Puts an edited list of shared setup blocks back. The main question's blocks keep their place, and nothing outside the list is dropped or reordered. */
-export function withSharedSetupBlocks(blocks: readonly EditorBlock[], shown: readonly EditorBlock[]): EditorBlock[] {
-  const mine = mainQuestionSlots(blocks);
-  // With no main question text yet, a text block added here would turn into it and leave the list. An empty one takes that place first.
+/** Puts an edited list of extra blocks back. Simple's own blocks keep their place, and nothing outside the list is dropped or reordered. */
+export function withExtraBlocks(blocks: readonly EditorBlock[], shown: readonly EditorBlock[], picture = true): EditorBlock[] {
+  const mine = ownSlots(blocks, picture);
+  // With no text yet, a text block added here would turn into the field's own text and leave the list. An empty one takes that place first.
   const lead: EditorBlock[] = firstTextIndex(blocks) < 0 && shown.some((b) => b.kind === "text") ? [{ id: crypto.randomUUID(), kind: "text", spans: [{ kind: "text", text: "" }] }] : [];
   const out: EditorBlock[] = [];
   let next = 0;
@@ -126,6 +126,20 @@ export function withSharedSetupBlocks(blocks: readonly EditorBlock[], shown: rea
     else if (next < shown.length) out.push(shown[next++]);
   });
   return [...lead, ...out, ...shown.slice(next)];
+}
+/** The shared setup is the extra blocks of the main question. */
+export const sharedSetupBlocks = (blocks: readonly EditorBlock[]): EditorBlock[] => extraBlocks(blocks, true);
+export const withSharedSetupBlocks = (blocks: readonly EditorBlock[], shown: readonly EditorBlock[]): EditorBlock[] => withExtraBlocks(blocks, shown, true);
+
+/** The caption of the first picture, which Simple's picture box shows. */
+export function captionOf(blocks: readonly EditorBlock[]): string {
+  const block = blocks.find((b): b is Extract<EditorBlock, { kind: "image" }> => b.kind === "image");
+  return block ? block.caption : "";
+}
+/** Sets the caption of the first picture and leaves every other block as it is. */
+export function withFirstCaption(blocks: readonly EditorBlock[], caption: string): EditorBlock[] {
+  const i = firstImageIndex(blocks);
+  return blocks.map((b, j) => (j === i && b.kind === "image" ? { ...b, caption } : b));
 }
 
 /** The first words of a question as a title: up to five words, title case, no equations. */
@@ -274,6 +288,17 @@ export function removeContextPicture(d: EditorDraft) {
   const i = firstImageIndex(d.content.context);
   if (i >= 0) d.content.context = d.content.context.filter((_, j) => j !== i);
 }
+/** Replaces all blocks of a question, for the blocks Simple's own fields do not show. */
+export function setQuestionBlocks(d: EditorDraft, partId: string, blocks: EditorBlock[]) {
+  const part = allParts(d).find((r) => r.part.id === partId)?.part;
+  if (part) part.blocks = blocks;
+}
+/** Replaces all blocks of a worked solution. */
+export function setSolutionBlocks(d: EditorDraft, partId: string, blocks: EditorBlock[]) {
+  const entry = structuredClone(privateFor(d, partId));
+  entry.solution = blocks;
+  upsertPrivate(d, entry);
+}
 export function setSolution(d: EditorDraft, partId: string, spans: readonly Span[]) {
   const entry = structuredClone(privateFor(d, partId));
   entry.solution = withBlocksSpans(entry.solution, spans);
@@ -317,14 +342,6 @@ export function advancedNote(d: EditorDraft): string {
   if (d.content.methodTags.length) found.push("method tags");
   // A rating is shown in Simple. An older free-text label is not, so it is still named.
   if (d.content.estimatedDifficulty && parseRating(d.content.estimatedDifficulty) === null) found.push("a difficulty label");
-  let extra = hiddenBlocks(d.content.context);
-  for (const s of d.content.sections) extra += s.blocks.length + (s.title ? 1 : 0);
-  for (const r of allParts(d)) {
-    extra += hiddenBlocks(r.part.blocks);
-    const solution = privateFor(d, r.part.id).solution;
-    extra += Math.max(0, solution.length - (firstTextIndex(solution) >= 0 ? 1 : 0));
-  }
-  if (extra) found.push("more blocks");
   return found.length ? `The Classic editor also has ${found.join(", ")}. We keep it and publish it with the rest.` : "";
 }
 
@@ -579,14 +596,16 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
   const neverPublished = d.state === "draft";
   for (const { part } of parts) {
     const pictures = part.blocks.filter((b) => b.kind === "image");
-    // Simple shows the first picture of a part. A later one is described in Advanced, and the message says so.
-    if (pictures.some((b) => !b.alt.trim()))
-      issues.push({ field: `picture:${part.id}`, message: pictures[0].alt.trim() ? "Describe each image. You can do that in the Classic editor." : "Describe the image so everyone can follow it." });
+    // Simple shows the first picture of a part in its picture box. A later one is described in the part's More options.
+    if (pictures.some((b) => !b.alt.trim())) {
+      if (!pictures[0].alt.trim()) issues.push({ field: `picture:${part.id}`, message: "Describe the image so everyone can follow it." });
+      else issues.push({ field: fileFirst ? `picture:${part.id}` : `options:${part.id}`, message: fileFirst ? "Describe each image above." : "Describe each image, in More options." });
+    }
     const entry = privateFor(d, part.id);
     // The server also wants a description for every image in the hints and the worked solution.
     const undescribed = (blocks: readonly EditorBlock[]) => blocks.some((b) => b.kind === "image" && !b.alt.trim());
     if (undescribed(entry.hints)) issues.push({ field: `options:${part.id}`, message: "Describe each image in the hints." });
-    if (undescribed(entry.solution)) issues.push({ field: `options:${part.id}`, message: "Describe each image in the worked solution. You can do that in the Classic editor." });
+    if (undescribed(entry.solution)) issues.push({ field: `options:${part.id}`, message: "Describe each image in the worked solution, in More options." });
     // Simple asks for a worked solution. Advanced and older problems can still publish without one.
     if (!fileFirst && neverPublished && !blocksSpans(entry.solution).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
       issues.push({ field: `solution:${part.id}`, message: "Add the worked solution." });

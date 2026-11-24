@@ -36,8 +36,10 @@ try {
   browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, headless: true, args: ["--no-sandbox"] });
   let checks = 0;
   const errors = [];
-  async function open(state = "draft", { fixture = "", width = 1000, extra = "" } = {}) {
+  async function open(state = "draft", { fixture = "", width = 1000, extra = "", session = null } = {}) {
     const context = await browser.newContext({ viewport: { width, height: 1200 } });
+    // A problem with a picture opens in the files view. This keeps the text view.
+    if (session) await context.addInitScript(([k, v]) => sessionStorage.setItem(k, v), session);
     const page = await context.newPage();
     const dialogs = [];
     page.on("pageerror", (e) => { errors.push(e.message); if (process.env.DEBUG_ERRORS) console.error(e.message.slice(0, 300)); });
@@ -317,6 +319,124 @@ try {
       });
       for (const [name, value] of rows) assert.ok(value >= 4.5, `${theme}: ${name} is ${value}:1`);
     }
+    checks++;
+    await context.close();
+  }
+  // 12. Every block type can be edited in Simple at 390px, in the groups under More options, and opening and closing them changes nothing.
+  {
+    const { context, page } = await open("draft", { width: 390, extra: "&blocks=1", session: ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"] });
+    const draftNow = () => page.evaluate(() => structuredClone({ content: window.__draft.content, privateParts: window.__draft.privateParts }));
+    const untouched = await draftNow();
+    const kinds = (blocks) => blocks.map((b) => b.kind);
+    const group = (name) => page.locator("details", { has: page.locator("summary", { hasText: name }) }).last();
+    const closed = async (name) => (await group(name).evaluate((el) => el.open)) === false;
+    // The part's More options hold the groups. They are closed until opened, and each one is named for its part.
+    await page.locator('summary[aria-label="More options for part a"]').click();
+    assert.equal(await closed("More question blocks for part a"), true, "the question group starts closed");
+    assert.equal(await closed("More worked solution blocks for part a"), true, "the solution group starts closed");
+    const labels = await page.locator("summary").evaluateAll((all) => all.map((el) => el.textContent.trim()).filter((t) => t.startsWith("More options")));
+    assert.equal(new Set(labels).size, labels.length, `no two More options labels are the same: ${labels.join(" | ")}`);
+    await page.getByText("More question blocks for part a (3)", { exact: true }).waitFor();
+    await page.getByText("More worked solution blocks for part a (3)", { exact: true }).waitFor();
+    await group("More question blocks for part a").locator("summary").click();
+    await group("More worked solution blocks for part a").locator("summary").click();
+    await page.getByText("More question blocks for part a (3)", { exact: true }).click();
+    await page.getByText("More question blocks for part a (3)", { exact: true }).click();
+    assert.deepEqual(await draftNow(), untouched, "opening and closing the groups changes no block");
+    const question = group("More question blocks for part a");
+    const solution = group("More worked solution blocks for part a");
+    const partA = () => page.evaluate(() => window.__draft.content.sections[0].parts[0].blocks);
+    const before = await partA();
+    // Edit a text block, an equation and a picture of the question.
+    await question.getByLabel("Part a question text 2", { exact: true }).fill("Edited extra a");
+    await page.waitForFunction(() => window.__draft.content.sections[0].parts[0].blocks[3].spans[0].text === "Edited extra a");
+    await question.getByLabel("Part a question image 3 alt text", { exact: true }).fill("Edited alt");
+    await question.getByLabel("Part a question image 3 caption", { exact: true }).fill("Edited caption");
+    await page.waitForFunction(() => { const b = window.__draft.content.sections[0].parts[0].blocks[4]; return b.alt === "Edited alt" && b.caption === "Edited caption"; });
+    const equation = question.getByLabel("Part a question equation 1", { exact: true });
+    await equation.waitFor();
+    let now = await partA();
+    assert.deepEqual(now[0], before[0], "the question text is identical");
+    assert.deepEqual(now[1], before[1], "the first picture is identical");
+    assert.deepEqual(now[2], before[2], "the equation is identical until it is edited");
+    // Move the text block up, then remove the picture, then add a text block and an equation.
+    await question.getByRole("button", { name: "Move Part a question block 2 up", exact: true }).click();
+    now = await partA();
+    assert.deepEqual(kinds(now), ["text", "image", "text", "math", "image"], "the text moved above the equation, the question's own blocks stayed");
+    await question.getByRole("button", { name: "Move Part a question block 1 down", exact: true }).click();
+    await question.getByRole("button", { name: "Delete Part a question block 3", exact: true }).click();
+    now = await partA();
+    assert.deepEqual(kinds(now), ["text", "image", "math", "text"], "the picture is gone");
+    await question.getByRole("button", { name: /Add text to part a question/ }).click();
+    await question.getByRole("button", { name: /Add equation to part a question/ }).click();
+    now = await partA();
+    assert.deepEqual(kinds(now), ["text", "image", "math", "text", "text", "math"], "a text block and an equation were added at the end");
+    await page.getByText("More question blocks for part a (4)", { exact: true }).waitFor();
+    // The worked solution: edit a caption, move and remove, and the first text is left alone.
+    const solutionBefore = await page.evaluate(() => window.__draft.privateParts[0].solution);
+    await solution.getByLabel("Part a more solution image 2 caption", { exact: true }).fill("New solution caption");
+    await page.waitForFunction(() => window.__draft.privateParts[0].solution[2].caption === "New solution caption");
+    await solution.getByRole("button", { name: "Move Part a more solution block 3 up", exact: true }).click();
+    let sol = await page.evaluate(() => window.__draft.privateParts[0].solution);
+    assert.deepEqual(sol.map((b) => b.kind), ["text", "math", "text", "image"], "the last text moved above the picture");
+    assert.deepEqual(sol[0], solutionBefore[0], "the worked solution's own text is identical");
+    await solution.getByRole("button", { name: "Delete Part a more solution block 1", exact: true }).click();
+    sol = await page.evaluate(() => window.__draft.privateParts[0].solution);
+    assert.equal(sol.length, 3);
+    assert.deepEqual(sol[0], solutionBefore[0]);
+    // The caption of the main picture and of the part's first picture, closed when empty and open when there is one.
+    const main = page.locator('section[data-tour="studio-main"]');
+    assert.equal(await main.locator("details", { has: page.locator("summary", { hasText: "Caption" }) }).evaluate((el) => el.open), true, "a caption that exists is shown");
+    await main.getByLabel("Caption (optional)", { exact: true }).fill("Figure 2");
+    await page.waitForFunction(() => window.__draft.content.context[1].caption === "Figure 2");
+    const ctx = await page.evaluate(() => window.__draft.content.context);
+    assert.deepEqual(kinds(ctx), ["text", "image", "math"], "the main picture's other fields are kept");
+    // 44px targets and 16px text in the groups, no sideways scroll.
+    const found = await page.locator('summary[aria-label="More options for part a"]').evaluate((summary) => {
+      const out = [];
+      for (const el of summary.parentElement.querySelectorAll("*")) {
+        if (!el.getClientRects().length) continue;
+        const own = [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()) || ["INPUT", "SELECT", "TEXTAREA"].includes(el.tagName) && el.type !== "checkbox" && el.type !== "radio";
+        const base = el.closest(".katex") ?? el.closest("math");
+        const size = parseFloat(getComputedStyle(base ?? el).fontSize);
+        if (own && size < 16) out.push(`text ${size}px ${el.tagName} ${el.textContent.trim().slice(0, 30)}`);
+        if (el.matches("button,select,textarea,input:not([type=hidden]),summary")) {
+          const box = el.getBoundingClientRect();
+          if (box.height < 43.5) out.push(`target ${Math.round(box.height)}px ${el.tagName} ${(el.getAttribute("aria-label") || el.textContent).trim().slice(0, 30)}`);
+        }
+      }
+      return out;
+    });
+    assert.deepEqual(found, [], "small text or targets in the part's More options");
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, "no sideways scroll");
+    checks++;
+    await context.close();
+  }
+
+  // 12b. In the files view, which a problem with a picture opens in, the question's extra blocks are under its pictures.
+  {
+    const { context, page } = await open("draft", { width: 390, extra: "&blocks=1" });
+    const untouched = await page.evaluate(() => structuredClone(window.__draft.content));
+    await page.getByText("More question blocks for part a (3)", { exact: true }).click();
+    await page.getByLabel("Part a question text 2", { exact: true }).fill("Edited in files view");
+    await page.waitForFunction(() => window.__draft.content.sections[0].parts[0].blocks[3].spans[0].text === "Edited in files view");
+    const after = await page.evaluate(() => window.__draft.content.sections[0].parts[0].blocks);
+    for (const i of [0, 1, 2, 4]) assert.deepEqual(after[i], untouched.sections[0].parts[0].blocks[i], `block ${i} is identical`);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, "no sideways scroll");
+    checks++;
+    await context.close();
+  }
+
+  // 13. The only section can be given a title and shared text without adding a second section first.
+  {
+    const { context, page } = await open("draft", { width: 390 });
+    await page.locator('summary[aria-label="More options for the whole problem"]').click();
+    assert.equal(await page.getByLabel("Section 1 title", { exact: true }).count(), 0, "the empty only section shows no fields");
+    await page.getByRole("button", { name: "Give the section a title or shared text", exact: true }).click();
+    await page.getByLabel("Section 1 title", { exact: true }).fill("Setup");
+    await page.waitForFunction(() => window.__draft.content.sections[0].title === "Setup");
+    await page.getByRole("button", { name: /Add text to section 1 context/ }).click();
+    await page.waitForFunction(() => window.__draft.content.sections[0].blocks.length === 1);
     checks++;
     await context.close();
   }

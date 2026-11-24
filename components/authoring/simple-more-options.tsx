@@ -74,6 +74,11 @@ function SectionsOptions({ draft, edit }: { draft: EditorDraft; edit: Edit }) {
           <BlocksEditor label={`Section ${si + 1} context`} blocks={section.blocks} onChange={(blocks) => edit((d) => void (d.content.sections[si].blocks = blocks))} />
         </div>
       ))}
+      {!editable && sections.length === 1 && (
+        <Button type="button" variant="outline" className="min-h-11 border-2 text-base" onClick={() => setKept(true)}>
+          Give the section a title or shared text
+        </Button>
+      )}
       <Button type="button" variant="outline" className="min-h-11 border-2 text-base" disabled={atSections || atParts} aria-describedby={why ? "simple-add-section-why" : undefined} onClick={() => edit((d) => addSection(d))}>
         <Plus aria-hidden="true" className="mr-2 size-4" />
         Add a section

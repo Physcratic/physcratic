@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { AuthorMediaProvider } from "../components/authoring/media-controls";
 import { SimpleEditor } from "../components/authoring/simple-editor";
-import { allParts, applyAnswer, ensureSimpleShape, otherIssueMessages, readAnswer, setDifficulty, setQuestion, setSolution } from "../components/authoring/simple-model";
+import { addPart, allParts, applyAnswer, ensureSimpleShape, otherIssueMessages, readAnswer, setDifficulty, setQuestion, setSolution } from "../components/authoring/simple-model";
 import { publishableDraftSchema } from "../lib/problem-authoring";
 import { draftPayload, newProblem, type EditorDraft } from "../lib/problem-authoring-editor";
 
@@ -52,6 +52,21 @@ function start(): EditorDraft {
   if (params.get("context") === "1") {
     const text = (t: string) => ({ id: crypto.randomUUID(), kind: "text" as const, spans: [{ kind: "text" as const, text: t }] });
     d.content.context = [text("Main question"), { id: crypto.randomUUID(), kind: "math" as const, latex: "E=mc^2" }, text("Shared two")];
+  }
+  // &blocks=1: every block type at the problem level, in a part's question and in a part's worked solution, for the extras groups.
+  if (params.get("blocks") === "1") {
+    const tx = (t: string) => ({ id: crypto.randomUUID(), kind: "text" as const, spans: [{ kind: "text" as const, text: t }] });
+    const mx = (latex: string) => ({ id: crypto.randomUUID(), kind: "math" as const, latex });
+    const im = (alt: string, caption: string) => ({ id: crypto.randomUUID(), kind: "image" as const, mediaId: crypto.randomUUID(), alt, caption });
+    addPart(d);
+    const [a, b] = allParts(d).map((r) => r.part);
+    d.content.title = "Every block";
+    d.content.context = [tx("Main question"), im("A ramp", "Figure 1"), mx("E=mc^2")];
+    a.blocks = [tx("Question a"), im("Diagram a", "Diagram"), mx("x=1"), tx("Extra a"), im("Extra picture a", "")];
+    b.blocks = [tx("Question b")];
+    d.privateParts = d.privateParts.map((p) => (p.partId === a.id ? { ...p, solution: [tx("Solution a"), mx("s=1"), im("Solution picture", "Solution"), tx("Solution end")] } : p));
+    const images = [...d.content.context, ...a.blocks, ...b.blocks].flatMap((x) => (x.kind === "image" ? [{ id: x.mediaId, purpose: "statement-image" as const }] : []));
+    d.content.attachments = images;
   }
   return d;
 }
