@@ -1,37 +1,25 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { CLASSIC_MODE_VALUE, STUDIO_MODE_KEY, readStudioMode } from "../components/authoring/simple-model";
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 
-function withStorage(value: string | null | "throws", run: () => void) {
-  const globals = globalThis as unknown as { window?: unknown };
-  const before = globals.window;
-  globals.window = {
-    localStorage: {
-      getItem: (key: string) => {
-        if (value === "throws") throw new Error("blocked");
-        return key === STUDIO_MODE_KEY ? value : null;
-      },
-    },
-  };
-  try {
-    run();
-  } finally {
-    globals.window = before;
-  }
+// Problem Studio has one editor. An earlier release stored a mode ("classic", "advanced" or "simple") under physcratic.studio.mode. Nothing
+// reads or writes it now, so a stale value cannot change the editor. tests/studio-simple.browser.mjs opens the editor with each stale value.
+const folders = ["components/authoring", "components/authored", "lib", "app"];
+function sources(dir: string): string[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) return entry.name === "corpus" || entry.name === "node_modules" ? [] : sources(path);
+    return /\.(ts|tsx)$/.test(entry.name) && !/\.test\.tsx?$/.test(entry.name) ? [path] : [];
+  });
 }
 
-test("everyone gets the new editor, including people who had Advanced saved before this release", () => {
-  withStorage(null, () => assert.equal(readStudioMode(), "simple"));
-  withStorage("simple", () => assert.equal(readStudioMode(), "simple"));
-  withStorage("easy", () => assert.equal(readStudioMode(), "simple"));
-  withStorage("advanced", () => assert.equal(readStudioMode(), "simple"));
+test("no code reads or writes the stored Studio mode", () => {
+  const found = folders.flatMap(sources).filter((file) => /physcratic\.studio\.mode|STUDIO_MODE_KEY|readStudioMode|CLASSIC_MODE_VALUE/.test(readFileSync(file, "utf8")));
+  assert.deepEqual(found, []);
 });
 
-test("only the value the Classic editor link writes opens the old layout", () => {
-  assert.equal(STUDIO_MODE_KEY, "physcratic.studio.mode");
-  withStorage(CLASSIC_MODE_VALUE, () => assert.equal(readStudioMode(), "advanced"));
-});
-
-test("blocked storage means the new editor", () => {
-  withStorage("throws", () => assert.equal(readStudioMode(), "simple"));
+test("the Classic editor and its switch are gone from the Studio source", () => {
+  const found = folders.flatMap(sources).filter((file) => /Classic editor|Back to the new editor|data-classic-link|advanced-sections/.test(readFileSync(file, "utf8")));
+  assert.deepEqual(found, []);
 });

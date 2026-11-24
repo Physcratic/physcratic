@@ -7,7 +7,6 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { authoredDraftSchema, publishableDraftSchema } from "../lib/problem-authoring";
 import { draftPayload, editorDraftSchema, newProblem, type EditorBlock, type EditorDraft } from "../lib/problem-authoring-editor";
 import {
-  advancedNote,
   allParts,
   applyAnswer,
   blocksSpans,
@@ -207,7 +206,7 @@ test("a rule for a block is the server's: Simple and the server agree on picture
   assert.equal(authoredDraftSchema.safeParse({ problemId: many.problemId, version: 1, ...draftPayload(many) }).success, true, "2000 characters");
 });
 
-test("copy that sent authors to the Classic editor for blocks now points at More options", () => {
+test("copy for pictures and blocks points at More options", () => {
   const d = ready();
   const part = allParts(d)[0].part;
   const first = image("First"), second = image("");
@@ -218,9 +217,6 @@ test("copy that sent authors to the Classic editor for blocks now points at More
   assert.ok(said.includes("Describe each image, in More options."));
   assert.ok(said.includes("Describe each image in the worked solution, in More options."));
   assert.ok(said.every((m) => !/Classic/.test(m)));
-  const full = everyBlock();
-  assert.doesNotMatch(advancedNote(full), /more blocks/);
-  assert.equal(advancedNote(ready()), "");
 });
 
 // ---------------------------------------------------------------------------------------------------------------

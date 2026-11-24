@@ -13,7 +13,7 @@ import Image from "next/image";
 import { AuthoredPdf, StatementPdfs } from "@/components/authored/statement-pdfs";
 import useSWR from "swr";
 import { Button } from "@/components/ui/button";
-import { ErrorText, StepCard } from "./studio-ui";
+import { ErrorText } from "./studio-ui";
 import {
   authorMediaMaxBytes,
   authorMediaPath,
@@ -57,7 +57,7 @@ const fileInfo = z.object({
   bytes: z.number().positive().max(authorMediaMaxBytes),
 });
 /**
- * The one upload used by Advanced's upload button and by Simple mode's picture box. It checks the size, sends the file
+ * The one upload used by every upload button and by the picture box. It checks the size, sends the file
  * to the private media route of this draft and checks the answer. `upload` returns null when it failed, and `error`
  * says why.
  */
@@ -208,11 +208,9 @@ export function StatementPdfLinks({ ids }: { ids: string[] }) {
 export function MediaAttachments({
   draft,
   edit,
-  compact = false,
 }: {
   draft: EditorDraft;
   edit: (fn: (d: EditorDraft) => void) => void;
-  compact?: boolean;
 }) {
   const ctx = useContext(context);
   const { data: files = [], error: loadError, mutate } = useSWR<AuthorMediaInfo[]>(
@@ -288,5 +286,5 @@ export function MediaAttachments({
       {loadError && <div role="alert"><ErrorText>Could not load attachment names. Your attachments are retained. Reload to retry.</ErrorText></div>}
 
     </>;
-  return compact ? <section aria-label="Problem PDFs" className="space-y-4">{body}</section> : <StepCard id="author-assets" step={4} title="Images and optional PDFs">{body}</StepCard>;
+  return <section aria-label="Problem PDFs" className="space-y-4">{body}</section>;
 }

@@ -9,7 +9,7 @@ import { inputClass } from "./editor-fields";
 export const difficultyMessage = `Add a difficulty rating from 0 to ${maxRating.toLocaleString("en-US")}.`;
 
 /**
- * The difficulty rating in Problem Studio, Simple and Advanced. A required whole number from 0 to 4,000, with the band
+ * The difficulty rating in Problem Studio. A required whole number from 0 to 4,000, with the band
  * it falls in shown beside it. `stored` is the saved rating text (or null) and
  * `save` stores what was typed, returning false when it is not a rating.
  */

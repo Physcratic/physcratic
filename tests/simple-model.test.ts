@@ -29,7 +29,6 @@ import {
   sharedSetupBlocks,
   withSharedSetupBlocks,
   removeSection,
-  advancedNote,
   blocksSpans,
   deriveTitle,
   mathSymbols,
@@ -168,14 +167,6 @@ test("a picture is one image block after the question, its alt text is required,
   assert.deepEqual(pictureOf(allParts(d)[0].part.blocks)?.mediaId, media);
   removePicture(d, id);
   assert.equal(pictureOf(allParts(d)[0].part.blocks), null);
-});
-
-test("Simple notes what only Advanced holds", () => {
-  assert.equal(advancedNote(blank()), "");
-  const d = advancedDraft();
-  assert.match(advancedNote(d), /2 sections/);
-  assert.match(advancedNote(d), /hints/);
-  assert.match(advancedNote(d), /method tags/);
 });
 
 test("a one-part expression problem written in Simple is a valid, publishable draft", () => {
@@ -554,10 +545,8 @@ test("estimated difficulty is a rating in the existing field, and an older label
   assert.equal(d.content.estimatedDifficulty, null);
   d.content.estimatedDifficulty = "Hard";
   assert.equal(difficultyLabel(d), "Hard");
-  assert.match(advancedNote(d), /a difficulty label/);
   d.content.estimatedDifficulty = "1850";
   assert.equal(difficultyLabel(d), "");
-  assert.doesNotMatch(advancedNote(d), /difficulty/);
 });
 
 test("the main question can hold one image, and its alt text is required", () => {
@@ -570,7 +559,6 @@ test("the main question can hold one image, and its alt text is required", () =>
   assert.equal(d.content.context[0].kind, "text");
   assert.equal(d.content.context[1].kind, "image");
   assert.deepEqual(simpleIssues(d).map((i) => i.field), ["picture:main"]);
-  assert.doesNotMatch(advancedNote(d), /more blocks/, "Simple shows this image, so Advanced holds nothing more");
   setContextPictureAlt(d, "Two carts on a track");
   assert.deepEqual(simpleIssues(d), []);
   assert.equal(contextPictureOf(d)?.mediaId, media);
@@ -683,7 +671,6 @@ test("an older problem with sections and hints raises nothing Simple cannot expl
   assert.deepEqual(simpleIssues(withState(d, "published"), {}, false, new Set([extra])), []);
   assert.deepEqual(fieldsOf(withState(d, "draft")), [`solution:${extra}`, `answer:${extra}`], "a part nobody chose to hand-grade still needs its answer");
   assert.equal(serverAccepts(d), true);
-  assert.match(advancedNote(d), /2 sections/);
 });
 
 test("one statement anywhere is enough, as on the server", () => {
