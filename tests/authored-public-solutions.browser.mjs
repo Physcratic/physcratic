@@ -12,6 +12,7 @@ import {createPublicAuthoredSolutionApi} from '../lib/authored-public-solution-a
 import {createAuthorMediaApi} from '../lib/author-media-api.ts';
 import {createAuthoredAttemptApi} from '../lib/authored-attempt-api.ts';
 import {createProblemProgressApi} from '../lib/problem-progress-api.ts';
+import {publicSolutionPolicy, publicSolutionsEnabled} from '../lib/authored-solution-policy.ts';
 import {memoryAuthorStorage,statementPdfFixture,png} from './author-media-fixtures.ts';
 const require=createRequire(import.meta.url),tools=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS||'/workspace/work/p2-browser','package.json'));
 const {chromium}=tools('playwright'),{default:AxeBuilder}=tools('@axe-core/playwright'),{build}=createRequire(require.resolve('tsx'))('esbuild');
@@ -35,7 +36,7 @@ try{
  const updated=await parsed(await f.author('update',req('author',{version:problem.version,content:problem.content,privateParts:problem.privateParts}),problem.id));version=updated.version;
  await pool.query(`BEGIN; ${await readFile('migrations/0020_authored_public_solutions.up.sql','utf8')} COMMIT`);
  process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED='true';
- const published=await parsed(await f.author('publish',req('author',{version}),problem.id));problem.revision=published.revision;version=published.version;
+ const published=await parsed(await f.author('publish',req('author',{version,solutionPolicy:publicSolutionPolicy}),problem.id));problem.revision=published.revision;version=published.version;
  const publicApi=createPublicAuthoredSolutionApi({pool,storage:store.storage});
  const attempts=createAuthoredAttemptApi(f.deps);
  const progressApi=createProblemProgressApi(async()=>Response.json({}, {status:503}),request=>attempts('progress',request));
@@ -68,7 +69,7 @@ try{
   if(url.pathname.startsWith('/fonts/')){res.end(await readFile(join(require.resolve('katex/dist/katex.min.css'),'../fonts',basename(url.pathname))));return;}
   if(url.pathname==='/api/auth/get-session'){res.setHeader('content-type','application/json');res.end(JSON.stringify(who?{user:{id:who,emailVerified:who!=='unverified'},session:{userId:who}}:null));return;}
   const draft=url.pathname==='/author'?await parsed(await f.author('read',req('author'),problem.id)):undefined;
-  const fixture={problemId:url.searchParams.get('problem')||problem.id,viewer:who?{state:who==='unverified'?'unverified':'verified',id:who}:{state:'guest'},draft};
+  const fixture={problemId:url.searchParams.get('problem')||problem.id,viewer:who?{state:who==='unverified'?'unverified':'verified',id:who}:{state:'guest'},draft,publicSolutionsEnabled:publicSolutionsEnabled()};
   res.setHeader('content-type','text/html');res.end(`<!doctype html><html lang="en" class="${url.searchParams.get('theme')==='dark'?'dark':''}"><head><title>Public solution qualification</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/bundle.css"><link rel="stylesheet" href="/katex.css"></head><body><div id="root"></div><script>window.__publicFixture=${JSON.stringify(fixture).replaceAll('<','\\u003c')}</script><script type="module" src="/bundle.js"></script></body></html>`);
  }catch(e){console.error(e);res.statusCode=500;res.end('Synthetic harness error');}});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));origin=`http://127.0.0.1:${server.address().port}`;
@@ -122,14 +123,26 @@ try{
   const recovery=await browser.newContext(),p=await recovery.newPage();fail=true;await p.goto(origin);await p.getByRole('tab',{name:'Worked solution',exact:true}).click();await p.getByRole('button',{name:'Retry worked solution',exact:true}).waitFor();fail=false;await p.getByRole('button',{name:'Retry worked solution',exact:true}).click();await p.getByText('The public derivation follows conservation of momentum.').waitFor();await recovery.close();
   const empty=await f.problem('author',['numeric'],false);empty.privateParts[0].solution=[];
   const saved=await parsed(await f.author('update',req('author',{version:empty.version,content:empty.content,privateParts:empty.privateParts}),empty.id));
-  await parsed(await f.author('publish',req('author',{version:saved.version}),empty.id));
+  await parsed(await f.author('publish',req('author',{version:saved.version,solutionPolicy:publicSolutionPolicy}),empty.id));
   const blankContext=await browser.newContext(),blank=await blankContext.newPage();await blank.goto(origin+'/?problem='+empty.id);await blank.getByRole('tab',{name:'Worked solution',exact:true}).click();await blank.getByText('No worked solution has been supplied for this revision.',{exact:true}).waitFor();await blankContext.close();
  }
- const context=await browser.newContext(),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await context.addCookies([{name:'test_user',value:'author',url:origin}]);await page.goto(origin+'/author');await page.getByRole('button',{name:'Publish new version',exact:true}).waitFor();
+ delete process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED;
+ const context=await browser.newContext(),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await context.addCookies([{name:'test_user',value:'author',url:origin}]);await page.goto(origin+'/author');
+ const publishButton=page.getByRole('button',{name:'Publish new version',exact:true});
+ await publishButton.waitFor();
+ process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED='true';
+ page.once('dialog',d=>{assert.match(d.message(),/Its statement becomes public/);return d.accept();});
+ await publishButton.click();
+ await page.getByRole('status',{name:'Problem status',exact:true}).filter({hasText:'Reload Problem Studio'}).waitFor();
+ assert.deepEqual(JSON.parse(requests.filter(r=>r.path.endsWith('/publish')).at(-1).body),{version});
+ assert.equal((await parsed(await f.author('public',req(),problem.id))).id,problem.revision.id);
+ assert.equal((await parsed(await f.author('read',req('author'),problem.id))).version,version);
+ await page.reload();
+ await publishButton.waitFor();
  page.once('dialog',d=>d.dismiss());await page.getByRole('button',{name:'Publish new version',exact:true}).click();
  await page.waitForTimeout(200);const before=requests.filter(r=>r.path.endsWith('/publish')).length;
  page.once('dialog',d=>{assert.match(d.message(),/worked solution, including attached files, will be public/);return d.accept();});await page.getByRole('button',{name:'Publish new version',exact:true}).click();await page.getByRole('status',{name:'Problem status',exact:true}).filter({hasText:'Published successfully'}).waitFor();
- assert.equal(requests.filter(r=>r.path.endsWith('/publish')).length,before+1);assert.deepEqual(JSON.parse(requests.filter(r=>r.path.endsWith('/publish')).at(-1).body),{version});
+ assert.equal(requests.filter(r=>r.path.endsWith('/publish')).length,before+1);assert.deepEqual(JSON.parse(requests.filter(r=>r.path.endsWith('/publish')).at(-1).body),{version,solutionPolicy:publicSolutionPolicy});
  const current=(await parsed(await f.author('public',req(),problem.id))).id;
  assert.notEqual(current,problem.revision.id);
  await page.goto(origin);await page.getByRole('tab',{name:'Worked solution',exact:true}).click();
@@ -139,5 +152,5 @@ try{
  assert.equal(requests.some(r=>r.path.includes('/solutions/')&&r.path.endsWith('/view')),false);
  assert.equal((await publicApi(req(undefined,undefined,'GET',`/api?revision=${legacyId}`),problem.id)).status,409);
  assert.deepEqual(errors,[]);
- console.log('PASS public-solutions browser: guest/verified/unverified, inline PDF pages/download, images/math, keyboard, 375/1440 light/dark axe, publish without separate consent, private Arena attempt status after reload, no reveal writes.');console.log('Screenshots:',temp);
+ console.log('PASS public-solutions browser: guest/verified/unverified, inline PDF pages/download, images/math, keyboard, 375/1440 light/dark axe, stale Studio rollout guard, publish without separate consent, private Arena attempt status after reload, no reveal writes.');console.log('Screenshots:',temp);
 }finally{await browser?.close();if(server)await new Promise(r=>server.close(r));await pool.end();await admin.query(`DROP SCHEMA ${schema} CASCADE`);await admin.end();}

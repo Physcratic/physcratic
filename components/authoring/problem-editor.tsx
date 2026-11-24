@@ -18,6 +18,7 @@ import {
   type EditorDraft,
 } from "@/lib/problem-authoring-editor";
 import { normalizeStatementImages } from "@/lib/author-media";
+import { publicSolutionPolicy } from "@/lib/authored-solution-policy";
 import {
   AuthorMediaProvider,
   MediaAttachments,
@@ -155,7 +156,10 @@ export function ProblemEditor({
       ? "Publish this version? The problem and its worked solution, including attached files, will be public. Your grading keys stay private."
       : "Publish this version? Its statement becomes public. Your grading keys stay private.";
     if (!window.confirm(question)) return undefined;
-    return draftRequest(`${editorBase}/${d.problemId}/publish`, "POST", { version: d.version });
+    return draftRequest(`${editorBase}/${d.problemId}/publish`, "POST", {
+      version: d.version,
+      ...(publicSolutionsEnabled ? { solutionPolicy: publicSolutionPolicy } : {}),
+    });
   }
 
   const editorColours = colorsByPartId(draft?.content.sections ?? []);

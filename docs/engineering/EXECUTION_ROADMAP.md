@@ -1,7 +1,8 @@
 ## Public solution and personal Arena progress correction (24 November 2026)
 
 Publication sets public worked-solution access when the existing rollout gate is
-on. Arena shows personal attempt status from saved submissions. Verified-solve
+on. Studio must reload if its publication wording predates a rollout change.
+Arena shows personal attempt status from saved submissions. Verified-solve
 statistics and solve achievements still exclude public-solution revisions.
 [Behavior and compatibility](AUTHORED_PUBLIC_SOLUTIONS.md#product-correction-24-november-2026).
 

@@ -4,6 +4,7 @@
 
 Studio publishes worked solutions with the existing rollout gate enabled. Arena
 uses the private progress endpoint to show saved attempts across revisions.
+The publish API rejects stale Studio wording with HTTP 412 before sealing a revision.
 Release still requires operator approval for migration 0020 and the existing flag.
 Branch `codex/public-solutions-arena-progress` is based on `bd194ca`.
 [Behavior and compatibility](AUTHORED_PUBLIC_SOLUTIONS.md#product-correction-24-november-2026).

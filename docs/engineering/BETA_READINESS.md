@@ -4,6 +4,7 @@ Local checks cover version-only publication, immediate public reads, private
 grading keys, saved attempt status across revisions, reload and account privacy.
 PostgreSQL and Chromium workflow checks use disposable synthetic fixtures.
 Rebase verification uses migration-backed checks on disposable PostgreSQL.
+Rollout checks cover a stale Studio tab and recovery by reloading before publishing.
 [Behavior and compatibility](AUTHORED_PUBLIC_SOLUTIONS.md#product-correction-24-november-2026).
 
 ## Quiet colour on the problem pages, U6c (24 November 2026)

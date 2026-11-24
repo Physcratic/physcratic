@@ -17,8 +17,11 @@ const version = z.number().int().positive().max(2_147_483_646);
 const saveSchema = z.strictObject({ content: authoredDocumentSchema, privateParts: z.array(privatePartSchema).max(1500) });
 const updateSchema = saveSchema.extend({ version });
 const versionSchema = z.strictObject({ version });
-// Older Studio clients may still send this field. Publication itself sets the policy.
-const publicPublishSchema = versionSchema.extend({ publicSolutionConsent: z.literal(true).optional() });
+const publishSchema = versionSchema.extend({
+  solutionPolicy: z.literal(publicSolutionPolicy).optional(),
+  // Older Studio clients sent this only after displaying public publication wording.
+  publicSolutionConsent: z.literal(true).optional(),
+});
 const writes = new Set<Action>(["create", "update", "delete", "publish", "unpublish"]);
 class HttpError extends Error { constructor(public status: number, message: string) { super(message); } }
 const reply = (body: unknown, status = 200) => new Response(status === 204 ? null : JSON.stringify(body), { status, headers: { "Content-Type": "application/json", "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
@@ -106,8 +109,8 @@ export function createProblemAuthoringApi(deps: Dependencies) {
       } else {
         const { problem, draft } = await lockedDraft(client, id!, owner!);
         if (writes.has(action)) {
-          const publishSolution = action === "publish" && publicSolutionsEnabled();
-          const input = action === "update" ? updateSchema.parse(body) : publishSolution ? publicPublishSchema.parse(body) : versionSchema.parse(body);
+          const publication = action === "publish" ? publishSchema.parse(body) : undefined;
+          const input = action === "update" ? updateSchema.parse(body) : publication ?? versionSchema.parse(body);
           if (input.version !== draft.version) throw new HttpError(409, "Draft changed. Reload before saving or publishing.");
           if (action === "update") {
             const save = updateSchema.parse(input);
@@ -122,6 +125,11 @@ export function createProblemAuthoringApi(deps: Dependencies) {
             await client.query("DELETE FROM authored_problem p WHERE id=$1 AND NOT EXISTS(SELECT 1 FROM authored_revision r WHERE r.problem_id=p.id) AND NOT EXISTS(SELECT 1 FROM author_media m WHERE m.problem_id=p.id)", [id]);
             status = 204;
           } else if (action === "publish") {
+            const publishSolution = publicSolutionsEnabled();
+            const expectsPublicSolution = publication?.solutionPolicy === publicSolutionPolicy || publication?.publicSolutionConsent === true;
+            // Reserve 409 for draft version conflicts so Studio shows the reload message.
+            if (publishSolution !== expectsPublicSolution)
+              throw new HttpError(412, "Publication settings changed. Reload Problem Studio and try again.");
             if (communityActionsEnabled() && (await client.query("SELECT 1 FROM community_restriction WHERE kind='problem' AND problem_id=$1 AND restricted", [id])).rows[0])
               throw new HttpError(403, "This question was removed by moderation. Contact an administrator before publishing again.");
             const published = publishableDraftSchema.parse(draft);

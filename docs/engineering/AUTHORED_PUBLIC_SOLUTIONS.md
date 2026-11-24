@@ -4,11 +4,14 @@
 
 With `AUTHORED_PUBLIC_SOLUTIONS_ENABLED` on and migration 0020 installed,
 publishing a new revision makes its worked solution and included files public.
-Studio uses one publication confirmation and sends the saved draft version.
-Older Studio clients may still send the former consent field. Migration 0020's
+Studio uses one publication confirmation and sends the saved draft version with
+the policy shown in that confirmation when solutions will be public. A client
+with stale publication wording must reload Studio before publishing. Older
+public-aware Studio clients may still send the former consent field. Migration 0020's
 `solution_consented_at` column records the publication time for new public
 revisions. Already-published legacy revisions keep their original access policy.
 Only the current public revision is served. Automated grading keys remain private.
+[Activation and rollback](../../scripts/public-solutions-release/README.md#activation-rollback-and-failure-recovery).
 
 Arena uses the signed-in student's saved submissions for its Attempted label,
 including submissions on earlier revisions. Personal completion still uses the
