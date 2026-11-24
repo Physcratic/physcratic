@@ -77,7 +77,14 @@ try{
     const [wrappedName,wrappedBadge]=await Promise.all([longLink.boundingBox(),nationalSummary.boundingBox()]);
     assert.ok(wrappedBadge.y>=wrappedName.y+wrappedName.height,`${theme}: badge wraps below the long name`);
    }
-   assert.deepEqual((await new AxeBuilder({page}).analyze()).violations,[]);
+   // Measure contrast after theme and hover colours settle.
+   await page.evaluate(async()=>{
+    await new Promise(requestAnimationFrame);
+    await Promise.all(document.getAnimations()
+     .filter(animation=>Number.isFinite(animation.effect?.getComputedTiming().endTime))
+     .map(animation=>animation.finished.catch(()=>{})));
+   });
+   assert.deepEqual((await new AxeBuilder({page}).analyze()).violations,[],`${theme} ${width}: axe`);
    await page.screenshot({path:join(temp,`arena-${theme}-${width}.png`),fullPage:true});
   }
  }
