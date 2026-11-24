@@ -140,3 +140,11 @@ managed in SQL and have no application ORM write path. Keep the feature off
 until an approved procedure verifies the schema ledger, grants and rollout.
 The down file refuses to remove populated external medal history.
 See [external medal operations](../docs/engineering/EXTERNAL_MEDALS.md).
+
+## Private personal completions (0025)
+
+The unpublished completion migration moved from 0024 to 0025 after external
+medal verification took 0024 on main. The completion SQL is byte-identical.
+It adds only the private marks and their isolated limiter. Both tables cascade
+with the account. Qualify the installed 0018 eraser, narrow grants and recovery
+before enabling the feature. Use the [owner release runbook](../scripts/personal-completions/RELEASE.md).

@@ -127,6 +127,19 @@ test("0024 operator and restricted login enforce award, audit, badge and public 
       return payload.problems.find((entry: { id: string }) => entry.id === problem.id);
     };
     assert.deepEqual((await arenaRead()).author.selectedIds, [badge]);
+    const completions = (await readFile("migrations/0025_personal_completions.up.sql", "utf8")).replaceAll("public.", schema + ".");
+    await owner.query(`BEGIN; ${completions} COMMIT;`);
+    await owner.query(`GRANT SELECT ON personal_problem_completion TO ${role}`);
+    await owner.query("INSERT INTO personal_problem_completion(user_id,problem_key) VALUES($1,$2)", [other, `authored:${problem.id}`]);
+    const personalized = createUnifiedArenaApi(runtime, () => ({ authors:true, badges:false, medals:false, externalMedals:true }), {
+      enabled:()=>true, secret:()=>"synthetic-integration-cursor-secret", user:async()=>({id:other}),
+    });
+    const personalRequest = new Request("https://physcratic.test/api?source=authored", {headers:{"X-Community-Account":other}});
+    const personal = await achievementParsed(await personalized(personalRequest));
+    assert.equal(personal.personalization,"active");
+    assert.equal(personal.problems[0].completed,true);
+    assert.deepEqual(personal.problems[0].author.selectedIds,[badge]);
+    assert.doesNotMatch(JSON.stringify(personal),/Private_ref-42|medal-owner@example/);
     await owner.query('UPDATE "user" SET "emailVerified"=false WHERE id=$1', [student]);
     await achievementParsed(await read(), 404);
     assert.equal((await arenaRead()).author, null);

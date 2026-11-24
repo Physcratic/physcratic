@@ -9,8 +9,9 @@ import { communityAchievementsEnabled, communityShowcaseEnabled, externalMedalSh
 import {communityModerationUiEnabled} from '@/lib/community/moderation-route';
 import { medalVerificationForm } from "@/lib/community/external-medals";
 import { authEmailReady } from "@/lib/auth-email-transport";
+import { personalCompletionsEnabled } from "@/lib/personal-completions-route";
 export const metadata: Metadata = { title: "Account Settings", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 export default async function SettingsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  return <AccountSettings deletionEnabled={accountDeletionEnabled()} moderationEnabled={communityModerationUiEnabled()} verificationEnabled={verificationUiEnabled()} profilesEnabled={communityProfilesEnabled()} mediaEnabled={profileMediaEnabled()} achievementsEnabled={communityShowcaseEnabled()} earnedAchievementsEnabled={communityAchievementsEnabled()} medalVerificationUrl={externalMedalShowcaseEnabled() ? medalVerificationForm() : undefined} onboarding={(await searchParams).onboarding === "1"} emailReady={authEmailReady()} />;
+  return <AccountSettings deletionEnabled={accountDeletionEnabled()} moderationEnabled={communityModerationUiEnabled()} verificationEnabled={verificationUiEnabled()} profilesEnabled={communityProfilesEnabled()} mediaEnabled={profileMediaEnabled()} achievementsEnabled={communityShowcaseEnabled()} earnedAchievementsEnabled={communityAchievementsEnabled()} medalVerificationUrl={externalMedalShowcaseEnabled() ? medalVerificationForm() : undefined} onboarding={(await searchParams).onboarding === "1"} emailReady={authEmailReady()} completionsEnabled={personalCompletionsEnabled()} />;
 }

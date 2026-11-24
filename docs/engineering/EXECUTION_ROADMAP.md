@@ -4,6 +4,22 @@ The Classic editor is removed and the Simple editor is the only one. Gone: `adva
 
 The long suite `tests/problem-authoring.browser.mjs` (its Advanced section, skipped by CI) now builds its problem in the one editor and keeps every later check. It passed before and after with the same three PASS lines. Porting it showed what the Classic only suite had hidden: after moving a section with the keyboard focus is not put back on the section, replacing a picture clears its description and gives the block a new id, an equation typed inside the question text is a chip that axe reports as label-content-name-mismatch, and the hidden editor stays in the page while the student preview is shown. These are noted in the suite and were not fixed here. `tests/studio-mode.test.ts`, `studio-landing`, `solve-contrast` and `simple-options` no longer mention Classic. `tests/tours.browser.mjs` needs a running app and was not run. The guest contrast sweep was not run here.
 
+## Private personal completions, Phase 4 (24 November 2026)
+
+Integration review sealed the private cursors, isolated delayed reads across account switches, and prepared the exact grant and erasure checks. Migration 0025 preserves the original completion SQL after external medals took 0024. [Owner release gates and rollback](../../scripts/personal-completions/RELEASE.md).
+
+## Private personal completions, Phase 3 (24 November 2026)
+
+Signed-in Arena students see unfinished results first across pages, with the existing rating and tie order within each group. Completed cards carry one status indicator. Guests retain ordinary browsing. [Contracts and release prerequisites](../../scripts/personal-completions/README.md).
+
+## Private personal completions, Phase 2 (24 November 2026)
+
+Verified students can mark or unmark a problem from either reader. Settings shows the account owner's count and history independently of public profile publication. [Completion contracts and release prerequisites](../../scripts/personal-completions/README.md).
+
+## Private personal completions, Phase 1 (24 November 2026)
+
+The default-off owner API records self-reported completion for Arena originals and published community problems. Local implementation only. [API contract, role delta and release prerequisites](../../scripts/personal-completions/README.md).
+
 ## External medal verification (24 November 2026)
 
 Use the [current product decisions](PRODUCT_DECISIONS.md) and [Tally workflow](EXTERNAL_MEDALS.md). Historical Community Batch 2B is superseded for launch. External medals reuse the badge picker and may launch independently of earned achievements after owner approval, 0024 and restricted runtime grant verification.
