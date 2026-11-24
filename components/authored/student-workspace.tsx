@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { publicSolutionPolicy } from "@/lib/authored-solution-policy";
 import { StatementPdfs } from "./statement-pdfs";
 import { useSWRConfig } from "swr";
+import { ReaderCompletion } from "@/components/personal-completions/reader-completion";
 import {ProblemStatsPanel} from '@/components/community/problem-stats';
 import {ReportControl} from '@/components/community/report-controls';
 import {Discussions} from '@/components/community/discussions';
@@ -109,6 +110,7 @@ export function StudentWorkspace({
   attributionEnabled=false,
   publicSolutionsEnabled=false,
   initialSolution,
+  completionsEnabled = false,
 }: {
   problemId: string;
   viewer: Viewer;
@@ -120,6 +122,7 @@ export function StudentWorkspace({
   attributionEnabled?: boolean;
   publicSolutionsEnabled?: boolean;
   initialSolution?: PublicSolution | null;
+  completionsEnabled?: boolean;
 }) {
   const [revision, setRevision] = useState<PublicRevision | null>(initialRevision ?? null),
     [availability, setAvailability] = useState<Availability>(initialRevision ? "ready" : "loading"),
@@ -245,6 +248,8 @@ export function StudentWorkspace({
           <ProblemHeading title={availability === "ready" ? revision?.content.title ?? "Physics problem" : "Physics problem"} source="Community-authored problem" estimate={availability === "ready" ? revision?.content.estimatedDifficulty : null} tags={availability === "ready" ? [...(revision?.content.topicTags ?? []), ...(revision?.content.methodTags ?? [])] : []}>
             {availability === "ready" && revision && (attributionEnabled ? <PublicAuthorName key={`${problemId}:${revision.id}`} problemId={problemId} revisionId={revision.id} /> : <p className="min-h-6 text-sm text-muted-foreground">Published by Community author</p>)}
           </ProblemHeading>
+          {completionsEnabled && availability === "ready" && revision && viewer.state === "verified" && !authDenied &&
+            <ReaderCompletion key={viewer.id} account={viewer.id} problemKey={`authored:${problemId}`} />}
           {availability !== "ready" && <Button
             type="button"
             variant="outline"

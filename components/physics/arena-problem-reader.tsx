@@ -17,6 +17,7 @@ import { ArchiveAnswerPanel } from "./archive-answer-panel";
 import { ArenaHints } from "./arena-hints";
 import arenaIndex from "@/lib/arena/index.json";
 import { SolveSteps, StepNumber, solveTokens } from "./solve-ui";
+import { SignedInReaderCompletion } from "@/components/personal-completions/reader-completion";
 
 import {ProblemStatsPanel} from '@/components/community/problem-stats';
 import {ReportControl} from '@/components/community/report-controls';
@@ -28,11 +29,11 @@ async function loadProblem(url: string) {
 }
 
 /** `statement` is the statement rendered on the server, so it is in the HTML before any script runs. */
-type ArenaReaderProps = { problem: ArenaCatalogEntry; statement?: ReactNode; statsEnabled?: boolean; commentsEnabled?: boolean; moderationEnabled?: boolean };
+type ArenaReaderProps = { problem: ArenaCatalogEntry; statement?: ReactNode; statsEnabled?: boolean; commentsEnabled?: boolean; moderationEnabled?: boolean; completionsEnabled?: boolean };
 export function ArenaProblemReader(props: ArenaReaderProps) {
   return <ArenaReader key={props.problem.id} {...props} />;
 }
-function ArenaReader({ problem,statement,statsEnabled=false,commentsEnabled=false,moderationEnabled=false }: ArenaReaderProps) {
+function ArenaReader({ problem,statement,statsEnabled=false,commentsEnabled=false,moderationEnabled=false,completionsEnabled=false }: ArenaReaderProps) {
   const [view, setView] = useState("statement");
   const { data, isLoading, error, mutate } = useSWRImmutable(problem.path, loadProblem);
   // Existing order only: the next entry in the Arena index. Left out for the last problem.
@@ -42,7 +43,10 @@ function ArenaReader({ problem,statement,statsEnabled=false,commentsEnabled=fals
   return <section className={`mx-auto flex w-full max-w-[1440px] min-w-0 flex-col gap-6 ${solveTokens}`} aria-labelledby="arena-problem-title">
     <ProblemHeading id="arena-problem-title" title={problem.title} source="Physcratic Arena" estimate={String(getEstimatedProblemElo(problem.id))} tags={[problem.topic, ...problem.tags]}>
       <p className="text-pretty leading-relaxed text-muted-foreground">{problem.summary}</p>
-      <p className="text-sm text-muted-foreground">Published by Physcratic</p>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <p className="text-sm text-muted-foreground">Published by Physcratic</p>
+        {completionsEnabled && <SignedInReaderCompletion problemKey={`arena:${problem.id}`} />}
+      </div>
     </ProblemHeading>
     {moderationEnabled&&<ReportControl subject={{kind:'problem',key:`arena:${problem.id}`}}/>}
     {statsEnabled&&<ProblemStatsPanel problemKey={`arena:${problem.id}`}/>}

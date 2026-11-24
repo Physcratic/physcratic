@@ -7,6 +7,7 @@ import { z } from "zod";
 import { StudentPageClient } from "@/components/authored/student-page-client";
 import { authoredAttributionEnabled } from "@/lib/authored-attribution-route";
 import { publicStudentRevision, type PublicRevision } from "@/lib/authored-student";
+import { personalCompletionsEnabled } from "@/lib/personal-completions-route";
 import {communityModerationUiEnabled} from '@/lib/community/moderation-route';
 import {communityProblemStatsEnabled} from '@/lib/community/problem-stats-route';
 import {communityDiscussionReady as communityCommentsEnabled} from '@/lib/community/comments-route';
@@ -50,5 +51,5 @@ export default async function AuthoredProblemPage({
       if (response.ok) initialSolution = publicSolutionSchema.parse(await response.json());
     } catch { /* The client retains retry and stale-publication recovery. */ }
   }
-  return <><StudentPageClient initialSolution={initialSolution} publicSolutionsEnabled={publicSolutionsEnabled()} attributionEnabled={authoredAttributionEnabled()} initialRevision={initialRevision} moderationEnabled={communityModerationUiEnabled()} commentsEnabled={communityCommentsEnabled()} statsEnabled={communityProblemStatsEnabled()} problemId={parsed.data.toLowerCase()} />{initialSolution && <noscript><PublicSolutionContent solution={initialSolution} /></noscript>}</>;
+  return <><StudentPageClient initialSolution={initialSolution} publicSolutionsEnabled={publicSolutionsEnabled()} attributionEnabled={authoredAttributionEnabled()} initialRevision={initialRevision} moderationEnabled={communityModerationUiEnabled()} commentsEnabled={communityCommentsEnabled()} statsEnabled={communityProblemStatsEnabled()} completionsEnabled={personalCompletionsEnabled()} problemId={parsed.data.toLowerCase()} />{initialSolution && <noscript><PublicSolutionContent solution={initialSolution} /></noscript>}</>;
 }

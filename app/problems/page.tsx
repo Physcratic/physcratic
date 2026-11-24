@@ -6,6 +6,7 @@ import { PublicProblemDirectory } from "@/components/problems/public-problem-dir
 import { jsonLdScript, problemListGraph } from "@/lib/seo/json-ld";
 import { allProblemPages } from "@/lib/seo/problem-pages";
 import { SITE, baseOpenGraph } from "@/lib/site";
+import { personalCompletionsEnabled } from "@/lib/personal-completions-route";
 
 const TITLE = "Physics olympiad problem library";
 const DESCRIPTION =
@@ -39,7 +40,7 @@ export default function ProblemLibraryPage() {
             </p>
           </div>
           <Suspense fallback={<p className="text-sm text-muted-foreground">Use the directory below to open a problem. Interactive filters load with JavaScript.</p>}>
-            <ProblemLibrary readerTitleAs="h2" navigateToReader />
+            <ProblemLibrary readerTitleAs="h2" navigateToReader completionsEnabled={personalCompletionsEnabled()} />
           </Suspense>
         </div>
         <PublicProblemDirectory />
