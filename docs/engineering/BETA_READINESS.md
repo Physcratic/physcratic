@@ -2,6 +2,22 @@
 
 The shared badge puts the award first. Arena aligns the showcase beside the author link and wraps long names and badges on narrow cards. Local Chromium covered 320px, 375px and 1440px in both themes, including keyboard disclosure and private-profile fallback. The change was verified locally before review.
 
+## Private personal completions, Phase 4 (24 November 2026)
+
+The independent review reproduced the candidate from its cumulative patch, then reconciled the merged Attempted indicators and external medal verification. Personal completions reserves 0025 because external medals uses 0024. Both completion migration SQL files have the same contents as the candidate. Local qualification covered opaque account-scoped cursors, delayed responses across account switches, ordered pagination, real restricted logins, and the unchanged 0018 erasure transaction. Exact-head GitHub checks and an independent owner review remain prerequisites for merging with the feature off. Production activation requires operator evidence for the ledger, privileges, erasure and restore. [Owner release runbook](../../scripts/personal-completions/RELEASE.md).
+
+## Private personal completions, Phase 3 (24 November 2026)
+
+Disposable PostgreSQL verified four ordered pages, account and filter binding, cursor recovery, and a concurrent mark inside the ranked read. With 2,549 published community problems and 120 owner marks, PostgreSQL used the account index for both completion reads and bounded authored projection to 25 candidates. Chromium verified changed completion order, account switches, reader navigation and both themes. A scratch compatibility check used PR #245's attempted display and preserved both status indicators. [Scope and release prerequisites](../../scripts/personal-completions/README.md).
+
+## Private personal completions, Phase 2 (24 November 2026)
+
+The local browser run used the built application, synthetic Better Auth sessions, and disposable PostgreSQL. It covered both readers, private history and pagination, failed writes, delayed responses during account switches, publication withdrawal and republication, keyboard use, and 375px and 1440px layouts in light and dark. The default-off build passed the signed-in reader and Settings checks against the old schema. TypeScript, zero-warning lint, and the application and focused PostgreSQL suites passed. The focused profile account-header browser passed. The full profile browser still expects a removed signup field and stops at the same selector on `bd194ca`. [Release prerequisites](../../scripts/personal-completions/README.md).
+
+## Private personal completions, Phase 1 (24 November 2026)
+
+Local verification covers owner isolation, desired-state retries, visible pagination, publication withdrawal, restricted privileges, and account erasure. Production activation requires approved migration, grant, and erasure evidence. [Scope and release requirements](../../scripts/personal-completions/README.md).
+
 ## Every block editable in Simple, U7a (24 November 2026)
 
 Simple's More options now edit every block type Classic can, so Classic can be removed later without losing the ability to edit anything. Read from the code, what Simple could not edit was: more text and equation blocks and further pictures in a part's question, more text, equation and picture blocks in a part's worked solution, the caption of the first picture of the main question and of a part, and the title and shared text of a lone section with nothing in it yet. Each is now under More options in a group closed until opened: "More question blocks" and "More worked solution blocks" per part (named for the part when there are several, so no two labels match), a Caption field under a picture, and a button that opens the lone section's title and shared text. Each block can be edited, added, removed and moved up and down with buttons, using the same `BlocksEditor` and `moveItem` as Classic. Removing a block asks nothing. A part's More options summary says how many more blocks it holds, for example "More options for part a (3 more blocks)".

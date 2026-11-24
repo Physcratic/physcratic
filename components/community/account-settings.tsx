@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useRef, useState, type FormEvent } from "react";
+import React, { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { ArrowLeft, KeyRound, LockKeyhole, Palette, UserRound, Image as ImageIcon, Eye, Check, CircleHelp } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { physicsTopics } from "@/lib/physics-taxonomy";
@@ -22,6 +22,7 @@ import type { BadgeId, PublicMedal } from "@/lib/community/achievements";
 import {ModerationHistory} from "./moderation-history";
 import { AccountDeletionSection } from "@/components/account/account-deletion";
 import { AccountSecurity } from "@/components/account/account-security";
+import { CompletionHistory } from "@/components/personal-completions/completion-history";
 
 type Form = PublicProfile;
 const initialForm: Form = { handle: "", displayName: "", bio: "", educationLevel: "prefer-not-to-say", favoriteTopicIds: [] };
@@ -31,8 +32,8 @@ function fromProfile(profile: OwnProfile | null): Form {
   return { handle, displayName, bio, educationLevel, favoriteTopicIds };
 }
 
-function ProfileEditor({ userId, verified, mediaEnabled, achievementsEnabled, earnedAchievementsEnabled, medalVerificationUrl, onboarding }: {
-  userId: string; verified: boolean; mediaEnabled: boolean; achievementsEnabled: boolean; earnedAchievementsEnabled: boolean; medalVerificationUrl?: string; onboarding: boolean;
+function ProfileEditor({ userId, verified, mediaEnabled, achievementsEnabled, earnedAchievementsEnabled, medalVerificationUrl, onboarding, completionHistory }: {
+  userId: string; verified: boolean; mediaEnabled: boolean; achievementsEnabled: boolean; earnedAchievementsEnabled: boolean; medalVerificationUrl?: string; onboarding: boolean; completionHistory?: ReactNode;
 }) {
   const [form, setForm] = useState(initialForm), [saved, setSaved] = useState<OwnProfile | null>(null);
   const [loading, setLoading] = useState(true), [loadFailed, setLoadFailed] = useState(false), [reload, setReload] = useState(0);
@@ -92,8 +93,8 @@ function ProfileEditor({ userId, verified, mediaEnabled, achievementsEnabled, ea
     } catch (e) { if (alive.current) setError(e instanceof ProfileRequestError ? e.message : "Your profile could not be saved. Reload to check your saved details before retrying."); }
     finally { if (alive.current) setSaving(false); }
   }
-  if (loading) return <section id="profile-settings" className="rounded-2xl border bg-card p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="status" className="mt-4 text-sm text-muted-foreground">Loading your profile…</p></section>;
-  if (loadFailed) return <section id="profile-settings" className="space-y-4 rounded-2xl border bg-card p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="alert" className="text-sm">{error}</p><Button variant="outline" onClick={() => setReload(n => n + 1)}>Retry profile</Button></section>;
+  if (loading) return <section id="profile-settings" className="space-y-4 rounded-2xl border bg-card p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="status" className="text-sm text-muted-foreground">Loading your profile…</p>{completionHistory}</section>;
+  if (loadFailed) return <section id="profile-settings" className="space-y-4 rounded-2xl border bg-card p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="alert" className="text-sm">{error}</p><Button variant="outline" onClick={() => setReload(n => n + 1)}>Retry profile</Button>{completionHistory}</section>;
   return <>
     <section id="profile-settings" aria-labelledby="profile-heading" className="scroll-mt-6 space-y-6">
       {onboarding && !saved && <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-muted/30 p-4 text-sm"><p>Profile setup is optional.</p><Link href="/dashboard" onClick={() => dismissProfileSetup(userId)} className="rounded px-2 py-2 font-medium underline underline-offset-4">Skip for now</Link></div>}
@@ -128,17 +129,21 @@ function ProfileEditor({ userId, verified, mediaEnabled, achievementsEnabled, ea
         </form>
         <section className="min-w-0 space-y-3 xl:sticky xl:top-6" aria-labelledby="preview-heading"><div className="flex items-center justify-between"><h2 id="preview-heading" className="text-sm font-medium">Live preview</h2><span className="rounded-full border px-2 py-1 text-xs text-muted-foreground">{saved?.publicVisibility ? "Public" : "Private"}</span></div><ProfileCard profile={{ ...form, displayName: form.displayName.trim() || form.handle }} media={images} badgeIds={badgeIds} medals={medals} compact headingLevel={3} /><p className="px-1 text-xs leading-5 text-muted-foreground">Details are a preview until you save. Uploaded images save separately.</p></section>
       </div>
+      {completionHistory}
     </section>
     {achievementsEnabled && <AchievementSettings showEarned={earnedAchievementsEnabled} medalVerificationUrl={medalVerificationUrl} profileSaved={Boolean(saved)} verified={verified} onPreviewChange={setBadgeIds} onMedalsChange={setMedals} />}
     <ProfileMediaControls ownerId={userId} enabled={mediaEnabled} saved={Boolean(saved)} verified={verified} onChange={setImages} />
   </>;
 }
 
-export function AccountSettings({ deletionEnabled=false, emailReady = true, moderationEnabled=false,profilesEnabled, mediaEnabled, achievementsEnabled = false, earnedAchievementsEnabled = true, medalVerificationUrl, verificationEnabled = false, onboarding = false }: {
-  deletionEnabled?: boolean; emailReady?: boolean; moderationEnabled?:boolean;profilesEnabled: boolean; mediaEnabled: boolean; achievementsEnabled?: boolean; earnedAchievementsEnabled?: boolean; medalVerificationUrl?: string; verificationEnabled?: boolean; onboarding?: boolean;
+export function AccountSettings({ deletionEnabled=false, emailReady = true, moderationEnabled=false,profilesEnabled, mediaEnabled, achievementsEnabled = false, earnedAchievementsEnabled = true, medalVerificationUrl, verificationEnabled = false, onboarding = false, completionsEnabled = false }: {
+  deletionEnabled?: boolean; emailReady?: boolean; moderationEnabled?:boolean;profilesEnabled: boolean; mediaEnabled: boolean; achievementsEnabled?: boolean; earnedAchievementsEnabled?: boolean; medalVerificationUrl?: string; verificationEnabled?: boolean; onboarding?: boolean; completionsEnabled?: boolean;
 }) {
-  const { data, isPending, error, refetch } = authClient.useSession();
+  const { data, isPending, isRefetching, error, refetch } = authClient.useSession();
   const user = data?.user;
+  const completionHistory = completionsEnabled && !isPending && !error && user
+    ? <CompletionHistory key={user.id} account={user.id} active={!isRefetching} />
+    : null;
   return <div className="min-h-dvh bg-background text-foreground">
     <SkipLink targetId="settings-main">Skip to settings</SkipLink>
     <header className="border-b"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-8"><Link href="/dashboard" className="inline-flex min-h-11 items-center text-lg font-semibold tracking-tight">Physcratic</Link><Link href="/dashboard?view=problems" className="inline-flex min-h-11 items-center gap-2 rounded px-1 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft aria-hidden="true" className="size-4" />Back to Arena</Link></div></header>
@@ -148,11 +153,11 @@ export function AccountSettings({ deletionEnabled=false, emailReady = true, mode
         return <a key={label as string} href={href as string} className="flex min-h-11 items-center gap-3 rounded-lg border border-transparent px-3 py-2 text-sm hover:border-border hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><SectionIcon aria-hidden="true" className="size-4" />{label as string}</a>;
       })}</nav>
         <div className="min-w-0 space-y-8">
-          {!profilesEnabled ? <section id="profile-settings" className="space-y-2 rounded-2xl border bg-card p-5 sm:p-7"><h2 className="text-lg font-semibold">Profile</h2><p className="text-sm leading-6 text-muted-foreground">Community profiles are not available yet. Your appearance settings and existing account features still work.</p>{user && <p className="text-sm">Display name: <span className="font-medium">{user.name}</span></p>}</section>
+          {!profilesEnabled ? <section id="profile-settings" className="space-y-2 rounded-2xl border bg-card p-5 sm:p-7"><h2 className="text-lg font-semibold">Profile</h2><p className="text-sm leading-6 text-muted-foreground">Community profiles are not available yet. Your appearance settings and existing account features still work.</p>{user && <p className="text-sm">Display name: <span className="font-medium">{user.name}</span></p>}{completionHistory}</section>
             : isPending ? <section id="profile-settings" className="rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="status" className="mt-3 text-sm">Loading your account…</p></section>
             : error ? <section id="profile-settings" className="space-y-3 rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="alert" className="text-sm">Your account could not be loaded.</p><Button variant="outline" onClick={() => refetch()}>Retry account</Button></section>
             : !user ? <section id="profile-settings" className="space-y-3 rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p className="text-sm text-muted-foreground">Sign in to create or edit your profile.</p><Button asChild><Link href="/sign-in?returnTo=%2Fsettings">Sign in</Link></Button></section>
-            : <ProfileEditor key={user.id} userId={user.id} verified={user.emailVerified === true} mediaEnabled={mediaEnabled} achievementsEnabled={achievementsEnabled} earnedAchievementsEnabled={earnedAchievementsEnabled} medalVerificationUrl={medalVerificationUrl} onboarding={onboarding} />}
+            : <ProfileEditor key={user.id} userId={user.id} verified={user.emailVerified === true} mediaEnabled={mediaEnabled} achievementsEnabled={achievementsEnabled} earnedAchievementsEnabled={earnedAchievementsEnabled} medalVerificationUrl={medalVerificationUrl} onboarding={onboarding} completionHistory={completionHistory} />}
           {user && <AccountSecurity key={user.id} email={user.email} emailReady={emailReady} />}
           {verificationEnabled && user && <VerificationSettings key={user.id} verified={user.emailVerified === true} />}
           {moderationEnabled && <ModerationHistory/>}

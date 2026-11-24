@@ -211,6 +211,98 @@ test('complete account erasure on actual auth and installed graph, disposable PG
     await new Promise(resolve=>setTimeout(resolve,50));assert.equal(settled,false);const duplicate=erase.query('SELECT account_deletion_execute($1,$2,$3,$4) AS receipt',[a.id,session.session.token,proof.hash,nonce(recovery)]);await held.query('COMMIT');assert.equal((await write).code,'23503');assert.deepEqual((await duplicate).rows,erased.rows);assert.equal((await setup.query('SELECT count(*)::int AS n FROM archive_progress WHERE "userId"=$1',[a.id])).rows[0].n,0);
    }finally{await held.query('ROLLBACK');held.release();late.release();}
   });
+  await t.test('account erasure cascades personal completions and rejects a concurrent mark from a stale session', async () => {
+   const { createPersonalCompletionsApi } = await import('./personal-completions-api');
+   const routineInventory = `SELECT p.oid,p.proowner,p.proacl,p.prosecdef,p.proconfig,pg_get_functiondef(p.oid) AS definition
+    FROM pg_proc p WHERE p.pronamespace=$1::regnamespace ORDER BY p.oid`;
+   const beforeRoutines = (await setup.query(routineInventory, [name])).rows;
+   const migration = (await readFile('migrations/0025_personal_completions.up.sql', 'utf8')).replaceAll('public.', name + '.');
+   await setup.query(`BEGIN; ${migration} COMMIT;`);
+   assert.deepEqual((await setup.query(routineInventory, [name])).rows, beforeRoutines);
+   const executeRoutine = beforeRoutines.find(row => row.definition.includes('FUNCTION '+name+'.account_deletion_execute('));
+   assert.ok(executeRoutine?.prosecdef && executeRoutine.proconfig.some((setting: string) => setting.includes('pg_catalog')));
+   assert.equal(executeRoutine.proowner,(await setup.query('SELECT oid FROM pg_roles WHERE rolname=$1',[owner])).rows[0].oid);
+   for (const pool of [normal, erase, staff]) {
+    await assert.rejects(pool.query('SELECT * FROM personal_problem_completion'), { code: '42501' });
+    await assert.rejects(pool.query('SELECT * FROM personal_completion_write_limit'), { code: '42501' });
+   }
+   // Apply the exact reviewed delta in the disposable schema and connect as the real runtime LOGIN.
+   const grants = (await readFile('scripts/personal-completions/runtime-grants.review.sql','utf8'))
+    .replaceAll('public.', name+'.').replaceAll(':"runtime_role"',ordinary);
+   const audit = (await readFile('scripts/personal-completions/runtime-delta.readonly.sql','utf8'))
+    .replaceAll("'public'::regnamespace","'"+name+"'::regnamespace")
+    .replaceAll(":'runtime_role'","'"+ordinary+"'").replaceAll(":'completion_owner'","'"+owner+"'");
+   assert.ok((await setup.query(audit)).rows.length>0);
+   await setup.query(`BEGIN; ${grants} COMMIT;`);
+   assert.deepEqual((await setup.query(audit)).rows,[]);
+   await setup.query(`GRANT SELECT ON personal_problem_completion TO ${executor};
+    GRANT SELECT(requests) ON personal_completion_write_limit TO ${staffRole}`);
+   assert.deepEqual((await setup.query(audit)).rows.map(row=>[row.kind,row.object]),[
+    ['unexpected_grantee','personal_completion_write_limit.requests'],
+    ['unexpected_grantee','personal_problem_completion'],
+   ]);
+   await setup.query(`REVOKE SELECT ON personal_problem_completion FROM ${executor};
+    REVOKE SELECT(requests) ON personal_completion_write_limit FROM ${staffRole}`);
+   assert.deepEqual((await setup.query(audit)).rows,[]);
+   await setup.query(`GRANT SELECT ON authored_problem,authored_revision TO ${ordinary};
+    GRANT UPDATE(state) ON authored_problem TO ${ordinary}`);
+   await assert.rejects(normal.query('UPDATE personal_problem_completion SET completed_at=now()'), { code: '42501' });
+   await assert.rejects(normal.query("INSERT INTO personal_problem_completion(user_id,problem_key,completed_at) VALUES('invalid','arena:arena-mind-the-gap',now())"), { code: '42501' });
+   await assert.rejects(normal.query('TRUNCATE personal_problem_completion'), { code: '42501' });
+   await assert.rejects(normal.query('DELETE FROM personal_completion_write_limit'), { code: '42501' });
+   await assert.rejects(normal.query('DELETE FROM "user" WHERE false'), { code: '42501' });
+
+   const a = await user('completion-erasure-a'), b = await user('completion-erasure-b');
+   const published = await publication(b);
+   const key = `authored:${published.problemId}`;
+   const completionRequest = (actor: Actor, problemKey?: string) => new Request(`${origin}/api/personal-completions`, {
+    method: problemKey ? 'PUT' : 'GET', headers: { origin, cookie: actor.cookie, 'x-community-account': actor.id, 'content-type': 'application/json' },
+    body: problemKey ? JSON.stringify({ key: problemKey, completed: true }) : undefined,
+   });
+   const deps = { pool: normal, origin: (req: Request) => req.headers.get('origin') === origin };
+   const completions = createPersonalCompletionsApi({ ...deps, user: async req => (await auth.api.getSession({ headers: req.headers }))?.user });
+   const aMark = await completions(completionRequest(a, key));
+   const bMark = await completions(completionRequest(b, key));
+   assert.equal(aMark.status, 200, await aMark.clone().text());
+   assert.equal(bMark.status, 200, await bMark.clone().text());
+   const otherMark = await bMark.json();
+   const session = (await auth.api.getSession({ headers: new Headers({ cookie: a.cookie }) }))!;
+   const proof = await dependencies(erase).password(a.id, a.password);
+   // Simulate a request that got a real authenticated user before deletion began.
+   const stale = createPersonalCompletionsApi({ ...deps, user: async () => session.user });
+   const held = await erase.connect();
+   let pending: Promise<Response> | undefined;
+   try {
+    await held.query('BEGIN');
+    await held.query('SELECT account_deletion_execute($1,$2,$3,$4)', [a.id, session.session.token, proof.hash, nonce(token())]);
+    pending = stale(completionRequest(a, 'arena:arena-mind-the-gap'));
+    let waiting = false;
+    for (let attempt = 0; attempt < 80 && !waiting; attempt++) {
+     const { rows } = await admin.query(`SELECT EXISTS (SELECT 1 FROM pg_stat_activity WHERE usename=$1
+       AND wait_event_type='Lock' AND query LIKE '%INSERT INTO personal_completion_write_limit%') AS waiting`, [ordinary]);
+     waiting = rows[0].waiting;
+     if (!waiting) await new Promise(resolve => setTimeout(resolve, 25));
+    }
+    assert.equal(waiting, true, 'The completion write must wait for the erasure transaction');
+    await held.query('COMMIT');
+    assert.equal((await pending).status, 401);
+   } finally {
+    await held.query('ROLLBACK');
+    held.release();
+    await pending;
+   }
+   assert.equal((await completions(completionRequest(a))).status, 401);
+   assert.equal((await stale(completionRequest(a))).status, 401);
+   for (const table of ['personal_problem_completion', 'personal_completion_write_limit']) {
+    assert.equal((await setup.query(`SELECT count(*)::int AS n FROM ${table} WHERE user_id=$1`, [a.id])).rows[0].n, 0);
+   }
+   const other = await completions(completionRequest(b));
+   assert.equal(other.status, 200, await other.clone().text());
+   const history = await other.json();
+   assert.equal(history.count, 1);
+   assert.deepEqual(history.items.map((item: { key: string; completedAt: string }) => ({ key: item.key, completedAt: item.completedAt })),
+    [{ key, completedAt: otherMark.completedAt }]);
+  });
   await t.test('ordinary role cannot erase immutable attempts or forge deletion permits and temp shadowing cannot change privileged tables',async()=>{
    const a=await user('privilege-a');await practiceCheck(a);
    await setup.query(`GRANT DELETE ON practice_check_attempt TO ${ordinary}`);await assert.rejects(normal.query('DELETE FROM practice_check_attempt WHERE user_id=$1',[a.id]));await assert.rejects(normal.query('INSERT INTO account_deletion_mutation VALUES(pg_backend_pid(),txid_current(),0,\'DELETE\',\'{}\',NULL)'));await assert.rejects(normal.query('SELECT account_deletion_permit_delete(\'practice_check_attempt\',\'true\',$1)',[a.id]));

@@ -11,3 +11,27 @@ test('shared cards preserve readers, publisher, public author badges and source 
  assert.match(html, /<div class="flex [^"]*flex-wrap [^"]*"><p [^>]*>By\s<a [^>]*href="\/u\/public_author"[^>]*>Public author<\/a><\/p><div aria-label="Achievement showcase"/);
  const privateHtml=renderToStaticMarkup(React.createElement(UnifiedProblemCard,{problem:{...entry,author:null}}));assert.ok(privateHtml.includes('Community author'));assert.ok(!privateHtml.includes('/u/public_author'));
 });
+
+test("the completed card adds a status without adding another control", () => {
+ const entry = collectionEntrySchema.parse({
+  key:"arena:arena-mind-the-gap",kind:"arena",id:"arena-mind-the-gap",title:"Mind the Gap",tags:[],
+  summary:"Original",elo:1350,estimatedDifficulty:null,author:null,completed:true,
+ });
+ const html = renderToStaticMarkup(React.createElement(UnifiedProblemCard, { problem: entry }));
+ assert.match(html, /aria-hidden="true"[^>]*>[\s\S]*Completed/);
+ assert.equal((html.match(/<a[\s>]/g) ?? []).length, 1);
+ assert.doesNotMatch(renderToStaticMarkup(React.createElement(UnifiedProblemCard, { problem: { ...entry, completed: undefined } })), /Completed/);
+});
+
+test("attempted and personal completion render independently", () => {
+ const entry = collectionEntrySchema.parse({
+  key:"arena:arena-mind-the-gap",kind:"arena",id:"arena-mind-the-gap",title:"Mind the Gap",tags:[],
+  summary:"Original",elo:1350,estimatedDifficulty:null,author:null,
+ });
+ for (const attempted of [undefined,false,true]) for (const completed of [undefined,true] as const) {
+  const html = renderToStaticMarkup(React.createElement(UnifiedProblemCard,{problem:{...entry,completed},attempted}));
+  assert.equal(html.includes(">Attempted<"),attempted===true);
+  assert.equal(html.includes(">Not attempted<"),attempted===false);
+  assert.equal(html.includes("data-personal-completion"),completed===true);
+ }
+});
