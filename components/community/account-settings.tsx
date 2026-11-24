@@ -31,8 +31,8 @@ function fromProfile(profile: OwnProfile | null): Form {
   return { handle, displayName, bio, educationLevel, favoriteTopicIds };
 }
 
-function ProfileEditor({ userId, verified, mediaEnabled, achievementsEnabled, onboarding }: {
-  userId: string; verified: boolean; mediaEnabled: boolean; achievementsEnabled: boolean; onboarding: boolean;
+function ProfileEditor({ userId, verified, mediaEnabled, achievementsEnabled, earnedAchievementsEnabled, medalVerificationUrl, onboarding }: {
+  userId: string; verified: boolean; mediaEnabled: boolean; achievementsEnabled: boolean; earnedAchievementsEnabled: boolean; medalVerificationUrl?: string; onboarding: boolean;
 }) {
   const [form, setForm] = useState(initialForm), [saved, setSaved] = useState<OwnProfile | null>(null);
   const [loading, setLoading] = useState(true), [loadFailed, setLoadFailed] = useState(false), [reload, setReload] = useState(0);
@@ -129,13 +129,13 @@ function ProfileEditor({ userId, verified, mediaEnabled, achievementsEnabled, on
         <section className="min-w-0 space-y-3 xl:sticky xl:top-6" aria-labelledby="preview-heading"><div className="flex items-center justify-between"><h2 id="preview-heading" className="text-sm font-medium">Live preview</h2><span className="rounded-full border px-2 py-1 text-xs text-muted-foreground">{saved?.publicVisibility ? "Public" : "Private"}</span></div><ProfileCard profile={{ ...form, displayName: form.displayName.trim() || form.handle }} media={images} badgeIds={badgeIds} medals={medals} compact headingLevel={3} /><p className="px-1 text-xs leading-5 text-muted-foreground">Details are a preview until you save. Uploaded images save separately.</p></section>
       </div>
     </section>
-    {achievementsEnabled && <AchievementSettings profileSaved={Boolean(saved)} verified={verified} onPreviewChange={setBadgeIds} onMedalsChange={setMedals} />}
+    {achievementsEnabled && <AchievementSettings showEarned={earnedAchievementsEnabled} medalVerificationUrl={medalVerificationUrl} profileSaved={Boolean(saved)} verified={verified} onPreviewChange={setBadgeIds} onMedalsChange={setMedals} />}
     <ProfileMediaControls ownerId={userId} enabled={mediaEnabled} saved={Boolean(saved)} verified={verified} onChange={setImages} />
   </>;
 }
 
-export function AccountSettings({ deletionEnabled=false, emailReady = true, moderationEnabled=false,profilesEnabled, mediaEnabled, achievementsEnabled = false, verificationEnabled = false, onboarding = false }: {
-  deletionEnabled?: boolean; emailReady?: boolean; moderationEnabled?:boolean;profilesEnabled: boolean; mediaEnabled: boolean; achievementsEnabled?: boolean; verificationEnabled?: boolean; onboarding?: boolean;
+export function AccountSettings({ deletionEnabled=false, emailReady = true, moderationEnabled=false,profilesEnabled, mediaEnabled, achievementsEnabled = false, earnedAchievementsEnabled = true, medalVerificationUrl, verificationEnabled = false, onboarding = false }: {
+  deletionEnabled?: boolean; emailReady?: boolean; moderationEnabled?:boolean;profilesEnabled: boolean; mediaEnabled: boolean; achievementsEnabled?: boolean; earnedAchievementsEnabled?: boolean; medalVerificationUrl?: string; verificationEnabled?: boolean; onboarding?: boolean;
 }) {
   const { data, isPending, error, refetch } = authClient.useSession();
   const user = data?.user;
@@ -143,7 +143,7 @@ export function AccountSettings({ deletionEnabled=false, emailReady = true, mode
     <SkipLink targetId="settings-main">Skip to settings</SkipLink>
     <header className="border-b"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-8"><Link href="/dashboard" className="inline-flex min-h-11 items-center text-lg font-semibold tracking-tight">Physcratic</Link><Link href="/dashboard?view=problems" className="inline-flex min-h-11 items-center gap-2 rounded px-1 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft aria-hidden="true" className="size-4" />Back to Arena</Link></div></header>
     <main id="settings-main" tabIndex={-1} className="mx-auto max-w-6xl px-5 py-8 focus:outline-none sm:px-8 sm:py-12"><div className="mb-8 space-y-2"><p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Your account</p><h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Account Settings</h1><p className="text-sm leading-6 text-muted-foreground">Manage your profile, sign-in, privacy and appearance.</p></div>
-      <div className="grid items-start gap-8 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-10"><nav aria-label="Settings sections" className="flex flex-wrap gap-2 lg:sticky lg:top-6 lg:flex-col">{[...(moderationEnabled ? [["Reports and appeals", "#moderation-history", Check]] : []), ...(verificationEnabled && user ? [["Verification", "#verification-settings", Check]] : []), ["Profile", "#profile-settings", UserRound], ...(user ? [["Email and password", "#email-settings", KeyRound]] : []), ["Appearance", "#appearance-settings", Palette], ["Help and tours", "#tours-settings", CircleHelp], ...(profilesEnabled && user ? [["Images", "#image-settings", ImageIcon], ...(achievementsEnabled ? [["Achievements", "#achievement-settings", Check]] : [])] : [])].map(([label, href, Icon]) => {
+      <div className="grid items-start gap-8 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-10"><nav aria-label="Settings sections" className="flex flex-wrap gap-2 lg:sticky lg:top-6 lg:flex-col">{[...(moderationEnabled ? [["Reports and appeals", "#moderation-history", Check]] : []), ...(verificationEnabled && user ? [["Verification", "#verification-settings", Check]] : []), ["Profile", "#profile-settings", UserRound], ...(user ? [["Email and password", "#email-settings", KeyRound]] : []), ["Appearance", "#appearance-settings", Palette], ["Help and tours", "#tours-settings", CircleHelp], ...(profilesEnabled && user ? [["Images", "#image-settings", ImageIcon], ...(achievementsEnabled ? [[earnedAchievementsEnabled ? "Achievements" : "Verified medals", "#achievement-settings", Check]] : [])] : [])].map(([label, href, Icon]) => {
         const SectionIcon = Icon as typeof UserRound;
         return <a key={label as string} href={href as string} className="flex min-h-11 items-center gap-3 rounded-lg border border-transparent px-3 py-2 text-sm hover:border-border hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><SectionIcon aria-hidden="true" className="size-4" />{label as string}</a>;
       })}</nav>
@@ -152,7 +152,7 @@ export function AccountSettings({ deletionEnabled=false, emailReady = true, mode
             : isPending ? <section id="profile-settings" className="rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="status" className="mt-3 text-sm">Loading your account…</p></section>
             : error ? <section id="profile-settings" className="space-y-3 rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="alert" className="text-sm">Your account could not be loaded.</p><Button variant="outline" onClick={() => refetch()}>Retry account</Button></section>
             : !user ? <section id="profile-settings" className="space-y-3 rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p className="text-sm text-muted-foreground">Sign in to create or edit your profile.</p><Button asChild><Link href="/sign-in?returnTo=%2Fsettings">Sign in</Link></Button></section>
-            : <ProfileEditor key={user.id} userId={user.id} verified={user.emailVerified === true} mediaEnabled={mediaEnabled} achievementsEnabled={achievementsEnabled} onboarding={onboarding} />}
+            : <ProfileEditor key={user.id} userId={user.id} verified={user.emailVerified === true} mediaEnabled={mediaEnabled} achievementsEnabled={achievementsEnabled} earnedAchievementsEnabled={earnedAchievementsEnabled} medalVerificationUrl={medalVerificationUrl} onboarding={onboarding} />}
           {user && <AccountSecurity key={user.id} email={user.email} emailReady={emailReady} />}
           {verificationEnabled && user && <VerificationSettings key={user.id} verified={user.emailVerified === true} />}
           {moderationEnabled && <ModerationHistory/>}

@@ -129,3 +129,14 @@ Installing this migration requires separate owner approval of the exact source, 
 ## Independent pseudonymous author credit (0023)
 
 `0023_author_credit` extends the 0007 profile table with nullable acknowledgement, version and withdrawal fields. Existing profiles start with empty credit evidence. Existing B1 runtime grants on profiles and profile limits cover those tables. Keep the new flag OFF until schema, permissions and disclosure receive separate approval. Run the guarded DOWN inside one transaction only on unused evidence. After use, keep the evidence and disable the flag. See [author credit engineering handoff](../docs/engineering/AUTHOR_CREDIT.md).
+
+## External medal verification (0024)
+
+`0024_external_medal_verification` is additive and requires the trusted
+profile, badge and internal medal schema (0007, 0009–0011 and 0015). Verify
+0018 account erasure on the target. The only additional runtime grant is
+SELECT on `community_external_approved_medal`. The operator tables are
+managed in SQL and have no application ORM write path. Keep the feature off
+until an approved procedure verifies the schema ledger, grants and rollout.
+The down file refuses to remove populated external medal history.
+See [external medal operations](../docs/engineering/EXTERNAL_MEDALS.md).

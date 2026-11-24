@@ -1,8 +1,10 @@
 # Physcratic Arena — Community Development Guidebook
 
+**Current medal policy.** The owner reviews certificates in Tally and awards medals with the trusted operator command. The internal PDF and dashboard plan below is historical. See [product decisions](PRODUCT_DECISIONS.md) and [external medal operations](EXTERNAL_MEDALS.md).
+
 **Baseline inspected:** `main` at `a1c288b3b38a661847a1828d42827974a8ea69af` (3 November 2026).
 **Goal:** Establish five coherent community capabilities, keeping existing authoring, grading, auth, production data and deployment safe. Implement with a fresh Codex session per batch.
-**Status:** PLANNING ONLY. This document does not claim any feature is implemented.
+**Historical baseline:** The original plan follows. Refer to the roadmap and current product decisions for the implementation and launch status.
 **Guidebook location:** Initially committed on branch `codex/community-system-guidebook-2026-11-03`, not `main`. Until Batch 0 merges it, Codex must read this branch explicitly with `git fetch origin codex/community-system-guidebook-2026-11-03` and `git show origin/codex/community-system-guidebook-2026-11-03:docs/engineering/COMMUNITY_GUIDEBOOK.md`. Include this document in the Batch 0 merge so subsequent sessions can read it from main.
 
 ## 1. Architecture and current reality
@@ -19,7 +21,7 @@
 ## 2. Exactly five first-cycle feature groups
 
 1. **Profiles & onboarding:** public handles, opt-in public visibility, editable display name and biography, favourite topics/education level, avatar and banner; optional onboarding after verification; tidy Settings.
-2. **Credentials & achievements:** developer-only admin/mod roles, private PDF Olympiad medal verification, earned author/solver badges, exactly two selected showcase badges.
+2. **Credentials & achievements:** developer-only admin/mod roles, owner-reviewed Tally medal verification, earned author/solver badges, exactly two selected showcase badges.
 3. **Unified Arena & favourites:** one UI for static and published authored problems, correct attribution, authenticated favourite toggle and counts, truthful completed counts.
 4. **Threaded discussion:** readable Reddit-like parent/reply threads and comment likes; soft-delete, editing, pagination, bounded depth.
 5. **Moderation & abuse controls:** reports for users/problems/comments, protected reviewer queue and audit log, rate limiting, word/link filters and review/appeal route.
@@ -37,6 +39,8 @@
 - Admin/mod status is server-owned, granted by audited developer-only action to stable account IDs; never by profile PATCH, badge selection, signup payload, or arbitrary email claim.
 
 ### 3.2 Verified Olympiad medals
+
+The [external medal workflow](EXTERNAL_MEDALS.md) is the current design. The following bullets record the superseded integrated certificate plan.
 
 - Structured claims: competition (IPhO/APhO/EuPhO/National), national competition country/name when relevant, year, award level, certificate holder full name, submitted timestamp and review state.
 - One private PDF proof (size cap suggested 5 MB; verify MIME and actual PDF bytes; no SVG/HTML and no public blob URLs). Retain original submitted claim separate from mutable profile fields. Private blob media must require an admin session even to read. Avoid third-party sheet copies of certificates.
@@ -154,7 +158,9 @@ BATCH 2A — Implement server-owned achievement definitions (First Spark 1 autho
 
 **Done when:** badge eligibility server-derived; exactly two show; badges can't be self-awarded.
 
-### Batch 2B — Medal verification and developer-controlled staff role
+### Batch 2B — Historical internal medal verification and developer-controlled staff role
+
+The certificate upload and review instructions below are superseded. The staff role design still applies to moderation.
 
 **Budget:** independent backend and queue batch; handle private PDF safely.
 **Relevant files:** community credentials, secure Blob helpers, private admin routes/dashboard.
@@ -239,6 +245,8 @@ Open blockers and single next Codex batch.
 
 Do not claim production was checked if you only tested CI, and never claim a migration ran without actual evidence. Each new Codex session should read this handoff, this guide and the few relevant files, not the entire history.
 
-## 9. Suggested order
+## 9. Historical batch order
+
+This original sequence is retained for context. Batch 2B is not a launch step for external medal verification.
 
 Run **Batch 0 → 1A → 1B → 2A → 2B → 3A → 3B → 4 → 5**. If minimizing time-to-social-MVP is more important than medal verification, do **0 → 1A → 1B → 3A → 3B → 4 → 5 → 2A → 2B**, because comments must not go public before moderation. Both maintain the five feature groups. One batch per fresh Codex context. Normal merges into main after gates; no unnecessary long recovery runbooks for UI-only changes.
