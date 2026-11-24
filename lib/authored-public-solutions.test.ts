@@ -27,7 +27,7 @@ test("public solution flag and pre-schema lazy route are fail closed", async () 
 });
 
 const url = process.env.AUTHORING_TEST_DATABASE_URL;
-test("public consent, migration, restricted LOGIN, privacy and integrity on disposable PostgreSQL", { skip: !url }, async t => {
+test("automatic public solutions, migration, restricted LOGIN, privacy and integrity on disposable PostgreSQL", { skip: !url }, async t => {
   const target = new URL(url!); assert.equal(target.hostname,"127.0.0.1"); assert.equal(target.pathname,"/physcratic_authoring_test");
   const schema = `public_solution_${randomUUID().replaceAll('-','')}`, role = schema+'_app';
   const admin = new Pool({connectionString:url}); await admin.query(`CREATE SCHEMA ${schema}; CREATE ROLE ${role} LOGIN PASSWORD 'synthetic-public-solutions-only' NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOBYPASSRLS`);
@@ -49,8 +49,12 @@ test("public consent, migration, restricted LOGIN, privacy and integrity on disp
     assert.equal((await read()).status,404,'pre-schema private publication is never public');
     assert.equal((await parsed(await f.author('public',req(),legacy.id))).id,legacy.revision.id);
     assert.equal((await readProblemStats(pool,[`authored:${legacy.id}`],null)).problems[0].solves,1);
+    const publishRequest = {version:legacy.version,solutionPolicy:publicSolutionPolicy};
+    const inactive = await parsed(await f.author('publish',req(author,publishRequest),legacy.id),412);
+    assert.match(inactive.error,/Reload Problem Studio/);
+    assert.equal((await parsed(await f.author('read',req(author),legacy.id))).version,legacy.version);
     process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED='true';
-    const failedBeforeSchema=await f.author('publish',req(author,{version:legacy.version,publicSolutionConsent:true}),legacy.id);
+    const failedBeforeSchema=await f.author('publish',req(author,publishRequest),legacy.id);
     assert.equal(failedBeforeSchema.status,503);
     assert.equal((await parsed(await f.author('public',req(),legacy.id))).id,legacy.revision.id);
     delete process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED;
@@ -69,12 +73,16 @@ test("public consent, migration, restricted LOGIN, privacy and integrity on disp
     runtime = new Pool({connectionString:login.href,options:`-c search_path=${schema},public`,max:5});
     assert.deepEqual((await runtime.query('SELECT current_user,session_user')).rows[0],{current_user:role,session_user:role});
     const runtimeAuthor = createProblemAuthoringApi({...f.deps,pool:runtime}), runtimeAttempts = createAuthoredAttemptApi({...f.deps,pool:runtime}), runtimePublic = createPublicAuthoredSolutionApi({pool:runtime,storage:store.storage});
-    await t.test('version-bound explicit consent, current-only public projection, all visitor states',async()=>{
+    await t.test('publishing a saved version makes its solution public for all visitors',async()=>{
       process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED='true';
-      assert.equal((await runtimeAuthor('publish',req(author,{version:legacy.version}),legacy.id)).status,400);
-      assert.equal((await runtimeAuthor('publish',req(other,{version:legacy.version,publicSolutionConsent:true}),legacy.id)).status,404);
-      assert.equal((await runtimeAuthor('publish',req(author,{version:legacy.version-1,publicSolutionConsent:true}),legacy.id)).status,409);
-      const published=await parsed(await runtimeAuthor('publish',req(author,{version:legacy.version,publicSolutionConsent:true}),legacy.id));legacy.version=published.version;const oldRevision=legacy.revision;legacy.revision=published.revision;
+      assert.equal((await runtimeAuthor('publish',req(other,publishRequest),legacy.id)).status,404);
+      assert.equal((await runtimeAuthor('publish',req(author,{...publishRequest,version:legacy.version-1}),legacy.id)).status,409);
+      const stale = await parsed(await runtimeAuthor('publish',req(author,{version:legacy.version}),legacy.id),412);
+      assert.match(stale.error,/Reload Problem Studio/);
+      assert.equal((await parsed(await runtimeAuthor('read',req(author),legacy.id))).version,legacy.version);
+      assert.equal((await parsed(await runtimeAuthor('public',req(),legacy.id))).id,legacy.revision.id);
+      assert.equal((await read()).status,404);
+      const published=await parsed(await runtimeAuthor('publish',req(author,publishRequest),legacy.id));legacy.version=published.version;const oldRevision=legacy.revision;legacy.revision=published.revision;
       assert.equal(legacy.revision.solutionPolicy,publicSolutionPolicy);
       assert.equal((await api(req(undefined,undefined,'GET',publicSolutionPath(legacy.id,oldRevision.id)),legacy.id)).status,409);
       for(const visitor of [undefined,student,unverified,other]){
@@ -83,6 +91,7 @@ test("public consent, migration, restricted LOGIN, privacy and integrity on disp
         const text=JSON.stringify(data);for(const forbidden of ['absTol','relTol','expected','variables','hints','key','pathname',author])assert.ok(!text.includes(forbidden),forbidden);
       }
       assert.equal(Number((await pool.query('SELECT count(*) n FROM authored_solution_reveal')).rows[0].n),0);
+      assert.deepEqual((await readAuthoredProgress(runtime!,other)).attemptedIds,[]);
     });
     await t.test('correctness preserved; receipts/replay/history use original revision evidence even when OFF',async()=>{
       const idempotencyKey=randomUUID(),body={revisionId:legacy.revision.id,partId:legacy.parts[0].id,answer:{kind:'numeric',value:2,units:'1'},idempotencyKey};
@@ -126,6 +135,7 @@ test("public consent, migration, restricted LOGIN, privacy and integrity on disp
       const image=await upload('solution-image',png),hint=await upload('solution-image',png),document=await upload('solution-pdf',pdf),unrelated=await upload('solution-pdf',pdf);
       legacy.privateParts[0].solution.push({id:randomUUID(),kind:'image',mediaId:image,alt:'Synthetic explanation',caption:''});legacy.privateParts[0].hints.push({id:randomUUID(),kind:'image',mediaId:hint,alt:'Private hint',caption:''});legacy.content.attachments.push({id:document,purpose:'solution-pdf'});
       const updated=await parsed(await f.author('update',req(author,{version:legacy.version,content:legacy.content,privateParts:legacy.privateParts}),legacy.id));legacy.version=updated.version;
+      // The older public-aware Studio request remains compatible.
       process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED='true';const published=await parsed(await runtimeAuthor('publish',req(author,{version:legacy.version,publicSolutionConsent:true}),legacy.id));legacy.version=published.version;legacy.revision=published.revision;
       const content=await parsed(await read());assert.deepEqual(content.media.map((m:{id:string})=>m.id).sort(),[image,document].sort());
       for(const file of [image,document]){const r=await read(legacy,undefined,file);assert.equal(r.status,200);assert.ok((await r.arrayBuffer()).byteLength>0);assert.match(r.headers.get('content-security-policy')!,/sandbox/);}

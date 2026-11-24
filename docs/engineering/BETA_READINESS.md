@@ -1,3 +1,12 @@
+## Public solution and personal Arena progress correction (24 November 2026)
+
+Local checks cover version-only publication, immediate public reads, private
+grading keys, saved attempt status across revisions, reload and account privacy.
+PostgreSQL and Chromium workflow checks use disposable synthetic fixtures.
+Rebase verification uses migration-backed checks on disposable PostgreSQL.
+Rollout checks cover a stale Studio tab and recovery by reloading before publishing.
+[Behavior and compatibility](AUTHORED_PUBLIC_SOLUTIONS.md#product-correction-24-november-2026).
+
 ## Quiet colour on the problem pages, U6c (24 November 2026)
 
 The solve page, the Arena page and the Progress page now keep colour for state only: green for success, red for wrong and peach for the main action. Parts are told apart by their bold letter and their order. `PartChip` is a neutral badge (idle tint, 1px border token, foreground text). Answer cards are the plain card with a thin border. The next empty part gets a 2px ring token outline, nothing else. A correct part shows its "Correct" line with a small success tint behind its icon and word only. The invalid field now uses the same danger ink as "Not correct." The parts bar is outlined neutral segments that fill with the success colour. The Solved note is the one green area. The check summary box is plain with an icon in the state's ink. Arena statement parts lose their coloured stripes. Progress card headers stay on the plain card with an icon in its ink and the coloured count badge, and the summary is tinted only when solved is above 0.

@@ -25,5 +25,6 @@ export const practiceProgressEntrySchema=z.strictObject({
 export const practiceProgressSchema=z.strictObject({
   progress:z.array(practiceProgressEntrySchema).max(1000),savedChecks:z.number().int().nonnegative(),
   solvedProblems:z.number().int().nonnegative(),inProgressProblems:z.number().int().nonnegative(),notGradedProblems:z.number().int().nonnegative(),
+  attemptedIds:z.array(archiveGradeRequestSchema.shape.problemId).max(1000).optional(),
 });
 export type PracticeProgress=z.infer<typeof practiceProgressSchema>;
