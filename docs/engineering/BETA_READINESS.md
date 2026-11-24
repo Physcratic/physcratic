@@ -1,6 +1,6 @@
 ## Medal display and Arena attribution (24 November 2026)
 
-The shared badge puts the award first. Arena aligns the showcase beside the author link and wraps long names and badges on narrow cards. Local Chromium covered 320px, 375px and 1440px in both themes, including keyboard disclosure and private-profile fallback. The patch is held locally for the next UI batch.
+The shared badge puts the award first. Arena aligns the showcase beside the author link and wraps long names and badges on narrow cards. Local Chromium covered 320px, 375px and 1440px in both themes, including keyboard disclosure and private-profile fallback. The change was verified locally before review.
 
 ## Every block editable in Simple, U7a (24 November 2026)
 
