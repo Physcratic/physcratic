@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { randomUUID } from "node:crypto";
-import { PendingSaveRetrier, retryPolicy, type RetryHost, type RetryStatus, type SaveOutcome } from "./pending-save-retry";
+import { PendingSaveRetrier, parseRetryAfter, retryPolicy, type RetryHost, type RetryStatus, type SaveOutcome } from "./pending-save-retry";
 import { PracticeCheckJournal } from "./practice-check-client";
 
 /** A host with a fake clock and fake timers, so the tests run instantly and nothing is really waited for. */
-function fakeHost(options: { pending?: () => boolean; attempt: () => Promise<SaveOutcome> }) {
+function fakeHost(options: { pending?: () => boolean; attempt: () => Promise<SaveOutcome>; retryAfter?: () => number | undefined }) {
   let clock = 0, next = 1;
   const timers = new Map<number, { at: number; run: () => void; ms: number }>();
   const delays: number[] = [];
@@ -17,6 +17,7 @@ function fakeHost(options: { pending?: () => boolean; attempt: () => Promise<Sav
     clearTimer: (id) => { timers.delete(id as number); },
     now: () => clock,
     onStatus: (status) => statuses.push(status),
+    takeRetryAfter: options.retryAfter,
   };
   return {
     host, delays, statuses, timers,
@@ -251,5 +252,87 @@ test("an answer typed while a retry is in flight survives, and the same answer i
   assert.equal(journal.book.pending, null);
   assert.deepEqual(journal.book.answers, { answer: "5.1" }, "the typed answer was not overwritten");
   assert.equal(server.saved.size, 1, "both tries used one idempotency key, so the server kept one save");
+  retrier.dispose();
+});
+
+test("a Retry-After longer than the policy delay is the wait", async () => {
+  const fake = fakeHost({ attempt: async () => "failed", retryAfter: () => 30_000 });
+  const retrier = new PendingSaveRetrier(fake.host);
+  retrier.arm();
+  assert.deepEqual(fake.delays, [30_000], "the first policy delay is 2 seconds, the server asked for 30");
+  await fake.fireNext();
+  assert.deepEqual(fake.delays, [30_000, 30_000], "a later policy delay of 5 seconds is also shorter than 30");
+  retrier.dispose();
+});
+
+test("a Retry-After shorter than the policy delay does not shorten it", async () => {
+  const fake = fakeHost({ attempt: async () => "failed", retryAfter: () => 500 });
+  const retrier = new PendingSaveRetrier(fake.host);
+  retrier.arm();
+  await fake.fireNext();
+  await fake.fireNext();
+  assert.deepEqual(fake.delays, [2_000, 5_000, 15_000]);
+  retrier.dispose();
+});
+
+test("a missing or bad Retry-After changes nothing", async () => {
+  for (const asked of [undefined, 0, -5, Number.NaN, Number.POSITIVE_INFINITY]) {
+    const fake = fakeHost({ attempt: async () => "failed", retryAfter: () => asked });
+    const retrier = new PendingSaveRetrier(fake.host);
+    retrier.arm();
+    assert.deepEqual(fake.delays, [2_000], String(asked));
+    retrier.dispose();
+  }
+  const plain = fakeHost({ attempt: async () => "failed" });
+  const retrier = new PendingSaveRetrier(plain.host);
+  retrier.arm();
+  assert.deepEqual(plain.delays, [2_000], "a host that never reports one");
+  retrier.dispose();
+});
+
+test("the Retry-After header is read as seconds and nothing else", () => {
+  assert.equal(parseRetryAfter("30"), 30_000);
+  assert.equal(parseRetryAfter(" 7 "), 7_000);
+  assert.equal(parseRetryAfter("1.5"), 1_500);
+  for (const bad of [null, undefined, "", "0", "0.0", "-5", "abc", "10s", "Wed, 21 Oct 2026 07:28:00 GMT", "1e3", "Infinity"]) assert.equal(parseRetryAfter(bad), undefined, String(bad));
+});
+
+test("a Retry-After is capped at 120 seconds", async () => {
+  const fake = fakeHost({ attempt: async () => "failed", retryAfter: () => 3_600_000 });
+  const retrier = new PendingSaveRetrier(fake.host);
+  retrier.arm();
+  assert.deepEqual(fake.delays, [retryPolicy.maxRetryAfterMs]);
+  assert.equal(retryPolicy.maxRetryAfterMs, 120_000);
+  retrier.dispose();
+});
+
+test("with a Retry-After every time, the attempts still stop at the cap and one is in flight at a time", async () => {
+  let attempts = 0;
+  const fake = fakeHost({ attempt: async () => { attempts++; return "failed"; }, retryAfter: () => 90_000 });
+  const retrier = new PendingSaveRetrier(fake.host);
+  retrier.arm();
+  for (let i = 0; i < retryPolicy.maxTimerAttempts + 1; i++) await fake.fireNext();
+  assert.equal(attempts, retryPolicy.maxTimerAttempts + 1);
+  assert.equal(fake.timers.size, 0, "no timer is left");
+  assert.equal(fake.statuses.at(-1), "stalled");
+  retrier.dispose();
+});
+
+test("the Retry-After is asked for once per timer, so an old 429 does not stretch a later wait", async () => {
+  let queued: number | undefined = 40_000;
+  const fake = fakeHost({ attempt: async () => "failed", retryAfter: () => { const now = queued; queued = undefined; return now; } });
+  const retrier = new PendingSaveRetrier(fake.host);
+  retrier.arm();
+  await fake.fireNext();
+  assert.deepEqual(fake.delays, [40_000, 5_000]);
+  retrier.dispose();
+});
+
+test("a save the server rejected for good is still not retried on a timer, whatever Retry-After says", async () => {
+  const fake = fakeHost({ attempt: async () => "rejected", retryAfter: () => 10_000 });
+  const retrier = new PendingSaveRetrier(fake.host);
+  assert.equal(await retrier.trigger("check"), "rejected");
+  assert.equal(fake.timers.size, 0);
+  assert.equal(fake.statuses.at(-1), "stalled");
   retrier.dispose();
 });

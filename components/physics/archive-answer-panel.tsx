@@ -5,7 +5,7 @@ import { useSWRConfig } from "swr";
 import { authClient } from "@/lib/auth-client";
 import { PracticeCheckJournal, practiceSessionStorage } from "@/lib/practice-check-client";
 import { practiceCheckInputSchema, practiceCheckReceiptSchema, type PracticeCheckRequest } from "@/lib/practice-check-contracts";
-import { PendingSaveRetrier, type RetryStatus, type SaveOutcome } from "@/lib/pending-save-retry";
+import { PendingSaveRetrier, parseRetryAfter, type RetryStatus, type SaveOutcome } from "@/lib/pending-save-retry";
 import useSWRImmutable from "swr/immutable";
 import Link from "next/link";
 import { ArrowRight, Lightbulb, Loader2, RotateCcw } from "lucide-react";
@@ -86,6 +86,8 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
   const [syncStatus, setSyncStatus] = useState<RetryStatus>("idle");
   const retrierRef = useRef<PendingSaveRetrier | null>(null);
   const syncRef = useRef<() => Promise<SaveOutcome>>(async () => "skipped");
+  /** What a 429 on a save asked for with Retry-After. The retrier takes it once when it sets the next timer. */
+  const retryAfter = useRef<number | undefined>(undefined);
   const live = useRef({ journal, account, saveAccount, conflict });
   live.current = { journal, account, saveAccount, conflict };
   const fieldPrefix = useId();
@@ -111,10 +113,13 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
 
   /** One POST and its checks. `request` is the journal's snapshot when the check is saved, and null for a check without saving. Null back means it was cancelled. */
   async function postCheck(request: PracticeCheckRequest | null, answersToCheck: { partId: string; latex: string }[], controller: AbortController) {
+    if (request) retryAfter.current = undefined;
     const response = await fetch(request ? "/api/practice-checks" : "/api/archive-grade", {
       method: "POST", headers: { "Content-Type": "application/json", ...(request ? { "X-Practice-Account": account } : {}) }, signal: AbortSignal.any([controller.signal, AbortSignal.timeout(15000)]),
       cache: "no-store", credentials: "same-origin", body: request ? JSON.stringify(request) : JSON.stringify({ problemId, version: data.version, answers: answersToCheck }),
     });
+    // Read before the body, so a 429 with a body that is not JSON still counts. A network error leaves nothing stale either.
+    if (request) retryAfter.current = response.status === 429 ? parseRetryAfter(response.headers.get("Retry-After")) : undefined;
     const body = await response.json();
     if (controller.signal.aborted) return null;
     if (!response.ok) {
@@ -210,6 +215,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
       clearTimer: (handle) => window.clearTimeout(handle as number),
       now: () => Date.now(),
       onStatus: setSyncStatus,
+      takeRetryAfter: () => { const asked = retryAfter.current; retryAfter.current = undefined; return asked; },
     });
     retrierRef.current = retrier;
     const detach = retrier.attach(window, document);
@@ -287,7 +293,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
           <Button type="submit" data-tour="check-button" className="min-h-11 px-6" disabled={busy || Boolean(saveAccount && (conflict || journal.account !== account))}>{busy && <Loader2 className="animate-spin" data-icon="inline-start" />}{busy ? "Checking…" : "Check answer"}</Button>
           {journal.book.pending && saveAccount && !conflict && <p role="status" aria-live="polite" className="flex min-h-11 w-full items-center text-sm text-muted-foreground">{busy || syncStatus === "saving" ? "Saving your answer…" : syncStatus === "stalled" ? "Your answer is still saved on this device. Press Check to send it again." : "Your answer is saved on this device and will sync when you are back online."}</p>}
           {saveAccount && (journal.book.pending || journal.warning || error || conflict) && <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={() => { void checkAnswers(undefined, true); }}>Check without saving</Button>}
-          <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={() => { currentAnswers.current = {}; setAnswers({}); if (!conflict) journal.edit({}); redraw(n => n + 1); setResult(null); setError(""); }}><RotateCcw data-icon="inline-start" />Clear answers</Button>
+          <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={() => { currentAnswers.current = {}; correctAnswers.current = {}; correctMessages.current = {}; setAnswers({}); if (!conflict) journal.edit({}); redraw(n => n + 1); setResult(null); setError(""); }}><RotateCcw data-icon="inline-start" />Clear answers</Button>
         </div>
         {justSolved && <SolvedBanner />}
         <div aria-live="polite" aria-atomic="true" className="min-w-0">

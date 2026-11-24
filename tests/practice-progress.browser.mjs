@@ -70,6 +70,16 @@ try{
   await context.addInitScript(theme=>document.addEventListener('DOMContentLoaded',()=>document.documentElement.classList.toggle('dark',theme==='dark')),theme);
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await page.goto(origin);
   await grade(page,'4.9');await waitText(page,'Checked without saving.');assert.ok(guestPosts>0);assert.equal(await page.getByText(/Nothing is saved\./).count(),1);
+  {// Clear answers forgets what was correct. The same answer typed again is correct only after the next check.
+   const correct=page.locator('strong').filter({hasText:/^Correct\.$/}),solved=page.getByRole('status').filter({hasText:/^Solved$/});
+   await correct.waitFor();await solved.waitFor();
+   await page.getByRole('button',{name:'Clear answers',exact:true}).click();
+   assert.equal(await correct.count(),0,'cleared: no part is shown correct');assert.equal(await solved.count(),0,'cleared: no Solved note');
+   await page.locator('input[inputmode="decimal"]').fill('4.9');
+   assert.equal(await correct.count(),0,'retyped: still not correct before a new check');assert.equal(await solved.count(),0,'retyped: still no Solved note');
+   await page.getByRole('button',{name:'Check answer',exact:true}).click();await correct.waitFor();
+   await page.getByRole('button',{name:'Clear answers',exact:true}).click();
+  }
   const id=`T${mobile?1:0}${theme}`;await session(page,id);await page.locator('input[inputmode="decimal"]').waitFor();assert.equal(await page.locator('input[inputmode="decimal"]').inputValue(),'');
   await grade(page,'1');await waitText(page,'Saved to your account. Your dashboard will update.');assert.equal(await page.getByText(/Nothing is saved\./).count(),0,'durable receipt feedback must not claim unsaved');
   await page.locator('[data-testid="dashboard"]').filter({hasText:'0 solved, 1 saved'}).waitFor();
