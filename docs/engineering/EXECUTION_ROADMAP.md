@@ -1,3 +1,7 @@
+## Problem Studio Simple polish (24 November 2026)
+
+Four small fixes in the Simple editor, each with a test. Choosing a different image now swaps only the file, so the picture keeps its block, description and caption (`replacePicture` and `replaceContextPicture` in `simple-model.ts`, checked in `tests/simple-model.test.ts`). The equation chip in `rich-math-text.tsx` now has an accessible name that holds the text it shows, with the LaTeX source as its description, which fixes the axe `label-content-name-mismatch` finding. Sections carry `data-order-item`, so focus returns to the moved section after a keyboard move. The long suite `tests/problem-authoring.browser.mjs` now types a real equation chip into the main question and runs axe over it, and it asserts the focus and the kept picture description again. The stale Simple label is gone from `lib/product-guides.test.ts`.
+
 ## Practice persistence release qualification (25 November 2026)
 
 Keep practice persistence off while account deletion is parked. [Current-main qualification](PRACTICE_PROGRESS.md#current-main-release-qualification-25-november-2026) records the separate meanings of attempted, marked complete, correctly answered and independently solved, plus compatibility and growth evidence. The minimum activation sequence requires qualified erasure, owner runtime and backup evidence, and separate approval for the practice flag. No feature expansion is scheduled.
