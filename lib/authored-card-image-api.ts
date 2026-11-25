@@ -54,11 +54,12 @@ export function createCardImageApi(deps: { pool: Pool; storage: AuthorStorage })
       const block = revision.rows[0] ? firstImageBlock(revision.rows[0].content) : null;
       const mediaId = id.safeParse(block?.mediaId);
       if (!block || !mediaId.success || !clampCardAlt(block.alt)) return notFound();
-      // A ready statement image, bound to this revision. Solution and draft media are never bound here.
+      // Recheck the public pointer in the same read as the statement media lookup.
       const media = await deps.pool.query<{ pathname: string; media_type: string; bytes: number }>(
         `SELECT m.pathname,m.media_type,m.bytes FROM author_revision_media rm
          JOIN author_media m ON m.id=rm.media_id AND m.problem_id=rm.problem_id AND m.purpose=rm.purpose
-         WHERE rm.revision_id=$1 AND rm.problem_id=$2 AND rm.media_id=$3 AND rm.purpose='statement-image' AND m.state='ready'`,
+         JOIN authored_problem p ON p.id=rm.problem_id AND p.published_revision_id=rm.revision_id
+         WHERE rm.revision_id=$1 AND rm.problem_id=$2 AND rm.media_id=$3 AND rm.purpose='statement-image' AND m.state='ready' AND p.state='published'`,
         [revisionId.data, problemId.data, mediaId.data],
       );
       const file = media.rows[0];
@@ -75,7 +76,7 @@ export function createCardImageApi(deps: { pool: Pool; storage: AuthorStorage })
       const webp = await input.timeout({ seconds: 8 }).rotate().resize({ width: cardImageWidth, withoutEnlargement: true }).webp({ quality: cardImageQuality }).toBuffer();
       return new Response(new Uint8Array(webp), {
         status: 200,
-        headers: { ...base, "Content-Type": "image/webp", "Cache-Control": "public, max-age=60, s-maxage=300, stale-while-revalidate=60" },
+        headers: { ...base, "Content-Type": "image/webp", "Cache-Control": "private, no-store" },
       });
     } catch {
       return notFound();

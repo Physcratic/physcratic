@@ -2,11 +2,23 @@
 
 Four small fixes in the Simple editor, each with a test. Choosing a different image now swaps only the file, so the picture keeps its block, description and caption (`replacePicture` and `replaceContextPicture` in `simple-model.ts`, checked in `tests/simple-model.test.ts`). The equation chip in `rich-math-text.tsx` now has an accessible name that holds the text it shows, with the LaTeX source as its description, which fixes the axe `label-content-name-mismatch` finding. Sections carry `data-order-item`, so focus returns to the moved section after a keyboard move. The long suite `tests/problem-authoring.browser.mjs` now types a real equation chip into the main question and runs axe over it, and it asserts the focus and the kept picture description again. The stale Simple label is gone from `lib/product-guides.test.ts`.
 
+## Dead part colour helpers removed (24 November 2026)
+
+Since the calm colour change, parts are told apart by letter and order, and nothing was reading the part colours. Removed: `partStyle`, `partBorder` and the `index` argument of `PartChip` in `components/physics/solve-ui.tsx`, with every caller in `student-workspace`, `worked-solution`, `advanced-part-options`, `problem-editor`, `simple-editor` and `corpus-problem-reader`. The now-dead `colour` and `partColour` props went too. In `lib/part-colors.ts` only `bareLabel` is left, because the real components use it. `partToken`, `partTokenClasses`, `partTokenNames`, `partParent`, `assignPartColors` and `colorsByPartId` are gone, along with the four `--part-*` families in `app/globals.css`, their entries in `tailwind.config.js` and the `part-*` rows in `lib/colour-tokens.test.ts`. Success, progress, danger and idle are untouched.
+
+Nothing renders differently. The deleted `style` props returned undefined and the deleted `${partBorder}` was an empty string, so the only change in any class string is a trailing space. The part chip stays a grey bordered badge and the next part keeps its 2px ring outline.
+
+## Medal display and Arena attribution (24 November 2026)
+
+The shared badge puts the award first. Arena aligns the showcase beside the author link and wraps long names and badges on narrow cards. Local Chromium covered 320px, 375px and 1440px in both themes, including keyboard disclosure and private-profile fallback. The change was verified locally before review.
+
 ## Problem Studio has one editor, Phase 1 (24 November 2026)
 
 The Classic editor is removed and the Simple editor is the only one. Gone: `advanced-sections.tsx`, the Classic body and its Classic editor and Back to the new editor buttons in `problem-editor.tsx`, the mode state and the stored `physcratic.studio.mode` key (a stale value of classic, advanced or simple is ignored and never rewritten, tested in `tests/studio-simple.browser.mjs`), the Classic only notes in Simple (`advancedNote` and the lines sending authors to Classic), the view memory kept for the Classic round trip, the numbered step card and the full status bar, the Learn guide section and image on the Classic editor (`studio-advanced.webp`), and the guide screenshot helper that drove Classic. Accepted losses, not rebuilt: moving a part across sections, adding a part to an earlier section, the section outline and the Publication checks panel. Also accepted: an extra text block can no longer be moved above the question's own text, because Simple refuses a move that would change which block is the question. CI runs the long suite with `PDF_STUDIO_ONLY=1`, so the ported Advanced section runs only locally. Open Codex PR #185 touches `tests/solve-contrast.browser.mjs`, which this PR edited.
 
 The long suite `tests/problem-authoring.browser.mjs` (its Advanced section, skipped by CI) now builds its problem in the one editor and keeps every later check. It passed before and after with the same three PASS lines. Porting it showed what the Classic only suite had hidden: after moving a section with the keyboard focus is not put back on the section, replacing a picture clears its description and gives the block a new id, an equation typed inside the question text is a chip that axe reports as label-content-name-mismatch, and the hidden editor stays in the page while the student preview is shown. These are noted in the suite and were not fixed here. `tests/studio-mode.test.ts`, `studio-landing`, `solve-contrast` and `simple-options` no longer mention Classic. `tests/tours.browser.mjs` needs a running app and was not run. The guest contrast sweep was not run here.
+
+
 
 ## Private personal completions, Phase 4 (24 November 2026)
 
@@ -371,6 +383,14 @@ PR A simplifies the authored reader and unifies Simple/PDF part editing without 
 ## PDF-first Problem Studio (16 November 2026)
 
 Upload-first authoring stays inside Simple mode with the existing draft/version/recovery and media contracts. Tutors attach statement PDFs or ordered part images, define numeric/expression/manual keys and optional private solution PDFs, and use the shared student preview. Publication accepts actual statement media without fabricated native text. Ownership/readiness, media sealing and per-part solution approval stay unchanged. Shared Save now supports deliberate recovery, and preview keeps incomplete input mounted. Workflow view preferences contain only per-user/per-problem files/text choices. [Architecture, validation implications and limits](PROBLEM_AUTHORING_MAP.md#pdf-first-studio-contract-16-november-2026). Synthetic PG/model/component/browser checks and independent review are recorded in the focused PR, including final exact-head CI and production-mode PDF checks. Reconciled concurrent main `01ee8ad` without conflicts. No migration, dependency, Production SQL/grant/storage/flag change, OCR or card unification. Existing 3 MiB limits and uploaded-document accessibility limitations remain. Scoped code-only merge is owner-authorized only after review and all material checks pass. Do not activate deletion or practice persistence.
+
+## Account deletion blocker corrections (25 November 2026)
+
+Corrected retained report keys and revision-specific publication approval, and preserved unresolved private upload obligations through account deletion. Activation remains NO-GO pending provider-backed reconciliation and the other owner gates in the [readiness runbook](ACCOUNT_DELETION_READINESS.md#release-blocker-corrections-25-november-2026).
+
+## Account deletion release qualification (25 November 2026)
+
+NO-GO for activation. The existing Node 22 and disposable PostgreSQL 18.6 suite passed 17 checks, including four Chromium views. Additional synthetic cases reproduced the profile report key collision, stale publication rights approval and false completion before a delayed private upload. The [readiness runbook](ACCOUNT_DELETION_READINESS.md#release-decision-25-november-2026) records the blockers, owner decisions and manual activation sequence, including Tally and restoration. No Production data or settings were accessed or changed.
 
 ## Account deletion release qualification (15 November 2026)
 

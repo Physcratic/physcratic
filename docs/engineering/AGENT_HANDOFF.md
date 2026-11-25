@@ -4,11 +4,35 @@
 
 Four small fixes in the Simple editor, each with a test. Choosing a different image now swaps only the file, so the picture keeps its block, description and caption (`replacePicture` and `replaceContextPicture` in `simple-model.ts`, checked in `tests/simple-model.test.ts`). The equation chip in `rich-math-text.tsx` now has an accessible name that holds the text it shows, with the LaTeX source as its description, which fixes the axe `label-content-name-mismatch` finding. Sections carry `data-order-item`, so focus returns to the moved section after a keyboard move. The long suite `tests/problem-authoring.browser.mjs` now types a real equation chip into the main question and runs axe over it, and it asserts the focus and the kept picture description again. The stale Simple label is gone from `lib/product-guides.test.ts`.
 
+## Account deletion with outstanding file cleanup (25 November 2026)
+
+Vercel's response, relayed by the owner, establishes no documented terminal mechanism or maximum commit lifetime for interrupted PUTs. Blob physical backup retention remains unverified. Review of `62bdf5a` confirms 0026 can commit database erasure while retaining held paths and unfinished outbox jobs. [The staged release assessment](ACCOUNT_DELETION_READINESS.md#database-erasure-with-outstanding-file-cleanup-25-november-2026) records the receipt limits and the mandatory privacy, file access, staffed follow-up, Tally and restore evidence. Keep deletion off pending qualified operations and separate owner approval. Documentation only.
+
+## Dead part colour helpers removed (24 November 2026)
+
+Since the calm colour change, parts are told apart by letter and order, and nothing was reading the part colours. Removed: `partStyle`, `partBorder` and the `index` argument of `PartChip` in `components/physics/solve-ui.tsx`, with every caller in `student-workspace`, `worked-solution`, `advanced-part-options`, `problem-editor`, `simple-editor` and `corpus-problem-reader`. The now-dead `colour` and `partColour` props went too. In `lib/part-colors.ts` only `bareLabel` is left, because the real components use it. `partToken`, `partTokenClasses`, `partTokenNames`, `partParent`, `assignPartColors` and `colorsByPartId` are gone, along with the four `--part-*` families in `app/globals.css`, their entries in `tailwind.config.js` and the `part-*` rows in `lib/colour-tokens.test.ts`. Success, progress, danger and idle are untouched.
+
+Nothing renders differently. The deleted `style` props returned undefined and the deleted `${partBorder}` was an empty string, so the only change in any class string is a trailing space. The part chip stays a grey bordered badge and the next part keeps its 2px ring outline.
+
+## Account deletion operator package (25 November 2026)
+
+Prepared [the 0026 cutover and installer](../../scripts/account-deletion-0026/README.md) from serving baseline `ee23638`. The reviewer reported six ready author objects and three legacy evidence rows. Vercel documents no throw for deleting a nonexistent blob URL. The actual private-store rehearsal remains open. Account deletion is blocked on provider confirmation of terminal writes and retained copies, and on owner operational approval. Keep all unresolved obligations and leave deletion off. No Production operation or support request was made.
+
+## Account deletion blocker corrections (25 November 2026)
+
+0026 preserves independent report cases, binds continuing display to the reviewed revision, and holds existing outbox obligations until the private upload outcome is terminal. The focused run passed all 68 tests using PostgreSQL 18.6, synthetic storage and Chromium. Keep the deletion flag off. The owner must qualify the restricted acknowledgement grant, cut over with single-attempt Blob writes, obtain provider-backed reconciliation evidence for ambiguous and old writes, and complete the other privacy and restore gates. See [migration, verification and activation evidence](ACCOUNT_DELETION_READINESS.md#release-blocker-corrections-25-november-2026). No Production operation was performed.
+
+## Account deletion release qualification (25 November 2026)
+
+Account deletion remains NO-GO. The follow-up to merged PR #186 passed the focused PostgreSQL and browser suite and reproduced three blockers: overlapping profile reports prevent a second erasure, a rights approval can carry forward to a later revision, and early cleanup can miss an in-flight private upload. The owner confirms 0018 and 0024 are installed. Release also needs separate Tally reconciliation, updated privacy and support copy, staffed operation, real provider and restore exercises, and role attestation. See the [release decision and activation procedure](ACCOUNT_DELETION_READINESS.md#release-decision-25-november-2026). The review used synthetic data and made no Production changes.
+
 ## Problem Studio has one editor, Phase 1 (24 November 2026)
 
 The Classic editor is removed and the Simple editor is the only one. Gone: `advanced-sections.tsx`, the Classic body and its Classic editor and Back to the new editor buttons in `problem-editor.tsx`, the mode state and the stored `physcratic.studio.mode` key (a stale value of classic, advanced or simple is ignored and never rewritten, tested in `tests/studio-simple.browser.mjs`), the Classic only notes in Simple (`advancedNote` and the lines sending authors to Classic), the view memory kept for the Classic round trip, the numbered step card and the full status bar, the Learn guide section and image on the Classic editor (`studio-advanced.webp`), and the guide screenshot helper that drove Classic. Accepted losses, not rebuilt: moving a part across sections, adding a part to an earlier section, the section outline and the Publication checks panel. Also accepted: an extra text block can no longer be moved above the question's own text, because Simple refuses a move that would change which block is the question. CI runs the long suite with `PDF_STUDIO_ONLY=1`, so the ported Advanced section runs only locally. Open Codex PR #185 touches `tests/solve-contrast.browser.mjs`, which this PR edited.
 
 The long suite `tests/problem-authoring.browser.mjs` (its Advanced section, skipped by CI) now builds its problem in the one editor and keeps every later check. It passed before and after with the same three PASS lines. Porting it showed what the Classic only suite had hidden: after moving a section with the keyboard focus is not put back on the section, replacing a picture clears its description and gives the block a new id, an equation typed inside the question text is a chip that axe reports as label-content-name-mismatch, and the hidden editor stays in the page while the student preview is shown. These are noted in the suite and were not fixed here. `tests/studio-mode.test.ts`, `studio-landing`, `solve-contrast` and `simple-options` no longer mention Classic. `tests/tours.browser.mjs` needs a running app and was not run. The guest contrast sweep was not run here.
+
+
 
 ## Private personal completions, Phase 4 (24 November 2026)
 

@@ -8,7 +8,8 @@ This guide is for people and for AI tools (Claude Code, Codex, v0). Claude Code 
 2. Never build on an old branch. A `v0/*` branch more than a day behind `main` counts as old. v0 users start a new v0 chat from `main` instead.
 3. One feature per PR. Small PRs get reviewed faster.
 4. Don't edit another area's paths without asking its owner. If your task seems to need them, stop and ask.
-5. Deploy economy: every push to a branch and every merge to main starts a paid Vercel build. Finish and check work locally, then push once. Do not push merge-of-main commits unless GitHub reports a conflict, resolve handoff doc conflicts in one push, do not open docs-only PRs, and never trigger a Vercel redeploy.
+5. Push reviewed changes through a pull request and merge after exact-head CI passes. The owner handles Vercel deployments manually.
+6. Use direct code review, focused local tests and standard GitHub Actions for verification. Never invoke Daybreak, external review agents or paid review services.
 
 ## Ownership
 
@@ -32,7 +33,7 @@ Before you create a migration, check the open PRs for the next free number. Numb
 
 - CI is green.
 - Run `pnpm build` locally for config, font or dependency changes. It needs network access because `next/font` downloads Inter.
-- Check the Vercel preview on a phone.
+- Check UI changes at phone widths in a local build or an owner-approved preview.
 - Smoke tests are green, once they exist.
 
 The [PR template](.github/pull_request_template.md) has a checklist for all of this.
@@ -97,7 +98,4 @@ Before and after:
 
 ## Production
 
-The Vercel Hobby plan blocks deploys of commits made by anyone but the owner. After merging:
-
-1. Check that physcratic.com has updated.
-2. If it hasn't, stop and ask the Vercel owner. Do not redeploy a blocked commit, because that adds a paid seat.
+Vercel automatic deployments are disabled. The owner decides when to deploy a reviewed commit from main. Production database mutations, deployments and purchases require explicit owner approval.

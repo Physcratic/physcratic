@@ -12,18 +12,8 @@ export const solveTokens = "";
 /** Line length for problem text: about 70 characters. */
 export const proseWidth = "max-w-[70ch]";
 
-/**
- * Parts are told apart by their letter and their order, not by hue. Colour on the problem pages is kept for state: green for
- * success, red for wrong and peach for the main action. These three keep their names so every caller works unchanged.
- */
-export function partStyle(index?: number): React.CSSProperties | undefined {
-  void index;
-  return undefined;
-}
-export const partBorder = "";
-
 /** A neutral badge with the part's label, in bold. The label text stays, so nothing depends on colour. Its 1px border keeps its shape at 3:1 against the card. */
-export function PartChip({ children, className }: { index?: number; children: React.ReactNode; className?: string }) {
+export function PartChip({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <span className={cn("inline-flex min-h-7 items-center rounded-md border border-border bg-idle-tint px-2.5 py-0.5 text-sm font-bold text-foreground", className)}>
       {children}

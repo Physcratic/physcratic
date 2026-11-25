@@ -152,6 +152,6 @@ test("More options in Simple sets its text to 16px, and Advanced keeps its sizes
   assert.match(render(draft()), /class="mt-5 \[&amp;_\.text-sm\]:text-base \[&amp;_\.text-xs\]:text-base"/);
   const d = draft();
   const part = allParts(d)[0].part;
-  const html = renderToStaticMarkup(React.createElement(PartOptions, { part, si: 0, pi: 0, entry: privateFor(d, part.id), hasPrivate: true, colour: 0, edit: () => {} }));
+  const html = renderToStaticMarkup(React.createElement(PartOptions, { part, si: 0, pi: 0, entry: privateFor(d, part.id), hasPrivate: true, edit: () => {} }));
   assert.match(html, /<div class="mt-5">/);
 });

@@ -24,6 +24,8 @@ Use PostgreSQL 17 and an explicitly selected disposable/staging database. Do not
 
 Bookkeeping: reserve monotonically increasing migration IDs; apply once in a transaction with an advisory migration lock and a reviewed ledger. The deployment operator must record migration ID, SHA256 of the reviewed up file, source commit and execution result in its migration ledger. A duplicate apply fails on existing tables, rather than silently skipping schema drift. No ledger or migration runs automatically in the application.
 
+`0026_account_deletion_blockers` is forward-only to preserve erasure decisions and unresolved upload obligations. See the [account deletion runbook](../docs/engineering/ACCOUNT_DELETION_READINESS.md#release-blocker-corrections-25-november-2026) for the separately reviewed runtime privilege, provider prerequisites and release hold.
+
 ## Disposable verification
 
 Start a local container without published ports: `docker run --rm -d --name physcratic-phase1-pg -e POSTGRES_PASSWORD=local-test-only postgres:17-alpine`.

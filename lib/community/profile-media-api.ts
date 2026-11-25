@@ -4,6 +4,7 @@ import { randomUUID } from "node:crypto";
 import type { Pool, PoolClient } from "pg";
 import { z } from "zod";
 import { readRequestBytes, RequestBodyTimeoutError } from "../submission-request";
+import { acknowledgePrivateUpload, preparePrivateUploadReservation } from "../private-upload";
 import { profileHandleSchema } from "./profile-contracts";
 import { profileHeaders, profileReply } from "./profile-api";
 import { encodeProfileImage, InvalidProfileImage } from "./profile-image";
@@ -32,7 +33,8 @@ export function createProfileMediaApi(deps: Dependencies) {
     return { media: images, cleanupPending: Boolean(pending.rowCount) };
   }
   // Claim bounded work in the registry, then perform network I/O outside database locks.
-  // Pending/ambiguous writes wait an hour so a late PUT cannot recreate an untracked object.
+  // The wait limits repeat sweeps. On 0026, the database retains unresolved
+  // reservations even if storage reports that a path is missing.
   async function cleanup(userId: string) {
     for (let i = 0; i < 3; i++) {
       let row: { id: string; pathname: string } | undefined;
@@ -147,14 +149,19 @@ export function createProfileMediaApi(deps: Dependencies) {
       const output = await encodeProfileImage(bytes, kind!, crop);
       await cleanup(user.id).catch(() => {});
       const id = randomUUID(), path = `community-profile-media/${id}.webp`;
-      await transaction(user.id, async client => {
+      const uploadToken = await transaction(user.id, async client => {
         if (!(await client.query("SELECT 1 FROM community_profile WHERE user_id=$1 FOR SHARE", [user.id])).rowCount)
           throw new MediaError(409, "Save your profile before adding images.");
         const count = await client.query("SELECT count(*)::int n FROM community_profile_media WHERE user_id=$1", [user.id]);
         if (count.rows[0].n >= policy.maxObjects) throw new MediaError(429, "Old images need cleanup before another upload.");
+        const token = await preparePrivateUploadReservation(client);
         await client.query("INSERT INTO community_profile_media(id,user_id,kind,pathname,bytes) VALUES($1,$2,$3,$4,$5)", [id, user.id, kind, path, output.byteLength]);
+        return token;
       });
-      try { await deps.storage.put(path, output); }
+      try {
+        await deps.storage.put(path, output);
+        await acknowledgePrivateUpload(deps.pool, "profile", path, uploadToken);
+      }
       catch {
         // Retain a tombstone even if the SDK reports an ambiguous PUT failure.
         await deps.pool.query("UPDATE community_profile_media SET state='retired' WHERE id=$1 AND state='pending'", [id]).catch(() => {});

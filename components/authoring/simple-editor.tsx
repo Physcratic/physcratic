@@ -3,8 +3,7 @@ import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { ArrowDown, ArrowUp, Check, ChevronDown, CircleAlert, ImagePlus, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MathAnswerField } from "@/components/physics/math-answer-field";
-import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
-import { colorsByPartId } from "@/lib/part-colors";
+import { PartChip } from "@/components/physics/solve-ui";
 import { displayName } from "@/lib/answer-reader";
 import { physicsTopics, resolvePhysicsTag } from "@/lib/physics-taxonomy";
 import { addTag, hasTag } from "@/lib/studio-tags";
@@ -130,7 +129,6 @@ export function SimpleEditor(props: SimpleProps) {
     try { localStorage.setItem(gradedKey, JSON.stringify([...next])); } catch { /* The choice only lasts for this visit. */ }
   }
   const issues = simpleIssues(draft, typed, fileFirst, handGraded);
-  const colours = colorsByPartId(draft.content.sections);
   const shown = (field: string) => issues.find((i) => i.field === field && (attempted || touched[field]));
   const touch = (field: string) => setTouched((t) => (t[field] ? t : { ...t, [field]: true }));
   const rights = rightsState(draft);
@@ -236,7 +234,6 @@ export function SimpleEditor(props: SimpleProps) {
           fileFirst={fileFirst}
           multipart={parts.length > 1}
           letter={part.label || String(position + 1)}
-          colour={colours.get(part.id) ?? 0}
           typed={part.id in typed ? typed[part.id] : answerText(privateFor(draft, part.id).key)}
           canRemove={parts.length > 1}
           provisional={provisional}
@@ -567,7 +564,7 @@ function TopicRow({ values, change, issue }: { values: string[]; change: (values
 }
 
 function PartEditor({
-  draft, partId, first, fileFirst, multipart, letter, colour, typed, canRemove, provisional, questionIssue, solutionIssue, answerIssue, unitIssue, pictureIssue, optionsIssue,
+  draft, partId, first, fileFirst, multipart, letter, typed, canRemove, provisional, questionIssue, solutionIssue, answerIssue, unitIssue, pictureIssue, optionsIssue,
   touch, edit, onAnswer, handGraded, onHandGraded, onForgetTyped, onRemove,
 }: {
   draft: EditorDraft;
@@ -576,7 +573,6 @@ function PartEditor({
   fileFirst: boolean;
   multipart: boolean;
   letter: string;
-  colour: number;
   typed: string;
   canRemove: boolean;
   provisional: boolean;
@@ -649,12 +645,11 @@ function PartEditor({
   return (
     <section
       aria-label={multipart ? `Part ${letter}` : "Question and answer"}
-      style={partStyle(colour)}
-      className={`space-y-10 rounded-xl border-2 bg-card p-5 sm:p-8 ${partBorder}`}
+      className={`space-y-10 rounded-xl border-2 bg-card p-5 sm:p-8`}
     >
       {!multipart && <h2 className="sr-only">Question and answer</h2>}
       {multipart && <div className="flex items-center justify-between gap-3">
-        <h2 className="text-xl font-semibold"><PartChip index={colour}>Part {letter}</PartChip></h2>
+        <h2 className="text-xl font-semibold"><PartChip>Part {letter}</PartChip></h2>
         {canRemove && (
           <Button type="button" variant="ghost" className="min-h-11" onClick={onRemove}>
             <Trash2 aria-hidden="true" className="mr-2 size-4" />
@@ -807,7 +802,6 @@ function PartEditor({
         pi={position}
         entry={entry}
         hasPrivate={draft.privateParts.some((p) => p.partId === partId)}
-        colour={colour}
         edit={(fn) => edit((d) => { fn(d); if (privateFor(d, partId).key?.kind !== key?.kind) queueMicrotask(onForgetTyped); })}
         open={optionsOpen}
         onOpenChange={setOptionsOpen}

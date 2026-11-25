@@ -1,0 +1,21 @@
+{
+  "providerProject": "",
+  "providerBranch": "",
+  "endpointEvidence": "",
+  "endpoint": "",
+  "port": 5432,
+  "database": "",
+  "loginRole": "",
+  "migrationOwner": "",
+  "runtimeRole": "",
+  "serverVersion": 0,
+  "ledgerSha256": "",
+  "inventorySha256": "",
+  "ownerApproval": "",
+  "recoveryEvidence": "",
+  "writerFenceEvidence": "",
+  "servingConfigEvidence": "",
+  "deletionOff": false,
+  "singleAttemptServing": false,
+  "windowEndsUtc": ""
+}
