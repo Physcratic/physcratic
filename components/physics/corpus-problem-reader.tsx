@@ -20,8 +20,7 @@ import { corpusDocument, corpusPilot } from "@/lib/corpus-pilot";
 import type { CorpusProblem } from "@/lib/corpus-schema";
 import { CorpusDocumentReader } from "./corpus-document-reader";
 import { MathFormula } from "./math-formula";
-import { assignPartColors } from "@/lib/part-colors";
-import { PartChip, SolveSteps, StepHeading, partBorder, partStyle, proseWidth, solveTokens } from "./solve-ui";
+import { PartChip, SolveSteps, StepHeading, proseWidth, solveTokens } from "./solve-ui";
 
 export function CorpusProblemReader({
   problem,
@@ -61,10 +60,7 @@ export function CorpusProblemReader({
   const [solutionOpen, setSolutionOpen] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
   const part = problem.parts.find((item) => item.id === partId)!;
-  // Colour by position, so A.1 and A.2 share A's colour. The label text is always shown too.
-  const colours = assignPartColors(problem.parts.map((item) => item.id));
-  const colour = colours[problem.parts.findIndex((item) => item.id === partId)] ?? 0;
-  const box = `min-w-0 rounded-lg border p-4 ${partBorder}`;
+  const box = "min-w-0 rounded-lg border p-4";
   const taskKey = `${problem.id}:${part.id}`;
   const isReviewed = reviewed.has(taskKey);
   const completeCount = problem.parts.filter((item) =>
@@ -126,10 +122,9 @@ export function CorpusProblemReader({
                   .map((item) => (
                     <Button
                       key={item.id}
-                      style={partStyle(colours[problem.parts.indexOf(item)] ?? 0)}
                       variant={item.id === partId ? "secondary" : "ghost"}
                       size="sm"
-                      className={`min-h-11 justify-start rounded-l-none border lg:h-auto lg:py-2 ${partBorder}`}
+                      className={`min-h-11 justify-start rounded-l-none border lg:h-auto lg:py-2`}
                       aria-current={item.id === partId ? "step" : undefined}
                       onClick={() => {
                         setPartId(item.id);
@@ -153,10 +148,10 @@ export function CorpusProblemReader({
           ))}
         </nav>
         <div className="flex min-w-0 flex-1 flex-col gap-5">
-          <Card style={partStyle(colour)} className={`min-w-0 shadow-none ${partBorder}`}>
+          <Card className="min-w-0 shadow-none">
             <CardHeader className="gap-3">
               <div className="flex flex-wrap items-center gap-2">
-                <PartChip index={colour}>{part.id}</PartChip>
+                <PartChip>{part.id}</PartChip>
                 <Badge variant="outline">{part.points.toFixed(1)} points</Badge>
                 {isReviewed && (
                   <Badge variant="outline">Reviewed, self-assessed</Badge>
@@ -182,9 +177,9 @@ export function CorpusProblemReader({
                 </ul>
               )}
               {part.model && <MathFormula formula={part.model} />}
-              <details style={partStyle(colour)} className={box}>
+              <details className={box}>
                 <summary className="flex min-h-11 cursor-pointer flex-wrap items-center gap-2 text-sm font-medium">
-                  <PartChip index={colour}>{part.id}</PartChip>
+                  <PartChip>{part.id}</PartChip>
                   Reading notes & shared constants
                 </summary>
                 <div className="flex min-w-0 flex-col gap-4 pt-4">
@@ -231,12 +226,11 @@ export function CorpusProblemReader({
               <StepHeading step={4}>Solution</StepHeading>
               <details
                 key={taskKey}
-                style={partStyle(colour)}
                 className={box}
                 onToggle={(event) => setSolutionOpen(event.currentTarget.open)}
               >
                 <summary className="flex min-h-11 cursor-pointer flex-wrap items-center gap-2 text-sm font-medium">
-                  <PartChip index={colour}>{part.id}</PartChip>
+                  <PartChip>{part.id}</PartChip>
                   Reveal official solution for part {part.id}
                 </summary>
                 {solutionOpen && (

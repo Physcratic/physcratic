@@ -1,3 +1,9 @@
+## Dead part colour helpers removed (24 November 2026)
+
+Since the calm colour change, parts are told apart by letter and order, and nothing was reading the part colours. Removed: `partStyle`, `partBorder` and the `index` argument of `PartChip` in `components/physics/solve-ui.tsx`, with every caller in `student-workspace`, `worked-solution`, `advanced-part-options`, `problem-editor`, `simple-editor` and `corpus-problem-reader`. The now-dead `colour` and `partColour` props went too. In `lib/part-colors.ts` only `bareLabel` is left, because the real components use it. `partToken`, `partTokenClasses`, `partTokenNames`, `partParent`, `assignPartColors` and `colorsByPartId` are gone, along with the four `--part-*` families in `app/globals.css`, their entries in `tailwind.config.js` and the `part-*` rows in `lib/colour-tokens.test.ts`. Success, progress, danger and idle are untouched.
+
+Nothing renders differently. The deleted `style` props returned undefined and the deleted `${partBorder}` was an empty string, so the only change in any class string is a trailing space. The part chip stays a grey bordered badge and the next part keeps its 2px ring outline.
+
 ## Account deletion blocker corrections (25 November 2026)
 
 Keep deletion off. Migration 0026 fixes retained report keys and revision-specific publication approval. The existing outbox now waits for confirmation of registered private writes. Qualification still requires provider-backed resolution of ambiguous and old writes, restricted role attestation, and the privacy and recovery rehearsals. [Activation gates](ACCOUNT_DELETION_READINESS.md#release-blocker-corrections-25-november-2026).

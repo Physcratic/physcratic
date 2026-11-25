@@ -49,7 +49,7 @@ test("no part colour appears in the solve page or the Arena page, in the rendere
     html(createElement(FeedbackBox, { tone: "success", title: "Correct" })),
     html(createElement(SolvedBanner)),
     ...(["correct", "incorrect", "invalid", "inconclusive", "self-review", "unanswered"] as const).map((status) => html(createElement(ResultLine, { status, message: "A message." }))),
-    ...[0, 1, 2, 3, 4, 5].map((index) => html(createElement(PartChip, { index } as React.ComponentProps<typeof PartChip>, "b"))),
+    html(createElement(PartChip, null, "b")),
     answerCardClass(false), answerCardClass(true),
   ].join("\n");
   assert.equal((markup.match(/Part /g) ?? []).length >= 5, true, "the Arena document rendered its part chips");
@@ -57,13 +57,11 @@ test("no part colour appears in the solve page or the Arena page, in the rendere
   for (const file of ["components/physics/archive-answer-panel.tsx", "components/physics/arena-document.tsx", "components/physics/part-progress.tsx", "components/physics/solve-ui.tsx", "components/physics/progress-summary.tsx"]) {
     const source = readFileSync(file, "utf8");
     assert.doesNotMatch(source, partColour, `${file} has no part colour class or variable`);
-    assert.doesNotMatch(source, /partToken|partTokenClasses/, `${file} does not use the part tokens`);
   }
 });
 
 test("a part chip is a neutral badge with a border, the same for every part", () => {
-  const chips = [0, 1, 2, 3, 4, 5, 9].map((index) => html(createElement(PartChip, { index } as React.ComponentProps<typeof PartChip>, "b")));
-  assert.equal(new Set(chips).size, 1, "the part index changes nothing");
+  const chips = [html(createElement(PartChip, null, "b"))];
   assert.match(chips[0], /\bborder\b/);
   assert.match(chips[0], /\bborder-border\b/);
   assert.match(chips[0], /\bbg-idle-tint\b/);

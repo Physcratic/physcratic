@@ -27,8 +27,7 @@ import { SimpleEditor } from "./simple-editor";
 import { GuidedTour } from "@/components/tour/guided-tour";
 import { TourHelpButton } from "@/components/tour/tour-help";
 import { otherIssueMessages } from "./simple-model";
-import { colorsByPartId } from "@/lib/part-colors";
-import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
+import { PartChip } from "@/components/physics/solve-ui";
 import { ReaderBlocks } from "./editor-fields";
 
 function download(draft: EditorDraft) {
@@ -270,7 +269,6 @@ export function ProblemEditor({
   const safePreview = previewCheck.success
     ? publicAuthoredContent(previewCheck.data)
     : null;
-  const previewColours = colorsByPartId(safePreview?.sections ?? []);
   return (
     <AuthorMediaProvider
       problemId={draft.problemId}
@@ -645,11 +643,10 @@ export function ProblemEditor({
                     return (
                     <section
                       key={part.id}
-                      style={partStyle(previewColours.get(part.id) ?? 0)}
-                      className={`space-y-3 rounded-r-lg py-1 pl-4 ${partBorder}`}
+                      className={`space-y-3 rounded-r-lg py-1 pl-4`}
                     >
                       <PartHeading className={safePreview.sections.reduce((n, s) => n + s.parts.length, 0) > 1 ? "font-medium" : "sr-only"}>
-                        <PartChip index={previewColours.get(part.id) ?? 0}>Part {part.label || pi + 1}</PartChip>
+                        <PartChip>Part {part.label || pi + 1}</PartChip>
                       </PartHeading>
                       <ReaderBlocks blocks={part.blocks} />
                       <p className="text-xs text-muted-foreground">
