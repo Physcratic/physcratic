@@ -8,6 +8,7 @@ import { createRequire } from "node:module";
 import { readFile, mkdtemp, rm } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
 import { join, basename } from "node:path";
+import { autoConfirm } from "./confirm-sheet.mjs";
 import { tmpdir } from "node:os";
 import { Pool } from "pg";
 import { createAuthoredSolutionApi } from "../lib/authored-solution-api.ts";
@@ -452,7 +453,9 @@ try {
   page.setDefaultTimeout(15000);
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
+  // The student confirms are still native. Making a solution available asks with the Studio sheet.
   page.on("dialog", (d) => d.accept());
+  await autoConfirm(page);
   const route = `${origin}/dashboard/authored/${problemId}`;
   async function account(who) {
     await context.clearCookies();

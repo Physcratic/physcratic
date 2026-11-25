@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import { StudentWorkspace } from "../components/authored/student-workspace";
 import { SolutionPermissions } from "../components/authoring/solution-permissions";
+import { ConfirmProvider } from "../components/authoring/confirm-sheet";
 import type { Viewer } from "../lib/authored-student";
 declare global {
   interface Window {
@@ -15,7 +16,7 @@ function Harness() {
   if (window.location.search.includes("permissions"))
     return (
       <main>
-        <SolutionPermissions problemId={window.__student.problemId} />
+        <ConfirmProvider><SolutionPermissions problemId={window.__student.problemId} /></ConfirmProvider>
       </main>
     );
   return (
