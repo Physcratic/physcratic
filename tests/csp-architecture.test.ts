@@ -63,13 +63,15 @@ test('trusted static artifacts reject stale builds and mismatched bytes, never h
  const {mkdtemp,mkdir,writeFile,rm}=await import('node:fs/promises'),{tmpdir}=await import('node:os'),{join}=await import('node:path');
  const root=await mkdtemp(join(tmpdir(),'csp-artifact-'));
  try{
-  await mkdir(join(root,'.next/server/app'),{recursive:true});
+  await mkdir(join(root,'.next/server/app/coaching/coaches'),{recursive:true});
   await writeFile(join(root,'.next/BUILD_ID'),'synthetic-build');
-  await writeFile(join(root,'.next/prerender-manifest.json'),JSON.stringify({routes:{'/learn':{},'/terms':{},'/_not-found':{},'/settings':{},'/admin/moderation':{},'/':{}}}));
+  await writeFile(join(root,'.next/prerender-manifest.json'),JSON.stringify({routes:{'/learn':{},'/terms':{},'/_not-found':{},'/coaching/coaches':{},'/coaching/coaches/synthetic-coach':{},'/coaching/unreviewed':{},'/settings':{},'/admin/moderation':{},'/':{}}}));
   const html='<script>localStorage; colorScheme;</script><script>trusted framework</script>';
-  for(const name of ['learn','terms','_not-found'])await writeFile(join(root,'.next/server/app/'+name+'.html'),html);
+  for(const name of ['learn','terms','_not-found','coaching/coaches','coaching/coaches/synthetic-coach'])await writeFile(join(root,'.next/server/app/'+name+'.html'),html);
   const a=await publicArtifact(root);
-  assert.deepEqual(Object.keys(a.routes),['/learn','/terms','/_not-found']);
+  assert.deepEqual(Object.keys(a.routes),['/learn','/terms','/_not-found','/coaching/coaches','/coaching/coaches/synthetic-coach']);
+  verifyStaticResponse(a.routes['/coaching/coaches/synthetic-coach'],200,html);
+  assert.throws(()=>verifyStaticResponse(a.routes['/coaching/coaches/synthetic-coach'],200,html+' '),/build mismatch/);
   await verifyArtifact(root,a);
   await assert.rejects(verifyArtifact(root,{...a,buildId:'old-build'}),/mismatch/);
   verifyStaticResponse(a.routes['/_not-found'],404,html);

@@ -52,7 +52,7 @@ export function ProfileMediaControls({ ownerId, enabled, saved, verified, onChan
   }
   const unavailable = busy || uncertain || Boolean(loadError) || isValidating;
   return <section id="image-settings" aria-labelledby="image-heading" aria-busy={busy || isLoading} className="flex scroll-mt-6 flex-col gap-5 rounded-2xl border bg-card p-5 sm:p-7">
-    <header className="flex flex-col gap-1"><h2 id="image-heading" className="text-lg font-semibold">Profile customization</h2><p className="text-sm leading-6 text-muted-foreground">Add a picture and banner. Both follow your profile visibility.</p></header>
+    <header className="flex flex-col gap-1"><h2 id="image-heading" className="text-lg font-semibold">Profile Customization</h2><p className="text-sm leading-6 text-muted-foreground">Add a picture and banner. Both follow your profile visibility.</p></header>
     {!enabled ? <p className="rounded-xl bg-muted/50 p-4 text-sm leading-6 text-muted-foreground">Profile images are not available yet. You can save profile details without images.</p>
       : !saved ? <p className="text-sm text-muted-foreground">Save your profile before adding images.</p>
       : !verified ? <p className="text-sm text-muted-foreground">Verify your email before changing profile images.</p>

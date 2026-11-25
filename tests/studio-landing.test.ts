@@ -31,7 +31,7 @@ test("the page gates are unchanged: signed out goes to sign in, unverified sees 
   const page = readFileSync(join(process.cwd(), "app/dashboard/author/page.tsx"), "utf8");
   const signedOut = page.indexOf('redirect("/sign-in?returnTo=%2Fdashboard%2Fauthor")');
   const unverified = page.indexOf("session.user.emailVerified !== true");
-  const message = page.indexOf("Verify your email to start authoring");
+  const message = page.indexOf("Verify Your Email to Start Authoring");
   const workspace = page.indexOf("<AuthoringWorkspace");
   assert.ok(signedOut > 0 && unverified > signedOut && message > unverified && workspace > message, "sign in, then verify, then the workspace");
   assert.equal(page.includes("Problem Studio is available to verified authors."), true);

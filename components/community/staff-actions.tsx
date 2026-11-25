@@ -75,7 +75,7 @@ export function StaffActions() {
   const target = detail?.target;
   const label = target ? target.kind === 'user' ? target.restricted ? 'Unban user' : 'Ban user' : target.restricted ? 'Restore question' : 'Remove question' : '';
   return <section aria-label="Questions and accounts" className="space-y-5 border-t pt-6 [overflow-wrap:anywhere]">
-    <h2 className="text-lg font-semibold">Questions and accounts</h2>
+    <h2 className="text-lg font-semibold">Questions and Accounts</h2>
     <p className="text-sm text-muted-foreground">Remove community questions or ban users. Administrators can restore questions and unban users.</p>
     <form className="flex flex-wrap items-end gap-3" onSubmit={e => { e.preventDefault(); void lookup(); }}>
       <label className="space-y-2 text-sm">Target<select aria-label="Staff action target" className="block min-h-11 rounded border bg-background px-3" value={kind} disabled={busy} onChange={e => { clear(); setKind(e.target.value as typeof kind); setIdentity(''); }}><option value="problem">Community question</option><option value="user">User account</option></select></label>
@@ -97,7 +97,7 @@ export function StaffActions() {
         <h3 className="font-medium">Confirm {label.toLowerCase()}</h3><p>{target.label}</p><p className="text-sm">{pending.id}, version {pending.version}</p><p className="whitespace-pre-wrap text-sm">Reason: {pending.reason}</p>
         <div className="flex flex-wrap gap-3"><Button disabled={busy} onClick={() => void decide()}>Confirm {label.toLowerCase()}</Button><Button variant="outline" disabled={busy} onClick={() => { returnFocus.current = true; setPending(null); }}>Cancel action</Button></div>
       </div>}
-      <section aria-label="Target audit" className="space-y-3 border-t pt-4"><h3 className="font-medium">Audit history</h3>{older && <p className="text-sm">Older history is shown. Load the target again before deciding.</p>}
+      <section aria-label="Target audit" className="space-y-3 border-t pt-4"><h3 className="font-medium">Audit History</h3>{older && <p className="text-sm">Older history is shown. Load the target again before deciding.</p>}
         {!detail.audit.length && <p className="text-sm">No staff actions recorded.</p>}
         <ol className="space-y-3">{detail.audit.map(a => <li key={a.id} className="space-y-1 border-l-2 pl-3 text-sm"><p className="font-medium">{a.action}, version {a.version}</p><p>{a.createdAt}, {a.actorId || 'Deleted account'}</p><p className="whitespace-pre-wrap">{a.reason}</p></li>)}</ol>
         {detail.nextAudit && <Button variant="outline" disabled={busy || Boolean(pending)} onClick={() => void lookup(detail.nextAudit!)}>Older actions</Button>}

@@ -55,7 +55,7 @@ export function OlympiadCatalog({
   return (
     <ProblemCollection
       id="catalog-results"
-      title="Full theory problems"
+      title="Full Theory Problems"
       paginationLabel="Catalog"
       items={filtered}
       totalCount={topicProblems.length}

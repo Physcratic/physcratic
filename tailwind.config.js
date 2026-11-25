@@ -8,7 +8,7 @@ const family = (name) => ({
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  darkMode: ["selector", ":is(.dark, .dark-dimmed, .dark-midnight)"],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",

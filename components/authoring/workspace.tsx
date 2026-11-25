@@ -257,7 +257,7 @@ export function AuthoringWorkspace({
                     <FileText className="size-5 shrink-0 text-muted-foreground" />
                     <div className="min-w-0">
                       <h2 className="break-words font-medium">
-                        {item.title || "Untitled problem"}
+                        {item.title || "Untitled Problem"}
                       </h2>
                       <p className="mt-1 text-xs capitalize text-muted-foreground">
                         {item.state}, version {item.version},{" "}
@@ -360,7 +360,7 @@ export function AuthoringWorkspace({
             : !busy && (
                 <div className="px-6 py-16 text-center">
                   <h2 className="text-xl font-medium">
-                    No drafts yet
+                    No Drafts Yet
                   </h2>
                   <p className="mt-3 text-sm text-muted-foreground">
                     Press New problem above to write your first one.

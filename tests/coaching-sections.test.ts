@@ -27,13 +27,16 @@ test("the guides section shows one card per published guide, read from lib/learn
   assert.ok(out.includes(`href="/learn"`) && out.includes(content.guides.seeAll));
 });
 
-test("programs: three olympiad steps on a rail, IB and A-Level as a separate track, one mid-page button", () => {
+test("programs: four comparable cards with no extra consultation button", () => {
   const out = html(CoachingPrograms);
-  assert.equal((out.match(/coaching-ladder-dot/g) ?? []).length, 3);
-  assert.ok(out.includes(content.programs.trackLabel));
+  assert.equal((out.match(/<article /g) ?? []).length, 4);
+  assert.match(out, /coaching-program-grid/);
+  assert.ok(!out.includes(content.programs.trackLabel));
   assert.equal((out.match(new RegExp(content.programs.linkLabel, "g")) ?? []).length, 4);
-  assert.equal((out.match(/href="#hero-cta"/g) ?? []).length, 1);
-  assert.match(out, /<strong class="coaching-highlight">from your first olympiad to IPhO<\/strong>/);
+  assert.equal((out.match(/href="#hero-cta"/g) ?? []).length, 0);
+  assert.ok(out.includes("Choose Your Program"));
+  assert.ok(!out.includes(content.programs.intro));
+  assert.ok(!out.includes(content.programs.note));
 });
 
 test("packages: sessions and hours, no price, no popular label, and the full-width price button as the only call to action", () => {

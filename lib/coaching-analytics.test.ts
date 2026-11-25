@@ -73,6 +73,6 @@ describe("coaching_entry_click from the dashboard", () => {
     assert.match(topNav, /coachingEntryHandlers\("topbar"\)/);
     assert.match(sidebar, /coachingEntryHandlers\("sidebar"\)/);
     assert.match(card, /coachingEntryHandlers\("card"\)/);
-    for (const source of [topNav, sidebar, card]) assert.match(source, /href="\/coaching"/);
+    for (const source of [topNav, sidebar, card]) assert.match(source, /href(?:=|:)\s*["']\/coaching["']/);
   });
 });

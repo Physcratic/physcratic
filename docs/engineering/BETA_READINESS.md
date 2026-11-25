@@ -1,3 +1,25 @@
+## Static coach CSP and topic expectation follow-up (25 November 2026)
+
+Validation head `280a6ea` passes all core CI jobs and authored/community browser qualification. CSP report/enforcement workflows now pass in Chromium, Firefox and WebKit, confirming per-scenario diagnostic isolation. Full hybrid inventory then correctly rejected the static coach directory/profile family: request-nonce matchers cannot authorise prerendered HTML. Add these public coach build artifacts to the exact-byte static hash allowlist, remove their nonce matcher and require the static family in the source guard. Fixture coverage includes directory/profile hashes, rejects changed served bytes and continues to exclude an unrelated coach path. No Production policy change.
+
+The public library, real-session isolation and PDF accessibility checks pass. Topic qualification found the stale sentence-case expected heading. Update it to the approved title case, leaving counts, SEO, links, accessibility and archive expectations intact. The final full browser/architecture checks remain pending on the follow-up commit.
+
+## CSP diagnostic isolation follow-up (25 November 2026)
+
+On validation head `75a7113`, all core CI jobs and both authored-student/community browser workflows pass. The CSP browser run passed navigation, guest/member tours, maths and PDF workflows in Chromium, Firefox and WebKit, but Firefox report-only reached the local collector’s 100-event diagnostic cap before its negative HTTP control. Its recorded delivery counts sum to exactly 100. Keep the cap and HTTP assertion, reset diagnostics between sequential scenarios, and fail explicitly if any scenario overflows. The regression verifies overflow accounting, reset and preserved prior snapshots. All 43 focused CSP tests and configured changed-file lint pass. Public-library qualification is still running on `75a7113`; the full checks must run on the follow-up head. This changes only the local test harness, not Production CSP.
+The public-library run on `75a7113` passed both native reader variants and its production build, then failed because the isolation test called decodeURIComponent on a complete HTML document containing CSS percentages. Compare each URL-encoded private fixture directly instead, retaining the raw and encoded checks. Run the session/library stage before native solving so failures surface before the long archive sweep. Both native variants and their evidence upload remain required on a successful run.
+
+
+## Validation follow-up awaiting publication (25 November 2026)
+
+First Linux build/type/lint/unit/component/database gates passed on draft PR #258. Additional checksum, heading, tour and shared-home session test fixes are prepared locally. Publishing the new payload was rejected by automatic approval review pending explicit owner approval. [Evidence and pending CI rerun](UI_PREVIEW_MAIN_INTEGRATION.md#completed-first-linux-run-and-prepared-follow-up-25-november-2026). No merge or deployment.
+
+## GitHub CI follow-up (25 November 2026)
+
+Owner approved branch publication and draft PR [#258](https://github.com/Physcratic/physcratic/pull/258). The validation snapshot at `68e7edf` includes main `9e0a3c9`. Linux CI passed typecheck, zero-warning lint, unit and component tests, the production build, Open Graph regression and PostgreSQL database tests. Browser and PostgreSQL 18.7 activation qualification remain pending follow-up fixes.
+
+The activation check identified two UI files covered by its immutable manifest. Restored those files to reviewed main bytes, with the existing main copy-scanner exception, rather than changing release hashes. Retained guest tour gating in the shared tour component with an accessible sign-in section, so the original Settings anchor stays useful. The profile unavailable heading retains its reviewed wording for the pinned browser suite. Updated affected browser heading selectors for the approved title casing. No Production operation or merge.
+
 ## Dead part colour helpers removed (24 November 2026)
 
 Since the calm colour change, parts are told apart by letter and order, and nothing was reading the part colours. Removed: `partStyle`, `partBorder` and the `index` argument of `PartChip` in `components/physics/solve-ui.tsx`, with every caller in `student-workspace`, `worked-solution`, `advanced-part-options`, `problem-editor`, `simple-editor` and `corpus-problem-reader`. The now-dead `colour` and `partColour` props went too. In `lib/part-colors.ts` only `bareLabel` is left, because the real components use it. `partToken`, `partTokenClasses`, `partTokenNames`, `partParent`, `assignPartColors` and `colorsByPartId` are gone, along with the four `--part-*` families in `app/globals.css`, their entries in `tailwind.config.js` and the `part-*` rows in `lib/colour-tokens.test.ts`. Success, progress, danger and idle are untouched.
@@ -5,6 +27,15 @@ Since the calm colour change, parts are told apart by letter and order, and noth
 Nothing renders differently. The deleted `style` props returned undefined and the deleted `${partBorder}` was an empty string, so the only change in any class string is a trailing space. The part chip stays a grey bordered badge and the next part keeps its 2px ring outline.
 
 ## Medal display and Arena attribution (24 November 2026)
+
+## Local UI preview reconciliation (25 November 2026)
+
+Owner-authorized local integration preserves checkpoint 83570d6 and merge 478d4cd.
+[Reconciliation and actual validation limits](UI_PREVIEW_MAIN_INTEGRATION.md)
+records eleven resolved files, theme contrast, Settings/tour fixes, and the
+remaining full-suite, Windows and build limitations. No Production or remote-main
+operation. Next: review the combined preview and complete Linux/build/browser QA
+before deciding on a publication PR.
 
 The shared badge puts the award first. Arena aligns the showcase beside the author link and wraps long names and badges on narrow cards. Local Chromium covered 320px, 375px and 1440px in both themes, including keyboard disclosure and private-profile fallback. The change was verified locally before review.
 
@@ -1757,3 +1788,116 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 
 - **Effect:** ten of the 15 are now in the Beginner band (0 to 800) and five in the lower Intermediate band. The mixed library order and the rating filter follow the new numbers. The tests that pinned Physcratic counts at one rating now read them from the catalogue.
 - **Tests:** `lib/problem-archive.test.ts` checks the 15 ratings and their source exactly, that the owner file and the calibrated list do not both name them, and that the 14 November source is unchanged.
+
+## Local homepage UI pass (20 November 2026)
+
+Uncommitted on local/ui-preview: added the header theme toggle, moved existing account controls to the sidebar footer beside Settings, enlarged Lobby, renamed Recommended problem to For You, grouped discovery links, removed the coaching sidebar subtitle, and made the homepage header sticky and explicitly opaque. Desktop light/dark and scrolling were checked in the local browser. Focused ESLint, TypeScript and whitespace checks passed. Mobile and signed-in browser review remain pending. No auth behavior, database, production setting or deployment changed in this UI pass.
+
+## Local homepage spacing follow-up (20 November 2026)
+
+Removed the public discovery sentence at the owner's request. The For You card now uses plain topic text and a spaced rating badge without the redundant Arena label. Enlarged the signed-out history heading and expanded both sign-in buttons to their available container width. Local desktop browser reviewed and focused lint/whitespace checks passed. Uncommitted local preview changes only.
+
+## Local lobby metadata placement (20 November 2026)
+
+Moved the topic below the problem description and the rating into a separate column beside the title/description. Contained main content in a z-0 stacking context beneath the header so animated descendants cannot paint over it. Header retains an explicit opaque theme surface. Focused lint and whitespace checks passed. Browser confirmation remains pending for this follow-up.
+
+Local follow-up: added the requested topic border. Live localhost header inspected while scrolled: computed background rgb(30,31,34), sticky at top 0 with z-index 40, with no underlying content visible. No further speculative header changes applied.
+
+Local sidebar alternative (20 November 2026): replaced the expanded Explore section with a native Topics disclosure, collapsed in the Lobby and automatically open on a topic page. All six links and selected-topic indication remain. Expanded Modern to Modern physics for clarity. Local visual iteration, uncommitted.
+
+Local Lobby topic iteration (20 November 2026): removed the sidebar disclosure and put all six topic links in a visible Browse by topic grid above the Lobby cards, shared by guest/member homepages. Each opens the existing library filter. Removed duplicate guest footer links. No search or backend changes. Focused lint and whitespace validation run; browser review pending.
+
+Local tour session gate (20 November 2026): GuidedTour mounts its effects only after a signed-in session resolves. Guests, pending sessions and session errors render no tour, Help button or Replay tours section. Signing out unmounts the active tour and its effects. No authentication contracts changed. Focused ESLint and whitespace checks run.
+
+Local collapsible sidebar (20 November 2026): added desktop collapse/expand controls and a compact icon rail, with accessible link names and titles. Main content width follows the sidebar. Account control expands the rail, Settings remains directly available. Mobile drawer preserved. Local only.
+
+Local difficulty card treatment (20 November 2026): For You uses the existing theme-aware difficulty colour for a top-right radial gradient and a large top-right numeric rating. Band wording remains available to assistive technology and hover, without a visible label. Enlarged sidebar targets and collapsed rail icons. Local only.
+
+Local Lobby navigation simplification (20 November 2026): removed the redundant Arena/library/archive/Guides shortcut group. Lobby now leads directly into visible topic browsing and recommendation/contest cards. Existing Problems collections preserve Arena/archive discovery, and Learn remains in the header and mobile sidebar. Suppressed the generic overview subtitle rather than replacing the removed group with filler. Local only.
+
+Local collapsed sidebar icon adjustment (20 November 2026): enlarged rail icons to 24px within the existing 48px targets. Expanded sidebar unaffected.
+
+Local recommendation spacing (20 November 2026): removed header bottom spacing and positioned the rating independently in the upper-right corner so its height no longer pushes the problem title down. Title reserves room for the rating.
+
+Local sidebar icon consistency (20 November 2026): unified collapsed, expanded and mobile navigation icons at 24px with 1.7 stroke width, overriding the shared Button default of 16px. Prevented SVG shrinking in flex rows.
+
+Local spacing convention (20 November 2026): added --space-label-title at 0.75rem and applied it between For You and the problem title. UI_SPACING.md documents the 4px scale, relationship defaults, single-sided spacing and the independent rating placement. No broad spacing migration performed.
+
+Local readability adjustment (20 November 2026): increased root font size to 112.5% (normally 18px), scaling rem-based text and spacing together while respecting browser font preferences. Updated spacing documentation for the new rendered scale. Responsive visual review pending.
+
+Local navbar experiment and Title Case (20 November 2026): moved desktop/mobile sidebar navigation into a two-row top navbar and removed the left column from the shared workspace layout. Search, account, settings, theme, coaching, Studio, guides and signed-in tour controls retained. Main navigation scrolls horizontally on narrow screens. Existing Sidebar component preserved for reversal. Lobby headings and Modern Physics use Title Case per explicit owner direction, overriding sentence-case guidance for these labels. Focused lint/type checks run. Browser inspection timed out, so visual, keyboard and mobile review remains pending. Local and uncommitted.
+
+Local navbar alignment (20 November 2026): aligned both navbar rows with the body's max-w-7xl container and identical outer gutters (20px, 32px from sm, 40px from xl). Replaced the wider 1600px header constraint.
+
+Local centered navbar variant (20 November 2026): grouped the wordmark and utility controls together in a centered first row, with centered main links in the second. Links wrap on narrow screens to remain accessible.
+
+## Local website search (20 November 2026)
+
+The navbar search now opens a labelled modal, also available with Ctrl/Cmd+K. Its outlined trigger includes the search icon and visible Search text. A bounded public metadata endpoint ranks exact titles and title prefixes ahead of descriptions and aliases. It indexes site navigation, six topics, static Arena/archive problem titles and tags, published guide summaries and public coach metadata. It does not search private submissions, draft guides/problems, answer keys, staff data, live community publications or full article/PDF bodies. No database/session bindings or new dependencies. Errors offer retry and empty results suggest a shorter phrase. Results use normal links without prefetching every destination.
+
+Three focused ranking tests passed, initial scoped ESLint and TypeScript passed. Browser confirmed optics produces 25 topic/Arena/archive results, keyboard ArrowDown focuses the first result, and coaching returns its page. Final result-destination checking hit a browser timeout. Responsive and screen-reader testing remain pending. No production settings, commits or deployment changed.
+
+## Local dedicated coach profiles (20 November 2026)
+
+Added /coaching/coaches/[slug] for all 19 existing coaches. Pages use only existing names, country, achievements and portrait settings, with a placeholder where the record has no photo. Unknown identities return 404. Each page has its own canonical and social metadata, a consultation link, a return to the coach gallery and links to other profiles. Search results now use dedicated profile URLs, and original gallery cards link their coach names to the same shared path helper. Existing anchor links remain valid. Registered profiles for the sitemap/public route registry. No biography, availability or qualification was invented, and no backend, provider, price or deployment settings changed.
+
+Profile identity, unknown-slug and portrait availability tests passed. Representative Rishit Garg page rendered and was visually reviewed on the local desktop browser. Focused lint/TypeScript validation run; mobile review pending. Uncommitted local changes.
+
+## Local coaching simplification (20 November 2026)
+
+Changed the coaching surface to warm light neutrals with a dark orange action colour, reused IBM Plex Sans for headings, and removed the heavy display-font import. Reduced ornamental shadows, grayscale portraits, hover lifts, ladder decoration and section spacing. Paused both coach galleries by default while preserving play, next/previous and show-all controls. The hero's optional pathway picker is a native disclosure; all choices/help remain and a program link still opens its selected level. Moved the existing at-a-glance section before programs and coaches. Every one of the original 11 body sections remains exactly once. Content records, prices, FAQs, coach achievements and consultation destinations were not edited.
+
+Desktop and narrow mobile views inspected locally, no horizontal overflow, optional picker opened successfully. Focused ESLint, TypeScript and whitespace checks passed. Palette contrast checked: body 14.73:1, secondary 6.40:1, CTA 6.51:1 and borders 3.62:1 on the page. Local, uncommitted, no deployment.
+
+Local coaching summary follow-up (20 November 2026): removed the hero introductory paragraph at the owner's request. Redesigned at-a-glance into one facts panel: four quick facts above four supporting details, retaining all eight original detail values. Font request narrowed to coaching only. Switzer assets could not be downloaded through the restricted terminal or official-site browser attempt, so no font substitution was claimed or applied.
+
+Local coaching letter spacing (20 November 2026): added scoped tracking tokens, -0.015em for coaching text and -0.025em for headings. These apply to the current preview font and carry over to Switzer once its files are available. Other site typography is unaffected.
+
+Local shared coaching navbar (20 November 2026): CoachingHeader now reuses the main two-row TopNav with a coaching variant. Centered branding/search/account/settings/consultation controls above icon-led coaching section links, Lobby, practice and guides. Section URLs preserve the base on coach profile/form pages. The fixed-light coaching surface keeps its consultation action instead of an ineffective global theme toggle. Updated anchor spacing for the taller header. Local only.
+
+
+## Homepage Layout Iteration (21 November 2026)
+
+Local preview: navbar spans the full desktop width and sidebar begins beneath it. Topic search filters the existing topic links by name or description. Topic summaries and side-by-side progress/rating sections increase information density without reducing existing type sizes. Responsive single-column fallback, keyboard focus styles and search empty state retained. Focused ESLint run recorded in the editing session. Browser visual verification remains pending.
+
+
+## Workspace Dark Surface Palette (21 November 2026)
+
+Local preview uses a scoped workspace palette inspired by Primer's semantic surface roles: inset canvas, navigation, content panels, raised controls and hover fills. Warm Physcratic action color retained. Light theme and coaching palette unchanged. Structural borders are quieter than input boundaries. Calculated minimum text contrast across six base surfaces: 6.57:1. Control boundary minimum: 3.62:1. These checks cover solid token pairs, not rendered gradients, opacity or every interaction. Browser visual review pending. Reference: https://primer.style/product/getting-started/foundations/color-usage/
+
+
+## Theme Presets and Compact Topics (21 November 2026)
+
+Local preview now offers Physcratic Light, Paper, Daylight, Physcratic Dark, Dimmed and Midnight in Settings > Appearance. System preference continues to select the default light or dark palette. Existing light/dark storage values remain compatible. Theme classes are set by next-themes before hydration, and Tailwind dark variants cover all three dark classes. Native control color scheme comes from CSS. Toasts resolve preset names to light/dark. Removed navbar theme toggle. Coaching inherits selected surface tokens and adapts medal text for dark themes. Homepage topic links now show only regular-weight names at 14px, fitting one row on wide screens and wrapping into a grid on smaller screens.
+
+Validation: 13 theme setting, token contrast and coaching section tests passed. Six palettes pass 4.5:1 text, 3:1 control/focus boundary, and 4.5:1 primary action text checks across solid base surfaces. Tailwind selector compilation and focused ESLint checked in the editing session. Rendered gradients and browser visual review remain outside these token checks.
+
+
+## Sidebar and Dashboard Refresh (21 November 2026)
+
+Removed desktop sidebar collapse/expand control and its collapsed layout. Mobile navigation remains available. Dashboard/progress reads retain account-keyed in-memory SWR caching. Focus no longer revalidates these reads, duplicate reads deduplicate for 60 seconds, and local development reuses loaded data on remount with no dashboard polling. Production dashboard polling remains at 60 seconds. Reconnect, explicit mutations and retry still revalidate. Full browser reload starts a fresh in-memory cache and fetches again. Joining a contest now invalidates the account-keyed dashboard cache rather than its retired string key. No persistent private-data cache or auth/server cache changes.
+
+
+## Local Sign-in Cookie Repair (21 November 2026)
+
+Diagnosis: demo credentials returned HTTP 200 but the subsequent session request was anonymous. Development forced SameSite=None and Secure cookies even for HTTP loopback. Development-only cookie policy now uses SameSite=Lax without Secure only for literal HTTP loopback base URLs, preserving secure cross-site cookies for hosted previews and leaving production options untouched. Development origin allowlist also accepts 127.0.0.1:3000. Twelve focused cookie-policy and auth-form tests passed, with lint passing. Live local HTTP session retention checked in the editing session.
+
+
+## Reload Cache and Homepage Details (21 November 2026)
+
+Dashboard cards now restore validated display-only snapshots from sessionStorage after confirming the current account. Snapshots expire after 10 minutes, stay isolated by account, reject malformed/oversized entries and omit unknown fields. Credentials and answers are never stored. Full reload revalidates in the background while available snapshots render. Refresh failures retain cached content and expose a retry status. The public homepage no longer performs a redundant server session lookup before rendering the shared shell, so its local Arena recommendation renders independently of account APIs. Personalized account data remains client-session gated.
+
+Added rating icons in both empty and populated cards. Greeting uses the signed-in name, with extra top spacing. Homepage search now submits any problem query to the existing library. Topic shortcuts fit their labels and center as a wrapping group. Focused cache tests cover reload recovery, account isolation, expiry, tampering and restricted storage. Browser visual verification remains pending.
+
+
+## Attempts Loading and Local Route Warm-up (21 November 2026)
+
+Solution attempts now load through a shared owner-filtered server query after session and restriction checks. The page streams a shell/loading boundary and supplies fresh server data to the account-keyed SWR cache, avoiding the subsequent attempts API request. The client no longer imports the complete corpus catalogue for titles. POST-only source/grading modules load on demand. Private payloads remain no-store and are never persisted in browser storage. Focused request/security/owner snapshot tests: 13 passed.
+
+Local demo startup now warms all 28 page route templates, four dashboard views, eight read APIs and referenced client JS/CSS bundles. Dynamic templates use representative local IDs. Next keeps warmed routes for an hour with a 100-entry buffer. Manual command: node scripts/local-demo/warm.mjs. Warm-up is restricted to the disposable local demo and uses temporary seeded user/admin sessions. Editing source or restarting the server may still trigger compilation. Live warm-up results are recorded in the editing session.
+
+
+## Completed Local Page Compilation (21 November 2026)
+
+Verified all 28 page route templates through the local demo. Dynamic templates use representative URLs. The absent synthetic public-profile record returns an expected 404 after compiling its route. Local warm-up uses a single bounded worker, with separate bundle-download checks opt-in via --include-bundles. Page requests themselves compile their client entries. This avoids unnecessary asset downloads during design-session startup. Cache retention is one hour. The demo launcher runs the helper automatically after starting Next. Final dashboard-view/API warm-up results are recorded in this editing session.
+

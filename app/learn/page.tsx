@@ -5,7 +5,7 @@ import { formatDate, learnPath, publishedArticles } from "@/lib/learn/articles";
 import { jsonLdScript, learnHubGraph } from "@/lib/seo/json-ld";
 import { baseOpenGraph } from "@/lib/site";
 
-const TITLE = "Physics Olympiad and Physcratic guides";
+const TITLE = "Physics Olympiad and Physcratic Guides";
 const DESCRIPTION =
   "Practical guides to using Physcratic, writing physics problems and preparing for IPhO, APhO and EuPhO, with sources for olympiad advice.";
 
@@ -28,7 +28,7 @@ export default function LearnPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(learnHubGraph({ title: TITLE, description: DESCRIPTION, articles: publishedArticles })) }}
       />
-      <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Learn</h1>
+      <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Free Guides</h1>
       <p className="mt-4 max-w-prose text-lg text-muted-foreground">
         Learn how to use Physcratic, publish a problem or plan your physics
         olympiad study. The olympiad guides include numbered sources.

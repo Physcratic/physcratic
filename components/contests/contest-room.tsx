@@ -44,7 +44,7 @@ function remaining(milliseconds: number) {
 export function ContestRoom({ id }: { id: string }) {
   const { mutate: mutateShared } = useSWRConfig();
   return <ContestAccountBoundary key={id}>
-    <ContestWorkspace id={id} onJoined={() => mutateShared("/api/dashboard")} />
+    <ContestWorkspace id={id} onJoined={() => mutateShared(key => Array.isArray(key) && key[0] === "/api/dashboard")} />
   </ContestAccountBoundary>;
 }
 function ContestWorkspace({ id, onJoined }: { id: string; onJoined: () => Promise<unknown> }) {
@@ -152,10 +152,10 @@ function ContestWorkspace({ id, onJoined }: { id: string; onJoined: () => Promis
               <CardHeader>
                 <CardTitle>
                   {phase === "ended"
-                    ? "Contest ended"
+                    ? "Contest Ended"
                     : phase === "upcoming"
-                      ? "Starts in"
-                      : "Time remaining"}
+                      ? "Starts In"
+                      : "Time Remaining"}
                 </CardTitle>
                 <CardDescription>
                   Opens {utc(data.contest.startsAt)}. Closes {utc(data.endsAt)}.
@@ -190,7 +190,7 @@ function ContestWorkspace({ id, onJoined }: { id: string; onJoined: () => Promis
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Your score</CardTitle>
+                <CardTitle>Your Score</CardTitle>
                 <CardDescription>
                   One point per correct final answer. Your best result for each
                   part counts.
@@ -221,8 +221,8 @@ function ContestWorkspace({ id, onJoined }: { id: string; onJoined: () => Promis
               <CardHeader>
                 <CardTitle>
                   {phase === "ended"
-                    ? "Registration closed"
-                    : "Join this contest"}
+                    ? "Registration Closed"
+                    : "Join This Contest"}
                 </CardTitle>
                 <CardDescription>
                   {phase === "ended"

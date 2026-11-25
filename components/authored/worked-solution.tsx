@@ -210,7 +210,7 @@ export function WorkedSolution({
       className={`min-w-0 space-y-4 rounded-xl border p-5`}
     >
       <h2 className="flex flex-wrap items-center gap-2 text-lg font-semibold">
-        Worked solution
+        Worked Solution
         {partLabel && <PartChip>Part {bareLabel(partLabel)}</PartChip>}
       </h2>
       <p className="text-sm text-muted-foreground">

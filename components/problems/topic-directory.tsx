@@ -14,7 +14,7 @@ export function TopicDirectory({ name, pages }: { name: string; pages: readonly 
   const archive = pages.filter(page => page.kind === "archive");
   return <div className="flex min-w-0 flex-col gap-7">
     <div className="space-y-2">
-      <h1 className="text-2xl font-medium tracking-[-0.04em] sm:text-[27px]">{name} problems</h1>
+      <h1 className="text-2xl font-medium tracking-[-0.04em] sm:text-[27px]">{name} Problems</h1>
       <p className="max-w-prose text-sm leading-relaxed text-muted-foreground">{pages.length} problems on {name.toLowerCase()}.</p>
       <Link href="/problems" className={problemLinkClass}>Search and filter the problem library</Link>
     </div>
@@ -29,7 +29,7 @@ export function TopicDirectory({ name, pages }: { name: string; pages: readonly 
       </ul>
     </section>}
     {archive.length > 0 && <section aria-labelledby="topic-archive" className="min-w-0 space-y-5">
-      <h2 id="topic-archive" className="text-xl font-medium">Olympiad archive</h2>
+      <h2 id="topic-archive" className="text-xl font-medium">Olympiad Archive</h2>
       {(["IPhO", "APhO", "EuPhO"] as const).map(competition => {
         const own = archive.filter(page => page.competition === competition).sort((a,b) => b.year!-a.year! || a.number!-b.number!);
         if (!own.length) return null;

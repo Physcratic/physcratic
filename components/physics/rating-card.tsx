@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useId, useState } from "react";
-import { ArrowUpRight, TrendingUp } from "lucide-react";
+import { ArrowUpRight, TrendingUp, ChartNoAxesCombined } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -73,7 +73,7 @@ export function RatingCard({
       <Card className="shadow-none">
         <CardHeader>
           <CardTitle>
-            <h2 className="text-base font-medium">Your rating</h2>
+            <h2 className="flex items-center gap-2 text-xl font-semibold"><ChartNoAxesCombined aria-hidden="true" className="size-5 shrink-0" />Your Rating</h2>
           </CardTitle>
           <CardDescription>
             Earned through published rated contest results.
@@ -129,8 +129,9 @@ export function RatingCard({
       <CardHeader className="gap-2 pb-3">
         <div className="flex items-center justify-between gap-3">
           <CardTitle>
-            <h2 className="text-base font-medium tracking-tight">
-              {expanded ? "Your rating history" : "Your rating"}
+            <h2 className="flex items-center gap-2 text-xl font-semibold tracking-tight">
+              <ChartNoAxesCombined aria-hidden="true" className="size-5 shrink-0" />
+              {expanded ? "Your Rating History" : "Your Rating"}
             </h2>
           </CardTitle>
           <Badge variant="outline">Rated results</Badge>

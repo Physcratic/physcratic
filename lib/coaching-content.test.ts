@@ -66,7 +66,7 @@ test("the consultation and tutor pages have the agreed copy and make no promises
   assert.ok(/review applications and reply/.test(content.tutorPage.note));
   const promises = strings(content.tutorPage).filter(([, s]) => /\b(paid|pay|salary|income|earn|hours?|days?|weeks?|within|guarantee)\b/i.test(s));
   assert.deepEqual(promises, []);
-  assert.equal(content.consultationPage.title, "Get a consultation");
+  assert.equal(content.consultationPage.title, "Get a Consultation");
   assert.ok(content.consultationPage.note.includes("within 2 business days"));
   assert.ok(content.footer.links.some((l) => l.href === "/coaching/become-a-tutor" && l.label === name()));
   assert.ok(content.footer.links.some((l) => l.href === "/coaching/consultation"));
@@ -173,7 +173,7 @@ test("Ignat has a card photo and its cutout under 150 KB, a custom alt text, and
 });
 
 test("hero headline and controls copy", () => {
-  assert.equal(content.hero.titleMain, "Train with Physics Olympiad winners.");
+  assert.equal(content.hero.titleMain, "Train with Physics Olympiad Winners.");
   assert.equal(content.hero.titleSub, "Live online classes taught by IPhO, APhO and EuPhO medallists");
   assert.equal(content.hero.highlight, "IPhO, APhO and EuPhO medallists");
   assert.deepEqual(content.hero.facts.map((f) => `${f.value} ${f.label}`), ["19 coaches", "12 countries", "6 students max per class", "2 hours per live class"]);
@@ -211,7 +211,7 @@ test("the review drops Kak and links the first Arrow", () => {
 });
 
 test("in-page nav links are plain fragments so the browser scrolls smoothly", () => {
-  for (const link of content.nav) assert.ok(link.href.startsWith("#") || link.href === "/dashboard" || link.href === "/learn", link.href);
+  for (const link of content.nav) assert.ok(link.href.startsWith("#") || link.href === "/dashboard" || link.href === "/learn" || link.href === "/coaching/coaches", link.href);
 });
 
 test("the Phase 2d copy: programs intro, class tiles, guides labels and the new links", () => {
@@ -229,7 +229,7 @@ test("the Phase 2d copy: programs intro, class tiles, guides labels and the new 
   ]);
   assert.ok(content.classFormat.sources.includes("China") && content.classFormat.sources.includes("IPhO") && content.classFormat.sources.length === 9);
   assert.equal(content.classFormat.topics.length, 10);
-  assert.deepEqual([content.guides.title, content.guides.seeAll, content.guides.minutes], ["Free guides", "See all guides", "min read"]);
+  assert.deepEqual([content.guides.title, content.guides.seeAll, content.guides.minutes], ["Explore Free Guides", "See all guides", "min read"]);
   assert.ok(content.nav.some((l) => l.href === "/learn" && l.label === "Guides"));
   assert.ok(content.footer.links.some((l) => l.href === "/learn" && l.label === "Free guides"));
 });

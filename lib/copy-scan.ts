@@ -13,7 +13,7 @@ export interface CopyFinding extends CopyProblem {
 export function sourceFiles(root: string, dir: string): string[] {
   const out: string[] = [];
   for (const name of readdirSync(join(root, dir)).sort()) {
-    const path = join(dir, name);
+    const path = join(dir, name).replaceAll("\\", "/");
     const full = join(root, path);
     if (statSync(full).isDirectory()) out.push(...sourceFiles(root, path));
     else if (/\.(ts|tsx)$/.test(name) && !/\.test\.tsx?$/.test(name) && !name.endsWith(".d.ts")) out.push(path);
@@ -47,7 +47,7 @@ export function scanCopy(root: string, dirs: string[], skip: (file: string) => b
       if (skip(file)) continue;
       for (const { text, line } of stringsIn(file, readFileSync(join(root, file), "utf8"))) {
         for (const problem of [...findCopyProblems(text), ...findBannedWords(text)]) {
-          findings.push({ ...problem, file: relative(root, join(root, file)), line, text: text.trim().slice(0, 80) });
+          findings.push({ ...problem, file: relative(root, join(root, file)).replaceAll("\\", "/"), line, text: text.trim().slice(0, 80) });
         }
       }
     }

@@ -18,7 +18,7 @@ export default function Dashboard({
   children?: ReactNode;
 }) {
   return (
-    <Layout view={view} topic={topic} stickyHeader={!!discovery}>
+    <Layout view={view} topic={topic} stickyHeader={view === "overview" || !!discovery}>
       <Content
         key={`${view}-${topic}-${query}`}
         view={view}

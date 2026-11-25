@@ -45,7 +45,7 @@ try {
       return { ok: gap >= 0 && gap <= 60 && height < 700, gap: Math.round(gap), height: Math.round(height) };
     });
     ok(nextTo.ok, `${width}/${theme} the ratings help sits with the rating filter (${JSON.stringify(nextTo)})`);
-    ok(await page.locator('h1').textContent() === "Problem library", "library heading");
+    ok(await page.locator('h1').textContent() === "Problem Library", "library heading");
     ok(await page.locator('[data-problem-card^="arena:"]').count() === 24, "a full first page of the 29 Arena entries");
     ok(await page.getByText("Community problems could not be loaded, so this list is incomplete.", { exact: true }).count() === 0, "actual community collection query succeeds");
     ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}/${theme} fits viewport`);

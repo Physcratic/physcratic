@@ -89,7 +89,7 @@ export function RecoverySection({ active, narrow = false, children }: { active: 
           className="flex min-h-11 w-full items-center justify-between gap-2 rounded-md border px-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           onClick={() => setState({ ...next, open: !open })}
         >
-          <span>Recovery{active ? ", needs attention" : ""}</span>
+          <span>Recovery{active ? ", Needs Attention" : ""}</span>
           <ChevronDown aria-hidden="true" className={cn("size-4 shrink-0 transition-transform motion-reduce:transition-none", open && "rotate-180")} />
         </button>
       </h2>

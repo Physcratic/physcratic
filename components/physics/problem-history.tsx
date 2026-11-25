@@ -14,11 +14,11 @@ import { PartsMeter, ProgressCardHeader, SolvedSummary, checkedInLastWeek } from
 export function ProblemHistory({}: { onOpen: (problem: Problem) => void }) {
   const dashboard = useDashboard();
   const { progress, error, isLoading, signedIn, mutate } = useProblemHistory();
-  return <section aria-label="Your problem history" className="flex min-w-0 flex-col gap-4">
+  return <section aria-label="Your Problem History" className="flex min-w-0 flex-col gap-4">
     {isLoading ? <LoadingLines label="Loading your saved progress…" /> : error ? <div className="flex flex-col items-start gap-3">
       <p role="alert" className="flex items-start gap-2 text-sm text-danger-ink"><CircleAlert aria-hidden="true" className="mt-0.5 size-4 shrink-0" />Your progress could not be loaded. No completion count is available.</p>
       <Button variant="outline" className="min-h-11" onClick={() => mutate()}>Retry progress</Button>
-    </div> : !signedIn ? <Card className="shadow-none"><CardHeader><CardTitle><h2 className="text-base font-medium">Not signed in</h2></CardTitle><CardDescription>Sign in and verify your email to save checked answers. Your history stays private.</CardDescription></CardHeader><CardContent><Button asChild variant="outline" className="min-h-11"><Link href="/sign-in?returnTo=%2Fdashboard">Sign in to save progress</Link></Button></CardContent></Card> : progress ? <>
+    </div> : !signedIn ? <Card className="shadow-none"><CardHeader><CardTitle><h2 className="text-2xl font-semibold tracking-tight">Not Signed In</h2></CardTitle><CardDescription>Sign in and verify your email to save checked answers. Your history stays private.</CardDescription></CardHeader><CardContent><Button asChild variant="outline" className="min-h-11 w-full"><Link href="/sign-in?returnTo=%2Fdashboard">Sign in to save progress</Link></Button></CardContent></Card> : progress ? <>
       <SolvedSummary solved={progress.solvedProblems} recent={checkedInLastWeek(progress.progress, Date.now())} />
       <p className="text-sm text-muted-foreground">{progress.savedChecks} saved checks across available collections. Completion below uses the current version of each problem. Checks do not change your rating.</p>
       {(!progress.sources.practice || !progress.sources.authored) && <div role="status" className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground"><p>{!progress.sources.practice ? "Practice and Arena progress is unavailable." : "Community progress is unavailable."} The lists show available saved results.</p><Button variant="outline" className="min-h-11" onClick={() => mutate()}>Retry progress</Button></div>}

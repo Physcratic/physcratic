@@ -27,7 +27,7 @@ test("the actual public page uses X1 descriptions, identity and canonicals for e
 
 test("unknown and authored-looking IDs cannot pull private metadata into the static public route", async () => {
   for (const id of ["not-a-problem", "00000000-0000-4000-8000-000000000001"]) {
-    assert.deepEqual(await generateMetadata({ params: Promise.resolve({ id }) }), { title: "Problem not found" });
+    assert.deepEqual(await generateMetadata({ params: Promise.resolve({ id }) }), { title: "Problem Not Found" });
     assert.equal(findProblemImage(id), undefined);
   }
   const authored = readFileSync("app/dashboard/authored/[id]/page.tsx", "utf8");

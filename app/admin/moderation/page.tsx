@@ -5,7 +5,7 @@ import {communityModerationUiEnabled,createModerationRoute} from '@/lib/communit
 import {ModerationDashboard} from '@/components/community/moderation-dashboard';
 import {communityActionsEnabled} from '@/lib/community/action-policy';
 export const dynamic='force-dynamic';
-export const metadata={title:'Moderation review',robots:{index:false,follow:false}};
+export const metadata={title:'Moderation Review',robots:{index:false,follow:false}};
 export default async function ModerationPage(){
  let allowed=false,message='Moderation review is not available yet.';
  if(communityModerationUiEnabled()){

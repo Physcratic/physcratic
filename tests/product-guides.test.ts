@@ -34,7 +34,7 @@ test("the changed marking guide records pending review without attributing the n
   const html = renderToStaticMarkup(await LearnArticlePage(props));
   assert.match(html, /Editorial review pending\. No independent human review is recorded for this revision\./);
   assert.doesNotMatch(html, /Reviewed by|reviewedBy|Arrow Dunatos|bronze medallist|Product documentation/);
-  assert.match(html, /A worked example: Mind the Gap/);
+  assert.match(html, /A Worked Example: Mind the Gap/);
   assert.match(html, /class="katex"/);
   assert.match(html, /sources-heading/);
   const article = articles.find(a => a.slug === "how-olympiad-solutions-are-marked")!;

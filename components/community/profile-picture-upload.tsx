@@ -24,7 +24,7 @@ export function ProfilePictureUpload({ media, busy, onUpload, onRemove }: {
       <div className="relative flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-full border bg-muted">
         {media ? <ProfileImage src={media.url} avatar /> : <UserRound aria-hidden="true" className="size-6 text-muted-foreground" />}
       </div>
-      <div className="flex min-w-0 flex-col gap-1"><h3 id="avatar-label" className="text-base font-medium">Profile picture</h3><p className="text-sm text-muted-foreground">{media ? "Your saved picture" : "No picture uploaded"}</p></div>
+      <div className="flex min-w-0 flex-col gap-1"><h3 id="avatar-label" className="text-base font-medium">Profile Picture</h3><p className="text-sm text-muted-foreground">{media ? "Your saved picture" : "No picture uploaded"}</p></div>
     </header>
     <fieldset disabled={busy} className="flex min-w-0 flex-col gap-2">
       <legend className="sr-only">Choose profile picture</legend>

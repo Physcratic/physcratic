@@ -1,0 +1,19 @@
+name: physcratic-local-demo
+services:
+  db:
+    image: postgres:18.7-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: local-demo-owner-only
+      POSTGRES_DB: physcratic_local_demo
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - demo-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d physcratic_local_demo"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  demo-data:

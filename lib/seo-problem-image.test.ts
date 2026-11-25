@@ -28,7 +28,7 @@ describe("problem image metadata", () => {
     const cwd = mkdtempSync(join(tmpdir(), "physcratic-problem-image-"));
     try {
       const moduleUrl = pathToFileURL(join(process.cwd(), "lib/seo/problem-image.ts")).href;
-      const child = spawnSync(process.execPath, ["--import", require.resolve("tsx"), "--input-type=module", "-e", `
+      const child = spawnSync(process.execPath, ["--import", pathToFileURL(require.resolve("tsx")).href, "--input-type=module", "-e", `
         import assert from 'node:assert/strict';
         const { findProblemImage } = await import(${JSON.stringify(moduleUrl)});
         for (const id of ['ipho-2024-t1', 'eupho-2024-t2', 'arena-the-infinite-v']) {

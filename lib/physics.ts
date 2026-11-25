@@ -53,7 +53,7 @@ export const viewTitles: Record<View, string> = {
   problems: "Problems",
   contests: "Contests",
   rankings: "Rankings",
-  guide: "Getting started",
+  guide: "Getting Started",
 };
 
 export interface Problem {

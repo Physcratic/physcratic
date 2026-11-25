@@ -1,6 +1,8 @@
 // Single registry of URLs that resolve with 200 today. The sitemap, llms.txt and the metadata guard test all
 // derive from it. Every problem comes from lib/seo/problem-pages.ts. There are no query-string URLs here: topics
 // have their own paths (/problems/topics/<slug>) and /dashboard is the signed-in app, which is noindex.
+import { medallists } from "../coaching/medallists";
+import { coachProfileHref, coachProfileDescription } from "../coaching/coach-profile";
 import { filterProblemsByTag } from "../problem-tags";
 import { content as coachingContent } from "../coaching/content";
 import { learnPath, publishedArticles } from "../learn/articles";
@@ -62,7 +64,9 @@ export const publicRoutes: PublicRoute[] = [
     indexable: true,
   })),
   // Coaching pages: the main page and the two Tally form pages. The coaching content carries no dates, so no lastmod.
+  { path: "/coaching/coaches", kind: "coaching", title: coachingContent.coaches.title, indexable: true },
   { path: "/coaching", kind: "coaching", title: coachingContent.meta.title, indexable: true },
+  ...medallists.map(coach => ({ path: coachProfileHref(coach.slug), kind: "coaching" as const, title: `${coach.name}, Physics Coach`, summary: coachProfileDescription(coach), indexable: true })),
   { path: "/coaching/consultation", kind: "coaching", title: coachingContent.consultationPage.meta.title, indexable: true },
   { path: "/coaching/become-a-tutor", kind: "coaching", title: coachingContent.tutorPage.meta.title, indexable: true },
   { path: "/terms", kind: "legal", title: "Terms of Service", indexable: false },

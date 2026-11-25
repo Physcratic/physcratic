@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import { Field, FieldLabel } from "@/components/ui/field";
@@ -34,6 +35,9 @@ export default function Content({
   completionsEnabled?: boolean;
 }) {
   const router = useRouter();
+  const session = authClient.useSession();
+  const name = session.data?.user.name?.trim();
+  const greeting = name ? `Welcome back, ${name}.` : session.isPending ? "Welcome back." : "Welcome to Physcratic.";
   const [rankingSearch, setRankingSearch] = useState("");
   // A guided problem open in the library is the page, so its title is the h1 and this heading steps aside.
   const [reading, setReading] = useState(false);
@@ -43,15 +47,15 @@ export default function Content({
   }
 
   return (
-    <div className="workspace-enter flex flex-col gap-7">
+    <div className={`workspace-enter flex flex-col gap-7${view === "overview" && !topic ? " pt-5 sm:pt-8" : ""}`}>
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-col gap-2">
-          <PageTitle className="text-2xl font-medium tracking-[-0.04em] sm:text-[27px]">
-            {topic || viewTitles[view]}
+          <PageTitle className={view === "overview" && !topic ? "text-4xl font-semibold tracking-[-0.04em] sm:text-5xl" : "text-2xl font-medium tracking-[-0.04em] sm:text-[27px]"}>
+            {topic || (view === "overview" ? greeting : viewTitles[view])}
           </PageTitle>
-          {discovery ?? <p className="text-sm leading-relaxed text-muted-foreground">
+          {discovery ?? (view !== "overview" && <p className="text-sm leading-relaxed text-muted-foreground">
             {subtitles[view]}
-          </p>}
+          </p>)}
         </div>
         {view === "rankings" && (
           <Field className="w-full sm:w-72">

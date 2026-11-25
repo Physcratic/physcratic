@@ -13,7 +13,6 @@ import {
   EmptyHeader,
   EmptyTitle,
 } from "@/components/ui/empty";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -49,9 +48,9 @@ function FeaturedContest() {
     <Card className="featured-contest-card flex min-w-0 flex-col shadow-none">
       <CardHeader>
         <CardTitle>
-          <h2 className="flex items-center gap-2 text-base font-medium">
+          <h2 className="flex items-center gap-2 text-xl font-semibold">
             <Trophy className="size-4" aria-hidden="true" />
-            Featured contest
+            Featured Contest
           </h2>
         </CardTitle>
       </CardHeader>
@@ -70,7 +69,7 @@ function FeaturedContest() {
         ) : (
           <Empty>
             <EmptyHeader>
-              <EmptyTitle>No upcoming contests yet</EmptyTitle>
+              <EmptyTitle>No Upcoming Contests Yet</EmptyTitle>
               <EmptyDescription>
                 Published rounds will appear here. Browse the problem archive in
                 the meantime.
@@ -103,47 +102,44 @@ function ProblemToCheckOut() {
   const band = rating === null ? null : ratingBand(rating);
   return (
     <Card
-      className="flex min-w-0 flex-col shadow-none"
+      className="relative flex min-w-0 flex-col shadow-none"
       aria-labelledby="daily-problem-heading"
+      style={band ? { background: `radial-gradient(ellipse at top right, hsl(var(--${band.variant}) / 0.22), transparent 70%), hsl(var(--card))` } : undefined}
       data-tour="problem-card"
     >
-      <CardHeader className="pb-4">
+      <CardHeader className="space-y-0 pb-[var(--space-label-title)] pr-28">
         <CardTitle>
           <h2
             id="daily-problem-heading"
-            className="flex items-center gap-2 text-sm font-medium text-accent-foreground"
+            className="flex items-center gap-2 text-xl font-semibold text-accent-foreground"
           >
             <Sun aria-hidden="true" className="size-4" strokeWidth={1.6} />
-            Recommended problem
+            For You
           </h2>
         </CardTitle>
+        {rating !== null && band && (
+          <span className="absolute right-6 top-6 text-4xl font-semibold leading-none tracking-tight tabular-nums" style={{ color: `hsl(var(--${band.variant}))` }} aria-label={`Estimated rating ${rating.toLocaleString("en-US")}, ${band.name}`} title={`${band.name}, ${band.range}`}>
+            {rating.toLocaleString("en-US")}
+          </span>
+        )}
       </CardHeader>
       <CardContent className="flex flex-1 flex-col gap-4">
         {problem ? (
           <>
-            <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="secondary">{problem.topic}</Badge>
-              {rating !== null && band && (
-                <Badge
-                  variant={band.variant}
-                  aria-label={`Rating ${rating.toLocaleString("en-US")}, ${band.name}`}
-                  title={`${band.name}, ${band.range}`}
-                  className="shrink-0 gap-2 rounded-md"
-                >
-                  <span className="text-sm tabular-nums">{rating.toLocaleString("en-US")}</span>
-                  <span className="text-sm">{band.name}</span>
-                </Badge>
-              )}
-              <span className="text-sm text-muted-foreground">Physcratic Arena</span>
+            <div className="flex items-start gap-4">
+              
+              <div className="flex min-w-0 flex-1 flex-col gap-3">
+                
+                <h3 className="pr-24 text-balance text-2xl font-semibold leading-snug tracking-tight">{problem.title}</h3>
+                
+                <CardDescription className="leading-relaxed">{problem.summary}</CardDescription>
+                
+                <span className="w-fit rounded-md border border-border px-2.5 py-1 text-sm text-muted-foreground">{problem.topic}</span>
+              
+              </div>
+            
             </div>
-            <div className="flex flex-col gap-2">
-              <h3 className="text-balance text-xl font-medium leading-snug tracking-tight">
-                {problem.title}
-              </h3>
-              <CardDescription className="leading-relaxed">
-                {problem.summary}
-              </CardDescription>
-            </div>
+          
           </>
         ) : (
           <p role="status" className="text-sm text-muted-foreground">

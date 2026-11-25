@@ -3,6 +3,7 @@ import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from
 import { createPortal } from "react-dom";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { authClient } from "@/lib/auth-client";
 import { tours, type TourId, type TourStep } from "./tours";
 import { ringLayer } from "./tour-layer";
 import { TourText } from "./tour-text";
@@ -33,6 +34,12 @@ const editable = (el: EventTarget | null) =>
  * clicks outside the card, so it never blocks the page. Skip, Esc or Done ends it, and it is remembered as seen.
  */
 export function GuidedTour({ tourId }: { tourId: TourId }) {
+  const { data, isPending, error } = authClient.useSession();
+  if (isPending || error || !data?.user) return null;
+  return <SignedInGuidedTour tourId={tourId} />;
+}
+
+function SignedInGuidedTour({ tourId }: { tourId: TourId }) {
   const tour = tours[tourId];
   const pathname = usePathname();
   const router = useRouter();

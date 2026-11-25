@@ -60,7 +60,7 @@ export function RelatedProblems({ page, related }: { page: ProblemPage; related:
   return (
     <nav aria-labelledby="related-problems-heading" className="flex flex-col gap-3 border-t border-border pt-6">
       <h2 id="related-problems-heading" className="text-lg font-medium tracking-tight">
-        Related problems
+        Related Problems
       </h2>
       <ul className="flex flex-col">
         {related.map((other) => (

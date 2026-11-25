@@ -79,15 +79,15 @@ test("everything for the whole problem is inside it, with Upload PDFs instead mo
 
 test("Unpublish and solution access appear only when the problem is published", () => {
   const draftHtml = render(draft("draft"), () => {});
-  assert.doesNotMatch(draftHtml, /Unpublish problem|Danger zone|Student worked-solution access/);
+  assert.doesNotMatch(draftHtml, /Unpublish problem|Danger zone|Student Worked-solution Access/);
   const published = render(draft("published"), () => {});
   assert.match(published, /Unpublish problem/);
-  assert.match(published, /Student worked-solution access/);
+  assert.match(published, /Student Worked-solution Access/);
   assert.ok(published.indexOf(WHOLE) < published.indexOf("Unpublish problem"), "inside More options");
   assert.doesNotMatch(render(draft("published")), /Unpublish problem/, "nothing to call, nothing shown");
   const decided = draft("published");
   decided.publishedSolutionPolicy = "private" as never;
-  assert.doesNotMatch(render(decided, () => {}), /Student worked-solution access/);
+  assert.doesNotMatch(render(decided, () => {}), /Student Worked-solution Access/);
 });
 
 test("the outline lists sections only when there are two or more", () => {

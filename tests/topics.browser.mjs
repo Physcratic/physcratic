@@ -26,7 +26,7 @@ try{
    const actual=await page.locator('[data-problem-card]').evaluateAll(es=>es.map(e=>e.dataset.problemCard));
    assert.deepEqual(actual.toSorted(),expected.map(p=>p.id).toSorted());checks++;
    ok(new Set(actual).size===topic.count,'no duplicates and correct count');
-   ok(await page.locator('h1').count()===1 && await page.locator('h1').textContent()===`${topic.name} problems`,'topic h1');
+   ok(await page.locator('h1').count()===1 && await page.locator('h1').textContent()===`${topic.name} Problems`,'topic h1');
    ok(await page.getByText(`${topic.count} problems on ${topic.name.toLowerCase()}.`,{exact:true}).count()===1,'visible count');
    ok(await page.locator('main a[href="/problems"]').count()===1,'public library return link');
    ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`${width}/${theme} no overflow`);
