@@ -2,8 +2,6 @@ import { pool } from "@/lib/db";
 import { privateAuthorStorage } from "@/lib/author-media-storage";
 import { createCardImageApi } from "@/lib/authored-card-image-api";
 
-// Outside /api on purpose: next.config.ts sets Cache-Control private, no-store for every /api route, which would
-// override the short public cache this thumbnail needs. The handler sets its own headers.
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 

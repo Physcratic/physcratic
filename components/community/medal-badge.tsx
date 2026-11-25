@@ -3,4 +3,15 @@ import { Medal,Award } from 'lucide-react';
 import type { PublicMedal } from '@/lib/community/achievements';
 import { awardLabels } from '@/lib/community/medal-client';
 const styles={gold:'border-amber-500 bg-amber-50 text-amber-950 dark:bg-amber-950 dark:text-amber-100',silver:'border-slate-400 bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-slate-100',bronze:'border-orange-500 bg-orange-50 text-orange-950 dark:bg-orange-950 dark:text-orange-100','honourable-mention':'border-sky-500 bg-sky-50 text-sky-950 dark:bg-sky-950 dark:text-sky-100'};
-export function MedalBadge({medal}:{medal:PublicMedal}){const Icon=medal.award==='honourable-mention'?Award:Medal;const label=[medal.competition==='National'?`${medal.competition} ${medal.country}`:medal.competition,awardLabels[medal.award],medal.year].join(', ');return <details className="max-w-full text-xs"><summary aria-label={label+': medal details'} className={`flex w-fit min-h-11 max-w-full cursor-pointer list-none items-center gap-1.5 rounded-full border px-2.5 py-1.5 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [&::-webkit-details-marker]:hidden ${styles[medal.award]}`}><Icon aria-hidden="true" className="size-3.5 shrink-0"/><span className="break-words">{label}</span></summary><p className="mt-2 max-w-64 break-words [overflow-wrap:anywhere] rounded-lg border bg-card p-3 leading-5 text-card-foreground">Verified {awardLabels[medal.award]}, {medal.competitionName||medal.competition}, {medal.year}{medal.country?', '+medal.country:''}. Certificate reviewed privately.</p></details>;}
+export function MedalBadge({ medal }: { medal: PublicMedal }) {
+  const Icon = medal.award === 'honourable-mention' ? Award : Medal;
+  const competition = medal.competition === 'National' ? `National ${medal.country}` : medal.competition;
+  const label = `${awardLabels[medal.award]} ${competition} ${medal.year}`;
+  return <details className="max-w-full text-xs">
+    <summary aria-label={label + ': medal details'} className={`flex w-fit min-h-11 max-w-full cursor-pointer list-none items-center gap-1.5 rounded-full border px-2.5 py-1.5 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [&::-webkit-details-marker]:hidden ${styles[medal.award]}`}>
+      <Icon aria-hidden="true" className="size-3.5 shrink-0" />
+      <span className="break-words">{label}</span>
+    </summary>
+    <p className="mt-2 max-w-64 break-words [overflow-wrap:anywhere] rounded-lg border bg-card p-3 leading-5 text-card-foreground">Verified {awardLabels[medal.award]}, {medal.competitionName || medal.competition}, {medal.year}{medal.country ? ', ' + medal.country : ''}. Certificate reviewed privately.</p>
+  </details>;
+}

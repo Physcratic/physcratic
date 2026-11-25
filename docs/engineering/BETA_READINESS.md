@@ -4,6 +4,10 @@ Since the calm colour change, parts are told apart by letter and order, and noth
 
 Nothing renders differently. The deleted `style` props returned undefined and the deleted `${partBorder}` was an empty string, so the only change in any class string is a trailing space. The part chip stays a grey bordered badge and the next part keeps its 2px ring outline.
 
+## Medal display and Arena attribution (24 November 2026)
+
+The shared badge puts the award first. Arena aligns the showcase beside the author link and wraps long names and badges on narrow cards. Local Chromium covered 320px, 375px and 1440px in both themes, including keyboard disclosure and private-profile fallback. The change was verified locally before review.
+
 ## Problem Studio has one editor, Phase 1 (24 November 2026)
 
 The Classic editor is removed and the Simple editor is the only one. Gone: `advanced-sections.tsx`, the Classic body and its Classic editor and Back to the new editor buttons in `problem-editor.tsx`, the mode state and the stored `physcratic.studio.mode` key (a stale value of classic, advanced or simple is ignored and never rewritten, tested in `tests/studio-simple.browser.mjs`), the Classic only notes in Simple (`advancedNote` and the lines sending authors to Classic), the view memory kept for the Classic round trip, the numbered step card and the full status bar, the Learn guide section and image on the Classic editor (`studio-advanced.webp`), and the guide screenshot helper that drove Classic. Accepted losses, not rebuilt: moving a part across sections, adding a part to an earlier section, the section outline and the Publication checks panel. Also accepted: an extra text block can no longer be moved above the question's own text, because Simple refuses a move that would change which block is the question. CI runs the long suite with `PDF_STUDIO_ONLY=1`, so the ported Advanced section runs only locally. Open Codex PR #185 touches `tests/solve-contrast.browser.mjs`, which this PR edited.
@@ -375,6 +379,14 @@ PR A simplifies the authored reader and unifies Simple/PDF part editing without 
 ## PDF-first Problem Studio (16 November 2026)
 
 Upload-first authoring stays inside Simple mode with the existing draft/version/recovery and media contracts. Tutors attach statement PDFs or ordered part images, define numeric/expression/manual keys and optional private solution PDFs, and use the shared student preview. Publication accepts actual statement media without fabricated native text. Ownership/readiness, media sealing and per-part solution approval stay unchanged. Shared Save now supports deliberate recovery, and preview keeps incomplete input mounted. Workflow view preferences contain only per-user/per-problem files/text choices. [Architecture, validation implications and limits](PROBLEM_AUTHORING_MAP.md#pdf-first-studio-contract-16-november-2026). Synthetic PG/model/component/browser checks and independent review are recorded in the focused PR, including final exact-head CI and production-mode PDF checks. Reconciled concurrent main `01ee8ad` without conflicts. No migration, dependency, Production SQL/grant/storage/flag change, OCR or card unification. Existing 3 MiB limits and uploaded-document accessibility limitations remain. Scoped code-only merge is owner-authorized only after review and all material checks pass. Do not activate deletion or practice persistence.
+
+## Account deletion blocker corrections (25 November 2026)
+
+Corrected retained report keys and revision-specific publication approval, and preserved unresolved private upload obligations through account deletion. Activation remains NO-GO pending provider-backed reconciliation and the other owner gates in the [readiness runbook](ACCOUNT_DELETION_READINESS.md#release-blocker-corrections-25-november-2026).
+
+## Account deletion release qualification (25 November 2026)
+
+NO-GO for activation. The existing Node 22 and disposable PostgreSQL 18.6 suite passed 17 checks, including four Chromium views. Additional synthetic cases reproduced the profile report key collision, stale publication rights approval and false completion before a delayed private upload. The [readiness runbook](ACCOUNT_DELETION_READINESS.md#release-decision-25-november-2026) records the blockers, owner decisions and manual activation sequence, including Tally and restoration. No Production data or settings were accessed or changed.
 
 ## Account deletion release qualification (15 November 2026)
 

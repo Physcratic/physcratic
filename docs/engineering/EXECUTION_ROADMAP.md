@@ -4,6 +4,14 @@ Since the calm colour change, parts are told apart by letter and order, and noth
 
 Nothing renders differently. The deleted `style` props returned undefined and the deleted `${partBorder}` was an empty string, so the only change in any class string is a trailing space. The part chip stays a grey bordered badge and the next part keeps its 2px ring outline.
 
+## Account deletion blocker corrections (25 November 2026)
+
+Keep deletion off. Migration 0026 fixes retained report keys and revision-specific publication approval. The existing outbox now waits for confirmation of registered private writes. Qualification still requires provider-backed resolution of ambiguous and old writes, restricted role attestation, and the privacy and recovery rehearsals. [Activation gates](ACCOUNT_DELETION_READINESS.md#release-blocker-corrections-25-november-2026).
+
+## Account deletion release qualification (25 November 2026)
+
+Keep deletion off. Address the report anonymisation collision, publication approval scope and late private uploads. Qualify the restricted roles, Tally disposition, restore controls and staffed operator process with synthetic data before seeking owner activation approval. Current community features and installed migrations 0018 and 0024 require no reactivation. [Release decision and activation procedure](ACCOUNT_DELETION_READINESS.md#release-decision-25-november-2026).
+
 ## Problem Studio has one editor, Phase 1 (24 November 2026)
 
 The Classic editor is removed and the Simple editor is the only one. Gone: `advanced-sections.tsx`, the Classic body and its Classic editor and Back to the new editor buttons in `problem-editor.tsx`, the mode state and the stored `physcratic.studio.mode` key (a stale value of classic, advanced or simple is ignored and never rewritten, tested in `tests/studio-simple.browser.mjs`), the Classic only notes in Simple (`advancedNote` and the lines sending authors to Classic), the view memory kept for the Classic round trip, the numbered step card and the full status bar, the Learn guide section and image on the Classic editor (`studio-advanced.webp`), and the guide screenshot helper that drove Classic. Accepted losses, not rebuilt: moving a part across sections, adding a part to an earlier section, the section outline and the Publication checks panel. Also accepted: an extra text block can no longer be moved above the question's own text, because Simple refuses a move that would change which block is the question. CI runs the long suite with `PDF_STUDIO_ONLY=1`, so the ported Advanced section runs only locally. Open Codex PR #185 touches `tests/solve-contrast.browser.mjs`, which this PR edited.
