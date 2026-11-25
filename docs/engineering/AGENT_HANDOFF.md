@@ -9,6 +9,10 @@ remaining full-suite, Windows and build limitations. No Production or remote-mai
 operation. Next: review the combined preview and complete Linux/build/browser QA
 before deciding on a publication PR.
 
+## Practice persistence release qualification (25 November 2026)
+
+Reviewed `a5f79a1` and kept account deletion parked. The current save catalogue is 33 Arena originals. A focused disposable PostgreSQL run combined saved checks, manual marks and cursors, authored progress and public solutions, then sampled one account with 36,500 checks. No code defect blocked the reviewed paths. Production is NO-GO pending a qualified erasure channel, retained-copy controls, actual runtime evidence and owner release approval. [Evidence and ordered activation](PRACTICE_PROGRESS.md#current-main-release-qualification-25-november-2026). Documentation only.
+
 ## Account deletion with outstanding file cleanup (25 November 2026)
 
 Vercel's response, relayed by the owner, establishes no documented terminal mechanism or maximum commit lifetime for interrupted PUTs. Blob physical backup retention remains unverified. Review of `62bdf5a` confirms 0026 can commit database erasure while retaining held paths and unfinished outbox jobs. [The staged release assessment](ACCOUNT_DELETION_READINESS.md#database-erasure-with-outstanding-file-cleanup-25-november-2026) records the receipt limits and the mandatory privacy, file access, staffed follow-up, Tally and restore evidence. Keep deletion off pending qualified operations and separate owner approval. Documentation only.

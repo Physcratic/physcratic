@@ -1,3 +1,7 @@
+## Practice persistence release qualification (25 November 2026)
+
+Keep practice persistence off while account deletion is parked. [Current-main qualification](PRACTICE_PROGRESS.md#current-main-release-qualification-25-november-2026) records the separate meanings of attempted, marked complete, correctly answered and independently solved, plus compatibility and growth evidence. The minimum activation sequence requires qualified erasure, owner runtime and backup evidence, and separate approval for the practice flag. No feature expansion is scheduled.
+
 ## Account deletion staged release assessment (25 November 2026)
 
 Keep account deletion off. [The readiness assessment](ACCOUNT_DELETION_READINESS.md#database-erasure-with-outstanding-file-cleanup-25-november-2026) proposes allowing database erasure to commit with a durable, explicitly pending file obligation. Qualify safely handling held objects, status and privacy wording, staffed follow-up, Tally and recovery before seeking owner approval. Terminal evidence remains required to close an individual ambiguous upload obligation. No implementation is scheduled by this assessment.
