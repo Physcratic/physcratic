@@ -6,7 +6,7 @@ import { resolve } from 'node:path';
 import {gunzipSync,inflateSync,brotliDecompressSync} from 'node:zlib';
 import { buildCsp } from '../../lib/security/csp.ts';
 export const NONCE_MATCHERS = ['/', '/dashboard','/dashboard/author','/dashboard/authored/:path*','/dashboard/submissions','/dashboard/contests/:path*','/sign-in','/sign-up','/u/:path*','/coaching',
-  '/coaching/coaches/:path*', '/settings', '/admin/moderation', '/admin/verification', '/forgot-password', '/reset-password', '/email-change'];
+  '/settings', '/admin/moderation', '/admin/verification', '/forgot-password', '/reset-password', '/email-change'];
 export const digest = text => createHash('sha256').update(text).digest('base64');
 
 export function inlineScripts(html) {
@@ -28,7 +28,7 @@ export async function publicArtifact(root) {
     if (route.endsWith('/opengraph-image')) continue; // metadata handler, not HTML
     // Explicitly reviewed public build artifacts only. New pages still fail the
     // inventory until reviewed here or in the scoped nonce matcher above.
-    if (!/^\/(?:_not-found|learn(?:\/[a-z0-9-]+)?|terms|privacy|coaching\/(?:consultation|become-a-tutor)|problems(?:\/archive|\/topics\/[a-z0-9-]+)?|dashboard\/problems\/[a-z0-9-]+|dashboard\/contests\/manage)$/.test(route)) continue;
+    if (!/^\/(?:_not-found|learn(?:\/[a-z0-9-]+)?|terms|privacy|coaching\/(?:consultation|become-a-tutor|coaches(?:\/[a-z0-9-]+)?)|problems(?:\/archive|\/topics\/[a-z0-9-]+)?|dashboard\/problems\/[a-z0-9-]+|dashboard\/contests\/manage)$/.test(route)) continue;
     const html = await readFile(resolve(root, '.next/server/app', route.slice(1) + '.html'), 'utf8');
     const scripts = inlineScripts(html), hashes = [...new Set(scripts.map(digest))];
     routes[route] = { htmlDigest: digest(html), hashes, policy: hashPolicy(hashes), htmlBytes: Buffer.byteLength(html), status: route === '/_not-found' ? 404 : 200 };
