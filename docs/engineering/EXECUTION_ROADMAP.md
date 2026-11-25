@@ -4,6 +4,10 @@ Since the calm colour change, parts are told apart by letter and order, and noth
 
 Nothing renders differently. The deleted `style` props returned undefined and the deleted `${partBorder}` was an empty string, so the only change in any class string is a trailing space. The part chip stays a grey bordered badge and the next part keeps its 2px ring outline.
 
+## Account deletion operator package (25 November 2026)
+
+The [checksum-pinned 0026 owner package](../../scripts/account-deletion-0026/README.md) records Vercel's documented repeat-delete contract and the outstanding private-store rehearsal. Account deletion stays off pending provider confirmation for terminal writes and retained copies, held-path reconciliation, and owner operational approval.
+
 ## Account deletion blocker corrections (25 November 2026)
 
 Keep deletion off. Migration 0026 fixes retained report keys and revision-specific publication approval. The existing outbox now waits for confirmation of registered private writes. Qualification still requires provider-backed resolution of ambiguous and old writes, restricted role attestation, and the privacy and recovery rehearsals. [Activation gates](ACCOUNT_DELETION_READINESS.md#release-blocker-corrections-25-november-2026).
