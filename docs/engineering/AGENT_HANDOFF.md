@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Account deletion with outstanding file cleanup (25 November 2026)
+
+Vercel's response, relayed by the owner, establishes no documented terminal mechanism or maximum commit lifetime for interrupted PUTs. Blob physical backup retention remains unverified. Review of `62bdf5a` confirms 0026 can commit database erasure while retaining held paths and unfinished outbox jobs. [The staged release assessment](ACCOUNT_DELETION_READINESS.md#database-erasure-with-outstanding-file-cleanup-25-november-2026) records the receipt limits and the mandatory privacy, file access, staffed follow-up, Tally and restore evidence. Keep deletion off pending qualified operations and separate owner approval. Documentation only.
+
 ## Dead part colour helpers removed (24 November 2026)
 
 Since the calm colour change, parts are told apart by letter and order, and nothing was reading the part colours. Removed: `partStyle`, `partBorder` and the `index` argument of `PartChip` in `components/physics/solve-ui.tsx`, with every caller in `student-workspace`, `worked-solution`, `advanced-part-options`, `problem-editor`, `simple-editor` and `corpus-problem-reader`. The now-dead `colour` and `partColour` props went too. In `lib/part-colors.ts` only `bareLabel` is left, because the real components use it. `partToken`, `partTokenClasses`, `partTokenNames`, `partParent`, `assignPartColors` and `colorsByPartId` are gone, along with the four `--part-*` families in `app/globals.css`, their entries in `tailwind.config.js` and the `part-*` rows in `lib/colour-tokens.test.ts`. Success, progress, danger and idle are untouched.

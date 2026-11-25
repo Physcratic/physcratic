@@ -1,3 +1,7 @@
+## Account deletion staged release assessment (25 November 2026)
+
+Keep account deletion off. [The readiness assessment](ACCOUNT_DELETION_READINESS.md#database-erasure-with-outstanding-file-cleanup-25-november-2026) proposes allowing database erasure to commit with a durable, explicitly pending file obligation. Qualify safely handling held objects, status and privacy wording, staffed follow-up, Tally and recovery before seeking owner approval. Terminal evidence remains required to close an individual ambiguous upload obligation. No implementation is scheduled by this assessment.
+
 ## Dead part colour helpers removed (24 November 2026)
 
 Since the calm colour change, parts are told apart by letter and order, and nothing was reading the part colours. Removed: `partStyle`, `partBorder` and the `index` argument of `PartChip` in `components/physics/solve-ui.tsx`, with every caller in `student-workspace`, `worked-solution`, `advanced-part-options`, `problem-editor`, `simple-editor` and `corpus-problem-reader`. The now-dead `colour` and `partColour` props went too. In `lib/part-colors.ts` only `bareLabel` is left, because the real components use it. `partToken`, `partTokenClasses`, `partTokenNames`, `partParent`, `assignPartColors` and `colorsByPartId` are gone, along with the four `--part-*` families in `app/globals.css`, their entries in `tailwind.config.js` and the `part-*` rows in `lib/colour-tokens.test.ts`. Success, progress, danger and idle are untouched.
