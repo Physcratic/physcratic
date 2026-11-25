@@ -1,3 +1,7 @@
+## Retrospective migration baseline acceptance (25 November 2026)
+
+Phase 5B stays on hold. Reconcile 0020, 0021, 0022 and 0024 using the [dated record and read-only verification package](RETROSPECTIVE_BASELINE_ACCEPTANCE.md). Require a fresh capture, independent review and explicit owner acceptance. Coordinate a quiet capture window with the 0026 operator. Keep 0025 for personal completions and preserve existing Step 2, erasure and recovery gates.
+
 ## Practice persistence release qualification (25 November 2026)
 
 Keep practice persistence off while account deletion is parked. [Current-main qualification](PRACTICE_PROGRESS.md#current-main-release-qualification-25-november-2026) records the separate meanings of attempted, marked complete, correctly answered and independently solved, plus compatibility and growth evidence. The minimum activation sequence requires qualified erasure, owner runtime and backup evidence, and separate approval for the practice flag. No feature expansion is scheduled.

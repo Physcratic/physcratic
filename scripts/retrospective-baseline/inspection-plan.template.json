@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "approvalToInspect": "",
+  "target": {
+    "providerProject": "",
+    "providerBranch": "",
+    "endpoint": "",
+    "port": 5432,
+    "providerBindingRef": "",
+    "database": "",
+    "login": "",
+    "version": 0,
+    "databaseOwner": "",
+    "schemaOwner": ""
+  },
+  "runtimeRole": "",
+  "objectOwner": "",
+  "ownershipAndAclEvidence": "",
+  "ownerOverrides": {},
+  "additionalGrants": [],
+  "publicRevocations": [],
+  "defaultAcl": [],
+  "roleMemberships": [],
+  "expectedLaterMigrations": {}
+}

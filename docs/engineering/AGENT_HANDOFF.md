@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Retrospective migration baseline (25 November 2026)
+
+Prepared a checksum-pinned read-only inspection for 0020, 0021, 0022 and 0024 on source `9e0a3c9`. [The dated record](RETROSPECTIVE_BASELINE_ACCEPTANCE.md) preserves the owner's recovered historical outputs as corroboration. Capture uses the existing ledger and catalogue, and the verifier requires independent support for optional later migrations and exact role expectations. Phase 5B remains on hold pending independent verification and explicit acceptance. Preserve the separate 0025 and 0026 tracks and all erasure and restore gates.
+
 ## Practice persistence release qualification (25 November 2026)
 
 Reviewed `a5f79a1` and kept account deletion parked. The current save catalogue is 33 Arena originals. A focused disposable PostgreSQL run combined saved checks, manual marks and cursors, authored progress and public solutions, then sampled one account with 36,500 checks. No code defect blocked the reviewed paths. Production is NO-GO pending a qualified erasure channel, retained-copy controls, actual runtime evidence and owner release approval. [Evidence and ordered activation](PRACTICE_PROGRESS.md#current-main-release-qualification-25-november-2026). Documentation only.
