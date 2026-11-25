@@ -31,7 +31,8 @@ export function createAccountDeletionApi(deps:DeletionDependencies){
    const proof=await deps.password(session.user.id,input.password);
    if(!proof.verified)return deletionReply({error:'The current password is required. Accounts without a password must set one and sign in again.'},403);
    const opened=await deps.pool.query('SELECT account_deletion_open_request($1,$2,$3,$4) AS id',[session.user.id,session.session.token,proof.hash,nonce]);requestId=opened.rows[0].id;
-   const {rows}=await deps.pool.query('SELECT account_deletion_execute($1,$2,$3,$4) AS receipt',[session.user.id,session.session.token,proof.hash,nonce]);
+   const {rows}=await deps.pool.query(`SELECT CASE WHEN to_regprocedure('account_deletion_upload_finished(text,text,text)') IS NOT NULL
+     THEN account_deletion_execute($1,$2,$3,$4) END AS receipt`,[session.user.id,session.session.token,proof.hash,nonce]);
    return deletionReply(deletionReceiptSchema.parse(rows[0].receipt));
   }catch(error){
    const code=(error as {code?:string}).code;

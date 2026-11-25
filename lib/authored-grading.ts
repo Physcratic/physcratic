@@ -44,7 +44,8 @@ export function createAuthoredGrader(deps: Dependencies) {
           JOIN authored_revision r ON r.problem_id=p.id AND r.id=$2
           JOIN authored_revision_part rp ON rp.revision_id=r.id AND rp.part_id=$3
           LEFT JOIN authored_revision_private_part k ON k.revision_id=rp.revision_id AND k.part_id=rp.part_id
-          WHERE p.id=$1 AND (p.owner_id=$4 OR (p.state='published' AND p.published_revision_id IS NOT NULL)) LIMIT 1`,
+          WHERE p.id=$1 AND (p.owner_id=$4 OR (p.state='published' AND p.published_revision_id IS NOT NULL
+            AND (p.owner_id<>'__physcratic_deleted_principal_v1__' OR p.published_revision_id=r.id))) LIMIT 1`,
         values: [ids.problemId, ids.revisionId, ids.partId, user.id],
         query_timeout: 5000,
       };

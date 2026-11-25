@@ -61,7 +61,7 @@ test("a valid image is a small webp with the right headers, no metadata and no c
   const res = await run(original);
   assert.equal(res.status, 200);
   assert.equal(res.headers.get("Content-Type"), "image/webp");
-  assert.equal(res.headers.get("Cache-Control"), "public, max-age=60, s-maxage=300, stale-while-revalidate=60");
+  assert.equal(res.headers.get("Cache-Control"), "private, no-store");
   assert.equal(res.headers.get("X-Content-Type-Options"), "nosniff");
   assert.equal(res.headers.get("X-Robots-Tag"), "noindex, nofollow");
   assert.equal(res.headers.get("Set-Cookie"), null);
