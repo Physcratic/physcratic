@@ -10,6 +10,8 @@ const contentSecurityPolicy = buildCsp({
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Keep prewarmed routes available throughout a local design session.
+  onDemandEntries: { maxInactiveAge: 60 * 60 * 1000, pagesBufferLength: 100 },
   // Render metadata in <head> for every user agent (incl. AI crawlers and link unfurlers).
   htmlLimitedBots: /.*/,
   images: {

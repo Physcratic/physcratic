@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const page = findProblemPage(id);
   if (!page) return {
-    title: "Problem not found",
+    title: "Problem Not Found",
     ...(isRetiredPracticeProblem(id) ? { robots: { index: false, follow: true } } : {}),
   };
   return {

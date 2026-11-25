@@ -4,7 +4,7 @@ import type { ArticleDraft } from "../types";
 // The worked example uses the published Arena Mind the Gap solution.
 export const howMarkingWorks: ArticleDraft = {
   slug: "how-olympiad-solutions-are-marked",
-  title: "How Olympiad physics solutions are marked",
+  title: "How Olympiad Physics Solutions Are Marked",
   description:
     "How marks are given for IPhO theory solutions, why method and units matter, and how to write work a marker can follow.",
   updated: "2026-11-12",
@@ -28,13 +28,13 @@ export const howMarkingWorks: ArticleDraft = {
     },
   ],
   body: [
-    { type: "heading", level: 2, text: "Who marks your paper" },
+    { type: "heading", level: 2, text: "Who Marks Your Paper" },
     {
       type: "paragraph",
       text: "At the International Physics Olympiad, the host grades the papers. The markers use a detailed marking scheme that the International Board has approved. They follow that scheme, so the way you write your solution decides what they can find and credit. This guide uses the IPhO rules as of 2026. For any other contest, check the current host site.",
       cite: ["s1"],
     },
-    { type: "heading", level: 2, text: "Marks for every correct step" },
+    { type: "heading", level: 2, text: "Marks for Every Correct Step" },
     {
       type: "paragraph",
       text: "Marks are added for every correct intermediate or final result. Partial marks are given when work is incomplete. A wrong final number can therefore still carry marks for the correct results that came before it.",
@@ -45,7 +45,7 @@ export const howMarkingWorks: ArticleDraft = {
       text: "The rules also cover tasks that are hard to do exactly. For mathematically hard tasks, approximate solutions should get partial credit. The share of marks for pure mathematical manipulation should be small. The physics ideas count for more than the algebra.",
       cite: ["s1"],
     },
-    { type: "heading", level: 2, text: "Why the method matters" },
+    { type: "heading", level: 2, text: "Why the Method Matters" },
     {
       type: "paragraph",
       text: "A marking scheme lists results. A marker looks through your page for each one and ticks it when they find it. If your method is hidden in a pile of algebra, the marker may not find a result you did reach. So make each result easy to see:",
@@ -60,13 +60,13 @@ export const howMarkingWorks: ArticleDraft = {
         "Mark the result of each step so it stands out.",
       ],
     },
-    { type: "heading", level: 2, text: "Why units matter" },
+    { type: "heading", level: 2, text: "Why Units Matter" },
     {
       type: "paragraph",
       text: "The 2026 IPhO theory instructions say that numerical work must show units. A number without a unit is an incomplete answer. Units also help you. If the unit of your answer is wrong, then the equation behind it is wrong, and you can catch the error before the marker does.",
       cite: ["s3"],
     },
-    { type: "heading", level: 2, text: "Write for a marker who may not read your language" },
+    { type: "heading", level: 2, text: "Write for a Marker Who May Not Read Your Language" },
     {
       type: "paragraph",
       text: "The 2026 theory instructions give several rules about the paper itself. Final answers go on answer sheets and working goes on worksheets. Only the front of each page is scanned. Answers should be concise, with little explanatory text, because markers may not read the student's language.",
@@ -93,7 +93,7 @@ export const howMarkingWorks: ArticleDraft = {
       text: "These rules come from the instructions for one exam, the 2026 IPhO theory paper. Each contest and each year can differ. Read the instructions you are given on the day.",
       cite: ["s3"],
     },
-    { type: "heading", level: 2, text: "Estimating and checking" },
+    { type: "heading", level: 2, text: "Estimating and Checking" },
     {
       type: "paragraph",
       text: "The sources above do not set rules for checking. This is our own advice. Spend the last minutes of each problem on four quick checks:",
@@ -112,20 +112,20 @@ export const howMarkingWorks: ArticleDraft = {
       type: "paragraph",
       text: "A rough estimate at the start also helps. If you expect an answer near 5 and you get 5000, stop and look for the slip.",
     },
-    { type: "heading", level: 2, text: "A worked example: Mind the Gap" },
+    { type: "heading", level: 2, text: "A Worked Example: Mind the Gap" },
     { type: "paragraph", text: "Use the Arena optics problem Mind the Gap to practise presenting a derivation and a fitted numerical result. Arena is unrated and does not award exam marks. The example below illustrates how to make your reasoning visible." },
     { type: "problemLink", problemId: "arena-mind-the-gap", label: "Open Mind the Gap before reading the example" },
-    { type: "heading", level: 3, text: "Result 1: write the physical relation" },
+    { type: "heading", level: 3, text: "Result 1: Write the Physical Relation" },
     { type: "paragraph", text: "For the reflected dark rings, write the gap geometry and interference condition before substituting numbers. State the near-normal incidence approximation and the ordering of the two positive curvature radii." },
     { type: "math", tex: "2t \\simeq r_m^2(1/R_1 - 1/R_0) = m\\lambda" },
-    { type: "heading", level: 3, text: "Result 2: isolate the quantity" },
+    { type: "heading", level: 3, text: "Result 2: Isolate the Quantity" },
     { type: "paragraph", text: "Rearrange for the ring radius and keep the symbolic result separate. A marker can inspect this step even if a later arithmetic result is wrong." },
     { type: "math", tex: "r_m = \\sqrt{\\frac{m\\lambda}{1/R_1 - 1/R_0}}" },
     { type: "paragraph", text: "Successive rings differ by one in order. Subtract the squared-radius equations before fitting so that the unknown order of the first measured ring drops out. Explain which measurements you used, convert the ring radii into metres, and show the quantity plotted on each axis. If your fitted radius differs from the published result, the plotted points and conversion steps help a marker distinguish a calculation slip from an incorrect model." },
-    { type: "heading", level: 3, text: "Result 3: report the fit and its unit" },
+    { type: "heading", level: 3, text: "Result 3: Report the Fit and Its Unit" },
     { type: "paragraph", text: "The published worked solution fits the consecutive ring measurements and obtains a lens curvature radius of 0.89895 m, rounded to 0.90 m at the precision of the data. Show the fit method, the numerical result and the unit. A final number alone does not show the method." },
     { type: "paragraph", text: "Check that the denominator in the squared-radius expression has units of inverse length. The result then has units of length squared, as required. Explain this check in your working instead of only writing a number." },
-    { type: "heading", level: 2, text: "A checklist before you hand in" },
+    { type: "heading", level: 2, text: "A Checklist Before You Hand In" },
     {
       type: "list",
       items: [

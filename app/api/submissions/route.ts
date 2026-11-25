@@ -1,11 +1,10 @@
 import { randomUUID } from "node:crypto";
-import { checkAndRateSubmission, getSubmissionAssessment } from "@/lib/individual-rating-server";
-import { and, count, desc, eq, gte, inArray, sql } from "drizzle-orm";
+import { getSubmissionHistory } from "@/lib/submission-history-server";
+import { and, count, eq, gte, inArray, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
-import { individualRatingEvents, solutionAttempts, solutionChecks, solutionEvidence } from "@/lib/db/schema";
+import { solutionAttempts, solutionEvidence } from "@/lib/db/schema";
 import { solutionSubmissionSchema } from "@/lib/solution-grading";
 import { evidenceMatches } from "@/lib/submission-security";
-import { getSubmissionSource } from "@/lib/submission-source";
 import { readSubmissionJson, RequestBodyTimeoutError } from "@/lib/submission-request";
 import { isSubmissionOrigin, submissionError, submissionUser } from "@/lib/submission-server";
 
@@ -14,8 +13,8 @@ export async function GET(request: Request) {
   try {
     const user = await submissionUser(request);
     if (!user) return submissionError("Sign in to view saved attempts.", 401);
-    const attempts = await db.select({ id: solutionAttempts.id, problemId: solutionAttempts.problemId, partId: solutionAttempts.partId, payload: solutionAttempts.payload, status: solutionAttempts.status, createdAt: solutionAttempts.createdAt, check: { matched: solutionChecks.matched, awardedPoints: solutionChecks.awardedPoints, maxPoints: solutionChecks.maxPoints }, ratingEvent: { rating: individualRatingEvents.afterRating, change: individualRatingEvents.change } }).from(solutionAttempts).leftJoin(solutionChecks, and(eq(solutionChecks.attemptId, solutionAttempts.id), eq(solutionChecks.userId, user.id))).leftJoin(individualRatingEvents, and(eq(individualRatingEvents.attemptId, solutionAttempts.id), eq(individualRatingEvents.userId, user.id))).where(eq(solutionAttempts.userId, user.id)).orderBy(desc(solutionAttempts.createdAt)).limit(50);
-    return Response.json({ attempts }, { headers: { "Cache-Control": "private, no-store" } });
+    const history = await getSubmissionHistory(user.id);
+    return Response.json(history, { headers: { "Cache-Control": "private, no-store" } });
   } catch {
     return submissionError("Saved attempts are temporarily unavailable.", 503);
   }
@@ -37,11 +36,13 @@ export async function POST(request: Request) {
     const parsed = solutionSubmissionSchema.safeParse(input);
     if (!parsed.success) return submissionError(parsed.error.issues[0]?.message ?? "Invalid submission.", 400);
     const submission = parsed.data;
+    const { checkAndRateSubmission, getSubmissionAssessment } = await import("@/lib/individual-rating-server");
     const existing = await db.select().from(solutionAttempts).where(and(eq(solutionAttempts.userId, user.id), eq(solutionAttempts.idempotencyKey, submission.idempotencyKey))).limit(1);
     if (existing.length) {
       if (JSON.stringify(solutionSubmissionSchema.parse(existing[0].payload)) !== JSON.stringify(submission)) return submissionError("This submission key was already used for different work. Start a new attempt.", 409);
       return Response.json({ id: existing[0].id, status: existing[0].status, ...await getSubmissionAssessment(user.id, existing[0].id) }, { headers: { "Cache-Control": "no-store" } });
     }
+    const { getSubmissionSource } = await import("@/lib/submission-source");
     const source = await getSubmissionSource(submission.problemId);
     if (!source) return submissionError("Unknown archive problem.", 400);
     if (source.problemVersion !== submission.problemVersion) return submissionError("The source version changed. Reload the problem before saving.", 409);

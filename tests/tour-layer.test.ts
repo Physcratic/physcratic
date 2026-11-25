@@ -79,7 +79,7 @@ test("a key chip never breaks inside itself, so a long command wraps as one piec
 test("default and public sticky headers retain the same unconditional stacking layer", () => {
   for (const sticky of [false, true]) {
     const html = renderToStaticMarkup(createElement(AppRouterContext.Provider, { value: router }, createElement(TopNav, { view: "overview", sticky })));
-    const classes = html.match(/<header class="([^"]+)"/)?.[1].split(/\s+/);
+    const classes = html.match(/<header\b[^>]*\bclass="([^"]+)"/)?.[1].split(/\s+/);
     assert.ok(classes, "rendered header exists");
     assert.deepEqual(classes.filter(name => /^z-/.test(name)), [`z-${HEADER_LAYER}`]);
     assert.ok(classes.includes(sticky ? "sticky" : "relative"));

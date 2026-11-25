@@ -20,8 +20,8 @@ export function CoachingCard() {
           className="mt-0.5 size-5 shrink-0 text-accent-foreground"
           strokeWidth={1.7}
         />
-        <h2 id="coaching-card-heading" className="text-base font-medium">
-          Train with IPhO, APhO and EuPhO medallists
+        <h2 id="coaching-card-heading" className="text-xl font-semibold">
+          Train with IPhO, APhO and EuPhO Medallists
         </h2>
       </div>
       <Button asChild variant="outline" className="shrink-0 border-accent-foreground text-accent-foreground hover:bg-accent hover:text-accent-foreground">

@@ -43,7 +43,7 @@ test("the Recovery section is closed with nothing needing attention and is a 44p
 test("the Recovery section opens by itself when something needs attention and says so", () => {
   const html = section(true);
   assert.match(html, /aria-expanded="true"/);
-  assert.match(html, /Recovery, needs attention/);
+  assert.match(html, /Recovery, Needs Attention/);
   assert.match(html, /Inside/);
 });
 
@@ -69,7 +69,7 @@ test("the editor wraps the saved copy, corrupt copy and conflict tools in Recove
   for (const text of [
     "Download unrecognized private copy", "Discard unrecognized copy",
     "Restore local work", "Download private recovery copy", "Discard local recovery copy",
-    "Resolve a version conflict", "Compare with latest server copy", "Retry saving",
+    "Resolve a Version Conflict", "Compare with latest server copy", "Retry saving",
     "Inspect latest server document and private answer configuration", "Use server copy", "Keep local work over this version",
   ]) assert.ok(inside.includes(text), text);
 });

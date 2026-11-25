@@ -48,7 +48,7 @@ test("static params, discovery, topics, recommendations and sitemap contain ever
   const discovery = JSON.stringify([publicRoutes, indexableRoutes, sitemap(), llmsFull("https://physcratic.com"), llmsIndex("https://physcratic.com"), articles, practiceProblemIds]);
   for (const id of expected) {
     assert.ok(!discovery.includes(`/dashboard/problems/${id}`), id);
-    assert.deepEqual(await generateMetadata({ params: Promise.resolve({ id }) }), { title: "Problem not found", robots: { index: false, follow: true } });
+    assert.deepEqual(await generateMetadata({ params: Promise.resolve({ id }) }), { title: "Problem Not Found", robots: { index: false, follow: true } });
   }
   for (const page of pages) for (const related of relatedProblems(page)) assert.ok(!isRetiredPracticeProblem(related.id));
   for (const topic of topicsWithProblems()) for (const page of problemsInTopic(topic.slug)) assert.ok(!isRetiredPracticeProblem(page.id));

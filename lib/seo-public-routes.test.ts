@@ -3,6 +3,8 @@ import { describe, it } from "node:test";
 import { articles } from "./learn/articles";
 import { topics } from "./physics";
 import { catalogProblems } from "./corpus-catalog";
+import { medallists } from "./coaching/medallists";
+import { coachProfileHref } from "./coaching/coach-profile";
 import { indexableRoutes, publicRoutes, topicHasProblems } from "./seo/public-routes";
 import { allProblemPages, findProblemPage, topicsWithProblems } from "./seo/problem-pages";
 
@@ -56,7 +58,7 @@ describe("public route registry", () => {
   });
   it("lists the coaching page and its two form pages, and not the removed training page", () => {
     const coaching = indexableRoutes.filter((r) => r.kind === "coaching").map((r) => r.path);
-    assert.deepEqual(coaching, ["/coaching", "/coaching/consultation", "/coaching/become-a-tutor"]);
+    assert.deepEqual(coaching.sort(), ["/coaching", "/coaching/consultation", "/coaching/become-a-tutor", "/coaching/coaches", ...medallists.map(coach => coachProfileHref(coach.slug))].sort());
     assert.ok(!publicRoutes.some((r) => r.path === "/coaching/training"));
   });
   it("lists the hub and every published guide, and no unpublished one", () => {

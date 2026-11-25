@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { EmailChangeResult } from "@/components/account/account-pages";
 import { emailChangeOutcome } from "@/lib/account-messages";
 
-export const metadata: Metadata = { title: "Email change", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "Email Change", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 export default async function EmailChange({ searchParams }: { searchParams: Promise<{ step?: string | string[]; error?: string | string[] }> }) {
   const query = await searchParams;

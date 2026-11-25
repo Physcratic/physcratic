@@ -45,7 +45,7 @@ try {
     const serverHtml = await response.text()
     assert.ok(serverHtml.includes(`<h4>${problem.prefix}-A1`))
     assert.match(serverHtml, /class="katex/)
-    assert.equal(await page.getByRole('heading', { name: 'Statement as text', exact: true }).count(), 0)
+    assert.equal(await page.getByRole('heading', { name: 'Statement as Text', exact: true }).count(), 0)
     await page.getByRole('heading', { level: 1, name: problem.title, exact: true }).waitFor()
     for (const kind of ['statement', 'solution']) {
       if (kind === 'solution') await page.getByRole('tab', { name: /Worked solution/ }).click()

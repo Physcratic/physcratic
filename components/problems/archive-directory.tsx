@@ -16,7 +16,7 @@ export function ArchiveDirectory() {
   const catalog = new Map(catalogProblems.map(problem => [problem.id, problem]));
   return <div className="flex min-w-0 flex-col gap-7">
     <div className="space-y-2">
-      <h1 className="text-2xl font-medium tracking-[-0.04em] sm:text-[27px]">Olympiad problem archive</h1>
+      <h1 className="text-2xl font-medium tracking-[-0.04em] sm:text-[27px]">Olympiad Problem Archive</h1>
       <p className="max-w-prose text-sm leading-relaxed text-muted-foreground">{archive.length} theory problems. Open one to read the statement, see the official PDF and write your own solution.</p>
       <Link href="/problems" className={problemLinkClass}>Search and filter the problem library</Link>
     </div>

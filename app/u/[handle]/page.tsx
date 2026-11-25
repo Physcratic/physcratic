@@ -14,7 +14,7 @@ import {communityModerationUiEnabled} from '@/lib/community/moderation-route';
 import {ReportControl} from '@/components/community/report-controls';
 
 // No private identity, account dates, invented statistics or indexing in this first release.
-export const metadata: Metadata = { title: "Community profile", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "Community Profile", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 export default async function PublicProfilePage({ params }: { params: Promise<{ handle: string }> }) {
   if (!communityProfilesEnabled()) notFound();
@@ -22,7 +22,7 @@ export default async function PublicProfilePage({ params }: { params: Promise<{ 
   // Reuse the same public authorization boundary without a network round trip or owner cookies.
   const response = await communityProfileRoute("public", new Request("https://profile.internal/api/community/profile"), handle);
   if (response.status === 404) notFound();
-  if (!response.ok) return <main className="mx-auto max-w-xl space-y-4 px-5 py-20"><h1 className="text-2xl font-semibold">Profile unavailable</h1><p className="text-sm text-muted-foreground">Please try again later.</p><Link href="/dashboard" className="underline">Back to Arena</Link></main>;
+  if (!response.ok) return <main className="mx-auto max-w-xl space-y-4 px-5 py-20"><h1 className="text-2xl font-semibold">Profile Unavailable</h1><p className="text-sm text-muted-foreground">Please try again later.</p><Link href="/dashboard" className="underline">Back to Arena</Link></main>;
   const profile = publicProfileSchema.parse((await response.json()).profile);
   let media = emptyProfileMedia;
   let badgeIds: BadgeId[] = [];

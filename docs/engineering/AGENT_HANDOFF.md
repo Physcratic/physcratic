@@ -1,4 +1,41 @@
+## Session counter and Settings selector follow-up (25 November 2026)
+
+On `04d203b`, all core jobs and both authored/community browser workflows pass. The public run passes real-session/public-library/PDF checks, 885 topic checks, 781 archive checks and the production authored reader. Its final cookie validation phase encountered a non-200 session response after the shared browser request burst. A focused in-memory Better Auth check confirms all three malformed-cookie fixtures return 200/null. Reset only the disposable rate-limit table before the cookie phase, keep the actual limiter enabled and the strict 200/null assertions, and include the status in future diagnostics. No auth configuration is changed.
+
+The CSP prototype now passes coach inventory, hybrid build/static parity and the initial document checks. Its Settings hydration selector still expected the retired radio label Light. Select the current accessible Physcratic Light radio, retaining the assertion that the HTML switches to the light theme. Syntax and configured changed-file lint pass. Full exact-head CI remains pending.
+
+## Static coach CSP and topic expectation follow-up (25 November 2026)
+
+Validation head `280a6ea` passes all core CI jobs and authored/community browser qualification. CSP report/enforcement workflows now pass in Chromium, Firefox and WebKit, confirming per-scenario diagnostic isolation. Full hybrid inventory then correctly rejected the static coach directory/profile family: request-nonce matchers cannot authorise prerendered HTML. Add these public coach build artifacts to the exact-byte static hash allowlist, remove their nonce matcher and require the static family in the source guard. Fixture coverage includes directory/profile hashes, rejects changed served bytes and continues to exclude an unrelated coach path. No Production policy change.
+
+The public library, real-session isolation and PDF accessibility checks pass. Topic qualification found the stale sentence-case expected heading. Update it to the approved title case, leaving counts, SEO, links, accessibility and archive expectations intact. The final full browser/architecture checks remain pending on the follow-up commit.
+
+## CSP diagnostic isolation follow-up (25 November 2026)
+
+On validation head `75a7113`, all core CI jobs and both authored-student/community browser workflows pass. The CSP browser run passed navigation, guest/member tours, maths and PDF workflows in Chromium, Firefox and WebKit, but Firefox report-only reached the local collector’s 100-event diagnostic cap before its negative HTTP control. Its recorded delivery counts sum to exactly 100. Keep the cap and HTTP assertion, reset diagnostics between sequential scenarios, and fail explicitly if any scenario overflows. The regression verifies overflow accounting, reset and preserved prior snapshots. All 43 focused CSP tests and configured changed-file lint pass. Public-library qualification is still running on `75a7113`; the full checks must run on the follow-up head. This changes only the local test harness, not Production CSP.
+The public-library run on `75a7113` passed both native reader variants and its production build, then failed because the isolation test called decodeURIComponent on a complete HTML document containing CSS percentages. Compare each URL-encoded private fixture directly instead, retaining the raw and encoded checks. Run the session/library stage before native solving so failures surface before the long archive sweep. Both native variants and their evidence upload remain required on a successful run.
+
+
+## Validation follow-up awaiting publication (25 November 2026)
+
+First Linux build/type/lint/unit/component/database gates passed on draft PR #258. Additional checksum, heading, tour and shared-home session test fixes are prepared locally. Publishing the new payload was rejected by automatic approval review pending explicit owner approval. [Evidence and pending CI rerun](UI_PREVIEW_MAIN_INTEGRATION.md#completed-first-linux-run-and-prepared-follow-up-25-november-2026). No merge or deployment.
+
+## GitHub CI follow-up (25 November 2026)
+
+Owner approved branch publication and draft PR [#258](https://github.com/Physcratic/physcratic/pull/258). The validation snapshot at `68e7edf` includes main `9e0a3c9`. Linux CI passed typecheck, zero-warning lint, unit and component tests, the production build, Open Graph regression and PostgreSQL database tests. Browser and PostgreSQL 18.7 activation qualification remain pending follow-up fixes.
+
+The activation check identified two UI files covered by its immutable manifest. Restored those files to reviewed main bytes, with the existing main copy-scanner exception, rather than changing release hashes. Retained guest tour gating in the shared tour component with an accessible sign-in section, so the original Settings anchor stays useful. The profile unavailable heading retains its reviewed wording for the pinned browser suite. Updated affected browser heading selectors for the approved title casing. No Production operation or merge.
+
 # Agent handoff
+
+## Local UI preview reconciliation (25 November 2026)
+
+Owner-authorized local integration preserves checkpoint 83570d6 and merge 478d4cd.
+[Reconciliation and actual validation limits](UI_PREVIEW_MAIN_INTEGRATION.md)
+records eleven resolved files, theme contrast, Settings/tour fixes, and the
+remaining full-suite, Windows and build limitations. No Production or remote-main
+operation. Next: review the combined preview and complete Linux/build/browser QA
+before deciding on a publication PR.
 
 ## Practice persistence release qualification (25 November 2026)
 

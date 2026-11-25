@@ -4,7 +4,7 @@ import type { ArticleDraft } from "../types";
 // Facts come from the fact sheet for Batch 6.1. Source ids match its S-numbers.
 export const startPreparing: ArticleDraft = {
   slug: "start-preparing-physics-olympiad",
-  title: "How to start preparing for the Physics Olympiad",
+  title: "How to Start Preparing for the Physics Olympiad",
   description:
     "A plain guide for students and parents. What to study first, how to use past papers, a 12-month outline and the mistakes to avoid.",
   updated: "2026-11-12",
@@ -43,7 +43,7 @@ export const startPreparing: ArticleDraft = {
     },
   ],
   body: [
-    { type: "heading", level: 2, text: "What you are preparing for" },
+    { type: "heading", level: 2, text: "What You Are Preparing For" },
     {
       type: "paragraph",
       text: "The International Physics Olympiad, or IPhO, is a contest for secondary school students. There are also two regional contests, the Asian Physics Olympiad (APhO) and the European Physics Olympiad (EuPhO). Our other guides explain how the three differ and how the papers are marked.",
@@ -52,7 +52,7 @@ export const startPreparing: ArticleDraft = {
       type: "paragraph",
       text: "This guide is for a student who enjoys physics and wants a plan, and for the parents who want to know what that plan involves. Nobody needs to be sure about the Olympiad on day one. You can start with the physics and decide later.",
     },
-    { type: "heading", level: 2, text: "How selection works" },
+    { type: "heading", level: 2, text: "How Selection Works" },
     {
       type: "paragraph",
       text: "Each country runs its own selection. We do not describe any country's process here, because the steps and the dates differ from country to country and they can change. Ask your physics teacher or your national olympiad organiser what the first step is and when it happens. Then work backwards from that date.",
@@ -76,13 +76,13 @@ export const startPreparing: ArticleDraft = {
         "Where can I find past papers from earlier rounds?",
       ],
     },
-    { type: "heading", level: 2, text: "Check the age and school rules" },
+    { type: "heading", level: 2, text: "Check the Age and School Rules" },
     {
       type: "paragraph",
       text: "As of 2026, the IPhO statutes say a student must not be older than 20 on June 30 of the competition year. Students must come from general or technical secondary schools. A student who finishes school that year can still compete, as long as they have not started university. Rules can change, so confirm them with your national organiser and the current host site.",
       cite: ["s1"],
     },
-    { type: "heading", level: 2, text: "What to study first" },
+    { type: "heading", level: 2, text: "What to Study First" },
     {
       type: "paragraph",
       text: "The IPhO syllabus is a good map, even if you never reach the IPhO itself. It covers mechanics, electromagnetic fields, oscillations and waves, relativity, quantum physics, and thermodynamics and statistical physics. It also lists experimental skills, which means measurement, uncertainty and data analysis, and the mathematics you need.",
@@ -119,7 +119,7 @@ export const startPreparing: ArticleDraft = {
       label: "Try a mechanics problem: The Invisible Brake",
       note: "An Arena mechanics problem with a worked solution for comparison.",
     },
-    { type: "heading", level: 2, text: "How to use past papers" },
+    { type: "heading", level: 2, text: "How to Use Past Papers" },
     {
       type: "paragraph",
       text: "Past papers are the best practice because they look like the real thing. Two archives are useful, and both are unofficial. They are the IPhO problems and results at ipho-unofficial.org and the APhO problems and solutions at apho.olimpicos.net. Check any detail that matters against the official source.",
@@ -141,7 +141,7 @@ export const startPreparing: ArticleDraft = {
         "Return to the problem a few weeks later and solve it again from a blank page.",
       ],
     },
-    { type: "heading", level: 2, text: "A 12-month outline" },
+    { type: "heading", level: 2, text: "A 12-Month Outline" },
     {
       type: "paragraph",
       text: "This is a suggested plan, not an official one. Move the blocks around to fit your national selection dates. Short, regular sessions beat rare long ones.",
@@ -156,7 +156,7 @@ export const startPreparing: ArticleDraft = {
         "Months 10 to 12. Full papers under exam conditions. Review your mistake log. Check the selection dates again and make time to rest.",
       ],
     },
-    { type: "heading", level: 2, text: "How to study and solve problems" },
+    { type: "heading", level: 2, text: "How to Study and Solve Problems" },
     {
       type: "paragraph",
       text: "Kevin Zhou's free guide Learning Introductory Physics has study advice that suits olympiad preparation. We summarise the main points in our own words. Read his guide for the full argument.",
@@ -180,7 +180,7 @@ export const startPreparing: ArticleDraft = {
       label: "Books and handouts for each topic",
       note: "Our reviewer's picks, grouped by stage and topic.",
     },
-    { type: "heading", level: 2, text: "Common mistakes" },
+    { type: "heading", level: 2, text: "Common Mistakes" },
     {
       type: "list",
       items: [
@@ -194,7 +194,7 @@ export const startPreparing: ArticleDraft = {
       ],
       cite: ["s1"],
     },
-    { type: "heading", level: 2, text: "A note for parents" },
+    { type: "heading", level: 2, text: "A Note for Parents" },
     {
       type: "paragraph",
       text: "You do not need to know the physics to help. Find out the selection dates, protect time for regular practice, and make sure your child sleeps. Treat each result as information about what to study next. It is not a verdict on ability. Nobody can promise a place on a team, and this guide does not.",

@@ -653,7 +653,7 @@ function PartEditor({
       aria-label={multipart ? `Part ${letter}` : "Question and answer"}
       className={`space-y-10 rounded-xl border-2 bg-card p-5 sm:p-8`}
     >
-      {!multipart && <h2 className="sr-only">Question and answer</h2>}
+      {!multipart && <h2 className="sr-only">Question and Answer</h2>}
       {multipart && <div className="flex items-center justify-between gap-3">
         <h2 className="text-xl font-semibold"><PartChip>Part {letter}</PartChip></h2>
         {canRemove && (
@@ -705,7 +705,7 @@ function PartEditor({
       />}
 
       {fileFirst ? <div className="space-y-3" data-simple-field={`a:${partId}`}>
-        <h3 className={labelClass}>Answer key</h3>
+        <h3 className={labelClass}>Answer Key</h3>
         <AnswerPanel compact entry={entry} mode={part.answerMode} onChange={value => edit(d => { d.privateParts = [...d.privateParts.filter(p => p.partId !== partId), value]; })} onMode={mode => {
           if (mode === part.answerMode && entry.key) return;
           if (entry.key && !window.confirm("Change answer type? This replaces the current answer configuration. Hints and solution remain.")) return;

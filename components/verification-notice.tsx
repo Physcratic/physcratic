@@ -50,7 +50,7 @@ export function VerificationNotice({ email: initialEmail, returnTo, onBack }: { 
     <Card>
       <CardHeader>
         <Mail className="mb-2 size-6 text-muted-foreground" aria-hidden="true" />
-        <CardTitle>Check your email</CardTitle>
+        <CardTitle>Check Your Email</CardTitle>
         <CardDescription>If your account needs verification, we will send a link to your inbox. Open it to verify your address, then sign in.</CardDescription>
       </CardHeader>
       <CardContent>

@@ -8,7 +8,7 @@ import { readdir, mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { once } from 'node:events';
 import { buildCsp } from '../../lib/security/csp.ts';
-import { childEnvironment, localOrigin, safeViolation } from './support.mjs';
+import { childEnvironment, localOrigin, safeViolation, createReportBuffer } from './support.mjs';
 import { codecPdf } from './fixtures.mjs';
 import { collectionFixture } from './collection-fixture.mjs';
 import { verifyStaticResponse,decodeStaticBody } from './policy-artifact.mjs';
@@ -62,7 +62,7 @@ export async function startLocal(mode, root = process.cwd(), options = {}) {
       window.zodCapability=()=>util.allowsEval.value;
       window.runCaptcha=getSignupCaptchaToken;
     `, resolveDir: root }, bundle: true, write: false, platform: 'browser', format: 'iife', define: { 'process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY': '"synthetic-local-fixture"' } });
-    const reports = [], analytics = [];
+    const reportBuffer = createReportBuffer(), reports = reportBuffer.events, analytics = [];
     const allowedAssets = (await readdir(resolve(root, '.next/static'), { recursive: true })).filter(name => /\.m?js$/.test(name)).map(name => '/_next/static/' + name);
     const worker = allowedAssets.find(name => name.includes('/pdf.worker.min.'));
     assert.ok(worker, 'Production PDF worker must be present');
@@ -104,7 +104,7 @@ export async function startLocal(mode, root = process.cwd(), options = {}) {
         if (bytes <= 8192) {
           try {
             const report = JSON.parse(body)['csp-report'];
-            if (report && reports.length < 100) reports.push(safeViolation({ effectiveDirective: report['effective-directive'], blockedURI: report['blocked-uri'], sourceFile: report['source-file'], lineNumber: report['line-number'], columnNumber: report['column-number'], disposition: report.disposition }, allowedAssets));
+            if (report) reportBuffer.append(safeViolation({ effectiveDirective: report['effective-directive'], blockedURI: report['blocked-uri'], sourceFile: report['source-file'], lineNumber: report['line-number'], columnNumber: report['column-number'], disposition: report.disposition }, allowedAssets));
           } catch { /* invalid diagnostic report */ }
         }
         // Deliver to the REAL local collector too, without reusing a consumed stream.
@@ -157,7 +157,7 @@ export async function startLocal(mode, root = process.cwd(), options = {}) {
       req.pipe(upstream);
     });
     const port = await listen(server), origin = localOrigin(`http://127.0.0.1:${port}`);
-    return { origin, reports, analytics, allowedAssets, processId: child.pid, log: () => log, close: async () => { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); child.kill('SIGTERM'); await once(child, 'exit'); } };
+    return { origin, reports, reportBuffer, analytics, allowedAssets, processId: child.pid, log: () => log, close: async () => { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); child.kill('SIGTERM'); await once(child, 'exit'); } };
   } catch (error) { child.kill(); throw error; }
 }
 if (process.argv[2] === '--build') console.log((await productionBuild()).slice(-2000));

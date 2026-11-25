@@ -372,11 +372,11 @@ export function ImportedProblemReader({
                       ? readingData.language === "en" &&
                         translationRecord &&
                         language === "en"
-                        ? "English problem statement"
-                        : "Original problem"
+                        ? "English Problem Statement"
+                        : "Original Problem"
                       : missingSolution
-                        ? "Imported page, no derivation supplied"
-                        : "Worked solution"}
+                        ? "Imported Page, No Derivation Supplied"
+                        : "Worked Solution"}
                   </CardTitle>
                   <CardDescription>
                     {kind === "statement"

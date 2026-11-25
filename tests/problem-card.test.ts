@@ -585,7 +585,7 @@ test("the skeleton has the same box as a card, is hidden from assistive technolo
 });
 
 test("the stylesheet lifts the card 2px and darkens its border on hover, and only where hover and motion are allowed", () => {
-  const css = readFileSync("app/globals.css", "utf8");
+  const css = readFileSync("app/globals.css", "utf8").replace(/\r\n/g, "\n");
   const lift = css.match(/@media \(hover: hover\) and \(prefers-reduced-motion: no-preference\) \{\s*\.problem-entry-lift:hover > \.problem-entry \{\s*transform: translateY\(-2px\);/);
   assert.ok(lift, "the 2px lift is inside hover and no-preference");
   assert.equal((css.match(/translateY\(-2px\)/g) ?? []).length, 1);

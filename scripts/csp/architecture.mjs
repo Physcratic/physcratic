@@ -128,7 +128,7 @@ try {
             if (initial.startsWith('/learn')) {
               // Learn has no Dashboard link on desktop. Its header links to the public Problems library, which has the app navigation.
               await page.locator('header a[href="/problems"]').first().click();
-              await page.getByRole('heading', { name: 'Problem library', exact: true }).waitFor();
+              await page.getByRole('heading', { name: 'Problem Library', exact: true }).waitFor();
               // Public library to the app (a nonce document) without a reload.
               await page.locator('nav[aria-label="Main navigation"] a[href="/dashboard?view=contests"]:visible').click();
               await page.waitForURL('**/dashboard?view=contests');

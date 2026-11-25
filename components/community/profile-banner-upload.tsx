@@ -21,7 +21,7 @@ export function ProfileBannerUpload({ media, busy, onUpload, onRemove }: {
   function cancel() { setSelection(null); setError(""); if (input.current) input.current.value = ""; }
   return <section aria-labelledby="banner-label" className="flex min-w-0 flex-col gap-4 rounded-xl border p-4">
     <header className="flex flex-col gap-1">
-      <h3 id="banner-label" className="text-base font-medium">Banner image</h3>
+      <h3 id="banner-label" className="text-base font-medium">Banner Image</h3>
       <p className="text-sm text-muted-foreground">{media ? "Your saved banner" : "No banner uploaded"}</p>
     </header>
     <div role="img" aria-label={media ? "Saved profile banner" : "No profile banner"} className="relative flex aspect-[4/1] w-full items-center justify-center overflow-hidden rounded-lg border bg-muted">

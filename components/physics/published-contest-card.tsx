@@ -82,20 +82,20 @@ export function PublishedContestCard({
     >
       <CardHeader className="gap-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <span className="flex items-center gap-2 text-sm font-medium text-accent-foreground">
+          <span className="flex items-center gap-2 text-xl font-semibold text-accent-foreground">
             <Trophy className="size-4" aria-hidden="true" />
             {featured
-              ? "Featured contest"
+              ? "Featured Contest"
               : status === "upcoming"
-                ? "Upcoming contest"
+                ? "Upcoming Contest"
                 : status === "live"
                   ? "In progress"
-                  : "Past contest"}
+                  : "Past Contest"}
           </span>
           <Badge variant="outline">{contest.rated ? "Rated" : "Unrated"}</Badge>
         </div>
         <CardTitle>
-          <h2 className="text-balance text-2xl font-medium tracking-tight">
+          <h2 className="text-balance text-2xl font-semibold tracking-tight">
             {contest.name}
           </h2>
         </CardTitle>

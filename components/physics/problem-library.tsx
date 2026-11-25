@@ -118,7 +118,7 @@ export function ProblemLibrary({
         <Card className="shadow-none">
           <CardHeader className="pb-4">
             <CardTitle>
-              <h2 className="text-lg font-medium">Search & filters</h2>
+              <h2 className="text-lg font-medium">Search & Filters</h2>
             </CardTitle>
             <p className="text-sm text-muted-foreground">Pick a topic or type a search, then open a problem.</p>
           </CardHeader>

@@ -5,7 +5,7 @@ import type { ArticleDraft } from "../types";
 // (sources K1 to K3). Books carry no prices, links or edition claims beyond those given.
 export const booksAndResources: ArticleDraft = {
   slug: "physics-olympiad-books-and-resources",
-  title: "Best books and resources for Physics Olympiad",
+  title: "Best Books and Resources for Physics Olympiad",
   description:
     "Free handouts and books for physics olympiad preparation, picked by our reviewer Arrow Dunatos and grouped by stage and topic.",
   updated: "2026-11-12",
@@ -42,7 +42,7 @@ export const booksAndResources: ArticleDraft = {
     },
   ],
   body: [
-    { type: "heading", level: 2, text: "How to use this list" },
+    { type: "heading", level: 2, text: "How to Use This List" },
     {
       type: "paragraph",
       text: "These are the picks of our reviewer Arrow Dunatos, IPhO 2026 bronze medallist, plus a few we added. Our additions are marked Also useful. You do not need everything here. Pick one book for the topic you are studying now, add a free handout, and put the rest aside until you need it.",
@@ -57,7 +57,7 @@ export const booksAndResources: ArticleDraft = {
       title: "If you only have time for three things",
       text: "Choose one general textbook, one set of free handouts for the topic you are on, and a regular slot for past problems. That is enough for steady progress. Add more only when one of these three runs dry.",
     },
-    { type: "heading", level: 2, text: "Free handouts" },
+    { type: "heading", level: 2, text: "Free Handouts" },
     {
       type: "paragraph",
       text: "Jaan Kalda's IPhO study guides cover kinematics, mechanics, electrical circuits, thermodynamics, wave optics, relativity and quantum mechanics. There is also a formula sheet for the IPhO. Use them when school-level problems feel easy and you want to learn olympiad technique.",
@@ -77,7 +77,7 @@ export const booksAndResources: ArticleDraft = {
       type: "paragraph",
       text: "All three sets above are free to read online. They are handouts, not full textbooks, so pair them with a book from the lists below. When a handout and a textbook explain the same idea in different ways, read both. The second explanation often fills the gap the first one left.",
     },
-    { type: "heading", level: 2, text: "Starting out" },
+    { type: "heading", level: 2, text: "Starting Out" },
     {
       type: "list",
       items: [
@@ -85,7 +85,7 @@ export const booksAndResources: ArticleDraft = {
         "James Stewart, Calculus. Keep it beside the physics book. Open it when a derivative or an integral slows you down.",
       ],
     },
-    { type: "heading", level: 2, text: "Mechanics and relativity" },
+    { type: "heading", level: 2, text: "Mechanics and Relativity" },
     {
       type: "list",
       items: [
@@ -108,14 +108,14 @@ export const booksAndResources: ArticleDraft = {
         "Eugene Hecht, Optics. Use it alongside waves, and keep it for reference when you meet wave optics problems.",
       ],
     },
-    { type: "heading", level: 2, text: "Thermodynamics and statistical physics" },
+    { type: "heading", level: 2, text: "Thermodynamics and Statistical Physics" },
     {
       type: "list",
       items: [
         "Stephen J. Blundell and Katherine M. Blundell, Concepts in Thermal Physics. Use it for the thermodynamics months, and read it with a pencil in hand.",
       ],
     },
-    { type: "heading", level: 2, text: "Also useful" },
+    { type: "heading", level: 2, text: "Also Useful" },
     {
       type: "paragraph",
       text: "These three are our additions, not Arrow's picks. They are problem books. Reach for them once you can solve the problems in your textbooks.",
@@ -129,7 +129,7 @@ export const booksAndResources: ArticleDraft = {
       ],
       cite: ["k1"],
     },
-    { type: "heading", level: 2, text: "Past papers" },
+    { type: "heading", level: 2, text: "Past Papers" },
     {
       type: "paragraph",
       text: "Past olympiad papers are the closest thing to the real exam. Our preparation guide lists two unofficial archives and explains how to use papers well.",
@@ -141,7 +141,7 @@ export const booksAndResources: ArticleDraft = {
       label: "How to use past papers",
       note: "From our preparation guide.",
     },
-    { type: "heading", level: 2, text: "A suggested order" },
+    { type: "heading", level: 2, text: "A Suggested Order" },
     {
       type: "list",
       ordered: true,

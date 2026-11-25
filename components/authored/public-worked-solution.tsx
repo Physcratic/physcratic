@@ -9,7 +9,7 @@ export function PublicSolutionContent({ solution }: { solution: PublicSolution }
   const urls = Object.fromEntries(solution.media.map(m => [m.id, publicSolutionPath(solution.problemId, solution.revisionId, m.id)]));
   const hasSolution = solution.parts.some(p => p.solution.some(b => b.kind === "image" || (b.kind === "math" ? b.latex.trim() : b.spans.some(s => (s.kind === "text" ? s.text : s.latex).trim())))) || solution.media.some(m => m.purpose === "solution-pdf");
   return <section aria-label="Public worked solution" className="min-w-0 space-y-6 rounded-xl border bg-card p-5 sm:p-8">
-    <h2 className="text-xl font-semibold">Worked solution</h2>
+    <h2 className="text-xl font-semibold">Worked Solution</h2>
     {!hasSolution && <p>No worked solution has been supplied for this revision.</p>}
     {solution.parts.map((part, i) => part.solution.length > 0 ? <section key={part.partId} className="min-w-0 space-y-3">
       <h3 className="font-semibold">Part {part.label || i + 1}</h3>

@@ -38,7 +38,7 @@ export default function TermsPage() {
         </Link>
       </section>
       <nav aria-label="Terms sections" className="flex flex-col gap-2 rounded-lg border border-border bg-card p-5 text-card-foreground">
-        <h2 className="font-semibold">On this page</h2>
+        <h2 className="font-semibold">On This Page</h2>
         {TERMS_SECTIONS.map((section) => <Link key={section.id} href={`#${section.id}`} className="inline-flex min-h-11 w-fit items-center text-sm leading-relaxed text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">{section.title}</Link>)}
       </nav>
       <article className="flex flex-col gap-8">

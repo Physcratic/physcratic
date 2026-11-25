@@ -5,8 +5,8 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { after, describe, it } from "node:test";
 
-const workflow = readFileSync(new URL("../.github/workflows/smoke.yml", import.meta.url), "utf8");
-const docs = readFileSync(new URL("../docs/engineering/SMOKE_TESTS.md", import.meta.url), "utf8");
+const workflow = readFileSync(new URL("../.github/workflows/smoke.yml", import.meta.url), "utf8").replace(/\r\n/g, "\n");
+const docs = readFileSync(new URL("../docs/engineering/SMOKE_TESTS.md", import.meta.url), "utf8").replace(/\r\n/g, "\n");
 
 const jobBlock = (name: string) => {
   const start = workflow.indexOf(`\n  ${name}:`);

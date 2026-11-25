@@ -84,7 +84,7 @@ export function PasswordSection({ email, hasPassword, emailReady }: { email: str
   }
   if (hasPassword === null) return <section id="password-settings" aria-labelledby="password-heading" className={sectionClass}><h2 id="password-heading" className="text-lg font-semibold">Password</h2><LoadingLines label="Loading…" /></section>;
   if (!hasPassword) return <section id="password-settings" aria-labelledby="password-heading" className={sectionClass}>
-    <header className="space-y-1"><h2 id="password-heading" className="text-lg font-semibold">Set a password</h2><p className="text-sm leading-6 text-muted-foreground">You sign in without a password right now. We’ll email you a link to set one.</p></header>
+    <header className="space-y-1"><h2 id="password-heading" className="text-lg font-semibold">Set a Password</h2><p className="text-sm leading-6 text-muted-foreground">You sign in without a password right now. We’ll email you a link to set one.</p></header>
     {!emailReady && <EmailNotReady />}
     <Feedback error={error} success={success} />
     <div className="border-t pt-5"><Button type="button" disabled={busy || !emailReady} onClick={sendSetLink}>{busy ? "Sending…" : "Email me a link"}</Button></div>
@@ -119,7 +119,7 @@ export function AccountSecurity({ email, emailReady = true }: { email: string; e
     }).catch(() => { if (live) setLoadFailed(true); });
     return () => { live = false; };
   }, []);
-  if (loadFailed) return <section id="email-settings" aria-labelledby="email-heading" className={sectionClass}><h2 id="email-heading" className="text-lg font-semibold">Email and password</h2><p role="alert" className="text-sm">Your sign-in details didn’t load. Reload the page to try again.</p></section>;
+  if (loadFailed) return <section id="email-settings" aria-labelledby="email-heading" className={sectionClass}><h2 id="email-heading" className="text-lg font-semibold">Email and Password</h2><p role="alert" className="text-sm">Your sign-in details didn’t load. Reload the page to try again.</p></section>;
   return <>
     <EmailSection email={email} hasPassword={hasPassword} emailReady={emailReady} />
     <PasswordSection email={email} hasPassword={hasPassword} emailReady={emailReady} />

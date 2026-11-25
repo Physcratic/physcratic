@@ -5,7 +5,7 @@ import { jsonLdScript, problemListGraph } from "@/lib/seo/json-ld";
 import { allProblemPages } from "@/lib/seo/problem-pages";
 import { SITE, baseOpenGraph } from "@/lib/site";
 
-const TITLE = "IPhO, APhO and EuPhO problem archive";
+const TITLE = "IPhO, APhO and EuPhO Problem Archive";
 const DESCRIPTION =
   "Theory problems from IPhO, APhO and EuPhO, grouped by olympiad and year. Each has its own page with the statement as text and a link to the official PDF.";
 

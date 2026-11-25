@@ -10,7 +10,7 @@ export function ArchiveStatementText({ page, view }: { page: ProblemPage; view: 
   return (
     <section aria-labelledby="statement-text-heading" lang="en" className="flex min-w-0 flex-col gap-4">
       <h2 id="statement-text-heading" className="text-lg font-medium tracking-tight">
-        Statement as text
+        Statement as Text
       </h2>
       <ProblemSourceLine page={page} />
       <p className="text-sm leading-relaxed text-muted-foreground">

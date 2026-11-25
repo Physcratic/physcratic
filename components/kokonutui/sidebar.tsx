@@ -25,7 +25,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { coachingEntryHandlers } from "@/lib/coaching/analytics";
-import { topics, type View } from "@/lib/physics";
+import { type View } from "@/lib/physics";
 import { cn } from "@/lib/utils";
 
 export default function Sidebar({
@@ -54,11 +54,11 @@ export default function Sidebar({
   ];
 
   const navigation = (
-    <div className="flex h-full flex-col bg-sidebar text-foreground">
+    <div className="flex h-full flex-col bg-sidebar text-foreground [&_svg]:!size-6 [&_svg]:shrink-0 [&_svg]:stroke-[1.7]">
       <Link
         href="/"
         onClick={() => setMobileOpen(false)}
-        className="flex h-[76px] shrink-0 items-center gap-2.5 px-6"
+        className="flex h-[76px] shrink-0 items-center gap-2.5 px-6 lg:hidden"
         aria-label="Physcratic home"
       >
         <BrandMark size={36} className="rounded-lg" />
@@ -69,16 +69,9 @@ export default function Sidebar({
 
       <nav
         aria-label="Main navigation"
-        className="flex flex-1 flex-col gap-8 overflow-y-auto px-4"
+        className="flex flex-1 flex-col gap-8 overflow-y-auto px-4 lg:pt-6"
       >
-        <Link
-          href="/dashboard/author"
-          onClick={() => setMobileOpen(false)}
-          className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
-        >
-          <FilePenLine className="size-[18px]" strokeWidth={1.7} />
-          Problem Studio
-        </Link>
+        
         <div className="flex flex-col gap-3">
           <h2 className="px-3 text-base font-semibold tracking-tight text-foreground">
             Workspace
@@ -94,17 +87,25 @@ export default function Sidebar({
                   aria-current={active ? "page" : undefined}
                   data-tour={itemView === "problems" ? "nav-problems" : undefined}
                   className={cn(
-                    "flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm transition-colors",
+                    "flex min-h-12 items-center gap-3 rounded-lg px-3 text-base transition-colors",
                     active
                       ? "bg-accent font-medium text-accent-foreground"
                       : "text-muted-foreground hover:bg-muted hover:text-foreground",
                   )}
                 >
-                  <Icon className="size-[18px]" strokeWidth={1.7} />
+                  <Icon className="size-6" strokeWidth={1.7} />
                   {label}
                 </Link>
               );
             })}
+            <Link
+          href="/dashboard/author"
+          onClick={() => setMobileOpen(false)}
+          className="flex min-h-12 items-center gap-3 rounded-lg px-3 text-base text-muted-foreground hover:bg-muted hover:text-foreground"
+        >
+          <FilePenLine className="size-6" strokeWidth={1.7} />
+          Studio
+        </Link>
             <Link
               href="/coaching"
               onClick={() => {
@@ -112,38 +113,12 @@ export default function Sidebar({
                 entry.onClick();
               }}
               onAuxClick={entry.onAuxClick}
-              className="flex min-h-11 items-center gap-3 rounded-lg px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="flex min-h-12 items-center gap-3 rounded-lg px-3 py-1.5 text-base text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
-              <GraduationCap className="size-[18px] shrink-0" strokeWidth={1.7} />
-              <span className="flex flex-col">
-                <span>Coaching</span>
-                <span className="text-xs leading-tight">Medallist coaches</span>
-              </span>
+              <GraduationCap className="size-6 shrink-0" strokeWidth={1.7} />
+              <span>Coaching</span>
             </Link>
-          </div>
-        </div>
-        <div className="flex flex-col gap-3" data-tour="nav-topics">
-          <h2 className="px-3 text-base font-semibold tracking-tight text-foreground">
-            Explore
-          </h2>
-          <div className="flex flex-col gap-1">
-            {topics.map(({ name, icon: Icon }) => (
-              <Link
-                key={name}
-                href={`/dashboard?view=problems&topic=${encodeURIComponent(name)}`}
-                onClick={() => setMobileOpen(false)}
-                aria-current={topic === name ? "page" : undefined}
-                className={cn(
-                  "flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm transition-colors",
-                  topic === name
-                    ? "bg-accent font-medium text-accent-foreground"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground",
-                )}
-              >
-                <Icon className="size-[18px]" strokeWidth={1.7} />
-                {name}
-              </Link>
-            ))}
+            <Link href="/learn" onClick={() => setMobileOpen(false)} className="flex min-h-12 items-center gap-3 rounded-lg px-3 text-base text-muted-foreground hover:bg-muted hover:text-foreground"><BookOpen className="size-6" aria-hidden="true" />Guides</Link>
           </div>
         </div>
         <div className="flex flex-col gap-3 sm:hidden">
@@ -154,37 +129,31 @@ export default function Sidebar({
             <Link
               href="/dashboard?view=problems&search=1"
               onClick={() => setMobileOpen(false)}
-              className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="flex min-h-12 items-center gap-3 rounded-lg px-3 text-base text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
-              <Search className="size-[18px]" strokeWidth={1.7} />
+              <Search className="size-6" strokeWidth={1.7} />
               Search problems
-            </Link>
-            <Link
-              href="/learn"
-              onClick={() => setMobileOpen(false)}
-              className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-            >
-              <BookOpen className="size-[18px]" strokeWidth={1.7} />
-              Learn
             </Link>
             <div className="px-3 py-1">
               <FeedbackLink variant="inline" />
             </div>
-            <div className="px-3 py-1">
-              <AccountNav />
-            </div>
           </div>
         </div>
       </nav>
-      <div className="shrink-0 border-t p-4">
+      <div className="flex shrink-0 items-center justify-between gap-2 border-t p-4">
+          <div className="min-w-0 flex-1 [&>a]:w-full [&>button]:w-full">
+            <AccountNav />
+          </div>
           <Link
             href="/settings"
             data-tour="nav-settings"
             onClick={() => setMobileOpen(false)}
-            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label="Settings"
+            title="Settings"
+            className="flex size-11 shrink-0 items-center justify-center rounded-lg text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <Settings className="size-[18px]" strokeWidth={1.7} aria-hidden="true" />
-            Settings
+            <Settings className="size-6" strokeWidth={1.7} aria-hidden="true" />
+            <span className="sr-only">Settings</span>
           </Link>
       </div>
     </div>
@@ -192,7 +161,7 @@ export default function Sidebar({
 
   return (
     <>
-      <aside className="fixed inset-y-0 left-0 hidden w-60 border-r lg:block">
+      <aside className="fixed bottom-0 left-0 top-[72px] z-40 hidden w-60 border-r bg-sidebar lg:block [&_svg]:!size-6 [&_svg]:shrink-0 [&_svg]:stroke-[1.7]">
         {navigation}
       </aside>
       <div className="fixed right-3 top-3.5 z-[42] sm:left-4 sm:right-auto lg:hidden">

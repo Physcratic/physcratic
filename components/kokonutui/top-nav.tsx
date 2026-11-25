@@ -1,109 +1,58 @@
 "use client";
 
 import Link from "next/link";
-import { BookOpen, ChevronRight, GraduationCap, Search } from "lucide-react";
+import { BookOpen, ChartNoAxesCombined, FilePenLine, GraduationCap, LayoutGrid, Settings, Trophy, Users, Layers, Video, CircleHelp } from "lucide-react";
 import { BrandMark } from "@/components/brand-mark";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { FeedbackLink } from "@/components/feedback-link";
 import { AccountNav } from "@/components/account-nav";
-import { coachingEntryHandlers } from "@/lib/coaching/analytics";
-import { viewTitles, type View } from "@/lib/physics";
+import { SiteSearch } from "@/components/site-search";
+import { FeedbackLink } from "@/components/feedback-link";
+import { Button } from "@/components/ui/button";
 import { TourHelpButton } from "@/components/tour/tour-help";
+import { coachingEntryHandlers } from "@/lib/coaching/analytics";
+import { type View } from "@/lib/physics";
+import { cn } from "@/lib/utils";
 
-export default function TopNav({
-  view,
-  topic,
-  sticky = false,
-}: {
-  view: View;
-  topic?: string;
-  sticky?: boolean;
-}) {
-  const router = useRouter();
-  useEffect(() => {
-    function handleSearch(event: KeyboardEvent) {
-      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
-        event.preventDefault();
-        router.push("/dashboard?view=problems&search=1");
-      }
-    }
-    window.addEventListener("keydown", handleSearch);
-    return () => window.removeEventListener("keydown", handleSearch);
-  }, [router]);
-
+export default function TopNav({ view, topic, sticky = false, coaching = false, coachingBase = "" }: { view: View; topic?: string; sticky?: boolean; coaching?: boolean; coachingBase?: string }) {
+  const links = coaching ? [
+    { label: "Lobby", href: "/", icon: LayoutGrid, active: false },
+    { label: "Programs", href: `${coachingBase}#programs`, icon: Layers, active: false },
+    { label: "Coaches", href: "/coaching/coaches", icon: Users, active: false },
+    { label: "How It Works", href: `${coachingBase}#how-it-works`, icon: Video, active: false },
+    { label: "FAQ", href: `${coachingBase}#faq`, icon: CircleHelp, active: false },
+    { label: "Free Practice", href: "/dashboard", icon: BookOpen, active: false },
+    { label: "Guides", href: "/learn", icon: BookOpen, active: false },
+  ] : [
+    { label: "Lobby", href: "/", icon: LayoutGrid, active: view === "overview" },
+    { label: "Problems", href: "/dashboard?view=problems", icon: BookOpen, active: view === "problems" && !topic },
+    { label: "Contests", href: "/dashboard?view=contests", icon: Trophy, active: view === "contests" },
+    { label: "Rankings", href: "/dashboard?view=rankings", icon: ChartNoAxesCombined, active: view === "rankings" },
+    { label: "Problem Studio", href: "/dashboard/author", icon: FilePenLine, active: false },
+    { label: "Coaching", href: "/coaching", icon: GraduationCap, active: false },
+    { label: "Guides", href: "/learn", icon: BookOpen, active: false },
+  ];
   return (
-    <header className={`${sticky ? "sticky top-0" : "relative"} z-40 flex h-[72px] shrink-0 items-center justify-between border-b bg-background pl-4 pr-[68px] sm:px-8 ${sticky ? "sm:pl-28" : "sm:pl-16"} lg:pl-8 xl:px-10`}>
-      <Link href="/" className="flex min-h-11 min-w-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:hidden" aria-label="Physcratic home">
-        <BrandMark size={32} className="shrink-0 rounded-md" />
-        <span className="truncate text-xl font-semibold tracking-[-0.05em]">Physcratic</span>
-      </Link>
-      <nav
-        aria-label="Breadcrumb"
-        className="hidden min-w-0 items-center gap-2 text-sm sm:flex sm:gap-3"
-      >
-        <Link
-          href="/"
-          className="hidden min-h-11 items-center text-muted-foreground transition-colors hover:text-foreground sm:inline-flex"
-        >
-          Workspace
+    <header style={{ background: "hsl(var(--background))" }} className={cn("isolate z-40 shrink-0 border-b px-5 sm:px-8 xl:px-10", sticky ? "sticky top-0" : "relative", !coaching && "pr-20 sm:pl-24 sm:pr-8 lg:sticky lg:top-0 lg:pl-6")}>
+      <div className={cn("mx-auto flex w-full flex-wrap items-center gap-x-6 gap-y-2 py-3 sm:gap-x-10", coaching ? "max-w-7xl justify-center" : "justify-between lg:h-[72px] lg:flex-nowrap")}>
+        <Link href={coaching ? "/coaching" : "/"} aria-label={coaching ? "Physcratic Coaching home" : "Physcratic home"} className="flex min-h-12 items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          <BrandMark size={36} className="rounded-lg" />
+          <span className="text-2xl font-semibold tracking-tight">{coaching ? "Physcratic Coaching" : "Physcratic"}</span>
         </Link>
-        <ChevronRight className="hidden size-3.5 text-muted-foreground sm:block" />
-        <span className="truncate font-medium" aria-current="page">
-          {topic || viewTitles[view]}
-        </span>
-      </nav>
-      <div className="flex shrink-0 items-center gap-1 sm:gap-5">
-        <div className="hidden sm:contents">
-        {/* The name is the visible text, so a voice user can say what they see. The shortcut hint is outside the button. */}
-        <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="min-w-11 px-2 sm:px-3"
-            onClick={() => router.push("/dashboard?view=problems&search=1")}
-            aria-label="Search problems"
-          >
-            <Search data-icon="inline-start" />
-            <span className="hidden font-normal text-muted-foreground xl:inline">
-              Search problems
-            </span>
-          </Button>
-          <kbd aria-hidden="true" className="hidden rounded border px-1.5 py-0.5 font-sans text-sm text-muted-foreground xl:inline">
-            ⌘ K
-          </kbd>
-        </div>
-        <Button asChild variant="ghost" size="sm" className="px-2 sm:px-3">
-          <Link href="/learn" aria-label="Learn">
-            <BookOpen aria-hidden="true" />
-            <span className="hidden font-normal md:inline">Learn</span>
-          </Link>
-        </Button>
-        </div>
-        <Button
-          asChild
-          variant="outline"
-          size="sm"
-          className="h-12 min-w-12 w-auto flex-col gap-0.5 px-2 py-1 text-xs font-medium leading-none sm:h-11 sm:flex-row sm:gap-2 sm:px-3 sm:text-sm border-accent-foreground text-accent-foreground hover:bg-accent hover:text-accent-foreground"
-        >
-          <Link
-            href="/coaching"
-            aria-label="Coaching"
-            data-tour="nav-coaching"
-            {...coachingEntryHandlers("topbar")}
-          >
-            <GraduationCap aria-hidden="true" />
-            <span>Coaching</span>
-          </Link>
-        </Button>
-        <TourHelpButton tourId="welcome" />
-        <div className="hidden sm:contents">
-          <FeedbackLink variant="nav" />
-          <span className="h-5 border-l" />
+        <div className="flex flex-wrap items-center gap-1 sm:gap-2">
+          <SiteSearch />
+          {!coaching && <TourHelpButton tourId="welcome" />}
+          <div className="hidden md:block"><FeedbackLink variant="nav" /></div>
           <AccountNav />
+          <Button asChild variant="ghost" size="icon"><Link href="/settings" aria-label="Settings" title="Settings" data-tour="nav-settings"><Settings aria-hidden="true" /></Link></Button>
+          {coaching && <Link href={`${coachingBase}#hero-cta`} className="coaching-button whitespace-nowrap">Get a consultation</Link>}
         </div>
       </div>
+      {coaching && <nav aria-label="Main navigation" className="mx-auto flex w-full max-w-7xl flex-wrap justify-center gap-1 pb-3">
+        {links.map(({ label, href, icon: Icon, active }) => (
+          <Link key={href} href={href} aria-current={active ? "page" : undefined} data-tour={label === "Problems" ? "nav-problems" : label === "Coaching" ? "nav-coaching" : undefined} {...(label === "Coaching" ? coachingEntryHandlers("topbar") : {})} className={cn("flex min-h-12 shrink-0 items-center gap-2 whitespace-nowrap rounded-lg px-4 text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring", active ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground")}>
+            <Icon className="size-6 shrink-0" strokeWidth={1.7} aria-hidden="true" />{label}
+          </Link>
+        ))}
+      </nav>}
     </header>
   );
 }

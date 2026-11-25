@@ -26,9 +26,9 @@ export function accountErrorMessage(action: AccountAction, error: AuthErrorLike)
 
 /** Copy for the page an email-change link lands on. */
 export function emailChangeOutcome(step: string | undefined, error: string | undefined) {
-  if (error) return { ok: false, title: "Link didn’t work", body: "That link has expired or was already used. Start again from Settings." };
+  if (error) return { ok: false, title: "Link Didn’t Work", body: "That link has expired or was already used. Start again from Settings." };
   if (step === "approved") return { ok: true, title: "Approved", body: "Now check your new inbox for one more link. Your email changes after you click it." };
-  if (step === "signed-out") return { ok: true, title: "Email changed", body: "Sign in with your new address." };
-  if (step === "done") return { ok: true, title: "Email changed", body: "You’re all set. Use your new email next time you sign in." };
-  return { ok: false, title: "Nothing to do here", body: "To change your email, go to Settings." };
+  if (step === "signed-out") return { ok: true, title: "Email Changed", body: "Sign in with your new address." };
+  if (step === "done") return { ok: true, title: "Email Changed", body: "You’re all set. Use your new email next time you sign in." };
+  return { ok: false, title: "Nothing to Do Here", body: "To change your email, go to Settings." };
 }

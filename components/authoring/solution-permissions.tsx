@@ -164,7 +164,7 @@ export function SolutionPermissions({ problemId }: { problemId: string }) {
       aria-label="Student solution access"
       className="space-y-4 rounded-xl border p-5"
     >
-      <h2 className="text-lg font-semibold">Student worked-solution access</h2>
+      <h2 className="text-lg font-semibold">Student Worked-solution Access</h2>
       <p className="text-sm">Previously downloaded content cannot be recalled.</p>
       <Button
         type="button"

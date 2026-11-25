@@ -89,7 +89,7 @@ export function SolutionSubmissionForm({ problemId }: { problemId: string }) {
     } catch (reason) { setError(reason instanceof Error ? reason.message : "Saving failed. Please retry."); } finally { setSaving(false); }
   }
   return <Card className="shadow-none">
-    <CardHeader><div className="flex flex-wrap items-center justify-between gap-3"><CardTitle>Your solution</CardTitle><Badge variant="outline">{source?.ratedEnabled ? `Private, ${source.rating} ELO problem` : "Private, Unrated"}</Badge></div><CardDescription>Submit one subpart at a time. Write reasoning and calculator-style equations in plain text. No LaTeX required. You can also attach a photo or PDF of your working.</CardDescription></CardHeader>
+    <CardHeader><div className="flex flex-wrap items-center justify-between gap-3"><CardTitle>Your Solution</CardTitle><Badge variant="outline">{source?.ratedEnabled ? `Private, ${source.rating} ELO problem` : "Private, Unrated"}</Badge></div><CardDescription>Submit one subpart at a time. Write reasoning and calculator-style equations in plain text. No LaTeX required. You can also attach a photo or PDF of your working.</CardDescription></CardHeader>
     <CardContent className="flex min-w-0 flex-col gap-6">
       <PlainMathCheck />
       <IndividualRatingSummary userId={session?.user.id} />

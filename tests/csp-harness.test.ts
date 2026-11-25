@@ -1,9 +1,22 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { spawnSync } from 'node:child_process';
-import { childEnvironment, localOrigin, safeViolation, browserSelection } from '../scripts/csp/support.mjs';
+import { childEnvironment, localOrigin, safeViolation, browserSelection, createReportBuffer } from '../scripts/csp/support.mjs';
 import { collectionFixture } from '../scripts/csp/collection-fixture.mjs';
 import { evalAttribution } from '../scripts/csp/attribute.mjs';
+
+test('a full diagnostic scenario cannot discard the next scenario’s HTTP report', () => {
+  const buffer = createReportBuffer();
+  for (let i = 0; i < 101; i++) buffer.append({ blocked: 'eval' });
+  assert.equal(buffer.events.length, 100);
+  assert.equal(buffer.dropped, 1);
+  const previous = buffer.events.slice();
+  buffer.reset();
+  buffer.append({ blocked: 'negative-control' });
+  assert.deepEqual(buffer.events, [{ blocked: 'negative-control' }]);
+  assert.equal(buffer.dropped, 0);
+  assert.equal(previous.length, 100, 'completed diagnostic snapshots remain intact');
+});
 
 test('an unrelated eval is not attributed to Zod just because Zod is loaded', () => {
   const event = { blocked: 'eval', asset: '/_next/static/chunks/x.js', line: 1, column: 1 };

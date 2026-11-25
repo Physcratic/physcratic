@@ -2,6 +2,7 @@
   "/api/account-deletion",
   "/api/admin/account-deletion",
   "/api/archive-grade",
+  "/api/site-search",
   "/api/archive-progress",
   "/api/arena/collection",
   "/api/auth/[...all]",

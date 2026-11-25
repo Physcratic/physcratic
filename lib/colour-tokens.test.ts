@@ -1,18 +1,28 @@
 import assert from "node:assert/strict"
 import test from "node:test"
 import { readFileSync } from "node:fs"
+import { themeOptions } from "./theme-setting"
 
 // The learning colours live in app/globals.css as four families, once for the light theme (:root) and once for the dark theme
 // (.dark). This test reads them from the file, so what ships is what is measured. Every text pair keeps 4.5:1 and every family keeps
-// its meaning by hue: green solved, peach in progress, red wrong and grey not graded.
-const css = readFileSync("app/globals.css", "utf8")
+// its meaning by hue: green solved, peach in progress, red wrong, grey not graded.
+const css = readFileSync("app/globals.css", "utf8").replace(/\/\*[\s\S]*?\*\//g, "")
 type Hsl = readonly [number, number, number]
 type Rgb = readonly [number, number, number]
 
 const block = (start: string) => {
-  const from = css.indexOf(start)
-  assert.ok(from >= 0, start)
-  return css.slice(from, css.indexOf("\n  }", from))
+  const selector = start.replace(/\s*\{$/, "")
+  const declarations = new Map<string, string>()
+  let matched = false
+  // Apply base tokens, shared dark-family tokens, then theme surface overrides.
+  for (const rule of css.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+    const selectors = rule[1].trim().replace(/^:is\((.*)\)$/, "$1").split(",").map(s => s.trim())
+    if (!selectors.includes(":root") && !selectors.includes(selector)) continue
+    matched ||= selectors.includes(selector)
+    for (const declaration of rule[2].matchAll(/(--[\w-]+):\s*([^;]+);/g)) declarations.set(declaration[1], declaration[2])
+  }
+  assert.ok(matched, start)
+  return [...declarations].map(([name, value]) => `${name}: ${value};`).join("\n")
 }
 const token = (scope: string, name: string): Hsl => {
   const match = new RegExp(`--${name}:\\s*([\\d.]+)\\s+([\\d.]+)%\\s+([\\d.]+)%`).exec(block(scope))
@@ -29,7 +39,7 @@ const channel = (v: number) => { const x = v / 255; return x <= 0.03928 ? x / 12
 const luminance = ([r, g, b]: Rgb) => 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b)
 const contrast = (a: Rgb, b: Rgb) => { const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x); return (hi + 0.05) / (lo + 0.05) }
 
-const themes = { light: ":root {", dark: ".dark {" } as const
+const themes = Object.fromEntries(themeOptions.map(theme => [theme.value, theme.value === "light" ? ":root {" : `.${theme.value} {`]))
 const families = ["success", "progress", "danger", "idle"] as const
 // Hue ranges in degrees. Red is below 15 or above 345.
 const hue = { success: [130, 170], progress: [15, 40], danger: [0, 15], idle: [0, 360] } as const

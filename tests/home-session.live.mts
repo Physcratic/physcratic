@@ -1,5 +1,5 @@
-// A signed-in response for "/" must never be served to a signed-out fetch, and a signed-out response must never
-// contain user data. This starts the production build with a disposable PostgreSQL, creates a verified user and a
+// The shared public shell must never contain account data, regardless of session cookies.
+// This starts the production build with a disposable PostgreSQL, creates a verified user and a
 // real session, signs the session cookie the way Better Auth does, and fetches "/" with and without it, one after
 // the other and at the same time.
 //
@@ -78,8 +78,12 @@ async function home(cookie?: string) {
   const response = await fetch(`${origin}/`, { headers: { "user-agent": "home-session-test", ...(cookie ? { cookie } : {}) }, redirect: "manual" });
   return { status: response.status, cache: response.headers.get("cache-control") ?? "", body: await response.text() };
 }
-const isLobby = (body: string) => /<h1[^>]*>Lobby<\/h1>/.test(body) && !body.includes("data-home-sentence");
-const isLanding = (body: string) => body.includes("data-home-sentence") && /<h1[^>]*>Lobby<\/h1>/.test(body);
+const isPublicHomeShell = (body: string) => /<h1[^>]*>Welcome (?:back|to Physcratic)\.<\/h1>/.test(body) && body.includes('id="daily-problem-heading"') && body.includes("For You") && !body.includes("data-home-sentence");
+async function session(cookie: string) {
+  const response = await fetch(`${origin}/api/auth/get-session`, { headers: { cookie } });
+  ok(response.status === 200, `session endpoint responds normally (HTTP ${response.status})`);
+  return response.json();
+}
 
 try {
   for (let attempt = 0; attempt < 60; attempt++) {
@@ -88,31 +92,34 @@ try {
     if (attempt === 59) throw new Error(`server did not start:\n${serverLog.slice(-2000)}`);
   }
 
-  // 1. A signed-in fetch gets the Lobby, private and not stored.
+  // 1. Real sessions remain valid while the initial shell stays public and private/no-store.
   const member = await home(memberCookie);
   ok(member.status === 200, `member status ${member.status}`);
-  ok(isLobby(member.body), `a signed-in fetch of "/" shows the Lobby. Server log:\n${serverLog.slice(-1500)}`);
+  const memberSession = await session(memberCookie);
+  ok(memberSession?.user?.id === user.id && memberSession.user.name === user.name, "the real signed session still resolves its own account");
+  ok(!JSON.stringify(memberSession).includes(secondUser.id), "session response excludes the other account");
+  ok(isPublicHomeShell(member.body), `a signed-in fetch of "/" shows the shared public shell. Server log:\n${serverLog.slice(-1500)}`);
   ok(/private/.test(member.cache) && /no-store/.test(member.cache), `signed-in Cache-Control: ${member.cache}`);
 
   // 2. A signed-out fetch straight after gets the landing page, with no trace of the signed-in user.
   const visitor = await home();
-  ok(isLanding(visitor.body), "a signed-out fetch right after a signed-in one shows the landing page");
+  ok(isPublicHomeShell(visitor.body), "a signed-out fetch right after a signed-in one shows the public shell");
   ok(/private/.test(visitor.cache) && /no-store/.test(visitor.cache), `signed-out Cache-Control: ${visitor.cache}`);
   for (const secretValue of [user.name, user.email, user.id, token, signed, "Zelda", "session-home-test"]) {
     ok(!visitor.body.includes(secretValue), `the signed-out response must not contain "${secretValue}"`);
-    ok(!decodeURIComponent(visitor.body).includes(secretValue), `the signed-out response must not contain "${secretValue}" (decoded)`);
+    ok(!visitor.body.includes(encodeURIComponent(secretValue)), `the signed-out response must not contain "${secretValue}" (URL-encoded)`);
   }
-  ok(!/Welcome back|My attempts|Sign out/.test(visible(visitor.body)), "no signed-in content on the landing page");
+  ok(!/Sign out/.test(visible(visitor.body)), "the initial public shell contains no signed-in account controls");
 
   // 3. Alternating and concurrent fetches never cross over.
   const results = await Promise.all(Array.from({ length: 24 }, (_, index) => home(index % 2 === 0 ? memberCookie : undefined).then((r) => ({ member: index % 2 === 0, ...r }))));
   for (const result of results) {
-    ok(result.member ? isLobby(result.body) : isLanding(result.body), `${result.member ? "signed-in" : "signed-out"} fetch got the wrong page`);
+    ok(isPublicHomeShell(result.body), `${result.member ? "signed-in" : "signed-out"} fetch got the wrong page`);
     ok(/private/.test(result.cache) && /no-store/.test(result.cache), `Cache-Control ${result.cache}`);
     if (!result.member) ok(!result.body.includes(user.email) && !result.body.includes(token), "no user data in a signed-out response");
   }
 
-  // Both HTML and RSC requests distinguish guest/member audiences without crossing account boundaries.
+  // HTML and RSC share the public shell and contain neither account’s private data.
   const cases = [undefined, memberCookie, secondCookie];
   for (const rsc of [false, true]) {
     const representations = await Promise.all(Array.from({ length: 18 }, async (_, index) => {
@@ -120,12 +127,12 @@ try {
       const response = await fetch(`${origin}/`, { headers: { ...(cases[actor] ? { cookie: cases[actor]! } : {}), ...(rsc ? { RSC: "1" } : {}) } });
       return { actor, response, body: await response.text() };
     }));
-    for (const { actor, response, body } of representations) {
+    for (const { response, body } of representations) {
       ok(response.status === 200, `${rsc ? "RSC" : "HTML"} status`);
       ok(/private/.test(response.headers.get("cache-control") ?? "") && /no-store/.test(response.headers.get("cache-control") ?? ""), "representations are private/no-store");
       if (rsc) ok(/text\/x-component/.test(response.headers.get("content-type") ?? ""), "RSC response content type");
-      ok(body.includes("data-home-sentence") === (actor === 0), "A/B/guest audience in representation");
-      const forbidden = actor === 0 ? [user.name, user.email, user.id, secondUser.name, secondUser.email, secondUser.id] : actor === 1 ? [secondUser.name, secondUser.email, secondUser.id] : [user.name, user.email, user.id];
+      ok(!body.includes("data-home-sentence"), "A/B/guest share the public shell without the retired introduction");
+      const forbidden = [user.name, user.email, user.id, secondUser.name, secondUser.email, secondUser.id];
       for (const value of [...forbidden, token, signed, secondToken, secondSigned, problems[0].hint, ...problems[0].solution.map(step => step.text).filter(text => text.length > 30)]) ok(!body.includes(value), "no cross-account or token data in representation");
     }
   }
@@ -188,12 +195,13 @@ try {
         await page.goto(origin);
         if (mobile) await page.getByRole("button", { name: "Menu", exact: true }).click();
         await page.getByRole("button", { name: "Sign out", exact: true }).waitFor();
-        ok(await page.locator("h1").textContent() === "Lobby", "member browser receives dashboard");
-        await page.getByRole("link", { name: "Learn", exact: true }).first().click();
+        const memberName = cookie === signed ? user.name : secondUser.name;
+        await page.getByRole("heading", { level: 1, name: `Welcome back, ${memberName}.`, exact: true }).waitFor();
+        await page.getByRole("link", { name: "Guides", exact: true }).first().click();
         await page.waitForURL(`${origin}/learn`);
         await page.getByRole("link", { name: /Physcratic.*home/ }).click();
         await page.waitForURL(`${origin}/`);
-        ok(await page.locator("h1").textContent() === "Lobby", "client navigation returns member home");
+        await page.getByRole("heading", { level: 1, name: `Welcome back, ${memberName}.`, exact: true }).waitFor();
         if (mobile) await page.getByRole("button", { name: "Menu", exact: true }).click();
         await page.getByRole("button", { name: "Sign out", exact: true }).click();
         await page.waitForURL(`${origin}/dashboard`);
@@ -202,17 +210,16 @@ try {
           await page.locator('header a[aria-label="Physcratic home"]').click();
         } else await page.locator('aside a[aria-label="Physcratic home"]').click();
         await page.waitForURL(`${origin}/`);
-        await page.locator("[data-public-home]").waitFor();
-        ok(await page.locator("h1").textContent() === "Lobby", "client cache clears member home after actual sign out");
+        await page.getByRole("heading", { level: 1, name: "Welcome to Physcratic.", exact: true }).waitFor();
         const rendered = await page.content();
         for (const value of [user.name, user.email, secondUser.name, secondUser.email]) ok(!rendered.includes(value), "no former account data in guest browser");
         if (mobile) await page.getByRole("button", { name: "Menu", exact: true }).click();
         await page.getByRole("link", { name: "Sign in", exact: true }).first().click();
         await page.waitForURL(/\/sign-in/);
-        ok(await page.getByRole("heading", { name: "Sign in", exact: true }).isVisible(), "guest can reach the actual sign-in page");
+        ok(await page.getByRole("heading", { name: "Sign In", exact: true }).isVisible(), "guest can reach the actual sign-in page");
         await page.getByRole("link", { name: "Create an account", exact: true }).click();
         await page.waitForURL(/\/sign-up/);
-        ok(await page.getByRole("heading", { name: "Create an account", exact: true }).isVisible(), "existing Lobby account path reaches sign-up");
+        ok(await page.getByRole("heading", { name: "Create Account", exact: true }).isVisible(), "existing Lobby account path reaches sign-up");
         await context.close();
       }
     } finally { await browser.close(); }
@@ -242,18 +249,23 @@ try {
   }
 
   // 4. A bad, expired or tampered cookie is a visitor, not an error.
+  // Prior browser scenarios share this disposable IP budget. Test cookie
+  // validation with fresh counters while keeping the real limiter enabled.
+  await pool.query('TRUNCATE "rateLimit"');
   for (const cookie of [`better-auth.session_token=${encodeURIComponent(`${token}.AAAA`)}`, "better-auth.session_token=garbage", `better-auth.session_token=${signed}x`]) {
+    ok(await session(cookie) === null, "tampered session does not authenticate");
     const response = await home(cookie);
-    ok(response.status === 200 && isLanding(response.body), `tampered cookie shows the landing page (${cookie.slice(0, 40)})`);
+    ok(response.status === 200 && isPublicHomeShell(response.body), `tampered cookie shows the public shell (${cookie.slice(0, 40)})`);
   }
   await pool.query(`UPDATE session SET "expiresAt" = now() - interval '1 hour' WHERE token = $1`, [token]);
+  ok(await session(memberCookie) === null, "an expired session does not authenticate");
   const expired = await home(memberCookie);
-  ok(expired.status === 200 && isLanding(expired.body), "an expired session shows the landing page");
+  ok(expired.status === 200 && isPublicHomeShell(expired.body), "an expired session shows the public shell");
 
-  // 5. A crawler with no cookie never reaches the database: stop it and fetch again.
+  // 5. Disconnect the test client and verify that crawlers receive the same public shell.
   await pool.end().catch(() => undefined);
   const crawler = await fetch(`${origin}/`, { headers: { "user-agent": "Mozilla/5.0 (compatible; Googlebot/2.1)" } });
-  ok(crawler.status === 200 && isLanding(await crawler.text()), "a crawler gets the landing page");
+  ok(crawler.status === 200 && isPublicHomeShell(await crawler.text()), "a crawler gets the landing page");
 
   console.log(`home-session.live: ${checks} checks passed on ${origin}`);
 } finally {

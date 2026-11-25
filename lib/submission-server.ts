@@ -3,7 +3,7 @@ import { isAllowedSubmissionOrigin } from "@/lib/submission-security";
 import { authoringStagingAuth } from "@/lib/authoring-staging";
 import { communityActionsEnabled } from "@/lib/community/action-policy";
 
-export async function submissionUser(request: Request) {
+export async function submissionUser(request: Pick<Request, "headers">) {
   const user = (await auth.api.getSession({ headers: request.headers }))?.user;
   if (user && communityActionsEnabled()) {
     const [{ pool }, { accountIsBanned }] = await Promise.all([import('@/lib/db'), import('@/lib/community/account-restriction')]);

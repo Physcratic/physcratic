@@ -10,7 +10,7 @@ import {
 import { FeedbackLink } from "@/components/feedback-link";
 
 export const metadata: Metadata = {
-  title: "Page not found",
+  title: "Page Not Found",
   robots: { index: false },
 };
 
@@ -23,7 +23,7 @@ export default function NotFound() {
       <Card className="w-full max-w-md">
         <CardHeader>
           <h1 className="text-2xl font-semibold leading-none tracking-tight">
-            Page not found
+            Page Not Found
           </h1>
           <CardDescription>
             We could not find this page. Check the address, or go to the
