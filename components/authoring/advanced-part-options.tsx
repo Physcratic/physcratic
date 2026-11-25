@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import { ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { setPartAnswerMode, type EditorDraft } from "@/lib/problem-authoring-editor";
-import { partBorder, partStyle } from "@/components/physics/solve-ui";
 import { AnswerPanel } from "./answer-panel";
 
 type Part = EditorDraft["content"]["sections"][number]["parts"][number];
@@ -14,14 +13,13 @@ type Entry = EditorDraft["privateParts"][number];
  * `hasPrivate` is whether the draft already stores a private entry for this part. `si` and `pi` locate the part.
  */
 export function PartOptions({
-  part, si, pi, entry, hasPrivate, colour, edit, heading, open, onOpenChange, lead, answer,
+  part, si, pi, entry, hasPrivate, edit, heading, open, onOpenChange, lead, answer,
 }: {
   part: Part;
   si: number;
   pi: number;
   entry: Entry;
   hasPrivate: boolean;
-  colour: number;
   edit: (fn: (value: EditorDraft) => void) => void;
   /** Simple only: a different summary, an open state it controls, content above the panel, and panel options. */
   heading?: ReactNode;
@@ -42,7 +40,7 @@ export function PartOptions({
   };
 }) {
   return (
-    <details style={partStyle(colour)} className={`rounded-lg border bg-card p-4 ${partBorder}`} open={open} onToggle={onOpenChange ? (e) => onOpenChange(e.currentTarget.open) : undefined}>
+    <details className="rounded-lg border bg-card p-4" open={open} onToggle={onOpenChange ? (e) => onOpenChange(e.currentTarget.open) : undefined}>
       {heading ?? <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-medium">
         <ShieldCheck className="size-4" />
         Answer key, hints and solution for part{" "}

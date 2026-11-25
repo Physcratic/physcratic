@@ -17,8 +17,7 @@
     --band-mastery: 40 95% 23%;
     /* Colour for learning screens. Each family has a strong colour (a solid fill or a small detail), a soft tint for large areas,
        an ink for text and icons, and a foreground for text on the strong fill. Green means solved, peach means in progress and the
-       main action, red means wrong or needs attention, grey means not graded or not started. The four part colours are teal,
-       violet, amber and blue. Every ink keeps 4.5:1 on its tint, the card and the page, and every foreground keeps 4.5:1 on its
+       main action, red means wrong or needs attention, grey means not graded or not started. Every ink keeps 4.5:1 on its tint, the card and the page, and every foreground keeps 4.5:1 on its
        strong fill, in both themes (lib/colour-tokens.test.ts reads these lines). Peach ink is a darkened peach, because the
        peach itself is 1.75:1 on its tint. */
     --success: 150.3 59.5% 30%;
@@ -37,22 +36,6 @@
     --idle-tint: 40 24% 90.2%;
     --idle-ink: 36 8.7% 33.9%;
     --idle-foreground: 0 0% 100%;
-    --part-teal: 175.3 77.4% 26.1%;
-    --part-teal-tint: 171.8 45.8% 90.6%;
-    --part-teal-ink: 175.3 77.4% 26.1%;
-    --part-teal-foreground: 0 0% 100%;
-    --part-violet: 255.3 58.6% 55.5%;
-    --part-violet-tint: 255.8 65.5% 94.3%;
-    --part-violet-ink: 255.3 58.6% 55.5%;
-    --part-violet-foreground: 0 0% 100%;
-    --part-amber: 32.6 100% 27.1%;
-    --part-amber-tint: 36.6 83.7% 90.4%;
-    --part-amber-ink: 32.6 100% 27.1%;
-    --part-amber-foreground: 0 0% 100%;
-    --part-blue: 214.5 72.8% 41.8%;
-    --part-blue-tint: 212.3 76.5% 93.3%;
-    --part-blue-ink: 214.5 72.8% 41.8%;
-    --part-blue-foreground: 0 0% 100%;
     /* Bone white page, white cards. Text on every surface is 5.8:1 or better, borders 3.4:1 or better (measured in BETA_READINESS.md). */
     --background: 43 28% 95%;
     --foreground: 45 7% 12%;
@@ -112,22 +95,6 @@
     --idle-tint: 40 6% 19.5%;
     --idle-ink: 40 8% 64%;
     --idle-foreground: 240 6% 10%;
-    --part-teal: 176 58% 64%;
-    --part-teal-tint: 176 30% 19.5%;
-    --part-teal-ink: 176 58% 64%;
-    --part-teal-foreground: 240 6% 10%;
-    --part-violet: 256 58% 71%;
-    --part-violet-tint: 256 30% 19.5%;
-    --part-violet-ink: 256 58% 71%;
-    --part-violet-foreground: 240 6% 10%;
-    --part-amber: 36 58% 64%;
-    --part-amber-tint: 36 30% 19.5%;
-    --part-amber-ink: 36 58% 64%;
-    --part-amber-foreground: 240 6% 10%;
-    --part-blue: 212 58% 65.5%;
-    --part-blue-tint: 212 30% 19.5%;
-    --part-blue-ink: 212 58% 65.5%;
-    --part-blue-foreground: 240 6% 10%;
     /* Grey page (#1e1f22) and a step lighter cards (#27282c). */
     --background: 225 6% 12.5%;
     --foreground: 240 9% 93%;

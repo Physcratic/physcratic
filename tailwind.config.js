@@ -14,7 +14,6 @@ module.exports = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
-    "./lib/part-colors.ts",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -29,10 +28,6 @@ module.exports = {
         progress: family("progress"),
         danger: family("danger"),
         idle: family("idle"),
-        "part-teal": family("part-teal"),
-        "part-violet": family("part-violet"),
-        "part-amber": family("part-amber"),
-        "part-blue": family("part-blue"),
         hero: {
           DEFAULT: "hsl(var(--hero))",
           foreground: "hsl(var(--hero-foreground))",

@@ -1,3 +1,9 @@
+## Dead part colour helpers removed (24 November 2026)
+
+Since the calm colour change, parts are told apart by letter and order, and nothing was reading the part colours. Removed: `partStyle`, `partBorder` and the `index` argument of `PartChip` in `components/physics/solve-ui.tsx`, with every caller in `student-workspace`, `worked-solution`, `advanced-part-options`, `problem-editor`, `simple-editor` and `corpus-problem-reader`. The now-dead `colour` and `partColour` props went too. In `lib/part-colors.ts` only `bareLabel` is left, because the real components use it. `partToken`, `partTokenClasses`, `partTokenNames`, `partParent`, `assignPartColors` and `colorsByPartId` are gone, along with the four `--part-*` families in `app/globals.css`, their entries in `tailwind.config.js` and the `part-*` rows in `lib/colour-tokens.test.ts`. Success, progress, danger and idle are untouched.
+
+Nothing renders differently. The deleted `style` props returned undefined and the deleted `${partBorder}` was an empty string, so the only change in any class string is a trailing space. The part chip stays a grey bordered badge and the next part keeps its 2px ring outline.
+
 ## Account deletion operator package (25 November 2026)
 
 The [checksum-pinned 0026 owner package](../../scripts/account-deletion-0026/README.md) records Vercel's documented repeat-delete contract and the outstanding private-store rehearsal. Account deletion stays off pending provider confirmation for terminal writes and retained copies, held-path reconciliation, and owner operational approval.

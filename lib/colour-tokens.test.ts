@@ -2,9 +2,9 @@ import assert from "node:assert/strict"
 import test from "node:test"
 import { readFileSync } from "node:fs"
 
-// The learning colours live in app/globals.css as eight families, once for the light theme (:root) and once for the dark theme
+// The learning colours live in app/globals.css as four families, once for the light theme (:root) and once for the dark theme
 // (.dark). This test reads them from the file, so what ships is what is measured. Every text pair keeps 4.5:1 and every family keeps
-// its meaning by hue: green solved, peach in progress, red wrong, grey not graded, and teal, violet, amber and blue for parts.
+// its meaning by hue: green solved, peach in progress, red wrong and grey not graded.
 const css = readFileSync("app/globals.css", "utf8")
 type Hsl = readonly [number, number, number]
 type Rgb = readonly [number, number, number]
@@ -30,9 +30,9 @@ const luminance = ([r, g, b]: Rgb) => 0.2126 * channel(r) + 0.7152 * channel(g) 
 const contrast = (a: Rgb, b: Rgb) => { const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x); return (hi + 0.05) / (lo + 0.05) }
 
 const themes = { light: ":root {", dark: ".dark {" } as const
-const families = ["success", "progress", "danger", "idle", "part-teal", "part-violet", "part-amber", "part-blue"] as const
+const families = ["success", "progress", "danger", "idle"] as const
 // Hue ranges in degrees. Red is below 15 or above 345.
-const hue = { success: [130, 170], progress: [15, 40], danger: [0, 15], idle: [0, 360], "part-teal": [165, 195], "part-violet": [245, 285], "part-amber": [25, 50], "part-blue": [205, 225] } as const
+const hue = { success: [130, 170], progress: [15, 40], danger: [0, 15], idle: [0, 360] } as const
 
 for (const [theme, scope] of Object.entries(themes)) {
   test(`${theme}: text on every learning colour keeps 4.5:1`, () => {
