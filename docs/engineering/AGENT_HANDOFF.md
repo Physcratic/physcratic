@@ -2,7 +2,7 @@
 
 ## Account deletion operator package (25 November 2026)
 
-Prepared [the 0026 cutover and installer](../../scripts/account-deletion-0026/README.md) from serving baseline `ee23638`. The reviewer reported six ready author objects and three legacy evidence rows. Keep all backfilled obligations until provider-backed reconciliation. SDK-level single attempts can use the existing storage, but the provider must confirm terminal write and retry behavior. The installation package leaves deletion off and requires separately approved endpoint, recovery, writer hold and plan evidence. No Production operation or support request was made.
+Prepared [the 0026 cutover and installer](../../scripts/account-deletion-0026/README.md) from serving baseline `ee23638`. The reviewer reported six ready author objects and three legacy evidence rows. Vercel documents no throw for deleting a nonexistent blob URL. The actual private-store rehearsal remains open. Account deletion is blocked on provider confirmation of terminal writes and retained copies, and on owner operational approval. Keep all unresolved obligations and leave deletion off. No Production operation or support request was made.
 
 ## Account deletion blocker corrections (25 November 2026)
 

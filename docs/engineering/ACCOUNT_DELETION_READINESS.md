@@ -1,6 +1,6 @@
 # B5 account deletion and B6 activation
 
-The [0026 owner package](../../scripts/account-deletion-0026/README.md) contains the checksum-pinned PowerShell and psql installer, the safe cutover and path reconciliation procedure, and the specific provider confirmations still needed before activation. The installer commits the migration, narrow acknowledgement grant and ledger together.
+**Account deletion is blocked on provider confirmation and owner operational approval. Keep `ACCOUNT_DELETION_ENABLED` unset.** Vercel documents that `del()` does not throw for a nonexistent blob URL. The private-store repeat-delete rehearsal is still outstanding. Provider confirmation is needed for terminal or interrupted writes and retained copies. The [0026 owner package](../../scripts/account-deletion-0026/README.md) contains the checksum-pinned installer, safe cutover and path reconciliation procedure. The installer commits the migration, narrow acknowledgement grant and ledger together.
 
 ## Release blocker corrections (25 November 2026)
 

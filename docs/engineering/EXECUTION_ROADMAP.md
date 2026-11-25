@@ -1,6 +1,6 @@
 ## Account deletion operator package (25 November 2026)
 
-Use the [checksum-pinned 0026 owner package](../../scripts/account-deletion-0026/README.md) after separate approval of the writer hold, target, single-attempt serving configuration and recovery evidence. Activation remains NO-GO pending Vercel terminal-write and deletion confirmation, held-path reconciliation, and the independent privacy, role, Tally and backup gates.
+The [checksum-pinned 0026 owner package](../../scripts/account-deletion-0026/README.md) records Vercel's documented repeat-delete contract and the outstanding private-store rehearsal. Account deletion stays off pending provider confirmation for terminal writes and retained copies, held-path reconciliation, and owner operational approval.
 
 ## Account deletion blocker corrections (25 November 2026)
 
