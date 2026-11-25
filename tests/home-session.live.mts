@@ -81,7 +81,7 @@ async function home(cookie?: string) {
 const isPublicHomeShell = (body: string) => /<h1[^>]*>Welcome (?:back|to Physcratic)\.<\/h1>/.test(body) && body.includes('id="daily-problem-heading"') && body.includes("For You") && !body.includes("data-home-sentence");
 async function session(cookie: string) {
   const response = await fetch(`${origin}/api/auth/get-session`, { headers: { cookie } });
-  ok(response.status === 200, "session endpoint responds normally");
+  ok(response.status === 200, `session endpoint responds normally (HTTP ${response.status})`);
   return response.json();
 }
 
@@ -249,6 +249,9 @@ try {
   }
 
   // 4. A bad, expired or tampered cookie is a visitor, not an error.
+  // Prior browser scenarios share this disposable IP budget. Test cookie
+  // validation with fresh counters while keeping the real limiter enabled.
+  await pool.query('TRUNCATE "rateLimit"');
   for (const cookie of [`better-auth.session_token=${encodeURIComponent(`${token}.AAAA`)}`, "better-auth.session_token=garbage", `better-auth.session_token=${signed}x`]) {
     ok(await session(cookie) === null, "tampered session does not authenticate");
     const response = await home(cookie);

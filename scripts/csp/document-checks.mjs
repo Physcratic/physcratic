@@ -88,7 +88,7 @@ export async function documentBrowsers({browser,name,local,root,artifact,invento
       if(route==='/settings'&&state==='member')await page.getByText('Synthetic CSP user',{exact:true}).first().waitFor();
       if(route==='/settings'){
         // A real React control proves hydration, beyond server-rendered text.
-        await page.getByRole('radio',{name:'Light',exact:true}).check();
+        await page.getByRole('radio',{name:/^Physcratic Light\b/}).check();
         assert.equal(await page.locator('html').evaluate(e=>e.classList.contains('light')),true);
       }
       if(route.startsWith('/admin/')||route.includes('missing')||route==='/_not-found'){
