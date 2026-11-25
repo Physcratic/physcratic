@@ -1,6 +1,18 @@
 import assert from 'node:assert/strict';
 import { resolve } from 'node:path';
 
+/** Bounded diagnostics for one sequential browser scenario at a time. */
+export function createReportBuffer() {
+  const events = [];
+  let dropped = 0;
+  return {
+    events,
+    append(event) { if (events.length < 100) events.push(event); else dropped++; },
+    reset() { events.length = 0; dropped = 0; },
+    get dropped() { return dropped; },
+  };
+}
+
 /** @param {Record<string, string | undefined>} env */
 export function browserSelection(env = process.env, {metricsOnly = false} = {}) {
   const all = ['chromium', 'firefox', 'webkit'];

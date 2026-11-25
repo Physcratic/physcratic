@@ -107,7 +107,7 @@ try {
   ok(/private/.test(visitor.cache) && /no-store/.test(visitor.cache), `signed-out Cache-Control: ${visitor.cache}`);
   for (const secretValue of [user.name, user.email, user.id, token, signed, "Zelda", "session-home-test"]) {
     ok(!visitor.body.includes(secretValue), `the signed-out response must not contain "${secretValue}"`);
-    ok(!decodeURIComponent(visitor.body).includes(secretValue), `the signed-out response must not contain "${secretValue}" (decoded)`);
+    ok(!visitor.body.includes(encodeURIComponent(secretValue)), `the signed-out response must not contain "${secretValue}" (URL-encoded)`);
   }
   ok(!/Sign out/.test(visible(visitor.body)), "the initial public shell contains no signed-in account controls");
 

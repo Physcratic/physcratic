@@ -1,3 +1,9 @@
+## CSP diagnostic isolation follow-up (25 November 2026)
+
+On validation head `75a7113`, all core CI jobs and both authored-student/community browser workflows pass. The CSP browser run passed navigation, guest/member tours, maths and PDF workflows in Chromium, Firefox and WebKit, but Firefox report-only reached the local collector’s 100-event diagnostic cap before its negative HTTP control. Its recorded delivery counts sum to exactly 100. Keep the cap and HTTP assertion, reset diagnostics between sequential scenarios, and fail explicitly if any scenario overflows. The regression verifies overflow accounting, reset and preserved prior snapshots. All 43 focused CSP tests and configured changed-file lint pass. Public-library qualification is still running on `75a7113`; the full checks must run on the follow-up head. This changes only the local test harness, not Production CSP.
+The public-library run on `75a7113` passed both native reader variants and its production build, then failed because the isolation test called decodeURIComponent on a complete HTML document containing CSS percentages. Compare each URL-encoded private fixture directly instead, retaining the raw and encoded checks. Run the session/library stage before native solving so failures surface before the long archive sweep. Both native variants and their evidence upload remain required on a successful run.
+
+
 ## Validation follow-up awaiting publication (25 November 2026)
 
 First Linux build/type/lint/unit/component/database gates passed on draft PR #258. Additional checksum, heading, tour and shared-home session test fixes are prepared locally. Publishing the new payload was rejected by automatic approval review pending explicit owner approval. [Evidence and pending CI rerun](UI_PREVIEW_MAIN_INTEGRATION.md#completed-first-linux-run-and-prepared-follow-up-25-november-2026). No merge or deployment.

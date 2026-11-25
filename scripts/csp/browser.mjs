@@ -34,6 +34,9 @@ for (const name of browserNames) {
       const local = await startLocal(mode);
       try {
         async function check(workflow, action) {
+          // Completed scenarios already retain snapshots in results. Give the
+          // next scenario its own bounded window instead of exhausting a run-wide cap.
+          local.reportBuffer.reset();
           const context = await browser.newContext({ serviceWorkers: 'block', reducedMotion: 'reduce' });
           context.setDefaultTimeout(20000);
           const network = [], errors = [], representations = [], startReports = local.reports.length, start = performance.now();
@@ -66,6 +69,7 @@ for (const name of browserNames) {
           let classification = 'functional success', detail;
           try {
             detail = await action(page, local);
+            assert.equal(local.reportBuffer.dropped, 0, 'CSP diagnostic report window overflowed');
             assert.deepEqual(errors, [], 'Unhandled application errors');
             if (detail?.limitation) classification = 'test environment limitation';
           } catch (error) { classification = 'confirmed functional breakage'; detail = String(error).slice(0, 450); failures++; }
